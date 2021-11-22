@@ -44,20 +44,20 @@ public class d extends b.a.r0.s.a<f, PersonInfoUserPicsHolder> {
         this.n = tbPageContext;
     }
 
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         h0(i2, view, viewGroup, (f) obj, (PersonInfoUserPicsHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public PersonInfoUserPicsHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.f2419e).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.n);
+            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.f2421e).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.n);
             personInfoUserPicsHolder.adapterManager.d(this.m);
             return personInfoUserPicsHolder;
         }

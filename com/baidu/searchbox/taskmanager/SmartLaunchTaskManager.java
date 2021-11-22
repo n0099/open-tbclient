@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SmartLaunchTaskManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
-    public static final String SWAN_TASK_AB_KEY = "swan_smart_task_idle";
     public static final String TAG = "SmartLaunchManager";
     public transient /* synthetic */ FieldHolder $fh;
 

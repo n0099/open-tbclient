@@ -279,10 +279,10 @@ public class SpeedStatsManager extends AbstractSpeedStats {
                 setStageStatus(4);
             } else if (i2 == 5000) {
                 setStageStatus(5);
-            } else if (i2 == 7000) {
+            } else if (i2 == 6000) {
                 this.mMainPageEndTimeStamp = j;
                 this.mCodeStartTime = j - this.mAppCreateStartTimeStamp;
-                this.mZygoteSpeedStats.addStatsTimeStamp(7000);
+                this.mZygoteSpeedStats.addStatsTimeStamp(6000);
                 setStageStatus(-1);
             }
             int i3 = this.mStageStatus;

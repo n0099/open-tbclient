@@ -3,7 +3,6 @@ package com.baidu.tbadk.coreExtra.data;
 import b.a.q0.s.q.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +55,7 @@ public class BazhuGradeData extends p implements Serializable {
         }
         try {
             this.mDesc = jSONObject.optString("desc", "");
-            this.mLevel = jSONObject.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, "");
+            this.mLevel = jSONObject.optString("level", "");
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

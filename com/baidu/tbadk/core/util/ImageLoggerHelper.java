@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;

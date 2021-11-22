@@ -20,7 +20,7 @@ public class c implements Cursor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bundle f2907e;
+    public Bundle f3000e;
 
     public c(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c implements Cursor {
                 return;
             }
         }
-        this.f2907e = bundle;
+        this.f3000e = bundle;
     }
 
     @Override // android.database.Cursor, java.io.Closeable, java.lang.AutoCloseable
@@ -139,7 +139,7 @@ public class c implements Cursor {
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2907e : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f3000e : (Bundle) invokeV.objValue;
     }
 
     @Override // android.database.Cursor
@@ -390,7 +390,7 @@ public class c implements Cursor {
     public void setExtras(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, bundle) == null) {
-            this.f2907e = bundle;
+            this.f3000e = bundle;
         }
     }
 

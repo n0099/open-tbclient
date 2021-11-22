@@ -24,7 +24,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6785a;
+    public static final boolean f7113a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class e {
                 return;
             }
         }
-        f6785a = k.f6397a;
+        f7113a = k.f6863a;
     }
 
     @Nullable
@@ -52,19 +52,19 @@ public class e {
                 return null;
             }
             HashSet hashSet = new HashSet();
-            for (b.a.p0.a.v1.c.f.c cVar : b.a.p0.a.v1.c.f.e.k().q()) {
+            for (b.a.p0.a.y1.c.f.c cVar : b.a.p0.a.y1.c.f.e.k().q()) {
                 String appId = cVar.getAppId();
                 if (TextUtils.isEmpty(appId)) {
-                    appId = cVar.j();
+                    appId = cVar.M();
                 }
-                boolean z = cVar.C() || cVar.E();
-                if (cVar.H() && z && list.contains(appId)) {
-                    b.a.p0.a.v1.c.a e2 = b.a.p0.a.v1.c.a.e();
-                    b.a.p0.a.v1.c.c cVar2 = new b.a.p0.a.v1.c.c(i2);
-                    cVar2.b(cVar.f8519f);
+                boolean z = cVar.D() || cVar.P();
+                if (cVar.S() && z && list.contains(appId)) {
+                    b.a.p0.a.y1.c.a e2 = b.a.p0.a.y1.c.a.e();
+                    b.a.p0.a.y1.c.c cVar2 = new b.a.p0.a.y1.c.c(i2);
+                    cVar2.b(cVar.f9497f);
                     e2.h(cVar2);
                     hashSet.add(appId);
-                    if (f6785a) {
+                    if (f7113a) {
                         String str = "sent msg(" + i2 + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX;
                     }
                 }
@@ -106,18 +106,18 @@ public class e {
                             if (z) {
                                 if (set.contains(substring)) {
                                 }
-                                if (f6785a) {
+                                if (f7113a) {
                                     String str3 = "clearByDeleteFiles : " + substring;
                                 }
                                 if (aVar == null) {
                                     aVar.run(Pair.create(str + substring, file2));
                                 } else {
-                                    b.a.p0.t.d.K(file2);
+                                    b.a.p0.w.d.L(file2);
                                 }
                             } else {
                                 if (!set.contains(substring)) {
                                 }
-                                if (f6785a) {
+                                if (f7113a) {
                                 }
                                 if (aVar == null) {
                                 }
@@ -151,7 +151,7 @@ public class e {
     public static ArraySet<String> e(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
         InterceptResult invokeCommon;
         File[] listFiles;
-        String I;
+        String J;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
@@ -171,20 +171,20 @@ public class e {
                                 if (z) {
                                     if (set.contains(substring)) {
                                     }
-                                    I = b.a.p0.t.d.I(file2);
-                                    if (f6785a) {
-                                        String str3 = "originFile:" + file2.getAbsolutePath() + ", renameFile:" + I;
+                                    J = b.a.p0.w.d.J(file2);
+                                    if (f7113a) {
+                                        String str3 = "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J;
                                     }
-                                    if (TextUtils.isEmpty(I)) {
-                                        arraySet.add(I);
+                                    if (TextUtils.isEmpty(J)) {
+                                        arraySet.add(J);
                                     }
                                 } else {
                                     if (!set.contains(substring)) {
                                     }
-                                    I = b.a.p0.t.d.I(file2);
-                                    if (f6785a) {
+                                    J = b.a.p0.w.d.J(file2);
+                                    if (f7113a) {
                                     }
-                                    if (TextUtils.isEmpty(I)) {
+                                    if (TextUtils.isEmpty(J)) {
                                     }
                                 }
                             }

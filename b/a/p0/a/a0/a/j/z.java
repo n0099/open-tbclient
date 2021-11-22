@@ -13,7 +13,7 @@ public class z extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f3893a;
+    public float f3987a;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class z extends a {
                 return;
             }
         }
-        this.f3893a = -1.0f;
+        this.f3987a = -1.0f;
     }
 
     @Override // b.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) {
-            float f2 = this.f3893a;
+            float f2 = this.f3987a;
             if (f2 < 0.0f || f2 > 1.0f) {
                 return;
             }
@@ -49,6 +49,6 @@ public class z extends a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
             return;
         }
-        this.f3893a = (float) jSONArray.optDouble(0);
+        this.f3987a = (float) jSONArray.optDouble(0);
     }
 }

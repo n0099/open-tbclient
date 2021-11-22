@@ -1,35 +1,29 @@
 package b.a.p0.a.c1.d;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 /* loaded from: classes.dex */
 public interface e {
-    boolean a(Context context, b.a.p0.a.h1.c.g gVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar);
 
-    boolean b(Context context, b.a.p0.a.h1.c.b bVar, b.a.p0.a.h1.b bVar2, b.a.p0.a.a2.e eVar);
+    /* loaded from: classes.dex */
+    public interface a {
+        void a(b.a.p0.a.f2.f.j0.b bVar);
 
-    boolean c(Context context, b.a.p0.a.h1.c.c cVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar);
+        void onFailed(int i2);
+    }
 
-    void d(b.a.p0.a.p.e.b bVar);
+    void a();
 
-    boolean e(Context context, b.a.p0.a.h1.c.a aVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar);
+    void b(String str, boolean z, boolean z2, a aVar);
 
-    void f(b.a.p0.a.p.e.b bVar);
+    void c();
 
-    boolean g(Context context, b.a.p0.a.h1.c.c cVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar);
+    void d();
 
-    boolean h(Context context, b.a.p0.a.h1.c.e eVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar2);
+    void e();
 
-    void i(b.a.p0.a.p.e.b bVar);
+    void f(a aVar);
 
-    boolean j(Context context, b.a.p0.a.h1.c.f fVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar);
+    double[] g(@NonNull b.a.p0.a.f2.f.j0.b bVar, @NonNull String str);
 
-    boolean k(Context context, b.a.p0.a.h1.c.c cVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar);
-
-    boolean l(Context context, b.a.p0.a.h1.c.c cVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar);
-
-    boolean m(Context context, b.a.p0.a.h1.c.c cVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar);
-
-    boolean n(Context context, b.a.p0.a.h1.c.c cVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar);
-
-    boolean update(Context context, b.a.p0.a.h1.c.c cVar, b.a.p0.a.h1.b bVar, b.a.p0.a.a2.e eVar);
+    b.a.p0.a.f2.f.j0.b h();
 }

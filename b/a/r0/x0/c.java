@@ -19,10 +19,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public v f25614a;
+    public v f27109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BawuThrones f25615b;
+    public BawuThrones f27110b;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -35,7 +35,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f25616a;
+        public static c f27111a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,7 +51,7 @@ public class c {
                     return;
                 }
             }
-            f25616a = new c(null);
+            f27111a = new c(null);
         }
     }
 
@@ -62,25 +62,25 @@ public class c {
     public static c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f25616a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f27111a : (c) invokeV.objValue;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f25615b = null;
-            v vVar = this.f25614a;
+            this.f27110b = null;
+            v vVar = this.f27109a;
             if (vVar != null) {
                 vVar.g();
             }
-            this.f25614a = null;
+            this.f27109a = null;
         }
     }
 
     public BawuThrones b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25615b : (BawuThrones) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27110b : (BawuThrones) invokeV.objValue;
     }
 
     public void d(String str, String str2) {
@@ -96,17 +96,17 @@ public class c {
     public void e(BawuThrones bawuThrones) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bawuThrones) == null) {
-            this.f25615b = bawuThrones;
+            this.f27110b = bawuThrones;
         }
     }
 
     public void f(TbPageContext tbPageContext, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, tbPageContext, str, str2) == null) {
-            if (this.f25614a == null) {
-                this.f25614a = new v();
+            if (this.f27109a == null) {
+                this.f27109a = new v();
             }
-            this.f25614a.i(tbPageContext, str, str2);
+            this.f27109a.i(tbPageContext, str, str2);
         }
     }
 

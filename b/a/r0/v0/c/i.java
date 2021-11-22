@@ -37,7 +37,7 @@ public class i extends b.a.r0.x0.k<j, FrsMemberTeamViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f24280e;
+        public final /* synthetic */ i f25743e;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class i extends b.a.r0.x0.k<j, FrsMemberTeamViewHolder> {
                     return;
                 }
             }
-            this.f24280e = iVar;
+            this.f25743e = iVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -65,13 +65,13 @@ public class i extends b.a.r0.x0.k<j, FrsMemberTeamViewHolder> {
                 String str = "";
                 if (view.getTag() instanceof BawuRoleInfoPub) {
                     BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view.getTag();
-                    this.f24280e.o.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f24280e.f2419e, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
+                    this.f25743e.o.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f25743e.f2421e, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
                 } else if (view.getId() == R.id.title_text_view) {
                     Object tag = view.getTag();
                     if (tag instanceof Integer) {
                         Integer num = (Integer) tag;
-                        if (this.f24280e.z(num.intValue()) instanceof j) {
-                            jVar = (j) this.f24280e.z(num.intValue());
+                        if (this.f25743e.z(num.intValue()) instanceof j) {
+                            jVar = (j) this.f25743e.z(num.intValue());
                             if (jVar != null || jVar.d() == null) {
                             }
                             String[] split = StringUtils.isNull(jVar.d().member_group_type) ? null : jVar.d().member_group_type.split("_");
@@ -81,7 +81,7 @@ public class i extends b.a.r0.x0.k<j, FrsMemberTeamViewHolder> {
                             if (StringUtils.isNull(str) || !str.equalsIgnoreCase("1")) {
                                 return;
                             }
-                            this.f24280e.o.sendMessage(new CustomMessage(2002001, new BawuTeamInfoActivityConfig(this.f24280e.f2419e, b.a.e.e.m.b.g(jVar.a(), 0L))));
+                            this.f25743e.o.sendMessage(new CustomMessage(2002001, new BawuTeamInfoActivityConfig(this.f25743e.f2421e, b.a.e.f.m.b.g(jVar.a(), 0L))));
                             return;
                         }
                     }
@@ -115,19 +115,19 @@ public class i extends b.a.r0.x0.k<j, FrsMemberTeamViewHolder> {
         this.x = new a(this);
     }
 
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         y0(i2, view, viewGroup, (j) obj, (FrsMemberTeamViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: x0 */
     public FrsMemberTeamViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsMemberTeamViewHolder(LayoutInflater.from(this.f2419e).inflate(R.layout.forum_member_team_user_view, (ViewGroup) null), this.x) : (FrsMemberTeamViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsMemberTeamViewHolder(LayoutInflater.from(this.f2421e).inflate(R.layout.forum_member_team_user_view, (ViewGroup) null), this.x) : (FrsMemberTeamViewHolder) invokeL.objValue;
     }
 
     public View y0(int i2, View view, ViewGroup viewGroup, j jVar, FrsMemberTeamViewHolder frsMemberTeamViewHolder) {

@@ -1,10 +1,8 @@
 package okio;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -1186,7 +1184,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                     for (int i5 = 1; i5 < i3; i5++) {
                         long j2 = i5;
                         byte b3 = getByte(j2);
-                        if ((b3 & ExifInterface.MARKER_SOF0) != 128) {
+                        if ((b3 & 192) != 128) {
                             skip(j2);
                             return REPLACEMENT_CHARACTER;
                         }
@@ -1811,7 +1809,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
                 }
                 z = true;
             }
-            if (j >= CoolPraiseView.BILLION) {
+            if (j >= 100000000) {
                 i3 = j < BasicLabelFormatter.TRILLION ? j < 10000000000L ? j < 1000000000 ? 9 : 10 : j < 100000000000L ? 11 : 12 : j < 1000000000000000L ? j < 10000000000000L ? 13 : j < 100000000000000L ? 14 : 15 : j < 100000000000000000L ? j < 10000000000000000L ? 16 : 17 : j < 1000000000000000000L ? 18 : 19;
             } else if (j >= 10000) {
                 i3 = j < 1000000 ? j < 100000 ? 5 : 6 : j < 10000000 ? 7 : 8;

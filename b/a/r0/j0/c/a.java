@@ -3,11 +3,13 @@ package b.a.r0.j0.c;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import b.a.e.e.p.k;
-import b.a.e.e.p.m;
+import b.a.e.f.p.k;
+import b.a.e.f.p.m;
 import b.a.q0.u.e;
 import b.a.r0.j0.b.b;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -32,11 +34,11 @@ public class a {
 
     /* renamed from: b.a.r0.j0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0931a {
+    public static class C0992a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f18300a;
+        public static final a f19634a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,7 +54,7 @@ public class a {
                     return;
                 }
             }
-            f18300a = new a();
+            f19634a = new a();
         }
     }
 
@@ -73,7 +75,7 @@ public class a {
     public static final a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0931a.f18300a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0992a.f19634a : (a) invokeV.objValue;
     }
 
     private long insert(SQLiteDatabase sQLiteDatabase, b bVar) {
@@ -95,7 +97,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, sQLiteDatabase, bVar)) == null) {
             try {
-                return sQLiteDatabase.update("download_info", a(bVar), "pkg_name = ?", new String[]{String.valueOf(bVar.f18296e.pkgName)});
+                return sQLiteDatabase.update("download_info", a(bVar), "pkg_name = ?", new String[]{String.valueOf(bVar.f19630e.pkgName)});
             } catch (Throwable th) {
                 th.printStackTrace();
                 return -1L;
@@ -112,11 +114,11 @@ public class a {
                 return null;
             }
             ContentValues contentValues = new ContentValues();
-            contentValues.put("pkg_name", bVar.f18296e.pkgName);
+            contentValues.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, bVar.f19630e.pkgName);
             contentValues.put("download_time", Long.valueOf(System.currentTimeMillis()));
-            contentValues.put("item_info", f(bVar.f18296e));
-            contentValues.put("item_source", Integer.valueOf(bVar.f18297f));
-            contentValues.put("storage_location", Integer.valueOf(bVar.f18298g));
+            contentValues.put("item_info", f(bVar.f19630e));
+            contentValues.put("item_source", Integer.valueOf(bVar.f19631f));
+            contentValues.put("storage_location", Integer.valueOf(bVar.f19632g));
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -130,11 +132,11 @@ public class a {
                 return null;
             }
             e eVar = new e();
-            eVar.f14128a = cursor.getString(cursor.getColumnIndex("pkg_name"));
+            eVar.f14895a = cursor.getString(cursor.getColumnIndex(EmotionResourceInfo.JSON_KEY_PKG_NAME));
             cursor.getLong(cursor.getColumnIndex("download_time"));
-            eVar.f14130c = cursor.getString(cursor.getColumnIndex("item_info"));
-            eVar.f14131d = cursor.getInt(cursor.getColumnIndex("item_source"));
-            eVar.f14132e = cursor.getInt(cursor.getColumnIndex("storage_location"));
+            eVar.f14897c = cursor.getString(cursor.getColumnIndex("item_info"));
+            eVar.f14898d = cursor.getInt(cursor.getColumnIndex("item_source"));
+            eVar.f14899e = cursor.getInt(cursor.getColumnIndex("storage_location"));
             return eVar;
         }
         return (e) invokeL.objValue;
@@ -201,7 +203,7 @@ public class a {
                     jSONObject.put(CommandMessage.TYPE_TAGS, new JSONArray((Collection) itemData.mTags));
                 }
                 jSONObject.put("score", itemData.mScore);
-                jSONObject.put("star", itemData.mStar);
+                jSONObject.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, itemData.mStar);
                 jSONObject.put("button_name", itemData.buttonName);
                 jSONObject.put("button_link", itemData.buttonLink);
                 jSONObject.put("button_link_type", itemData.buttonLinkType);
@@ -241,7 +243,7 @@ public class a {
                 }
                 SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
                 f2.beginTransaction();
-                Cursor rawQuery = f2.rawQuery("SELECT * FROM download_info where pkg_name = ?", new String[]{bVar.f18296e.pkgName});
+                Cursor rawQuery = f2.rawQuery("SELECT * FROM download_info where pkg_name = ?", new String[]{bVar.f19630e.pkgName});
                 if (rawQuery.getCount() > 0) {
                     insert = update(f2, bVar);
                 } else {

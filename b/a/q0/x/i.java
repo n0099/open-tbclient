@@ -23,12 +23,12 @@ public class i extends b.a.q0.x.a0.a {
     public LinkedList<h> q;
 
     /* loaded from: classes4.dex */
-    public class a implements a.InterfaceC0713a {
+    public class a implements a.InterfaceC0749a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f14206a;
+        public final /* synthetic */ i f14973a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -45,15 +45,15 @@ public class i extends b.a.q0.x.a0.a {
                     return;
                 }
             }
-            this.f14206a = iVar;
+            this.f14973a = iVar;
         }
 
-        @Override // b.a.q0.x.a0.a.InterfaceC0713a
+        @Override // b.a.q0.x.a0.a.InterfaceC0749a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
-                DLauncher C = this.f14206a.C(i2);
+                DLauncher C = this.f14973a.C(i2);
                 if (C.getLayoutParams() == null) {
                     C.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
@@ -69,7 +69,7 @@ public class i extends b.a.q0.x.a0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f14207a;
+        public final /* synthetic */ i f14974a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -86,14 +86,14 @@ public class i extends b.a.q0.x.a0.a {
                     return;
                 }
             }
-            this.f14207a = iVar;
+            this.f14974a = iVar;
         }
 
         @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
         public void a(View view, int i2, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j)}) == null) && view.isEnabled() && (view instanceof DLauncher) && this.f14207a.n != null) {
-                this.f14207a.n.performLauncherClick(view);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j)}) == null) && view.isEnabled() && (view instanceof DLauncher) && this.f14974a.n != null) {
+                this.f14974a.n.performLauncherClick(view);
             }
         }
     }

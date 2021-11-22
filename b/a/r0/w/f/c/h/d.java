@@ -11,9 +11,8 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.s.a;
 import b.a.r0.w.f.c.e.h;
 import b.a.r0.w.f.c.e.i;
@@ -69,7 +68,7 @@ public class d extends b.a.r0.b0.b<i> {
     public int I;
     public List<h.a> J;
     public String K;
-    public b.a.r0.t3.d L;
+    public b.a.r0.u3.d L;
     public View m;
     public LinearLayout n;
     public HeadImageView o;
@@ -91,7 +90,7 @@ public class d extends b.a.r0.b0.b<i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f24736e;
+        public final /* synthetic */ d f26253e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -108,7 +107,7 @@ public class d extends b.a.r0.b0.b<i> {
                     return;
                 }
             }
-            this.f24736e = dVar;
+            this.f26253e = dVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -129,7 +128,7 @@ public class d extends b.a.r0.b0.b<i> {
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.f24736e.p();
+                this.f26253e.p();
             }
         }
 
@@ -147,7 +146,7 @@ public class d extends b.a.r0.b0.b<i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaPersonCenterActivityConfig f24737a;
+        public final /* synthetic */ AlaPersonCenterActivityConfig f26254a;
 
         public b(d dVar, AlaPersonCenterActivityConfig alaPersonCenterActivityConfig) {
             Interceptable interceptable = $ic;
@@ -164,7 +163,7 @@ public class d extends b.a.r0.b0.b<i> {
                     return;
                 }
             }
-            this.f24737a = alaPersonCenterActivityConfig;
+            this.f26254a = alaPersonCenterActivityConfig;
         }
 
         @Override // b.a.q0.e.f
@@ -186,7 +185,7 @@ public class d extends b.a.r0.b0.b<i> {
                     }
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f24737a));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f26254a));
             }
         }
     }
@@ -223,14 +222,14 @@ public class d extends b.a.r0.b0.b<i> {
 
     /* renamed from: b.a.r0.w.f.c.h.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1208d implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+    public class C1276d implements PermissionJudgePolicy.OnPermissionsGrantedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f24738a;
+        public final /* synthetic */ TbPageContext f26255a;
 
-        public C1208d(d dVar, TbPageContext tbPageContext) {
+        public C1276d(d dVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -245,7 +244,7 @@ public class d extends b.a.r0.b0.b<i> {
                     return;
                 }
             }
-            this.f24738a = tbPageContext;
+            this.f26255a = tbPageContext;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
@@ -253,8 +252,8 @@ public class d extends b.a.r0.b0.b<i> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
-                b.a.e.e.i.a.n().j(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f24738a.getPageActivity(), null, "0", TbadkCoreApplication.getCurrentAccount(), null)));
+                b.a.e.f.i.a.n().j(false);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f26255a.getPageActivity(), null, "0", TbadkCoreApplication.getCurrentAccount(), null)));
             }
         }
     }
@@ -317,7 +316,7 @@ public class d extends b.a.r0.b0.b<i> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view == this.n) {
-                if (ViewHelper.checkUpIsLogin(this.f14738g)) {
+                if (ViewHelper.checkUpIsLogin(this.f16225g)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(h().getPageActivity())));
                 }
                 StatisticItem statisticItem = new StatisticItem("c13552");
@@ -327,7 +326,7 @@ public class d extends b.a.r0.b0.b<i> {
                 if (StringUtils.isNull(this.K)) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(this.f14737f, new String[]{this.K});
+                UrlManager.getInstance().dealOneLink(this.f16224f, new String[]{this.K});
                 StatisticItem statisticItem2 = new StatisticItem("c13553");
                 TiebaStaticHelper.addYYParam(statisticItem2);
                 TiebaStatic.log(statisticItem2);
@@ -342,13 +341,13 @@ public class d extends b.a.r0.b0.b<i> {
                 } else if (!str.contains("&default_tab_id=")) {
                     str = str + "&default_tab_id=1&call_from=15";
                 }
-                UrlManager.getInstance().dealOneLink(this.f14737f, new String[]{str}, true);
+                UrlManager.getInstance().dealOneLink(this.f16224f, new String[]{str}, true);
                 StatisticItem statisticItem3 = new StatisticItem("c13554");
                 TiebaStaticHelper.addYYParam(statisticItem3);
                 TiebaStatic.log(statisticItem3);
             } else if (view == this.x) {
-                if (ViewHelper.checkUpIsLogin(this.f14738g)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, new b(this, new AlaPersonCenterActivityConfig(this.f14737f.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true))));
+                if (ViewHelper.checkUpIsLogin(this.f16225g)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, new b(this, new AlaPersonCenterActivityConfig(this.f16224f.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true))));
                 }
                 StatisticItem statisticItem4 = new StatisticItem("c13555");
                 TiebaStaticHelper.addYYParam(statisticItem4);
@@ -369,10 +368,10 @@ public class d extends b.a.r0.b0.b<i> {
         int size = this.J.size();
         int i2 = this.I;
         if (size > i2) {
-            this.o.startLoad(this.J.get(i2).f24612a, 12, false);
+            this.o.startLoad(this.J.get(i2).f26129a, 12, false);
         } else if (this.J.size() > 0) {
             this.I = 0;
-            this.o.startLoad(this.J.get(0).f24612a, 12, false);
+            this.o.startLoad(this.J.get(0).f26129a, 12, false);
         }
     }
 
@@ -416,7 +415,7 @@ public class d extends b.a.r0.b0.b<i> {
             this.G.setRepeatMode(1);
             this.G.setRepeatCount(-1);
             this.G.setInterpolator(new LinearInterpolator());
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.o, PropertyValuesHolder.ofFloat(Key.SCALE_X, 0.0f, 1.0f, 0.9f, 1.0f, 0.9f, 1.0f, 0.0f), PropertyValuesHolder.ofFloat(Key.SCALE_Y, 0.0f, 1.0f, 0.9f, 1.0f, 0.9f, 1.0f, 0.0f));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.o, PropertyValuesHolder.ofFloat("scaleX", 0.0f, 1.0f, 0.9f, 1.0f, 0.9f, 1.0f, 0.0f), PropertyValuesHolder.ofFloat("scaleY", 0.0f, 1.0f, 0.9f, 1.0f, 0.9f, 1.0f, 0.0f));
             this.H = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setInterpolator(new DecelerateInterpolator());
             this.H.setTarget(this.o);
@@ -424,7 +423,7 @@ public class d extends b.a.r0.b0.b<i> {
             this.H.setRepeatMode(1);
             this.H.setDuration(2000L);
             this.H.addListener(new a(this));
-            k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+            k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -455,7 +454,7 @@ public class d extends b.a.r0.b0.b<i> {
             this.x.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
             this.A.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
             this.A.setVisibility(TbSingleton.getInstance().isAuditPackageSwitchOn() ? 0 : 8);
-            if (iVar != null && iVar.f24614e != null) {
+            if (iVar != null && iVar.f26131e != null) {
                 if (TbSingleton.getInstance().isShowStartLiveEntry()) {
                     StatisticItem statisticItem = new StatisticItem("c13550");
                     TiebaStaticHelper.addYYParam(statisticItem);
@@ -470,10 +469,10 @@ public class d extends b.a.r0.b0.b<i> {
                 StatisticItem statisticItem4 = new StatisticItem("c13546");
                 TiebaStaticHelper.addYYParam(statisticItem4);
                 TiebaStatic.log(statisticItem4);
-                h hVar = iVar.f24614e;
-                this.K = hVar.f24611c;
-                if (hVar.f24609a && !ListUtils.isEmpty(hVar.f24610b)) {
-                    ArrayList<h.a> arrayList = iVar.f24614e.f24610b;
+                h hVar = iVar.f26131e;
+                this.K = hVar.f26128c;
+                if (hVar.f26126a && !ListUtils.isEmpty(hVar.f26127b)) {
+                    ArrayList<h.a> arrayList = iVar.f26131e.f26127b;
                     this.J = arrayList;
                     if (ListUtils.isEmpty(arrayList)) {
                         return;
@@ -499,7 +498,7 @@ public class d extends b.a.r0.b0.b<i> {
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-        permissionJudgePolicy.setOnPermissionsGrantedListener(new C1208d(this, tbPageContext));
+        permissionJudgePolicy.setOnPermissionsGrantedListener(new C1276d(this, tbPageContext));
         permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
     }
 
@@ -518,7 +517,7 @@ public class d extends b.a.r0.b0.b<i> {
                 aVar.create(h()).show();
             } else if (ViewHelper.checkUpIsLogin(h().getPageActivity())) {
                 if (this.L == null) {
-                    this.L = new b.a.r0.t3.d(h());
+                    this.L = new b.a.r0.u3.d(h());
                 }
                 if (this.L.d()) {
                     return;

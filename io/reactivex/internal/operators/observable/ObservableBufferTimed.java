@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ObservableBufferTimed<T, U extends Collection<? super T>> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public final class ObservableBufferTimed<T, U extends Collection<? super T>> ext
     public final long timespan;
     public final TimeUnit unit;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class BufferExactBoundedObserver<T, U extends Collection<? super T>> extends QueueDrainObserver<T, U, U> implements Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -228,7 +228,7 @@ public final class ObservableBufferTimed<T, U extends Collection<? super T>> ext
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class BufferExactUnboundedObserver<T, U extends Collection<? super T>> extends QueueDrainObserver<T, U, U> implements Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -395,7 +395,7 @@ public final class ObservableBufferTimed<T, U extends Collection<? super T>> ext
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class BufferSkipBoundedObserver<T, U extends Collection<? super T>> extends QueueDrainObserver<T, U, U> implements Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -407,13 +407,13 @@ public final class ObservableBufferTimed<T, U extends Collection<? super T>> ext
         public final TimeUnit unit;
         public final Scheduler.Worker w;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public final class RemoveFromBuffer implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public final U f72523b;
+            public final U f73442b;
             public final /* synthetic */ BufferSkipBoundedObserver this$0;
 
             public RemoveFromBuffer(BufferSkipBoundedObserver bufferSkipBoundedObserver, U u) {
@@ -432,7 +432,7 @@ public final class ObservableBufferTimed<T, U extends Collection<? super T>> ext
                     }
                 }
                 this.this$0 = bufferSkipBoundedObserver;
-                this.f72523b = u;
+                this.f73442b = u;
             }
 
             @Override // java.lang.Runnable
@@ -440,15 +440,15 @@ public final class ObservableBufferTimed<T, U extends Collection<? super T>> ext
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     synchronized (this.this$0) {
-                        this.this$0.buffers.remove(this.f72523b);
+                        this.this$0.buffers.remove(this.f73442b);
                     }
                     BufferSkipBoundedObserver bufferSkipBoundedObserver = this.this$0;
-                    bufferSkipBoundedObserver.fastPathOrderedEmit(this.f72523b, false, bufferSkipBoundedObserver.w);
+                    bufferSkipBoundedObserver.fastPathOrderedEmit(this.f73442b, false, bufferSkipBoundedObserver.w);
                 }
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public final class RemoveFromBufferEmit implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

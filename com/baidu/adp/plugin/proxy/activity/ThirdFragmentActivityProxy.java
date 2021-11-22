@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.proxy.activity;
 
 import android.content.Intent;
-import b.a.e.h.f.b;
+import b.a.e.i.f.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;

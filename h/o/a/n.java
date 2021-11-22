@@ -23,13 +23,13 @@ public class n<T> implements d.b<T, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Long f71934e;
+    public final Long f72853e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.n.a f71935f;
+    public final h.n.a f72854f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final a.d f71936g;
+    public final a.d f72855g;
 
     /* loaded from: classes2.dex */
     public static final class a<T> extends h.j<T> implements BackpressureDrainManager.a {
@@ -37,7 +37,7 @@ public class n<T> implements d.b<T, T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final ConcurrentLinkedQueue<Object> f71937i;
+        public final ConcurrentLinkedQueue<Object> f72856i;
         public final AtomicLong j;
         public final h.j<? super T> k;
         public final AtomicBoolean l;
@@ -60,7 +60,7 @@ public class n<T> implements d.b<T, T> {
                     return;
                 }
             }
-            this.f71937i = new ConcurrentLinkedQueue<>();
+            this.f72856i = new ConcurrentLinkedQueue<>();
             this.l = new AtomicBoolean(false);
             this.k = jVar;
             this.j = l != null ? new AtomicLong(l.longValue()) : null;
@@ -178,7 +178,7 @@ public class n<T> implements d.b<T, T> {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048583, this, t) == null) && g()) {
-                this.f71937i.offer(NotificationLite.h(t));
+                this.f72856i.offer(NotificationLite.h(t));
                 this.m.drain();
             }
         }
@@ -187,7 +187,7 @@ public class n<T> implements d.b<T, T> {
         public Object peek() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f71937i.peek() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f72856i.peek() : invokeV.objValue;
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
@@ -195,7 +195,7 @@ public class n<T> implements d.b<T, T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                Object poll = this.f71937i.poll();
+                Object poll = this.f72856i.poll();
                 AtomicLong atomicLong = this.j;
                 if (atomicLong != null && poll != null) {
                     atomicLong.incrementAndGet();
@@ -211,7 +211,7 @@ public class n<T> implements d.b<T, T> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final n<?> f71938a;
+        public static final n<?> f72857a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -227,7 +227,7 @@ public class n<T> implements d.b<T, T> {
                     return;
                 }
             }
-            f71938a = new n<>();
+            f72857a = new n<>();
         }
     }
 
@@ -244,15 +244,15 @@ public class n<T> implements d.b<T, T> {
                 return;
             }
         }
-        this.f71934e = null;
-        this.f71935f = null;
-        this.f71936g = h.a.f71846b;
+        this.f72853e = null;
+        this.f72854f = null;
+        this.f72855g = h.a.f72765b;
     }
 
     public static <T> n<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (n<T>) b.f71938a : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (n<T>) b.f72857a : (n) invokeV.objValue;
     }
 
     @Override // h.d.b, h.n.f
@@ -264,7 +264,7 @@ public class n<T> implements d.b<T, T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            a aVar = new a(jVar, this.f71934e, this.f71935f, this.f71936g);
+            a aVar = new a(jVar, this.f72853e, this.f72854f, this.f72855g);
             jVar.b(aVar);
             jVar.f(aVar.h());
             return aVar;

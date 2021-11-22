@@ -1,0 +1,227 @@
+package com.bun.miitmdid;
+
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.IBinder;
+import android.os.RemoteException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bun.lib.MsaIdInterface;
+/* loaded from: classes11.dex */
+public class z {
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f62121d = "MsaClient";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public ServiceConnection f62122a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f62123b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public MsaIdInterface f62124c;
+
+    /* loaded from: classes11.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a0 f62125a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ z f62126b;
+
+        public a(z zVar, a0 a0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zVar, a0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f62126b = zVar;
+            this.f62125a = a0Var;
+        }
+
+        @Override // android.content.ServiceConnection
+        public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+                synchronized (this) {
+                    this.f62126b.f62124c = MsaIdInterface.Stub.asInterface(iBinder);
+                    new y(this.f62126b.f62124c, this.f62125a).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
+                    String str = z.f62121d;
+                }
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+                this.f62126b.f62124c = null;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2134062679, "Lcom/bun/miitmdid/z;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2134062679, "Lcom/bun/miitmdid/z;");
+        }
+    }
+
+    public z(Context context, a0 a0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, a0Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (context == null) {
+            throw new NullPointerException("Context can not be null.");
+        }
+        this.f62123b = context;
+        this.f62122a = new a(this, a0Var);
+    }
+
+    public static void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            Intent intent = new Intent();
+            intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaKlService");
+            intent.setAction("com.bun.msa.action.start.service");
+            intent.putExtra("com.bun.msa.param.pkgname", str);
+            if ((Build.VERSION.SDK_INT < 26 ? context.startService(intent) : context.startForegroundService(intent)) == null) {
+                throw new NullPointerException("StartMsaKlService failed.");
+            }
+        }
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                MsaIdInterface msaIdInterface = this.f62124c;
+                return msaIdInterface != null ? msaIdInterface.getAAID() : "";
+            } catch (RemoteException unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Intent intent = new Intent();
+            intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
+            intent.setAction("com.bun.msa.action.bindto.service");
+            intent.putExtra("com.bun.msa.param.pkgname", str);
+            if (!this.f62123b.bindService(intent, this.f62122a, 1)) {
+                throw new NullPointerException("BindService failed.");
+            }
+        }
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                MsaIdInterface msaIdInterface = this.f62124c;
+                return msaIdInterface != null ? msaIdInterface.getOAID() : "";
+            } catch (RemoteException unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                MsaIdInterface msaIdInterface = this.f62124c;
+                return msaIdInterface != null ? msaIdInterface.getVAID() : "";
+            } catch (RemoteException unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                MsaIdInterface msaIdInterface = this.f62124c;
+                if (msaIdInterface != null) {
+                    return msaIdInterface.isSupported();
+                }
+                return false;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            MsaIdInterface msaIdInterface = this.f62124c;
+            if (msaIdInterface != null) {
+                try {
+                    msaIdInterface.shutDown();
+                } catch (RemoteException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            try {
+                this.f62123b.unbindService(this.f62122a);
+            } catch (IllegalArgumentException unused) {
+            }
+        }
+    }
+}

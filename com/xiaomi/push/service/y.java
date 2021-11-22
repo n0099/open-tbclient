@@ -60,7 +60,7 @@ public final class y {
                 String str = lVar.f967a;
                 ibVar.f638a.f563a = str.substring(0, str.indexOf("@"));
                 ibVar.f638a.f567c = str.substring(str.indexOf("/") + 1);
-                faVar.a(ip.a(ibVar), lVar.f71509c);
+                faVar.a(ip.a(ibVar), lVar.f72429c);
                 faVar.a((short) 1);
                 com.xiaomi.channel.commonutils.logger.b.m73a("try send mi push message. packagename:" + ibVar.f643b + " action:" + ibVar.f636a);
                 return faVar;
@@ -81,7 +81,7 @@ public final class y {
             ieVar.c("package uninstalled");
             ieVar.a(gc.i());
             ieVar.a(false);
-            return a(str, str2, ieVar, hf.f71078i);
+            return a(str, str2, ieVar, hf.f71998i);
         }
         return (ib) invokeLL.objValue;
     }

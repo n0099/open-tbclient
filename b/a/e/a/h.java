@@ -23,17 +23,17 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f1466d;
+    public static h f1462d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f1467a;
+    public Resources f1463a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f1468b;
+    public ArrayList<String> f1464b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f1469c;
+    public HashSet<String> f1465c;
 
     static {
         InterceptResult invokeClinit;
@@ -63,23 +63,23 @@ public class h {
                 return;
             }
         }
-        this.f1467a = null;
-        this.f1468b = null;
-        this.f1469c = null;
+        this.f1463a = null;
+        this.f1464b = null;
+        this.f1465c = null;
     }
 
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1466d == null) {
+            if (f1462d == null) {
                 synchronized (h.class) {
-                    if (f1466d == null) {
-                        f1466d = new h();
+                    if (f1462d == null) {
+                        f1462d = new h();
                     }
                 }
             }
-            return f1466d;
+            return f1462d;
         }
         return (h) invokeV.objValue;
     }
@@ -89,37 +89,37 @@ public class h {
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             synchronized (this) {
                 if (!TextUtils.isEmpty(str2)) {
-                    if (this.f1467a != null) {
+                    if (this.f1463a != null) {
                         if (!TextUtils.isEmpty(str)) {
-                            if (this.f1469c == null) {
-                                this.f1469c = new HashSet<>();
+                            if (this.f1465c == null) {
+                                this.f1465c = new HashSet<>();
                             }
-                            if (this.f1469c.contains(str)) {
-                                b.a.e.h.h.a.b().o("plugin_load", "repeat_inject_res", str, str2);
+                            if (this.f1465c.contains(str)) {
+                                b.a.e.i.h.a.b().o("plugin_load", "repeat_inject_res", str, str2);
                             }
-                            this.f1469c.add(str);
+                            this.f1465c.add(str);
                         }
-                        if (this.f1468b == null) {
-                            this.f1468b = new ArrayList<>();
+                        if (this.f1464b == null) {
+                            this.f1464b = new ArrayList<>();
                         }
-                        if (this.f1468b.contains(str2)) {
+                        if (this.f1464b.contains(str2)) {
                             return;
                         }
                         if (Build.VERSION.SDK_INT >= 20) {
-                            b.a.e.h.k.d.a(this.f1467a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
+                            b.a.e.i.k.d.a(this.f1463a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
                         } else {
                             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                            if (this.f1468b.size() > 0) {
-                                Iterator<String> it = this.f1468b.iterator();
+                            if (this.f1464b.size() > 0) {
+                                Iterator<String> it = this.f1464b.iterator();
                                 while (it.hasNext()) {
-                                    b.a.e.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{it.next()});
+                                    b.a.e.i.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{it.next()});
                                 }
                             }
-                            b.a.e.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
-                            b.a.e.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
-                            this.f1467a = new Resources(assetManager, this.f1467a.getDisplayMetrics(), this.f1467a.getConfiguration());
+                            b.a.e.i.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
+                            b.a.e.i.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
+                            this.f1463a = new Resources(assetManager, this.f1463a.getDisplayMetrics(), this.f1463a.getConfiguration());
                         }
-                        this.f1468b.add(str2);
+                        this.f1464b.add(str2);
                         return;
                     }
                     throw new RuntimeException("hostResources is null");
@@ -133,7 +133,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resources) == null) {
             synchronized (this) {
-                this.f1467a = resources;
+                this.f1463a = resources;
             }
         }
     }
@@ -144,7 +144,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                resources = this.f1467a;
+                resources = this.f1463a;
             }
             return resources;
         }

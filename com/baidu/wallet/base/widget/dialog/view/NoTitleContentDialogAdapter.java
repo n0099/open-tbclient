@@ -19,7 +19,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ContentDialogModel f57804a;
+    public ContentDialogModel f58726a;
 
     /* loaded from: classes10.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
@@ -27,7 +27,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NoTitleContentDialogAdapter f57805a;
+        public final /* synthetic */ NoTitleContentDialogAdapter f58727a;
         public final NoTitleContentDialogBinding binding;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
                     return;
                 }
             }
-            this.f57805a = noTitleContentDialogAdapter;
+            this.f58727a = noTitleContentDialogAdapter;
             this.binding = noTitleContentDialogBinding;
         }
     }
@@ -68,7 +68,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
                 return;
             }
         }
-        this.f57804a = contentDialogModel;
+        this.f58726a = contentDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f57804a);
+            baseHolder.binding.setViewModel(this.f58726a);
         }
     }
 

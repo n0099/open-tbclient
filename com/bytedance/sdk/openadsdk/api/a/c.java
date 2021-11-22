@@ -40,7 +40,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f61590a;
+        public static final c f62489a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +56,7 @@ public class c {
                     return;
                 }
             }
-            f61590a = new c(null);
+            f62489a = new c(null);
         }
     }
 
@@ -67,7 +67,7 @@ public class c {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61590a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62489a : (c) invokeV.objValue;
     }
 
     private X509TrustManager b() throws IOException {
@@ -139,7 +139,7 @@ public class c {
                 httpsURLConnection = (HttpsURLConnection) url.openConnection();
                 try {
                     httpsURLConnection.setConnectTimeout(5000);
-                    httpsURLConnection.setHostnameVerifier(com.bytedance.sdk.openadsdk.api.a.a.f61581a);
+                    httpsURLConnection.setHostnameVerifier(com.bytedance.sdk.openadsdk.api.a.a.f62480a);
                     if (z && bArr != null && bArr.length != 0) {
                         httpsURLConnection.setDoOutput(true);
                         httpsURLConnection.setFixedLengthStreamingMode(bArr.length);

@@ -67,22 +67,22 @@ public class SettingStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static MaskInfo f53873a;
+    public static MaskInfo f54793a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f53874b;
+    public static boolean f54794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f53875c;
+    public static boolean f54795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b.a.e.c.g.c f53876d;
+    public static final b.a.e.c.g.c f54796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CustomMessageListener f53877e;
+    public static final CustomMessageListener f54797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final CustomMessageListener f53878f;
+    public static final CustomMessageListener f54798f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -118,7 +118,7 @@ public class SettingStatic {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null || socketResponsedMessage.getError() != 0 || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) || !(socketResponsedMessage instanceof ResponseOnlineMessage) || (maskInfo = ((ResponseOnlineMessage) socketResponsedMessage).getMaskInfo()) == null) {
                 return;
             }
-            MaskInfo unused = SettingStatic.f53873a = maskInfo;
+            MaskInfo unused = SettingStatic.f54793a = maskInfo;
             SettingStatic.k();
         }
     }
@@ -153,9 +153,9 @@ public class SettingStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                boolean unused = SettingStatic.f53875c = false;
-                MaskInfo unused2 = SettingStatic.f53873a = null;
-                boolean unused3 = SettingStatic.f53874b = false;
+                boolean unused = SettingStatic.f54795c = false;
+                MaskInfo unused2 = SettingStatic.f54793a = null;
+                boolean unused3 = SettingStatic.f54794b = false;
                 b.a.q0.a0.b.a().d();
             }
         }
@@ -191,7 +191,7 @@ public class SettingStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                boolean unused = SettingStatic.f53874b = true;
+                boolean unused = SettingStatic.f54794b = true;
                 SettingStatic.k();
             }
         }
@@ -380,9 +380,9 @@ public class SettingStatic {
                 return;
             }
         }
-        f53876d = new a(1001);
-        f53877e = new b(2005016);
-        f53878f = new c(2001311);
+        f54796d = new a(1001);
+        f54797e = new b(2005016);
+        f54798f = new c(2001311);
         TbadkCoreApplication.getInst().RegisterIntent(AppsActivityConfig.class, AppsActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(BrowseSettingActivityConfig.class, BrowseSettingActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(YoungsterIntroduceActivityConfig.class, YoungsterIntroduceActivity.class);
@@ -404,21 +404,21 @@ public class SettingStatic {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2015007, new g());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        b.a.r0.l3.f0.a.f(303016, ResponsedPrivacySocketMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, b.a.r0.l3.f0.a.a(TbConfig.GET_PRIVATE_INFO, 303016));
+        b.a.r0.m3.f0.a.f(303016, ResponsedPrivacySocketMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, b.a.r0.m3.f0.a.a(TbConfig.GET_PRIVATE_INFO, 303016));
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(f53877e);
-        MessageManager.getInstance().registerListener(f53876d);
-        MessageManager.getInstance().registerListener(f53878f);
-        b.a.r0.l3.f0.a.f(104101, ResponseUpdateMaskMessage.class, false);
-        b.a.r0.l3.f0.a.f(104106, ResponseUpdateForumMask.class, false);
+        MessageManager.getInstance().registerListener(f54797e);
+        MessageManager.getInstance().registerListener(f54796d);
+        MessageManager.getInstance().registerListener(f54798f);
+        b.a.r0.m3.f0.a.f(104101, ResponseUpdateMaskMessage.class, false);
+        b.a.r0.m3.f0.a.f(104106, ResponseUpdateForumMask.class, false);
         e();
         f();
         i();
         g();
         h();
-        SwitchManager.getInstance().registerSwitch(b.a.r0.c3.b.a.b.class);
+        SwitchManager.getInstance().registerSwitch(b.a.r0.d3.b.a.b.class);
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2016302, new h());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
@@ -511,16 +511,16 @@ public class SettingStatic {
         String[] split2;
         String[] split3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, null) == null) || !f53874b || f53873a == null || f53875c) {
+        if (!(interceptable == null || interceptable.invokeV(65548, null) == null) || !f54794b || f54793a == null || f54795c) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (TextUtils.isEmpty(currentAccount)) {
             return;
         }
-        MaskInfo maskInfo = f53873a;
+        MaskInfo maskInfo = f54793a;
         Integer num2 = maskInfo.remindMask;
-        if (num2 != null && maskInfo.shieldStatus != null && num2.intValue() == 0 && f53873a.shieldStatus.intValue() == 0) {
+        if (num2 != null && maskInfo.shieldStatus != null && num2.intValue() == 0 && f54793a.shieldStatus.intValue() == 0) {
             if (!b.a.q0.s.e0.b.j().g("had_sync_setting_switch" + currentAccount, false)) {
                 z = true;
                 if (!z) {
@@ -548,14 +548,14 @@ public class SettingStatic {
                         }
                     }
                 } else {
-                    Integer num3 = f53873a.remindMask;
+                    Integer num3 = f54793a.remindMask;
                     if (num3 != null) {
                         if (num3.intValue() == 0) {
                             b.a.q0.t.d.d.d().B(true);
-                        } else if (f53873a.remindMask.intValue() == 1) {
+                        } else if (f54793a.remindMask.intValue() == 1) {
                             b.a.q0.t.d.d.d().B(false);
                             z2 = false;
-                            num = f53873a.shieldStatus;
+                            num = f54793a.shieldStatus;
                             if (num != null) {
                                 int intValue = num.intValue();
                                 boolean z3 = (intValue & 16) == 0;
@@ -575,49 +575,49 @@ public class SettingStatic {
                                     b.a.q0.t.d.d.d().E(0);
                                 }
                             }
-                            b.a.e.e.m.h.a().b(new d());
+                            b.a.e.f.m.h.a().b(new d());
                         }
                     }
                     z2 = true;
-                    num = f53873a.shieldStatus;
+                    num = f54793a.shieldStatus;
                     if (num != null) {
                     }
-                    b.a.e.e.m.h.a().b(new d());
+                    b.a.e.f.m.h.a().b(new d());
                 }
-                if (!TextUtils.isEmpty(f53873a.maskFids) && (split3 = f53873a.maskFids.split(",")) != null && split3.length > 0) {
+                if (!TextUtils.isEmpty(f54793a.maskFids) && (split3 = f54793a.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
                         b.a.r0.l1.t.d.j().g(currentAccount, str, false, null);
                     }
                 }
-                if (!TextUtils.isEmpty(f53873a.maskGids) && (split2 = f53873a.maskGids.split(",")) != null && split2.length > 0) {
+                if (!TextUtils.isEmpty(f54793a.maskGids) && (split2 = f54793a.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
                         b.a.r0.l1.t.b.k().g(currentAccount, str2, false, null);
                     }
                 }
-                if (!TextUtils.isEmpty(f53873a.maskUids) && (split = f53873a.maskUids.split(",")) != null && split.length > 0) {
+                if (!TextUtils.isEmpty(f54793a.maskUids) && (split = f54793a.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
                         b.a.r0.l1.t.e.j().g(currentAccount, str3, false, null);
                     }
                 }
-                f53875c = true;
+                f54795c = true;
             }
         }
         z = false;
         if (!z) {
         }
-        if (!TextUtils.isEmpty(f53873a.maskFids)) {
+        if (!TextUtils.isEmpty(f54793a.maskFids)) {
             while (r7 < r6) {
             }
         }
-        if (!TextUtils.isEmpty(f53873a.maskGids)) {
+        if (!TextUtils.isEmpty(f54793a.maskGids)) {
             while (r7 < r6) {
             }
         }
-        if (!TextUtils.isEmpty(f53873a.maskUids)) {
+        if (!TextUtils.isEmpty(f54793a.maskUids)) {
             while (r6 < r3) {
             }
         }
-        f53875c = true;
+        f54795c = true;
     }
 
     public static final void l(int i2, boolean z) {

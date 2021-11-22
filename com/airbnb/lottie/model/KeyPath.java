@@ -3,6 +3,7 @@ package com.airbnb.lottie.model;
 import androidx.annotation.CheckResult;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.webkit.ProxyConfig;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +44,7 @@ public class KeyPath {
         boolean z = i2 == this.keys.size() - 1;
         String str2 = this.keys.get(i2);
         if (!str2.equals("**")) {
-            return (z || (i2 == this.keys.size() + (-2) && endsWithGlobstar())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i2 == this.keys.size() + (-2) && endsWithGlobstar())) && (str2.equals(str) || str2.equals(ProxyConfig.MATCH_ALL_SCHEMES));
         }
         if (!z && this.keys.get(i2 + 1).equals(str)) {
             return i2 == this.keys.size() + (-2) || (i2 == this.keys.size() + (-3) && endsWithGlobstar());
@@ -87,7 +88,7 @@ public class KeyPath {
         if (i2 >= this.keys.size()) {
             return false;
         }
-        return this.keys.get(i2).equals(str) || this.keys.get(i2).equals("**") || this.keys.get(i2).equals("*");
+        return this.keys.get(i2).equals(str) || this.keys.get(i2).equals("**") || this.keys.get(i2).equals(ProxyConfig.MATCH_ALL_SCHEMES);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})

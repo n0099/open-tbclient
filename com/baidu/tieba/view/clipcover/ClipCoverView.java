@@ -25,19 +25,19 @@ public class ClipCoverView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f55461e;
+    public Paint f56383e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f55462f;
+    public Paint f56384f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f55463g;
+    public Path f56385g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f55464h;
+    public float f56386h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Xfermode f55465i;
+    public Xfermode f56387i;
     public Context j;
     public int k;
     public int l;
@@ -66,7 +66,7 @@ public class ClipCoverView extends View {
     public final void a(@NonNull Canvas canvas, Path path) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, path) == null) {
-            canvas.drawPath(path, this.f55462f);
+            canvas.drawPath(path, this.f56384f);
         }
     }
 
@@ -74,11 +74,11 @@ public class ClipCoverView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Paint paint = new Paint();
-            this.f55462f = paint;
+            this.f56384f = paint;
             paint.setAntiAlias(true);
-            this.f55462f.setStyle(Paint.Style.STROKE);
-            this.f55462f.setStrokeWidth(this.f55464h);
-            this.f55462f.setColor(getResources().getColor(R.color.CAM_X0402));
+            this.f56384f.setStyle(Paint.Style.STROKE);
+            this.f56384f.setStrokeWidth(this.f56386h);
+            this.f56384f.setColor(getResources().getColor(R.color.CAM_X0402));
         }
     }
 
@@ -103,15 +103,15 @@ public class ClipCoverView extends View {
             super.onDraw(canvas);
             canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             canvas.drawColor(getResources().getColor(R.color.CAM_X0608));
-            this.f55461e.setXfermode(this.f55465i);
+            this.f56383e.setXfermode(this.f56387i);
             RectF clipCoverRect = getClipCoverRect();
-            if (this.f55463g == null) {
-                this.f55463g = new Path();
+            if (this.f56385g == null) {
+                this.f56385g = new Path();
             }
-            this.f55463g.reset();
-            this.f55463g.addRoundRect(clipCoverRect, a.y(R.string.J_X05), Path.Direction.CW);
-            canvas.drawPath(this.f55463g, this.f55461e);
-            a(canvas, this.f55463g);
+            this.f56385g.reset();
+            this.f56385g.addRoundRect(clipCoverRect, a.y(R.string.J_X05), Path.Direction.CW);
+            canvas.drawPath(this.f56385g, this.f56383e);
+            a(canvas, this.f56385g);
             canvas.restore();
         }
     }
@@ -119,8 +119,8 @@ public class ClipCoverView extends View {
     public void setClipBorderWidth(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.f55464h = f2;
-            this.f55462f.setStrokeWidth(f2);
+            this.f56386h = f2;
+            this.f56384f.setStrokeWidth(f2);
             invalidate();
         }
     }
@@ -180,10 +180,10 @@ public class ClipCoverView extends View {
             }
         }
         Paint paint = new Paint();
-        this.f55461e = paint;
+        this.f56383e = paint;
         paint.setAntiAlias(true);
-        this.f55461e.setStyle(Paint.Style.FILL);
-        this.f55465i = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
+        this.f56383e.setStyle(Paint.Style.FILL);
+        this.f56387i = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
         this.j = context;
         b();
     }

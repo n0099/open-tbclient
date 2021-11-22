@@ -30,28 +30,28 @@ public class w {
     public static long C;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<String> f39073b;
+    public static ArrayList<String> f39905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f39074c;
+    public static ArrayList<String> f39906c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ArrayList<String> f39075d;
+    public static ArrayList<String> f39907d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f39076e;
+    public static String f39908e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f39077f;
+    public static String f39909f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f39078g;
+    public static String f39910g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f39079h;
+    public static String f39911h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f39080i;
+    public static String f39912i;
     public static File j;
     public static int k;
     public static int l;
@@ -72,7 +72,7 @@ public class w {
     public int B;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39081a;
+    public long f39913a;
     public a z;
 
     /* loaded from: classes7.dex */
@@ -81,22 +81,22 @@ public class w {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f39082a;
+        public boolean f39914a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f39083b;
+        public int f39915b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f39084c;
+        public int f39916c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ w f39085d;
+        public final /* synthetic */ w f39917d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<String> f39086e;
+        public ArrayList<String> f39918e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f39087f;
+        public boolean f39919f;
 
         public a(w wVar) {
             Interceptable interceptable = $ic;
@@ -113,12 +113,12 @@ public class w {
                     return;
                 }
             }
-            this.f39085d = wVar;
-            this.f39082a = false;
-            this.f39083b = 0;
-            this.f39084c = 0;
-            this.f39086e = new ArrayList<>();
-            this.f39087f = true;
+            this.f39917d = wVar;
+            this.f39914a = false;
+            this.f39915b = 0;
+            this.f39916c = 0;
+            this.f39918e = new ArrayList<>();
+            this.f39919f = true;
             this.k = new HashMap();
         }
 
@@ -129,14 +129,14 @@ public class w {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f39203h = com.baidu.location.e.k.e();
-                if (this.f39083b != 1) {
-                    this.f39203h = com.baidu.location.e.k.g();
+                this.f40035h = com.baidu.location.e.k.e();
+                if (this.f39915b != 1) {
+                    this.f40035h = com.baidu.location.e.k.g();
                 }
-                this.f39204i = 2;
-                if (this.f39086e != null) {
-                    for (int i2 = 0; i2 < this.f39086e.size(); i2++) {
-                        if (this.f39083b == 1) {
+                this.f40036i = 2;
+                if (this.f39918e != null) {
+                    for (int i2 = 0; i2 < this.f39918e.size(); i2++) {
+                        if (this.f39915b == 1) {
                             map = this.k;
                             sb = new StringBuilder();
                             str = "cldc[";
@@ -148,10 +148,10 @@ public class w {
                         sb.append(str);
                         sb.append(i2);
                         sb.append(PreferencesUtil.RIGHT_MOUNT);
-                        map.put(sb.toString(), this.f39086e.get(i2));
+                        map.put(sb.toString(), this.f39918e.get(i2));
                     }
                     this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
-                    if (this.f39083b != 1) {
+                    if (this.f39915b != 1) {
                         this.k.put("qt", "cltrg");
                     }
                 }
@@ -163,14 +163,14 @@ public class w {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 if (z && this.j != null) {
-                    ArrayList<String> arrayList = this.f39086e;
+                    ArrayList<String> arrayList = this.f39918e;
                     if (arrayList != null) {
                         arrayList.clear();
                     }
                     try {
                         JSONObject jSONObject = new JSONObject(this.j);
                         if (jSONObject.has("ison") && jSONObject.getInt("ison") == 0) {
-                            this.f39087f = false;
+                            this.f39919f = false;
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -180,7 +180,7 @@ public class w {
                 if (map != null) {
                     map.clear();
                 }
-                this.f39082a = false;
+                this.f39914a = false;
             }
         }
 
@@ -191,55 +191,55 @@ public class w {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 synchronized (this) {
-                    if (this.f39082a) {
+                    if (this.f39914a) {
                         return;
                     }
-                    if (com.baidu.location.e.e.p > 4 && this.f39084c < com.baidu.location.e.e.p) {
-                        this.f39084c++;
+                    if (com.baidu.location.e.e.p > 4 && this.f39916c < com.baidu.location.e.e.p) {
+                        this.f39916c++;
                         return;
                     }
-                    this.f39084c = 0;
-                    this.f39082a = true;
-                    this.f39083b = 0;
+                    this.f39916c = 0;
+                    this.f39914a = true;
+                    this.f39915b = 0;
                     try {
-                        if (this.f39086e == null || this.f39086e.size() < 1) {
-                            if (this.f39086e == null) {
-                                this.f39086e = new ArrayList<>();
+                        if (this.f39918e == null || this.f39918e.size() < 1) {
+                            if (this.f39918e == null) {
+                                this.f39918e = new ArrayList<>();
                             }
-                            this.f39083b = 0;
+                            this.f39915b = 0;
                             int i2 = 0;
                             while (true) {
                                 String str3 = null;
-                                String b2 = this.f39083b < 2 ? w.b() : null;
-                                if (b2 == null && this.f39083b != 1 && this.f39087f) {
-                                    this.f39083b = 2;
+                                String b2 = this.f39915b < 2 ? w.b() : null;
+                                if (b2 == null && this.f39915b != 1 && this.f39919f) {
+                                    this.f39915b = 2;
                                     try {
                                         str3 = g.a();
                                     } catch (Exception unused) {
                                     }
                                 } else {
-                                    this.f39083b = 1;
+                                    this.f39915b = 1;
                                     str3 = b2;
                                 }
                                 if (str3 == null) {
                                     break;
                                 } else if (!str3.contains("err!")) {
-                                    this.f39086e.add(str3);
+                                    this.f39918e.add(str3);
                                     i2 += str3.length();
-                                    if (i2 >= com.baidu.location.e.a.f39171i) {
+                                    if (i2 >= com.baidu.location.e.a.f40003i) {
                                         break;
                                     }
                                 }
                             }
                         }
-                        if (this.f39086e == null || this.f39086e.size() < 1) {
-                            if (this.f39086e != null) {
-                                this.f39086e.clear();
+                        if (this.f39918e == null || this.f39918e.size() < 1) {
+                            if (this.f39918e != null) {
+                                this.f39918e.clear();
                             }
-                            this.f39082a = false;
+                            this.f39914a = false;
                             return;
                         }
-                        if (this.f39083b != 1) {
+                        if (this.f39915b != 1) {
                             c2 = v.a().c();
                             if (c2 != null) {
                                 str2 = com.baidu.location.e.k.g();
@@ -251,16 +251,16 @@ public class w {
                         } else {
                             c2 = v.a().c();
                             if (c2 != null) {
-                                str2 = com.baidu.location.e.k.f39220f;
+                                str2 = com.baidu.location.e.k.f40052f;
                                 a(c2, str2);
                             } else {
-                                str = com.baidu.location.e.k.f39220f;
+                                str = com.baidu.location.e.k.f40052f;
                                 b(str);
                             }
                         }
                     } catch (Exception unused2) {
-                        if (this.f39086e != null) {
-                            this.f39086e.clear();
+                        if (this.f39918e != null) {
+                            this.f39918e.clear();
                         }
                     }
                 }
@@ -281,14 +281,14 @@ public class w {
                 return;
             }
         }
-        f39073b = new ArrayList<>();
-        f39074c = new ArrayList<>();
-        f39075d = new ArrayList<>();
-        f39076e = com.baidu.location.e.j.f39213a + "/yo.dat";
-        f39077f = com.baidu.location.e.j.f39213a + "/yoh.dat";
-        f39078g = com.baidu.location.e.j.f39213a + "/yom.dat";
-        f39079h = com.baidu.location.e.j.f39213a + "/yol.dat";
-        f39080i = com.baidu.location.e.j.f39213a + "/yor.dat";
+        f39905b = new ArrayList<>();
+        f39906c = new ArrayList<>();
+        f39907d = new ArrayList<>();
+        f39908e = com.baidu.location.e.j.f40045a + "/yo.dat";
+        f39909f = com.baidu.location.e.j.f40045a + "/yoh.dat";
+        f39910g = com.baidu.location.e.j.f40045a + "/yom.dat";
+        f39911h = com.baidu.location.e.j.f40045a + "/yol.dat";
+        f39912i = com.baidu.location.e.j.f40045a + "/yor.dat";
         j = null;
         k = 8;
         l = 8;
@@ -324,7 +324,7 @@ public class w {
         }
         this.z = null;
         this.B = 0;
-        this.f39081a = 0L;
+        this.f39913a = 0L;
         this.z = new a(this);
         this.B = 0;
     }
@@ -338,7 +338,7 @@ public class w {
                     if (i2 >= 0) {
                         try {
                             if (j == null) {
-                                File file = new File(f39076e);
+                                File file = new File(f39908e);
                                 j = file;
                                 if (!file.exists()) {
                                     j = null;
@@ -429,20 +429,20 @@ public class w {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             String str2 = null;
             if (i2 == 1) {
-                str = f39077f;
-                arrayList = f39073b;
+                str = f39909f;
+                arrayList = f39905b;
             } else if (i2 == 2) {
-                str = f39078g;
-                arrayList = f39074c;
+                str = f39910g;
+                arrayList = f39906c;
             } else {
                 if (i2 == 3) {
-                    str = f39079h;
+                    str = f39911h;
                 } else if (i2 != 4) {
                     return null;
                 } else {
-                    str = f39080i;
+                    str = f39912i;
                 }
-                arrayList = f39075d;
+                arrayList = f39907d;
             }
             if (arrayList == null) {
                 return null;
@@ -498,16 +498,16 @@ public class w {
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 == 3) {
-                        str = f39079h;
+                        str = f39911h;
                     } else if (i2 != 4) {
                         return;
                     } else {
-                        str = f39080i;
+                        str = f39912i;
                         if (!z) {
                             return;
                         }
                     }
-                    arrayList = f39075d;
+                    arrayList = f39907d;
                     file = new File(str);
                     if (!file.exists()) {
                         d(str);
@@ -564,8 +564,8 @@ public class w {
                     a(i2 + 1, true);
                     return;
                 }
-                str = f39078g;
-                arrayList = f39074c;
+                str = f39910g;
+                arrayList = f39906c;
                 file = new File(str);
                 if (!file.exists()) {
                 }
@@ -593,7 +593,7 @@ public class w {
                 }
                 return;
             }
-            str = f39077f;
+            str = f39909f;
             if (z) {
                 return;
             }
@@ -621,7 +621,7 @@ public class w {
         } catch (Exception unused) {
             return;
         }
-        arrayList = f39073b;
+        arrayList = f39905b;
         file = new File(str);
         if (!file.exists()) {
         }
@@ -764,7 +764,7 @@ public class w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, location, hVar)) == null) {
             boolean z = false;
-            if (location != null && hVar != null && (list = hVar.f39133a) != null && !list.isEmpty()) {
+            if (location != null && hVar != null && (list = hVar.f39965a) != null && !list.isEmpty()) {
                 if (hVar.b(y)) {
                     return false;
                 }
@@ -873,7 +873,7 @@ public class w {
                 if (file.exists()) {
                     return;
                 }
-                File file2 = new File(com.baidu.location.e.j.f39213a);
+                File file2 = new File(com.baidu.location.e.j.f40045a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
@@ -898,7 +898,7 @@ public class w {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            File file = new File(f39078g);
+            File file = new File(f39910g);
             String str = null;
             if (file.exists()) {
                 try {
@@ -921,7 +921,7 @@ public class w {
                 } catch (Exception unused2) {
                 }
             }
-            File file2 = new File(f39079h);
+            File file2 = new File(f39911h);
             if (file2.exists()) {
                 try {
                     RandomAccessFile randomAccessFile2 = new RandomAccessFile(file2, "rw");
@@ -943,7 +943,7 @@ public class w {
                 } catch (Exception unused4) {
                 }
             }
-            File file3 = new File(f39080i);
+            File file3 = new File(f39912i);
             if (file3.exists()) {
                 try {
                     RandomAccessFile randomAccessFile3 = new RandomAccessFile(file3, "rw");
@@ -980,13 +980,13 @@ public class w {
                 }
                 int i2 = com.baidu.location.e.k.q;
                 if (i2 == 1) {
-                    arrayList = f39073b;
+                    arrayList = f39905b;
                 } else if (i2 == 2) {
-                    arrayList = f39074c;
+                    arrayList = f39906c;
                 } else if (i2 != 3) {
                     return;
                 } else {
-                    arrayList = f39075d;
+                    arrayList = f39907d;
                 }
                 if (arrayList == null) {
                     return;
@@ -1015,26 +1015,26 @@ public class w {
                     return str;
                 }
             }
-            a(f39075d, t);
-            if (f39075d.size() > 0) {
-                str = f39075d.get(0);
-                f39075d.remove(0);
+            a(f39907d, t);
+            if (f39907d.size() > 0) {
+                str = f39907d.get(0);
+                f39907d.remove(0);
             }
             if (str != null) {
                 return str;
             }
-            a(f39075d, s);
-            if (f39075d.size() > 0) {
-                str = f39075d.get(0);
-                f39075d.remove(0);
+            a(f39907d, s);
+            if (f39907d.size() > 0) {
+                str = f39907d.get(0);
+                f39907d.remove(0);
             }
             if (str != null) {
                 return str;
             }
-            a(f39075d, u);
-            if (f39075d.size() > 0) {
-                String str2 = f39075d.get(0);
-                f39075d.remove(0);
+            a(f39907d, u);
+            if (f39907d.size() > 0) {
+                String str2 = f39907d.get(0);
+                f39907d.remove(0);
                 return str2;
             }
             return str;

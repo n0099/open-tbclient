@@ -2,7 +2,7 @@ package b.a.p0.c.a.k;
 
 import android.text.TextUtils;
 import android.util.Base64;
-import b.a.p0.n.i.a;
+import b.a.p0.q.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,19 +17,19 @@ public class a<T> extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9585d;
+    public String f10165d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9586e;
+    public String f10166e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.c f9587f;
+    public a.c f10167f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9588g;
+    public String f10168g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f9589h;
+    public int f10169h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class a<T> extends c {
                 return;
             }
         }
-        this.f9585d = null;
-        this.f9586e = null;
-        this.f9587f = null;
+        this.f10165d = null;
+        this.f10166e = null;
+        this.f10167f = null;
     }
 
     @Override // b.a.p0.c.a.k.c
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9588g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10168g : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.c.a.k.c
@@ -76,19 +76,19 @@ public class a<T> extends c {
         if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json");
-            if (this.f9597a) {
+            if (this.f10177a) {
                 hashMap.put("Bdtls", TextUtils.equals(b(), "GET") ? Base64.encodeToString(bArr, 2) : "Bdtls");
             } else {
                 hashMap.put("Bdtls-Downgrade", "1");
             }
-            this.f9587f.a(hashMap, bArr, this.f9585d);
+            this.f10167f.a(hashMap, bArr, this.f10165d);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k(this.f9585d, this.f9586e, this.f9587f);
+            k(this.f10165d, this.f10166e, this.f10167f);
         }
     }
 
@@ -97,18 +97,18 @@ public class a<T> extends c {
         if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, cVar) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f9585d = str;
-        this.f9586e = str2;
-        this.f9587f = cVar;
+        this.f10165d = str;
+        this.f10166e = str2;
+        this.f10167f = cVar;
         if (str2 == null) {
-            this.f9588g = "GET";
+            this.f10168g = "GET";
         } else {
-            this.f9588g = "POST";
+            this.f10168g = "POST";
         }
-        if (b.a.p0.c.a.a.f9542a) {
+        if (b.a.p0.c.a.a.f10122a) {
             String str3 = "requestPost url=" + str;
             String str4 = "requestPost body=" + str2;
         }
-        a(this.f9586e);
+        a(this.f10166e);
     }
 }

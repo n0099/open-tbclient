@@ -17,16 +17,16 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsCardVideoViewHolder f48491e;
+    public FrsCardVideoViewHolder f49355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterviewLiveViewHolder f48492f;
+    public InterviewLiveViewHolder f49356f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.r0.x0.x1.g.e f48493g;
+    public b.a.r0.x0.y1.g.e f49357g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterviewLiveViewWrapHolder(b.a.r0.x0.x1.g.e eVar) {
+    public InterviewLiveViewWrapHolder(b.a.r0.x0.y1.g.e eVar) {
         super(eVar.c());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,9 +43,9 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
                 return;
             }
         }
-        this.f48491e = new FrsCardVideoViewHolder(eVar.b());
-        this.f48492f = new InterviewLiveViewHolder(eVar.a());
-        this.f48493g = eVar;
+        this.f49355e = new FrsCardVideoViewHolder(eVar.b());
+        this.f49356f = new InterviewLiveViewHolder(eVar.a());
+        this.f49357g = eVar;
     }
 
     @Override // b.a.r0.q2.e
@@ -53,7 +53,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f48491e;
+            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f49355e;
             if (frsCardVideoViewHolder == null) {
                 return 0;
             }
@@ -65,13 +65,13 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
     public FrsCardVideoViewHolder getFrsCardVideoViewHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48491e : (FrsCardVideoViewHolder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49355e : (FrsCardVideoViewHolder) invokeV.objValue;
     }
 
     public InterviewLiveViewHolder getInterviewLiveViewHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48492f : (InterviewLiveViewHolder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49356f : (InterviewLiveViewHolder) invokeV.objValue;
     }
 
     @Override // b.a.r0.q2.e
@@ -79,16 +79,16 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f48491e;
+            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f49355e;
             return frsCardVideoViewHolder == null ? "" : frsCardVideoViewHolder.getPlayUrl();
         }
         return (String) invokeV.objValue;
     }
 
-    public b.a.r0.x0.x1.g.e getRootView() {
+    public b.a.r0.x0.y1.g.e getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48493g : (b.a.r0.x0.x1.g.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49357g : (b.a.r0.x0.y1.g.e) invokeV.objValue;
     }
 
     @Override // b.a.r0.q2.e
@@ -96,7 +96,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f48491e;
+            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f49355e;
             if (frsCardVideoViewHolder == null) {
                 return null;
             }
@@ -110,7 +110,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f48491e;
+            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f49355e;
             if (frsCardVideoViewHolder == null) {
                 return false;
             }
@@ -124,7 +124,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f48491e;
+            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f49355e;
             if (frsCardVideoViewHolder == null) {
                 return false;
             }
@@ -138,7 +138,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f48491e;
+            FrsCardVideoViewHolder frsCardVideoViewHolder = this.f49355e;
             if (frsCardVideoViewHolder == null) {
                 return false;
             }
@@ -151,7 +151,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
     public void startPlay() {
         FrsCardVideoViewHolder frsCardVideoViewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (frsCardVideoViewHolder = this.f48491e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (frsCardVideoViewHolder = this.f49355e) == null) {
             return;
         }
         frsCardVideoViewHolder.startPlay();
@@ -161,7 +161,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
     public void stopPlay() {
         FrsCardVideoViewHolder frsCardVideoViewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (frsCardVideoViewHolder = this.f48491e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (frsCardVideoViewHolder = this.f49355e) == null) {
             return;
         }
         frsCardVideoViewHolder.stopPlay();

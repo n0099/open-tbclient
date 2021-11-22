@@ -19,11 +19,11 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5629b;
+    public static final boolean f5919b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f5630a;
+    public c f5920a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public final class b {
                 return;
             }
         }
-        f5629b = k.f6397a;
+        f5919b = k.f6863a;
     }
 
     public b() {
@@ -54,40 +54,40 @@ public final class b {
                 return;
             }
         }
-        this.f5630a = c.f5631a;
+        this.f5920a = c.f5921a;
     }
 
-    public final void a(@NonNull b.a.p0.a.v1.c.f.c cVar, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
+    public final void a(@NonNull b.a.p0.a.y1.c.f.c cVar, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, cVar, prefetchEvent, pMSAppInfo) == null) {
             Bundle bundle = new Bundle();
             bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
             bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
             if (pMSAppInfo == null) {
-                pMSAppInfo = b.a.p0.n.g.a.h().s(prefetchEvent.appId);
+                pMSAppInfo = b.a.p0.q.g.a.i().u(prefetchEvent.appId);
             }
             if (pMSAppInfo == null) {
                 return;
             }
             bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
-            if (this.f5630a.a(prefetchEvent, pMSAppInfo, bundle)) {
-                b.a.p0.a.v1.c.a e2 = b.a.p0.a.v1.c.a.e();
-                b.a.p0.a.v1.c.c cVar2 = new b.a.p0.a.v1.c.c(120, bundle);
-                cVar2.b(cVar.f8519f);
+            if (this.f5920a.a(prefetchEvent, pMSAppInfo, bundle)) {
+                b.a.p0.a.y1.c.a e2 = b.a.p0.a.y1.c.a.e();
+                b.a.p0.a.y1.c.c cVar2 = new b.a.p0.a.y1.c.c(120, bundle);
+                cVar2.b(cVar.f9497f);
                 cVar2.p(false);
                 e2.h(cVar2);
             }
         }
     }
 
-    public void b(@NonNull PrefetchEvent prefetchEvent, @NonNull b.a.p0.a.v1.c.f.c cVar, @Nullable PMSAppInfo pMSAppInfo) {
+    public void b(@NonNull PrefetchEvent prefetchEvent, @NonNull b.a.p0.a.y1.c.f.c cVar, @Nullable PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, cVar, pMSAppInfo) == null) {
             a(cVar, prefetchEvent, pMSAppInfo);
-            cVar.X(prefetchEvent);
-            if (f5629b) {
+            cVar.i0(prefetchEvent);
+            if (f5919b) {
                 String str = "onPrefetchReady event: " + prefetchEvent;
-                String str2 = "onPrefetchReady client id: " + cVar.f8519f.index;
+                String str2 = "onPrefetchReady client id: " + cVar.f9497f.index;
             }
         }
     }

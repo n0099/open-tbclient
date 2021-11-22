@@ -23,20 +23,20 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f5122e;
+    public static final boolean f5265e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f5123a;
+    public c f5266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f5124b;
+    public a f5267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5125c;
+    public boolean f5268c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b.a.p0.a.g1.j.a f5126d;
+    public final b.a.p0.a.g1.j.a f5269d;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -44,27 +44,27 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b f5127a;
+        public b f5270a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Timer f5128b;
+        public Timer f5271b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f5129c;
+        public long f5272c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f5130d;
+        public int f5273d;
 
         /* renamed from: b.a.p0.a.g1.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0189a extends TimerTask {
+        public class C0194a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f5131e;
+            public final /* synthetic */ a f5274e;
 
-            public C0189a(a aVar) {
+            public C0194a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,22 +79,22 @@ public class e {
                         return;
                     }
                 }
-                this.f5131e = aVar;
+                this.f5274e = aVar;
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (e.f5122e) {
-                        String str = "task run: " + this.f5131e.f5129c;
+                    if (e.f5265e) {
+                        String str = "task run: " + this.f5274e.f5272c;
                     }
-                    this.f5131e.f5129c -= 10;
-                    if (this.f5131e.f5129c > 0 || this.f5131e.f5127a == null) {
+                    this.f5274e.f5272c -= 10;
+                    if (this.f5274e.f5272c > 0 || this.f5274e.f5270a == null) {
                         return;
                     }
-                    this.f5131e.f5127a.g(1);
-                    this.f5131e.l();
+                    this.f5274e.f5270a.g(1);
+                    this.f5274e.l();
                 }
             }
         }
@@ -112,18 +112,18 @@ public class e {
                     return;
                 }
             }
-            this.f5129c = 300L;
-            this.f5130d = 0;
+            this.f5272c = 300L;
+            this.f5273d = 0;
         }
 
         public final synchronized void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    if (this.f5128b != null) {
-                        this.f5128b.cancel();
-                        this.f5128b.purge();
-                        this.f5128b = null;
+                    if (this.f5271b != null) {
+                        this.f5271b.cancel();
+                        this.f5271b.purge();
+                        this.f5271b = null;
                     }
                 }
             }
@@ -132,32 +132,32 @@ public class e {
         public final TimerTask e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0189a(this) : (TimerTask) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0194a(this) : (TimerTask) invokeV.objValue;
         }
 
         public void f() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f5130d == 2) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f5273d == 2) {
                 return;
             }
-            this.f5130d = 4;
+            this.f5273d = 4;
             d();
         }
 
         public final void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f5129c = b.a.p0.a.r1.l.c.a();
-                if (e.f5122e && b.a.p0.a.u1.a.a.t().getBoolean("swan_5min_back_optimize", false)) {
-                    this.f5129c = 30L;
+                this.f5272c = b.a.p0.a.u1.l.c.a();
+                if (e.f5265e && b.a.p0.a.x1.a.a.u().getBoolean("swan_5min_back_optimize", false)) {
+                    this.f5272c = 30L;
                 }
             }
         }
 
         public void h() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f5130d == 4) {
-                this.f5130d = 3;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f5273d == 4) {
+                this.f5273d = 3;
                 d();
                 i();
             }
@@ -167,7 +167,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 Timer timer = new Timer();
-                this.f5128b = timer;
+                this.f5271b = timer;
                 timer.schedule(e(), 0L, 10000L);
             }
         }
@@ -175,14 +175,14 @@ public class e {
         public void j(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-                this.f5127a = bVar;
+                this.f5270a = bVar;
             }
         }
 
         public void k() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f5130d = 1;
+                this.f5273d = 1;
                 g();
                 d();
                 i();
@@ -192,7 +192,7 @@ public class e {
         public void l() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.f5130d = 2;
+                this.f5273d = 2;
                 d();
                 g();
             }
@@ -279,7 +279,7 @@ public class e {
                 return;
             }
         }
-        f5122e = k.f6397a;
+        f5265e = k.f6863a;
     }
 
     public e() {
@@ -295,27 +295,27 @@ public class e {
                 return;
             }
         }
-        this.f5123a = new c(this);
-        this.f5124b = new a();
-        this.f5126d = b.a.p0.a.g1.j.c.f();
+        this.f5266a = new c(this);
+        this.f5267b = new a();
+        this.f5269d = b.a.p0.a.g1.j.c.c();
     }
 
     public void c(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f5125c) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f5268c) {
             return;
         }
-        if (context == null && (context = b.a.p0.a.c1.a.b()) == null) {
+        if (context == null && (context = b.a.p0.a.c1.a.c()) == null) {
             return;
         }
-        this.f5125c = true;
-        context.registerReceiver(this.f5123a, c.getIntentFilter());
+        this.f5268c = true;
+        context.registerReceiver(this.f5266a, c.getIntentFilter());
     }
 
     public final void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (f5122e) {
+            if (f5265e) {
                 String str = "onScreenStatusChanged isOn: " + z;
             }
             if (z) {
@@ -329,21 +329,21 @@ public class e {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f5124b.f();
+            this.f5267b.f();
         }
     }
 
     public void f(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.f5125c) {
-            if (context == null && (context = b.a.p0.a.c1.a.b()) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.f5268c) {
+            if (context == null && (context = b.a.p0.a.c1.a.c()) == null) {
                 return;
             }
-            this.f5125c = false;
+            this.f5268c = false;
             try {
-                context.unregisterReceiver(this.f5123a);
+                context.unregisterReceiver(this.f5266a);
             } catch (IllegalArgumentException e2) {
-                if (f5122e) {
+                if (f5265e) {
                     e2.printStackTrace();
                 }
             }
@@ -353,32 +353,32 @@ public class e {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f5124b.h();
+            this.f5267b.h();
         }
     }
 
     public void h(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f5124b.j(bVar);
+            this.f5267b.j(bVar);
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            boolean z = f5122e;
-            this.f5126d.onPause();
-            this.f5124b.k();
+            boolean z = f5265e;
+            this.f5269d.onPause();
+            this.f5267b.k();
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            boolean z = f5122e;
-            this.f5126d.onResume();
-            this.f5124b.l();
+            boolean z = f5265e;
+            this.f5269d.onResume();
+            this.f5267b.l();
         }
     }
 }

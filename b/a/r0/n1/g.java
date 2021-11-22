@@ -20,7 +20,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Runnable f21315a;
+    public static final Runnable f22811a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -78,7 +78,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, appBackgroundSwitchEvent)) == null) {
                 if (appBackgroundSwitchEvent.isBackground()) {
-                    b.a.e.e.m.e.a().removeCallbacks(g.f21315a);
+                    b.a.e.f.m.e.a().removeCallbacks(g.f22811a);
                     return true;
                 }
                 return true;
@@ -100,7 +100,7 @@ public class g {
                 return;
             }
         }
-        f21315a = new a();
+        f22811a = new a();
         b.a.q0.j0.h.f().l(AppBackgroundSwitchEvent.class, new b());
     }
 
@@ -142,7 +142,7 @@ public class g {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            b.a.e.e.m.e.a().postDelayed(f21315a, 5000L);
+            b.a.e.f.m.e.a().postDelayed(f22811a, 5000L);
         }
     }
 }

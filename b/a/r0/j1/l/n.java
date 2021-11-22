@@ -16,18 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
 /* loaded from: classes4.dex */
-public class n extends b.a.r0.b0.e0.a {
+public class n extends b.a.r0.b0.f0.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f18477g;
+    public static final BdUniqueId f19811g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b.a.e.l.e.n> f18478e;
+    public List<b.a.e.m.e.n> f19812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f18479f;
+    public boolean f19813f;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class n extends b.a.r0.b0.e0.a {
                 return;
             }
         }
-        f18477g = BdUniqueId.gen();
+        f19811g = BdUniqueId.gen();
     }
 
     public n() {
@@ -58,27 +58,27 @@ public class n extends b.a.r0.b0.e0.a {
                 return;
             }
         }
-        this.f18478e = null;
+        this.f19812e = null;
     }
 
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<b.a.e.l.e.n> list = this.f18478e;
+            List<b.a.e.m.e.n> list = this.f19812e;
             if (list == null || list.size() == 0) {
                 return 0;
             }
-            return this.f18478e.size();
+            return this.f19812e.size();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f18477g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19811g : (BdUniqueId) invokeV.objValue;
     }
 
     public void parserProtobuf(List<RelateForum> list) {
@@ -88,12 +88,12 @@ public class n extends b.a.r0.b0.e0.a {
         }
         this.showTopDivider = true;
         this.mGroupTitle = TbadkCoreApplication.getInst().getString(b.a.r0.j1.h.recommend_relative_forum);
-        this.f18478e = new ArrayList();
+        this.f19812e = new ArrayList();
         for (RelateForum relateForum : list) {
             if (!StringUtils.isNull(relateForum.forum_name)) {
                 RelateForumItemData relateForumItemData = new RelateForumItemData();
                 relateForumItemData.parserProtobuf(relateForum);
-                this.f18478e.add(relateForumItemData);
+                this.f19812e.add(relateForumItemData);
             }
         }
     }

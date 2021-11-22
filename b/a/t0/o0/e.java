@@ -14,7 +14,7 @@ public class e {
     @Inject(force = false)
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.h0.a.b.c<b.a.t0.n0.d> f28866a;
+    public b.a.h0.a.b.c<b.a.t0.n0.d> f29735a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public class e {
     public b.a.t0.n0.d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28866a.get() : (b.a.t0.n0.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29735a.get() : (b.a.t0.n0.d) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             b.a.h0.a.b.a b2 = b.a.h0.a.b.a.b();
-            this.f28866a = b2;
+            this.f29735a = b2;
             b2.a(new b.a.t0.n0.e());
         }
     }

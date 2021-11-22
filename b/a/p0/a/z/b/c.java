@@ -18,7 +18,7 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(b.a.p0.a.c2.e eVar) {
+    public c(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/camera/remove");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,7 +30,7 @@ public class c extends a {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((b.a.p0.a.c2.e) objArr2[0], (String) objArr2[1]);
+                super((b.a.p0.a.f2.e) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,8 +38,8 @@ public class c extends a {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
@@ -51,7 +51,7 @@ public class c extends a {
             if (aVar != null) {
                 b.a.p0.a.c0.b.c B = aVar.B();
                 if (!B.a()) {
-                    b.a.p0.a.e0.d.b("CameraRemoveAction", "remove camera fail: " + B.f4061b);
+                    b.a.p0.a.e0.d.c("CameraRemoveAction", "remove camera fail: " + B.f4201b);
                 }
                 k(unitedSchemeEntity, callbackHandler, true);
                 return true;
@@ -67,7 +67,7 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
             String l = l(unitedSchemeEntity);
-            if (k.f6397a) {
+            if (k.f6863a) {
                 String str = "parseData:" + l;
             }
             return new b.a.p0.a.z.e.a(l);

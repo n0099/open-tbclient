@@ -2,9 +2,9 @@ package b.a.r0.m1.a.b.b;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.q;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -34,31 +34,31 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.q0.t.e.a f20909a;
+    public b.a.q0.t.e.a f22064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataRes f20910b;
+    public DataRes f22065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f20911c;
+    public boolean f22066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f20912d;
+    public boolean f22067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f20913e;
+    public boolean f22068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f20914f;
+    public BdUniqueId f22069f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final BlackListModel f20915g;
+    public final BlackListModel f22070g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PersonalTalkSettingActivity f20916h;
+    public PersonalTalkSettingActivity f22071h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f20917i;
+    public e f22072i;
     public b.a.e.c.g.c j;
     public CustomMessageListener k;
 
@@ -68,7 +68,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f20918a;
+        public final /* synthetic */ long f22073a;
 
         public a(f fVar, long j) {
             Interceptable interceptable = $ic;
@@ -85,16 +85,16 @@ public class f {
                     return;
                 }
             }
-            this.f20918a = j;
+            this.f22073a = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         /* renamed from: a */
         public PersonalSettingItemData doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.r0.l1.t.e.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f20918a)) : (PersonalSettingItemData) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.r0.l1.t.e.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f22073a)) : (PersonalSettingItemData) invokeV.objValue;
         }
     }
 
@@ -104,13 +104,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f20919a;
+        public final /* synthetic */ long f22074a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonalTalkSettingActivity f20920b;
+        public final /* synthetic */ PersonalTalkSettingActivity f22075b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f f20921c;
+        public final /* synthetic */ f f22076c;
 
         public b(f fVar, long j, PersonalTalkSettingActivity personalTalkSettingActivity) {
             Interceptable interceptable = $ic;
@@ -127,23 +127,23 @@ public class f {
                     return;
                 }
             }
-            this.f20921c = fVar;
-            this.f20919a = j;
-            this.f20920b = personalTalkSettingActivity;
+            this.f22076c = fVar;
+            this.f22074a = j;
+            this.f22075b = personalTalkSettingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.q
+        @Override // b.a.q0.c1.q
         /* renamed from: a */
         public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, personalSettingItemData) == null) {
                 if (personalSettingItemData != null) {
-                    this.f20921c.f20913e = personalSettingItemData.isAcceptNotify();
+                    this.f22076c.f22068e = personalSettingItemData.isAcceptNotify();
                 }
                 RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
-                requestQueryUserInfoMessage.setReqUserId(this.f20919a);
-                this.f20920b.sendMessage(requestQueryUserInfoMessage);
+                requestQueryUserInfoMessage.setReqUserId(this.f22074a);
+                this.f22075b.sendMessage(requestQueryUserInfoMessage);
             }
         }
     }
@@ -154,7 +154,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f20922a;
+        public final /* synthetic */ f f22077a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(f fVar, int i2) {
@@ -174,7 +174,7 @@ public class f {
                     return;
                 }
             }
-            this.f20922a = fVar;
+            this.f22077a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -187,9 +187,9 @@ public class f {
             int cmd = socketResponsedMessage.getCmd();
             if (cmd == 104102) {
                 if (socketResponsedMessage instanceof ResponsedMessage) {
-                    this.f20922a.f20916h.closeLoadingDialog();
+                    this.f22077a.f22071h.closeLoadingDialog();
                     if (socketResponsedMessage.getError() != 0) {
-                        this.f20922a.f20916h.showToast(socketResponsedMessage.getErrorString());
+                        this.f22077a.f22071h.showToast(socketResponsedMessage.getErrorString());
                     }
                 }
                 if (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) {
@@ -197,9 +197,9 @@ public class f {
                     if (responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) {
                         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage();
                         if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
-                            this.f20922a.f20912d = requestUpdateMaskInfoMessage.getIsMask() == 1;
-                            if (this.f20922a.f20917i != null) {
-                                this.f20922a.f20917i.updateUI();
+                            this.f22077a.f22067d = requestUpdateMaskInfoMessage.getIsMask() == 1;
+                            if (this.f22077a.f22072i != null) {
+                                this.f22077a.f22072i.updateUI();
                             }
                         }
                     }
@@ -207,19 +207,19 @@ public class f {
             } else if (cmd != 205003) {
             } else {
                 if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() != 0) {
-                    this.f20922a.f20916h.hideProgressBar();
-                    this.f20922a.f20916h.showToast(socketResponsedMessage.getErrorString());
+                    this.f22077a.f22071h.hideProgressBar();
+                    this.f22077a.f22071h.showToast(socketResponsedMessage.getErrorString());
                 } else if (socketResponsedMessage instanceof ResponseQueryUserInfoMessage) {
                     ResponseQueryUserInfoMessage responseQueryUserInfoMessage = (ResponseQueryUserInfoMessage) socketResponsedMessage;
                     if (responseQueryUserInfoMessage.getResData() != null) {
-                        this.f20922a.f20910b = responseQueryUserInfoMessage.getResData();
-                        f fVar = this.f20922a;
-                        fVar.f20911c = fVar.f20910b.hasConcerned.intValue() == 1;
-                        f fVar2 = this.f20922a;
-                        fVar2.f20912d = fVar2.f20910b.isBlacklist.intValue() == 1;
-                        this.f20922a.f20916h.hideProgressBar();
-                        if (this.f20922a.f20917i != null) {
-                            this.f20922a.f20917i.updateUI();
+                        this.f22077a.f22065b = responseQueryUserInfoMessage.getResData();
+                        f fVar = this.f22077a;
+                        fVar.f22066c = fVar.f22065b.hasConcerned.intValue() == 1;
+                        f fVar2 = this.f22077a;
+                        fVar2.f22067d = fVar2.f22065b.isBlacklist.intValue() == 1;
+                        this.f22077a.f22071h.hideProgressBar();
+                        if (this.f22077a.f22072i != null) {
+                            this.f22077a.f22072i.updateUI();
                         }
                     }
                 }
@@ -233,7 +233,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f20923a;
+        public final /* synthetic */ f f22078a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(f fVar, int i2) {
@@ -253,7 +253,7 @@ public class f {
                     return;
                 }
             }
-            this.f20923a = fVar;
+            this.f22078a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -263,22 +263,22 @@ public class f {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (!updateAttentionMessage.isSucc()) {
-                    if (this.f20923a.f20916h == null || TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
+                    if (this.f22078a.f22071h == null || TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
                         return;
                     }
-                    this.f20923a.f20916h.showToast(updateAttentionMessage.getErrorString());
+                    this.f22078a.f22071h.showToast(updateAttentionMessage.getErrorString());
                     return;
                 }
-                this.f20923a.f20911c = updateAttentionMessage.isAttention();
-                if (this.f20923a.f20916h != null) {
-                    if (this.f20923a.f20911c) {
-                        this.f20923a.f20916h.showToast(R.string.add_success);
+                this.f22078a.f22066c = updateAttentionMessage.isAttention();
+                if (this.f22078a.f22071h != null) {
+                    if (this.f22078a.f22066c) {
+                        this.f22078a.f22071h.showToast(R.string.add_success);
                     } else {
-                        this.f20923a.f20916h.showToast(R.string.remove_succ);
+                        this.f22078a.f22071h.showToast(R.string.remove_succ);
                     }
                 }
-                if (this.f20923a.f20917i != null) {
-                    this.f20923a.f20917i.updateUI();
+                if (this.f22078a.f22072i != null) {
+                    this.f22078a.f22072i.updateUI();
                 }
             }
         }
@@ -304,16 +304,16 @@ public class f {
                 return;
             }
         }
-        this.f20911c = false;
-        this.f20912d = false;
-        this.f20913e = false;
-        this.f20914f = BdUniqueId.gen();
+        this.f22066c = false;
+        this.f22067d = false;
+        this.f22068e = false;
+        this.f22069f = BdUniqueId.gen();
         this.j = new c(this, 0);
         this.k = new d(this, 0);
-        this.f20916h = personalTalkSettingActivity;
-        this.f20917i = eVar;
-        this.f20909a = new b.a.q0.t.e.a(personalTalkSettingActivity.getPageContext());
-        this.f20915g = new BlackListModel(personalTalkSettingActivity.getPageContext());
+        this.f22071h = personalTalkSettingActivity;
+        this.f22072i = eVar;
+        this.f22064a = new b.a.q0.t.e.a(personalTalkSettingActivity.getPageContext());
+        this.f22070g = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
         l0.c(new a(this, j), new b(this, j, personalTalkSettingActivity));
     }
@@ -327,7 +327,7 @@ public class f {
     public DataRes j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20910b : (DataRes) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22065b : (DataRes) invokeV.objValue;
     }
 
     public b.a.e.c.g.c k() {
@@ -339,23 +339,23 @@ public class f {
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20912d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22067d : invokeV.booleanValue;
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20913e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22068e : invokeV.booleanValue;
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b.a.q0.t.e.a aVar = this.f20909a;
+            b.a.q0.t.e.a aVar = this.f22064a;
             if (aVar != null) {
                 aVar.g();
             }
-            BlackListModel blackListModel = this.f20915g;
+            BlackListModel blackListModel = this.f22070g;
             if (blackListModel != null) {
                 blackListModel.cancelLoadData();
             }
@@ -365,7 +365,7 @@ public class f {
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f20913e = z;
+            this.f22068e = z;
         }
     }
 
@@ -374,10 +374,10 @@ public class f {
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             requestUpdateMaskInfoMessage.setMaskType(9);
-            requestUpdateMaskInfoMessage.setList(String.valueOf(this.f20910b.id));
+            requestUpdateMaskInfoMessage.setList(String.valueOf(this.f22065b.id));
             requestUpdateMaskInfoMessage.setSettingMask(z);
-            requestUpdateMaskInfoMessage.setTag(this.f20914f);
-            MessageManager.getInstance().removeMessage(104102, this.f20914f);
+            requestUpdateMaskInfoMessage.setTag(this.f22069f);
+            MessageManager.getInstance().removeMessage(104102, this.f22069f);
             MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
         }
     }
@@ -385,11 +385,11 @@ public class f {
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f20916h.showLoadingDialog(null);
+            this.f22071h.showLoadingDialog(null);
             if (z) {
-                this.f20915g.addToBlackList(this.f20910b.id.longValue());
+                this.f22070g.addToBlackList(this.f22065b.id.longValue());
             } else {
-                this.f20915g.removeFromBlackList(this.f20910b.id.longValue());
+                this.f22070g.removeFromBlackList(this.f22065b.id.longValue());
             }
         }
     }

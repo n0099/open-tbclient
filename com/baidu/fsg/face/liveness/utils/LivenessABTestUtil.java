@@ -15,11 +15,11 @@ public class LivenessABTestUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LivenessABTestUtil f38219a;
+    public static LivenessABTestUtil f39049a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ABTestUtils f38220b;
+    public ABTestUtils f39050b;
 
     public LivenessABTestUtil() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class LivenessABTestUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             synchronized (LivenessABTestUtil.class) {
-                f38219a = null;
+                f39049a = null;
             }
         }
     }
@@ -50,10 +50,10 @@ public class LivenessABTestUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (LivenessABTestUtil.class) {
-                if (f38219a == null) {
-                    f38219a = new LivenessABTestUtil(context);
+                if (f39049a == null) {
+                    f39049a = new LivenessABTestUtil(context);
                 }
-                livenessABTestUtil = f38219a;
+                livenessABTestUtil = f39049a;
             }
             return livenessABTestUtil;
         }
@@ -64,7 +64,7 @@ public class LivenessABTestUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ABTestUtils aBTestUtils = this.f38220b;
+            ABTestUtils aBTestUtils = this.f39050b;
             if (aBTestUtils != null) {
                 return aBTestUtils.getABTestStatistics("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0");
             }
@@ -77,7 +77,7 @@ public class LivenessABTestUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ABTestUtils aBTestUtils = this.f38220b;
+            ABTestUtils aBTestUtils = this.f39050b;
             if (aBTestUtils != null) {
                 return "1".equals(aBTestUtils.getABTestValueString("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0"));
             }
@@ -101,6 +101,6 @@ public class LivenessABTestUtil {
                 return;
             }
         }
-        this.f38220b = new ABTestUtils(context);
+        this.f39050b = new ABTestUtils(context);
     }
 }

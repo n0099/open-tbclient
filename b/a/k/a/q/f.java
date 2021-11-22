@@ -14,28 +14,28 @@ public class f<K, V> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<K, V> f3145a;
+    public final LinkedHashMap<K, V> f3238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3146b;
+    public int f3239b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3147c;
+    public int f3240c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3148d;
+    public int f3241d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3149e;
+    public int f3242e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3150f;
+    public int f3243f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3151g;
+    public int f3244g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f3152h;
+    public int f3245h;
 
     public f(int i2) {
         Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public class f<K, V> {
             }
         }
         if (i2 > 0) {
-            this.f3147c = i2;
-            this.f3145a = new LinkedHashMap<>(0, 0.75f, true);
+            this.f3240c = i2;
+            this.f3238a = new LinkedHashMap<>(0, 0.75f, true);
             return;
         }
         throw new IllegalArgumentException("maxSize <= 0");
@@ -82,30 +82,30 @@ public class f<K, V> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) {
             if (k != null) {
                 synchronized (this) {
-                    V v = this.f3145a.get(k);
+                    V v = this.f3238a.get(k);
                     if (v != null) {
-                        this.f3151g++;
+                        this.f3244g++;
                         return v;
                     }
-                    this.f3152h++;
+                    this.f3245h++;
                     V a2 = a(k);
                     if (a2 == null) {
                         return null;
                     }
                     synchronized (this) {
-                        this.f3149e++;
-                        put = this.f3145a.put(k, a2);
+                        this.f3242e++;
+                        put = this.f3238a.put(k, a2);
                         if (put != null) {
-                            this.f3145a.put(k, put);
+                            this.f3238a.put(k, put);
                         } else {
-                            this.f3146b += e(k, a2);
+                            this.f3239b += e(k, a2);
                         }
                     }
                     if (put != null) {
                         b(false, k, a2, put);
                         return put;
                     }
-                    g(this.f3147c);
+                    g(this.f3240c);
                     return a2;
                 }
             }
@@ -121,17 +121,17 @@ public class f<K, V> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
             if (k != null && v != null) {
                 synchronized (this) {
-                    this.f3148d++;
-                    this.f3146b += e(k, v);
-                    put = this.f3145a.put(k, v);
+                    this.f3241d++;
+                    this.f3239b += e(k, v);
+                    put = this.f3238a.put(k, v);
                     if (put != null) {
-                        this.f3146b -= e(k, put);
+                        this.f3239b -= e(k, put);
                     }
                 }
                 if (put != null) {
                     b(false, k, put, v);
                 }
-                g(this.f3147c);
+                g(this.f3240c);
                 return put;
             }
             throw new NullPointerException("key == null || value == null");
@@ -174,16 +174,16 @@ public class f<K, V> {
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             while (true) {
                 synchronized (this) {
-                    if (this.f3146b >= 0 && (!this.f3145a.isEmpty() || this.f3146b == 0)) {
-                        if (this.f3146b <= i2 || this.f3145a.isEmpty()) {
+                    if (this.f3239b >= 0 && (!this.f3238a.isEmpty() || this.f3239b == 0)) {
+                        if (this.f3239b <= i2 || this.f3238a.isEmpty()) {
                             break;
                         }
-                        Map.Entry<K, V> next = this.f3145a.entrySet().iterator().next();
+                        Map.Entry<K, V> next = this.f3238a.entrySet().iterator().next();
                         key = next.getKey();
                         value = next.getValue();
-                        this.f3145a.remove(key);
-                        this.f3146b -= e(key, value);
-                        this.f3150f++;
+                        this.f3238a.remove(key);
+                        this.f3239b -= e(key, value);
+                        this.f3243f++;
                     } else {
                         break;
                     }
@@ -199,8 +199,8 @@ public class f<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
-                int i2 = this.f3151g + this.f3152h;
-                format = String.format("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f3147c), Integer.valueOf(this.f3151g), Integer.valueOf(this.f3152h), Integer.valueOf(i2 != 0 ? (this.f3151g * 100) / i2 : 0));
+                int i2 = this.f3244g + this.f3245h;
+                format = String.format("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f3240c), Integer.valueOf(this.f3244g), Integer.valueOf(this.f3245h), Integer.valueOf(i2 != 0 ? (this.f3244g * 100) / i2 : 0));
             }
             return format;
         }

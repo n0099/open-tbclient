@@ -10,6 +10,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,19 +18,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AiAppsShareActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener listener;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AiAppsShareActivity f46839a;
+        public final /* synthetic */ AiAppsShareActivity f47703a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AiAppsShareActivity aiAppsShareActivity, int i2) {
@@ -49,7 +50,7 @@ public class AiAppsShareActivity extends Activity {
                     return;
                 }
             }
-            this.f46839a = aiAppsShareActivity;
+            this.f47703a = aiAppsShareActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +59,7 @@ public class AiAppsShareActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921366, Boolean.FALSE));
-                this.f46839a.finish();
+                this.f47703a.finish();
             }
         }
     }
@@ -97,11 +98,13 @@ public class AiAppsShareActivity extends Activity {
             Intent intent = getIntent();
             if (intent == null) {
                 finish();
+                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             String stringExtra = intent.getStringExtra("options");
             if (StringUtils.isNULL(stringExtra)) {
                 finish();
+                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             b.a.r0.v.b.j.a aVar = new b.a.r0.v.b.j.a();
@@ -109,8 +112,10 @@ public class AiAppsShareActivity extends Activity {
                 aVar.p(new JSONObject(stringExtra));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, aVar, false)));
                 MessageManager.getInstance().registerListener(this.listener);
+                LogUtil.logActivity(this, "onCreate");
             } catch (JSONException unused) {
                 finish();
+                LogUtil.logActivity(this, "onCreate");
             }
         }
     }

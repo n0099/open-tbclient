@@ -25,25 +25,25 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f21131a;
+    public f f22286a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f21132b;
+    public View f22287b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f21133c;
+    public ImageView f22288c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f21134d;
+    public TextView f22289d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f21135e;
+    public TBSpecificationBtn f22290e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f21136f;
+    public b f22291f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f21137g;
+    public View.OnClickListener f22292g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -51,7 +51,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21138e;
+        public final /* synthetic */ e f22293e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -68,20 +68,20 @@ public class e {
                     return;
                 }
             }
-            this.f21138e = eVar;
+            this.f22293e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() == this.f21138e.f21135e.getId()) {
-                    b.a.q0.t.h.a.c(this.f21138e.f21131a);
+                if (view.getId() == this.f22293e.f22290e.getId()) {
+                    b.a.q0.t.h.a.c(this.f22293e.f22286a);
                     TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
-                } else if (view.getId() == this.f21138e.f21133c.getId()) {
+                } else if (view.getId() == this.f22293e.f22288c.getId()) {
                     b.a.q0.s.e0.b.j().w("key_im_open_notification_close_time", System.currentTimeMillis());
-                    if (this.f21138e.f21136f != null) {
-                        this.f21138e.f21136f.onClose();
+                    if (this.f22293e.f22291f != null) {
+                        this.f22293e.f22291f.onClose();
                     }
                     TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 2));
                 }
@@ -109,18 +109,18 @@ public class e {
                 return;
             }
         }
-        this.f21137g = new a(this);
-        this.f21131a = fVar;
+        this.f22292g = new a(this);
+        this.f22286a = fVar;
         View inflate = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.open_notification_view, (ViewGroup) null);
-        this.f21132b = inflate;
+        this.f22287b = inflate;
         ImageView imageView = (ImageView) inflate.findViewById(R.id.img_close);
-        this.f21133c = imageView;
-        imageView.setOnClickListener(this.f21137g);
-        this.f21134d = (TextView) this.f21132b.findViewById(R.id.open_desc);
-        this.f21135e = (TBSpecificationBtn) this.f21132b.findViewById(R.id.btn_open);
-        this.f21135e.setConfig(new b.a.q0.s.g0.n.b());
-        this.f21135e.setText(fVar.getString(R.string.go_to_open));
-        this.f21135e.setOnClickListener(this.f21137g);
+        this.f22288c = imageView;
+        imageView.setOnClickListener(this.f22292g);
+        this.f22289d = (TextView) this.f22287b.findViewById(R.id.open_desc);
+        this.f22290e = (TBSpecificationBtn) this.f22287b.findViewById(R.id.btn_open);
+        this.f22290e.setConfig(new b.a.q0.s.g0.n.b());
+        this.f22290e.setText(fVar.getString(R.string.go_to_open));
+        this.f22290e.setOnClickListener(this.f22292g);
         TiebaStatic.log("c13704");
         f(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -128,22 +128,22 @@ public class e {
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21132b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22287b : (View) invokeV.objValue;
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f21132b, R.color.CAM_X0206);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21133c, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SkinManager.setViewTextColor(this.f21134d, R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f22287b, R.color.CAM_X0206);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22288c, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SkinManager.setViewTextColor(this.f22289d, R.color.CAM_X0107);
         }
     }
 
     public void g(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f21136f = bVar;
+            this.f22291f = bVar;
         }
     }
 }

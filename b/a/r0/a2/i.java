@@ -33,32 +33,32 @@ public class i implements h {
     public boolean E;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14685a;
+    public int f15517a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14686b;
+    public String f15518b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14687c;
+    public String f15519c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14688d;
+    public String f15520d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14689e;
+    public String f15521e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14690f;
+    public String f15522f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14691g;
+    public String f15523g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14692h;
+    public int f15524h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14693i;
-    public List<b.a.r0.s2.b> j;
+    public int f15525i;
+    public List<b.a.r0.t2.b> j;
     public Map<String, Long> k;
     public long l;
     public long m;
@@ -82,7 +82,7 @@ public class i implements h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f14694a;
+        public final /* synthetic */ i f15526a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class i implements h {
                     return;
                 }
             }
-            this.f14694a = iVar;
+            this.f15526a = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,27 +118,27 @@ public class i implements h {
             int b2 = b.a.q0.t.e.g.b();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("baseInfo", this.f14694a.s());
-                jSONObject.put("kpiInfo", this.f14694a.u());
+                jSONObject.put("baseInfo", this.f15526a.s());
+                jSONObject.put("kpiInfo", this.f15526a.u());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (b2 != 0 && (b2 != 4 || !this.f14694a.s)) {
+            if (b2 != 0 && (b2 != 4 || !this.f15526a.s)) {
                 if (b2 == 2) {
-                    jSONObject.put("debugInfo", this.f14694a.t());
+                    jSONObject.put("debugInfo", this.f15526a.t());
                 }
-                b.a.r0.u3.e.h().k(jSONObject, !this.f14694a.s);
-                if (this.f14694a.y == null) {
-                    this.f14694a.y.clear();
+                b.a.r0.v3.e.h().k(jSONObject, !this.f15526a.s);
+                if (this.f15526a.y == null) {
+                    this.f15526a.y.clear();
                     return null;
                 }
                 return null;
             }
-            JSONObject t = this.f14694a.t();
-            t.put("running", this.f14694a.w());
+            JSONObject t = this.f15526a.t();
+            t.put("running", this.f15526a.w());
             jSONObject.put("debugInfo", t);
-            b.a.r0.u3.e.h().k(jSONObject, !this.f14694a.s);
-            if (this.f14694a.y == null) {
+            b.a.r0.v3.e.h().k(jSONObject, !this.f15526a.s);
+            if (this.f15526a.y == null) {
             }
         }
     }
@@ -158,17 +158,17 @@ public class i implements h {
                 return;
             }
         }
-        this.f14685a = 0;
+        this.f15517a = 0;
         this.s = true;
         this.t = false;
         this.u = false;
         this.D = false;
         this.E = false;
-        this.f14685a = 0;
-        this.f14686b = UUID.randomUUID().toString();
-        this.f14687c = str;
-        this.f14688d = str2;
-        this.f14691g = str3;
+        this.f15517a = 0;
+        this.f15518b = UUID.randomUUID().toString();
+        this.f15519c = str;
+        this.f15520d = str2;
+        this.f15523g = str3;
         this.k = new HashMap();
         this.j = new ArrayList();
         this.l = 0L;
@@ -205,8 +205,8 @@ public class i implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.r = z;
-            this.j.add(new b.a.r0.s2.a(1));
-            this.f14685a = 1;
+            this.j.add(new b.a.r0.t2.a(1));
+            this.f15517a = 1;
         }
     }
 
@@ -234,15 +234,15 @@ public class i implements h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            int i2 = this.f14685a;
+            int i2 = this.f15517a;
             if (i2 == 8 || i2 == 7 || i2 == 6 || i2 == -1 || i2 == 1) {
                 return false;
             }
-            this.f14689e = VideoPlatformStatic.a(str);
-            this.f14690f = str2;
+            this.f15521e = VideoPlatformStatic.a(str);
+            this.f15522f = str2;
             y();
-            this.j.add(new b.a.r0.s2.a(207));
-            this.f14685a = 7;
+            this.j.add(new b.a.r0.t2.a(207));
+            this.f15517a = 7;
             A();
             return true;
         }
@@ -254,18 +254,18 @@ public class i implements h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            int i2 = this.f14685a;
+            int i2 = this.f15517a;
             if (i2 != 8 && i2 != 7 && i2 != 6 && i2 != -1) {
-                this.f14689e = VideoPlatformStatic.a(str);
-                this.f14690f = str2;
+                this.f15521e = VideoPlatformStatic.a(str);
+                this.f15522f = str2;
                 y();
                 this.k.put("stallDuration", Long.valueOf(this.p));
-                this.j.add(new b.a.r0.s2.a(206));
-                this.f14685a = 6;
+                this.j.add(new b.a.r0.t2.a(206));
+                this.f15517a = 6;
                 A();
-                return this.f14686b;
+                return this.f15518b;
             }
-            return this.f14686b;
+            return this.f15518b;
         }
         return (String) invokeLL.objValue;
     }
@@ -274,14 +274,14 @@ public class i implements h {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int i2 = this.f14685a;
+            int i2 = this.f15517a;
             if (i2 == 4 || i2 == 3) {
                 if (this.m != 0) {
                     this.n += System.currentTimeMillis() - this.m;
                     this.m = 0L;
                 }
-                this.j.add(new b.a.r0.s2.a(203));
-                this.f14685a = 5;
+                this.j.add(new b.a.r0.t2.a(203));
+                this.f15517a = 5;
             }
         }
     }
@@ -300,15 +300,15 @@ public class i implements h {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            int i3 = this.f14685a;
+            int i3 = this.f15517a;
             if (i3 == 5) {
                 z();
             } else if (i3 != 3) {
             } else {
-                this.f14692h = i2;
+                this.f15524h = i2;
                 this.m = System.currentTimeMillis();
-                this.j.add(new b.a.r0.s2.a(200));
-                this.f14685a = 4;
+                this.j.add(new b.a.r0.t2.a(200));
+                this.f15517a = 4;
             }
         }
     }
@@ -317,16 +317,16 @@ public class i implements h {
     public void i(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (i3 = this.f14685a) == 4 || i3 == 5 || i3 == 7 || i3 == 8) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (i3 = this.f15517a) == 4 || i3 == 5 || i3 == 7 || i3 == 8) {
             return;
         }
-        this.f14692h = i2;
+        this.f15524h = i2;
         this.s = true;
         this.t = true;
         this.k.put("loadingTime", 1L);
         this.l = 0L;
-        this.j.add(new b.a.r0.s2.a(103));
-        this.f14685a = 3;
+        this.j.add(new b.a.r0.t2.a(103));
+        this.f15517a = 3;
     }
 
     @Override // b.a.r0.a2.h
@@ -334,8 +334,8 @@ public class i implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.l = System.currentTimeMillis();
-            this.j.add(new b.a.r0.s2.a(3));
-            this.f14685a = 0;
+            this.j.add(new b.a.r0.t2.a(3));
+            this.f15517a = 0;
         }
     }
 
@@ -343,14 +343,14 @@ public class i implements h {
     public void k(String str, String str2) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) || (i2 = this.f14685a) == 8 || i2 == 7 || i2 == 6 || i2 == -1) {
+        if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) || (i2 = this.f15517a) == 8 || i2 == 7 || i2 == 6 || i2 == -1) {
             return;
         }
-        this.f14689e = VideoPlatformStatic.a(str);
-        this.f14690f = str2;
+        this.f15521e = VideoPlatformStatic.a(str);
+        this.f15522f = str2;
         y();
-        this.j.add(new b.a.r0.s2.a(205));
-        this.f14685a = 8;
+        this.j.add(new b.a.r0.t2.a(205));
+        this.f15517a = 8;
         A();
     }
 
@@ -358,10 +358,10 @@ public class i implements h {
     public void l(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (i3 = this.f14685a) == 4 || i3 == 5 || i3 == 7 || i3 == 8) {
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (i3 = this.f15517a) == 4 || i3 == 5 || i3 == 7 || i3 == 8) {
             return;
         }
-        this.f14692h = i2;
+        this.f15524h = i2;
         this.s = true;
         long currentTimeMillis = System.currentTimeMillis() - this.l;
         if (currentTimeMillis > 86400000) {
@@ -369,8 +369,8 @@ public class i implements h {
         }
         this.k.put("loadingTime", Long.valueOf(currentTimeMillis));
         this.l = 0L;
-        this.j.add(new b.a.r0.s2.a(102));
-        this.f14685a = 3;
+        this.j.add(new b.a.r0.t2.a(102));
+        this.f15517a = 3;
     }
 
     public final JSONObject s() {
@@ -400,15 +400,15 @@ public class i implements h {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("uuid", this.f14686b);
-                if (!StringUtils.isNull(this.f14691g)) {
-                    jSONObject.put("parentUuid", this.f14691g);
+                jSONObject.put("uuid", this.f15518b);
+                if (!StringUtils.isNull(this.f15523g)) {
+                    jSONObject.put("parentUuid", this.f15523g);
                 }
-                jSONObject.put("tid", this.f14687c);
-                jSONObject.put("videoUrl", this.f14688d);
-                jSONObject.put("source", this.f14689e);
-                jSONObject.put("playerType", VideoPlatformStatic.b(this.f14692h));
-                jSONObject.put("urlType", this.f14693i);
+                jSONObject.put("tid", this.f15519c);
+                jSONObject.put("videoUrl", this.f15520d);
+                jSONObject.put("source", this.f15521e);
+                jSONObject.put("playerType", VideoPlatformStatic.b(this.f15524h));
+                jSONObject.put("urlType", this.f15525i);
                 jSONObject.put("sub_error", this.z);
                 jSONObject.put("current_pid", Process.myPid());
                 jSONObject.put("directPrepare", this.t ? 1 : 0);
@@ -504,7 +504,7 @@ public class i implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            List<b.a.r0.s2.b> list = this.j;
+            List<b.a.r0.t2.b> list = this.j;
             if (list == null) {
                 return jSONArray;
             }
@@ -520,7 +520,7 @@ public class i implements h {
     public final void x() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && b.a.q0.q0.k.d().g() && this.k != null) {
-            b.a.e.e.n.a a2 = b.a.q0.q0.j.a();
+            b.a.e.f.n.a a2 = b.a.q0.q0.j.a();
             a2.b("action", "video_monitor");
             a2.c("play_time", this.k.get("playDuration"));
             a2.c("caton_time", this.k.get("stallDuration"));
@@ -531,8 +531,8 @@ public class i implements h {
             a2.c(objArr);
             a2.c("hit_cache", Boolean.valueOf(this.r));
             a2.c("direct_play", Integer.valueOf(this.t ? 1 : 0));
-            a2.b("page_code", this.f14690f);
-            a2.b("nettype", b.a.e.e.n.e.a(BdBaseApplication.getInst()));
+            a2.b("page_code", this.f15522f);
+            a2.b("nettype", b.a.e.f.n.e.a(BdBaseApplication.getInst()));
             BdStatisticsManager.getInstance().performance("video", a2);
         }
     }
@@ -559,10 +559,10 @@ public class i implements h {
 
     public void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && this.f14685a == 5) {
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && this.f15517a == 5) {
             this.m = System.currentTimeMillis();
-            this.j.add(new b.a.r0.s2.a(204));
-            this.f14685a = 4;
+            this.j.add(new b.a.r0.t2.a(204));
+            this.f15517a = 4;
         }
     }
 }

@@ -28,7 +28,7 @@ public abstract class a {
 
     /* renamed from: b.a.r0.l1.f.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0997a {
+    public interface InterfaceC1065a {
         boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo);
     }
 
@@ -107,14 +107,14 @@ public abstract class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC0997a interfaceC0997a) {
+    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC1065a interfaceC1065a) {
         ImMessageCenterPojo imMessageCenterPojo2;
         boolean z2;
         String str;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{groupMsgData, imMessageCenterPojo, bVar, cVar, Boolean.valueOf(z), interfaceC0997a}) == null) {
-            InterfaceC0997a interfaceC0997a2 = interfaceC0997a;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{groupMsgData, imMessageCenterPojo, bVar, cVar, Boolean.valueOf(z), interfaceC1065a}) == null) {
+            InterfaceC1065a interfaceC1065a2 = interfaceC1065a;
             String valueOf = String.valueOf(groupMsgData.getGroupInfo().getGroupId());
             int customType = groupMsgData.getGroupInfo().getCustomType();
             int userType = groupMsgData.getGroupInfo().getUserType();
@@ -139,7 +139,7 @@ public abstract class a {
                 if (pulled_msgId < chatMessage.getMsgId()) {
                     pulled_msgId = chatMessage.getMsgId();
                 }
-                if (interfaceC0997a2 == null || !interfaceC0997a2.a(chatMessage, imMessageCenterPojo2)) {
+                if (interfaceC1065a2 == null || !interfaceC1065a2.a(chatMessage, imMessageCenterPojo2)) {
                     chatMessage.setLocalData(new MsgLocalData());
                     chatMessage.getLocalData().setStatus((short) 3);
                     CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(chatMessage);
@@ -156,7 +156,7 @@ public abstract class a {
                     if (commonMsgPojo == null || commonMsgPojo.getRid() < commonMsgPojo2.getRid()) {
                         commonMsgPojo = commonMsgPojo2;
                     }
-                    interfaceC0997a2 = interfaceC0997a;
+                    interfaceC1065a2 = interfaceC1065a;
                 }
             }
             if (commonMsgPojo != null) {

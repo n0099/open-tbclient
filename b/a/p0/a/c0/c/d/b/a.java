@@ -18,10 +18,10 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
             b.a.p0.a.c0.c.d.a aVar2 = (b.a.p0.a.c0.c.d.a) b.a.p0.a.c0.d.a.a(aVar);
             if (aVar2 == null) {
-                d.b("Component-Canvas-Utils", "get canvas view fail: find a null component");
+                d.c("Component-Canvas-Utils", "get canvas view fail: find a null component");
                 return null;
             }
-            return aVar2.f4067i;
+            return aVar2.f4207i;
         }
         return (CanvasView) invokeL.objValue;
     }

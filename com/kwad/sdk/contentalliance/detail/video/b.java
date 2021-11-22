@@ -16,16 +16,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f64249a;
+    public long f65162a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64250b;
+    public long f65163b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f64251c;
+    public long f65164c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f64252d;
+    public int f65165d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class b {
                 return;
             }
         }
-        this.f64250b = -1L;
+        this.f65163b = -1L;
     }
 
     public b(@NonNull AdTemplate adTemplate, long j) {
@@ -58,11 +58,11 @@ public class b {
                 return;
             }
         }
-        this.f64250b = -1L;
-        this.f64249a = com.kwad.sdk.core.response.b.c.o(adTemplate);
-        this.f64250b = j;
-        this.f64251c = com.kwad.sdk.core.response.b.c.t(adTemplate);
-        this.f64252d = com.kwad.sdk.core.response.b.c.e(adTemplate);
+        this.f65163b = -1L;
+        this.f65162a = com.kwad.sdk.core.response.b.c.o(adTemplate);
+        this.f65163b = j;
+        this.f65164c = com.kwad.sdk.core.response.b.c.t(adTemplate);
+        this.f65165d = com.kwad.sdk.core.response.b.c.e(adTemplate);
     }
 
     @NonNull
@@ -78,8 +78,8 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("contentType", this.f64252d);
-                jSONObject.put("adStyle", this.f64251c);
+                jSONObject.put("contentType", this.f65165d);
+                jSONObject.put("adStyle", this.f65164c);
             } catch (JSONException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }

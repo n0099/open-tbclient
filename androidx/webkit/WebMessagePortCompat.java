@@ -42,7 +42,7 @@ public abstract class WebMessagePortCompat {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public WebMessagePortCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,10 +60,10 @@ public abstract class WebMessagePortCompat {
     public abstract void close();
 
     @RequiresApi(23)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public abstract WebMessagePort getFrameworkPort();
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public abstract InvocationHandler getInvocationHandler();
 
     public abstract void postMessage(@NonNull WebMessageCompat webMessageCompat);

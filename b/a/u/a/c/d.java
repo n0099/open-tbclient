@@ -21,10 +21,10 @@ public abstract class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28989a;
+    public Context f29858a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f28990b;
+    public e f29859b;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public abstract class d {
                 return;
             }
         }
-        this.f28990b = null;
-        this.f28989a = context;
+        this.f29859b = null;
+        this.f29858a = context;
     }
 
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28990b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29859b : (e) invokeV.objValue;
     }
 
     public abstract InputStream b() throws Exception;

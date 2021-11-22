@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.p0.k.g;
-import b.a.p0.k.o;
+import b.a.p0.n.g;
+import b.a.p0.n.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,10 +26,10 @@ public class MainMenuView extends BaseMenuView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f44816h;
+    public LinearLayout f45624h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f44817i;
+    public View f45625i;
     public View j;
     public RecyclerView k;
     public MenuContentAdapter l;
@@ -63,14 +63,14 @@ public class MainMenuView extends BaseMenuView {
     private void setMenuHeader(View view) {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, view) == null) || view == null || view == (view2 = this.f44817i)) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, view) == null) || view == null || view == (view2 = this.f45625i)) {
             return;
         }
         if (view2 != null) {
-            this.f44816h.removeView(view2);
+            this.f45624h.removeView(view2);
         }
-        this.f44817i = view;
-        this.f44816h.addView(view, 0);
+        this.f45625i = view;
+        this.f45624h.addView(view, 0);
     }
 
     public final void a(int i2) {
@@ -222,14 +222,14 @@ public class MainMenuView extends BaseMenuView {
             }
         }
         LinearLayout linearLayout = new LinearLayout(context, attributeSet, i2);
-        this.f44816h = linearLayout;
+        this.f45624h = linearLayout;
         linearLayout.setOrientation(1);
         RecyclerView recyclerView = new RecyclerView(context, attributeSet, i2);
         this.k = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         this.k.setPadding(0, (int) this.mContext.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
-        this.f44816h.addView(this.k, layoutParams);
+        this.f45624h.addView(this.k, layoutParams);
         View view = new View(context);
         this.j = view;
         view.setVisibility(8);
@@ -237,12 +237,12 @@ public class MainMenuView extends BaseMenuView {
         int dimensionPixelSize = getResources().getDimensionPixelSize(g.main_menu_divider_margin);
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
-        this.f44816h.addView(this.j, layoutParams2);
+        this.f45624h.addView(this.j, layoutParams2);
         RecyclerView recyclerView2 = new RecyclerView(context, attributeSet, i2);
         this.m = recyclerView2;
         recyclerView2.setVisibility(8);
         this.m.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        this.f44816h.addView(this.m, new LinearLayout.LayoutParams(-1, -2));
-        setContentView(this.f44816h, new FrameLayout.LayoutParams(-1, -2));
+        this.f45624h.addView(this.m, new LinearLayout.LayoutParams(-1, -2));
+        setContentView(this.f45624h, new FrameLayout.LayoutParams(-1, -2));
     }
 }

@@ -16,7 +16,7 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f50705e;
+    public TextView f51617e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonaltalkSettingViewBlackManView(Context context, AttributeSet attributeSet) {
@@ -45,7 +45,7 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.p2ptalk_setting_black_man_view, this);
             setOrientation(1);
-            this.f50705e = (TextView) findViewById(R.id.black_man_text);
+            this.f51617e = (TextView) findViewById(R.id.black_man_text);
         }
     }
 
@@ -60,7 +60,7 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
             } else {
                 string = getResources().getString(R.string.she);
             }
-            this.f50705e.setText(getResources().getString(R.string.in_black_desc_1, string));
+            this.f51617e.setText(getResources().getString(R.string.in_black_desc_1, string));
         }
     }
 

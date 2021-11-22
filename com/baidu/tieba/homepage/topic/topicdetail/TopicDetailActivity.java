@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.b;
-import b.a.e.e.p.j;
-import b.a.e.e.p.k;
-import b.a.e.l.e.n;
+import b.a.e.f.m.b;
+import b.a.e.f.p.j;
+import b.a.e.f.p.k;
+import b.a.e.m.e.n;
 import b.a.q0.a.g;
 import b.a.q0.a.w;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -58,7 +58,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicDetailActivity f49822a;
+        public final /* synthetic */ TopicDetailActivity f50734a;
 
         public a(TopicDetailActivity topicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -75,18 +75,18 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     return;
                 }
             }
-            this.f49822a = topicDetailActivity;
+            this.f50734a = topicDetailActivity;
         }
 
         @Override // b.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.y) instanceof String)) {
-                String str = (String) hashMap.get(g.y);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.z) instanceof String)) {
+                String str = (String) hashMap.get(g.z);
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f49822a.topicID = b.g(str, -1L);
+                this.f50734a.topicID = b.g(str, -1L);
             }
         }
     }
@@ -236,7 +236,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
             this.mTopicDetailView.hideLoadingView();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f17586f)) {
+            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f19055f)) {
                 this.mTopicDetailView.hideNetRefreshView();
                 this.mTopicDetailView.setData(aVar);
                 return;

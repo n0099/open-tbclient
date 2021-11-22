@@ -23,31 +23,31 @@ public class i implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f29601a;
+    public long f30470a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile long f29602b;
+    public volatile long f30471b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MediaCodec.BufferInfo f29603c;
+    public MediaCodec.BufferInfo f30472c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaCodec f29604d;
+    public MediaCodec f30473d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaExtractor f29605e;
+    public MediaExtractor f30474e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MediaFormat f29606f;
+    public MediaFormat f30475f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer[] f29607g;
+    public ByteBuffer[] f30476g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ByteBuffer[] f29608h;
+    public ByteBuffer[] f30477h;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f29609i;
+    public byte[] f30478i;
     public volatile boolean j;
     public long k;
     public volatile boolean l;
@@ -79,10 +79,10 @@ public class i implements a {
             }
         }
         this.k = -1L;
-        this.f29605e = new MediaExtractor();
+        this.f30474e = new MediaExtractor();
         try {
             MediaExtractor mediaExtractor = new MediaExtractor();
-            this.f29605e = mediaExtractor;
+            this.f30474e = mediaExtractor;
             mediaExtractor.setDataSource(str);
         } catch (IOException unused) {
             try {
@@ -93,66 +93,66 @@ public class i implements a {
             try {
                 try {
                     MediaExtractor mediaExtractor2 = new MediaExtractor();
-                    this.f29605e = mediaExtractor2;
+                    this.f30474e = mediaExtractor2;
                     mediaExtractor2.setDataSource(str);
                 } catch (InterruptedException e3) {
                     e3.printStackTrace();
                     MediaExtractor mediaExtractor3 = new MediaExtractor();
-                    this.f29605e = mediaExtractor3;
+                    this.f30474e = mediaExtractor3;
                     mediaExtractor3.setDataSource(str);
                     i2 = 0;
                     while (true) {
-                        if (i2 >= this.f29605e.getTrackCount()) {
+                        if (i2 >= this.f30474e.getTrackCount()) {
                         }
                         i2++;
                     }
-                    mediaFormat = this.f29606f;
+                    mediaFormat = this.f30475f;
                     if (mediaFormat == null) {
                     }
                 }
             } catch (IOException unused2) {
                 Thread.sleep(25L);
                 MediaExtractor mediaExtractor32 = new MediaExtractor();
-                this.f29605e = mediaExtractor32;
+                this.f30474e = mediaExtractor32;
                 mediaExtractor32.setDataSource(str);
                 i2 = 0;
                 while (true) {
-                    if (i2 >= this.f29605e.getTrackCount()) {
+                    if (i2 >= this.f30474e.getTrackCount()) {
                     }
                     i2++;
                 }
-                mediaFormat = this.f29606f;
+                mediaFormat = this.f30475f;
                 if (mediaFormat == null) {
                 }
             }
         }
         i2 = 0;
         while (true) {
-            if (i2 >= this.f29605e.getTrackCount()) {
+            if (i2 >= this.f30474e.getTrackCount()) {
                 break;
             }
-            MediaFormat trackFormat = this.f29605e.getTrackFormat(i2);
+            MediaFormat trackFormat = this.f30474e.getTrackFormat(i2);
             String string = trackFormat.getString("mime");
             if (!TextUtils.isEmpty(string) && string.startsWith("audio/")) {
-                this.f29605e.selectTrack(i2);
-                this.f29606f = trackFormat;
+                this.f30474e.selectTrack(i2);
+                this.f30475f = trackFormat;
                 break;
             }
             i2++;
         }
-        mediaFormat = this.f29606f;
+        mediaFormat = this.f30475f;
         if (mediaFormat == null) {
             throw new NullPointerException("format is null");
         }
         String string2 = mediaFormat.getString("mime");
-        this.f29601a = this.f29606f.getLong("durationUs");
+        this.f30470a = this.f30475f.getLong("durationUs");
         MediaCodec createDecoderByType = MediaCodec.createDecoderByType(string2);
-        this.f29604d = createDecoderByType;
-        createDecoderByType.configure(this.f29606f, (Surface) null, (MediaCrypto) null, 0);
-        this.f29604d.start();
-        this.f29607g = this.f29604d.getInputBuffers();
-        this.f29608h = this.f29604d.getOutputBuffers();
-        this.f29603c = new MediaCodec.BufferInfo();
+        this.f30473d = createDecoderByType;
+        createDecoderByType.configure(this.f30475f, (Surface) null, (MediaCrypto) null, 0);
+        this.f30473d.start();
+        this.f30476g = this.f30473d.getInputBuffers();
+        this.f30477h = this.f30473d.getOutputBuffers();
+        this.f30472c = new MediaCodec.BufferInfo();
     }
 
     @Override // b.a.x0.i.a
@@ -160,7 +160,7 @@ public class i implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (this.f29606f.containsKey("bit-width") ? this.f29606f.getInteger("bit-width") : 16) / 8;
+            return (this.f30475f.containsKey("bit-width") ? this.f30475f.getInteger("bit-width") : 16) / 8;
         }
         return invokeV.intValue;
     }
@@ -170,8 +170,8 @@ public class i implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f29606f.containsKey("sample-rate")) {
-                return this.f29606f.getInteger("sample-rate");
+            if (this.f30475f.containsKey("sample-rate")) {
+                return this.f30475f.getInteger("sample-rate");
             }
             throw new IOException("Not a valid audio file");
         }
@@ -185,18 +185,18 @@ public class i implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             i();
-            int dequeueOutputBuffer = this.f29604d.dequeueOutputBuffer(this.f29603c, 10000L);
+            int dequeueOutputBuffer = this.f30473d.dequeueOutputBuffer(this.f30472c, 10000L);
             if (dequeueOutputBuffer < 0) {
                 if (dequeueOutputBuffer != -1) {
                     if (dequeueOutputBuffer == -2) {
-                        MediaFormat outputFormat = this.f29604d.getOutputFormat();
-                        this.f29606f = outputFormat;
+                        MediaFormat outputFormat = this.f30473d.getOutputFormat();
+                        this.f30475f = outputFormat;
                         j jVar = this.m;
                         if (jVar != null) {
                             jVar.a(outputFormat);
                         }
                     } else if (dequeueOutputBuffer == -3) {
-                        this.f29608h = this.f29604d.getOutputBuffers();
+                        this.f30477h = this.f30473d.getOutputBuffers();
                     } else {
                         str = "decodeChunk,res=" + dequeueOutputBuffer;
                     }
@@ -206,30 +206,30 @@ public class i implements a {
                 b.a.x0.t.c.j("VideoMuxer", str);
                 return false;
             }
-            MediaCodec.BufferInfo bufferInfo = this.f29603c;
+            MediaCodec.BufferInfo bufferInfo = this.f30472c;
             if ((bufferInfo.flags & 2) != 0) {
-                this.f29604d.releaseOutputBuffer(dequeueOutputBuffer, false);
+                this.f30473d.releaseOutputBuffer(dequeueOutputBuffer, false);
                 return false;
             }
             int i2 = bufferInfo.size;
             if (i2 - bufferInfo.offset < 0) {
-                ByteBuffer byteBuffer = this.f29608h[dequeueOutputBuffer];
-                byte[] bArr = this.f29609i;
+                ByteBuffer byteBuffer = this.f30477h[dequeueOutputBuffer];
+                byte[] bArr = this.f30478i;
                 if (bArr == null || bArr.length != i2) {
-                    this.f29609i = new byte[this.f29603c.size];
+                    this.f30478i = new byte[this.f30472c.size];
                 }
-                byteBuffer.get(this.f29609i);
+                byteBuffer.get(this.f30478i);
                 byteBuffer.clear();
-                this.f29604d.releaseOutputBuffer(dequeueOutputBuffer, false);
+                this.f30473d.releaseOutputBuffer(dequeueOutputBuffer, false);
             } else {
                 j(dequeueOutputBuffer);
             }
-            if ((this.f29603c.flags & 4) != 0) {
+            if ((this.f30472c.flags & 4) != 0) {
                 long j = this.k;
                 if (j <= 0) {
-                    j = this.f29601a;
+                    j = this.f30470a;
                 }
-                this.f29602b = j;
+                this.f30471b = j;
                 this.j = true;
                 return true;
             }
@@ -243,22 +243,22 @@ public class i implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                this.f29604d.stop();
+                this.f30473d.stop();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             try {
-                this.f29604d.release();
+                this.f30473d.release();
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
-            this.f29604d = null;
+            this.f30473d = null;
             try {
-                this.f29605e.release();
+                this.f30474e.release();
             } catch (Exception e4) {
                 e4.printStackTrace();
             }
-            this.f29605e = null;
+            this.f30474e = null;
         }
     }
 
@@ -268,7 +268,7 @@ public class i implements a {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.l = false;
             this.j = false;
-            this.f29603c.flags = 0;
+            this.f30472c.flags = 0;
         }
     }
 
@@ -277,8 +277,8 @@ public class i implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f29606f.containsKey("channel-count")) {
-                return this.f29606f.getInteger("channel-count");
+            if (this.f30475f.containsKey("channel-count")) {
+                return this.f30475f.getInteger("channel-count");
             }
             throw new IOException("Not a valid audio file");
         }
@@ -296,21 +296,21 @@ public class i implements a {
     public byte[] g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29609i : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30478i : (byte[]) invokeV.objValue;
     }
 
     @Override // b.a.x0.i.a
     public long getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29602b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30471b : invokeV.longValue;
     }
 
     @Override // b.a.x0.i.a
     public long getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29601a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30470a : invokeV.longValue;
     }
 
     @Override // b.a.x0.i.a
@@ -327,17 +327,17 @@ public class i implements a {
         int sampleFlags;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.l || (dequeueInputBuffer = this.f29604d.dequeueInputBuffer(10000L)) < 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.l || (dequeueInputBuffer = this.f30473d.dequeueInputBuffer(10000L)) < 0) {
             return;
         }
-        int readSampleData = this.f29605e.readSampleData(this.f29607g[dequeueInputBuffer], 0);
+        int readSampleData = this.f30474e.readSampleData(this.f30476g[dequeueInputBuffer], 0);
         if (readSampleData < 0) {
             this.l = true;
             b.a.x0.t.c.j("VideoMuxer", "extractor to end, audioEndTimeUs" + this.k);
             sampleTime = 0L;
             readSampleData = 0;
         } else {
-            sampleTime = this.f29605e.getSampleTime();
+            sampleTime = this.f30474e.getSampleTime();
         }
         long j = this.k;
         if (j > 0 && sampleTime > j) {
@@ -345,20 +345,20 @@ public class i implements a {
             this.l = true;
         }
         boolean z = this.l;
-        MediaCodec mediaCodec = this.f29604d;
+        MediaCodec mediaCodec = this.f30473d;
         if (z) {
             i2 = 0;
             sampleTime = 0;
             sampleFlags = 4;
         } else {
-            sampleFlags = this.f29605e.getSampleFlags();
+            sampleFlags = this.f30474e.getSampleFlags();
             i2 = readSampleData;
         }
         mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, i2, sampleTime, sampleFlags);
         if (this.l) {
             return;
         }
-        this.f29605e.advance();
+        this.f30474e.advance();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0014, code lost:
@@ -370,22 +370,22 @@ public class i implements a {
     public final void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            ByteBuffer byteBuffer = this.f29608h[i2];
-            byte[] bArr = this.f29609i;
+            ByteBuffer byteBuffer = this.f30477h[i2];
+            byte[] bArr = this.f30478i;
             if (bArr != null) {
                 int length = bArr.length;
-                MediaCodec.BufferInfo bufferInfo = this.f29603c;
+                MediaCodec.BufferInfo bufferInfo = this.f30472c;
             }
-            MediaCodec.BufferInfo bufferInfo2 = this.f29603c;
-            this.f29609i = new byte[bufferInfo2.size - bufferInfo2.offset];
-            MediaCodec.BufferInfo bufferInfo3 = this.f29603c;
+            MediaCodec.BufferInfo bufferInfo2 = this.f30472c;
+            this.f30478i = new byte[bufferInfo2.size - bufferInfo2.offset];
+            MediaCodec.BufferInfo bufferInfo3 = this.f30472c;
             if (bufferInfo3.size > 0) {
-                this.f29602b = bufferInfo3.presentationTimeUs;
+                this.f30471b = bufferInfo3.presentationTimeUs;
             }
-            byteBuffer.position(this.f29603c.offset);
-            byteBuffer.get(this.f29609i);
+            byteBuffer.position(this.f30472c.offset);
+            byteBuffer.get(this.f30478i);
             byteBuffer.clear();
-            this.f29604d.releaseOutputBuffer(i2, false);
+            this.f30473d.releaseOutputBuffer(i2, false);
         }
     }
 
@@ -401,10 +401,10 @@ public class i implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
             d();
-            this.f29605e.seekTo(j, 2);
-            this.f29602b = j;
-            this.f29603c = new MediaCodec.BufferInfo();
-            this.f29604d.flush();
+            this.f30474e.seekTo(j, 2);
+            this.f30471b = j;
+            this.f30472c = new MediaCodec.BufferInfo();
+            this.f30473d.flush();
         }
     }
 }

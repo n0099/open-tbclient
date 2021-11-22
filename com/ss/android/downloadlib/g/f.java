@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -132,7 +133,7 @@ public class f {
                     String string = e2.getString(i3);
                     g.a a2 = com.ss.android.socialbase.appdownloader.f.a.a(string);
                     if (a2 != null) {
-                        String replaceAll = string.replaceAll("\\.", "_");
+                        String replaceAll = string.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "_");
                         jSONObject.put(replaceAll, a2.f() + "_" + a2.g());
                     }
                 } catch (Throwable th) {
@@ -160,7 +161,7 @@ public class f {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, aVar)) == null) {
-            l.a(jSONObject, com.ss.android.socialbase.appdownloader.f.d.i().replaceAll("\\.", "_"), Integer.valueOf(l.b(com.ss.android.downloadlib.addownload.j.getContext(), com.ss.android.socialbase.appdownloader.f.d.i())));
+            l.a(jSONObject, com.ss.android.socialbase.appdownloader.f.d.i().replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "_"), Integer.valueOf(l.b(com.ss.android.downloadlib.addownload.j.getContext(), com.ss.android.socialbase.appdownloader.f.d.i())));
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

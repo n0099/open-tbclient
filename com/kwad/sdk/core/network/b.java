@@ -25,10 +25,10 @@ public abstract class b implements g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final JSONObject f64781a;
+    public final JSONObject f65694a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, String> f64782b;
+    public final Map<String, String> f65695b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public abstract class b implements g {
                 return;
             }
         }
-        this.f64782b = new HashMap();
-        this.f64781a = new JSONObject();
+        this.f65695b = new HashMap();
+        this.f65694a = new JSONObject();
         f();
         g();
         DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_HOST_ENCRYPT_DISABLE");
@@ -64,56 +64,56 @@ public abstract class b implements g {
     public void a(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
-            q.a(this.f64781a, str, i2);
+            q.a(this.f65694a, str, i2);
         }
     }
 
     public void a(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
-            q.a(this.f64781a, str, j);
+            q.a(this.f65694a, str, j);
         }
     }
 
     public void a(String str, com.kwad.sdk.core.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
-            q.a(this.f64781a, str, bVar);
+            q.a(this.f65694a, str, bVar);
         }
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.f64782b.put(str, str2);
+            this.f65695b.put(str, str2);
         }
     }
 
     public void a(String str, List<? extends com.kwad.sdk.core.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, list) == null) {
-            q.a(this.f64781a, str, list);
+            q.a(this.f65694a, str, list);
         }
     }
 
     public void a(String str, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, jSONArray) == null) {
-            q.a(this.f64781a, str, jSONArray);
+            q.a(this.f65694a, str, jSONArray);
         }
     }
 
     public void a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, jSONObject) == null) {
-            q.a(this.f64781a, str, jSONObject);
+            q.a(this.f65694a, str, jSONObject);
         }
     }
 
     public void a(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z) == null) {
-            q.a(this.f64781a, str, z);
+            q.a(this.f65694a, str, z);
         }
     }
 
@@ -131,7 +131,7 @@ public abstract class b implements g {
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            q.a(this.f64781a, str, str2);
+            q.a(this.f65694a, str, str2);
         }
     }
 
@@ -139,7 +139,7 @@ public abstract class b implements g {
     public Map<String, String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f64782b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f65695b : (Map) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.network.g
@@ -162,11 +162,11 @@ public abstract class b implements g {
                 JSONObject jSONObject = new JSONObject();
                 q.a(jSONObject, "version", KsAdSDKImpl.get().getSDKVersion());
                 q.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, KsAdSDKImpl.get().getAppId());
-                q.a(jSONObject, "message", com.kwad.sdk.core.b.d.a(this.f64781a.toString()));
+                q.a(jSONObject, "message", com.kwad.sdk.core.b.d.a(this.f65694a.toString()));
                 com.kwad.sdk.core.b.d.a(a().replace(com.kwad.sdk.d.a(), ""), c(), jSONObject);
                 return jSONObject;
             }
-            return this.f64781a;
+            return this.f65694a;
         }
         return (JSONObject) invokeV.objValue;
     }

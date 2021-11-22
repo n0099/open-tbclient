@@ -15,7 +15,7 @@ public class s extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RectF f3887a;
+    public RectF f3981a;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class s extends a {
     public void a(b bVar, Canvas canvas) {
         RectF rectF;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (rectF = this.f3887a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (rectF = this.f3981a) == null) {
             return;
         }
         bVar.j.addRect(rectF, Path.Direction.CW);
@@ -47,12 +47,12 @@ public class s extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
                 if (jSONArray.length() == 4) {
-                    int g2 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
-                    int g3 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
-                    this.f3887a = new RectF(g2, g3, g2 + b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2)), g3 + b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3)));
+                    int g2 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(0));
+                    int g3 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(1));
+                    this.f3981a = new RectF(g2, g3, g2 + b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(2)), g3 + b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(3)));
                 }
             } catch (Exception e2) {
-                if (b.a.p0.a.k.f6397a) {
+                if (b.a.p0.a.k.f6863a) {
                     e2.printStackTrace();
                 }
             }

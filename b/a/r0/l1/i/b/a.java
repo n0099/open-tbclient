@@ -47,31 +47,31 @@ public class a extends d<ForumDetailActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumDetailActivity f20196a;
+    public ForumDetailActivity f21718a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f20197b;
+    public View f21719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f20198c;
+    public LinearLayout f21720c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f20199d;
+    public NavigationBar f21721d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f20200e;
+    public NoNetworkView f21722e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f20201f;
+    public NoDataView f21723f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomScrollView f20202g;
+    public CustomScrollView f21724g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ItemHeaderView f20203h;
+    public ItemHeaderView f21725h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ItemInfoView f20204i;
+    public ItemInfoView f21726i;
     public ItemMsgManage j;
     public ItemEmotionView k;
     public ItemHotThreadView l;
@@ -81,14 +81,14 @@ public class a extends d<ForumDetailActivity> {
 
     /* renamed from: b.a.r0.l1.i.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1000a implements a.e {
+    public class C1068a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20205e;
+        public final /* synthetic */ a f21727e;
 
-        public C1000a(a aVar) {
+        public C1068a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,15 +103,15 @@ public class a extends d<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f20205e = aVar;
+            this.f21727e = aVar;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f20205e.n.dismiss();
-                this.f20205e.f20196a.clearHistory();
+                this.f21727e.n.dismiss();
+                this.f21727e.f21718a.clearHistory();
             }
         }
     }
@@ -122,7 +122,7 @@ public class a extends d<ForumDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20206e;
+        public final /* synthetic */ a f21728e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -139,14 +139,14 @@ public class a extends d<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f20206e = aVar;
+            this.f21728e = aVar;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f20206e.n.dismiss();
+                this.f21728e.n.dismiss();
             }
         }
     }
@@ -157,7 +157,7 @@ public class a extends d<ForumDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20207e;
+        public final /* synthetic */ a f21729e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class a extends d<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f20207e = aVar;
+            this.f21729e = aVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -184,18 +184,18 @@ public class a extends d<ForumDetailActivity> {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f20207e.m.showLine(false);
+                    this.f21729e.m.showLine(false);
                 } else if (action == 1) {
-                    this.f20207e.m.showLine(true);
+                    this.f21729e.m.showLine(true);
                 } else if (action == 2) {
-                    this.f20207e.m.showLine(false);
+                    this.f21729e.m.showLine(false);
                 }
                 return false;
             }
             return invokeLL.booleanValue;
         }
 
-        public /* synthetic */ c(a aVar, C1000a c1000a) {
+        public /* synthetic */ c(a aVar, C1068a c1068a) {
             this(aVar);
         }
     }
@@ -234,27 +234,27 @@ public class a extends d<ForumDetailActivity> {
                 return;
             }
         }
-        this.f20196a = forumDetailActivity;
+        this.f21718a = forumDetailActivity;
         initUI();
     }
 
     public NoNetworkView f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20200e : (NoNetworkView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21722e : (NoNetworkView) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f20196a.hideLoadingView(this.f20197b);
+            this.f21718a.hideLoadingView(this.f21719b);
         }
     }
 
     public void h() {
         NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (noDataView = this.f20201f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (noDataView = this.f21723f) == null) {
             return;
         }
         noDataView.setVisibility(8);
@@ -263,38 +263,38 @@ public class a extends d<ForumDetailActivity> {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.m.onResume(this.f20196a);
+            this.m.onResume(this.f21718a);
         }
     }
 
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f20198c = (LinearLayout) this.f20196a.findViewById(R.id.scoll_view_ll);
-            TextView textView = new TextView(this.f20196a.getActivity());
+            this.f21720c = (LinearLayout) this.f21718a.findViewById(R.id.scoll_view_ll);
+            TextView textView = new TextView(this.f21718a.getActivity());
             textView.setLayoutParams(new LinearLayout.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-            this.f20198c.addView(textView, 0);
-            NavigationBar navigationBar = (NavigationBar) this.f20196a.findViewById(R.id.view_navigation_bar);
-            this.f20199d = navigationBar;
-            navigationBar.setCenterTextTitle(this.f20196a.getPageContext().getString(R.string.forum_detail_title));
-            this.f20199d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f20199d.showBottomLine();
-            this.f20200e = (NoNetworkView) this.f20196a.findViewById(R.id.no_network_view);
-            CustomScrollView customScrollView = (CustomScrollView) this.f20196a.findViewById(R.id.scoll_view);
-            this.f20202g = customScrollView;
+            this.f21720c.addView(textView, 0);
+            NavigationBar navigationBar = (NavigationBar) this.f21718a.findViewById(R.id.view_navigation_bar);
+            this.f21721d = navigationBar;
+            navigationBar.setCenterTextTitle(this.f21718a.getPageContext().getString(R.string.forum_detail_title));
+            this.f21721d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f21721d.showBottomLine();
+            this.f21722e = (NoNetworkView) this.f21718a.findViewById(R.id.no_network_view);
+            CustomScrollView customScrollView = (CustomScrollView) this.f21718a.findViewById(R.id.scoll_view);
+            this.f21724g = customScrollView;
             customScrollView.setOnTouchListener(new c(this, null));
-            this.f20203h = (ItemHeaderView) this.f20196a.findViewById(R.id.item_header);
-            this.f20204i = (ItemInfoView) this.f20196a.findViewById(R.id.item_info);
-            this.j = (ItemMsgManage) this.f20196a.findViewById(R.id.item_msg_manage);
-            this.k = (ItemEmotionView) this.f20196a.findViewById(R.id.item_emotion_manage);
-            this.l = (ItemHotThreadView) this.f20196a.findViewById(R.id.item_hot_thread);
-            ItemFootNavView itemFootNavView = (ItemFootNavView) this.f20196a.findViewById(R.id.item_foot_nav);
+            this.f21725h = (ItemHeaderView) this.f21718a.findViewById(R.id.item_header);
+            this.f21726i = (ItemInfoView) this.f21718a.findViewById(R.id.item_info);
+            this.j = (ItemMsgManage) this.f21718a.findViewById(R.id.item_msg_manage);
+            this.k = (ItemEmotionView) this.f21718a.findViewById(R.id.item_emotion_manage);
+            this.l = (ItemHotThreadView) this.f21718a.findViewById(R.id.item_hot_thread);
+            ItemFootNavView itemFootNavView = (ItemFootNavView) this.f21718a.findViewById(R.id.item_foot_nav);
             this.m = itemFootNavView;
             itemFootNavView.setClickable(true);
-            this.f20197b = this.f20196a.findViewById(R.id.root_rl);
-            this.j.setMsgOnClickListener(this.f20196a);
-            this.k.setEmotionOnClickListener(this.f20196a);
-            this.j.setSwitchChangeListener(this.f20196a);
+            this.f21719b = this.f21718a.findViewById(R.id.root_rl);
+            this.j.setMsgOnClickListener(this.f21718a);
+            this.k.setEmotionOnClickListener(this.f21718a);
+            this.j.setSwitchChangeListener(this.f21718a);
         }
     }
 
@@ -308,10 +308,10 @@ public class a extends d<ForumDetailActivity> {
     public void k(RecommendForumInfo recommendForumInfo, boolean z, boolean z2, ManagerApplyInfo managerApplyInfo, PriManagerApplyInfo priManagerApplyInfo, ManagerElectionTab managerElectionTab, BzApplySwitch bzApplySwitch) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{recommendForumInfo, Boolean.valueOf(z), Boolean.valueOf(z2), managerApplyInfo, priManagerApplyInfo, managerElectionTab, bzApplySwitch}) == null) {
-            this.f20203h.setData(recommendForumInfo);
-            this.f20204i.setData(recommendForumInfo);
+            this.f21725h.setData(recommendForumInfo);
+            this.f21726i.setData(recommendForumInfo);
             this.j.setData(recommendForumInfo, z, z2, managerApplyInfo, priManagerApplyInfo, managerElectionTab);
-            this.m.setData(recommendForumInfo, this.f20196a);
+            this.m.setData(recommendForumInfo, this.f21718a);
         }
     }
 
@@ -346,15 +346,15 @@ public class a extends d<ForumDetailActivity> {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f20196a.getLayoutMode().k(i2 == 1);
-            this.f20196a.getLayoutMode().j(this.f20197b);
-            this.f20199d.onChangeSkinType(getPageContext(), i2);
-            this.f20200e.onChangeSkinType(getPageContext(), i2);
-            this.f20203h.onChangeSkinType(this.f20196a, i2);
-            this.f20204i.onChangeSkinType(this.f20196a, i2);
-            this.j.onChangeSkinType(this.f20196a, i2);
-            this.l.onChangeSkinType(this.f20196a, i2);
-            this.m.onChangeSkinType(this.f20196a, i2);
+            this.f21718a.getLayoutMode().k(i2 == 1);
+            this.f21718a.getLayoutMode().j(this.f21719b);
+            this.f21721d.onChangeSkinType(getPageContext(), i2);
+            this.f21722e.onChangeSkinType(getPageContext(), i2);
+            this.f21725h.onChangeSkinType(this.f21718a, i2);
+            this.f21726i.onChangeSkinType(this.f21718a, i2);
+            this.j.onChangeSkinType(this.f21718a, i2);
+            this.l.onChangeSkinType(this.f21718a, i2);
+            this.m.onChangeSkinType(this.f21718a, i2);
         }
     }
 
@@ -362,10 +362,10 @@ public class a extends d<ForumDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (this.n == null) {
-                b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f20196a.getPageContext().getPageActivity());
+                b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f21718a.getPageContext().getPageActivity());
                 this.n = aVar;
                 aVar.setMessageId(R.string.officical_bar_info_clean_alert);
-                this.n.setPositiveButton(R.string.alert_yes_button, new C1000a(this));
+                this.n.setPositiveButton(R.string.alert_yes_button, new C1068a(this));
                 this.n.setNegativeButton(R.string.cancel, new b(this));
             }
             this.n.create(getPageContext()).show();
@@ -375,21 +375,21 @@ public class a extends d<ForumDetailActivity> {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f20196a.showLoadingView(this.f20197b);
+            this.f21718a.showLoadingView(this.f21719b);
         }
     }
 
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            if (this.f20201f == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.f20196a.getPageContext().getPageActivity(), this.f20198c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, p), NoDataViewFactory.e.d(null, this.f20196a.getResources().getString(i2)), null);
-                this.f20201f = a2;
+            if (this.f21723f == null) {
+                NoDataView a2 = NoDataViewFactory.a(this.f21718a.getPageContext().getPageActivity(), this.f21720c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, p), NoDataViewFactory.e.d(null, this.f21718a.getResources().getString(i2)), null);
+                this.f21723f = a2;
                 a2.setOnClickListener(this.o);
             }
-            this.f20201f.setTextOption(NoDataViewFactory.e.d(null, this.f20196a.getResources().getString(i2)));
-            this.f20201f.onChangeSkinType(this.f20196a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.f20201f.setVisibility(0);
+            this.f21723f.setTextOption(NoDataViewFactory.e.d(null, this.f21718a.getResources().getString(i2)));
+            this.f21723f.onChangeSkinType(this.f21718a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.f21723f.setVisibility(0);
         }
     }
 

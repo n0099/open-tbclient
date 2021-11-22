@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b extends b.a.e.l.e.a<f, ConcernTabLiveItemView.ViewHolder> {
+public class b extends b.a.e.m.e.a<f, ConcernTabLiveItemView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
@@ -23,7 +23,7 @@ public class b extends b.a.e.l.e.a<f, ConcernTabLiveItemView.ViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), f.f24829h);
+        super(tbPageContext.getPageActivity(), f.f26346h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class b extends b.a.e.l.e.a<f, ConcernTabLiveItemView.ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public ConcernTabLiveItemView.ViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -69,7 +69,7 @@ public class b extends b.a.e.l.e.a<f, ConcernTabLiveItemView.ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, f fVar, ConcernTabLiveItemView.ViewHolder viewHolder) {
         InterceptResult invokeCommon;

@@ -1,6 +1,6 @@
 package com.facebook.imagepipeline.image;
 /* loaded from: classes11.dex */
-public interface ImageInfo extends HasImageMetadata {
+public interface ImageInfo {
     int getHeight();
 
     QualityInfo getQualityInfo();

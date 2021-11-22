@@ -16,14 +16,14 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<String, Integer> f28613c;
+    public static final HashMap<String, Integer> f29482c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28614a;
+    public String f29483a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28615b;
+    public int f29484b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,16 +39,16 @@ public final class d {
             }
         }
         HashMap<String, Integer> hashMap = new HashMap<>();
-        f28613c = hashMap;
+        f29482c = hashMap;
         hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
-        f28613c.put("3GNET", 21);
-        f28613c.put("3GWAP", 22);
-        f28613c.put("CMNET", 31);
-        f28613c.put("UNINET", 32);
-        f28613c.put("CTNET", 33);
-        f28613c.put("CMWAP", 41);
-        f28613c.put("UNIWAP", 42);
-        f28613c.put("CTWAP", 43);
+        f29482c.put("3GNET", 21);
+        f29482c.put("3GWAP", 22);
+        f29482c.put("CMNET", 31);
+        f29482c.put("UNINET", 32);
+        f29482c.put("CTNET", 33);
+        f29482c.put("CMWAP", 41);
+        f29482c.put("UNIWAP", 42);
+        f29482c.put("CTWAP", 43);
     }
 
     public d(Context context) {
@@ -72,11 +72,11 @@ public final class d {
             if (!"wifi".equals(a2.getTypeName().toLowerCase())) {
                 String extraInfo = a2.getExtraInfo();
                 upperCase = extraInfo != null ? extraInfo.toUpperCase() : upperCase;
-                this.f28615b = a2.getSubtype();
+                this.f29484b = a2.getSubtype();
             }
             "wifi".toUpperCase();
-            this.f28614a = upperCase;
-            this.f28615b = a2.getSubtype();
+            this.f29483a = upperCase;
+            this.f29484b = a2.getSubtype();
         }
     }
 }

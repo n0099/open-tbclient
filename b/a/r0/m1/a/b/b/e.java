@@ -13,7 +13,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, a> f20908a;
+    public HashMap<String, a> f22063a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -28,13 +28,13 @@ public class e {
                 return;
             }
         }
-        this.f20908a = new HashMap<>();
+        this.f22063a = new HashMap<>();
     }
 
     public void a(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            this.f20908a.put(str, aVar);
+            this.f22063a.put(str, aVar);
         }
     }
 
@@ -43,7 +43,7 @@ public class e {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, a> hashMap = this.f20908a;
+            HashMap<String, a> hashMap = this.f22063a;
             return (hashMap == null || (aVar = hashMap.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.b()) >= 300000) ? false : true;
         }
         return invokeL.booleanValue;
@@ -53,8 +53,8 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.f20908a.get(str) != null) {
-                return this.f20908a.get(str).a();
+            if (this.f22063a.get(str) != null) {
+                return this.f22063a.get(str).a();
             }
             return null;
         }

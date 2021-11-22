@@ -1,9 +1,10 @@
 package b.a.p0.a.h0.u;
 
 import android.text.TextUtils;
-import b.a.p0.a.c2.f.p0.j;
+import b.a.p0.a.f2.f.o0.j;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.o0;
+import b.a.p0.a.z2.o0;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,31 +22,31 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5810a;
+    public String f6146a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5811b;
+    public String f6147b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5812c;
+    public String f6148c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5813d;
+    public String f6149d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5814e;
+    public String f6150e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5815f;
+    public String f6151f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5816g;
+    public boolean f6152g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f5817h;
+    public String f6153h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f5818i;
+    public boolean f6154i;
     public String j;
     public String k;
     public String l;
@@ -64,7 +65,7 @@ public final class d {
                 return;
             }
         }
-        n = k.f6397a;
+        n = k.f6863a;
     }
 
     public d() {
@@ -81,45 +82,45 @@ public final class d {
         }
     }
 
-    public static b.a.p0.a.o0.d.b a(d dVar) {
+    public static b.a.p0.a.o0.d.c a(d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dVar)) == null) {
             TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, dVar.f5810a);
-            treeMap.put("pagePath", dVar.f5811b);
-            treeMap.put("pageType", dVar.f5812c);
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, dVar.f5814e);
-            if (!TextUtils.isEmpty(dVar.f5815f)) {
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, dVar.f6146a);
+            treeMap.put("pagePath", dVar.f6147b);
+            treeMap.put("pageType", dVar.f6148c);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, dVar.f6150e);
+            if (!TextUtils.isEmpty(dVar.f6151f)) {
                 if (n) {
-                    String str = "add initData: " + dVar.f5815f;
+                    String str = "add initData: " + dVar.f6151f;
                 }
-                treeMap.put("initData", dVar.f5815f);
+                treeMap.put("initData", dVar.f6151f);
             }
-            if (!TextUtils.isEmpty(dVar.f5813d)) {
-                treeMap.put("onReachBottomDistance", dVar.f5813d);
+            if (!TextUtils.isEmpty(dVar.f6149d)) {
+                treeMap.put("onReachBottomDistance", dVar.f6149d);
             }
-            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(dVar.f5816g));
-            if (!TextUtils.isEmpty(dVar.f5817h)) {
-                treeMap.put("routeId", dVar.f5817h);
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(dVar.f6152g));
+            if (!TextUtils.isEmpty(dVar.f6153h)) {
+                treeMap.put("routeId", dVar.f6153h);
             }
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(dVar.f5818i));
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(dVar.f6154i));
             if (!TextUtils.isEmpty(dVar.j)) {
                 treeMap.put("slavePreload", dVar.j);
             }
             treeMap.put("root", dVar.k);
-            b.a.p0.a.t1.g.b.a(treeMap, "page ready event");
-            j.a(dVar.f5811b, treeMap);
-            String f2 = o0.f(j.b(dVar.f5811b));
-            b.a.p0.a.e0.d.h("PageReadyEvent", (String) treeMap.get("pagePath"));
-            String c2 = b.a.p0.a.a2.n.b.c(dVar.f5810a, f2);
+            b.a.p0.a.w1.h.b.a(treeMap, "page ready event");
+            j.a(dVar.f6147b, treeMap);
+            String f2 = o0.f(j.b(dVar.f6147b));
+            b.a.p0.a.e0.d.k("PageReadyEvent", "#createPageReadyMessage pagePath=" + ((String) treeMap.get("pagePath")));
+            String c2 = b.a.p0.a.d2.n.b.c(dVar.f6146a, f2);
             dVar.l = c2;
             if (!TextUtils.isEmpty(c2)) {
                 treeMap.put("pageConfig", dVar.l);
             }
-            b.a.p0.a.h0.l.a O = g.M().O();
-            if (O != null) {
-                treeMap.put("masterId", O.b());
+            b.a.p0.a.h0.l.a W = g.U().W();
+            if (W != null) {
+                treeMap.put("masterId", W.c());
             }
             if (dVar.m) {
                 treeMap.put("isFirstPage", "true");
@@ -127,16 +128,22 @@ public final class d {
             if (b.a.p0.a.h0.g.b.c()) {
                 treeMap.put("offlinePerfTool", String.valueOf(1));
             }
-            return new b.a.p0.a.o0.d.b("PageReady", treeMap);
+            if (b.a.p0.a.l2.c.d()) {
+                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
+            }
+            if (b.a.p0.a.l2.c.f()) {
+                treeMap.put("performanceType", "stabilityProfile");
+            }
+            return new b.a.p0.a.o0.d.c("PageReady", treeMap);
         }
-        return (b.a.p0.a.o0.d.b) invokeL.objValue;
+        return (b.a.p0.a.o0.d.c) invokeL.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PageReadyEvent{appPath='" + this.f5810a + ExtendedMessageFormat.QUOTE + ", pagePath='" + this.f5811b + ExtendedMessageFormat.QUOTE + ", pageType='" + this.f5812c + ExtendedMessageFormat.QUOTE + ", onReachBottomDistance='" + this.f5813d + ExtendedMessageFormat.QUOTE + ", sConsole='" + this.f5814e + ExtendedMessageFormat.QUOTE + ", initData='" + this.f5815f + ExtendedMessageFormat.QUOTE + ", showPerformancePanel=" + this.f5816g + ", routeId='" + this.f5817h + ExtendedMessageFormat.QUOTE + ", isT7Available=" + this.f5818i + ", preloadFile='" + this.j + ExtendedMessageFormat.QUOTE + ", rootPath='" + this.k + ExtendedMessageFormat.QUOTE + ", pageConfig='" + this.l + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PageReadyEvent{appPath='" + this.f6146a + ExtendedMessageFormat.QUOTE + ", pagePath='" + this.f6147b + ExtendedMessageFormat.QUOTE + ", pageType='" + this.f6148c + ExtendedMessageFormat.QUOTE + ", onReachBottomDistance='" + this.f6149d + ExtendedMessageFormat.QUOTE + ", sConsole='" + this.f6150e + ExtendedMessageFormat.QUOTE + ", initData='" + this.f6151f + ExtendedMessageFormat.QUOTE + ", showPerformancePanel=" + this.f6152g + ", routeId='" + this.f6153h + ExtendedMessageFormat.QUOTE + ", isT7Available=" + this.f6154i + ", preloadFile='" + this.j + ExtendedMessageFormat.QUOTE + ", rootPath='" + this.k + ExtendedMessageFormat.QUOTE + ", pageConfig='" + this.l + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

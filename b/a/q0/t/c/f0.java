@@ -12,31 +12,31 @@ public class f0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13772a;
+    public boolean f14540a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13773b;
+    public boolean f14541b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13774c;
+    public int f14542c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13775d;
+    public int f14543d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13776e;
+    public String f14544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13777f;
+    public String f14545f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13778g;
+    public String f14546g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13779h;
+    public int f14547h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13780i;
+    public String f14548i;
 
     public f0() {
         Interceptable interceptable = $ic;
@@ -57,14 +57,14 @@ public class f0 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f13772a = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
-        this.f13773b = jSONObject.optInt("isActivateNaniApp", 1) == 1;
-        this.f13774c = jSONObject.optInt("downloadNaniShowPosition", 3);
-        this.f13775d = jSONObject.optInt("downloadNaniShowRate", 2);
-        this.f13776e = jSONObject.optString("downloadNaniLinkUrl", null);
-        this.f13777f = jSONObject.optString("downloadNaniTxt", null);
-        this.f13778g = jSONObject.optString("showNaniTailTxt", null);
-        this.f13779h = jSONObject.optInt("showNaniTailVideoType", 0);
-        this.f13780i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
+        this.f14540a = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
+        this.f14541b = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+        this.f14542c = jSONObject.optInt("downloadNaniShowPosition", 3);
+        this.f14543d = jSONObject.optInt("downloadNaniShowRate", 2);
+        this.f14544e = jSONObject.optString("downloadNaniLinkUrl", null);
+        this.f14545f = jSONObject.optString("downloadNaniTxt", null);
+        this.f14546g = jSONObject.optString("showNaniTailTxt", null);
+        this.f14547h = jSONObject.optInt("showNaniTailVideoType", 0);
+        this.f14548i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
     }
 }

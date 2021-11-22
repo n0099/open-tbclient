@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.boxes.piff;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -191,7 +190,7 @@ public class TfrfBox extends AbstractFullBox {
     public byte[] getUserType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new byte[]{-44, ByteCompanionObject.MIN_VALUE, 126, -14, ExifInterface.MARKER_SOF10, 57, 70, -107, -114, 84, 38, ExifInterface.MARKER_SOF11, -98, 70, -89, -97} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new byte[]{-44, ByteCompanionObject.MIN_VALUE, 126, -14, -54, 57, 70, -107, -114, 84, 38, -53, -98, 70, -89, -97} : (byte[]) invokeV.objValue;
     }
 
     public String toString() {

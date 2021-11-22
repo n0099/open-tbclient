@@ -1,6 +1,6 @@
 package b.a.p0.a.n0;
 
-import b.a.p0.a.a1.e;
+import b.a.p0.a.a1.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,8 +28,8 @@ public class g extends a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            b.a.p0.a.e0.d.i("SwanAppPurger", "删除小程序: " + str, new Exception("deletePkgFile"));
-            e.C0109e.e(str);
+            b.a.p0.a.e0.d.l("SwanAppPurger", "删除小程序: " + str, new Exception("deletePkgFile"));
+            d.e.e(str);
         }
     }
 }

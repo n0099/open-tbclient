@@ -15,28 +15,28 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29629a;
+    public String f30498a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29630b;
+    public String f30499b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29631c;
+    public String f30500c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29632d;
+    public String f30501d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29633e;
+    public int f30502e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29634f;
+    public String f30503f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29635g;
+    public int f30504g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f29636h;
+    public String f30505h;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -51,18 +51,18 @@ public class d {
                 return;
             }
         }
-        this.f29629a = "";
-        this.f29630b = "";
-        this.f29631c = "";
-        this.f29632d = "";
-        this.f29634f = "";
-        this.f29635g = 0;
+        this.f30498a = "";
+        this.f30499b = "";
+        this.f30500c = "";
+        this.f30501d = "";
+        this.f30503f = "";
+        this.f30504g = 0;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29632d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30501d : (String) invokeV.objValue;
     }
 
     public boolean b(String str) {
@@ -74,14 +74,14 @@ public class d {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f29629a = jSONObject.optString("name");
-                this.f29630b = jSONObject.optString("id");
-                this.f29631c = jSONObject.optString("image");
-                this.f29632d = jSONObject.optString("url");
-                this.f29633e = jSONObject.optInt("progress");
-                this.f29634f = jSONObject.optString("downloadPerSize");
-                this.f29635g = jSONObject.optInt("status");
-                this.f29636h = jSONObject.optString("savePath");
+                this.f30498a = jSONObject.optString("name");
+                this.f30499b = jSONObject.optString("id");
+                this.f30500c = jSONObject.optString("image");
+                this.f30501d = jSONObject.optString("url");
+                this.f30502e = jSONObject.optInt("progress");
+                this.f30503f = jSONObject.optString("downloadPerSize");
+                this.f30504g = jSONObject.optInt("status");
+                this.f30505h = jSONObject.optString("savePath");
                 return true;
             } catch (JSONException unused) {
                 return false;
@@ -93,28 +93,28 @@ public class d {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f29634f = str;
+            this.f30503f = str;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f29633e = i2;
+            this.f30502e = i2;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f29636h = str;
+            this.f30505h = str;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f29635g = i2;
+            this.f30504g = i2;
         }
     }
 
@@ -124,14 +124,14 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("name", this.f29629a);
-                jSONObject.put("id", this.f29630b);
-                jSONObject.put("image", this.f29631c);
-                jSONObject.put("url", this.f29632d);
-                jSONObject.put("progress", this.f29633e);
-                jSONObject.put("downloadPerSize", this.f29634f);
-                jSONObject.put("status", this.f29635g);
-                jSONObject.put("savePath", this.f29636h);
+                jSONObject.put("name", this.f30498a);
+                jSONObject.put("id", this.f30499b);
+                jSONObject.put("image", this.f30500c);
+                jSONObject.put("url", this.f30501d);
+                jSONObject.put("progress", this.f30502e);
+                jSONObject.put("downloadPerSize", this.f30503f);
+                jSONObject.put("status", this.f30504g);
+                jSONObject.put("savePath", this.f30505h);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

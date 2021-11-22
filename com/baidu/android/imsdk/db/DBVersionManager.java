@@ -1525,10 +1525,10 @@ public class DBVersionManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c2, code lost:
         if (r6 == null) goto L8;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x00c4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x00c5, code lost:
         return r0;
      */
     /*

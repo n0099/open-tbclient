@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import b.a.e.a.f;
-import b.a.e.e.m.g;
+import b.a.e.f.m.g;
 import b.a.q0.s.s.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -40,24 +40,24 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f51667e;
+        public final /* synthetic */ View.OnClickListener f52580e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewMyFansUserLikeButton f51668f;
+        public final /* synthetic */ NewMyFansUserLikeButton f52581f;
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.NewMyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1737a implements i.d {
+        public class C1778a implements i.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f51669a;
+            public final /* synthetic */ View f52582a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f51670b;
+            public final /* synthetic */ a f52583b;
 
-            public C1737a(a aVar, View view) {
+            public C1778a(a aVar, View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,26 +72,26 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                         return;
                     }
                 }
-                this.f51670b = aVar;
-                this.f51669a = view;
+                this.f52583b = aVar;
+                this.f52582a = view;
             }
 
             @Override // b.a.q0.s.s.i.d
             public void onClick() {
                 View.OnClickListener onClickListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (onClickListener = this.f51670b.f51667e) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (onClickListener = this.f52583b.f52580e) == null) {
                     return;
                 }
-                onClickListener.onClick(this.f51669a);
-                if (this.f51670b.f51668f.x != 1) {
-                    if (this.f51670b.f51668f.x == 2) {
-                        TiebaStatic.log(new StatisticItem("C12603").param("obj_param1", this.f51670b.f51668f.w));
+                onClickListener.onClick(this.f52582a);
+                if (this.f52583b.f52581f.x != 1) {
+                    if (this.f52583b.f52581f.x == 2) {
+                        TiebaStatic.log(new StatisticItem("C12603").param("obj_param1", this.f52583b.f52581f.w));
                     }
                 } else {
-                    TiebaStatic.log(new StatisticItem("c12773").param("obj_param1", this.f51670b.f51668f.w));
+                    TiebaStatic.log(new StatisticItem("c12773").param("obj_param1", this.f52583b.f52581f.w));
                 }
-                g.b(this.f51670b.f51668f.v, this.f51670b.f51668f.u);
+                g.b(this.f52583b.f52581f.v, this.f52583b.f52581f.u);
             }
         }
 
@@ -101,7 +101,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f51671a;
+            public final /* synthetic */ a f52584a;
 
             public b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -118,16 +118,16 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                         return;
                     }
                 }
-                this.f51671a = aVar;
+                this.f52584a = aVar;
             }
 
             @Override // b.a.q0.s.s.i.c
             public void onClick() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f51671a.f51668f.v == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52584a.f52581f.v == null) {
                     return;
                 }
-                g.b(this.f51671a.f51668f.v, this.f51671a.f51668f.u);
+                g.b(this.f52584a.f52581f.v, this.f52584a.f52581f.u);
             }
         }
 
@@ -146,42 +146,42 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                     return;
                 }
             }
-            this.f51668f = newMyFansUserLikeButton;
-            this.f51667e = onClickListener;
+            this.f52581f = newMyFansUserLikeButton;
+            this.f52580e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f51668f.x != 1) {
-                    if (this.f51668f.x == 2) {
-                        TiebaStatic.log(new StatisticItem("c12605").param("obj_locate", this.f51668f.y ? 3 : 2).param("obj_param1", this.f51668f.w));
+                if (this.f52581f.x != 1) {
+                    if (this.f52581f.x == 2) {
+                        TiebaStatic.log(new StatisticItem("c12605").param("obj_locate", this.f52581f.y ? 3 : 2).param("obj_param1", this.f52581f.w));
                     }
                 } else {
-                    TiebaStatic.log(new StatisticItem("c12772").param("obj_locate", this.f51668f.y ? "3" : "2").param("obj_param1", this.f51668f.w));
+                    TiebaStatic.log(new StatisticItem("c12772").param("obj_locate", this.f52581f.y ? "3" : "2").param("obj_param1", this.f52581f.w));
                 }
-                if (this.f51668f.y) {
-                    if (this.f51668f.u != null) {
-                        if (this.f51668f.v == null) {
-                            i iVar = new i(this.f51668f.u.getContext());
-                            iVar.p(this.f51668f.u.getString(R.string.confirm_unlike));
+                if (this.f52581f.y) {
+                    if (this.f52581f.u != null) {
+                        if (this.f52581f.v == null) {
+                            i iVar = new i(this.f52581f.u.getContext());
+                            iVar.p(this.f52581f.u.getString(R.string.confirm_unlike));
                             ArrayList arrayList = new ArrayList();
-                            b.a.q0.s.s.f fVar = new b.a.q0.s.s.f(this.f51668f.u.getString(R.string.confirm), iVar);
-                            fVar.l(new C1737a(this, view));
+                            b.a.q0.s.s.f fVar = new b.a.q0.s.s.f(this.f52581f.u.getString(R.string.confirm), iVar);
+                            fVar.l(new C1778a(this, view));
                             arrayList.add(fVar);
                             iVar.l(new b(this));
                             iVar.j(arrayList);
-                            this.f51668f.v = new PopupDialog(this.f51668f.u, iVar);
-                            this.f51668f.v.setWindowDimAmount(0.7f);
+                            this.f52581f.v = new PopupDialog(this.f52581f.u, iVar);
+                            this.f52581f.v.setWindowDimAmount(0.7f);
                         }
-                        g.j(this.f51668f.v, this.f51668f.u);
+                        g.j(this.f52581f.v, this.f52581f.u);
                     }
                 } else {
-                    this.f51667e.onClick(view);
+                    this.f52580e.onClick(view);
                 }
-                if (this.f51668f.z != null) {
-                    this.f51668f.z.callback();
+                if (this.f52581f.z != null) {
+                    this.f52581f.z.callback();
                 }
             }
         }

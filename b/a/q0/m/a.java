@@ -12,7 +12,7 @@ import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebSettings;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -20,6 +20,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.PvThread;
@@ -37,7 +39,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f12715a;
+    public static String f13465a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(WebSettings webSettings) {
@@ -130,7 +132,7 @@ public class a {
             }
             String cookie = cookieManager.getCookie("*.baidu.com");
             if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = f12715a;
+                cookie = f13465a;
             }
             if (cookie != null) {
                 for (String str : cookie.split(";")) {
@@ -188,6 +190,7 @@ public class a {
             cookieManager.setCookie(Domains.BAIDU, "BAIDUCUID=" + (!TextUtils.isEmpty(cuidGalaxy2) ? new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())) : "") + ";");
             cookieManager.setCookie(Domains.BAIDU, "TBBRAND=" + Build.MODEL + ";");
             cookieManager.setCookie(Domains.BAIDU, "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ";");
+            cookieManager.setCookie(Domains.BAIDU, "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti() + ";");
             cookieManager.setCookie(Domains.BAIDU, "cuid_galaxy2=" + cuidGalaxy2 + ";");
             cookieManager.setCookie(Domains.BAIDU, "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ";");
             cookieManager.setCookie(Domains.BAIDU, "BDUSS=" + TbadkCoreApplication.getCurrentBduss() + ";HttpOnly");
@@ -232,17 +235,26 @@ public class a {
     public static void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f12715a = str;
+            f13465a = str;
         }
     }
 
     public static void j(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, str) == null) {
-            String d2 = d(b(str));
+            k(context, str, true);
+        }
+    }
+
+    public static void k(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65546, null, context, str, z) == null) {
+            if (z) {
+                str = d(b(str));
+            }
             try {
                 Intent intent = new Intent("android.intent.action.VIEW");
-                intent.setData(Uri.parse(d2));
+                intent.setData(Uri.parse(str));
                 if (!(context instanceof Activity)) {
                     intent.addFlags(268435456);
                 }
@@ -253,78 +265,78 @@ public class a {
         }
     }
 
-    public static void k(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            l(context, str);
-        }
-    }
-
     public static void l(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, context, str) == null) {
-            u(context, true, str);
+            m(context, str);
         }
     }
 
-    public static void m(Context context, String str, String str2) {
+    public static void m(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, str2) == null) {
-            q(context, str, str2, true, true, true, true, true);
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
+            v(context, true, str);
         }
     }
 
-    public static void n(Context context, String str, String str2, Bundle bundle) {
+    public static void n(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65549, null, context, str, str2, bundle) == null) {
-            t(context, str, str2, true, true, true, true, true, false, false, bundle);
+        if (interceptable == null || interceptable.invokeLLL(65549, null, context, str, str2) == null) {
+            r(context, str, str2, true, true, true, true, true);
         }
     }
 
-    public static void o(Context context, String str, String str2, boolean z) {
+    public static void o(Context context, String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) {
-            q(context, str, str2, true, z, true, true, true);
+        if (interceptable == null || interceptable.invokeLLLL(65550, null, context, str, str2, bundle) == null) {
+            u(context, str, str2, true, true, true, true, true, false, false, bundle);
         }
     }
 
-    public static void p(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
+    public static void p(Context context, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            q(context, str, str2, z, z2, z3, true, true);
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) {
+            r(context, str, str2, true, z, true, true, true);
         }
     }
 
-    public static void q(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
+    public static void q(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5)}) == null) {
-            s(context, str, str2, z, z2, z3, z4, z5, false, false);
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            r(context, str, str2, z, z2, z3, true, true);
         }
     }
 
-    public static void r(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
+    public static void r(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6)}) == null) {
-            s(context, str, str2, z, z2, z3, z4, z5, z6, false);
+        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5)}) == null) {
+            t(context, str, str2, z, z2, z3, z4, z5, false, false);
         }
     }
 
-    public static void s(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
+    public static void s(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7)}) == null) {
-            t(context, str, str2, z, z2, z3, z4, z5, z6, z7, null);
+        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6)}) == null) {
+            t(context, str, str2, z, z2, z3, z4, z5, z6, false);
         }
     }
 
-    public static void t(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, Bundle bundle) {
+    public static void t(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7)}) == null) {
+            u(context, str, str2, z, z2, z3, z4, z5, z6, z7, null);
+        }
+    }
+
+    public static void u(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7), bundle}) == null) {
             h();
             try {
                 if (StringUtils.isNull(str2)) {
                     return;
                 }
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? d(b(str2)) : str2, z, z2, z3);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, (bundle == null || bundle.getBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, true)) ? z5 : false ? d(b(str2)) : str2, z, z2, z3);
                 tbWebViewActivityConfig.setNeedImmerSiveSticky(z6);
                 tbWebViewActivityConfig.setFixTitle(z7);
                 tbWebViewActivityConfig.setBundle(bundle);
@@ -335,24 +347,24 @@ public class a {
         }
     }
 
-    public static void u(Context context, boolean z, String str) {
+    public static void v(Context context, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, Boolean.valueOf(z), str}) == null) {
-            q(context, "", str, true, true, true, true, z);
+        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{context, Boolean.valueOf(z), str}) == null) {
+            r(context, "", str, true, true, true, true, z);
         }
     }
 
-    public static void v(Context context, boolean z, String str, String str2) {
+    public static void w(Context context, boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) {
-            q(context, str2, str, true, true, true, true, z);
+        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) {
+            r(context, str2, str, true, true, true, true, z);
         }
     }
 
-    public static void w(boolean z, Context context, String str, String str2) {
+    public static void x(boolean z, Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{Boolean.valueOf(z), context, str, str2}) == null) {
-            s(context, str, str2, true, true, true, true, true, false, z);
+        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{Boolean.valueOf(z), context, str, str2}) == null) {
+            t(context, str, str2, true, true, true, true, true, false, z);
         }
     }
 }

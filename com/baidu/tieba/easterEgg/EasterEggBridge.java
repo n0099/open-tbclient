@@ -1,10 +1,10 @@
 package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.r0.l0.f.a.a;
 import b.a.r0.l0.f.a.c;
-import b.a.r0.l3.n0.b;
+import b.a.r0.m3.n0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EasterEggBridge implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ARGS = "args";
@@ -63,7 +63,7 @@ public class EasterEggBridge implements b {
         list.clear();
     }
 
-    @Override // b.a.r0.l3.n0.b
+    @Override // b.a.r0.m3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

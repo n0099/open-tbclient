@@ -1,6 +1,5 @@
 package com.idlefish.flutterboost.log;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,11 +38,11 @@ public interface ILog {
                     return;
                 }
             }
-            VERBOSE = new LogLevelEnum("VERBOSE", 0, 0, ExifInterface.GPS_MEASUREMENT_INTERRUPTED);
+            VERBOSE = new LogLevelEnum("VERBOSE", 0, 0, "V");
             DEBUG = new LogLevelEnum("DEBUG", 1, 1, "D");
             INFO = new LogLevelEnum("INFO", 2, 2, "I");
-            WARNING = new LogLevelEnum("WARNING", 3, 3, ExifInterface.LONGITUDE_WEST);
-            LogLevelEnum logLevelEnum = new LogLevelEnum("ERROR", 4, 4, ExifInterface.LONGITUDE_EAST);
+            WARNING = new LogLevelEnum("WARNING", 3, 3, "W");
+            LogLevelEnum logLevelEnum = new LogLevelEnum("ERROR", 4, 4, "E");
             ERROR = logLevelEnum;
             $VALUES = new LogLevelEnum[]{VERBOSE, DEBUG, INFO, WARNING, logLevelEnum};
         }

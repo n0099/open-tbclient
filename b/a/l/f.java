@@ -17,7 +17,7 @@ public class f extends c implements p<d2>, q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CardForumHeadLayout f3230i;
+    public final CardForumHeadLayout f3321i;
     public int j;
     public int k;
     public int l;
@@ -37,17 +37,17 @@ public class f extends c implements p<d2>, q {
                 return;
             }
         }
-        this.j = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-        this.k = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44);
-        this.l = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds60);
-        this.f3230i = new CardForumHeadLayout(tbPageContext.getPageActivity());
+        this.j = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        this.k = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44);
+        this.l = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+        this.f3321i = new CardForumHeadLayout(tbPageContext.getPageActivity());
         g(-1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.leftMargin = this.k;
         layoutParams.topMargin = this.j;
         layoutParams.bottomMargin = this.l;
         h(layoutParams);
-        f(this.f3230i);
+        f(this.f3321i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,12 +57,12 @@ public class f extends c implements p<d2>, q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) {
             if (d2Var != null && d2Var.J() != null) {
-                this.f3230i.setVisibility(0);
-                this.f3230i.setData(d2Var);
-                this.f3230i.setTag(d2Var);
+                this.f3321i.setVisibility(0);
+                this.f3321i.setData(d2Var);
+                this.f3321i.setTag(d2Var);
                 return;
             }
-            this.f3230i.setVisibility(8);
+            this.f3321i.setVisibility(8);
         }
     }
 
@@ -70,7 +70,7 @@ public class f extends c implements p<d2>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            this.f3230i.onChangeSkinType();
+            this.f3321i.onChangeSkinType();
         }
     }
 }

@@ -5,8 +5,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import b.a.p0.a.e0.d;
-import b.a.p0.a.v2.n0;
-import b.a.p0.a.v2.w;
+import b.a.p0.a.z2.n0;
+import b.a.p0.a.z2.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,7 +58,7 @@ public class b extends b.a.p0.a.c0.b.b {
         this.w = "";
     }
 
-    @Override // b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
@@ -122,7 +122,7 @@ public class b extends b.a.p0.a.c0.b.b {
         try {
             this.v = Long.parseLong(jSONObject.optString("duration"));
         } catch (Exception unused) {
-            d.a("Component-Model-View", "duration occurs exception");
+            d.b("Component-Model-View", "duration occurs exception");
             this.v = 0L;
         }
         this.w = this.u.optString("easing");
@@ -137,14 +137,14 @@ public class b extends b.a.p0.a.c0.b.b {
         try {
             this.o = Color.parseColor(jSONObject.optString("bgColor"));
         } catch (Exception unused) {
-            d.a("Component-Model-View", "backgroundColor occurs exception");
+            d.b("Component-Model-View", "backgroundColor occurs exception");
             this.o = 0;
         }
         this.p = this.n.optInt("borderWidth");
         try {
             this.q = Color.parseColor(this.n.optString("borderColor"));
         } catch (Exception unused2) {
-            d.a("Component-Model-View", "borderColor occurs exception");
+            d.b("Component-Model-View", "borderColor occurs exception");
             this.q = 0;
         }
         this.r = n0.g(this.n.optInt("borderRadius"));

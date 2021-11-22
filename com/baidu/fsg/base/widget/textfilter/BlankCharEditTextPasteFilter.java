@@ -13,7 +13,7 @@ public class BlankCharEditTextPasteFilter implements IEditTextPasteFilter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37737a = "BlankCharEditTextPasteFilter";
+    public static final String f38567a = "BlankCharEditTextPasteFilter";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

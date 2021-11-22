@@ -28,7 +28,7 @@ public class d extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f3646c;
+    public e f3736c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context, Handler handler) {
@@ -49,8 +49,8 @@ public class d extends a {
                 return;
             }
         }
-        this.f3633b = context;
-        this.f3646c = e.a(context);
+        this.f3723b = context;
+        this.f3736c = e.a(context);
     }
 
     public String b() {
@@ -59,11 +59,11 @@ public class d extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", b.a.n0.l.d.j(this.f3633b));
-                jSONObject.put("1", b.a.n0.l.c.h(this.f3633b));
-                jSONObject.put("2", b.a.n0.g.b.a(this.f3633b, true, false));
-                jSONObject.put("3", b.a.n0.g.a.c(this.f3633b));
-                return c("q/1/qr", b.a.n0.l.c.c(this.f3633b, e(f(true, false), jSONObject), "1077101"));
+                jSONObject.put("0", b.a.n0.l.d.j(this.f3723b));
+                jSONObject.put("1", b.a.n0.l.c.h(this.f3723b));
+                jSONObject.put("2", b.a.n0.g.b.a(this.f3723b, true, false));
+                jSONObject.put("3", b.a.n0.g.a.c(this.f3723b));
+                return c("q/1/qr", b.a.n0.l.c.c(this.f3723b, e(f(true, false), jSONObject), "1077101"));
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
                 return "";
@@ -78,18 +78,18 @@ public class d extends a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject)) == null) {
             try {
                 byte[] f2 = b.a.n0.l.c.f();
-                String b2 = this.f3646c.b(str, URLEncoder.encode(Base64.encodeToString(b.a.n0.l.e.h(f2, g.b(b.a.n0.l.d.f(this.f3633b)).getBytes()), 0)));
+                String b2 = this.f3736c.b(str, URLEncoder.encode(Base64.encodeToString(b.a.n0.l.e.h(f2, g.b(b.a.n0.l.d.f(this.f3723b)).getBytes()), 0)));
                 if (TextUtils.isEmpty(b2)) {
                     return "";
                 }
-                String a2 = a(b2, this.f3646c.e(f2, jSONObject.toString()));
+                String a2 = a(b2, this.f3736c.e(f2, jSONObject.toString()));
                 if (TextUtils.isEmpty(a2)) {
                     return "";
                 }
                 JSONObject jSONObject2 = new JSONObject(a2);
                 jSONObject2.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
                 String optString = jSONObject2.optString("skey");
-                return new String(b.a.n0.l.e.e(Base64.decode(jSONObject2.optString("data").getBytes(), 0), b.a.n0.l.e.g(Base64.decode(optString.getBytes(), 0), g.b(b.a.n0.l.d.f(this.f3633b)).getBytes())));
+                return new String(b.a.n0.l.e.e(Base64.decode(jSONObject2.optString("data").getBytes(), 0), b.a.n0.l.e.g(Base64.decode(optString.getBytes(), 0), g.b(b.a.n0.l.d.f(this.f3723b)).getBytes())));
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
                 return "";
@@ -103,7 +103,7 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, j)) == null) {
             try {
-                return c("q/1/qmini", b.a.n0.l.c.c(this.f3633b, e(f(true, false), jSONObject), "1077102"));
+                return c("q/1/qmini", b.a.n0.l.c.c(this.f3723b, e(f(true, false), jSONObject), "1077102"));
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
                 return "";
@@ -145,13 +145,13 @@ public class d extends a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                g(jSONObject, "21", b.a.n0.g.b.a(this.f3633b, z, z2));
-                g(jSONObject, com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE, b.a.n0.l.d.b(this.f3633b, z, z2));
-                g(jSONObject, com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, b.a.n0.g.b.c(this.f3633b, z, z2));
-                g(jSONObject, "24", b.a.n0.g.b.b(this.f3633b, z, z2));
-                g(jSONObject, "40", b.a.n0.g.a.d(this.f3633b, z, z2));
-                g(jSONObject, "41", b.a.n0.g.a.a(this.f3633b));
-                g(jSONObject, RoomMasterTable.DEFAULT_ID, b.a.n0.g.a.b(this.f3633b, z, z2));
+                g(jSONObject, "21", b.a.n0.g.b.a(this.f3723b, z, z2));
+                g(jSONObject, com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE, b.a.n0.l.d.b(this.f3723b, z, z2));
+                g(jSONObject, com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, b.a.n0.g.b.c(this.f3723b, z, z2));
+                g(jSONObject, "24", b.a.n0.g.b.b(this.f3723b, z, z2));
+                g(jSONObject, "40", b.a.n0.g.a.d(this.f3723b, z, z2));
+                g(jSONObject, "41", b.a.n0.g.a.a(this.f3723b));
+                g(jSONObject, RoomMasterTable.DEFAULT_ID, b.a.n0.g.a.b(this.f3723b, z, z2));
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
             }
@@ -187,9 +187,9 @@ public class d extends a {
                 f2.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, Build.MODEL);
                 f2.put(BaseUtils.METHOD_SENDMESSAGE, String.valueOf(Build.VERSION.SDK_INT));
                 f2.put("56", Build.VERSION.RELEASE);
-                f2.put("50", k.a(this.f3633b));
-                f2.put("60", k.f(this.f3633b));
-                Pair<Integer, String[]> e2 = k.e(this.f3633b);
+                f2.put("50", k.a(this.f3723b));
+                f2.put("60", k.f(this.f3723b));
+                Pair<Integer, String[]> e2 = k.e(this.f3723b);
                 if (e2 != null) {
                     f2.put("20", e2.first);
                     String[] strArr = (String[]) e2.second;
@@ -203,7 +203,7 @@ public class d extends a {
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
             }
-            return new JSONObject(c("q/1/qpre", b.a.n0.l.c.c(this.f3633b, e(f2, jSONObject), "1077104"))).optInt("0", 0) == 0;
+            return new JSONObject(c("q/1/qpre", b.a.n0.l.c.c(this.f3723b, e(f2, jSONObject), "1077104"))).optInt("0", 0) == 0;
         }
         return invokeL.booleanValue;
     }
@@ -214,10 +214,10 @@ public class d extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", this.f3633b.getPackageName());
-                jSONObject.put("6", b.a.n0.l.c.l(this.f3633b));
-                jSONObject.put("7", j.a(this.f3633b));
-                return c("q/1/qc", b.a.n0.l.c.c(this.f3633b, jSONObject, ""));
+                jSONObject.put("0", this.f3723b.getPackageName());
+                jSONObject.put("6", b.a.n0.l.c.l(this.f3723b));
+                jSONObject.put("7", j.a(this.f3723b));
+                return c("q/1/qc", b.a.n0.l.c.c(this.f3723b, jSONObject, ""));
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
                 return "";
@@ -231,7 +231,7 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, j)) == null) {
             try {
-                return c("q/1/qv", b.a.n0.l.c.c(this.f3633b, e(f(true, false), jSONObject), ""));
+                return c("q/1/qv", b.a.n0.l.c.c(this.f3723b, e(f(true, false), jSONObject), ""));
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
                 return "";

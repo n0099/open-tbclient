@@ -43,7 +43,7 @@ public class r extends t0 {
                 return;
             }
         }
-        F = b.a.e.e.p.l.k(TbadkCoreApplication.getInst()) - ((b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        F = b.a.e.f.p.l.k(TbadkCoreApplication.getInst()) - ((b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -83,10 +83,10 @@ public class r extends t0 {
     }
 
     @Override // b.a.l.a
-    public void k(b.a.r0.b0.c0<b.a.q0.s.q.a> c0Var) {
+    public void k(b.a.r0.b0.d0<b.a.q0.s.q.a> d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0Var) == null) {
-            this.C.setSubClickListener(c0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d0Var) == null) {
+            this.C.setSubClickListener(d0Var);
         }
     }
 
@@ -107,7 +107,7 @@ public class r extends t0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            b.a.r0.q2.r.b bVar = new b.a.r0.q2.r.b(this.f3216f, this.m);
+            b.a.r0.q2.r.b bVar = new b.a.r0.q2.r.b(this.f3307f, this.m);
             bVar.setStageType("2003");
             return bVar;
         }
@@ -125,7 +125,7 @@ public class r extends t0 {
                 return;
             }
             d2 threadData = aVar.getThreadData();
-            if (threadData.q1() != null) {
+            if (threadData.r1() != null) {
                 this.C.setVisibility(8);
                 this.m.setVisibility(0);
                 this.E.setVisibility(8);
@@ -144,7 +144,7 @@ public class r extends t0 {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            View inflate = LayoutInflater.from(this.f3216f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+            View inflate = LayoutInflater.from(this.f3307f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
             this.j = inflate;
             this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
             this.E = (TextView) this.j.findViewById(R.id.video_seg_abstract);

@@ -1,8 +1,8 @@
 package b.a.p0.a.y0.h;
 
 import androidx.annotation.NonNull;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.f2.e;
+import b.a.p0.a.z2.q0;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,10 +21,10 @@ public class c extends b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f9027e;
+        public final /* synthetic */ List f9373e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.y0.j.b f9028f;
+        public final /* synthetic */ b.a.p0.a.y0.j.b f9374f;
 
         public a(c cVar, List list, b.a.p0.a.y0.j.b bVar) {
             Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class c extends b {
                     return;
                 }
             }
-            this.f9027e = list;
-            this.f9028f = bVar;
+            this.f9373e = list;
+            this.f9374f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (String str : this.f9027e) {
-                    this.f9028f.e(str);
+                for (String str : this.f9373e) {
+                    this.f9374f.e(str);
                 }
             }
         }
@@ -82,7 +82,7 @@ public class c extends b {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, bVar, list)) == null) {
-            q0.X(new a(this, list, bVar));
+            q0.a0(new a(this, list, bVar));
             return true;
         }
         return invokeLLL.booleanValue;

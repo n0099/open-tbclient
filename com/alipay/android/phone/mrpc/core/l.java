@@ -21,32 +21,32 @@ public final class l implements ab {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static l f33866b;
+    public static l f34700b;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ThreadFactory f33867i;
+    public static final ThreadFactory f34701i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f33868a;
+    public Context f34702a;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f33869c;
+    public ThreadPoolExecutor f34703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f33870d;
+    public b f34704d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f33871e;
+    public long f34705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f33872f;
+    public long f34706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f33873g;
+    public long f34707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f33874h;
+    public int f34708h;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +61,7 @@ public final class l implements ab {
                 return;
             }
         }
-        f33867i = new n();
+        f34701i = new n();
     }
 
     public l(Context context) {
@@ -79,15 +79,15 @@ public final class l implements ab {
                 return;
             }
         }
-        this.f33868a = context;
-        this.f33870d = b.a("android");
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 11, 3L, TimeUnit.SECONDS, new ArrayBlockingQueue(20), f33867i, new ThreadPoolExecutor.CallerRunsPolicy());
-        this.f33869c = threadPoolExecutor;
+        this.f34702a = context;
+        this.f34704d = b.a("android");
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 11, 3L, TimeUnit.SECONDS, new ArrayBlockingQueue(20), f34701i, new ThreadPoolExecutor.CallerRunsPolicy());
+        this.f34703c = threadPoolExecutor;
         try {
             threadPoolExecutor.allowCoreThreadTimeOut(true);
         } catch (Exception unused) {
         }
-        CookieSyncManager.createInstance(this.f33868a);
+        CookieSyncManager.createInstance(this.f34702a);
         CookieManager.getInstance().setAcceptCookie(true);
     }
 
@@ -95,7 +95,7 @@ public final class l implements ab {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            l lVar = f33866b;
+            l lVar = f34700b;
             return lVar != null ? lVar : b(context);
         }
         return (l) invokeL.objValue;
@@ -106,12 +106,12 @@ public final class l implements ab {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (l.class) {
-                l lVar = f33866b;
+                l lVar = f34700b;
                 if (lVar != null) {
                     return lVar;
                 }
                 l lVar2 = new l(context);
-                f33866b = lVar2;
+                f34700b = lVar2;
                 return lVar2;
             }
         }
@@ -121,7 +121,7 @@ public final class l implements ab {
     public final b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33870d : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34704d : (b) invokeV.objValue;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.ab
@@ -129,25 +129,25 @@ public final class l implements ab {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tVar)) == null) {
-            if (s.a(this.f33868a)) {
+            if (s.a(this.f34702a)) {
                 String str = "HttpManager" + hashCode() + ": Active Task = %d, Completed Task = %d, All Task = %d,Avarage Speed = %d KB/S, Connetct Time = %d ms, All data size = %d bytes, All enqueueConnect time = %d ms, All socket time = %d ms, All request times = %d times";
                 Object[] objArr = new Object[9];
-                objArr[0] = Integer.valueOf(this.f33869c.getActiveCount());
-                objArr[1] = Long.valueOf(this.f33869c.getCompletedTaskCount());
-                objArr[2] = Long.valueOf(this.f33869c.getTaskCount());
-                long j = this.f33873g;
-                objArr[3] = Long.valueOf(j == 0 ? 0L : ((this.f33871e * 1000) / j) >> 10);
-                int i2 = this.f33874h;
-                objArr[4] = Long.valueOf(i2 != 0 ? this.f33872f / i2 : 0L);
-                objArr[5] = Long.valueOf(this.f33871e);
-                objArr[6] = Long.valueOf(this.f33872f);
-                objArr[7] = Long.valueOf(this.f33873g);
-                objArr[8] = Integer.valueOf(this.f33874h);
+                objArr[0] = Integer.valueOf(this.f34703c.getActiveCount());
+                objArr[1] = Long.valueOf(this.f34703c.getCompletedTaskCount());
+                objArr[2] = Long.valueOf(this.f34703c.getTaskCount());
+                long j = this.f34707g;
+                objArr[3] = Long.valueOf(j == 0 ? 0L : ((this.f34705e * 1000) / j) >> 10);
+                int i2 = this.f34708h;
+                objArr[4] = Long.valueOf(i2 != 0 ? this.f34706f / i2 : 0L);
+                objArr[5] = Long.valueOf(this.f34705e);
+                objArr[6] = Long.valueOf(this.f34706f);
+                objArr[7] = Long.valueOf(this.f34707g);
+                objArr[8] = Integer.valueOf(this.f34708h);
                 String.format(str, objArr);
             }
             q qVar = new q(this, (o) tVar);
             m mVar = new m(this, qVar, qVar);
-            this.f33869c.execute(mVar);
+            this.f34703c.execute(mVar);
             return mVar;
         }
         return (Future) invokeL.objValue;
@@ -156,22 +156,22 @@ public final class l implements ab {
     public final void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f33871e += j;
+            this.f34705e += j;
         }
     }
 
     public final void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f33872f += j;
-            this.f33874h++;
+            this.f34706f += j;
+            this.f34708h++;
         }
     }
 
     public final void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f33873g += j;
+            this.f34707g += j;
         }
     }
 }

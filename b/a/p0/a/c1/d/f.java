@@ -1,15 +1,35 @@
 package b.a.p0.a.c1.d;
 
-import android.app.Activity;
 import android.content.Context;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface f {
-    boolean a(Context context);
+    boolean a(Context context, b.a.p0.a.i1.c.g gVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar);
 
-    void b(Activity activity, String str, b.a.d0.e.a aVar);
+    boolean b(Context context, b.a.p0.a.i1.c.b bVar, b.a.p0.a.i1.b bVar2, b.a.p0.a.d2.e eVar);
 
-    void c(Context context, JSONObject jSONObject, b.a.d0.e.a aVar);
+    boolean c(Context context, b.a.p0.a.i1.c.c cVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar);
 
-    void d(Activity activity, String str, b.a.d0.e.a aVar);
+    void d(b.a.p0.a.p.e.b bVar);
+
+    boolean e(Context context, b.a.p0.a.i1.c.a aVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar);
+
+    void f(b.a.p0.a.p.e.b bVar);
+
+    boolean g(Context context, b.a.p0.a.i1.c.c cVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar);
+
+    boolean h(Context context, b.a.p0.a.i1.c.e eVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar2);
+
+    void i(b.a.p0.a.p.e.b bVar);
+
+    boolean j(Context context, b.a.p0.a.i1.c.f fVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar);
+
+    boolean k(Context context, b.a.p0.a.i1.c.c cVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar);
+
+    boolean l(Context context, b.a.p0.a.i1.c.c cVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar);
+
+    boolean m(Context context, b.a.p0.a.i1.c.c cVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar);
+
+    boolean n(Context context, b.a.p0.a.i1.c.c cVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar);
+
+    boolean update(Context context, b.a.p0.a.i1.c.c cVar, b.a.p0.a.i1.b bVar, b.a.p0.a.d2.e eVar);
 }

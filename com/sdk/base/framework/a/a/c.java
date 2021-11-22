@@ -19,16 +19,16 @@ public class c<K, V> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<K, V> f68090a;
+    public final LinkedHashMap<K, V> f69010a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68091b;
+    public int f69011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f68092c;
+    public int f69012c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b<K, Long> f68093d;
+    public b<K, Long> f69013d;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class c<K, V> {
         if (i2 <= 0) {
             throw new IllegalArgumentException("maxSize <= 0");
         }
-        this.f68092c = i2;
-        this.f68090a = new LinkedHashMap<>(0, 0.75f, true);
-        this.f68093d = new b<>(0, 0.75f);
+        this.f69012c = i2;
+        this.f69010a = new LinkedHashMap<>(0, 0.75f, true);
+        this.f69013d = new b<>(0, 0.75f);
     }
 
     public static int a(String str, String str2, Boolean bool) {
@@ -102,15 +102,15 @@ public class c<K, V> {
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             while (true) {
                 synchronized (this) {
-                    if (this.f68091b <= i2 || this.f68090a.isEmpty()) {
+                    if (this.f69011b <= i2 || this.f69010a.isEmpty()) {
                         break;
                     }
-                    Map.Entry<K, V> next = this.f68090a.entrySet().iterator().next();
+                    Map.Entry<K, V> next = this.f69010a.entrySet().iterator().next();
                     K key = next.getKey();
                     V value = next.getValue();
-                    this.f68090a.remove(key);
-                    this.f68093d.remove(key);
-                    this.f68091b -= b(key, value);
+                    this.f69010a.remove(key);
+                    this.f69013d.remove(key);
+                    this.f69011b -= b(key, value);
                 }
             }
         }
@@ -137,9 +137,9 @@ public class c<K, V> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, k, v)) == null) {
             int a2 = a((c<K, V>) k, (K) v);
             if (a2 <= 0) {
-                this.f68091b = 0;
-                for (Map.Entry<K, V> entry : this.f68090a.entrySet()) {
-                    this.f68091b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
+                this.f69011b = 0;
+                for (Map.Entry<K, V> entry : this.f69010a.entrySet()) {
+                    this.f69011b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
                 }
             }
             return a2;
@@ -175,10 +175,10 @@ public class c<K, V> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, k)) == null) {
             if (k != null) {
                 synchronized (this) {
-                    remove = this.f68090a.remove(k);
-                    this.f68093d.remove(k);
+                    remove = this.f69010a.remove(k);
+                    this.f69013d.remove(k);
                     if (remove != null) {
-                        this.f68091b -= b(k, remove);
+                        this.f69011b -= b(k, remove);
                     }
                 }
                 return remove;
@@ -218,11 +218,11 @@ public class c<K, V> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
             if (k != null) {
                 synchronized (this) {
-                    if (!this.f68093d.containsKey(k)) {
+                    if (!this.f69013d.containsKey(k)) {
                         b((c<K, V>) k);
                         return null;
                     }
-                    V v = this.f68090a.get(k);
+                    V v = this.f69010a.get(k);
                     if (v != null) {
                         return v;
                     }
@@ -243,14 +243,14 @@ public class c<K, V> {
                 throw new NullPointerException("key == null || value == null");
             }
             synchronized (this) {
-                this.f68091b += b(k, v);
-                put = this.f68090a.put(k, v);
-                this.f68093d.put(k, Long.valueOf(j));
+                this.f69011b += b(k, v);
+                put = this.f69010a.put(k, v);
+                this.f69013d.put(k, Long.valueOf(j));
                 if (put != null) {
-                    this.f68091b -= b(k, put);
+                    this.f69011b -= b(k, put);
                 }
             }
-            a(this.f68092c);
+            a(this.f69012c);
             return put;
         }
         return (V) invokeCommon.objValue;

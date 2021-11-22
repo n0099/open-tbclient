@@ -3,7 +3,7 @@ package b.a.l;
 import android.content.Context;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.l.v0.a;
+import b.a.l.w0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.MultiImgLayout;
 import com.baidu.tbadk.TbPageContext;
@@ -32,7 +32,7 @@ public class w extends b.a.l.a<b.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ w f3296a;
+        public final /* synthetic */ w f3384a;
 
         public a(w wVar) {
             Interceptable interceptable = $ic;
@@ -49,18 +49,18 @@ public class w extends b.a.l.a<b.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3296a = wVar;
+            this.f3384a = wVar;
         }
 
-        @Override // b.a.l.v0.a.b
-        public boolean a(a.C0090a c0090a) {
+        @Override // b.a.l.w0.a.b
+        public boolean a(a.C0092a c0092a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0090a)) == null) {
-                if (this.f3296a.k != null && this.f3296a.k.getThreadData() != null) {
-                    b.a.r0.b0.m.a(this.f3296a.k.getThreadData().f0());
-                    b.a.r0.b0.m.l(this.f3296a.j.mTitle, this.f3296a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    b.a.r0.b0.m.l(this.f3296a.j.mAbstract, this.f3296a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0092a)) == null) {
+                if (this.f3384a.k != null && this.f3384a.k.getThreadData() != null) {
+                    b.a.r0.b0.m.a(this.f3384a.k.getThreadData().f0());
+                    b.a.r0.b0.m.l(this.f3384a.j.mTitle, this.f3384a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    b.a.r0.b0.m.l(this.f3384a.j.mAbstract, this.f3384a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -87,8 +87,8 @@ public class w extends b.a.l.a<b.a.q0.s.q.a> {
             }
         }
         this.l = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13373g instanceof MultiImgLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13373g.getParent() == null) {
-            this.j = (MultiImgLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13373g;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14153g instanceof MultiImgLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14153g.getParent() == null) {
+            this.j = (MultiImgLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14153g;
         } else {
             this.j = new MultiImgLayout(context);
         }
@@ -110,10 +110,10 @@ public class w extends b.a.l.a<b.a.q0.s.q.a> {
     }
 
     @Override // b.a.l.a
-    public void k(b.a.r0.b0.c0<b.a.q0.s.q.a> c0Var) {
+    public void k(b.a.r0.b0.d0<b.a.q0.s.q.a> d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0Var) == null) {
-            this.j.setSubClickListener(c0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d0Var) == null) {
+            this.j.setSubClickListener(d0Var);
         }
     }
 
@@ -141,7 +141,7 @@ public class w extends b.a.l.a<b.a.q0.s.q.a> {
         }
     }
 
-    public void q(b.a.e.e.k.b<TbImageView> bVar) {
+    public void q(b.a.e.f.k.b<TbImageView> bVar) {
         MultiImgLayout multiImgLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || (multiImgLayout = this.j) == null) {
@@ -150,7 +150,7 @@ public class w extends b.a.l.a<b.a.q0.s.q.a> {
         multiImgLayout.setConstrainImagePool(bVar);
     }
 
-    public void r(b.a.e.e.k.b<ConstrainImageLayout> bVar) {
+    public void r(b.a.e.f.k.b<ConstrainImageLayout> bVar) {
         MultiImgLayout multiImgLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (multiImgLayout = this.j) == null) {
@@ -180,7 +180,7 @@ public class w extends b.a.l.a<b.a.q0.s.q.a> {
         }
     }
 
-    public void v(b.a.e.l.c.b bVar) {
+    public void v(b.a.e.m.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
             this.j.setPreloadSizeReadyCallback(bVar);

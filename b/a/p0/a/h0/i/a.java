@@ -1,45 +1,53 @@
 package b.a.p0.a.h0.i;
 
-import b.a.p0.a.v2.k;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import b.a.p0.a.k;
+import b.a.p0.a.z2.q;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
+import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<C0213a> f5353a;
+    public static final boolean f5552a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.h0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0213a {
+    public static class RunnableC0221a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public String f5354a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f5553e;
 
-        /* renamed from: b  reason: collision with root package name */
-        public String f5355b;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ File f5554f;
 
-        /* renamed from: c  reason: collision with root package name */
-        public String f5356c;
-
-        public C0213a(String str, String str2, String str3) {
+        public RunnableC0221a(String str, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
+                Object[] objArr = {str, file};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -49,142 +57,251 @@ public class a {
                     return;
                 }
             }
-            this.f5354a = str;
-            this.f5355b = str2;
-            this.f5356c = str3;
+            this.f5553e = str;
+            this.f5554f = file;
         }
 
-        public static C0213a a(String str, String str2, String str3) {
-            InterceptResult invokeLLL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) ? new C0213a(str, str2, str3) : (C0213a) invokeLLL.objValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1".equals(this.f5354a) : invokeV.booleanValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f5356c) : invokeV.booleanValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "JSErrorModel{mType='" + this.f5354a + ExtendedMessageFormat.QUOTE + ", mContent='" + this.f5355b + ExtendedMessageFormat.QUOTE + ", mSource='" + this.f5356c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (a.class) {
+                    b.a.p0.w.d.S(this.f5553e, this.f5554f, true);
+                }
+                a.c();
             }
-            return (String) invokeV.objValue;
         }
+    }
+
+    /* loaded from: classes.dex */
+    public static class b implements Comparator<Long> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Long l, Long l2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l, l2)) == null) ? l2.compareTo(l) : invokeLL.intValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1597462417, "Lb/a/p0/a/h0/i/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1597462417, "Lb/a/p0/a/h0/i/a;");
+                return;
+            }
+        }
+        f5552a = k.f6863a;
     }
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f5353a = new ArrayList();
     }
 
-    public synchronized boolean a(C0213a c0213a) {
-        InterceptResult invokeL;
+    public static File b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0213a)) == null) {
-            synchronized (this) {
-                if (c0213a != null) {
-                    return this.f5353a.add(c0213a);
-                }
-                return false;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            String f2 = f();
+            if (f2 == null) {
+                return null;
             }
+            File file = new File(f2 + File.separator + j);
+            if (file.exists()) {
+                b.a.p0.w.d.L(file);
+            }
+            b.a.p0.w.d.h(file);
+            return file;
         }
-        return invokeL.booleanValue;
+        return (File) invokeJ.objValue;
     }
 
-    public synchronized String b() {
-        InterceptResult invokeV;
+    public static void c() {
+        b.a.p0.a.d2.e a0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                String g2 = k.g(System.currentTimeMillis(), "【HH:mm:ss】");
-                if (d()) {
-                    return String.format("\n%s jserror：共0个；", g2);
-                }
-                int i2 = 0;
-                int i3 = 0;
-                int i4 = 0;
-                for (C0213a c0213a : this.f5353a) {
-                    if (c0213a.b()) {
-                        i2++;
-                        if (c0213a.c()) {
-                            i4++;
-                        } else {
-                            i3++;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || (a0 = b.a.p0.a.d2.e.a0()) == null || TextUtils.isEmpty(a0.getAppId())) {
+            return;
+        }
+        File file = new File(b.a.p0.a.a1.d.g().getPath() + File.separator + "launch_tips");
+        if (file.exists() && file.isDirectory()) {
+            b.a.p0.w.d.j(file);
+        }
+    }
+
+    public static File d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j)) == null) {
+            File[] g2 = g();
+            if (g2 != null && g2.length != 0) {
+                File file = null;
+                for (File file2 : g2) {
+                    try {
+                        long parseLong = Long.parseLong(file2.getName());
+                        if (parseLong == j) {
+                            file = file2;
+                        } else if (j - parseLong >= 259200000) {
+                            b.a.p0.w.d.j(file2);
                         }
+                    } catch (NumberFormatException unused) {
+                        b.a.p0.w.d.j(file2);
                     }
                 }
-                return String.format("\n%s jserror：共%d个，影响渲染%d个（框架%d个，开发者%d个）；", g2, Integer.valueOf(e()), Integer.valueOf(i2), Integer.valueOf(i4), Integer.valueOf(i3));
+                return file == null ? b(j) : file;
             }
+            return b(j);
+        }
+        return (File) invokeJ.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            File[] g2 = g();
+            if (g2 == null) {
+                return null;
+            }
+            TreeMap treeMap = new TreeMap(new b());
+            long i2 = i(System.currentTimeMillis());
+            for (File file : g2) {
+                try {
+                    long parseLong = Long.parseLong(file.getName());
+                    if (i2 - parseLong >= 259200000) {
+                        b.a.p0.w.d.j(file);
+                    } else {
+                        List<String> F = b.a.p0.w.d.F(file);
+                        if (F != null && F.size() > 0) {
+                            treeMap.put(Long.valueOf(parseLong), F);
+                        }
+                    }
+                } catch (NumberFormatException unused) {
+                    b.a.p0.w.d.j(file);
+                }
+            }
+            if (treeMap.size() == 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder("\n（二）历史日志");
+            for (Map.Entry entry : treeMap.entrySet()) {
+                sb.append("\n----------【");
+                sb.append(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date(((Long) entry.getKey()).longValue())));
+                sb.append("】----------");
+                for (String str : (List) entry.getValue()) {
+                    if (!TextUtils.isEmpty(str)) {
+                        sb.append(StringUtils.LF);
+                        sb.append(str);
+                    }
+                }
+            }
+            sb.append(StringUtils.LF);
+            return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public synchronized boolean c() {
+    public static String f() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = false;
-                Iterator<C0213a> it = this.f5353a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    } else if (it.next().b()) {
-                        z = true;
-                        break;
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            b.a.p0.a.d2.e a0 = b.a.p0.a.d2.e.a0();
+            if (a0 == null) {
+                return null;
+            }
+            String appId = a0.getAppId();
+            if (TextUtils.isEmpty(appId)) {
+                return null;
+            }
+            return b.a.p0.a.a1.d.g().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static File[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String f2 = f();
+            if (f2 == null) {
+                return null;
+            }
+            File file = new File(f2);
+            if (file.exists() && file.isDirectory()) {
+                return file.listFiles();
+            }
+            return null;
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    public static void h(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(65545, null, j, str) == null) {
+            long i2 = i(j);
+            if (i2 == -1) {
+                boolean z = f5552a;
+                return;
+            }
+            File d2 = d(i2);
+            if (d2 == null || !d2.exists()) {
+                return;
+            }
+            q.k(new RunnableC0221a(str, d2), "saveLaunchTipsLog");
+        }
+    }
+
+    public static long i(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            try {
+                Date parse = simpleDateFormat.parse(simpleDateFormat.format(new Date(j)));
+                if (parse == null) {
+                    return -1L;
                 }
+                return parse.getTime();
+            } catch (ParseException e2) {
+                if (k.f6863a) {
+                    e2.printStackTrace();
+                }
+                return -1L;
             }
-            return z;
         }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized boolean d() {
-        InterceptResult invokeV;
-        boolean isEmpty;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                isEmpty = this.f5353a.isEmpty();
-            }
-            return isEmpty;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized int e() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                size = this.f5353a.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
+        return invokeJ.longValue;
     }
 }

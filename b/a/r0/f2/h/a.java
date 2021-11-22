@@ -11,11 +11,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f16527b;
+    public static a f18027b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f16528a;
+    public volatile boolean f18028a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,17 +30,17 @@ public class a {
                 return;
             }
         }
-        this.f16528a = false;
+        this.f18028a = false;
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f16527b == null) {
-                f16527b = new a();
+            if (f18027b == null) {
+                f18027b = new a();
             }
-            return f16527b;
+            return f18027b;
         }
         return (a) invokeV.objValue;
     }
@@ -48,20 +48,20 @@ public class a {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16528a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18028a : invokeV.booleanValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f16528a = false;
+            this.f18028a = false;
         }
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f16528a = z;
+            this.f18028a = z;
         }
     }
 }

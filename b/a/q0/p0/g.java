@@ -12,31 +12,31 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Long f12808a;
+    public Long f13558a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12809b;
+    public int f13559b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Long f12810c;
+    public Long f13560c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12811d;
+    public int f13561d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12812e;
+    public String f13562e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12813f;
+    public String f13563f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12814g;
+    public int f13564g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Long f12815h;
+    public Long f13565h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12816i;
+    public int f13566i;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "YYPayResult{amount=" + this.f12808a + ", appid=" + this.f12809b + ", currencyAmount=" + this.f12810c + ", currencyType=" + this.f12811d + ", expand='" + this.f12812e + ExtendedMessageFormat.QUOTE + ", orderId='" + this.f12813f + ExtendedMessageFormat.QUOTE + ", status=" + this.f12814g + ", uid=" + this.f12815h + ", usedChannel=" + this.f12816i + ExtendedMessageFormat.END_FE;
+            return "YYPayResult{amount=" + this.f13558a + ", appid=" + this.f13559b + ", currencyAmount=" + this.f13560c + ", currencyType=" + this.f13561d + ", expand='" + this.f13562e + ExtendedMessageFormat.QUOTE + ", orderId='" + this.f13563f + ExtendedMessageFormat.QUOTE + ", status=" + this.f13564g + ", uid=" + this.f13565h + ", usedChannel=" + this.f13566i + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

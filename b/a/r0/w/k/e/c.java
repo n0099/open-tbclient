@@ -8,12 +8,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
-import b.a.q0.d1.m0;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
+import b.a.q0.c1.m0;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.f;
-import b.a.r0.b0.a0;
+import b.a.r0.b0.b0;
 import b.a.r0.b0.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
+public class c extends b.a.r0.b0.a<d2> implements b0, b.a.r0.p.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout A;
@@ -70,7 +70,7 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f25126e;
+        public final /* synthetic */ c f26643e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -87,16 +87,16 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                     return;
                 }
             }
-            this.f25126e = cVar;
+            this.f26643e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25126e.f() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26643e.f() == null) {
                 return;
             }
-            this.f25126e.f().a(view, this.f25126e.o);
+            this.f26643e.f().a(view, this.f26643e.o);
         }
     }
 
@@ -161,8 +161,8 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         this.p.hideDisagree();
         this.p.setShareReportFrom(1);
         f fVar = new f();
-        fVar.f13300b = 2;
-        fVar.f13306h = 2;
+        fVar.f14080b = 2;
+        fVar.f14086h = 2;
         this.p.setAgreeStatisticData(fVar);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) i4.findViewById(R.id.card_bottom_op_weight_layout);
         this.q = threadCommentAndPraiseInfoLayout2;
@@ -223,38 +223,38 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
     public void T(TbPageContext<?> tbPageContext) {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) || tbPageContext == null || (t = this.o) == 0 || ((d2) t).l1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) || tbPageContext == null || (t = this.o) == 0 || ((d2) t).m1() == null) {
             return;
         }
         if (!j.z()) {
             l.L(tbPageContext.getPageActivity(), R.string.no_network_guide);
             return;
         }
-        AlaInfoData l1 = ((d2) this.o).l1();
-        if (l1.isLegalYYLiveData()) {
+        AlaInfoData m1 = ((d2) this.o).m1();
+        if (m1.isLegalYYLiveData()) {
             TbPageContext<?> tbPageContext2 = this.m;
-            YyExtData yyExtData = l1.mYyExtData;
+            YyExtData yyExtData = m1.mYyExtData;
             String str = yyExtData.mSid;
             String str2 = yyExtData.mSsid;
             String str3 = yyExtData.mTemplateId;
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext2, str, str2, str3, "" + l1.roomId, YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB);
+            YYLiveUtil.jumpToYYLiveRoom(tbPageContext2, str, str2, str3, "" + m1.roomId, YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB);
         }
     }
 
     public final void U(TbPageContext<?> tbPageContext) {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) || (t = this.o) == 0 || ((d2) t).l1() == null || ((d2) this.o).l1().share_info == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) || (t = this.o) == 0 || ((d2) t).m1() == null || ((d2) this.o).m1().share_info == null) {
             return;
         }
-        if (((d2) this.o).l1().share_info.record_tid <= 0) {
-            T(this.f14737f);
+        if (((d2) this.o).m1().share_info.record_tid <= 0) {
+            T(this.f16224f);
             return;
         }
-        PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(String.valueOf(((d2) this.o).l1().share_info.record_tid), null, FrsFragment.STAR_FRS);
-        createNormalCfg.setVideo_source(((d2) this.o).W1() ? "floor5" : "frs");
-        createNormalCfg.setFromSmartFrs(((d2) this.o).x2());
-        createNormalCfg.setSmartFrsPosition(((d2) this.o).f1());
+        PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(String.valueOf(((d2) this.o).m1().share_info.record_tid), null, FrsFragment.STAR_FRS);
+        createNormalCfg.setVideo_source(((d2) this.o).Y1() ? "floor5" : "frs");
+        createNormalCfg.setFromSmartFrs(((d2) this.o).z2());
+        createNormalCfg.setSmartFrsPosition(((d2) this.o).g1());
         createNormalCfg.setStartFrom(3);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
     }
@@ -284,22 +284,22 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                 this.B.setUserAfterClickListener(this.O);
                 this.G.getController().d((d2) this.o, this.L, "", false);
                 this.G.getController().c();
-                if (((d2) this.o).l1() != null && ((d2) this.o).l1().share_info != null && !StringUtils.isNull(((d2) this.o).l1().share_info.content)) {
+                if (((d2) this.o).m1() != null && ((d2) this.o).m1().share_info != null && !StringUtils.isNull(((d2) this.o).m1().share_info.content)) {
                     this.C.setVisibility(0);
-                    this.C.setText(((d2) this.o).l1().share_info.content);
+                    this.C.setText(((d2) this.o).m1().share_info.content);
                 } else {
                     this.C.setVisibility(8);
                 }
-                if (((d2) this.o).l1() != null && ((d2) this.o).l1().user_info != null) {
-                    String str = ((d2) this.o).l1().user_info.user_name;
+                if (((d2) this.o).m1() != null && ((d2) this.o).m1().user_info != null) {
+                    String str = ((d2) this.o).m1().user_info.user_name;
                     if (m0.d(str) > 14) {
                         str = m0.m(str, 14) + "...";
                     }
                     this.F.setText(str + ":");
-                    if (TextUtils.isEmpty(((d2) this.o).l1().user_info.portrait)) {
+                    if (TextUtils.isEmpty(((d2) this.o).m1().user_info.portrait)) {
                         this.E.setPlaceHolder(1);
                     } else {
-                        this.E.startLoad(((d2) this.o).l1().user_info.portrait, 10, false, false);
+                        this.E.startLoad(((d2) this.o).m1().user_info.portrait, 10, false, false);
                     }
                 }
                 String title = ((d2) this.o).getTitle();
@@ -310,7 +310,7 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                     this.D.setVisibility(8);
                 }
                 Y(R(1));
-                if (((d2) this.o).l1().mChallengeInfoData != null && ((d2) this.o).l1().mChallengeInfoData.challenge_id > 0) {
+                if (((d2) this.o).m1().mChallengeInfoData != null && ((d2) this.o).m1().mChallengeInfoData.challenge_id > 0) {
                     this.I.setVisibility(0);
                 } else {
                     this.I.setVisibility(8);
@@ -353,7 +353,7 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         this.J.setVisibility(8);
     }
 
-    @Override // b.a.r0.b0.a0
+    @Override // b.a.r0.b0.b0
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
@@ -372,7 +372,7 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, tbPageContext, i2) == null) {
-            if (this.f14736e != i2) {
+            if (this.f16223e != i2) {
                 u(tbPageContext, i2);
                 b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.A);
                 d2.n(R.string.J_X06);
@@ -384,7 +384,7 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                 }
                 this.B.onChangeSkinType(h(), TbadkCoreApplication.getInst().getSkinType());
                 this.p.onChangeSkinType();
-                this.f14736e = i2;
+                this.f16223e = i2;
                 HeadImageView headImageView = this.E;
                 if (headImageView != null) {
                     headImageView.setPlaceHolder(1);
@@ -421,11 +421,11 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                     f().a(view, this.o);
                 }
                 TiebaStatic.log(new StatisticItem("c12323"));
-                if (((d2) this.o).l1().live_status == 1) {
-                    T(this.f14737f);
+                if (((d2) this.o).m1().live_status == 1) {
+                    T(this.f16224f);
                     return;
                 } else {
-                    U(this.f14737f);
+                    U(this.f16224f);
                     return;
                 }
             }
@@ -439,16 +439,16 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
             f().a(this.A, this.o);
         }
         TiebaStatic.log(new StatisticItem("c12323"));
-        if (((d2) this.o).l1().live_status == 1) {
-            T(this.f14737f);
+        if (((d2) this.o).m1().live_status == 1) {
+            T(this.f16224f);
             i2 = 5;
         } else {
-            U(this.f14737f);
+            U(this.f16224f);
         }
         if (view == this.p.getCommentContainer() || view == this.J.mSharePraiseView.getCommentContainer()) {
             StatisticItem statisticItem = new StatisticItem("c12942");
             statisticItem.param("obj_locate", 2);
-            statisticItem.param("tid", ((d2) this.o).s1());
+            statisticItem.param("tid", ((d2) this.o).t1());
             statisticItem.param("obj_type", i2);
             statisticItem.param("nid", ((d2) this.o).F0());
             b.a.q0.m0.c f2 = TbPageExtraHelper.f(view);
@@ -462,7 +462,7 @@ public class c extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         }
     }
 
-    @Override // b.a.r0.b0.a0
+    @Override // b.a.r0.b0.b0
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {

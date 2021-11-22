@@ -33,7 +33,7 @@ public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
                 return;
             }
         }
-        B = k.f6397a;
+        B = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,43 +58,43 @@ public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
     }
 
     @Override // b.a.p0.a.h0.l.a
-    public void C(b.a.p0.a.h0.u.a aVar) {
+    public void E(b.a.p0.a.h0.u.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
         }
         if (B) {
-            String str = "pathList item: " + aVar.f5800b;
+            String str = "pathList item: " + aVar.f6136b;
         }
-        this.f43607f.getSettings().setCodeCacheSetting(b.a.p0.a.h0.d.b.a("appjs", aVar.f5800b));
+        this.f44367f.getSettings().setCodeCacheSetting(b.a.p0.a.h0.d.b.a("appjs", aVar.f6136b));
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void J0() {
+    public void N0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void T0() {
+    public void X0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d
-    public String b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.A : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.h0.l.a
-    public b.a.p0.a.h0.f.a f() {
+    public b.a.p0.a.h0.f.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? s() : (b.a.p0.a.h0.f.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t() : (b.a.p0.a.h0.f.a) invokeV.objValue;
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d, b.a.p0.a.h0.l.a
@@ -109,12 +109,12 @@ public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
     public void onJSLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            g.M().l0(true);
+            g.U().w0(true);
         }
     }
 
     @Override // b.a.p0.a.h0.l.a
-    public void p(int i2) {
+    public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
         }

@@ -26,31 +26,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f21708a;
+    public BdUniqueId f23207a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21709b;
+    public int f23208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f21710c;
+    public c f23209c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f21711d;
+    public b f23210d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.e.c.g.a f21712e;
+    public b.a.e.c.g.a f23211e;
 
     /* renamed from: b.a.r0.o0.i.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1062a extends b.a.e.c.g.a {
+    public class C1130a extends b.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f21713a;
+        public final /* synthetic */ a f23212a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1062a(a aVar, int i2, int i3) {
+        public C1130a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -68,7 +68,7 @@ public class a {
                     return;
                 }
             }
-            this.f21713a = aVar;
+            this.f23212a = aVar;
         }
 
         @Override // b.a.e.c.g.a
@@ -77,7 +77,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.f21713a.f21708a) {
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.f23212a.f23207a) {
                 c cVar = null;
                 if (responsedMessage instanceof HotUserRankHttpResMsg) {
                     cVar = ((HotUserRankHttpResMsg) responsedMessage).getPageData();
@@ -85,29 +85,29 @@ public class a {
                     cVar = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
                 }
                 if (responsedMessage.getError() == 0) {
-                    if (this.f21713a.f21709b == 1 && (cVar == null || ListUtils.isEmpty(cVar.f21700b))) {
-                        if (this.f21713a.f21711d != null) {
-                            this.f21713a.f21711d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    if (this.f23212a.f23208b == 1 && (cVar == null || ListUtils.isEmpty(cVar.f23199b))) {
+                        if (this.f23212a.f23210d != null) {
+                            this.f23212a.f23210d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                         }
                     } else if (cVar != null) {
-                        this.f21713a.f21710c.f21699a = cVar.f21699a;
-                        this.f21713a.f21710c.f21700b.addAll(cVar.f21700b);
-                        this.f21713a.f21710c.f21701c = cVar.f21701c;
-                        this.f21713a.f21710c.f21702d = cVar.f21702d;
-                        this.f21713a.f21710c.f21703e = cVar.f21703e;
-                        this.f21713a.f21710c.f21704f = cVar.f21704f;
-                        if (ListUtils.isEmpty(cVar.f21700b)) {
-                            this.f21713a.f21710c.f21705g = false;
+                        this.f23212a.f23209c.f23198a = cVar.f23198a;
+                        this.f23212a.f23209c.f23199b.addAll(cVar.f23199b);
+                        this.f23212a.f23209c.f23200c = cVar.f23200c;
+                        this.f23212a.f23209c.f23201d = cVar.f23201d;
+                        this.f23212a.f23209c.f23202e = cVar.f23202e;
+                        this.f23212a.f23209c.f23203f = cVar.f23203f;
+                        if (ListUtils.isEmpty(cVar.f23199b)) {
+                            this.f23212a.f23209c.f23204g = false;
                         } else {
-                            this.f21713a.f21710c.f21705g = cVar.f21705g;
-                            a.c(this.f21713a);
+                            this.f23212a.f23209c.f23204g = cVar.f23204g;
+                            a.c(this.f23212a);
                         }
-                        if (this.f21713a.f21711d != null) {
-                            this.f21713a.f21711d.a(cVar);
+                        if (this.f23212a.f23210d != null) {
+                            this.f23212a.f23210d.a(cVar);
                         }
                     }
-                } else if (this.f21713a.f21711d != null) {
-                    this.f21713a.f21711d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                } else if (this.f23212a.f23210d != null) {
+                    this.f23212a.f23210d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -135,33 +135,33 @@ public class a {
                 return;
             }
         }
-        this.f21709b = 1;
-        C1062a c1062a = new C1062a(this, CmdConfigHttp.CMD_HOT_USER_RANK, 309652);
-        this.f21712e = c1062a;
-        this.f21708a = bdUniqueId;
-        c1062a.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f21712e);
+        this.f23208b = 1;
+        C1130a c1130a = new C1130a(this, CmdConfigHttp.CMD_HOT_USER_RANK, 309652);
+        this.f23211e = c1130a;
+        this.f23207a = bdUniqueId;
+        c1130a.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f23211e);
         m();
         l();
-        this.f21710c = new c();
+        this.f23209c = new c();
     }
 
     public static /* synthetic */ int c(a aVar) {
-        int i2 = aVar.f21709b;
-        aVar.f21709b = i2 + 1;
+        int i2 = aVar.f23208b;
+        aVar.f23208b = i2 + 1;
         return i2;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21709b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23208b : invokeV.intValue;
     }
 
     public c g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21710c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23209c : (c) invokeV.objValue;
     }
 
     public void h(long j) {
@@ -170,8 +170,8 @@ public class a {
             HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
             hotUserRankReqMsg.forumId = j;
             hotUserRankReqMsg.pageSize = 20;
-            hotUserRankReqMsg.pageNum = this.f21709b;
-            hotUserRankReqMsg.setTag(this.f21708a);
+            hotUserRankReqMsg.pageNum = this.f23208b;
+            hotUserRankReqMsg.setTag(this.f23207a);
             MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
         }
     }
@@ -182,8 +182,8 @@ public class a {
             HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
             hotUserRankReqMsg.category = str;
             hotUserRankReqMsg.pageSize = 20;
-            hotUserRankReqMsg.pageNum = this.f21709b;
-            hotUserRankReqMsg.setTag(this.f21708a);
+            hotUserRankReqMsg.pageNum = this.f23208b;
+            hotUserRankReqMsg.setTag(this.f23207a);
             MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
         }
     }
@@ -191,21 +191,21 @@ public class a {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21710c.f21705g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23209c.f23204g : invokeV.booleanValue;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().removeMessage(this.f21708a);
-            MessageManager.getInstance().unRegisterListener(this.f21708a);
+            MessageManager.getInstance().removeMessage(this.f23207a);
+            MessageManager.getInstance().unRegisterListener(this.f23207a);
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, b.a.r0.l3.f0.a.a(TbConfig.HOT_USER_RANK_URL, 309652));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, b.a.r0.m3.f0.a.a(TbConfig.HOT_USER_RANK_URL, 309652));
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);
             tbHttpMessageTask.setPriority(4);
@@ -216,7 +216,7 @@ public class a {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            b.a.q0.z0.b bVar = new b.a.q0.z0.b(309652);
+            b.a.q0.y0.b bVar = new b.a.q0.y0.b(309652);
             bVar.setResponsedClass(HotUserRankSocketResMsg.class);
             bVar.g(true);
             bVar.setPriority(4);
@@ -227,7 +227,7 @@ public class a {
     public void n(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f21711d = bVar;
+            this.f23210d = bVar;
         }
     }
 }

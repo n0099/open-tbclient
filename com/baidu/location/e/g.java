@@ -20,13 +20,13 @@ public class g implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f39206a;
+    public final /* synthetic */ String f40038a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f39207b;
+    public final /* synthetic */ boolean f40039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ e f39208c;
+    public final /* synthetic */ e f40040c;
 
     public g(e eVar, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class g implements Runnable {
                 return;
             }
         }
-        this.f39208c = eVar;
-        this.f39206a = str;
-        this.f39207b = z;
+        this.f40040c = eVar;
+        this.f40038a = str;
+        this.f40039b = z;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:111:0x01bf A[LOOP:0: B:5:0x001e->B:111:0x01bf, LOOP_END] */
@@ -66,17 +66,17 @@ public class g implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39208c.f39203h = k.e();
-            this.f39208c.b();
-            this.f39208c.a();
-            int i2 = this.f39208c.f39204i;
+            this.f40040c.f40035h = k.e();
+            this.f40040c.b();
+            this.f40040c.a();
+            int i2 = this.f40040c.f40036i;
             OutputStream outputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    URL url = new URL(this.f39208c.f39203h);
+                    URL url = new URL(this.f40040c.f40035h);
                     StringBuffer stringBuffer = new StringBuffer();
-                    for (Map.Entry<String, Object> entry : this.f39208c.k.entrySet()) {
+                    for (Map.Entry<String, Object> entry : this.f40040c.k.entrySet()) {
                         stringBuffer.append(entry.getKey());
                         stringBuffer.append("=");
                         stringBuffer.append(entry.getValue());
@@ -91,16 +91,16 @@ public class g implements Runnable {
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f39164b);
-                        httpURLConnection2.setReadTimeout(a.f39164b);
+                        httpURLConnection2.setConnectTimeout(a.f39996b);
+                        httpURLConnection2.setReadTimeout(a.f39996b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection2.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
                         if (k.ax != null) {
                             httpURLConnection2.setRequestProperty("bd-loc-android", k.ax);
                         }
-                        if (!TextUtils.isEmpty(this.f39206a)) {
-                            httpURLConnection2.setRequestProperty("Host", this.f39206a);
+                        if (!TextUtils.isEmpty(this.f40038a)) {
+                            httpURLConnection2.setRequestProperty("Host", this.f40038a);
                         }
                         OutputStream outputStream4 = httpURLConnection2.getOutputStream();
                         try {
@@ -131,17 +131,17 @@ public class g implements Runnable {
                                         }
                                         byteArrayOutputStream.write(bArr, 0, read);
                                     }
-                                    this.f39208c.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    if (this.f39207b) {
-                                        this.f39208c.m = byteArrayOutputStream.toByteArray();
+                                    this.f40040c.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                    if (this.f40039b) {
+                                        this.f40040c.m = byteArrayOutputStream.toByteArray();
                                     }
-                                    this.f39208c.a(true);
+                                    this.f40040c.a(true);
                                     z = true;
                                 } catch (Error unused3) {
                                     outputStream2 = outputStream4;
                                     httpURLConnection = httpURLConnection2;
                                     try {
-                                        String str = a.f39163a;
+                                        String str = a.f39995a;
                                         if (httpURLConnection != null) {
                                             httpURLConnection.disconnect();
                                         }
@@ -149,21 +149,21 @@ public class g implements Runnable {
                                             try {
                                                 outputStream2.close();
                                             } catch (Exception unused4) {
-                                                String str2 = a.f39163a;
+                                                String str2 = a.f39995a;
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception unused5) {
-                                                String str3 = a.f39163a;
+                                                String str3 = a.f39995a;
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception unused6) {
-                                                String str4 = a.f39163a;
+                                                String str4 = a.f39995a;
                                             }
                                         }
                                         z = false;
@@ -179,21 +179,21 @@ public class g implements Runnable {
                                             try {
                                                 outputStream3.close();
                                             } catch (Exception unused7) {
-                                                String str5 = a.f39163a;
+                                                String str5 = a.f39995a;
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception unused8) {
-                                                String str6 = a.f39163a;
+                                                String str6 = a.f39995a;
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception unused9) {
-                                                String str7 = a.f39163a;
+                                                String str7 = a.f39995a;
                                             }
                                         }
                                         throw th;
@@ -201,7 +201,7 @@ public class g implements Runnable {
                                 } catch (Exception unused10) {
                                     outputStream = outputStream4;
                                     httpURLConnection = httpURLConnection2;
-                                    String str8 = a.f39163a;
+                                    String str8 = a.f39995a;
                                     if (httpURLConnection != null) {
                                         httpURLConnection.disconnect();
                                     }
@@ -209,14 +209,14 @@ public class g implements Runnable {
                                         try {
                                             outputStream.close();
                                         } catch (Exception unused11) {
-                                            String str9 = a.f39163a;
+                                            String str9 = a.f39995a;
                                         }
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
                                         } catch (Exception unused12) {
-                                            String str10 = a.f39163a;
+                                            String str10 = a.f39995a;
                                         }
                                     }
                                     if (byteArrayOutputStream != null) {
@@ -251,21 +251,21 @@ public class g implements Runnable {
                                 try {
                                     outputStream4.close();
                                 } catch (Exception unused13) {
-                                    String str11 = a.f39163a;
+                                    String str11 = a.f39995a;
                                 }
                             }
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
                                 } catch (Exception unused14) {
-                                    String str12 = a.f39163a;
+                                    String str12 = a.f39995a;
                                 }
                             }
                             if (byteArrayOutputStream != null) {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception unused15) {
-                                    String str13 = a.f39163a;
+                                    String str13 = a.f39995a;
                                 }
                             }
                             httpURLConnection = httpURLConnection2;
@@ -318,7 +318,7 @@ public class g implements Runnable {
                 return;
             }
             e.p++;
-            e eVar = this.f39208c;
+            e eVar = this.f40040c;
             eVar.j = null;
             eVar.a(false);
         }

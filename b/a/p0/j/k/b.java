@@ -1,74 +1,109 @@
 package b.a.p0.j.k;
 
-import android.content.Context;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.k;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class b extends a<b.a.p0.a.h1.c.c> {
+public class b extends b.a.p0.a.l0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-807898422, "Lb/a/p0/j/k/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements V8Engine.WorkerFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ b f11203a;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-807898422, "Lb/a/p0/j/k/b;");
-                return;
-            }
+            this.f11203a = bVar;
         }
-        boolean z = k.f6397a;
+
+        @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
+        public V8Engine onCreateWorker() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                c cVar = new c(this.f11203a.getInitBasePath());
+                cVar.J0();
+                cVar.v(new b.a.p0.a.l0.l.b(cVar));
+                cVar.I0(new b.a.p0.a.l0.l.c(cVar));
+                return cVar.n0();
+            }
+            return (V8Engine) invokeV.objValue;
+        }
     }
 
-    public b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(@NonNull String str, @NonNull b.a.p0.a.l0.p.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        super(str, bVar, v8ThreadDelegatePolicy);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bVar, v8ThreadDelegatePolicy};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (b.a.p0.a.l0.p.b) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        V8Engine v8Engine = this.f6914e;
+        if (v8Engine == null) {
+            return;
+        }
+        v8Engine.setWorkerFactoryDelegate(new a(this));
     }
 
-    public static b e() {
+    @Override // b.a.p0.a.l0.a
+    @NonNull
+    public EventTarget B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new b() : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b.a.p0.j.d.b(this) : (EventTarget) invokeV.objValue;
     }
 
-    @Override // b.a.p0.j.k.a
-    public boolean b(Context context, b.a.p0.a.h1.c.c cVar, b.a.p0.a.h1.b bVar, e eVar, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @Override // b.a.p0.a.l0.a
+    public EventTarget E() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, cVar, bVar, eVar, jSONObject)) == null) ? d(context, cVar, bVar, eVar) : invokeLLLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new b.a.p0.j.d.d.a(this) : (EventTarget) invokeV.objValue;
     }
 
-    public final boolean d(Context context, b.a.p0.a.h1.c.c cVar, b.a.p0.a.h1.b bVar, e eVar) {
-        InterceptResult invokeLLLL;
+    @Override // b.a.p0.a.l0.c, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
+    public int getInvokeSourceType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cVar, bVar, eVar)) == null) {
-            b.a.p0.a.e0.d.g("map", "MapCreateAction start");
-            boolean a2 = b.a.p0.j.c.b().a(context, cVar);
-            b.a.p0.a.e0.d.g("map", "MapCreateAction end");
-            return a2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.intValue;
     }
 }

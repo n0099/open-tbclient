@@ -8,14 +8,14 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static DxmSdkSensorsDataAPI f71667a;
+    public static DxmSdkSensorsDataAPI f72586a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
             try {
-                f71667a.y();
+                f72586a.y();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -47,7 +47,7 @@ public class k {
     public static void d(DxmSdkSensorsDataAPI dxmSdkSensorsDataAPI) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, dxmSdkSensorsDataAPI) == null) {
-            f71667a = dxmSdkSensorsDataAPI;
+            f72586a = dxmSdkSensorsDataAPI;
         }
     }
 }

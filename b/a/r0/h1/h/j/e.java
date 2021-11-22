@@ -14,19 +14,19 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17451a;
+    public int f18920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f17452b;
+    public List<String> f18921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f17453c;
+    public long f18922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f17454d;
+    public String f18923d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17455e;
+    public int f18924e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class e {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17451a > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18920a > 0 : invokeV.booleanValue;
     }
 
     public void b(DataRes dataRes) {
@@ -53,10 +53,10 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f17451a = dataRes.user_count.intValue();
-        this.f17452b = dataRes.portrait_list;
-        this.f17453c = dataRes.hide_unix.longValue() * 1000;
-        this.f17454d = dataRes.show_tip;
-        this.f17455e = dataRes.thread_count.intValue();
+        this.f18920a = dataRes.user_count.intValue();
+        this.f18921b = dataRes.portrait_list;
+        this.f18922c = dataRes.hide_unix.longValue() * 1000;
+        this.f18923d = dataRes.show_tip;
+        this.f18924e = dataRes.thread_count.intValue();
     }
 }

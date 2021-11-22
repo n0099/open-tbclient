@@ -1,10 +1,10 @@
 package b.a.r0.l1.t;
 
-import b.a.e.e.d.l;
-import b.a.e.e.p.p;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.q;
+import b.a.e.f.d.l;
+import b.a.e.f.p.p;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.q;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,24 +22,24 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, ChatSetting> f20389a;
+    public HashMap<String, ChatSetting> f21911a;
 
     /* renamed from: b.a.r0.l1.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1014a extends i0<Boolean> {
+    public class C1082a extends i0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f20390a;
+        public final /* synthetic */ String f21912a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f20391b;
+        public final /* synthetic */ String f21913b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f20392c;
+        public final /* synthetic */ a f21914c;
 
-        public C1014a(a aVar, String str, String str2) {
+        public C1082a(a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,19 +54,19 @@ public abstract class a {
                     return;
                 }
             }
-            this.f20392c = aVar;
-            this.f20390a = str;
-            this.f20391b = str2;
+            this.f21914c = aVar;
+            this.f21912a = str;
+            this.f21913b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ChatSetting a2 = this.f20392c.a(this.f20390a, this.f20391b);
+                ChatSetting a2 = this.f21914c.a(this.f21912a, this.f21913b);
                 if (a2 == null) {
                     return Boolean.FALSE;
                 }
@@ -89,7 +89,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f20389a = new HashMap<>();
+        this.f21911a = new HashMap<>();
     }
 
     public abstract ChatSetting a(String str, String str2);
@@ -112,7 +112,7 @@ public abstract class a {
     public void d(String str, String str2, q<Boolean> qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, qVar) == null) {
-            l0.c(new C1014a(this, str, str2), qVar);
+            l0.c(new C1082a(this, str, str2), qVar);
         }
     }
 
@@ -120,22 +120,22 @@ public abstract class a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            synchronized (this.f20389a) {
-                this.f20389a.clear();
+            synchronized (this.f21911a) {
+                this.f21911a.clear();
             }
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (id == null || id.length() == 0) {
                 return;
             }
             String str2 = id + "@";
-            synchronized (this.f20389a) {
+            synchronized (this.f21911a) {
                 l<String> b2 = b();
                 List<l.b<String>> b3 = p.b(b2);
                 if (b3 != null) {
                     for (l.b<String> bVar : b3) {
-                        String str3 = bVar.f1704a;
+                        String str3 = bVar.f1707a;
                         if (str3 != null && str3.startsWith(str2) && (str = b2.get(str3)) != null) {
-                            this.f20389a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                            this.f21911a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }

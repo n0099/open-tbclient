@@ -1,6 +1,6 @@
 package com.google.common.hash;
 
-import b.i.d.d.h;
+import b.h.d.d.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +16,7 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import sun.misc.Unsafe;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public abstract class LittleEndianByteArray$UnsafeByteArray {
     public static final /* synthetic */ LittleEndianByteArray$UnsafeByteArray[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +26,7 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
     public static final Unsafe theUnsafe;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

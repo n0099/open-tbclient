@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DefaultLocale"})
 /* loaded from: classes4.dex */
-public class b extends b.a.e.l.e.a<b.a.r0.j1.l.b, HotRankListManualItemHolder> {
+public class b extends b.a.e.m.e.a<b.a.r0.j1.l.b, HotRankListManualItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int m;
@@ -35,7 +35,7 @@ public class b extends b.a.e.l.e.a<b.a.r0.j1.l.b, HotRankListManualItemHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.j1.l.b f18335e;
+        public final /* synthetic */ b.a.r0.j1.l.b f19669e;
 
         public a(b bVar, b.a.r0.j1.l.b bVar2) {
             Interceptable interceptable = $ic;
@@ -52,16 +52,16 @@ public class b extends b.a.e.l.e.a<b.a.r0.j1.l.b, HotRankListManualItemHolder> {
                     return;
                 }
             }
-            this.f18335e = bVar2;
+            this.f19669e = bVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(this.f18335e.a()), this.f18335e.e(), "5")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(this.f19669e.a()), this.f19669e.e(), "5")));
                 StatisticItem statisticItem = new StatisticItem("c10811");
-                TiebaStatic.log(statisticItem.param("obj_name", "" + this.f18335e.e()));
+                TiebaStatic.log(statisticItem.param("obj_name", "" + this.f19669e.e()));
             }
         }
     }
@@ -88,7 +88,7 @@ public class b extends b.a.e.l.e.a<b.a.r0.j1.l.b, HotRankListManualItemHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.j1.l.b bVar, HotRankListManualItemHolder hotRankListManualItemHolder) {
         j0(i2, view, viewGroup, bVar, hotRankListManualItemHolder);
         return view;
@@ -99,7 +99,7 @@ public class b extends b.a.e.l.e.a<b.a.r0.j1.l.b, HotRankListManualItemHolder> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hotRankListManualItemHolder, bVar) == null) || hotRankListManualItemHolder == null || bVar == null) {
             return;
         }
-        String string = StringUtils.isNull(bVar.d()) ? this.f2419e.getResources().getString(b.a.r0.j1.h.hot_topic_hot_trend) : bVar.d();
+        String string = StringUtils.isNull(bVar.d()) ? this.f2421e.getResources().getString(b.a.r0.j1.h.hot_topic_hot_trend) : bVar.d();
         hotRankListManualItemHolder.topicDesc.setText(bVar.g());
         hotRankListManualItemHolder.topicModule.setText(string);
         hotRankListManualItemHolder.topicPic.startLoad(bVar.h(), 10, false);
@@ -133,12 +133,12 @@ public class b extends b.a.e.l.e.a<b.a.r0.j1.l.b, HotRankListManualItemHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public HotRankListManualItemHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotRankListManualItemHolder(LayoutInflater.from(this.f2419e).inflate(b.a.r0.j1.f.hot_topic_ranklist_head, viewGroup, false)) : (HotRankListManualItemHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotRankListManualItemHolder(LayoutInflater.from(this.f2421e).inflate(b.a.r0.j1.f.hot_topic_ranklist_head, viewGroup, false)) : (HotRankListManualItemHolder) invokeL.objValue;
     }
 
     public View j0(int i2, View view, ViewGroup viewGroup, b.a.r0.j1.l.b bVar, HotRankListManualItemHolder hotRankListManualItemHolder) {

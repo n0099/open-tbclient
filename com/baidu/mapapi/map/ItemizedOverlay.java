@@ -12,7 +12,7 @@ public class ItemizedOverlay extends Overlay {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MapView f39376a;
+    public MapView f40208a;
 
     public ItemizedOverlay(Drawable drawable, MapView mapView) {
         Interceptable interceptable = $ic;
@@ -29,8 +29,8 @@ public class ItemizedOverlay extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f40129c;
-        this.f39376a = mapView;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f40961c;
+        this.f40208a = mapView;
     }
 
     public void addItem(OverlayOptions overlayOptions) {
@@ -38,7 +38,7 @@ public class ItemizedOverlay extends Overlay {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, overlayOptions) == null) || overlayOptions == null || overlayOptions == null) {
             return;
         }
-        this.f39376a.getMap().addOverlay(overlayOptions);
+        this.f40208a.getMap().addOverlay(overlayOptions);
     }
 
     public void reAddAll() {
@@ -50,7 +50,7 @@ public class ItemizedOverlay extends Overlay {
     public void removeAll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f39376a.getMap().clear();
+            this.f40208a.getMap().clear();
         }
     }
 }

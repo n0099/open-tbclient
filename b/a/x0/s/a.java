@@ -6,7 +6,7 @@ public interface a {
 
     /* renamed from: b.a.x0.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1439a {
+    public interface InterfaceC1481a {
         void onCompletion();
 
         boolean onError(int i2, int i3, Object obj);
@@ -16,7 +16,7 @@ public interface a {
 
     void release();
 
-    void setListener(InterfaceC1439a interfaceC1439a);
+    void setListener(InterfaceC1481a interfaceC1481a);
 
     void setSource(ArrayList<String> arrayList);
 

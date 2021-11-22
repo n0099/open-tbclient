@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.extractor.flv;
 
-import b.i.b.a.a0.m;
-import b.i.b.a.i0.l;
+import b.h.b.a.a0.m;
+import b.h.b.a.i0.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ public abstract class TagPayloadReader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f62966a;
+    public final m f63866a;
 
     /* loaded from: classes11.dex */
     public static final class UnsupportedFormatException extends ParserException {
@@ -56,7 +56,7 @@ public abstract class TagPayloadReader {
                 return;
             }
         }
-        this.f62966a = mVar;
+        this.f63866a = mVar;
     }
 
     public final void a(l lVar, long j) throws ParserException {

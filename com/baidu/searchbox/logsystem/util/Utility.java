@@ -18,6 +18,7 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.DeviceUtil;
@@ -153,7 +154,7 @@ public class Utility {
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f34124h);
+            sb.append(a.f34958h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
                 sb.append(ExtendedMessageFormat.END_FE);
@@ -263,7 +264,7 @@ public class Utility {
             try {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Devices info = ");
-                sb.append(replace + "_" + replace2 + "_" + valueOf + "_" + str2 + "_" + i2 + "*" + i3 + "*" + f2);
+                sb.append(replace + "_" + replace2 + "_" + valueOf + "_" + str2 + "_" + i2 + ProxyConfig.MATCH_ALL_SCHEMES + i3 + ProxyConfig.MATCH_ALL_SCHEMES + f2);
                 fileWriter2.write(sb.toString());
                 fileWriter2.write("\nRuntime.getRuntime().availableProcessors() = " + Runtime.getRuntime().availableProcessors());
                 fileWriter2.write("\nRomName = " + RomUtils.getName() + ", RomVersion = " + RomUtils.getVersion());

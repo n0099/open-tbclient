@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class a extends b.a.e.l.e.a<b.a.r0.h1.h.j.b, CardViewHolder<b.a.r0.b0.i>> {
+public class a extends b.a.e.m.e.a<b.a.r0.h1.h.j.b, CardViewHolder<b.a.r0.b0.i>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
@@ -44,7 +44,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.h.j.b, CardViewHolder<b.a.r0.b0.i>>
         this.m = tbPageContext;
         b.a.r0.b0.i iVar = new b.a.r0.b0.i(tbPageContext);
         this.n = iVar;
-        iVar.M("c10714", "c10739", "c10712", "c10738");
+        iVar.N("c10714", "c10739", "c10712", "c10738");
         this.n.setFrom("home");
     }
 
@@ -58,7 +58,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.h.j.b, CardViewHolder<b.a.r0.b0.i>>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public CardViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -67,8 +67,8 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.h.j.b, CardViewHolder<b.a.r0.b0.i>>
             if (this.n == null) {
                 b.a.r0.b0.i iVar = new b.a.r0.b0.i(this.m);
                 this.n = iVar;
-                iVar.K(this.o);
-                this.n.M("c10714", "c10739", "c10712", "c10738");
+                iVar.M(this.o);
+                this.n.N("c10714", "c10739", "c10712", "c10738");
             }
             return new CardViewHolder(this.n);
         }
@@ -76,7 +76,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.h.j.b, CardViewHolder<b.a.r0.b0.i>>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.h1.h.j.b bVar, CardViewHolder cardViewHolder) {
         InterceptResult invokeCommon;
@@ -86,7 +86,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.h.j.b, CardViewHolder<b.a.r0.b0.i>>
                 return null;
             }
             cardViewHolder.getCardView().j(bVar);
-            b.a.r0.b0.u.b().a(new StatisticItem("c10714").param(TiebaStatic.Params.OBJ_PARAM3, b.a.r0.b0.m.e()));
+            b.a.r0.b0.v.b().a(new StatisticItem("c10714").param(TiebaStatic.Params.OBJ_PARAM3, b.a.r0.b0.m.e()));
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -98,7 +98,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.h.j.b, CardViewHolder<b.a.r0.b0.i>>
             this.o = bdUniqueId;
             b.a.r0.b0.i iVar = this.n;
             if (iVar != null) {
-                iVar.K(bdUniqueId);
+                iVar.M(bdUniqueId);
             }
         }
     }

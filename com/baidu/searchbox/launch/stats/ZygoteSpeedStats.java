@@ -37,9 +37,6 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static final String ELAPSED_NO_SPLASH_COST = "elapsedNoSplashCost";
     public static final String ELAPSED_REALTIME_COST = "elapsedRealtimeCost";
     public static final String FIX_USER_PERCEPTION_COST = "fixUserPerceptionCost";
-    public static final String IS_KV_LOAD_SUCCESS = "isLoadKvOptSuccess";
-    public static final String KV_INIT_DURATION = "kvInitDuration";
-    public static final String KV_OPT_TYPE = "isEnableKvOpt";
     public static final String LAUNCH_2_APP_ON_START = "launch2AppOnStart";
     public static final int STAT_PROCESS_START_TIME_INDEX = 21;
     public static final String TAG = "ZygoteSpeedStats";
@@ -245,12 +242,32 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             hashMap.put(ELAPSED_CPU_COST, String.valueOf(this.mElapsedCpuTimeEnd - this.mElapsedCpuTimeStart));
             calculate();
             long j = this.mFixUserPerceptionCost - appLaunchDuration;
-            if (j > 50 && j < 60000) {
+            if (j > 0 && j < 60000) {
                 hashMap.put(LAUNCH_2_APP_ON_START, String.valueOf(j));
+                JSONObject jsonData = SpeedStatsUtils.getJsonData(j, null);
+                if (jsonData != null) {
+                    try {
+                        jSONObject.put(LAUNCH_2_APP_ON_START, jsonData);
+                    } catch (JSONException e2) {
+                        if (DEBUG) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
             }
             long adShowDuration = this.mFixUserPerceptionCost - SpeedStatsManager.getInstance().getAdShowDuration();
             if (adShowDuration > 50 && adShowDuration < 60000) {
                 hashMap.put(ELAPSED_NO_SPLASH_COST, String.valueOf(adShowDuration));
+                JSONObject jsonData2 = SpeedStatsUtils.getJsonData(adShowDuration, null);
+                if (jsonData2 != null) {
+                    try {
+                        jSONObject.put(ELAPSED_NO_SPLASH_COST, jsonData2);
+                    } catch (JSONException e3) {
+                        if (DEBUG) {
+                            e3.printStackTrace();
+                        }
+                    }
+                }
             }
             hashMap.put(ELAPSED_REALTIME_COST, String.valueOf(this.mElapsedRealtimeCost));
             hashMap.put(UNFIX_USER_PERCEPTION_COST, String.valueOf(this.mUnFixUserPerceptionCost));
@@ -261,19 +278,39 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - SpeedStatsManager.getInstance().getMainTabActivityEndDuration();
             if (appLaunchEndTimeStamp > 50 && appLaunchEndTimeStamp < 60000) {
                 hashMap.put(AFTER_MAINTAB_CREATE_COST, String.valueOf(appLaunchEndTimeStamp));
+                JSONObject jsonData3 = SpeedStatsUtils.getJsonData(appLaunchEndTimeStamp, null);
+                if (jsonData3 != null) {
+                    try {
+                        jSONObject.put(AFTER_MAINTAB_CREATE_COST, jsonData3);
+                    } catch (JSONException e4) {
+                        if (DEBUG) {
+                            e4.printStackTrace();
+                        }
+                    }
+                }
             }
-            long adShowDuration2 = appLaunchEndTimeStamp - SpeedStatsManager.getInstance().getAdShowDuration();
-            if (adShowDuration2 > 50 && adShowDuration2 < 60000) {
-                hashMap.put(AFTER_MAINTAB_CREATE_COST_NO_AD, String.valueOf(adShowDuration2));
+            long durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(SpeedStatsManager.getInstance().getMainTabActivityEndDuration(), SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp());
+            if (durationWithoutAD > 50 && durationWithoutAD < 60000) {
+                hashMap.put(AFTER_MAINTAB_CREATE_COST_NO_AD, String.valueOf(durationWithoutAD));
+                JSONObject jsonData4 = SpeedStatsUtils.getJsonData(durationWithoutAD, null);
+                if (jsonData4 != null) {
+                    try {
+                        jSONObject.put(AFTER_MAINTAB_CREATE_COST_NO_AD, jsonData4);
+                    } catch (JSONException e5) {
+                        if (DEBUG) {
+                            e5.printStackTrace();
+                        }
+                    }
+                }
             }
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
-            if (jsonData != null) {
+            JSONObject jsonData5 = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
+            if (jsonData5 != null) {
                 try {
-                    jSONObject.put(SpeedStatsMainTable.APP_ZYGOTE, jsonData);
+                    jSONObject.put(SpeedStatsMainTable.APP_ZYGOTE, jsonData5);
                     return true;
-                } catch (JSONException e2) {
+                } catch (JSONException e6) {
                     if (DEBUG) {
-                        e2.printStackTrace();
+                        e6.printStackTrace();
                         return true;
                     }
                     return true;
@@ -289,7 +326,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.addStatsTimeStamp(i2, System.currentTimeMillis());
-            if (i2 == 7000) {
+            if (i2 == 6000) {
                 this.mElapsedRealtimeEnd = SystemClock.elapsedRealtime();
                 this.mElapsedCpuTimeEnd = Process.getElapsedCpuTime();
             }

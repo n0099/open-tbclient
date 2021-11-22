@@ -22,7 +22,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f13656a;
+    public b f14447a;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -36,31 +36,31 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<?> f13657a;
+        public final Class<?> f14448a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Object f13658b;
+        public final Object f14449b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Class<?> f13659c;
+        public final Class<?> f14450c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Method f13660d;
+        public final Method f14451d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Object f13661e;
+        public final Object f14452e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Method f13662f;
+        public final Method f14453f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final c f13663g;
+        public final c f14454g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f13664h;
+        public final int f14455h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final j f13665i;
+        public final j f14456i;
         public int j;
 
         /* loaded from: classes4.dex */
@@ -69,7 +69,7 @@ public class g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f13666e;
+            public final /* synthetic */ b f14457e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -86,16 +86,16 @@ public class g {
                         return;
                     }
                 }
-                this.f13666e = bVar;
+                this.f14457e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f13666e.f13665i.a(this.f13666e.f());
-                    this.f13666e.f13663g.c();
-                    this.f13666e.g();
+                    this.f14457e.f14456i.a(this.f14457e.f());
+                    this.f14457e.f14454g.c();
+                    this.f14457e.g();
                 }
             }
         }
@@ -125,20 +125,20 @@ public class g {
         public final void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f13663g.c();
+                this.f14454g.c();
             }
         }
 
         public final List<Long> h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13663g.f13667e : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14454g.f14458e : (List) invokeV.objValue;
         }
 
         public final void i() throws InvocationTargetException, IllegalAccessException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f13662f.invoke(this.f13661e, this.f13658b);
+                this.f14453f.invoke(this.f14452e, this.f14449b);
             }
         }
 
@@ -146,8 +146,8 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 int i2 = this.j;
-                if (i2 >= this.f13664h) {
-                    b.a.e.e.m.e.a().post(new a(this));
+                if (i2 >= this.f14455h) {
+                    b.a.e.f.m.e.a().post(new a(this));
                     return;
                 }
                 this.j = i2 + 1;
@@ -175,16 +175,16 @@ public class g {
                 }
             }
             this.j = 0;
-            this.f13659c = Class.forName("android.view.Choreographer");
-            this.f13657a = Class.forName("android.view.Choreographer$FrameCallback");
-            this.f13663g = new c(this);
-            this.f13658b = Proxy.newProxyInstance(this.f13657a.getClassLoader(), new Class[]{this.f13657a}, this.f13663g);
-            Method method = this.f13659c.getMethod("getInstance", new Class[0]);
-            this.f13660d = method;
-            this.f13661e = method.invoke(null, new Object[0]);
-            this.f13662f = this.f13659c.getMethod("postFrameCallback", this.f13657a);
-            this.f13664h = i2 <= 0 ? 16 : i2;
-            this.f13665i = jVar;
+            this.f14450c = Class.forName("android.view.Choreographer");
+            this.f14448a = Class.forName("android.view.Choreographer$FrameCallback");
+            this.f14454g = new c(this);
+            this.f14449b = Proxy.newProxyInstance(this.f14448a.getClassLoader(), new Class[]{this.f14448a}, this.f14454g);
+            Method method = this.f14450c.getMethod("getInstance", new Class[0]);
+            this.f14451d = method;
+            this.f14452e = method.invoke(null, new Object[0]);
+            this.f14453f = this.f14450c.getMethod("postFrameCallback", this.f14448a);
+            this.f14455h = i2 <= 0 ? 16 : i2;
+            this.f14456i = jVar;
         }
     }
 
@@ -194,13 +194,13 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final List<Long> f13667e;
+        public final List<Long> f14458e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<Integer> f13668f;
+        public final List<Integer> f14459f;
 
         /* renamed from: g  reason: collision with root package name */
-        public b f13669g;
+        public b f14460g;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -217,25 +217,25 @@ public class g {
                     return;
                 }
             }
-            this.f13669g = bVar;
-            this.f13667e = new ArrayList(240);
-            this.f13668f = new ArrayList(15);
+            this.f14460g = bVar;
+            this.f14458e = new ArrayList(240);
+            this.f14459f = new ArrayList(15);
         }
 
         public final void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13669g = null;
-                this.f13667e.clear();
-                this.f13668f.clear();
+                this.f14460g = null;
+                this.f14458e.clear();
+                this.f14459f.clear();
             }
         }
 
         public final void d(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.f13667e.add(Long.valueOf(j));
-                this.f13669g.j();
+                this.f14458e.add(Long.valueOf(j));
+                this.f14460g.j();
             }
         }
 
@@ -261,7 +261,7 @@ public class g {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final g f13670a;
+        public static final g f14461a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -277,7 +277,7 @@ public class g {
                     return;
                 }
             }
-            f13670a = new g();
+            f14461a = new g();
         }
     }
 
@@ -294,13 +294,13 @@ public class g {
                 return;
             }
         }
-        this.f13656a = null;
+        this.f14447a = null;
     }
 
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d.f13670a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d.f14461a : (g) invokeV.objValue;
     }
 
     public void b(int i2, j jVar) {
@@ -310,7 +310,7 @@ public class g {
         }
         try {
             b bVar = new b(i2, jVar, null);
-            this.f13656a = bVar;
+            this.f14447a = bVar;
             bVar.j();
         } catch (Throwable th) {
             BdLog.e(th);

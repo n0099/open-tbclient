@@ -16,25 +16,25 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPageUserExtend;
 import tbclient.User;
-/* loaded from: classes5.dex */
-public class w implements b.a.e.l.e.n {
+/* loaded from: classes6.dex */
+public class w implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f26491i;
+    public static final BdUniqueId f28009i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26492e;
+    public int f28010e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<MetaData> f26493f;
+    public List<MetaData> f28011f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26494g;
+    public String f28012g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26495h;
+    public boolean f28013h;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class w implements b.a.e.l.e.n {
                 return;
             }
         }
-        f26491i = BdUniqueId.gen();
+        f28009i = BdUniqueId.gen();
     }
 
     public w() {
@@ -65,40 +65,40 @@ public class w implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f26492e = 0;
-        this.f26494g = "本吧都在关注";
-        this.f26495h = false;
+        this.f28010e = 0;
+        this.f28012g = "本吧都在关注";
+        this.f28013h = false;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26492e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28010e : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26494g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28012g : (String) invokeV.objValue;
     }
 
     public List<MetaData> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26493f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28011f : (List) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26495h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28013h : invokeV.booleanValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f26491i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f28009i : (BdUniqueId) invokeV.objValue;
     }
 
     public void h(FeatureCardGod featureCardGod) {
@@ -106,9 +106,9 @@ public class w implements b.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, featureCardGod) == null) || featureCardGod == null || ListUtils.isEmpty(featureCardGod.sub_nodes)) {
             return;
         }
-        this.f26492e = featureCardGod.floor.intValue();
-        this.f26493f = featureCardGod.sub_nodes;
-        this.f26494g = featureCardGod.title;
+        this.f28010e = featureCardGod.floor.intValue();
+        this.f28011f = featureCardGod.sub_nodes;
+        this.f28012g = featureCardGod.title;
     }
 
     public void i(FrsPageUserExtend frsPageUserExtend) {
@@ -117,23 +117,23 @@ public class w implements b.a.e.l.e.n {
             return;
         }
         List<User> list = frsPageUserExtend.data;
-        this.f26492e = frsPageUserExtend.user_extend_storey.intValue();
-        this.f26493f = new ArrayList(list.size());
+        this.f28010e = frsPageUserExtend.user_extend_storey.intValue();
+        this.f28011f = new ArrayList(list.size());
         for (int i2 = 0; i2 < list.size(); i2++) {
             User user = list.get(i2);
             if (user != null && user.id.longValue() != 0) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i2));
-                this.f26493f.add(metaData);
+                this.f28011f.add(metaData);
             }
         }
-        this.f26494g = frsPageUserExtend.tips;
+        this.f28012g = frsPageUserExtend.tips;
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f26495h = z;
+            this.f28013h = z;
         }
     }
 }

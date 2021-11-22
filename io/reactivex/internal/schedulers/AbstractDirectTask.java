@@ -14,7 +14,7 @@ import io.reactivex.schedulers.SchedulerRunnableIntrospection;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractDirectTask extends AtomicReference<Future<?>> implements Disposable, SchedulerRunnableIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FutureTask<Void> DISPOSED;

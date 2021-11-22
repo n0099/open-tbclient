@@ -13,13 +13,13 @@ public final class y implements InvocationHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f33906a;
+    public g f34740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f33907b;
+    public Class<?> f34741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public z f33908c;
+    public z f34742c;
 
     public y(g gVar, Class<?> cls, z zVar) {
         Interceptable interceptable = $ic;
@@ -36,15 +36,15 @@ public final class y implements InvocationHandler {
                 return;
             }
         }
-        this.f33906a = gVar;
-        this.f33907b = cls;
-        this.f33908c = zVar;
+        this.f34740a = gVar;
+        this.f34741b = cls;
+        this.f34742c = zVar;
     }
 
     @Override // java.lang.reflect.InvocationHandler
     public final Object invoke(Object obj, Method method, Object[] objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) ? this.f33908c.a(method, objArr) : invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) ? this.f34742c.a(method, objArr) : invokeLLL.objValue;
     }
 }

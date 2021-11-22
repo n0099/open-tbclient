@@ -1,8 +1,7 @@
 package b.a.p0.a.x0.a.d;
 
-import b.a.p0.a.a1.e;
-import b.a.p0.a.k2.b;
-import b.a.p0.t.d;
+import b.a.p0.a.a1.d;
+import b.a.p0.a.o2.b;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,31 +14,31 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f8935a;
+    public static File f9279a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8936b;
+    public static String f9280b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8937c;
+    public static String f9281c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f8938d;
+    public static String f9282d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f8939e;
+    public static String f9283e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f8940f;
+    public static String f9284f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f8941g;
+    public static String f9285g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f8942h;
+    public static String f9286h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f8943i;
+    public static String f9287i;
     public static String j;
     public static String k;
     public static String l;
@@ -59,15 +58,15 @@ public class a {
                 return;
             }
         }
-        f8935a = e.g();
-        f8936b = "swan_core";
-        f8937c = "extension_core";
-        f8938d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-        f8939e = "cloneFolder_";
-        f8940f = f8938d + File.separator + f8939e;
-        f8941g = "clone_pkg_folder";
-        f8942h = "clone_core_folder";
-        f8943i = "clone_dynamic_lib_folder";
+        f9279a = d.g();
+        f9280b = "swan_core";
+        f9281c = "extension_core";
+        f9282d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+        f9283e = "cloneFolder_";
+        f9284f = f9282d + File.separator + f9283e;
+        f9285g = "clone_pkg_folder";
+        f9286h = "clone_core_folder";
+        f9287i = "clone_dynamic_lib_folder";
         j = "clone_sp_folder";
         k = "clone_db_folder";
         l = "cloneZip.zip";
@@ -79,7 +78,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             File file = new File(b.w());
-            if (d.k(file)) {
+            if (b.a.p0.w.d.l(file)) {
                 return file;
             }
             return null;

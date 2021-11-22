@@ -112,7 +112,7 @@ public class b extends b.a.r0.b0.b<f> {
         if (TextUtils.isEmpty(g2.b().yy_level_next_name) || g2.b().yy_levelup_exp <= g2.b().yy_level_exp) {
             return;
         }
-        String string = this.f14737f.getPageActivity().getResources().getString(R.string.ala_level_next_tips);
+        String string = this.f16224f.getPageActivity().getResources().getString(R.string.ala_level_next_tips);
         int i2 = (int) ((((float) (g2.b().yy_levelup_exp - g2.b().yy_level_exp)) * 100.0f) / ((float) g2.b().yy_levelup_exp));
         if (i2 <= 0) {
             i2 = 1;

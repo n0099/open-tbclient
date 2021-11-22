@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e extends b.a.e.l.e.a<b.a.r0.w.f.h.b.b, SpecialLiveDoubleViewHolder> {
+public class e extends b.a.e.m.e.a<b.a.r0.w.f.h.b.b, SpecialLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
@@ -26,7 +26,7 @@ public class e extends b.a.e.l.e.a<b.a.r0.w.f.h.b.b, SpecialLiveDoubleViewHolder
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.w.f.h.b.b.f24891g);
+        super(tbPageContext.getPageActivity(), b.a.r0.w.f.h.b.b.f26408g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public class e extends b.a.e.l.e.a<b.a.r0.w.f.h.b.b, SpecialLiveDoubleViewHolder
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public SpecialLiveDoubleViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -74,7 +74,7 @@ public class e extends b.a.e.l.e.a<b.a.r0.w.f.h.b.b, SpecialLiveDoubleViewHolder
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.w.f.h.b.b bVar, SpecialLiveDoubleViewHolder specialLiveDoubleViewHolder) {
         InterceptResult invokeCommon;

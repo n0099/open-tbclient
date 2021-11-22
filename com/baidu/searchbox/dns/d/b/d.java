@@ -33,7 +33,7 @@ public class d {
         }
     }
 
-    public static b N() {
+    public static b L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a.ai : (b) invokeV.objValue;

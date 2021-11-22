@@ -13,11 +13,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f29240b;
+    public static c f30109b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f29241a;
+    public boolean f30110a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class c {
                 return;
             }
         }
-        this.f29241a = true;
+        this.f30110a = true;
         new PorterDuffColorFilter(PullViewHelper.IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
     }
 
@@ -41,11 +41,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (c.class) {
-                if (f29240b == null) {
-                    f29240b = new c();
+                if (f30109b == null) {
+                    f30109b = new c();
                 }
             }
-            return f29240b;
+            return f30109b;
         }
         return (c) invokeV.objValue;
     }
@@ -53,6 +53,6 @@ public class c {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29241a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30110a : invokeV.booleanValue;
     }
 }

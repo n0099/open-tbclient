@@ -18,19 +18,19 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3662a;
+    public static String f3752a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3663b;
+    public static String f3753b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3664c;
+    public static String f3754c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f3665d;
+    public static String f3755d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f3666e;
+    public static String f3756e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -52,10 +52,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                if (TextUtils.isEmpty(f3662a)) {
-                    f3662a = b.a.n0.l.c.e(context);
+                if (TextUtils.isEmpty(f3752a)) {
+                    f3752a = b.a.n0.l.c.e(context);
                 }
-                return TextUtils.isEmpty(f3662a) ? "" : f3662a;
+                return TextUtils.isEmpty(f3752a) ? "" : f3752a;
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
                 return "";
@@ -77,7 +77,7 @@ public class c {
                 jSONObject.put("5", str);
                 jSONObject.put("6", System.currentTimeMillis());
                 jSONObject.put("7", "0");
-                jSONObject.put("8", b.a.n0.a.f3491b);
+                jSONObject.put("8", b.a.n0.a.f3581b);
                 jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
                 jSONObject.put("10", "1.0.7");
                 jSONObject.put("14", b.a.n0.l.c.j(context));
@@ -98,10 +98,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                if (TextUtils.isEmpty(f3663b)) {
-                    f3663b = b.a.n0.l.c.h(context);
+                if (TextUtils.isEmpty(f3753b)) {
+                    f3753b = b.a.n0.l.c.h(context);
                 }
-                return TextUtils.isEmpty(f3663b) ? "" : f3663b;
+                return TextUtils.isEmpty(f3753b) ? "" : f3753b;
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
                 return "";
@@ -115,11 +115,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
-                if (!TextUtils.isEmpty(f3666e)) {
-                    return f3666e;
+                if (!TextUtils.isEmpty(f3756e)) {
+                    return f3756e;
                 }
                 String b2 = b.a.n0.g.a.b(context, true, false);
-                f3666e = b2;
+                f3756e = b2;
                 return b2;
             } catch (Throwable unused) {
                 return "";
@@ -133,10 +133,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
             try {
-                if (TextUtils.isEmpty(f3664c)) {
-                    f3664c = context.getPackageName();
+                if (TextUtils.isEmpty(f3754c)) {
+                    f3754c = context.getPackageName();
                 }
-                return TextUtils.isEmpty(f3664c) ? "" : f3664c;
+                return TextUtils.isEmpty(f3754c) ? "" : f3754c;
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
                 return "";
@@ -150,11 +150,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             try {
-                if (!TextUtils.isEmpty(f3665d)) {
-                    return f3665d;
+                if (!TextUtils.isEmpty(f3755d)) {
+                    return f3755d;
                 }
                 String j = b.a.n0.l.d.j(context);
-                f3665d = j;
+                f3755d = j;
                 return j;
             } catch (Throwable unused) {
                 return "";

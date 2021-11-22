@@ -16,10 +16,10 @@ public class PromptTipDialog extends WalletDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TipDialogModel f57764a;
+    public TipDialogModel f58686a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f57765b;
+    public View.OnClickListener f58687b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromptTipDialog(Context context) {
@@ -40,13 +40,13 @@ public class PromptTipDialog extends WalletDialog {
                 return;
             }
         }
-        this.f57764a = new TipDialogModel();
-        this.f57765b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
+        this.f58686a = new TipDialogModel();
+        this.f58687b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PromptTipDialog f57766a;
+            public final /* synthetic */ PromptTipDialog f58688a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -63,14 +63,14 @@ public class PromptTipDialog extends WalletDialog {
                         return;
                     }
                 }
-                this.f57766a = this;
+                this.f58688a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f57766a.dismiss();
+                    this.f58688a.dismiss();
                 }
             }
         };
@@ -80,8 +80,8 @@ public class PromptTipDialog extends WalletDialog {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            TipDialogModel tipDialogModel = this.f57764a;
-            tipDialogModel.defaultClickListener = this.f57765b;
+            TipDialogModel tipDialogModel = this.f58686a;
+            tipDialogModel.defaultClickListener = this.f58687b;
             setAdapter(new TipDialogAdapter(tipDialogModel));
         }
     }
@@ -89,22 +89,22 @@ public class PromptTipDialog extends WalletDialog {
     public void setButtonMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f57764a.btnTextId = i2;
+            this.f58686a.btnTextId = i2;
         }
     }
 
     public void setDefaultBtnListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f57764a.defaultClickListener = new View.OnClickListener(this, onClickListener) { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.2
+            this.f58686a.defaultClickListener = new View.OnClickListener(this, onClickListener) { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View.OnClickListener f57767a;
+                public final /* synthetic */ View.OnClickListener f58689a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PromptTipDialog f57768b;
+                public final /* synthetic */ PromptTipDialog f58690b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -121,16 +121,16 @@ public class PromptTipDialog extends WalletDialog {
                             return;
                         }
                     }
-                    this.f57768b = this;
-                    this.f57767a = onClickListener;
+                    this.f58690b = this;
+                    this.f58689a = onClickListener;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f57768b.dismiss();
-                        View.OnClickListener onClickListener2 = this.f57767a;
+                        this.f58690b.dismiss();
+                        View.OnClickListener onClickListener2 = this.f58689a;
                         if (onClickListener2 != null) {
                             onClickListener2.onClick(view);
                         }
@@ -143,35 +143,35 @@ public class PromptTipDialog extends WalletDialog {
     public void setMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f57764a.messageId = i2;
+            this.f58686a.messageId = i2;
         }
     }
 
     public void setTitleMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f57764a.titleId = i2;
+            this.f58686a.titleId = i2;
         }
     }
 
     public void setButtonMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f57764a.btnText = str;
+            this.f58686a.btnText = str;
         }
     }
 
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f57764a.message = str;
+            this.f58686a.message = str;
         }
     }
 
     public void setTitleMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f57764a.titleText = str;
+            this.f58686a.titleText = str;
         }
     }
 
@@ -194,13 +194,13 @@ public class PromptTipDialog extends WalletDialog {
                 return;
             }
         }
-        this.f57764a = new TipDialogModel();
-        this.f57765b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
+        this.f58686a = new TipDialogModel();
+        this.f58687b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptTipDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PromptTipDialog f57766a;
+            public final /* synthetic */ PromptTipDialog f58688a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -217,14 +217,14 @@ public class PromptTipDialog extends WalletDialog {
                         return;
                     }
                 }
-                this.f57766a = this;
+                this.f58688a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f57766a.dismiss();
+                    this.f58688a.dismiss();
                 }
             }
         };

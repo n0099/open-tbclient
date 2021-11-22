@@ -114,7 +114,7 @@ public class Plugin {
                     ZeusLogger.w(ZeusLogger.TAG_INSTALL, "Plugin checkValid " + str + format);
                     return false;
                 } else if (file != null && file.exists()) {
-                    if (i2 == this.mVersionCode && k.a().f61528a.getString("MD5_".concat(String.valueOf(str)), "").equals(e.a(file))) {
+                    if (i2 == this.mVersionCode && k.a().f62427a.getString("MD5_".concat(String.valueOf(str)), "").equals(e.a(file))) {
                         ZeusLogger.e(ZeusLogger.TAG_INSTALL, "Plugin checkValid " + str + " pluginApk with the same md5 has already installed.");
                         return false;
                     }
@@ -147,11 +147,11 @@ public class Plugin {
             if (z3 && i3 != -1) {
                 k a3 = k.a();
                 String str = this.mPkgName;
-                SharedPreferences sharedPreferences = a3.f61528a;
+                SharedPreferences sharedPreferences = a3.f62427a;
                 int i4 = sharedPreferences.getInt("API_MIN_" + str + "_" + i2, 0);
                 k a4 = k.a();
                 String str2 = this.mPkgName;
-                SharedPreferences sharedPreferences2 = a4.f61528a;
+                SharedPreferences sharedPreferences2 = a4.f62427a;
                 int i5 = sharedPreferences2.getInt("API_MAX_" + str2 + "_" + i2, Integer.MAX_VALUE);
                 if (i5 == 0) {
                     i5 = Integer.MAX_VALUE;
@@ -164,11 +164,11 @@ public class Plugin {
             if (z3 && j != -1) {
                 k a5 = k.a();
                 String str3 = this.mPkgName;
-                SharedPreferences sharedPreferences3 = a5.f61528a;
+                SharedPreferences sharedPreferences3 = a5.f62427a;
                 int i6 = sharedPreferences3.getInt("HOST_MIN_" + str3 + "_" + i2, 0);
                 k a6 = k.a();
                 String str4 = this.mPkgName;
-                SharedPreferences sharedPreferences4 = a6.f61528a;
+                SharedPreferences sharedPreferences4 = a6.f62427a;
                 int i7 = sharedPreferences4.getInt("HOST_MAX_" + str4 + "_" + i2, Integer.MAX_VALUE);
                 int i8 = i7 != 0 ? i7 : Integer.MAX_VALUE;
                 if (j < i6 || j > i8) {
@@ -190,10 +190,10 @@ public class Plugin {
     private void deleteIfNeeded() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
-            if (k.a().f61528a.getBoolean("DELETED__".concat(String.valueOf(this.mPkgName)), false)) {
+            if (k.a().f62427a.getBoolean("DELETED__".concat(String.valueOf(this.mPkgName)), false)) {
                 k a2 = k.a();
                 String str = this.mPkgName;
-                SharedPreferences.Editor edit = a2.f61528a.edit();
+                SharedPreferences.Editor edit = a2.f62427a.edit();
                 edit.remove("DELETED__".concat(String.valueOf(str)));
                 edit.apply();
                 deleteInstalledPlugin();
@@ -213,7 +213,7 @@ public class Plugin {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Plugin f61450a;
+                public final /* synthetic */ Plugin f62349a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -230,7 +230,7 @@ public class Plugin {
                             return;
                         }
                     }
-                    this.f61450a = this;
+                    this.f62349a = this;
                 }
 
                 @Override // java.io.FileFilter
@@ -239,7 +239,7 @@ public class Plugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
                         if (file.getName().matches("^version-(\\d+)$")) {
-                            k.a().a(this.f61450a.mPkgName, Integer.parseInt(file.getName().split("-")[1]), false);
+                            k.a().a(this.f62349a.mPkgName, Integer.parseInt(file.getName().split("-")[1]), false);
                         }
                         return false;
                     }
@@ -261,10 +261,10 @@ public class Plugin {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f61451a;
+                public final /* synthetic */ String f62350a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Plugin f61452b;
+                public final /* synthetic */ Plugin f62351b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -281,8 +281,8 @@ public class Plugin {
                             return;
                         }
                     }
-                    this.f61452b = this;
-                    this.f61451a = r7;
+                    this.f62351b = this;
+                    this.f62350a = r7;
                 }
 
                 @Override // java.io.FileFilter
@@ -290,11 +290,11 @@ public class Plugin {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
-                        if (file != null && !this.f61451a.equals(file.getName()) && !"data".equals(file.getName())) {
+                        if (file != null && !this.f62350a.equals(file.getName()) && !"data".equals(file.getName())) {
                             f.a(file.getAbsolutePath());
                             ZeusLogger.w(ZeusLogger.TAG_INIT, "Plugin deleteOtherExpired " + file.getAbsolutePath());
                             if (file.getName().matches("^version-(\\d+)$")) {
-                                k.a().a(this.f61452b.mPkgName, Integer.parseInt(file.getName().split("-")[1]), false);
+                                k.a().a(this.f62351b.mPkgName, Integer.parseInt(file.getName().split("-")[1]), false);
                             }
                         }
                         return false;
@@ -317,7 +317,7 @@ public class Plugin {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Plugin f61449a;
+                public final /* synthetic */ Plugin f62348a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -334,7 +334,7 @@ public class Plugin {
                             return;
                         }
                     }
-                    this.f61449a = this;
+                    this.f62348a = this;
                 }
 
                 @Override // java.io.FileFilter
@@ -367,13 +367,13 @@ public class Plugin {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f61453a;
+                public final /* synthetic */ String f62352a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f61454b;
+                public final /* synthetic */ boolean f62353b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Plugin f61455c;
+                public final /* synthetic */ Plugin f62354c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -390,20 +390,20 @@ public class Plugin {
                             return;
                         }
                     }
-                    this.f61455c = this;
-                    this.f61453a = str;
-                    this.f61454b = z;
+                    this.f62354c = this;
+                    this.f62352a = str;
+                    this.f62353b = z;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     List<ZeusPluginStateListener> list;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (list = i.a().f61439c) == null || list.size() <= 0) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (list = i.a().f62338c) == null || list.size() <= 0) {
                         return;
                     }
                     for (ZeusPluginStateListener zeusPluginStateListener : list) {
-                        zeusPluginStateListener.onPluginInstallResult(this.f61453a, this.f61454b);
+                        zeusPluginStateListener.onPluginInstallResult(this.f62352a, this.f62353b);
                     }
                 }
             });
@@ -504,18 +504,18 @@ public class Plugin {
             }
             if (com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
                 int i2 = 0;
-                if (!TextUtils.isEmpty(k.a().f61528a.getString("HOST_ABI_".concat(String.valueOf(this.mPkgName)), ""))) {
+                if (!TextUtils.isEmpty(k.a().f62427a.getString("HOST_ABI_".concat(String.valueOf(this.mPkgName)), ""))) {
                     k a2 = k.a();
                     String str = this.mPkgName;
-                    boolean z2 = !TextUtils.equals(a2.f61528a.getString("HOST_ABI_".concat(String.valueOf(str)), ""), Zeus.getHostAbi());
-                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils isHostAbiUpdate HOST_ABI=" + a2.f61528a.getString("HOST_ABI_".concat(String.valueOf(str)), "") + StringUtil.ARRAY_ELEMENT_SEPARATOR + Zeus.getHostAbi() + ", result=" + z2);
+                    boolean z2 = !TextUtils.equals(a2.f62427a.getString("HOST_ABI_".concat(String.valueOf(str)), ""), Zeus.getHostAbi());
+                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils isHostAbiUpdate HOST_ABI=" + a2.f62427a.getString("HOST_ABI_".concat(String.valueOf(str)), "") + StringUtil.ARRAY_ELEMENT_SEPARATOR + Zeus.getHostAbi() + ", result=" + z2);
                     z = z2;
                 } else {
                     z = false;
                 }
                 deleteIfNeeded();
                 int installedMaxVer = getInstalledMaxVer();
-                if (checkVersionValid(installedMaxVer, this.mApiVersionCode, i.a().f61438b.getHostVersionCode(), z)) {
+                if (checkVersionValid(installedMaxVer, this.mApiVersionCode, i.a().f62337b.getHostVersionCode(), z)) {
                     updateToInstalled(installedMaxVer);
                     i2 = installedMaxVer;
                 }
@@ -523,13 +523,13 @@ public class Plugin {
                 ZeusLogger.i(ZeusLogger.TAG_INIT, "Plugin initPlugins result=".concat(String.valueOf(this)));
                 k a3 = k.a();
                 String str2 = this.mPkgName;
-                SharedPreferences.Editor edit = a3.f61528a.edit();
+                SharedPreferences.Editor edit = a3.f62427a.edit();
                 edit.putString("ROM_LAST_".concat(String.valueOf(str2)), Build.VERSION.INCREMENTAL);
                 edit.apply();
                 k a4 = k.a();
                 String str3 = this.mPkgName;
-                String string = a4.f61528a.getString("HOST_ABI_".concat(String.valueOf(str3)), "");
-                SharedPreferences.Editor edit2 = a4.f61528a.edit();
+                String string = a4.f62427a.getString("HOST_ABI_".concat(String.valueOf(str3)), "");
+                SharedPreferences.Editor edit2 = a4.f62427a.edit();
                 edit2.putString("HOST_ABI_".concat(String.valueOf(str3)), Zeus.getHostAbi());
                 edit2.apply();
                 ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils setHostAbiUpdated HOST_ABI=" + string + " --> " + Zeus.getHostAbi());
@@ -538,7 +538,7 @@ public class Plugin {
                 int i3 = this.mApiVersionCode;
                 int a6 = a5.a(str4);
                 if (a6 != i3) {
-                    SharedPreferences.Editor edit3 = a5.f61528a.edit();
+                    SharedPreferences.Editor edit3 = a5.f62427a.edit();
                     edit3.putInt("PLUGIN_API_VERSION_".concat(String.valueOf(str4)), i3);
                     edit3.apply();
                 }
@@ -557,8 +557,8 @@ public class Plugin {
             boolean z = false;
             try {
                 ZeusLogger.i(ZeusLogger.TAG_INSTALL, "Plugin install from local file " + file + StringUtil.ARRAY_ELEMENT_SEPARATOR + Thread.currentThread().getName());
-                String str = eVar.f61379a;
-                int i2 = eVar.f61380b;
+                String str = eVar.f62278a;
+                int i2 = eVar.f62279b;
                 synchronized (this.installLock) {
                     ZeusLogger.i(ZeusLogger.TAG_INSTALL, "Plugin synchronized begin, plugin=".concat(String.valueOf(this)));
                     boolean checkValid = checkValid(file, str, i2);
@@ -566,7 +566,7 @@ public class Plugin {
                         String a2 = e.a(PluginDirHelper.getSourceFile(this.mPkgName, i2));
                         k a3 = k.a();
                         String str2 = this.mPkgName;
-                        SharedPreferences.Editor edit = a3.f61528a.edit();
+                        SharedPreferences.Editor edit = a3.f62427a.edit();
                         edit.putString("MD5_".concat(String.valueOf(str2)), a2);
                         edit.apply();
                         k.a().a(this.mPkgName, i2, true);
@@ -651,7 +651,7 @@ public class Plugin {
         if (interceptable == null || interceptable.invokeIII(1048590, this, i2, i3, i4) == null) {
             k a2 = k.a();
             String str = this.mPkgName;
-            SharedPreferences.Editor edit = a2.f61528a.edit();
+            SharedPreferences.Editor edit = a2.f62427a.edit();
             edit.putInt("API_MIN_" + str + "_" + i2, i3);
             edit.putInt("API_MAX_" + str + "_" + i2, i4);
             edit.apply();
@@ -663,7 +663,7 @@ public class Plugin {
         if (interceptable == null || interceptable.invokeIII(1048591, this, i2, i3, i4) == null) {
             k a2 = k.a();
             String str = this.mPkgName;
-            SharedPreferences.Editor edit = a2.f61528a.edit();
+            SharedPreferences.Editor edit = a2.f62427a.edit();
             edit.putInt("HOST_MIN_" + str + "_" + i2, i3);
             edit.putInt("HOST_MAX_" + str + "_" + i2, i4);
             edit.apply();

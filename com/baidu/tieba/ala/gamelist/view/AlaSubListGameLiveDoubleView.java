@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaSubListGameLiveDoubleView extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b.a.r0.w.j.c.a m;
     public b.a.r0.w.j.c.a n;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class AlaSubListDoubleLiveViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +71,8 @@ public class AlaSubListGameLiveDoubleView extends b<a> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.m.a(aVar.f25087e);
-        this.n.a(aVar.f25088f);
+        this.m.a(aVar.f26604e);
+        this.n.a(aVar.f26605f);
     }
 
     @Override // android.view.View.OnClickListener

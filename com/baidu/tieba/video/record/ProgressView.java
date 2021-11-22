@@ -27,19 +27,19 @@ public class ProgressView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f54760e;
+    public a f55680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54761f;
+    public int f55681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f54762g;
+    public Paint f55682g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f54763h;
+    public Paint f55683h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f54764i;
+    public Paint f55684i;
     public Paint j;
     public Paint k;
     public float l;
@@ -185,18 +185,18 @@ public class ProgressView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f54762g = new Paint();
-            this.f54763h = new Paint();
-            this.f54764i = new Paint();
+            this.f55682g = new Paint();
+            this.f55683h = new Paint();
+            this.f55684i = new Paint();
             this.k = new Paint();
             this.j = new Paint();
             setBackgroundColor(Color.parseColor("#FFFFFF"));
-            this.f54762g.setStyle(Paint.Style.FILL);
-            this.f54762g.setColor(Color.parseColor("#33aaff"));
-            this.f54763h.setStyle(Paint.Style.FILL);
-            this.f54763h.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
-            this.f54764i.setStyle(Paint.Style.FILL);
-            this.f54764i.setColor(Color.parseColor("#FFFFFF"));
+            this.f55682g.setStyle(Paint.Style.FILL);
+            this.f55682g.setColor(Color.parseColor("#33aaff"));
+            this.f55683h.setStyle(Paint.Style.FILL);
+            this.f55683h.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
+            this.f55684i.setStyle(Paint.Style.FILL);
+            this.f55684i.setColor(Color.parseColor("#FFFFFF"));
             this.k.setStyle(Paint.Style.FILL);
             this.k.setColor(Color.parseColor("#e53917"));
             this.j.setStyle(Paint.Style.FILL);
@@ -272,17 +272,17 @@ public class ProgressView extends View {
                         f4 = 1.0f;
                     }
                     float f5 = f4;
-                    canvas.drawRect(f2, 0.0f, f5, (float) (this.y - 1), this.f54762g);
-                    canvas.drawRect(f5, 0.0f, this.r, (float) (this.y - 1), this.f54764i);
+                    canvas.drawRect(f2, 0.0f, f5, (float) (this.y - 1), this.f55682g);
+                    canvas.drawRect(f5, 0.0f, this.r, (float) (this.y - 1), this.f55684i);
                     j2 = intValue;
                 }
                 if (this.n.getLast().intValue() <= 3000.0f) {
                     float f6 = this.o;
-                    canvas.drawRect(f6 * 3000.0f, 0.0f, (f6 * 3000.0f) + this.l, (float) (this.y - 1), this.f54763h);
+                    canvas.drawRect(f6 * 3000.0f, 0.0f, (f6 * 3000.0f) + this.l, (float) (this.y - 1), this.f55683h);
                 }
             } else {
                 float f7 = this.o;
-                canvas.drawRect(f7 * 3000.0f, 0.0f, (f7 * 3000.0f) + this.l, (float) (this.y - 1), this.f54763h);
+                canvas.drawRect(f7 * 3000.0f, 0.0f, (f7 * 3000.0f) + this.l, (float) (this.y - 1), this.f55683h);
             }
             if (this.p == State.ROLLBACK) {
                 float f8 = this.r;
@@ -294,28 +294,28 @@ public class ProgressView extends View {
                 float f10 = this.r + f9;
                 if (f10 <= getMeasuredWidth()) {
                     float f11 = this.r;
-                    canvas.drawRect(f11, 0.0f, f11 + this.s, (float) (this.y - 1), this.f54762g);
+                    canvas.drawRect(f11, 0.0f, f11 + this.s, (float) (this.y - 1), this.f55682g);
                 } else {
-                    canvas.drawRect(this.r, 0.0f, getMeasuredWidth(), (float) (this.y - 1), this.f54762g);
+                    canvas.drawRect(this.r, 0.0f, getMeasuredWidth(), (float) (this.y - 1), this.f55682g);
                 }
                 float f12 = f10 - 5.0f;
                 long j3 = this.y;
                 canvas.drawRect(f12, 0.0f, f12 + ((float) j3), (float) (j3 - 1), this.j);
-                if (this.f54760e != null) {
+                if (this.f55680e != null) {
                     int measuredWidth = (int) ((f10 / getMeasuredWidth()) * 100.0f);
                     i2 = measuredWidth <= 100 ? measuredWidth : 100;
-                    if (i2 != this.f54761f) {
-                        this.f54761f = i2;
-                        this.f54760e.a(i2);
+                    if (i2 != this.f55681f) {
+                        this.f55681f = i2;
+                        this.f55680e.a(i2);
                     }
                 }
             } else {
-                if (this.f54760e != null) {
+                if (this.f55680e != null) {
                     int measuredWidth2 = (int) ((this.r / getMeasuredWidth()) * 100.0f);
                     i2 = measuredWidth2 <= 100 ? measuredWidth2 : 100;
-                    if (i2 != this.f54761f) {
-                        this.f54761f = i2;
-                        this.f54760e.a(i2);
+                    if (i2 != this.f55681f) {
+                        this.f55681f = i2;
+                        this.f55680e.a(i2);
                     }
                 }
                 long j4 = this.v;
@@ -351,7 +351,7 @@ public class ProgressView extends View {
             this.u = 0L;
             this.w = 0L;
             this.x = 0L;
-            this.f54761f = 0;
+            this.f55681f = 0;
             this.v = 0L;
         }
     }
@@ -374,7 +374,7 @@ public class ProgressView extends View {
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f54760e = aVar;
+            this.f55680e = aVar;
         }
     }
 

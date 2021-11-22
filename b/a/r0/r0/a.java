@@ -16,10 +16,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f23025a;
+    public static final Pattern f24557a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f23026b;
+    public static final Pattern f24558b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public class a {
                 return;
             }
         }
-        f23025a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
-        f23026b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+        f24557a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
+        f24558b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
     }
 
     public static int a(String str) {
@@ -46,7 +46,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             int i2 = 0;
             if (str != null && str.length() != 0) {
-                Matcher matcher = f23025a.matcher(str);
+                Matcher matcher = f24557a.matcher(str);
                 while (matcher.find()) {
                     String group = matcher.group();
                     if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
@@ -77,7 +77,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String replaceAll = str.replaceAll(d.f11985f, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
+            String replaceAll = str.replaceAll(d.f12739f, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
             Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
             StringBuilder sb = new StringBuilder(replaceAll);
             int i2 = 0;

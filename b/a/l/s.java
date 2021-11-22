@@ -70,7 +70,7 @@ public class s extends h {
                 return;
             }
         }
-        m = b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+        m = b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

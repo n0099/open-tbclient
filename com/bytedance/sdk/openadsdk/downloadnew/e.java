@@ -30,11 +30,11 @@ public class e extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f61726a;
+    public static volatile e f62625a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f61727b;
+    public final Context f62626b;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -51,21 +51,21 @@ public class e extends a {
                 return;
             }
         }
-        this.f61727b = context;
+        this.f62626b = context;
     }
 
     public static e a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f61726a == null) {
+            if (f62625a == null) {
                 synchronized (e.class) {
-                    if (f61726a == null) {
-                        f61726a = new e(context);
+                    if (f62625a == null) {
+                        f62625a = new e(context);
                     }
                 }
             }
-            return f61726a;
+            return f62625a;
         }
         return (e) invokeL.objValue;
     }
@@ -177,10 +177,10 @@ public class e extends a {
                     d.a().a((String) map.get("downloadUrl"), ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue());
                     return null;
                 case 5:
-                    d.a().a(this.f61727b, ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue(), a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER)), b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL)));
+                    d.a().a(this.f62626b, ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue(), a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER)), b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL)));
                     return null;
                 case 6:
-                    return (T) Boolean.valueOf(d.a(this.f61727b, (String) map.get("downloadUrl")));
+                    return (T) Boolean.valueOf(d.a(this.f62626b, (String) map.get("downloadUrl")));
                 case 7:
                     d.b();
                     return null;
@@ -197,13 +197,13 @@ public class e extends a {
                 default:
                     return (T) super.callMethod(cls, i2, map);
                 case 12:
-                    return (T) Boolean.valueOf(d.a(this.f61727b, (Uri) map.get("uri"), b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL)), c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG)), d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER))));
+                    return (T) Boolean.valueOf(d.a(this.f62626b, (Uri) map.get("uri"), b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL)), c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG)), d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER))));
                 case 13:
                     int intValue = ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue();
-                    d.a().e().a(this.f61727b, (String) map.get(TTDownloadField.TT_USERAGENT), ((Boolean) map.get(TTDownloadField.TT_IS_DISABLE_DIALOG)).booleanValue(), b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL)), c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG)), d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER)), a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER)), intValue);
+                    d.a().e().a(this.f62626b, (String) map.get(TTDownloadField.TT_USERAGENT), ((Boolean) map.get(TTDownloadField.TT_IS_DISABLE_DIALOG)).booleanValue(), b(map.get(TTDownloadField.TT_DOWNLOAD_MODEL)), c(map.get(TTDownloadField.TT_DOWNLOAD_EVENT_CONFIG)), d(map.get(TTDownloadField.TT_DOWNLOAD_CONTROLLER)), a(map.get(TTDownloadField.TT_DOWNLOAD_STATUSCHANGE_LISTENER)), intValue);
                     return null;
                 case 14:
-                    return (T) Boolean.valueOf(d.a().e().a(this.f61727b, ((Long) map.get("id")).longValue(), (String) map.get("logExtra"), (DownloadStatusChangeListener) null, ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue()));
+                    return (T) Boolean.valueOf(d.a().e().a(this.f62626b, ((Long) map.get("id")).longValue(), (String) map.get("logExtra"), (DownloadStatusChangeListener) null, ((Integer) map.get(TTDownloadField.TT_HASHCODE)).intValue()));
                 case 15:
                     return (T) Boolean.valueOf(d.a((Uri) map.get("uri")));
                 case 16:
@@ -226,9 +226,9 @@ public class e extends a {
                 if (i2 != 1) {
                     return (T) super.getObj(cls);
                 }
-                return (T) Boolean.valueOf(d.f61708b);
+                return (T) Boolean.valueOf(d.f62607b);
             }
-            return (T) d.f61707a;
+            return (T) d.f62606a;
         }
         return (T) invokeLIL.objValue;
     }
@@ -238,7 +238,7 @@ public class e extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.init(bundle);
-            d.a(this.f61727b);
+            d.a(this.f62626b);
         }
     }
 

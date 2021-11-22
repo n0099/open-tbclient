@@ -24,7 +24,7 @@ public class SDKInitializer {
     public static final String SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE = "error_message";
 
     /* renamed from: a  reason: collision with root package name */
-    public static CoordType f39230a;
+    public static CoordType f40062a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class SDKInitializer {
                 return;
             }
         }
-        f39230a = CoordType.BD09LL;
+        f40062a = CoordType.BD09LL;
     }
 
     public SDKInitializer() {
@@ -60,7 +60,7 @@ public class SDKInitializer {
     public static CoordType getCoordType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f39230a : (CoordType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f40062a : (CoordType) invokeV.objValue;
     }
 
     public static void initialize(Context context) {
@@ -93,7 +93,7 @@ public class SDKInitializer {
     public static void setCoordType(CoordType coordType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, coordType) == null) {
-            f39230a = coordType;
+            f40062a = coordType;
         }
     }
 

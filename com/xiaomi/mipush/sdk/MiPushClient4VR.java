@@ -37,7 +37,7 @@ public class MiPushClient4VR {
             ieVar.d(context.getPackageName());
             ieVar.a("data", str);
             ieVar.a(com.xiaomi.push.service.at.a());
-            an.a(context).a((an) ieVar, hf.f71078i, (hs) null);
+            an.a(context).a((an) ieVar, hf.f71998i, (hs) null);
         }
     }
 }

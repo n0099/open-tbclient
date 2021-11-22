@@ -5,21 +5,24 @@ import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes.dex */
 public interface c extends JSRuntime, b.a.p0.a.h0.f.a, TypedCallbackHandler {
-    JsSerializeValue B(byte[] bArr, boolean z);
+    JsSerializeValue C(byte[] bArr, boolean z);
 
-    byte[] L(JsSerializeValue jsSerializeValue, boolean z);
+    byte[] N(JsSerializeValue jsSerializeValue, boolean z);
 
-    void Z(String str, String str2);
+    void c0(String str, String str2);
 
-    b.a.p0.a.l0.l.b c0();
+    boolean dispatchEvent(JSEvent jSEvent);
+
+    b.a.p0.a.l0.m.b f0();
 
     String getInitBasePath();
 
     int getInvokeSourceType();
 
-    EventTarget n();
+    EventTarget o();
 
     boolean post(Runnable runnable);
 
@@ -33,7 +36,7 @@ public interface c extends JSRuntime, b.a.p0.a.h0.f.a, TypedCallbackHandler {
 
     void throwJSException(JSExceptionType jSExceptionType, String str);
 
-    EventTarget x();
+    EventTarget y();
 
-    b.a.p0.a.l0.k.a y();
+    b.a.p0.a.l0.l.a z();
 }

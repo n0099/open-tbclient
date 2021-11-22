@@ -32,26 +32,26 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34105d = "virtualImeiAndImsi";
+    public static final String f34939d = "virtualImeiAndImsi";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34106e = "virtual_imei";
+    public static final String f34940e = "virtual_imei";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34107f = "virtual_imsi";
+    public static final String f34941f = "virtual_imsi";
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile b f34108g;
+    public static volatile b f34942g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34109a;
+    public String f34943a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34110b;
+    public String f34944b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34111c;
+    public String f34945c;
 
     /* loaded from: classes6.dex */
     public static class a implements APSecuritySdk.InitResultListener {
@@ -59,10 +59,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String[] f34112a;
+        public final /* synthetic */ String[] f34946a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ConditionVariable f34113b;
+        public final /* synthetic */ ConditionVariable f34947b;
 
         public a(String[] strArr, ConditionVariable conditionVariable) {
             Interceptable interceptable = $ic;
@@ -79,8 +79,8 @@ public class b {
                     return;
                 }
             }
-            this.f34112a = strArr;
-            this.f34113b = conditionVariable;
+            this.f34946a = strArr;
+            this.f34947b = conditionVariable;
         }
 
         @Override // com.alipay.apmobilesecuritysdk.face.APSecuritySdk.InitResultListener
@@ -88,29 +88,29 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, tokenResult) == null) {
                 if (tokenResult != null) {
-                    this.f34112a[0] = tokenResult.apdidToken;
+                    this.f34946a[0] = tokenResult.apdidToken;
                 }
-                this.f34113b.open();
+                this.f34947b.open();
             }
         }
     }
 
     /* renamed from: com.alipay.sdk.data.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class CallableC1520b implements Callable<String> {
+    public static class CallableC1562b implements Callable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.alipay.sdk.sys.a f34114a;
+        public final /* synthetic */ com.alipay.sdk.sys.a f34948a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f34115b;
+        public final /* synthetic */ Context f34949b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ HashMap f34116c;
+        public final /* synthetic */ HashMap f34950c;
 
-        public CallableC1520b(com.alipay.sdk.sys.a aVar, Context context, HashMap hashMap) {
+        public CallableC1562b(com.alipay.sdk.sys.a aVar, Context context, HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,9 +125,9 @@ public class b {
                     return;
                 }
             }
-            this.f34114a = aVar;
-            this.f34115b = context;
-            this.f34116c = hashMap;
+            this.f34948a = aVar;
+            this.f34949b = context;
+            this.f34950c = hashMap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,7 +135,7 @@ public class b {
         public String call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.c(this.f34114a, this.f34115b, this.f34116c) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.c(this.f34948a, this.f34949b, this.f34950c) : (String) invokeV.objValue;
         }
     }
 
@@ -152,12 +152,12 @@ public class b {
                 return;
             }
         }
-        this.f34110b = "sdk-and-lite";
+        this.f34944b = "sdk-and-lite";
         String a2 = com.alipay.sdk.app.a.a();
         if (com.alipay.sdk.app.a.b()) {
             return;
         }
-        this.f34110b += '_' + a2;
+        this.f34944b += '_' + a2;
     }
 
     public static synchronized b b() {
@@ -166,10 +166,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (b.class) {
-                if (f34108g == null) {
-                    f34108g = new b();
+                if (f34942g == null) {
+                    f34942g = new b();
                 }
-                bVar = f34108g;
+                bVar = f34942g;
             }
             return bVar;
         }
@@ -215,8 +215,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             Context b3 = com.alipay.sdk.sys.b.d().b();
-            SharedPreferences sharedPreferences = b3.getSharedPreferences(f34105d, 0);
-            String string = sharedPreferences.getString(f34106e, null);
+            SharedPreferences sharedPreferences = b3.getSharedPreferences(f34939d, 0);
+            String string = sharedPreferences.getString(f34940e, null);
             if (TextUtils.isEmpty(string)) {
                 if (TextUtils.isEmpty(com.alipay.sdk.tid.a.a(b3).d())) {
                     b2 = c();
@@ -224,7 +224,7 @@ public class b {
                     b2 = com.alipay.sdk.util.a.b(b3).b();
                 }
                 String str = b2;
-                sharedPreferences.edit().putString(f34106e, str).apply();
+                sharedPreferences.edit().putString(f34940e, str).apply();
                 return str;
             }
             return string;
@@ -238,8 +238,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             Context b2 = com.alipay.sdk.sys.b.d().b();
-            SharedPreferences sharedPreferences = b2.getSharedPreferences(f34105d, 0);
-            String string = sharedPreferences.getString(f34107f, null);
+            SharedPreferences sharedPreferences = b2.getSharedPreferences(f34939d, 0);
+            String string = sharedPreferences.getString(f34941f, null);
             if (TextUtils.isEmpty(string)) {
                 if (TextUtils.isEmpty(com.alipay.sdk.tid.a.a(b2).d())) {
                     String c3 = com.alipay.sdk.sys.b.d().c();
@@ -252,7 +252,7 @@ public class b {
                     c2 = com.alipay.sdk.util.a.b(b2).c();
                 }
                 String str = c2;
-                sharedPreferences.edit().putString(f34107f, str).apply();
+                sharedPreferences.edit().putString(f34941f, str).apply();
                 return str;
             }
             return string;
@@ -263,7 +263,7 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34111c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34945c : (String) invokeV.objValue;
     }
 
     public static synchronized void a(String str) {
@@ -273,8 +273,8 @@ public class b {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                PreferenceManager.getDefaultSharedPreferences(com.alipay.sdk.sys.b.d().b()).edit().putString(com.alipay.sdk.cons.b.f34080i, str).apply();
-                com.alipay.sdk.cons.a.f34067e = str;
+                PreferenceManager.getDefaultSharedPreferences(com.alipay.sdk.sys.b.d().b()).edit().putString(com.alipay.sdk.cons.b.f34914i, str).apply();
+                com.alipay.sdk.cons.a.f34901e = str;
             }
         }
     }
@@ -284,7 +284,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, aVar, context, hashMap)) == null) {
             try {
-                return (String) Executors.newFixedThreadPool(2).submit(new CallableC1520b(aVar, context, hashMap)).get(3000L, TimeUnit.MILLISECONDS);
+                return (String) Executors.newFixedThreadPool(2).submit(new CallableC1562b(aVar, context, hashMap)).get(3000L, TimeUnit.MILLISECONDS);
             } catch (Throwable th) {
                 com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.o, com.alipay.sdk.app.statistic.b.u, th);
                 return "";
@@ -362,14 +362,14 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, aVar2)) == null) {
             Context b2 = com.alipay.sdk.sys.b.d().b();
             com.alipay.sdk.util.a b3 = com.alipay.sdk.util.a.b(b2);
-            if (TextUtils.isEmpty(this.f34109a)) {
+            if (TextUtils.isEmpty(this.f34943a)) {
                 String e2 = l.e();
                 String d2 = l.d();
                 String c2 = l.c(b2);
                 String e3 = l.e(b2);
                 String f2 = l.f(b2);
                 String a2 = a(b2);
-                this.f34109a = "Msp/15.8.02 (" + e2 + ";" + d2 + ";" + c2 + ";" + e3 + ";" + f2 + ";" + a2;
+                this.f34943a = "Msp/15.8.02 (" + e2 + ";" + d2 + ";" + c2 + ";" + e3 + ";" + f2 + ";" + a2;
             }
             String b4 = com.alipay.sdk.util.a.d(b2).b();
             String b5 = l.b(b2);
@@ -379,7 +379,7 @@ public class b {
             String g2 = g();
             String f3 = f();
             if (aVar2 != null) {
-                this.f34111c = aVar2.c();
+                this.f34945c = aVar2.c();
             }
             String replace = Build.MANUFACTURER.replace(";", " ");
             String replace2 = Build.MODEL.replace(";", " ");
@@ -388,7 +388,7 @@ public class b {
             String d4 = d(b2);
             String c4 = c(b2);
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f34109a);
+            sb.append(this.f34943a);
             sb.append(";");
             sb.append(b4);
             sb.append(";");
@@ -400,7 +400,7 @@ public class b {
             sb.append(";");
             sb.append(b6);
             sb.append(";");
-            sb.append(this.f34111c);
+            sb.append(this.f34945c);
             sb.append(";");
             sb.append(replace);
             sb.append(";");
@@ -412,7 +412,7 @@ public class b {
             sb.append(";");
             sb.append(d());
             sb.append(";");
-            sb.append(this.f34110b);
+            sb.append(this.f34944b);
             sb.append(";");
             sb.append(g2);
             sb.append(";");
@@ -424,7 +424,7 @@ public class b {
             if (aVar2 != null) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("tid", com.alipay.sdk.tid.a.a(b2).d());
-                hashMap.put(com.alipay.sdk.cons.b.f34078g, com.alipay.sdk.sys.b.d().c());
+                hashMap.put(com.alipay.sdk.cons.b.f34912g, com.alipay.sdk.sys.b.d().c());
                 String b7 = b(aVar, b2, hashMap);
                 if (!TextUtils.isEmpty(b7)) {
                     sb.append(";;;");

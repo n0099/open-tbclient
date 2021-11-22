@@ -14,7 +14,7 @@ public class s implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f65404a;
+    public a f66317a;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -36,7 +36,7 @@ public class s implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f65404a = aVar;
+        this.f66317a = aVar;
     }
 
     private void c() {
@@ -49,7 +49,7 @@ public class s implements com.kwad.sdk.core.webview.a.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ s f65405a;
+            public final /* synthetic */ s f66318a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -66,16 +66,16 @@ public class s implements com.kwad.sdk.core.webview.a.a {
                         return;
                     }
                 }
-                this.f65405a = this;
+                this.f66318a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f65405a.f65404a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f66318a.f66317a == null) {
                     return;
                 }
-                this.f65405a.f65404a.a();
+                this.f66318a.f66317a.a();
             }
         });
     }

@@ -13,10 +13,10 @@ public class aa extends AnimatorListenerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f39566a;
+    public final /* synthetic */ View f40398a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f39567b;
+    public final /* synthetic */ WearMapView f40399b;
 
     public aa(WearMapView wearMapView, View view) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public class aa extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f39567b = wearMapView;
-        this.f39566a = view;
+        this.f40399b = wearMapView;
+        this.f40398a = view;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.f39566a.setVisibility(4);
+            this.f40398a.setVisibility(4);
             super.onAnimationEnd(animator);
         }
     }

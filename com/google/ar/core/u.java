@@ -1,20 +1,20 @@
 package com.google.ar.core;
 
 import android.os.Bundle;
-import b.i.c.a.o;
+import b.h.c.a.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class u extends com.google.a.b.a.a.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ o f63132a;
+    public final /* synthetic */ o f64032a;
 
     public u(o oVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class u extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.f63132a = oVar;
+        this.f64032a = oVar;
     }
 
     @Override // com.google.a.b.a.a.a.d
@@ -54,17 +54,17 @@ public final class u extends com.google.a.b.a.a.a.e {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             int i2 = bundle.getInt("error.code", -100);
             if (i2 == -5) {
-                this.f63132a.f32951f.a(ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE);
+                this.f64032a.f33809f.a(ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE);
             } else if (i2 == -3) {
-                this.f63132a.f32951f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                this.f64032a.f33809f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
             } else if (i2 != 0) {
                 StringBuilder sb = new StringBuilder(33);
                 sb.append("requestInfo returned: ");
                 sb.append(i2);
                 sb.toString();
-                this.f63132a.f32951f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                this.f64032a.f33809f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
             } else {
-                this.f63132a.f32951f.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
+                this.f64032a.f33809f.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
             }
         }
     }

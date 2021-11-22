@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.MessageRedDotView;
@@ -34,22 +34,22 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f45973a;
+        public View f46823a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f45974b;
+        public boolean f46824b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f45975c;
+        public int f46825c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f45976d;
+        public int f46826d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f45977e;
+        public int f46827e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbFragmentTabIndicator f45978f;
+        public TbFragmentTabIndicator f46828f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -64,8 +64,8 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                     return;
                 }
             }
-            this.f45974b = true;
-            this.f45977e = R.color.common_color_10225;
+            this.f46824b = true;
+            this.f46827e = R.color.common_color_10225;
         }
 
         public final int a(TextView textView) {
@@ -75,7 +75,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 if (textView == null) {
                     return -1;
                 }
-                String charSequence = ((TextView) this.f45973a).getText().toString();
+                String charSequence = ((TextView) this.f46823a).getText().toString();
                 if ("   ".equals(charSequence)) {
                     return 100;
                 }
@@ -87,26 +87,26 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                int i3 = this.f45976d;
+                int i3 = this.f46826d;
                 if (i3 != 0) {
-                    SkinManager.setBackgroundResource(this.f45973a, i3);
+                    SkinManager.setBackgroundResource(this.f46823a, i3);
                 }
-                View view = this.f45973a;
+                View view = this.f46823a;
                 if (view instanceof TextView) {
-                    int i4 = this.f45977e;
+                    int i4 = this.f46827e;
                     if (i4 != 0) {
                         SkinManager.setViewTextColor(view, i4, 1);
                     }
-                    int a2 = a((TextView) this.f45973a);
+                    int a2 = a((TextView) this.f46823a);
                     if (a2 > 0 && a2 < 10) {
-                        SkinManager.setBackgroundResource(this.f45973a, R.drawable.icon_news_head_prompt_one);
+                        SkinManager.setBackgroundResource(this.f46823a, R.drawable.icon_news_head_prompt_one);
                     } else if (a2 >= 10 && a2 < 100) {
-                        SkinManager.setBackgroundResource(this.f45973a, R.drawable.icon_news_head_prompt_two);
+                        SkinManager.setBackgroundResource(this.f46823a, R.drawable.icon_news_head_prompt_two);
                     } else if (a2 >= 100) {
-                        SkinManager.setBackgroundResource(this.f45973a, R.drawable.icon_news_head_prompt_more);
+                        SkinManager.setBackgroundResource(this.f46823a, R.drawable.icon_news_head_prompt_more);
                     }
                 }
-                View view2 = this.f45973a;
+                View view2 = this.f46823a;
                 if (view2 instanceof MessageRedDotView) {
                     ((MessageRedDotView) view2).onChangeSkinType();
                 }

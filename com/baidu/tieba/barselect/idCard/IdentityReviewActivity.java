@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import b.a.e.e.m.g;
-import b.a.e.e.p.l;
+import b.a.e.f.m.g;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class IdentityReviewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FINISH_ID_CARD_PAGE = "https://tieba.baidu.com/mo/q/newmanagerapplyresult?passIDCert=1";
@@ -42,7 +42,7 @@ public class IdentityReviewActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public long forumId;
     public View idCardView;
-    public b.a.e.e.l.c<b.a.e.l.d.a> mCallBack;
+    public b.a.e.f.l.c<b.a.e.m.d.a> mCallBack;
     public b.a.r0.y.b.b mCheckModel;
     public HttpMessageListener mHttpMessageListener;
     public TextView mIdCardViewTitle;
@@ -64,13 +64,13 @@ public class IdentityReviewActivity extends BaseActivity {
     public String positiveImgePath;
     public int positiveStatus;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IdentityReviewActivity f47320e;
+        public final /* synthetic */ IdentityReviewActivity f48184e;
 
         public a(IdentityReviewActivity identityReviewActivity) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class IdentityReviewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47320e = identityReviewActivity;
+            this.f48184e = identityReviewActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -95,32 +95,32 @@ public class IdentityReviewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.identity_card_positive) {
-                    IdentityReviewActivity identityReviewActivity = this.f47320e;
+                    IdentityReviewActivity identityReviewActivity = this.f48184e;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity, identityReviewActivity.positiveImgePath, "IDCardFront", 101)));
                 } else if (view.getId() == R.id.identity_card_negative) {
-                    IdentityReviewActivity identityReviewActivity2 = this.f47320e;
+                    IdentityReviewActivity identityReviewActivity2 = this.f48184e;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.negativeImagePath, "IDCardBack", 102)));
                 } else if (view.getId() == R.id.bottom_next_button) {
-                    IdentityReviewActivity identityReviewActivity3 = this.f47320e;
+                    IdentityReviewActivity identityReviewActivity3 = this.f48184e;
                     new b.a.r0.y.c.a(identityReviewActivity3.positiveImgePath, 1, identityReviewActivity3.mModel).execute(new Void[0]);
-                    this.f47320e.needRetry = true;
-                    this.f47320e.mToastDialog = new ToastDialog(this.f47320e);
-                    this.f47320e.mToastDialog.setCancelable(true);
-                    this.f47320e.mToastDialog.setCanceledOnTouchOutside(false);
-                    this.f47320e.mToastDialog.setMessage(TbadkCoreApplication.getInst().getString(R.string.check_id_card));
-                    g.i(this.f47320e.mToastDialog, this.f47320e);
+                    this.f48184e.needRetry = true;
+                    this.f48184e.mToastDialog = new ToastDialog(this.f48184e);
+                    this.f48184e.mToastDialog.setCancelable(true);
+                    this.f48184e.mToastDialog.setCanceledOnTouchOutside(false);
+                    this.f48184e.mToastDialog.setMessage(TbadkCoreApplication.getInst().getString(R.string.check_id_card));
+                    g.i(this.f48184e.mToastDialog, this.f48184e);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b extends b.a.e.e.l.c<b.a.e.l.d.a> {
+    /* loaded from: classes8.dex */
+    public class b extends b.a.e.f.l.c<b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IdentityReviewActivity f47321a;
+        public final /* synthetic */ IdentityReviewActivity f48185a;
 
         public b(IdentityReviewActivity identityReviewActivity) {
             Interceptable interceptable = $ic;
@@ -137,22 +137,22 @@ public class IdentityReviewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47321a = identityReviewActivity;
+            this.f48185a = identityReviewActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.l.c
-        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((b) aVar, str, i2);
                 if (str != null && aVar != null) {
-                    if (str.equals(this.f47321a.positiveImgePath)) {
-                        aVar.h(this.f47321a.mPositiveIdCard);
-                        this.f47321a.mPositiveIdCardLogo.setVisibility(0);
-                    } else if (str.equals(this.f47321a.negativeImagePath)) {
-                        aVar.h(this.f47321a.mNegativeIdCard);
-                        this.f47321a.mNegativeIdCardLogo.setVisibility(0);
+                    if (str.equals(this.f48185a.positiveImgePath)) {
+                        aVar.h(this.f48185a.mPositiveIdCard);
+                        this.f48185a.mPositiveIdCardLogo.setVisibility(0);
+                    } else if (str.equals(this.f48185a.negativeImagePath)) {
+                        aVar.h(this.f48185a.mNegativeIdCard);
+                        this.f48185a.mNegativeIdCardLogo.setVisibility(0);
                     }
                 }
                 if (str != null) {
@@ -163,13 +163,13 @@ public class IdentityReviewActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c extends b.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IdentityReviewActivity f47322a;
+        public final /* synthetic */ IdentityReviewActivity f48186a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(IdentityReviewActivity identityReviewActivity, int i2, int i3) {
@@ -190,7 +190,7 @@ public class IdentityReviewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47322a = identityReviewActivity;
+            this.f48186a = identityReviewActivity;
         }
 
         @Override // b.a.e.c.g.a
@@ -203,20 +203,20 @@ public class IdentityReviewActivity extends BaseActivity {
             Object extra = responsedMessage.getOrginalMessage().getExtra();
             if (extra instanceof CommitCardInfoReqMsg) {
                 if (error != 0) {
-                    if (error != -100000303 || !this.f47322a.needRetry) {
-                        if (this.f47322a.mToastDialog != null && this.f47322a.mToastDialog.isShowing()) {
-                            g.a(this.f47322a.mToastDialog, this.f47322a);
+                    if (error != -100000303 || !this.f48186a.needRetry) {
+                        if (this.f48186a.mToastDialog != null && this.f48186a.mToastDialog.isShowing()) {
+                            g.a(this.f48186a.mToastDialog, this.f48186a);
                         }
                         l.J(TbadkCoreApplication.getInst(), responsedMessage.getErrorString());
-                        this.f47322a.positiveStatus = 1;
-                        this.f47322a.negativeStatus = 1;
+                        this.f48186a.positiveStatus = 1;
+                        this.f48186a.negativeStatus = 1;
                         return;
                     }
-                    this.f47322a.positiveStatus = 1;
-                    this.f47322a.negativeStatus = 1;
-                    if (this.f47322a.mModel != null) {
-                        this.f47322a.needRetry = false;
-                        IdentityReviewActivity identityReviewActivity = this.f47322a;
+                    this.f48186a.positiveStatus = 1;
+                    this.f48186a.negativeStatus = 1;
+                    if (this.f48186a.mModel != null) {
+                        this.f48186a.needRetry = false;
+                        IdentityReviewActivity identityReviewActivity = this.f48186a;
                         new b.a.r0.y.c.a(identityReviewActivity.positiveImgePath, 1, identityReviewActivity.mModel).execute(new Void[0]);
                         return;
                     }
@@ -224,38 +224,38 @@ public class IdentityReviewActivity extends BaseActivity {
                 }
                 int i2 = ((CommitCardInfoReqMsg) extra).card_type;
                 if (i2 == 1) {
-                    this.f47322a.positiveStatus = 2;
+                    this.f48186a.positiveStatus = 2;
                 } else if (i2 == 2) {
-                    this.f47322a.negativeStatus = 2;
+                    this.f48186a.negativeStatus = 2;
                 }
-                if (this.f47322a.positiveStatus < 2 || this.f47322a.negativeStatus < 2) {
-                    if (this.f47322a.negativeStatus == 1) {
-                        if (this.f47322a.mModel == null) {
-                            if (this.f47322a.mToastDialog != null) {
-                                g.a(this.f47322a.mToastDialog, this.f47322a);
+                if (this.f48186a.positiveStatus < 2 || this.f48186a.negativeStatus < 2) {
+                    if (this.f48186a.negativeStatus == 1) {
+                        if (this.f48186a.mModel == null) {
+                            if (this.f48186a.mToastDialog != null) {
+                                g.a(this.f48186a.mToastDialog, this.f48186a);
                                 return;
                             }
                             return;
                         }
-                        IdentityReviewActivity identityReviewActivity2 = this.f47322a;
+                        IdentityReviewActivity identityReviewActivity2 = this.f48186a;
                         new b.a.r0.y.c.a(identityReviewActivity2.negativeImagePath, 2, identityReviewActivity2.mModel).execute(new Void[0]);
                     }
-                } else if (this.f47322a.mCheckModel != null) {
-                    this.f47322a.mCheckModel.a(this.f47322a.forumId);
-                } else if (this.f47322a.mToastDialog != null) {
-                    g.a(this.f47322a.mToastDialog, this.f47322a);
+                } else if (this.f48186a.mCheckModel != null) {
+                    this.f48186a.mCheckModel.a(this.f48186a.forumId);
+                } else if (this.f48186a.mToastDialog != null) {
+                    g.a(this.f48186a.mToastDialog, this.f48186a);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class d extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IdentityReviewActivity f47323a;
+        public final /* synthetic */ IdentityReviewActivity f48187a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(IdentityReviewActivity identityReviewActivity, int i2) {
@@ -275,7 +275,7 @@ public class IdentityReviewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47323a = identityReviewActivity;
+            this.f48187a = identityReviewActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -286,19 +286,19 @@ public class IdentityReviewActivity extends BaseActivity {
                 return;
             }
             int error = httpResponsedMessage.getError();
-            if (this.f47323a.mToastDialog != null && this.f47323a.mToastDialog.isShowing()) {
-                g.a(this.f47323a.mToastDialog, this.f47323a);
+            if (this.f48187a.mToastDialog != null && this.f48187a.mToastDialog.isShowing()) {
+                g.a(this.f48187a.mToastDialog, this.f48187a);
             }
-            String str = "https://tieba.baidu.com/mo/q/newmanagerapplyresult?passIDCert=1&nomenu=1&forum_id=" + this.f47323a.forumId;
+            String str = "https://tieba.baidu.com/mo/q/newmanagerapplyresult?passIDCert=1&nomenu=1&forum_id=" + this.f48187a.forumId;
             if (error == 0) {
-                UrlManager.getInstance().dealOneLink(this.f47323a.getPageContext(), new String[]{str});
-                this.f47323a.setResult(-1);
-                this.f47323a.finish();
+                UrlManager.getInstance().dealOneLink(this.f48187a.getPageContext(), new String[]{str});
+                this.f48187a.setResult(-1);
+                this.f48187a.finish();
                 return;
             }
             l.J(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
-            this.f47323a.positiveStatus = 1;
-            this.f47323a.negativeStatus = 1;
+            this.f48187a.positiveStatus = 1;
+            this.f48187a.negativeStatus = 1;
         }
     }
 
@@ -331,10 +331,10 @@ public class IdentityReviewActivity extends BaseActivity {
             super.onActivityResult(i2, i3, intent);
             if (i3 == -1) {
                 if (i2 == 101) {
-                    b.a.e.e.l.d.h().m(this.positiveImgePath, 32, this.mCallBack, getUniqueId());
+                    b.a.e.f.l.d.h().m(this.positiveImgePath, 32, this.mCallBack, getUniqueId());
                     this.positiveStatus = 1;
                 } else if (i2 == 102) {
-                    b.a.e.e.l.d.h().m(this.negativeImagePath, 32, this.mCallBack, getUniqueId());
+                    b.a.e.f.l.d.h().m(this.negativeImagePath, 32, this.mCallBack, getUniqueId());
                     this.negativeStatus = 1;
                 }
                 TextView textView = this.mNextButon;

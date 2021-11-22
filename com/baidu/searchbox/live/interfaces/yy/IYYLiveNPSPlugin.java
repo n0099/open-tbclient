@@ -9,6 +9,7 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public interface IYYLiveNPSPlugin {
     public static final String YY_ENV_CREATE_LIVE = "create_live";
+    public static final String YY_ENV_ENTRANCE_PRE_INSTALL = "entrance_pre_install";
 
     void cancelLoad();
 

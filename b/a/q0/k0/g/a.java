@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import b.a.e.l.e.b;
-import b.a.r0.l3.u;
+import b.a.e.m.e.b;
+import b.a.r0.m3.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
@@ -24,16 +24,16 @@ public class a extends b implements u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContextSupport f12708f;
+    public TbPageContextSupport f13458f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12709g;
+    public TextView f13459g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f12710h;
+    public ProgressBar f13460h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f12711i;
+    public View.OnClickListener f13461i;
     public View j;
     public View k;
     public int l;
@@ -55,24 +55,24 @@ public class a extends b implements u {
                 return;
             }
         }
-        this.f12708f = null;
-        this.f12709g = null;
-        this.f12710h = null;
-        this.f12711i = null;
+        this.f13458f = null;
+        this.f13459g = null;
+        this.f13460h = null;
+        this.f13461i = null;
         this.j = null;
-        this.f12708f = tbPageContextSupport;
+        this.f13458f = tbPageContextSupport;
         this.l = tbPageContextSupport.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
     }
 
-    @Override // b.a.e.l.e.b
+    @Override // b.a.e.m.e.b
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.m == null) {
-                this.j = LayoutInflater.from(this.f12708f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+                this.j = LayoutInflater.from(this.f13458f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
             } else {
-                this.j = LayoutInflater.from(this.f12708f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.m, false);
+                this.j = LayoutInflater.from(this.f13458f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.m, false);
             }
             View view = this.j;
             int i2 = this.l;
@@ -82,23 +82,23 @@ public class a extends b implements u {
                 layoutParams.height = this.n;
                 this.j.setLayoutParams(layoutParams);
             }
-            this.f12709g = (TextView) this.j.findViewById(R.id.pb_more_text);
+            this.f13459g = (TextView) this.j.findViewById(R.id.pb_more_text);
             View findViewById = this.j.findViewById(R.id.pb_more_view);
             this.k = findViewById;
             findViewById.setVisibility(8);
-            this.f12710h = (ProgressBar) this.j.findViewById(R.id.progress);
-            onChangeSkinType(this.f12708f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.f13460h = (ProgressBar) this.j.findViewById(R.id.progress);
+            onChangeSkinType(this.f13458f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.k.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             return this.j;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.b
+    @Override // b.a.e.m.e.b
     public void c() {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (onClickListener = this.f12711i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (onClickListener = this.f13461i) == null) {
             return;
         }
         onClickListener.onClick(this.j);
@@ -125,8 +125,8 @@ public class a extends b implements u {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f12710h.setVisibility(0);
-            this.f12709g.setText(i2);
+            this.f13460h.setVisibility(0);
+            this.f13459g.setText(i2);
             this.k.setVisibility(0);
         }
     }
@@ -134,8 +134,8 @@ public class a extends b implements u {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f12710h.setVisibility(8);
-            this.f12709g.setText(i2);
+            this.f13460h.setVisibility(8);
+            this.f13459g.setText(i2);
         }
     }
 
@@ -146,12 +146,12 @@ public class a extends b implements u {
         }
     }
 
-    @Override // b.a.r0.l3.u
+    @Override // b.a.r0.m3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, tbPageContext, i2)) == null) {
-            this.f12708f.getPageContext().getLayoutMode().j(this.k);
+            this.f13458f.getPageContext().getLayoutMode().j(this.k);
             return true;
         }
         return invokeLI.booleanValue;

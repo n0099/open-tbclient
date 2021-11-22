@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.j;
-import b.a.e.e.p.l;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.f.p.l;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d extends b.a.e.l.e.a<b.a.r0.v1.h.e.d, SearchSuggestLiveViewHolder> {
+public class d extends b.a.e.m.e.a<b.a.r0.v1.h.e.d, SearchSuggestLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context m;
@@ -40,10 +40,10 @@ public class d extends b.a.e.l.e.a<b.a.r0.v1.h.e.d, SearchSuggestLiveViewHolder>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f24369e;
+        public final /* synthetic */ Context f25832e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f24370f;
+        public final /* synthetic */ d f25833f;
 
         public a(d dVar, Context context) {
             Interceptable interceptable = $ic;
@@ -60,22 +60,22 @@ public class d extends b.a.e.l.e.a<b.a.r0.v1.h.e.d, SearchSuggestLiveViewHolder>
                     return;
                 }
             }
-            this.f24370f = dVar;
-            this.f24369e = context;
+            this.f25833f = dVar;
+            this.f25832e = context;
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof b.a.r0.v1.h.e.d)) {
                 b.a.r0.v1.h.e.d dVar = (b.a.r0.v1.h.e.d) nVar;
-                this.f24370f.i0(dVar);
-                TbPageContext tbPageContext = (TbPageContext) j.a(this.f24369e);
+                this.f25833f.i0(dVar);
+                TbPageContext tbPageContext = (TbPageContext) j.a(this.f25832e);
                 String e2 = dVar.e();
                 String g2 = dVar.g();
                 String i3 = dVar.i();
                 YYLiveUtil.jumpToYYLiveRoom(tbPageContext, e2, g2, i3, "" + dVar.d(), "search_sug_live");
-                l.x(this.f24369e, view);
+                l.x(this.f25832e, view);
             }
         }
     }
@@ -86,7 +86,7 @@ public class d extends b.a.e.l.e.a<b.a.r0.v1.h.e.d, SearchSuggestLiveViewHolder>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TBLottieAnimationView f24371e;
+        public final /* synthetic */ TBLottieAnimationView f25834e;
 
         public b(d dVar, TBLottieAnimationView tBLottieAnimationView) {
             Interceptable interceptable = $ic;
@@ -103,14 +103,14 @@ public class d extends b.a.e.l.e.a<b.a.r0.v1.h.e.d, SearchSuggestLiveViewHolder>
                     return;
                 }
             }
-            this.f24371e = tBLottieAnimationView;
+            this.f25834e = tBLottieAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f24371e.playAnimation();
+                this.f25834e.playAnimation();
             }
         }
     }
@@ -135,12 +135,12 @@ public class d extends b.a.e.l.e.a<b.a.r0.v1.h.e.d, SearchSuggestLiveViewHolder>
             }
         }
         this.m = context;
-        this.f2422h = bdUniqueId;
+        this.f2424h = bdUniqueId;
         c0(new a(this, context));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.v1.h.e.d dVar, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
         l0(i2, view, viewGroup, dVar, searchSuggestLiveViewHolder);
         return view;
@@ -181,7 +181,7 @@ public class d extends b.a.e.l.e.a<b.a.r0.v1.h.e.d, SearchSuggestLiveViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: k0 */
     public SearchSuggestLiveViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;

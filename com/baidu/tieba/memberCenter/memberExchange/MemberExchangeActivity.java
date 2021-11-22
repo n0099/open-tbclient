@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberExchange;
 
 import android.os.Bundle;
 import android.view.View;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -38,7 +38,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberExchangeActivity f51539a;
+        public final /* synthetic */ MemberExchangeActivity f52451a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MemberExchangeActivity memberExchangeActivity, int i2) {
@@ -58,7 +58,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                     return;
                 }
             }
-            this.f51539a = memberExchangeActivity;
+            this.f52451a = memberExchangeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,22 +69,22 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                 GetTCodeResMessage getTCodeResMessage = (GetTCodeResMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (getTCodeResMessage.getTCodeInfo() != null) {
-                        if (getTCodeResMessage.getTCodeInfo().f27497a.equals("0")) {
-                            this.f51539a.showToast(R.string.exchange_success);
+                        if (getTCodeResMessage.getTCodeInfo().f29000a.equals("0")) {
+                            this.f52451a.showToast(R.string.exchange_success);
                             return;
                         } else {
-                            this.f51539a.showToast(R.string.exchange_error);
+                            this.f52451a.showToast(R.string.exchange_error);
                             return;
                         }
                     }
-                    this.f51539a.showToast(R.string.neterror);
+                    this.f52451a.showToast(R.string.neterror);
                     return;
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString) || StringUtil.NULL_STRING.equals(errorString)) {
-                    errorString = this.f51539a.getResources().getString(R.string.neterror);
+                    errorString = this.f52451a.getResources().getString(R.string.neterror);
                 }
-                this.f51539a.showToast(errorString);
+                this.f52451a.showToast(errorString);
             }
         }
     }

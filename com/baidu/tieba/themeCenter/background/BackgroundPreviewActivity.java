@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import b.a.q0.o0.d;
-import b.a.r0.r3.e.j;
+import b.a.r0.s3.e.j;
 import com.baidu.adp.widget.ListView.BdExpandListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -33,7 +33,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundPreviewActivity f54545a;
+        public final /* synthetic */ BackgroundPreviewActivity f55465a;
 
         public a(BackgroundPreviewActivity backgroundPreviewActivity) {
             Interceptable interceptable = $ic;
@@ -50,21 +50,21 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
                     return;
                 }
             }
-            this.f54545a = backgroundPreviewActivity;
+            this.f55465a = backgroundPreviewActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundPreviewModel.b
         public void a(int i2, String str, DressItemData dressItemData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, dressItemData) == null) {
-                BackgroundPreviewActivity backgroundPreviewActivity = this.f54545a;
+                BackgroundPreviewActivity backgroundPreviewActivity = this.f55465a;
                 backgroundPreviewActivity.hideLoadingView(backgroundPreviewActivity.mView.f());
                 if (i2 == 0) {
-                    this.f54545a.mView.l(dressItemData);
+                    this.f55465a.mView.l(dressItemData);
                     return;
                 }
-                this.f54545a.showToast(str);
-                this.f54545a.mView.k();
+                this.f55465a.showToast(str);
+                this.f55465a.mView.k();
             }
         }
     }
@@ -75,7 +75,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundPreviewActivity f54546a;
+        public final /* synthetic */ BackgroundPreviewActivity f55466a;
 
         public b(BackgroundPreviewActivity backgroundPreviewActivity) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
                     return;
                 }
             }
-            this.f54546a = backgroundPreviewActivity;
+            this.f55466a = backgroundPreviewActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdExpandListView.b
@@ -153,8 +153,8 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f12779a = true;
-                pageStayDurationItem.f12787i = String.valueOf(this.mPropId);
+                pageStayDurationItem.f13529a = true;
+                pageStayDurationItem.f13537i = String.valueOf(this.mPropId);
             }
             return pageStayDurationItem;
         }

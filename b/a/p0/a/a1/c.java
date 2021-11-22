@@ -1,18 +1,29 @@
 package b.a.p0.a.a1;
 
+import android.os.Bundle;
+import b.a.p0.a.a1.f;
+import b.a.p0.a.f1.g.b;
 import b.a.p0.a.k;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.nio.channels.Pipe;
 /* loaded from: classes.dex */
-public class c {
+public class c extends f.AbstractC0112f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3894a;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final String f3988h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final b.a.p0.q.f.f f3989i;
 
     static {
         InterceptResult invokeClinit;
@@ -27,24 +38,70 @@ public class c {
                 return;
             }
         }
-        boolean z = k.f6397a;
-        f3894a = b("swan_js_error_verify", 0);
+        j = k.f6863a;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(String str, b.a.p0.q.f.f fVar) {
+        super("check_sign");
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f3894a : invokeV.booleanValue;
-    }
-
-    public static boolean b(String str, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
-            b.a.p0.a.c1.a.Z().getSwitch(str, i2);
-            b.a.p0.a.e0.d.h("PkgExtractorAbSwitcher", str + " value from AB : " + i2);
-            return i2 == 1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, fVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeLI.booleanValue;
+        this.f3988h = str;
+        this.f3989i = fVar;
+    }
+
+    @Override // b.a.p0.a.a1.f.AbstractC0112f
+    public boolean f(Pipe.SourceChannel sourceChannel, Bundle bundle) {
+        InterceptResult invokeLL;
+        b.a.p0.a.u2.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
+            b.a.p0.a.f1.g.a d2 = b.a.p0.a.f1.g.a.d(bundle.getString("launch_id"));
+            b.C0171b e2 = d2.e();
+            e2.b("SignChecker");
+            e2.d(1);
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                try {
+                    aVar = b.a.p0.a.h0.m.u.a.a(sourceChannel, this.f3988h, this.f3989i);
+                } catch (IOException e3) {
+                    if (j) {
+                        e3.printStackTrace();
+                    }
+                    b.a.p0.a.u2.a aVar2 = new b.a.p0.a.u2.a();
+                    aVar2.k(11L);
+                    aVar2.i(2300L);
+                    aVar2.f("inputStream IOException:" + e3.toString());
+                    b.a.p0.a.u2.e.a().f(aVar2);
+                    d2.g("SignChecker", aVar2.toString());
+                    b.a.p0.a.z2.e1.b.a(sourceChannel);
+                    aVar = aVar2;
+                }
+                d2.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
+                boolean z = aVar == null;
+                if (aVar != null) {
+                    d2.g("SignChecker", aVar.toString());
+                    b().putLong("result_error_code", aVar.a());
+                }
+                d2.g("SignChecker", "done: " + z);
+                return z;
+            } finally {
+                b.a.p0.a.z2.e1.b.a(sourceChannel);
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

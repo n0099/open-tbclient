@@ -1,7 +1,7 @@
 package b.a.q0.d0.i;
 
 import android.graphics.Bitmap;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -17,7 +17,7 @@ public class e extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12065a;
+    public int f12943a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e extends b {
                 return;
             }
         }
-        this.f12065a = 0;
+        this.f12943a = 0;
     }
 
     public static ImageOperation e(int i2) {
@@ -63,11 +63,11 @@ public class e extends b {
                 return null;
             }
             b.a.q0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            int i2 = this.f12065a;
+            int i2 = this.f12943a;
             if (i2 == 0 || i2 == 1) {
-                return BitmapHelper.rotateBitmap(bitmap, this.f12065a);
+                return BitmapHelper.rotateBitmap(bitmap, this.f12943a);
             }
-            return (i2 == 2 || i2 == 3) ? BitmapHelper.reversalBitmap(bitmap, this.f12065a) : bitmap;
+            return (i2 == 2 || i2 == 3) ? BitmapHelper.reversalBitmap(bitmap, this.f12943a) : bitmap;
         }
         return (Bitmap) invokeLZ.objValue;
     }
@@ -89,6 +89,6 @@ public class e extends b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
             return;
         }
-        this.f12065a = Integer.parseInt(str);
+        this.f12943a = Integer.parseInt(str);
     }
 }

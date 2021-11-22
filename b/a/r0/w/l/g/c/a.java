@@ -30,27 +30,27 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f25205e;
+    public TbPageContext<?> f26722e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b.a.r0.w.l.g.c.b.a> f25206f;
+    public List<b.a.r0.w.l.g.c.b.a> f26723f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f25207g;
+    public d f26724g;
 
     /* renamed from: b.a.r0.w.l.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1231a implements View.OnClickListener {
+    public class View$OnClickListenerC1299a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.w.l.g.c.b.a f25208e;
+        public final /* synthetic */ b.a.r0.w.l.g.c.b.a f26725e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f25209f;
+        public final /* synthetic */ a f26726f;
 
-        public View$OnClickListenerC1231a(a aVar, b.a.r0.w.l.g.c.b.a aVar2) {
+        public View$OnClickListenerC1299a(a aVar, b.a.r0.w.l.g.c.b.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,17 +65,17 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f25209f = aVar;
-            this.f25208e = aVar2;
+            this.f26726f = aVar;
+            this.f26725e = aVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25209f.f25207g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26726f.f26724g == null) {
                 return;
             }
-            this.f25209f.f25207g.a(this.f25208e.b(0));
+            this.f26726f.f26724g.a(this.f26725e.b(0));
         }
     }
 
@@ -85,10 +85,10 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.w.l.g.c.b.a f25210e;
+        public final /* synthetic */ b.a.r0.w.l.g.c.b.a f26727e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f25211f;
+        public final /* synthetic */ a f26728f;
 
         public b(a aVar, b.a.r0.w.l.g.c.b.a aVar2) {
             Interceptable interceptable = $ic;
@@ -105,17 +105,17 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f25211f = aVar;
-            this.f25210e = aVar2;
+            this.f26728f = aVar;
+            this.f26727e = aVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25211f.f25207g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26728f.f26724g == null) {
                 return;
             }
-            this.f25211f.f25207g.a(this.f25210e.b(1));
+            this.f26728f.f26724g.a(this.f26727e.b(1));
         }
     }
 
@@ -125,10 +125,10 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.w.l.g.c.b.a f25212e;
+        public final /* synthetic */ b.a.r0.w.l.g.c.b.a f26729e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f25213f;
+        public final /* synthetic */ a f26730f;
 
         public c(a aVar, b.a.r0.w.l.g.c.b.a aVar2) {
             Interceptable interceptable = $ic;
@@ -145,17 +145,17 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f25213f = aVar;
-            this.f25212e = aVar2;
+            this.f26730f = aVar;
+            this.f26729e = aVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25213f.f25207g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26730f.f26724g == null) {
                 return;
             }
-            this.f25213f.f25207g.a(this.f25212e.b(2));
+            this.f26730f.f26724g.a(this.f26729e.b(2));
         }
     }
 
@@ -170,31 +170,31 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f25214a;
+        public TextView f26731a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f25215b;
+        public TbImageView f26732b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f25216c;
+        public TextView f26733c;
 
         /* renamed from: d  reason: collision with root package name */
-        public RelativeLayout f25217d;
+        public RelativeLayout f26734d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f25218e;
+        public TextView f26735e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f25219f;
+        public TextView f26736f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TbImageView f25220g;
+        public TbImageView f26737g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f25221h;
+        public TextView f26738h;
 
         /* renamed from: i  reason: collision with root package name */
-        public RelativeLayout f25222i;
+        public RelativeLayout f26739i;
         public TextView j;
         public TextView k;
         public TbImageView l;
@@ -220,7 +220,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ e(a aVar, View$OnClickListenerC1231a view$OnClickListenerC1231a) {
+        public /* synthetic */ e(a aVar, View$OnClickListenerC1299a view$OnClickListenerC1299a) {
             this(aVar);
         }
     }
@@ -240,9 +240,9 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f25205e = null;
-        this.f25205e = tbPageContext;
-        this.f25207g = dVar;
+        this.f26722e = null;
+        this.f26722e = tbPageContext;
+        this.f26724g = dVar;
     }
 
     public final List<b.a.r0.w.l.g.c.b.a> b(List<b.a.r0.w.l.g.c.b.c> list) {
@@ -313,19 +313,19 @@ public class a extends BaseAdapter {
             return;
         }
         SkinManager.setViewTextColor(eVar.q, R.color.CAM_X0105, TbadkApplication.getInst().getSkinType());
-        SkinManager.setViewTextColor(eVar.f25214a, R.color.CAM_X0107, TbadkApplication.getInst().getSkinType());
-        SkinManager.setViewTextColor(eVar.f25219f, R.color.CAM_X0107, TbadkApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(eVar.f26731a, R.color.CAM_X0107, TbadkApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(eVar.f26736f, R.color.CAM_X0107, TbadkApplication.getInst().getSkinType());
         SkinManager.setViewTextColor(eVar.k, R.color.CAM_X0107, TbadkApplication.getInst().getSkinType());
-        SkinManager.setViewTextColor(eVar.f25218e, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(eVar.f26735e, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         SkinManager.setViewTextColor(eVar.j, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         SkinManager.setViewTextColor(eVar.o, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         if (TbadkApplication.getInst().getSkinType() == 1) {
-            eVar.f25215b.setDefaultResource(R.drawable.pic_live_honor_1);
-            eVar.f25220g.setDefaultResource(R.drawable.pic_live_honor_1);
+            eVar.f26732b.setDefaultResource(R.drawable.pic_live_honor_1);
+            eVar.f26737g.setDefaultResource(R.drawable.pic_live_honor_1);
             eVar.l.setDefaultResource(R.drawable.pic_live_honor_1);
         } else {
-            eVar.f25215b.setDefaultResource(R.drawable.pic_live_honor);
-            eVar.f25220g.setDefaultResource(R.drawable.pic_live_honor);
+            eVar.f26732b.setDefaultResource(R.drawable.pic_live_honor);
+            eVar.f26737g.setDefaultResource(R.drawable.pic_live_honor);
             eVar.l.setDefaultResource(R.drawable.pic_live_honor);
         }
         SkinManager.setBackgroundColor(eVar.p, R.color.CAM_X0204);
@@ -336,11 +336,11 @@ public class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null) {
             return;
         }
-        List<b.a.r0.w.l.g.c.b.a> list2 = this.f25206f;
+        List<b.a.r0.w.l.g.c.b.a> list2 = this.f26723f;
         if (list2 != null && list2.size() > 0) {
-            this.f25206f.clear();
+            this.f26723f.clear();
         }
-        this.f25206f = b(list);
+        this.f26723f = b(list);
         notifyDataSetChanged();
     }
 
@@ -364,9 +364,9 @@ public class a extends BaseAdapter {
             if (z) {
                 textView.setVisibility(0);
                 Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize = this.f25205e.getResources().getDimensionPixelSize(R.dimen.ds24);
+                int dimensionPixelSize = this.f26722e.getResources().getDimensionPixelSize(R.dimen.ds24);
                 normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                textView.setCompoundDrawablePadding(this.f25205e.getResources().getDimensionPixelSize(R.dimen.ds4));
+                textView.setCompoundDrawablePadding(this.f26722e.getResources().getDimensionPixelSize(R.dimen.ds4));
                 textView.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
                 textView.setText(AlaStringHelper.formatLowercasekDou((float) j));
                 return;
@@ -406,7 +406,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<b.a.r0.w.l.g.c.b.a> list = this.f25206f;
+            List<b.a.r0.w.l.g.c.b.a> list = this.f26723f;
             if (list != null) {
                 return list.size();
             }
@@ -420,11 +420,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            List<b.a.r0.w.l.g.c.b.a> list = this.f25206f;
+            List<b.a.r0.w.l.g.c.b.a> list = this.f26723f;
             if (list == null || i2 >= list.size()) {
                 return null;
             }
-            return this.f25206f.get(i2);
+            return this.f26723f.get(i2);
         }
         return invokeI.objValue;
     }
@@ -445,19 +445,19 @@ public class a extends BaseAdapter {
         e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i2, view, viewGroup)) == null) {
-            b.a.r0.w.l.g.c.b.a aVar = this.f25206f.get(i2);
+            b.a.r0.w.l.g.c.b.a aVar = this.f26723f.get(i2);
             if (view == null) {
-                view = LayoutInflater.from(this.f25205e.getPageActivity()).inflate(R.layout.ala_achievement_mark_list_item_line_layout, viewGroup, false);
+                view = LayoutInflater.from(this.f26722e.getPageActivity()).inflate(R.layout.ala_achievement_mark_list_item_line_layout, viewGroup, false);
                 eVar = new e(this, null);
-                eVar.f25214a = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv0);
-                eVar.f25215b = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv0);
-                eVar.f25216c = (TextView) view.findViewById(R.id.ala_achievement_mark_item_status_tv0);
-                eVar.f25217d = (RelativeLayout) view.findViewById(R.id.ala_achievement_mark_item_wrapper0);
-                eVar.f25218e = (TextView) view.findViewById(R.id.ala_achievement_mark_price0);
-                eVar.f25219f = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv1);
-                eVar.f25220g = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv1);
-                eVar.f25221h = (TextView) view.findViewById(R.id.ala_achievement_mark_item_status_tv1);
-                eVar.f25222i = (RelativeLayout) view.findViewById(R.id.ala_achievement_mark_item_wrapper1);
+                eVar.f26731a = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv0);
+                eVar.f26732b = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv0);
+                eVar.f26733c = (TextView) view.findViewById(R.id.ala_achievement_mark_item_status_tv0);
+                eVar.f26734d = (RelativeLayout) view.findViewById(R.id.ala_achievement_mark_item_wrapper0);
+                eVar.f26735e = (TextView) view.findViewById(R.id.ala_achievement_mark_price0);
+                eVar.f26736f = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv1);
+                eVar.f26737g = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv1);
+                eVar.f26738h = (TextView) view.findViewById(R.id.ala_achievement_mark_item_status_tv1);
+                eVar.f26739i = (RelativeLayout) view.findViewById(R.id.ala_achievement_mark_item_wrapper1);
                 eVar.j = (TextView) view.findViewById(R.id.ala_achievement_mark_price1);
                 eVar.k = (TextView) view.findViewById(R.id.ala_achievement_mark_item_name_tv2);
                 eVar.l = (TbImageView) view.findViewById(R.id.ala_achievement_mark_item_iv2);
@@ -473,35 +473,35 @@ public class a extends BaseAdapter {
             if (aVar != null) {
                 if (aVar.b(0) != null) {
                     b.a.r0.w.l.g.c.b.b b2 = aVar.b(0);
-                    eVar.f25217d.setVisibility(0);
-                    eVar.f25214a.setText(b2.e() == null ? "" : b2.e());
+                    eVar.f26734d.setVisibility(0);
+                    eVar.f26731a.setText(b2.e() == null ? "" : b2.e());
                     if (b2.f() != null) {
-                        eVar.f25215b.setDefaultBgResource(R.color.transparent);
-                        eVar.f25215b.startLoad(b2.f(), 10, false);
+                        eVar.f26732b.setDefaultBgResource(R.color.transparent);
+                        eVar.f26732b.startLoad(b2.f(), 10, false);
                     }
-                    g(eVar.f25216c, b2.j());
-                    e(eVar.f25215b, b2.j());
-                    f(eVar.f25218e, b2.m(), b2.n);
-                    eVar.f25217d.setOnClickListener(new View$OnClickListenerC1231a(this, aVar));
+                    g(eVar.f26733c, b2.j());
+                    e(eVar.f26732b, b2.j());
+                    f(eVar.f26735e, b2.m(), b2.n);
+                    eVar.f26734d.setOnClickListener(new View$OnClickListenerC1299a(this, aVar));
                 } else {
-                    eVar.f25217d.setVisibility(4);
-                    eVar.f25217d.setOnClickListener(null);
+                    eVar.f26734d.setVisibility(4);
+                    eVar.f26734d.setOnClickListener(null);
                 }
                 if (aVar.b(1) != null) {
                     b.a.r0.w.l.g.c.b.b b3 = aVar.b(1);
-                    eVar.f25222i.setVisibility(0);
-                    eVar.f25219f.setText(b3.e() == null ? "" : b3.e());
+                    eVar.f26739i.setVisibility(0);
+                    eVar.f26736f.setText(b3.e() == null ? "" : b3.e());
                     if (b3.f() != null) {
-                        eVar.f25220g.setDefaultBgResource(R.color.transparent);
-                        eVar.f25220g.startLoad(b3.f(), 10, false);
+                        eVar.f26737g.setDefaultBgResource(R.color.transparent);
+                        eVar.f26737g.startLoad(b3.f(), 10, false);
                     }
-                    g(eVar.f25221h, b3.j());
-                    e(eVar.f25220g, b3.j());
+                    g(eVar.f26738h, b3.j());
+                    e(eVar.f26737g, b3.j());
                     f(eVar.j, b3.m(), b3.n);
-                    eVar.f25222i.setOnClickListener(new b(this, aVar));
+                    eVar.f26739i.setOnClickListener(new b(this, aVar));
                 } else {
-                    eVar.f25222i.setVisibility(4);
-                    eVar.f25222i.setOnClickListener(null);
+                    eVar.f26739i.setVisibility(4);
+                    eVar.f26739i.setOnClickListener(null);
                 }
                 if (aVar.b(2) != null) {
                     b.a.r0.w.l.g.c.b.b b4 = aVar.b(2);

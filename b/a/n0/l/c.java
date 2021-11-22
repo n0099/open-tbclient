@@ -27,28 +27,28 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3707a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static String f3797a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3708b = null;
+    public static String f3798b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3709c = null;
+    public static String f3799c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f3710d = 60000;
+    public static long f3800d = 60000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f3711e;
+    public static long f3801e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f3712f;
+    public static long f3802f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f3713g;
+    public static long f3803g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f3714h;
+    public static boolean f3804h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,9 +64,9 @@ public class c {
                 return;
             }
         }
-        long j = f3710d * 60;
-        f3711e = j;
-        f3712f = j * 24;
+        long j = f3800d * 60;
+        f3801e = j;
+        f3802f = j * 24;
     }
 
     public static String a() {
@@ -91,21 +91,21 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                if (!TextUtils.isEmpty(f3709c)) {
-                    return f3709c;
+                if (!TextUtils.isEmpty(f3799c)) {
+                    return f3799c;
                 }
                 String p = b.a.n0.b.a.h(context).p();
-                f3709c = p;
+                f3799c = p;
                 if (!TextUtils.isEmpty(p)) {
-                    return f3709c;
+                    return f3799c;
                 }
                 String str = new String(f());
-                f3709c = str;
+                f3799c = str;
                 if (TextUtils.isEmpty(str)) {
                     return "";
                 }
-                b.a.n0.b.a.h(context).s(f3709c);
-                return f3709c;
+                b.a.n0.b.a.h(context).s(f3799c);
+                return f3799c;
             } catch (Throwable th) {
                 d(th);
                 return "";
@@ -132,7 +132,7 @@ public class c {
                 jSONObject2.put("5", str);
                 jSONObject2.put("6", System.currentTimeMillis());
                 jSONObject2.put("7", "");
-                jSONObject2.put("8", b.a.n0.a.f3491b);
+                jSONObject2.put("8", b.a.n0.a.f3581b);
                 jSONObject2.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
                 jSONObject2.put("10", "1.0.7");
                 jSONObject2.put("11", "");
@@ -177,7 +177,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             char[] cArr = new char[16];
             try {
-                char[] charArray = f3707a.toCharArray();
+                char[] charArray = f3797a.toCharArray();
                 for (int i2 = 0; i2 < 16; i2++) {
                     int nextInt = new Random().nextInt(62);
                     if (nextInt >= 0 && nextInt < charArray.length) {
@@ -288,23 +288,23 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             try {
-                if (!TextUtils.isEmpty(f3708b)) {
-                    return f3708b;
+                if (!TextUtils.isEmpty(f3798b)) {
+                    return f3798b;
                 }
                 String m0 = b.a.n0.b.a.h(context).m0();
-                f3708b = m0;
+                f3798b = m0;
                 if (!TextUtils.isEmpty(m0)) {
-                    return f3708b;
+                    return f3798b;
                 }
                 Signature signature = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures[0];
                 if (signature != null) {
                     String d2 = g.d(signature.toByteArray());
-                    f3708b = d2;
+                    f3798b = d2;
                     if (TextUtils.isEmpty(d2)) {
                         return "";
                     }
-                    b.a.n0.b.a.h(context).W(f3708b);
-                    return f3708b;
+                    b.a.n0.b.a.h(context).W(f3798b);
+                    return f3798b;
                 }
                 return "";
             } catch (Throwable th) {
@@ -368,12 +368,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - f3713g < 1000) {
-                return f3714h;
+            if (currentTimeMillis - f3803g < 1000) {
+                return f3804h;
             }
             boolean z = s(context) && n(context);
-            f3714h = z;
-            f3713g = currentTimeMillis;
+            f3804h = z;
+            f3803g = currentTimeMillis;
             return z;
         }
         return invokeL.booleanValue;

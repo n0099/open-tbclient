@@ -26,13 +26,13 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdListenerAdapter f67889g;
+    public AdListenerAdapter f68810g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NativeADUnifiedListener f67890h;
+    public NativeADUnifiedListener f68811h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<Integer> f67891i;
+    public List<Integer> f68812i;
     public List<String> j;
     public volatile int k;
     public volatile int l;
@@ -45,7 +45,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NativeADUnifiedListener f67892a;
+        public NativeADUnifiedListener f68813a;
 
         public AdListenerAdapter(NativeADUnifiedListener nativeADUnifiedListener) {
             Interceptable interceptable = $ic;
@@ -62,13 +62,13 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                     return;
                 }
             }
-            this.f67892a = nativeADUnifiedListener;
+            this.f68813a = nativeADUnifiedListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) || this.f67892a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) || this.f68813a == null) {
                 return;
             }
             Object[] paras = aDEvent.getParas();
@@ -80,7 +80,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                 if (paras.length < 1 || !(paras[0] instanceof Integer)) {
                     AbstractAD.a(NativeUnifiedAD.class, aDEvent);
                 } else {
-                    this.f67892a.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                    this.f68813a.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
                 }
             } else if (paras.length == 1 && (paras[0] instanceof List)) {
                 List<NativeUnifiedADData> list = (List) paras[0];
@@ -90,7 +90,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                         arrayList.add(new NativeUnifiedADDataAdapter(nativeUnifiedADData));
                     }
                 }
-                this.f67892a.onADLoaded(arrayList);
+                this.f68813a.onADLoaded(arrayList);
             } else {
                 AbstractAD.a(NativeUnifiedAD.class, aDEvent);
             }
@@ -112,9 +112,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                 return;
             }
         }
-        this.f67891i = new ArrayList();
-        this.f67890h = nativeADUnifiedListener;
-        this.f67889g = new AdListenerAdapter(nativeADUnifiedListener);
+        this.f68812i = new ArrayList();
+        this.f68811h = nativeADUnifiedListener;
+        this.f68810g = new AdListenerAdapter(nativeADUnifiedListener);
         a(context, str);
     }
 
@@ -133,9 +133,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                 return;
             }
         }
-        this.f67891i = new ArrayList();
-        this.f67890h = nativeADUnifiedListener;
-        this.f67889g = new AdListenerAdapter(nativeADUnifiedListener);
+        this.f68812i = new ArrayList();
+        this.f68811h = nativeADUnifiedListener;
+        this.f68810g = new AdListenerAdapter(nativeADUnifiedListener);
         a(context, str, str2);
     }
 
@@ -167,12 +167,12 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         if ((interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && a()) {
             if (!b()) {
                 if (z) {
-                    this.f67891i.add(Integer.valueOf(i2));
+                    this.f68812i.add(Integer.valueOf(i2));
                     return;
                 }
                 return;
             }
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t != 0) {
                 LoadAdParams loadAdParams = this.n;
                 NUADI nuadi = (NUADI) t;
@@ -189,7 +189,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeAdManagerDelegate(context, str, str2, str3, this.f67889g) : invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeAdManagerDelegate(context, str, str2, str3, this.f68810g) : invokeLLLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -205,7 +205,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             if (list != null) {
                 setCategories(list);
             }
-            for (Integer num : this.f67891i) {
+            for (Integer num : this.f68812i) {
                 a(num.intValue(), false);
             }
         }
@@ -215,7 +215,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public void b(int i2) {
         NativeADUnifiedListener nativeADUnifiedListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (nativeADUnifiedListener = this.f67890h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (nativeADUnifiedListener = this.f68811h) == null) {
             return;
         }
         nativeADUnifiedListener.onNoAD(AdErrorConvertor.formatErrorCode(i2));
@@ -225,7 +225,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t != 0) {
                 return ((NUADI) t).getAdNetWorkName();
             }
@@ -254,7 +254,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.j = list;
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t == 0 || list == null) {
                 return;
             }
@@ -269,7 +269,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             if (this.l > 0 && this.k > this.l) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t != 0) {
                 ((NUADI) t).setMaxVideoDuration(this.l);
             }
@@ -283,7 +283,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             if (this.l > 0 && this.k > this.l) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t != 0) {
                 ((NUADI) t).setMinVideoDuration(this.k);
             }
@@ -298,7 +298,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                 return;
             }
             this.m = str;
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t != 0) {
                 ((NUADI) t).setVastClassName(str);
             }

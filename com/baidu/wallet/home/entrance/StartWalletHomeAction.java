@@ -58,16 +58,16 @@ public class StartWalletHomeAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f58295a;
+                public final /* synthetic */ Context f59217a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Intent f58296b;
+                public final /* synthetic */ Intent f59218b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f58297c;
+                public final /* synthetic */ boolean f59219c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ StartWalletHomeAction f58298d;
+                public final /* synthetic */ StartWalletHomeAction f59220d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -84,10 +84,10 @@ public class StartWalletHomeAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f58298d = this;
-                    this.f58295a = context;
-                    this.f58296b = intent;
-                    this.f58297c = z;
+                    this.f59220d = this;
+                    this.f59217a = context;
+                    this.f59218b = intent;
+                    this.f59219c = z;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
@@ -95,13 +95,13 @@ public class StartWalletHomeAction implements RouterAction {
                     Context context2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        if (i2 == 603 && (context2 = this.f58295a) != null) {
+                        if (i2 == 603 && (context2 = this.f59217a) != null) {
                             GlobalUtils.toast(context2, ResUtils.getString(context2, "wallet_home_login_invalid_dialog_tips"));
                         }
-                        this.f58295a.startActivity(this.f58296b);
-                        Context context3 = this.f58295a;
+                        this.f59217a.startActivity(this.f59218b);
+                        Context context3 = this.f59217a;
                         if (context3 instanceof Activity) {
-                            if (this.f58297c) {
+                            if (this.f59219c) {
                                 BaiduWalletUtils.startActivityAnim(context3);
                             } else {
                                 BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context3);
@@ -114,10 +114,10 @@ public class StartWalletHomeAction implements RouterAction {
                 public void onSuccess(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                        this.f58295a.startActivity(this.f58296b);
-                        Context context2 = this.f58295a;
+                        this.f59217a.startActivity(this.f59218b);
+                        Context context2 = this.f59217a;
                         if (context2 instanceof Activity) {
-                            if (this.f58297c) {
+                            if (this.f59219c) {
                                 BaiduWalletUtils.startActivityAnim(context2);
                             } else {
                                 BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context2);

@@ -2,6 +2,9 @@ package com.facebook.imagepipeline.nativecode;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,27 +37,40 @@ public class NativeJpegTranscoder implements ImageTranscoder {
     public boolean mResizingEnabled;
     public boolean mUseDownsamplingRatio;
 
-    public NativeJpegTranscoder(boolean z, int i2, boolean z2, boolean z3) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-298362827, "Lcom/facebook/imagepipeline/nativecode/NativeJpegTranscoder;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-298362827, "Lcom/facebook/imagepipeline/nativecode/NativeJpegTranscoder;");
+                return;
+            }
+        }
+        NativeJpegTranscoderSoLoader.ensure();
+    }
+
+    public NativeJpegTranscoder(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.mResizingEnabled = z;
         this.mMaxBitmapSize = i2;
         this.mUseDownsamplingRatio = z2;
-        if (z3) {
-            NativeJpegTranscoderSoLoader.ensure();
-        }
     }
 
     @DoNotStrip
@@ -66,7 +82,7 @@ public class NativeJpegTranscoder implements ImageTranscoder {
     @VisibleForTesting
     public static void transcodeJpeg(InputStream inputStream, OutputStream outputStream, int i2, int i3, int i4) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{inputStream, outputStream, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, outputStream, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             NativeJpegTranscoderSoLoader.ensure();
             boolean z = false;
             Preconditions.checkArgument(i3 >= 1);
@@ -82,7 +98,7 @@ public class NativeJpegTranscoder implements ImageTranscoder {
     @VisibleForTesting
     public static void transcodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i2, int i3, int i4) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, outputStream, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{inputStream, outputStream, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             NativeJpegTranscoderSoLoader.ensure();
             boolean z = false;
             Preconditions.checkArgument(i3 >= 1);

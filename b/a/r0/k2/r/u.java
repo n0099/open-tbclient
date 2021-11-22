@@ -1,14 +1,5 @@
 package b.a.r0.k2.r;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.data.ThreadPublishHttpResMeesage;
-import com.baidu.tieba.pb.data.ThreadPublishReqMessage;
-import com.baidu.tieba.pb.data.ThreadPublishSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,40 +10,39 @@ public class u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f18819a;
+    public float f20351a;
 
-    public u(TbPageContext tbPageContext) {
+    /* renamed from: b  reason: collision with root package name */
+    public float f20352b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f20353c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f20354d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f20355e;
+
+    public u(float f2, float f3, int i2, float f4, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2), Float.valueOf(f4), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f18819a = tbPageContext;
-        SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
-        socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
-        MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, b.a.r0.l3.f0.a.a(TbConfig.URL_THREAD_PUBLISH, 309644));
-        tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public void a(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
-            threadPublishReqMessage.tid = j;
-            threadPublishReqMessage.fid = j2;
-            threadPublishReqMessage.setTag(this.f18819a.getUniqueId());
-            MessageManager.getInstance().sendMessage(threadPublishReqMessage);
-        }
+        this.f20351a = f2;
+        this.f20352b = f3;
+        this.f20353c = i2;
+        this.f20354d = f4;
+        this.f20355e = z;
     }
 }

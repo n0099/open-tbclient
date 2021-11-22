@@ -7,11 +7,11 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.appcompat.R;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.j2.c;
+import b.a.p0.a.d2.e;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.q0;
-import b.a.p0.t.d;
+import b.a.p0.a.n2.c;
+import b.a.p0.a.z2.q0;
+import b.a.p0.w.d;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -39,7 +39,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5158a;
+    public static final boolean f5339a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +55,7 @@ public class a {
                 return;
             }
         }
-        f5158a = k.f6397a;
+        f5339a = k.f6863a;
     }
 
     public static void a(File file, File file2) throws IOException {
@@ -208,7 +208,7 @@ public class a {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.a.p0.a.c1.a.n().K() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.a.p0.a.c1.a.o().N() : invokeV.booleanValue;
     }
 
     public static void e(@NonNull Context context) {
@@ -273,15 +273,15 @@ public class a {
             }
             String jSONObject2 = jSONObject.toString();
             if (TextUtils.isEmpty(jSONObject2)) {
-                boolean z2 = f5158a;
+                boolean z2 = f5339a;
                 return;
             }
-            if (f5158a) {
+            if (f5339a) {
                 String str3 = "reportFatalInfo: " + jSONObject2;
             }
             c.b bVar = new c.b(10006);
             bVar.i(jSONObject2);
-            bVar.h(e.U());
+            bVar.h(e.f0());
             bVar.m();
         }
     }
@@ -296,20 +296,20 @@ public class a {
                 jSONObject.put("processName", ProcessUtils.getCurProcessName());
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
                 jSONObject.put("errMessage", str3);
-                jSONObject.put("isMainThread", q0.N());
+                jSONObject.put("isMainThread", q0.O());
                 String jSONObject2 = jSONObject.toString();
-                if (f5158a && TextUtils.isEmpty(jSONObject2)) {
+                if (f5339a && TextUtils.isEmpty(jSONObject2)) {
                     return;
                 }
-                if (f5158a) {
+                if (f5339a) {
                     String str4 = "reportInsertHistoryCrash: " + jSONObject2;
                 }
                 c.b bVar = new c.b(10008);
                 bVar.i(jSONObject2);
-                bVar.h(e.U());
+                bVar.h(e.f0());
                 bVar.m();
             } catch (Exception e2) {
-                if (f5158a) {
+                if (f5339a) {
                     e2.printStackTrace();
                 }
             }

@@ -24,7 +24,7 @@ public class j0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j0 f3237e;
+        public final /* synthetic */ j0 f3328e;
 
         public a(j0 j0Var) {
             Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class j0 extends h {
                     return;
                 }
             }
-            this.f3237e = j0Var;
+            this.f3328e = j0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3237e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3328e.c() == null) {
                 return;
             }
-            this.f3237e.c().a(view, this.f3237e.m);
+            this.f3328e.c().a(view, this.f3328e.m);
         }
     }
 
@@ -72,7 +72,7 @@ public class j0 extends h {
                 return;
             }
         }
-        q(b.a.e.e.p.l.g(context, R.dimen.M_H_X003));
+        q(b.a.e.f.p.l.g(context, R.dimen.M_H_X003));
         this.l = new ThreadSmartAppLayout(context);
         this.l.setAfterClickListener(new a(this));
     }

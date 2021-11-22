@@ -37,7 +37,7 @@ public class g extends t0 {
     public b.a.r0.q2.r.a p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b.a.r0.q2.r.b(this.f3216f, this.m, this.C) : (b.a.r0.q2.r.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b.a.r0.q2.r.b(this.f3307f, this.m, this.C) : (b.a.r0.q2.r.a) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

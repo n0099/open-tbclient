@@ -25,19 +25,19 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f59251a;
+    public String f60173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LangbridgeSettings f59252b;
+    public LangbridgeSettings f60174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f59253c;
+    public b f60175c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f59254d;
+    public b f60176d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Set<WeakReference<a>> f59255e;
+    public Set<WeakReference<a>> f60177e;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.i$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -61,7 +61,7 @@ public class i {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f59256a;
+        public static i f60178a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -77,7 +77,7 @@ public class i {
                     return;
                 }
             }
-            f59256a = new i(null);
+            f60178a = new i(null);
         }
     }
 
@@ -88,16 +88,16 @@ public class i {
     public static i a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.f59256a : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.f60178a : (i) invokeV.objValue;
     }
 
     private LangbridgeSettings d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
-            b bVar = this.f59253c;
-            LangbridgeSettings a2 = bVar != null ? bVar.a(context, this.f59252b) : this.f59252b;
-            b bVar2 = this.f59254d;
+            b bVar = this.f60175c;
+            LangbridgeSettings a2 = bVar != null ? bVar.a(context, this.f60174b) : this.f60174b;
+            b bVar2 = this.f60176d;
             return bVar2 != null ? bVar2.a(context, a2) : a2;
         }
         return (LangbridgeSettings) invokeL.objValue;
@@ -107,25 +107,25 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            if (this.f59252b == null) {
-                this.f59252b = a(this.f59251a);
+            if (this.f60174b == null) {
+                this.f60174b = a(this.f60173a);
             }
-            if (this.f59252b == null) {
-                this.f59252b = new LangbridgeSettings();
+            if (this.f60174b == null) {
+                this.f60174b = new LangbridgeSettings();
             }
             LogUtil.d("LangbridgeSettings", "");
-            return this.f59252b;
+            return this.f60174b;
         }
         return (LangbridgeSettings) invokeL.objValue;
     }
 
     public void c(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, context) == null) || this.f59252b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, context) == null) || this.f60174b == null) {
             return;
         }
         LogUtil.d("LangbridgeSettings", "");
-        for (WeakReference<a> weakReference : this.f59255e) {
+        for (WeakReference<a> weakReference : this.f60177e) {
             if (weakReference != null && weakReference.get() != null) {
                 weakReference.get().onSettingUpdated(d(context));
             }
@@ -145,20 +145,20 @@ public class i {
                 return;
             }
         }
-        this.f59255e = new CopyOnWriteArraySet();
-        this.f59253c = e.a();
-        this.f59254d = f.a();
+        this.f60177e = new CopyOnWriteArraySet();
+        this.f60175c = e.a();
+        this.f60176d = f.a();
     }
 
     public LangbridgeSettings a(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f59252b == null) {
-                this.f59252b = a(this.f59251a);
+            if (this.f60174b == null) {
+                this.f60174b = a(this.f60173a);
             }
-            if (this.f59252b == null) {
-                this.f59252b = new LangbridgeSettings();
+            if (this.f60174b == null) {
+                this.f60174b = new LangbridgeSettings();
             }
             LogUtil.d("LangbridgeSettings", "");
             return d(context);
@@ -169,21 +169,21 @@ public class i {
     public void a(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
-            if (this.f59252b == null) {
-                this.f59252b = new LangbridgeSettings();
+            if (this.f60174b == null) {
+                this.f60174b = new LangbridgeSettings();
             }
             if (TextUtils.isEmpty(str)) {
-                this.f59252b = new LangbridgeSettings();
-                if (!TextUtils.isEmpty(this.f59251a)) {
-                    this.f59251a = JsonUtils.toJson(this.f59252b);
+                this.f60174b = new LangbridgeSettings();
+                if (!TextUtils.isEmpty(this.f60173a)) {
+                    this.f60173a = JsonUtils.toJson(this.f60174b);
                 }
-                LogUtil.d(BeanConstants.WEB_VIEW_CACHE_TAG, "updateSettings CLEAR mSettings = " + this.f59252b.toString());
+                LogUtil.d(BeanConstants.WEB_VIEW_CACHE_TAG, "updateSettings CLEAR mSettings = " + this.f60174b.toString());
                 return;
             }
             LangbridgeSettings a2 = a(str);
             StringBuilder sb = new StringBuilder();
             sb.append("updateSettings oldSettings = ");
-            LangbridgeSettings langbridgeSettings = this.f59252b;
+            LangbridgeSettings langbridgeSettings = this.f60174b;
             String str2 = langbridgeSettings;
             if (langbridgeSettings != null) {
                 str2 = langbridgeSettings.toString();
@@ -192,24 +192,24 @@ public class i {
             sb.append("\nnewSettings = ");
             sb.append((Object) (a2 != null ? a2.toString() : a2));
             LogUtil.d(BeanConstants.WEB_VIEW_CACHE_TAG, sb.toString());
-            if (a2 != null && !a2.MW_USE_OLD && a2.MW_ON && !TextUtils.isEmpty(this.f59251a)) {
-                LangbridgeSettings langbridgeSettings2 = this.f59252b;
+            if (a2 != null && !a2.MW_USE_OLD && a2.MW_ON && !TextUtils.isEmpty(this.f60173a)) {
+                LangbridgeSettings langbridgeSettings2 = this.f60174b;
                 if (langbridgeSettings2.MW_USE_OLD || !langbridgeSettings2.MW_ON) {
-                    LogUtil.d(BeanConstants.WEB_VIEW_CACHE_TAG, "updateSettings CANCEL mSettings = " + this.f59252b.toString());
+                    LogUtil.d(BeanConstants.WEB_VIEW_CACHE_TAG, "updateSettings CANCEL mSettings = " + this.f60174b.toString());
                     return;
                 }
             }
             if (a2 != null) {
-                this.f59252b = a2;
+                this.f60174b = a2;
                 LogUtil.d("LangbridgeSettings", "");
-                this.f59251a = str;
-                for (WeakReference<a> weakReference : this.f59255e) {
+                this.f60173a = str;
+                for (WeakReference<a> weakReference : this.f60177e) {
                     if (weakReference != null && weakReference.get() != null) {
                         weakReference.get().onSettingUpdated(d(context));
                     }
                 }
             }
-            LogUtil.d(BeanConstants.WEB_VIEW_CACHE_TAG, "updateSettings SUCCESS mSettings = " + this.f59252b.toString());
+            LogUtil.d(BeanConstants.WEB_VIEW_CACHE_TAG, "updateSettings SUCCESS mSettings = " + this.f60174b.toString());
         }
     }
 
@@ -218,7 +218,7 @@ public class i {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f59255e.add(new WeakReference<>(aVar));
+        this.f60177e.add(new WeakReference<>(aVar));
     }
 
     private LangbridgeSettings a(String str) {

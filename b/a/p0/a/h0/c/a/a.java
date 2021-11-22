@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class a implements b.InterfaceC0192b {
+public class a implements b.InterfaceC0199b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5159a;
+    public static final boolean f5340a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class a implements b.InterfaceC0192b {
                 return;
             }
         }
-        f5159a = k.f6397a;
+        f5340a = k.f6863a;
     }
 
     public a() {
@@ -48,27 +48,27 @@ public class a implements b.InterfaceC0192b {
         }
     }
 
-    @Override // b.a.p0.a.h0.c.a.b.InterfaceC0192b
+    @Override // b.a.p0.a.h0.c.a.b.InterfaceC0199b
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = f5159a;
+            boolean z = f5340a;
         }
     }
 
-    @Override // b.a.p0.a.h0.c.a.b.InterfaceC0192b
+    @Override // b.a.p0.a.h0.c.a.b.InterfaceC0199b
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && f5159a) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && f5340a) {
             String str = "pre download fail error code - " + i2;
         }
     }
 
-    @Override // b.a.p0.a.h0.c.a.b.InterfaceC0192b
+    @Override // b.a.p0.a.h0.c.a.b.InterfaceC0199b
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean z = f5159a;
+            boolean z = f5340a;
         }
     }
 }

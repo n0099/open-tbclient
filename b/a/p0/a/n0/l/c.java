@@ -5,11 +5,11 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.j2.k;
-import b.a.p0.a.j2.p.e;
 import b.a.p0.a.n0.l.b;
-import b.a.p0.a.v2.k0;
-import b.a.p0.t.d;
+import b.a.p0.a.n2.n;
+import b.a.p0.a.n2.s.e;
+import b.a.p0.a.z2.k0;
+import b.a.p0.w.d;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.AdParamInfo;
@@ -33,7 +33,7 @@ public final class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.C0310b f6882e;
+    public final b.C0322b f7211e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -41,7 +41,7 @@ public final class c implements b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f6883e;
+        public final /* synthetic */ c f7212e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -58,24 +58,24 @@ public final class c implements b {
                     return;
                 }
             }
-            this.f6883e = cVar;
+            this.f7212e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6883e.f();
+                this.f7212e.f();
             }
         }
     }
 
-    public c(b.C0310b c0310b) {
+    public c(b.C0322b c0322b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0310b};
+            Object[] objArr = {c0322b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -85,7 +85,7 @@ public final class c implements b {
                 return;
             }
         }
-        this.f6882e = c0310b == null ? new b.C0310b() : c0310b;
+        this.f7211e = c0322b == null ? new b.C0322b() : c0322b;
     }
 
     public static boolean d(b.a aVar) {
@@ -100,20 +100,20 @@ public final class c implements b {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? m(null) : (c) invokeV.objValue;
     }
 
-    public static c m(b.C0310b c0310b) {
+    public static c m(b.C0322b c0322b) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c0310b)) == null) ? new c(c0310b) : (c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c0322b)) == null) ? new c(c0322b) : (c) invokeL.objValue;
     }
 
     public c b(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (e() && !TextUtils.isEmpty(str) && !d(this.f6882e.f6878a.get(str))) {
+            if (e() && !TextUtils.isEmpty(str) && !d(this.f7211e.f7207a.get(str))) {
                 b.a.p0.a.n0.l.a query = b.a.p0.a.n0.l.a.query(str);
                 if (d(query)) {
-                    this.f6882e.f6878a.put(query.a(), query);
+                    this.f7211e.f7207a.put(query.a(), query);
                 }
             }
             return this;
@@ -125,9 +125,9 @@ public final class c implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b.C0310b c0310b = this.f6882e;
-            int i2 = c0310b.f6881d;
-            return i2 == 0 ? c0310b.f6880c : i2;
+            b.C0322b c0322b = this.f7211e;
+            int i2 = c0322b.f7210d;
+            return i2 == 0 ? c0322b.f7209c : i2;
         }
         return invokeV.intValue;
     }
@@ -137,8 +137,8 @@ public final class c implements b {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.f6882e) {
-                z = this.f6882e.f6879b;
+            synchronized (this.f7211e) {
+                z = this.f7211e.f7208b;
             }
             return z;
         }
@@ -150,16 +150,16 @@ public final class c implements b {
         b.a value;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this.f6882e) {
+            synchronized (this.f7211e) {
                 if (e()) {
-                    this.f6882e.f6879b = false;
+                    this.f7211e.f7208b = false;
                     e eVar = new e();
-                    eVar.f6383a = "swan";
-                    eVar.f6385c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
+                    eVar.f7379a = "swan";
+                    eVar.f7381c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
                     int c2 = c();
-                    eVar.f6384b = String.valueOf(c2);
+                    eVar.f7380b = String.valueOf(c2);
                     JSONArray jSONArray = new JSONArray();
-                    for (Map.Entry<String, b.a> entry : this.f6882e.f6878a.entrySet()) {
+                    for (Map.Entry<String, b.a> entry : this.f7211e.f7207a.entrySet()) {
                         if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                             jSONArray.put(value.b());
                         }
@@ -198,7 +198,7 @@ public final class c implements b {
                             }
                         }
                     }
-                    k.u("1377", eVar);
+                    n.x("1377", eVar);
                 }
             }
         }
@@ -211,9 +211,9 @@ public final class c implements b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             int a2 = k0.a();
-            int i2 = b.a.p0.a.k2.b.i();
-            int b2 = b.a.p0.a.k2.b.b();
-            int k = b.a.p0.a.k2.b.k();
+            int i2 = b.a.p0.a.o2.b.i();
+            int b2 = b.a.p0.a.o2.b.b();
+            int k = b.a.p0.a.o2.b.k();
             try {
                 jSONObject.put("device", a2);
                 jSONObject.put("swan_pkg", i2);
@@ -237,11 +237,11 @@ public final class c implements b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONArray jSONArray = new JSONArray();
             try {
-                Cursor l = b.a.p0.a.j0.c.b.l();
-                int count = l.getCount();
-                while (l.moveToNext()) {
-                    String string = l.getString(l.getColumnIndex("app_id"));
-                    long j = l.getLong(l.getColumnIndex("visit_time"));
+                Cursor m = b.a.p0.a.j0.c.b.m();
+                int count = m.getCount();
+                while (m.moveToNext()) {
+                    String string = m.getString(m.getColumnIndex("app_id"));
+                    long j = m.getLong(m.getColumnIndex("visit_time"));
                     if (!TextUtils.isEmpty(string)) {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put(IntentConfig.PKG_ID, string);
@@ -252,8 +252,8 @@ public final class c implements b {
                 if (b.e0) {
                     String str = "queryHisList: cursor=" + count + " items=" + jSONArray.length();
                 }
-                if (l != null) {
-                    l.close();
+                if (m != null) {
+                    m.close();
                 }
             } catch (JSONException e2) {
                 if (b.e0) {
@@ -268,12 +268,12 @@ public final class c implements b {
 
     public c i(int i2) {
         InterceptResult invokeI;
-        b.C0310b c0310b;
+        b.C0322b c0322b;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (e() && i2 != (i3 = (c0310b = this.f6882e).f6881d) && (i3 == 0 || i3 == c0310b.f6880c)) {
-                this.f6882e.f6881d = i2;
+            if (e() && i2 != (i3 = (c0322b = this.f7211e).f7210d) && (i3 == 0 || i3 == c0322b.f7209c)) {
+                this.f7211e.f7210d = i2;
             }
             return this;
         }
@@ -284,7 +284,7 @@ public final class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (b.e0) {
-                String str = "performReport: " + this.f6882e;
+                String str = "performReport: " + this.f7211e;
             }
             if (e()) {
                 ExecutorUtilsExt.postOnElastic(new a(this), "PurgerStatistic", 3);
@@ -292,10 +292,10 @@ public final class c implements b {
         }
     }
 
-    public b.C0310b k() {
+    public b.C0322b k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6882e : (b.C0310b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7211e : (b.C0322b) invokeV.objValue;
     }
 
     public c n(int i2) {
@@ -303,7 +303,7 @@ public final class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             if (e()) {
-                this.f6882e.f6880c = i2;
+                this.f7211e.f7209c = i2;
             }
             return this;
         }

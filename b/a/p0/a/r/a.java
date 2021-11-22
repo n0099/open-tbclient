@@ -46,24 +46,24 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7430a;
+    public static final boolean f7944a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0350a extends ResponseCallback {
+    public static class C0376a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.v2.e1.b f7431a;
+        public final /* synthetic */ b.a.p0.a.z2.g1.c f7945a;
 
-        public C0350a(b.a.p0.a.v2.e1.b bVar) {
+        public C0376a(b.a.p0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -73,14 +73,14 @@ public class a {
                     return;
                 }
             }
-            this.f7431a = bVar;
+            this.f7945a = cVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f7431a.onCallback(null);
+                this.f7945a.onCallback(null);
             }
         }
 
@@ -96,7 +96,7 @@ public class a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                a.i(response, this.f7431a);
+                a.i(response, this.f7945a);
                 return response;
             }
             return invokeLI.objValue;
@@ -109,14 +109,14 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.v2.e1.b f7432a;
+        public final /* synthetic */ b.a.p0.a.z2.g1.c f7946a;
 
-        public b(b.a.p0.a.v2.e1.b bVar) {
+        public b(b.a.p0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -126,14 +126,14 @@ public class a {
                     return;
                 }
             }
-            this.f7432a = bVar;
+            this.f7946a = cVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f7432a.onCallback(null);
+                this.f7946a.onCallback(null);
             }
         }
 
@@ -149,7 +149,7 @@ public class a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                a.g(response, this.f7432a);
+                a.g(response, this.f7946a);
                 return response;
             }
             return invokeLI.objValue;
@@ -169,11 +169,11 @@ public class a {
                 return;
             }
         }
-        f7430a = k.f6397a;
+        f7944a = k.f6863a;
     }
 
     @Nullable
-    public static Request c(b.a.p0.a.a2.e eVar, JSONObject jSONObject, UnitedSchemeEntity unitedSchemeEntity) {
+    public static Request c(b.a.p0.a.d2.e eVar, JSONObject jSONObject, UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, eVar, jSONObject, unitedSchemeEntity)) == null) {
@@ -196,7 +196,7 @@ public class a {
                     Iterator<String> keys2 = optJSONObject2.keys();
                     while (keys2.hasNext()) {
                         String next2 = keys2.next();
-                        String M = b.a.p0.a.k2.b.M(optJSONObject2.optString(next2), b.a.p0.a.a2.e.U());
+                        String M = b.a.p0.a.o2.b.M(optJSONObject2.optString(next2), b.a.p0.a.d2.e.f0());
                         if (!TextUtils.isEmpty(M)) {
                             File file = new File(M);
                             if (!file.exists()) {
@@ -211,29 +211,29 @@ public class a {
                         }
                     }
                 }
-                String k = eVar.k();
-                long a2 = b.a.p0.a.c1.a.k().a(AppRuntime.getAppContext());
-                String r = r(optJSONObject, k, a2, b.a.p0.a.c1.a.a0().f(AppRuntime.getAppContext()));
+                String N = eVar.N();
+                long a2 = b.a.p0.a.c1.a.l().a(AppRuntime.getAppContext());
+                String r = r(optJSONObject, N, a2, b.a.p0.a.c1.a.h0().f(AppRuntime.getAppContext()));
                 if (r == null) {
                     q(unitedSchemeEntity, 1001, "sign error");
                     return null;
                 }
-                HttpUrl parse = HttpUrl.parse(b.a.p0.a.c1.a.l().processUrl(b.a.p0.a.c1.a.n().L() + "/" + optString + optString2));
+                HttpUrl parse = HttpUrl.parse(b.a.p0.a.c1.a.m().processUrl(b.a.p0.a.c1.a.o().O() + "/" + optString + optString2));
                 if (parse == null) {
                     q(unitedSchemeEntity, 1001, "request url error");
                     return null;
                 }
                 HttpUrl.Builder newBuilder = parse.newBuilder();
                 newBuilder.addQueryParameter("ai_sign", r);
-                newBuilder.addQueryParameter(Constants.API_KEY, k);
+                newBuilder.addQueryParameter(Constants.API_KEY, N);
                 newBuilder.addQueryParameter("timestamp", String.valueOf(a2));
-                newBuilder.addQueryParameter("host_app", b.a.p0.n.c.b().c());
-                newBuilder.addQueryParameter("host_app_ver", b.a.p0.n.c.b().i());
-                newBuilder.addQueryParameter("sdk_ver", b.a.p0.n.c.b().b());
-                newBuilder.addQueryParameter("host_os", b.a.p0.t.a.f());
-                newBuilder.addQueryParameter("host_os_ver", b.a.p0.t.a.g());
+                newBuilder.addQueryParameter("host_app", b.a.p0.q.c.b().c());
+                newBuilder.addQueryParameter("host_app_ver", b.a.p0.q.c.b().h());
+                newBuilder.addQueryParameter("sdk_ver", b.a.p0.q.c.b().b());
+                newBuilder.addQueryParameter("host_os", b.a.p0.w.a.f());
+                newBuilder.addQueryParameter("host_os_ver", b.a.p0.w.a.g());
                 Request.Builder post = new Request.Builder().url(newBuilder.build()).post(type.build());
-                String d2 = b.a.p0.a.c1.a.a0().d(AppRuntime.getAppContext());
+                String d2 = b.a.p0.a.c1.a.h0().d(AppRuntime.getAppContext());
                 String str = "BDUSS=" + d2;
                 if (!TextUtils.isEmpty(d2)) {
                     post.addHeader("Cookie", str);
@@ -246,43 +246,43 @@ public class a {
         return (Request) invokeLLL.objValue;
     }
 
-    public static void d(String str, b.a.p0.a.v2.e1.b<String> bVar) {
+    public static void d(String str, b.a.p0.a.z2.g1.c<String> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, cVar) == null) {
             if (!TextUtils.isEmpty(str) && str.startsWith("cloud")) {
                 URI create = URI.create(str);
                 String host = create.getHost();
                 if (TextUtils.isEmpty(create.toString()) && TextUtils.isEmpty(host)) {
-                    bVar.onCallback(null);
+                    cVar.onCallback(null);
                     return;
                 }
-                Request c2 = c(b.a.p0.a.a2.e.i(), h(str), null);
-                if (b.a.p0.a.a2.e.i() == null) {
-                    bVar.onCallback(null);
+                Request c2 = c(b.a.p0.a.d2.e.L(), h(str), null);
+                if (b.a.p0.a.d2.e.L() == null) {
+                    cVar.onCallback(null);
                     return;
                 } else {
-                    p(c2.url().toString(), c2.body(), new C0350a(bVar));
+                    p(c2.url().toString(), c2.body(), new C0376a(cVar));
                     return;
                 }
             }
-            bVar.onCallback(null);
+            cVar.onCallback(null);
         }
     }
 
-    public static void e(JSONArray jSONArray, b.a.p0.a.v2.e1.b<String> bVar) {
+    public static void e(JSONArray jSONArray, b.a.p0.a.z2.g1.c<String> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, jSONArray, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, jSONArray, cVar) == null) {
             if (jSONArray != null && jSONArray.length() > 0) {
-                Request c2 = c(b.a.p0.a.a2.e.i(), f(jSONArray.toString()), null);
-                if (b.a.p0.a.a2.e.i() == null) {
-                    bVar.onCallback(null);
+                Request c2 = c(b.a.p0.a.d2.e.L(), f(jSONArray.toString()), null);
+                if (b.a.p0.a.d2.e.L() == null) {
+                    cVar.onCallback(null);
                     return;
                 } else {
-                    p(c2.url().toString(), c2.body(), new b(bVar));
+                    p(c2.url().toString(), c2.body(), new b(cVar));
                     return;
                 }
             }
-            bVar.onCallback(null);
+            cVar.onCallback(null);
         }
     }
 
@@ -292,31 +292,31 @@ public class a {
         return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? l(str, null) : (JSONObject) invokeL.objValue;
     }
 
-    public static void g(Response response, b.a.p0.a.v2.e1.b<String> bVar) {
+    public static void g(Response response, b.a.p0.a.z2.g1.c<String> cVar) {
         String header;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, null, response, bVar) == null) && (header = response.header("Content-Type", "")) != null && header.contains("application/json")) {
+        if ((interceptable == null || interceptable.invokeLL(65543, null, response, cVar) == null) && (header = response.header("Content-Type", "")) != null && header.contains("application/json")) {
             JSONObject jSONObject = new JSONObject();
             if (response.body() != null) {
                 try {
                     jSONObject = new JSONObject(response.body().string());
                 } catch (IOException e2) {
-                    if (f7430a) {
+                    if (f7944a) {
                         e2.printStackTrace();
                     }
-                    bVar.onCallback(null);
+                    cVar.onCallback(null);
                 } catch (JSONException e3) {
-                    if (f7430a) {
+                    if (f7944a) {
                         e3.printStackTrace();
                     }
-                    bVar.onCallback(null);
+                    cVar.onCallback(null);
                 }
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("fileList");
             if (optJSONArray == null) {
-                bVar.onCallback(null);
+                cVar.onCallback(null);
             } else {
-                bVar.onCallback(optJSONArray.toString());
+                cVar.onCallback(optJSONArray.toString());
             }
         }
     }
@@ -327,9 +327,9 @@ public class a {
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? l(null, str) : (JSONObject) invokeL.objValue;
     }
 
-    public static void i(Response response, b.a.p0.a.v2.e1.b<String> bVar) {
+    public static void i(Response response, b.a.p0.a.z2.g1.c<String> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, response, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65545, null, response, cVar) == null) {
             try {
                 String header = response.header("Content-Type", "");
                 if (header == null || !header.contains("application/json")) {
@@ -341,12 +341,12 @@ public class a {
                 }
                 String optString = jSONObject.optString("DownloadUrl");
                 if (!TextUtils.isEmpty(optString)) {
-                    bVar.onCallback(optString);
+                    cVar.onCallback(optString);
                 } else {
-                    bVar.onCallback(null);
+                    cVar.onCallback(null);
                 }
             } catch (Exception unused) {
-                bVar.onCallback(null);
+                cVar.onCallback(null);
             }
         }
     }
@@ -361,7 +361,7 @@ public class a {
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException e2) {
-                if (f7430a) {
+                if (f7944a) {
                     e2.printStackTrace();
                 }
                 return 1001;
@@ -394,7 +394,7 @@ public class a {
                 jSONObject.put("service", "cloud");
                 jSONObject.put("stringMap", jSONObject2);
             } catch (JSONException e2) {
-                if (f7430a) {
+                if (f7944a) {
                     e2.printStackTrace();
                 }
             }
@@ -410,12 +410,12 @@ public class a {
             try {
                 return new JSONObject(response.body() != null ? response.body().string() : null);
             } catch (IOException e2) {
-                if (f7430a) {
+                if (f7944a) {
                     e2.printStackTrace();
                 }
                 return null;
             } catch (JSONException e3) {
-                if (f7430a) {
+                if (f7944a) {
                     e3.printStackTrace();
                 }
                 return null;
@@ -439,7 +439,7 @@ public class a {
                     jSONObject.put("tempFilePath", str2);
                 }
             } catch (JSONException e2) {
-                if (f7430a) {
+                if (f7944a) {
                     e2.printStackTrace();
                 }
             }
@@ -457,11 +457,11 @@ public class a {
     public static void p(String str, RequestBody requestBody, ResponseCallback responseCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65552, null, str, requestBody, responseCallback) == null) {
-            b.a.p0.m.d.a aVar = new b.a.p0.m.d.a(str, requestBody, responseCallback);
-            aVar.f11038f = true;
-            aVar.f11039g = true;
-            aVar.f11040h = true;
-            b.a.p0.m.e.a.g().e(aVar);
+            b.a.p0.p.d.a aVar = new b.a.p0.p.d.a(str, requestBody, responseCallback);
+            aVar.f11725f = true;
+            aVar.f11726g = true;
+            aVar.f11727h = true;
+            b.a.p0.p.e.a.g().e(aVar);
         }
     }
 
@@ -496,9 +496,9 @@ public class a {
                 if (sb2.endsWith("&")) {
                     sb2 = sb2.substring(0, sb2.length() - 1);
                 }
-                String d2 = b.a.p0.t.f.d(sb2.getBytes(), false);
-                byte[] copyOf = Arrays.copyOf(Base64.decode(b.a.p0.t.f.d(str.getBytes(), false), 0), 24);
-                byte[] copyOf2 = Arrays.copyOf(Base64.decode(b.a.p0.t.f.d(String.format("%s%d", str2, Long.valueOf(j)).getBytes(), false).getBytes(), 0), 16);
+                String d2 = b.a.p0.w.f.d(sb2.getBytes(), false);
+                byte[] copyOf = Arrays.copyOf(Base64.decode(b.a.p0.w.f.d(str.getBytes(), false), 0), 24);
+                byte[] copyOf2 = Arrays.copyOf(Base64.decode(b.a.p0.w.f.d(String.format("%s%d", str2, Long.valueOf(j)).getBytes(), false).getBytes(), 0), 16);
                 Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
                 cipher.init(1, new SecretKeySpec(copyOf, "AES"), new IvParameterSpec(copyOf2));
                 String str4 = new String(Base64.encode(cipher.doFinal(d2.getBytes()), 0), StandardCharsets.UTF_8);

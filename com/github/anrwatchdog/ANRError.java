@@ -24,7 +24,7 @@ public class ANRError extends Error {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread f62937e;
+        public final /* synthetic */ Thread f63837e;
 
         public a(Thread thread) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class ANRError extends Error {
                     return;
                 }
             }
-            this.f62937e = thread;
+            this.f63837e = thread;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class ANRError extends Error {
                 if (thread == thread2) {
                     return 0;
                 }
-                Thread thread3 = this.f62937e;
+                Thread thread3 = this.f63837e;
                 if (thread == thread3) {
                     return 1;
                 }

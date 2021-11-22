@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public final AtomicLong requested;
     public final BasicIntQueueSubscription<T> wip;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public final class UnicastQueueSubscription extends BasicIntQueueSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4896760517184205454L;

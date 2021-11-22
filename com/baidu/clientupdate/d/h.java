@@ -3,7 +3,6 @@ package com.baidu.clientupdate.d;
 import com.baidu.clientupdate.appinfo.AppInfo;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +32,7 @@ public final class h {
             } else {
                 RuleInfo ruleInfo2 = new RuleInfo();
                 ruleInfo2.mUpgradeid = jSONObject.optString("upgradeid");
-                ruleInfo2.mLevel = jSONObject.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
+                ruleInfo2.mLevel = jSONObject.optString("level");
                 ruleInfo2.mSilentDown = jSONObject.optString("silent_down");
                 ruleInfo2.mCategory = jSONObject.optString("category");
                 ruleInfo2.mRemind = jSONObject.optString("remind");

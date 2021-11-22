@@ -1,7 +1,6 @@
 package com.fun.ad.sdk;
 
 import android.app.Activity;
-import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,14 +21,14 @@ public interface FunNativeAd2 {
         public static final NativeType EXPRESS;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ NativeType[] f62738a;
+        public static final /* synthetic */ NativeType[] f63638a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f62739b;
+        public final boolean f63639b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f62740c;
+        public final boolean f63640c;
 
         static {
             InterceptResult invokeClinit;
@@ -44,13 +43,13 @@ public interface FunNativeAd2 {
                     return;
                 }
             }
-            NativeType nativeType = new NativeType(Key.CUSTOM, 0, true, false);
+            NativeType nativeType = new NativeType("CUSTOM", 0, true, false);
             CUSTOM = nativeType;
             NativeType nativeType2 = new NativeType("EXPRESS", 1, false, true);
             EXPRESS = nativeType2;
             NativeType nativeType3 = new NativeType("BOTH", 2, true, true);
             BOTH = nativeType3;
-            f62738a = new NativeType[]{nativeType, nativeType2, nativeType3};
+            f63638a = new NativeType[]{nativeType, nativeType2, nativeType3};
         }
 
         public NativeType(String str, int i2, boolean z, boolean z2) {
@@ -71,8 +70,8 @@ public interface FunNativeAd2 {
                     return;
                 }
             }
-            this.f62739b = z;
-            this.f62740c = z2;
+            this.f63639b = z;
+            this.f63640c = z2;
         }
 
         public static NativeType valueOf(String str) {
@@ -84,19 +83,19 @@ public interface FunNativeAd2 {
         public static NativeType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NativeType[]) f62738a.clone() : (NativeType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NativeType[]) f63638a.clone() : (NativeType[]) invokeV.objValue;
         }
 
         public boolean supportCustom() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62739b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63639b : invokeV.booleanValue;
         }
 
         public boolean supportExpress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62740c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63640c : invokeV.booleanValue;
         }
     }
 

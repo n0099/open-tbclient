@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import androidx.annotation.Keep;
-import com.asus.msa.a.a;
+import com.asus.msa.SupplementaryDID.IDidAidlInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,54 +25,9 @@ public class SupplementaryDIDManager {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isBinded;
     public Context mContext;
-    public com.asus.msa.a.a mDidService;
-    public com.asus.msa.sdid.a mListener;
+    public IDidAidlInterface mDidService;
+    public IDIDBinderStatusListener mListener;
     public ServiceConnection mServiceConnection;
-
-    /* loaded from: classes6.dex */
-    public class a implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SupplementaryDIDManager f34350e;
-
-        public a(SupplementaryDIDManager supplementaryDIDManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {supplementaryDIDManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f34350e = supplementaryDIDManager;
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                boolean unused = SupplementaryDIDManager.DEBUG;
-                this.f34350e.mDidService = a.AbstractBinderC1528a.a(iBinder);
-                this.f34350e.notifyAllListeners(true);
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f34350e.notifyAllListeners(false);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -105,7 +60,47 @@ public class SupplementaryDIDManager {
             }
         }
         this.isBinded = false;
-        this.mServiceConnection = new a(this);
+        this.mServiceConnection = new ServiceConnection(this) { // from class: com.asus.msa.sdid.SupplementaryDIDManager.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ SupplementaryDIDManager this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.content.ServiceConnection
+            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
+                    boolean unused = SupplementaryDIDManager.DEBUG;
+                    this.this$0.mDidService = IDidAidlInterface.Stub.asInterface(iBinder);
+                    this.this$0.notifyAllListeners(true);
+                }
+            }
+
+            @Override // android.content.ServiceConnection
+            public void onServiceDisconnected(ComponentName componentName) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+                    this.this$0.notifyAllListeners(false);
+                }
+            }
+        };
         this.mContext = context;
     }
 
@@ -115,9 +110,9 @@ public class SupplementaryDIDManager {
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, this, z) == null) {
             try {
                 if (z) {
-                    this.mListener.a(this.mDidService);
+                    this.mListener.onSuccess(this.mDidService);
                 } else {
-                    this.mListener.a();
+                    this.mListener.onError();
                 }
             } catch (Exception e2) {
                 if (DEBUG) {
@@ -143,11 +138,11 @@ public class SupplementaryDIDManager {
         }
     }
 
-    public void init(com.asus.msa.sdid.a aVar) {
+    public void init(IDIDBinderStatusListener iDIDBinderStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iDIDBinderStatusListener) == null) {
             try {
-                this.mListener = aVar;
+                this.mListener = iDIDBinderStatusListener;
                 Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
                 ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
                 Intent intent2 = new Intent(intent);

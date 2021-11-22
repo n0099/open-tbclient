@@ -58,6 +58,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     public View flutterView;
     public boolean isAddFlutterView;
     public boolean isAttach;
+    public boolean isFlutterFragmentLazySwitchClosed;
     public boolean isResumedOrVisibleToUser;
     public LinearLayout linearLayout;
     public boolean sendReumeToDart;
@@ -76,9 +77,11 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
             }
         }
         this.sendReumeToDart = false;
+        this.isFlutterFragmentLazySwitchClosed = false;
         this.isAttach = false;
         this.isAddFlutterView = false;
         setArguments(new Bundle());
+        this.isFlutterFragmentLazySwitchClosed = !FlutterFragmentSpeedSwitch.getIsOn();
     }
 
     @NonNull
@@ -213,17 +216,11 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? FlutterView.TransparencyMode.valueOf(getArguments().getString("flutterview_transparency_mode", FlutterView.TransparencyMode.transparent.name())) : (FlutterView.TransparencyMode) invokeV.objValue;
     }
 
-    public boolean isFlutterFragmentLazySwitchClosed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? !FlutterFragmentSpeedSwitch.getIsOn() : invokeV.booleanValue;
-    }
-
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048589, this, i2, i3, intent) == null) {
-            if (isFlutterFragmentLazySwitchClosed()) {
+        if (interceptable == null || interceptable.invokeIIL(1048588, this, i2, i3, intent) == null) {
+            if (this.isFlutterFragmentLazySwitchClosed) {
                 FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate = this.delegate;
                 if (flutterActivityAndFragmentDelegate != null) {
                     flutterActivityAndFragmentDelegate.onActivityResult(i2, i3, intent);
@@ -241,18 +238,19 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // androidx.fragment.app.Fragment
     public void onAttach(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
             super.onAttach(context);
-            this.delegate = new FlutterActivityAndFragmentDelegate(this);
-            if (isFlutterFragmentLazySwitchClosed()) {
-                this.delegate.onAttach(context);
+            FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate = new FlutterActivityAndFragmentDelegate(this);
+            this.delegate = flutterActivityAndFragmentDelegate;
+            if (this.isFlutterFragmentLazySwitchClosed) {
+                flutterActivityAndFragmentDelegate.onAttach(context);
             }
         }
     }
 
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.delegate.onBackPressed();
         }
     }
@@ -262,8 +260,8 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (isFlutterFragmentLazySwitchClosed()) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, layoutInflater, viewGroup, bundle)) == null) {
+            if (this.isFlutterFragmentLazySwitchClosed) {
                 return this.delegate.onCreateView(layoutInflater, viewGroup, bundle);
             }
             this.linearLayout = new LinearLayout(getActivity());
@@ -306,13 +304,14 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onDestroyView();
-            if (this.delegate != null) {
-                if (isFlutterFragmentLazySwitchClosed()) {
-                    this.delegate.onDestroyView();
+            FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate = this.delegate;
+            if (flutterActivityAndFragmentDelegate != null) {
+                if (this.isFlutterFragmentLazySwitchClosed) {
+                    flutterActivityAndFragmentDelegate.onDestroyView();
                 } else if (this.isAttach && this.isAddFlutterView) {
-                    this.delegate.onDestroyView();
+                    flutterActivityAndFragmentDelegate.onDestroyView();
                 }
             }
         }
@@ -321,9 +320,9 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDetach();
-            if (isFlutterFragmentLazySwitchClosed()) {
+            if (this.isFlutterFragmentLazySwitchClosed) {
                 this.delegate.onDetach();
             } else if (this.isAttach) {
                 this.delegate.onDetach();
@@ -340,7 +339,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onHiddenChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             super.onHiddenChanged(z);
             if (z) {
                 this.delegate.onPause();
@@ -353,13 +352,14 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onLowMemory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onLowMemory();
-            if (this.delegate != null) {
-                if (isFlutterFragmentLazySwitchClosed()) {
-                    this.delegate.onLowMemory();
+            FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate = this.delegate;
+            if (flutterActivityAndFragmentDelegate != null) {
+                if (this.isFlutterFragmentLazySwitchClosed) {
+                    flutterActivityAndFragmentDelegate.onLowMemory();
                 } else if (this.isAttach && this.isAddFlutterView) {
-                    this.delegate.onLowMemory();
+                    flutterActivityAndFragmentDelegate.onLowMemory();
                 }
             }
         }
@@ -367,7 +367,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
     public void onNewIntent(@NonNull Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, intent) == null) {
             this.delegate.onNewIntent(intent);
         }
     }
@@ -375,7 +375,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPause();
             if (!isHidden() && this.sendReumeToDart && this.isResumedOrVisibleToUser) {
                 this.isResumedOrVisibleToUser = false;
@@ -386,7 +386,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
     public void onPostResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             this.delegate.onPostResume();
         }
     }
@@ -394,7 +394,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048600, this, i2, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048599, this, i2, strArr, iArr) == null) {
             this.delegate.onRequestPermissionsResult(i2, strArr, iArr);
         }
     }
@@ -402,13 +402,13 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onResume();
             if (isHidden() || !this.sendReumeToDart || this.isResumedOrVisibleToUser) {
                 return;
             }
             this.isResumedOrVisibleToUser = true;
-            if (!isFlutterFragmentLazySwitchClosed()) {
+            if (!this.isFlutterFragmentLazySwitchClosed) {
                 doSpeedLoad();
             }
             this.delegate.onResume();
@@ -418,7 +418,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onStart();
             if (isHidden()) {
                 return;
@@ -430,7 +430,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             super.onStop();
             if (isHidden()) {
                 return;
@@ -440,20 +440,21 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     }
 
     public void onTrimMemory(int i2) {
+        FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048604, this, i2) == null) || this.delegate == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048603, this, i2) == null) || (flutterActivityAndFragmentDelegate = this.delegate) == null) {
             return;
         }
-        if (isFlutterFragmentLazySwitchClosed()) {
-            this.delegate.onTrimMemory(i2);
+        if (this.isFlutterFragmentLazySwitchClosed) {
+            flutterActivityAndFragmentDelegate.onTrimMemory(i2);
         } else if (this.isAttach && this.isAddFlutterView) {
-            this.delegate.onTrimMemory(i2);
+            flutterActivityAndFragmentDelegate.onTrimMemory(i2);
         }
     }
 
     public void onUserLeaveHint() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             this.delegate.onUserLeaveHint();
         }
     }
@@ -463,7 +464,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     public FlutterEngine provideFlutterEngine(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, context)) == null) ? FlutterBoost.instance().engineProvider() : (FlutterEngine) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, context)) == null) ? FlutterBoost.instance().engineProvider() : (FlutterEngine) invokeL.objValue;
     }
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
@@ -471,14 +472,14 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     public XPlatformPlugin providePlatformPlugin(@NonNull FlutterEngine flutterEngine) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, flutterEngine)) == null) ? BoostViewUtils.getPlatformPlugin(flutterEngine.getPlatformChannel()) : (XPlatformPlugin) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, flutterEngine)) == null) ? BoostViewUtils.getPlatformPlugin(flutterEngine.getPlatformChannel()) : (XPlatformPlugin) invokeL.objValue;
     }
 
     @Nullable
     public SplashScreen provideSplashScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             FragmentActivity activity = getActivity();
             if (activity instanceof SplashScreenProvider) {
                 return ((SplashScreenProvider) activity).provideSplashScreen();
@@ -490,14 +491,14 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
     public void sendReumeToDart(@NonNull boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
             this.sendReumeToDart = z;
         }
     }
 
     public void setSwipeBackEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
         }
     }
 
@@ -505,14 +506,14 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     public void setUserVisibleHint(boolean z) {
         FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048611, this, z) == null) || (flutterActivityAndFragmentDelegate = this.delegate) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048610, this, z) == null) || (flutterActivityAndFragmentDelegate = this.delegate) == null) {
             return;
         }
         if (z) {
             if (!this.isResumedOrVisibleToUser) {
                 this.sendReumeToDart = true;
                 this.isResumedOrVisibleToUser = true;
-                if (!isFlutterFragmentLazySwitchClosed()) {
+                if (!this.isFlutterFragmentLazySwitchClosed) {
                     doSpeedLoad();
                 }
                 this.delegate.onResume();
@@ -531,7 +532,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     public boolean shouldAttachEngineToActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -540,7 +541,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public void swipeBackControl(double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Double.valueOf(d2)}) == null) {
         }
     }
 

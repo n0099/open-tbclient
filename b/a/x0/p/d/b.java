@@ -26,7 +26,7 @@ public class b extends b.a.x0.p.d.a implements IDataSourceView.IPlayerDataSource
     public int E;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29779i;
+    public int f30648i;
     public int j;
     public int k;
     public int l;
@@ -251,7 +251,7 @@ public class b extends b.a.x0.p.d.a implements IDataSourceView.IPlayerDataSource
         if (!(interceptable == null || interceptable.invokeII(1048594, this, i2, i3) == null) || i2 == 0 || i3 == 0) {
             return;
         }
-        int i6 = this.f29779i;
+        int i6 = this.f30648i;
         if (i6 == 90 || i6 == 270) {
             i3 = i2;
             i2 = i3;

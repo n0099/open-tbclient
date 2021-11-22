@@ -1,6 +1,6 @@
 package com.baidu.tieba.pbextra;
 
-import b.a.r0.l3.j0.d;
+import b.a.r0.m3.j0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +20,7 @@ public final class NotificationClickedActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BroadcastReceiver f70577a;
+    public BroadcastReceiver f71497a;
 
     /* renamed from: a  reason: collision with other field name */
     public Handler f62a;
@@ -72,12 +73,13 @@ public final class NotificationClickedActivity extends Activity {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("action_clicked_activity_finish");
             ac acVar = new ac(this);
-            this.f70577a = acVar;
+            this.f71497a = acVar;
             try {
                 registerReceiver(acVar, intentFilter, d.a(this), null);
             } catch (Exception unused) {
             }
             a(getIntent());
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -88,7 +90,7 @@ public final class NotificationClickedActivity extends Activity {
             super.onDestroy();
             this.f62a.removeCallbacksAndMessages(null);
             try {
-                unregisterReceiver(this.f70577a);
+                unregisterReceiver(this.f71497a);
             } catch (Exception unused) {
             }
         }

@@ -11,12 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.q0.d1.p0;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tbadk.widget.ProgressButton;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -31,26 +31,26 @@ public class TiePlusDownloadDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f46464e;
+    public View f47322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46465f;
+    public View f47323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f46466g;
+    public TbImageView f47324g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f46467h;
+    public TextView f47325h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f46468i;
+    public TextView f47326i;
     public TextView j;
     public TextView k;
     public TextView l;
     public TextView m;
     public ImageView n;
     public ProgressButton o;
-    public final p0 p;
+    public final TiePlusHelper p;
     public final boolean q;
     public String r;
     public String s;
@@ -64,7 +64,7 @@ public class TiePlusDownloadDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiePlusDownloadDialog f46469e;
+        public final /* synthetic */ TiePlusDownloadDialog f47327e;
 
         public a(TiePlusDownloadDialog tiePlusDownloadDialog) {
             Interceptable interceptable = $ic;
@@ -81,16 +81,16 @@ public class TiePlusDownloadDialog extends Dialog {
                     return;
                 }
             }
-            this.f46469e = tiePlusDownloadDialog;
+            this.f47327e = tiePlusDownloadDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46469e.p.onClick(view);
-                if (this.f46469e.v != null) {
-                    this.f46469e.v.a();
+                this.f47327e.p.onClick(view);
+                if (this.f47327e.v != null) {
+                    this.f47327e.v.a();
                 }
             }
         }
@@ -102,7 +102,7 @@ public class TiePlusDownloadDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiePlusDownloadDialog f46470e;
+        public final /* synthetic */ TiePlusDownloadDialog f47328e;
 
         public b(TiePlusDownloadDialog tiePlusDownloadDialog) {
             Interceptable interceptable = $ic;
@@ -119,14 +119,14 @@ public class TiePlusDownloadDialog extends Dialog {
                     return;
                 }
             }
-            this.f46470e = tiePlusDownloadDialog;
+            this.f47328e = tiePlusDownloadDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46470e.dismiss();
+                this.f47328e.dismiss();
             }
         }
     }
@@ -137,13 +137,13 @@ public class TiePlusDownloadDialog extends Dialog {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TiePlusDownloadDialog(@NonNull Context context, p0 p0Var, boolean z) {
+    public TiePlusDownloadDialog(@NonNull Context context, TiePlusHelper tiePlusHelper, boolean z) {
         super(context, true, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, p0Var, Boolean.valueOf(z)};
+            Object[] objArr = {context, tiePlusHelper, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -155,7 +155,7 @@ public class TiePlusDownloadDialog extends Dialog {
                 return;
             }
         }
-        this.p = p0Var;
+        this.p = tiePlusHelper;
         this.q = z;
     }
 
@@ -175,30 +175,30 @@ public class TiePlusDownloadDialog extends Dialog {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46465f = findViewById(R.id.divider);
-            this.f46466g = (TbImageView) findViewById(R.id.app_icon);
-            this.f46467h = (TextView) findViewById(R.id.app_title);
-            this.f46468i = (TextView) findViewById(R.id.app_version);
+            this.f47323f = findViewById(R.id.divider);
+            this.f47324g = (TbImageView) findViewById(R.id.app_icon);
+            this.f47325h = (TextView) findViewById(R.id.app_title);
+            this.f47326i = (TextView) findViewById(R.id.app_version);
             this.j = (TextView) findViewById(R.id.app_company);
             this.k = (TextView) findViewById(R.id.app_permisson);
             this.l = (TextView) findViewById(R.id.app_privacy);
             this.m = (TextView) findViewById(R.id.download_cancel);
             this.o = (ProgressButton) findViewById(R.id.download_btn);
             this.n = (ImageView) findViewById(R.id.window_close);
-            this.f46466g.setPlaceHolder(2);
-            this.f46466g.setConrers(15);
+            this.f47324g.setPlaceHolder(2);
+            this.f47324g.setConrers(15);
             onSkinChanged();
             this.l.setTag((byte) 16);
             this.k.setTag((byte) 17);
             this.m.setTag((byte) 18);
             if (!StringUtils.isNull(this.r)) {
-                this.f46467h.setText(this.r);
+                this.f47325h.setText(this.r);
             }
             if (!StringUtils.isNull(this.u)) {
-                this.f46466g.startLoad(this.u, 10, false);
+                this.f47324g.startLoad(this.u, 10, false);
             }
             if (!StringUtils.isNull(this.s)) {
-                this.f46468i.setText(String.format(getContext().getString(R.string.app_version_long), this.s));
+                this.f47326i.setText(String.format(getContext().getString(R.string.app_version_long), this.s));
             }
             if (!StringUtils.isNull(this.t)) {
                 this.j.setText(String.format(getContext().getString(R.string.developer_name), this.t));
@@ -217,17 +217,17 @@ public class TiePlusDownloadDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAttachedToWindow();
-            this.p.e(this.o);
+            this.p.g(this.o);
             if (this.q) {
                 MessageManager.getInstance().registerListener(this.p);
             }
-            if (StringUtils.isNull(this.p.k()) || StringUtils.isNull(this.p.j())) {
+            if (StringUtils.isNull(this.p.p()) || StringUtils.isNull(this.p.n())) {
                 return;
             }
-            p0 p0Var = this.p;
-            p0Var.P(p0Var.k(), this.p.j(), getContext(), this.o);
-            p0 p0Var2 = this.p;
-            p0Var2.O(p0Var2.k(), getContext(), this.m);
+            TiePlusHelper tiePlusHelper = this.p;
+            tiePlusHelper.Z(tiePlusHelper.p(), this.p.n(), getContext(), this.o);
+            TiePlusHelper tiePlusHelper2 = this.p;
+            tiePlusHelper2.Y(tiePlusHelper2.p(), getContext(), this.m);
         }
     }
 
@@ -238,7 +238,7 @@ public class TiePlusDownloadDialog extends Dialog {
             super.onCreate(bundle);
             getWindow().setBackgroundDrawableResource(R.color.transparent);
             View inflate = getLayoutInflater().inflate(R.layout.tie_plus_download_dialog, (ViewGroup) null);
-            this.f46464e = inflate;
+            this.f47322e = inflate;
             setContentView(inflate);
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = c();
@@ -252,7 +252,7 @@ public class TiePlusDownloadDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            this.p.r(this.o);
+            this.p.y(this.o);
             if (this.q) {
                 MessageManager.getInstance().unRegisterListener(this.p);
             }
@@ -262,18 +262,18 @@ public class TiePlusDownloadDialog extends Dialog {
     public void onSkinChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f46464e);
+            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f47322e);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0201);
-            b.a.q0.s.u.c d3 = b.a.q0.s.u.c.d(this.f46467h);
+            b.a.q0.s.u.c d3 = b.a.q0.s.u.c.d(this.f47325h);
             d3.A(R.string.F_X02);
             d3.v(R.color.CAM_X0105);
-            b.a.q0.s.u.c.d(this.f46468i).v(R.color.CAM_X0108);
+            b.a.q0.s.u.c.d(this.f47326i).v(R.color.CAM_X0108);
             b.a.q0.s.u.c.d(this.j).v(R.color.CAM_X0108);
             b.a.q0.s.u.c.d(this.k).v(R.color.CAM_X0304);
             b.a.q0.s.u.c.d(this.l).v(R.color.CAM_X0304);
             b.a.q0.s.u.c.d(this.m).v(R.color.CAM_X0107);
-            b.a.q0.s.u.c.d(this.f46465f).f(R.color.CAM_X0107);
+            b.a.q0.s.u.c.d(this.f47323f).f(R.color.CAM_X0107);
             WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_dialog_close22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             this.o.onSkinChanged();
         }

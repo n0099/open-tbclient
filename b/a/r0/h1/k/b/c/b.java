@@ -16,22 +16,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f17639a;
+    public long f19108a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f17640b;
+    public long f19109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f17641c;
+    public long f19110c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f17642d;
+    public a f19111d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f17643e;
+    public a f19112e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17644f;
+    public int f19113f;
 
     /* loaded from: classes4.dex */
     public class a {
@@ -39,25 +39,25 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f17645a;
+        public long f19114a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17646b;
+        public String f19115b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17647c;
+        public String f19116c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f17648d;
+        public String f19117d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f17649e;
+        public boolean f19118e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f17650f;
+        public long f19119f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f17651g;
+        public String f19120g;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -95,30 +95,30 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
             return;
         }
-        this.f17640b = pkModule.pk_id.longValue();
-        this.f17641c = pkModule.user_pk_id.longValue();
+        this.f19109b = pkModule.pk_id.longValue();
+        this.f19110c = pkModule.user_pk_id.longValue();
         a aVar = new a(this);
-        this.f17642d = aVar;
-        aVar.f17645a = pkModule.agree.pk_num.longValue();
-        this.f17642d.f17646b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-        a aVar2 = this.f17642d;
+        this.f19111d = aVar;
+        aVar.f19114a = pkModule.agree.pk_num.longValue();
+        this.f19111d.f19115b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+        a aVar2 = this.f19111d;
         PkItem pkItem = pkModule.agree;
-        aVar2.f17647c = pkItem.last_username;
-        aVar2.f17648d = pkItem.pk_icon;
-        aVar2.f17649e = pkItem.has_clicked.longValue() == 1;
-        this.f17642d.f17650f = pkModule.agree.pk_index.longValue();
-        this.f17642d.f17651g = pkModule.agree.pk_icon_after;
+        aVar2.f19116c = pkItem.last_username;
+        aVar2.f19117d = pkItem.pk_icon;
+        aVar2.f19118e = pkItem.has_clicked.longValue() == 1;
+        this.f19111d.f19119f = pkModule.agree.pk_index.longValue();
+        this.f19111d.f19120g = pkModule.agree.pk_icon_after;
         a aVar3 = new a(this);
-        this.f17643e = aVar3;
-        aVar3.f17645a = pkModule.disagree.pk_num.longValue();
-        this.f17643e.f17646b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-        a aVar4 = this.f17643e;
+        this.f19112e = aVar3;
+        aVar3.f19114a = pkModule.disagree.pk_num.longValue();
+        this.f19112e.f19115b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+        a aVar4 = this.f19112e;
         PkItem pkItem2 = pkModule.disagree;
-        aVar4.f17647c = pkItem2.last_username;
-        aVar4.f17648d = pkItem2.pk_icon;
-        aVar4.f17649e = pkItem2.has_clicked.longValue() == 1;
-        this.f17643e.f17650f = pkModule.disagree.pk_index.longValue();
-        this.f17643e.f17651g = pkModule.disagree.pk_icon_after;
+        aVar4.f19116c = pkItem2.last_username;
+        aVar4.f19117d = pkItem2.pk_icon;
+        aVar4.f19118e = pkItem2.has_clicked.longValue() == 1;
+        this.f19112e.f19119f = pkModule.disagree.pk_index.longValue();
+        this.f19112e.f19120g = pkModule.disagree.pk_icon_after;
     }
 
     public void b(tbclient.NewTopicList.PkModule pkModule) {
@@ -126,30 +126,30 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
             return;
         }
-        this.f17640b = pkModule.pk_id.longValue();
-        this.f17641c = pkModule.user_pk_id.longValue();
+        this.f19109b = pkModule.pk_id.longValue();
+        this.f19110c = pkModule.user_pk_id.longValue();
         a aVar = new a(this);
-        this.f17642d = aVar;
-        aVar.f17645a = pkModule.agree.pk_num.longValue();
-        this.f17642d.f17646b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-        a aVar2 = this.f17642d;
+        this.f19111d = aVar;
+        aVar.f19114a = pkModule.agree.pk_num.longValue();
+        this.f19111d.f19115b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+        a aVar2 = this.f19111d;
         tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
-        aVar2.f17647c = pkItem.last_username;
-        aVar2.f17648d = pkItem.pk_icon;
-        aVar2.f17649e = pkItem.has_clicked.longValue() == 1;
-        this.f17642d.f17650f = pkModule.agree.pk_index.longValue();
-        this.f17642d.f17651g = pkModule.agree.pk_icon_after;
+        aVar2.f19116c = pkItem.last_username;
+        aVar2.f19117d = pkItem.pk_icon;
+        aVar2.f19118e = pkItem.has_clicked.longValue() == 1;
+        this.f19111d.f19119f = pkModule.agree.pk_index.longValue();
+        this.f19111d.f19120g = pkModule.agree.pk_icon_after;
         a aVar3 = new a(this);
-        this.f17643e = aVar3;
-        aVar3.f17645a = pkModule.disagree.pk_num.longValue();
-        this.f17643e.f17646b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-        a aVar4 = this.f17643e;
+        this.f19112e = aVar3;
+        aVar3.f19114a = pkModule.disagree.pk_num.longValue();
+        this.f19112e.f19115b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+        a aVar4 = this.f19112e;
         tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
-        aVar4.f17647c = pkItem2.last_username;
-        aVar4.f17648d = pkItem2.pk_icon;
-        aVar4.f17649e = pkItem2.has_clicked.longValue() == 1;
-        this.f17643e.f17650f = pkModule.disagree.pk_index.longValue();
-        this.f17643e.f17651g = pkModule.disagree.pk_icon_after;
+        aVar4.f19116c = pkItem2.last_username;
+        aVar4.f19117d = pkItem2.pk_icon;
+        aVar4.f19118e = pkItem2.has_clicked.longValue() == 1;
+        this.f19112e.f19119f = pkModule.disagree.pk_index.longValue();
+        this.f19112e.f19120g = pkModule.disagree.pk_icon_after;
     }
 
     public void c(tbclient.PkModule pkModule) {
@@ -157,29 +157,29 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
             return;
         }
-        this.f17640b = pkModule.pk_id.longValue();
-        this.f17641c = pkModule.user_pk_id.longValue();
+        this.f19109b = pkModule.pk_id.longValue();
+        this.f19110c = pkModule.user_pk_id.longValue();
         a aVar = new a(this);
-        this.f17642d = aVar;
-        aVar.f17645a = pkModule.agree.pk_num.longValue();
-        this.f17642d.f17646b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-        a aVar2 = this.f17642d;
+        this.f19111d = aVar;
+        aVar.f19114a = pkModule.agree.pk_num.longValue();
+        this.f19111d.f19115b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+        a aVar2 = this.f19111d;
         tbclient.PkItem pkItem = pkModule.agree;
-        aVar2.f17647c = pkItem.last_username;
-        aVar2.f17648d = pkItem.pk_icon;
-        aVar2.f17649e = pkItem.has_clicked.longValue() == 1;
-        this.f17642d.f17650f = pkModule.agree.pk_index.longValue();
-        this.f17642d.f17651g = pkModule.agree.pk_icon_after;
+        aVar2.f19116c = pkItem.last_username;
+        aVar2.f19117d = pkItem.pk_icon;
+        aVar2.f19118e = pkItem.has_clicked.longValue() == 1;
+        this.f19111d.f19119f = pkModule.agree.pk_index.longValue();
+        this.f19111d.f19120g = pkModule.agree.pk_icon_after;
         a aVar3 = new a(this);
-        this.f17643e = aVar3;
-        aVar3.f17645a = pkModule.disagree.pk_num.longValue();
-        this.f17643e.f17646b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-        a aVar4 = this.f17643e;
+        this.f19112e = aVar3;
+        aVar3.f19114a = pkModule.disagree.pk_num.longValue();
+        this.f19112e.f19115b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+        a aVar4 = this.f19112e;
         tbclient.PkItem pkItem2 = pkModule.disagree;
-        aVar4.f17647c = pkItem2.last_username;
-        aVar4.f17648d = pkItem2.pk_icon;
-        aVar4.f17649e = pkItem2.has_clicked.longValue() == 1;
-        this.f17643e.f17650f = pkModule.disagree.pk_index.longValue();
-        this.f17643e.f17651g = pkModule.disagree.pk_icon_after;
+        aVar4.f19116c = pkItem2.last_username;
+        aVar4.f19117d = pkItem2.pk_icon;
+        aVar4.f19118e = pkItem2.has_clicked.longValue() == 1;
+        this.f19112e.f19119f = pkModule.disagree.pk_index.longValue();
+        this.f19112e.f19120g = pkModule.disagree.pk_icon_after;
     }
 }

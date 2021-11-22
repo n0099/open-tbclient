@@ -24,16 +24,16 @@ public class MyReceiver extends BroadcastReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Callback f42877a;
+    public Callback f43823a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42878b;
+    public boolean f43824b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f42879c;
+    public long f43825c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f42880d;
+    public long f43826d;
 
     public MyReceiver() {
         Interceptable interceptable = $ic;
@@ -48,12 +48,12 @@ public class MyReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.f42877a = new Callback(this) { // from class: com.baidu.sofire.MyReceiver.1
+        this.f43823a = new Callback(this) { // from class: com.baidu.sofire.MyReceiver.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ MyReceiver f42881a;
+            public final /* synthetic */ MyReceiver f43827a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -70,7 +70,7 @@ public class MyReceiver extends BroadcastReceiver {
                         return;
                     }
                 }
-                this.f42881a = this;
+                this.f43827a = this;
             }
 
             @Override // com.baidu.sofire.ac.Callback
@@ -80,9 +80,9 @@ public class MyReceiver extends BroadcastReceiver {
                 return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objArr)) == null) ? super.onEnd(objArr) : invokeL.objValue;
             }
         };
-        this.f42878b = false;
-        this.f42879c = 0L;
-        this.f42880d = 0L;
+        this.f43824b = false;
+        this.f43825c = 0L;
+        this.f43826d = 0L;
     }
 
     public final MyReceiver a() {
@@ -90,8 +90,8 @@ public class MyReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                this.f42879c = System.currentTimeMillis();
-                this.f42878b = true;
+                this.f43825c = System.currentTimeMillis();
+                this.f43824b = true;
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
@@ -107,26 +107,26 @@ public class MyReceiver extends BroadcastReceiver {
             return;
         }
         try {
-            if (!this.f42878b || System.currentTimeMillis() - this.f42879c >= 2000) {
+            if (!this.f43824b || System.currentTimeMillis() - this.f43825c >= 2000) {
                 if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                    if (System.currentTimeMillis() - this.f42880d < 100 || !com.baidu.sofire.utility.c.f(context)) {
+                    if (System.currentTimeMillis() - this.f43826d < 100 || !com.baidu.sofire.utility.c.f(context)) {
                         return;
                     }
-                    this.f42880d = System.currentTimeMillis();
+                    this.f43826d = System.currentTimeMillis();
                 }
                 Context applicationContext = context.getApplicationContext();
-                z.a(applicationContext).a(new Runnable(intent, applicationContext, this.f42878b) { // from class: com.baidu.sofire.MyReceiver.2
+                z.a(applicationContext).a(new Runnable(intent, applicationContext, this.f43824b) { // from class: com.baidu.sofire.MyReceiver.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Intent f42882a;
+                    public final /* synthetic */ Intent f43828a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Context f42883b;
+                    public final /* synthetic */ Context f43829b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ boolean f42884c;
+                    public final /* synthetic */ boolean f43830c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -143,9 +143,9 @@ public class MyReceiver extends BroadcastReceiver {
                                 return;
                             }
                         }
-                        this.f42882a = intent;
-                        this.f42883b = applicationContext;
-                        this.f42884c = r8;
+                        this.f43828a = intent;
+                        this.f43829b = applicationContext;
+                        this.f43830c = r8;
                     }
 
                     @Override // java.lang.Runnable
@@ -156,27 +156,27 @@ public class MyReceiver extends BroadcastReceiver {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                if (r.f40168a.equals(this.f42882a.getStringExtra("t"))) {
-                                    String stringExtra = this.f42882a.getStringExtra("c");
+                                if (r.f41000a.equals(this.f43828a.getStringExtra("t"))) {
+                                    String stringExtra = this.f43828a.getStringExtra("c");
                                     Intent intent2 = new Intent();
-                                    intent2.putExtra("t", r.f40168a);
+                                    intent2.putExtra("t", r.f41000a);
                                     intent2.putExtra("c", stringExtra);
-                                    a.a(this.f42883b, intent2);
+                                    a.a(this.f43829b, intent2);
                                 }
-                                String action = this.f42882a.getAction();
-                                if (this.f42884c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.utility.c.f(this.f42883b) && U.sMonitorNetworkWhenUpgradeNoNet) {
-                                    z.a(this.f42883b).b(new U(this.f42883b.getApplicationContext(), 3, false));
+                                String action = this.f43828a.getAction();
+                                if (this.f43830c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.utility.c.f(this.f43829b) && U.sMonitorNetworkWhenUpgradeNoNet) {
+                                    z.a(this.f43829b).b(new U(this.f43829b.getApplicationContext(), 3, false));
                                     z = true;
                                 } else {
                                     z = false;
                                 }
-                                if (this.f42884c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.utility.c.f43162a && !z && com.baidu.sofire.utility.c.e(this.f42883b)) {
-                                    z.a(this.f42883b).b(new U(this.f42883b.getApplicationContext(), 3, false));
+                                if (this.f43830c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.utility.c.f44108a && !z && com.baidu.sofire.utility.c.e(this.f43829b)) {
+                                    z.a(this.f43829b).b(new U(this.f43829b.getApplicationContext(), 3, false));
                                 }
-                                if (this.f42884c) {
+                                if (this.f43830c) {
                                     return;
                                 }
-                                String stringExtra2 = this.f42882a.getStringExtra("from_plugin_package");
+                                String stringExtra2 = this.f43828a.getStringExtra("from_plugin_package");
                                 if (TextUtils.isEmpty(stringExtra2)) {
                                     f a2 = f.a();
                                     if (a2 == null || (b2 = a2.b()) == null) {
@@ -187,21 +187,21 @@ public class MyReceiver extends BroadcastReceiver {
                                         if (apkInfo.intentFilters != null) {
                                             for (int i3 = 0; i3 < apkInfo.intentFilters.size(); i3++) {
                                                 g gVar = apkInfo.intentFilters.get(i3);
-                                                if (gVar.f43036d.match(this.f42882a.getAction(), this.f42882a.getType(), this.f42882a.getScheme(), this.f42882a.getData(), this.f42882a.getCategories(), "PIF") >= 0) {
-                                                    Class<?> loadClass = apkInfo.classLoader.loadClass(gVar.f43034b);
-                                                    loadClass.getDeclaredMethod(gVar.f43035c, Context.class, Intent.class).invoke(loadClass.newInstance(), this.f42883b.getApplicationContext(), this.f42882a);
+                                                if (gVar.f43982d.match(this.f43828a.getAction(), this.f43828a.getType(), this.f43828a.getScheme(), this.f43828a.getData(), this.f43828a.getCategories(), "PIF") >= 0) {
+                                                    Class<?> loadClass = apkInfo.classLoader.loadClass(gVar.f43980b);
+                                                    loadClass.getDeclaredMethod(gVar.f43981c, Context.class, Intent.class).invoke(loadClass.newInstance(), this.f43829b.getApplicationContext(), this.f43828a);
                                                 }
                                             }
                                         }
                                     }
-                                } else if (this.f42883b.getPackageName().equals(stringExtra2)) {
-                                    MyReceiver.a(this.f42883b.getClassLoader(), this.f42882a, this.f42883b);
+                                } else if (this.f43829b.getPackageName().equals(stringExtra2)) {
+                                    MyReceiver.a(this.f43829b.getClassLoader(), this.f43828a, this.f43829b);
                                 } else {
                                     f a3 = f.a();
                                     if (a3 == null || (d2 = a3.d(stringExtra2)) == null) {
                                         return;
                                     }
-                                    MyReceiver.a(d2.classLoader, this.f42882a, this.f42883b);
+                                    MyReceiver.a(d2.classLoader, this.f43828a, this.f43829b);
                                 }
                             } catch (Throwable unused) {
                                 com.baidu.sofire.utility.c.a();

@@ -7,9 +7,9 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.e;
-import b.a.e.e.n.a;
-import b.a.e.h.j.g.d;
+import b.a.e.f.m.e;
+import b.a.e.f.n.a;
+import b.a.e.i.j.g.d;
 import b.a.q0.a.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -20,6 +20,7 @@ import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
@@ -220,11 +221,18 @@ public class OpenFlutter {
         return (CustomMessage) invokeL.objValue;
     }
 
+    public static void markSecondaryPageEnter() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            LaunchTaskSchedule.getInstance().start(5);
+        }
+    }
+
     public static boolean openFlutterPage(Context context, String str, Map<String, Object> map) {
         InterceptResult invokeLLL;
         String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, map)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, map)) == null) {
             if (checkSwitch(str)) {
                 Intent intent = new Intent(context, FlutterPageActivity.class);
                 BoostFlutterActivity.SerializableMap serializableMap = new BoostFlutterActivity.SerializableMap();
@@ -263,6 +271,7 @@ public class OpenFlutter {
                 } else {
                     context.startActivity(intent);
                 }
+                markSecondaryPageEnter();
                 return true;
             }
             return false;
@@ -273,7 +282,7 @@ public class OpenFlutter {
     public static HashMap parseParmes(IntentConfig intentConfig, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, intentConfig, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, intentConfig, str)) == null) {
             HashMap hashMap = new HashMap();
             if (ACTIVITY_VIDEO_WORK_LIST.equals(str)) {
                 hashMap.put("publisher", intentConfig.getIntent().getStringExtra("type"));
@@ -326,7 +335,7 @@ public class OpenFlutter {
         int i2;
         String substring;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, hashMap, uri) == null) && ACTIVITY_PERSON_CENTER.equals(str)) {
+        if ((interceptable == null || interceptable.invokeLLL(65544, null, str, hashMap, uri) == null) && ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
             if (g.c(uri)) {
                 g.b().h(uri, new g.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
@@ -358,12 +367,12 @@ public class OpenFlutter {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {
                             return;
                         }
-                        Boolean bool = (Boolean) hashMap2.get(g.Z);
+                        Boolean bool = (Boolean) hashMap2.get(g.a0);
                         if (bool != null && bool.booleanValue()) {
                             this.val$params.put("portrait", TbadkCoreApplication.getCurrentPortrait());
                         }
-                        if (hashMap2.get(g.x) instanceof String) {
-                            String str2 = (String) hashMap2.get(g.x);
+                        if (hashMap2.get(g.y) instanceof String) {
+                            String str2 = (String) hashMap2.get(g.y);
                             if (StringUtils.isNull(str2)) {
                                 return;
                             }

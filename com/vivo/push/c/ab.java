@@ -17,7 +17,7 @@ public abstract class ab extends com.vivo.push.v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public PushMessageCallback f70245b;
+    public PushMessageCallback f71165b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ab(com.vivo.push.y yVar) {
@@ -42,7 +42,7 @@ public abstract class ab extends com.vivo.push.v {
     public final void a(PushMessageCallback pushMessageCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pushMessageCallback) == null) {
-            this.f70245b = pushMessageCallback;
+            this.f71165b = pushMessageCallback;
         }
     }
 
@@ -67,7 +67,7 @@ public abstract class ab extends com.vivo.push.v {
                         return true;
                     }
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);
-                    Context context = this.f70427a;
+                    Context context = this.f71347a;
                     com.vivo.push.util.p.c(context, "vertify fail srcDigest is " + str);
                     return false;
                 } catch (Exception e2) {

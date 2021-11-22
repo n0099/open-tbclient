@@ -16,14 +16,14 @@ public class b extends com.kwad.sdk.draw.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f65634b;
+    public FrameLayout f66547b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public c f65635c;
+    public c f66548c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.b f65636d;
+    public a.b f66549d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,12 +38,12 @@ public class b extends com.kwad.sdk.draw.a.a {
                 return;
             }
         }
-        this.f65636d = new a.b(this) { // from class: com.kwad.sdk.draw.b.c.b.1
+        this.f66549d = new a.b(this) { // from class: com.kwad.sdk.draw.b.c.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f65637a;
+            public final /* synthetic */ b f66550a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -60,16 +60,16 @@ public class b extends com.kwad.sdk.draw.a.a {
                         return;
                     }
                 }
-                this.f65637a = this;
+                this.f66550a = this;
             }
 
             @Override // com.kwad.sdk.core.webview.jshandler.a.b
-            public void a(a.C1916a c1916a) {
+            public void a(a.C1956a c1956a) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, c1916a) == null) || ((com.kwad.sdk.draw.a.a) this.f65637a).f65560a.f65561a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, c1956a) == null) || ((com.kwad.sdk.draw.a.a) this.f66550a).f66473a.f66474a == null) {
                     return;
                 }
-                ((com.kwad.sdk.draw.a.a) this.f65637a).f65560a.f65561a.onAdClicked();
+                ((com.kwad.sdk.draw.a.a) this.f66550a).f66473a.f66474a.onAdClicked();
             }
         };
     }
@@ -79,17 +79,17 @@ public class b extends com.kwad.sdk.draw.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            c cVar = ((com.kwad.sdk.draw.a.a) this).f65560a.f65567g;
-            this.f65635c = cVar;
+            c cVar = ((com.kwad.sdk.draw.a.a) this).f66473a.f66480g;
+            this.f66548c = cVar;
             if (cVar == null) {
                 return;
             }
-            cVar.a(this.f65636d);
-            c cVar2 = this.f65635c;
-            FrameLayout frameLayout = this.f65634b;
-            com.kwad.sdk.draw.a.b bVar = ((com.kwad.sdk.draw.a.a) this).f65560a;
-            cVar2.a(frameLayout, bVar.f65562b, bVar.f65563c, bVar.f65564d);
-            this.f65635c.c();
+            cVar.a(this.f66549d);
+            c cVar2 = this.f66548c;
+            FrameLayout frameLayout = this.f66547b;
+            com.kwad.sdk.draw.a.b bVar = ((com.kwad.sdk.draw.a.a) this).f66473a;
+            cVar2.a(frameLayout, bVar.f66475b, bVar.f66476c, bVar.f66477d);
+            this.f66548c.c();
         }
     }
 
@@ -98,7 +98,7 @@ public class b extends com.kwad.sdk.draw.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.b();
-            this.f65634b = (FrameLayout) a(R.id.ksad_play_end_web_card_container);
+            this.f66547b = (FrameLayout) a(R.id.ksad_play_end_web_card_container);
         }
     }
 
@@ -107,7 +107,7 @@ public class b extends com.kwad.sdk.draw.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.c();
-            c cVar = this.f65635c;
+            c cVar = this.f66548c;
             if (cVar != null) {
                 cVar.g();
             }

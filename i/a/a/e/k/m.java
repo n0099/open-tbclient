@@ -18,25 +18,25 @@ import tv.athena.revenue.payui.view.YYPayConfirmView;
 import tv.athena.revenue.payui.view.YYPayGiftView;
 import tv.athena.revenue.payui.view.YYPayResultView;
 import tv.athena.revenue.payui.view.YYPayWayView;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class m implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72283a;
+    public int f73202a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72284b;
+    public int f73203b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i.a.a.e.l.b f72285c;
+    public i.a.a.e.l.b f73204c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f72286d;
+    public i f73205d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PayUIKitConfig f72287e;
+    public PayUIKitConfig f73206e;
 
     public m(int i2, int i3, i.a.a.e.l.b bVar, i iVar, PayUIKitConfig payUIKitConfig) {
         Interceptable interceptable = $ic;
@@ -54,52 +54,52 @@ public class m implements f {
             }
         }
         RLog.info("PayViewImpl", "create PayViewImpl mAppId:" + i2 + " mUserChannel:" + i3);
-        this.f72283a = i2;
-        this.f72284b = i3;
-        this.f72285c = bVar;
-        this.f72286d = iVar;
-        this.f72287e = payUIKitConfig;
+        this.f73202a = i2;
+        this.f73203b = i3;
+        this.f73204c = bVar;
+        this.f73205d = iVar;
+        this.f73206e = payUIKitConfig;
     }
 
     @Override // i.a.a.e.k.f
     public i.a.a.e.o.b a(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) ? new YYPayAmountTopView(activity, this.f72283a, this.f72284b, this.f72287e) : (i.a.a.e.o.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) ? new YYPayAmountTopView(activity, this.f73202a, this.f73203b, this.f73206e) : (i.a.a.e.o.b) invokeL.objValue;
     }
 
     @Override // i.a.a.e.k.f
     public IYYPayWayView b(Activity activity, IYYPayWayView.b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bVar)) == null) ? new YYPayWayView(activity, this.f72283a, this.f72284b, bVar, this.f72285c, this.f72287e, this.f72286d) : (IYYPayWayView) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bVar)) == null) ? new YYPayWayView(activity, this.f73202a, this.f73203b, bVar, this.f73204c, this.f73206e, this.f73205d) : (IYYPayWayView) invokeLL.objValue;
     }
 
     @Override // i.a.a.e.k.f
     public IYYPayResultView c(Activity activity, IYYPayResultView.c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, cVar)) == null) ? new YYPayResultView(activity, this.f72287e, this.f72285c, this.f72283a, this.f72284b, cVar, this.f72286d) : (IYYPayResultView) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, cVar)) == null) ? new YYPayResultView(activity, this.f73206e, this.f73204c, this.f73202a, this.f73203b, cVar, this.f73205d) : (IYYPayResultView) invokeLL.objValue;
     }
 
     @Override // i.a.a.e.k.f
     public i.a.a.e.o.c d(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) ? new YYPayConfirmView(activity, this.f72283a, this.f72284b, this.f72287e) : (i.a.a.e.o.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) ? new YYPayConfirmView(activity, this.f73202a, this.f73203b, this.f73206e) : (i.a.a.e.o.c) invokeL.objValue;
     }
 
     @Override // i.a.a.e.k.f
     public i.a.a.e.o.d e(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, activity)) == null) ? new YYPayGiftView(activity, this.f72283a, this.f72284b, this.f72287e) : (i.a.a.e.o.d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, activity)) == null) ? new YYPayGiftView(activity, this.f73202a, this.f73203b, this.f73206e) : (i.a.a.e.o.d) invokeL.objValue;
     }
 
     @Override // i.a.a.e.k.f
     public IYYPayAmountView f(Activity activity, IYYPayAmountView.ViewParams viewParams) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, activity, viewParams)) == null) ? new YYPayAmountView(activity, this.f72283a, this.f72284b, this.f72287e, viewParams, this.f72285c, this.f72286d) : (IYYPayAmountView) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, activity, viewParams)) == null) ? new YYPayAmountView(activity, this.f73202a, this.f73203b, this.f73206e, viewParams, this.f73204c, this.f73205d) : (IYYPayAmountView) invokeLL.objValue;
     }
 }

@@ -68,7 +68,7 @@ public abstract class PluginIntentService extends IntentService implements a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PluginIntentService f61489a;
+            public final /* synthetic */ PluginIntentService f62388a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -85,7 +85,7 @@ public abstract class PluginIntentService extends IntentService implements a {
                         return;
                     }
                 }
-                this.f61489a = this;
+                this.f62388a = this;
             }
 
             @Override // java.lang.reflect.InvocationHandler
@@ -116,7 +116,7 @@ public abstract class PluginIntentService extends IntentService implements a {
                         return c2 != 2 ? null : 0;
                     }
                     com.bytedance.pangle.service.a.a b2 = com.bytedance.pangle.service.a.a.b();
-                    PluginIntentService pluginIntentService = this.f61489a;
+                    PluginIntentService pluginIntentService = this.f62388a;
                     return Boolean.valueOf(b2.a(new ComponentName(pluginIntentService, pluginIntentService.getClass().getName())));
                 }
                 return invokeLLL.objValue;

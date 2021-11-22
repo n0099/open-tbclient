@@ -17,31 +17,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f21285a;
+    public String f22781a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21286b;
+    public String f22782b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21287c;
+    public String f22783c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f21288d;
+    public int f22784d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21289e;
+    public int f22785e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21290f;
+    public String f22786f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f21291g;
+    public long f22787g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21292h;
+    public int f22788h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f21293i;
+    public String f22789i;
     public int j;
     public long k;
     public String l;
@@ -69,15 +69,15 @@ public class c {
                 return;
             }
         }
-        this.f21285a = null;
-        this.f21286b = null;
-        this.f21287c = null;
-        this.f21288d = 0;
-        this.f21289e = 0;
-        this.f21290f = null;
-        this.f21291g = 0L;
-        this.f21292h = 0;
-        this.f21293i = "";
+        this.f22781a = null;
+        this.f22782b = null;
+        this.f22783c = null;
+        this.f22784d = 0;
+        this.f22785e = 0;
+        this.f22786f = null;
+        this.f22787g = 0L;
+        this.f22788h = 0;
+        this.f22789i = "";
         this.j = -1;
         this.k = 0L;
         this.l = null;
@@ -94,7 +94,7 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21287c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22783c : (String) invokeV.objValue;
     }
 
     public String c() {
@@ -112,19 +112,19 @@ public class c {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21289e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22785e : invokeV.intValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21285a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22781a : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21286b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22782b : (String) invokeV.objValue;
     }
 
     public int h() {
@@ -136,13 +136,13 @@ public class c {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21290f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22786f : (String) invokeV.objValue;
     }
 
     public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21291g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22787g : invokeV.longValue;
     }
 
     public long k() {
@@ -154,7 +154,7 @@ public class c {
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f21292h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f22788h : invokeV.intValue;
     }
 
     public JSONArray m() {
@@ -166,7 +166,7 @@ public class c {
     public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f21293i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f22789i : (String) invokeV.objValue;
     }
 
     public String o() {
@@ -190,7 +190,7 @@ public class c {
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f21288d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f22784d : invokeV.intValue;
     }
 
     public boolean s() {
@@ -252,18 +252,18 @@ public class c {
                 this.v = jSONObject.optJSONArray("post_content");
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("img");
                 if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
-                    this.f21285a = optJSONObject.optString("id");
-                    this.f21286b = optJSONObject.optString("url");
-                    this.f21288d = optJSONObject.optInt("width", 0);
-                    this.f21289e = optJSONObject.optInt("height", 0);
-                    this.f21287c = optJSONObject.optString("big_cdn_src", null);
-                    this.f21290f = optJSONObject.optString("original_src");
-                    this.f21291g = optJSONObject.optInt("size");
+                    this.f22781a = optJSONObject.optString("id");
+                    this.f22782b = optJSONObject.optString("url");
+                    this.f22784d = optJSONObject.optInt("width", 0);
+                    this.f22785e = optJSONObject.optInt("height", 0);
+                    this.f22783c = optJSONObject.optString("big_cdn_src", null);
+                    this.f22786f = optJSONObject.optString("original_src");
+                    this.f22787g = optJSONObject.optInt("size");
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");
                 if (optJSONObject4 != null) {
-                    this.f21292h = optJSONObject4.optInt("pic_type", 0);
-                    this.f21293i = optJSONObject4.optString("tag_name");
+                    this.f22788h = optJSONObject4.optInt("pic_type", 0);
+                    this.f22789i = optJSONObject4.optString("tag_name");
                 }
             } catch (Exception e2) {
                 BdLog.detailException(e2);

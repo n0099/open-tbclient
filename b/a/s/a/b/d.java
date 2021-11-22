@@ -22,7 +22,7 @@ public final class d implements b, c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f28601a;
+    public final Context f29470a;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class d implements b, c {
                 return;
             }
         }
-        this.f28601a = context;
+        this.f29470a = context;
     }
 
     @Override // b.a.s.a.b.b
@@ -48,7 +48,7 @@ public final class d implements b, c {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = b.a.s.a.a.d().c() != b.a.s.a.e.a.f28611a ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox" : "https://tcbox.baidu.com/ztbox";
+            String str = b.a.s.a.a.d().c() != b.a.s.a.e.a.f29480a ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox" : "https://tcbox.baidu.com/ztbox";
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             sb.append("?");
@@ -58,7 +58,7 @@ public final class d implements b, c {
             sb2.append("&uid=");
             sb2.append(b.a.s.a.a.d().a());
             sb2.append("&ua=");
-            Context context = this.f28601a;
+            Context context = this.f29470a;
             DisplayMetrics a2 = f.a(context);
             int i2 = a2 != null ? a2.widthPixels : 0;
             DisplayMetrics a3 = f.a(context);
@@ -75,19 +75,19 @@ public final class d implements b, c {
             String str4 = Build.MANUFACTURER;
             sb2.append(replace + "_" + replace2 + "_" + i5 + "_" + (TextUtils.isEmpty(str4) ? "NUL" : str4.replace("_", "-")));
             sb2.append("&network=");
-            b.a.s.a.e.d dVar = new b.a.s.a.e.d(this.f28601a);
-            boolean isEmpty = TextUtils.isEmpty(dVar.f28614a);
+            b.a.s.a.e.d dVar = new b.a.s.a.e.d(this.f29470a);
+            boolean isEmpty = TextUtils.isEmpty(dVar.f29483a);
             String str5 = NetworkParam.NET_TYPE_ID_DISCONNECT;
-            if (!isEmpty && (num = b.a.s.a.e.d.f28613c.get(dVar.f28614a)) != null) {
-                str5 = num + "_" + dVar.f28615b;
+            if (!isEmpty && (num = b.a.s.a.e.d.f29482c.get(dVar.f29483a)) != null) {
+                str5 = num + "_" + dVar.f29484b;
             }
             if (str5 == null) {
                 str5 = "unknown";
             }
             sb2.append(str5);
             sb2.append("&appversion=");
-            sb2.append(f.b(this.f28601a));
-            if (b.a.s.a.a.d().c() != b.a.s.a.e.a.f28611a) {
+            sb2.append(f.b(this.f29470a));
+            if (b.a.s.a.a.d().c() != b.a.s.a.e.a.f29480a) {
                 sb2.append("&debug=1");
             }
             sb.append(sb2.toString());

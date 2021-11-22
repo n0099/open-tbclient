@@ -11,13 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 @MainThread
 /* loaded from: classes7.dex */
 public class LaunchTaskSchedule {
     public static /* synthetic */ Interceptable $ic;
     public static LaunchTaskSchedule sInstance;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<Integer> historyLifecycle;
     public int mProcessType;
     public BaseTaskPool mTaskPool;
 
@@ -31,14 +34,29 @@ public class LaunchTaskSchedule {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.historyLifecycle = new HashSet();
+    }
+
+    private boolean checkStartBefore(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
+            if (this.historyLifecycle.contains(Integer.valueOf(i2))) {
+                return true;
+            }
+            this.historyLifecycle.add(Integer.valueOf(i2));
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 
     public static LaunchTaskSchedule getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (sInstance == null) {
                 sInstance = new LaunchTaskSchedule();
             }
@@ -49,7 +67,7 @@ public class LaunchTaskSchedule {
 
     private void startAsyncTask(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
             AsyncTaskAssistant.executeOnThreadPool(new Runnable(this, i2) { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +113,7 @@ public class LaunchTaskSchedule {
     private void startSyncTask(int i2) {
         List<LaunchTask> taskList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, false)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, false)) == null) {
             return;
         }
         for (LaunchTask launchTask : taskList) {
@@ -115,7 +133,7 @@ public class LaunchTaskSchedule {
 
     public void start(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.mProcessType <= 0 || this.mTaskPool == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.mProcessType <= 0 || this.mTaskPool == null || checkStartBefore(i2)) {
             return;
         }
         startAsyncTask(i2);

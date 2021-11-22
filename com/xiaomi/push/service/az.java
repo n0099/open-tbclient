@@ -21,31 +21,31 @@ public abstract class az {
     public static String K = "notifyId";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f71442a = "1";
+    public static String f72362a = "1";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f71443b = "2";
+    public static String f72363b = "2";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f71444c = "3";
+    public static String f72364c = "3";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f71445d = "com.xiaomi.push.OPEN_CHANNEL";
+    public static String f72365d = "com.xiaomi.push.OPEN_CHANNEL";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f71446e = "com.xiaomi.push.SEND_MESSAGE";
+    public static String f72366e = "com.xiaomi.push.SEND_MESSAGE";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f71447f = "com.xiaomi.push.SEND_IQ";
+    public static String f72367f = "com.xiaomi.push.SEND_IQ";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f71448g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
+    public static String f72368g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f71449h = "com.xiaomi.push.SEND_PRES";
+    public static String f72369h = "com.xiaomi.push.SEND_PRES";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f71450i = "com.xiaomi.push.CLOSE_CHANNEL";
+    public static String f72370i = "com.xiaomi.push.CLOSE_CHANNEL";
     public static String j = "com.xiaomi.push.FORCE_RECONN";
     public static String k = "com.xiaomi.push.RESET_CONN";
     public static String l = "com.xiaomi.push.UPDATE_CHANNEL_INFO";

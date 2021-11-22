@@ -12,14 +12,14 @@ import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.BiPredicate;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.observers.BasicFuseableObserver;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ObservableDistinctUntilChanged<T, K> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BiPredicate<? super K, ? super K> comparer;
     public final Function<? super T, K> keySelector;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class DistinctUntilChangedObserver<T, K> extends BasicFuseableObserver<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,16 +1,20 @@
 package b.a.p0.a.q1;
 
 import android.content.Context;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.h;
+import b.a.p0.a.d2.d;
+import b.a.p0.a.d2.e;
+import b.a.p0.a.g1.f;
 import b.a.p0.a.k;
+import b.a.p0.a.p.d.m;
+import b.a.p0.a.z2.q0;
+import b.a.p0.u.l;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.pms.constants.PmsConstant;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,30 +22,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes.dex */
-public class a {
+public class a implements l {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7358e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static volatile a f7359f;
+    /* renamed from: c  reason: collision with root package name */
+    public static final boolean f7908c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7360a;
+    public Context f7909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7361b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f7362c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public b.a.d0.e.a f7363d;
+    public Boolean f7910b;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +56,7 @@ public class a {
                 return;
             }
         }
-        f7358e = k.f6397a;
+        f7908c = k.f6863a;
     }
 
     public a() {
@@ -69,124 +69,240 @@ public class a {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f7910b = null;
+        this.f7909a = AppRuntime.getAppContext();
     }
 
-    public static int a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != -2) {
-                return i2 != 0 ? 6 : 0;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static a b() {
+    @Override // b.a.p0.u.l
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f7359f == null) {
-                synchronized (a.class) {
-                    if (f7359f == null) {
-                        f7359f = new a();
-                    }
-                }
-            }
-            return f7359f;
-        }
-        return (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.p0.a.c1.a.n().a() : (String) invokeV.objValue;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // b.a.p0.u.l
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("url", str);
-                jSONObject.put(PmsConstant.Statistic.STATISTIC_ERRMSG, str2);
-            } catch (JSONException e2) {
-                if (f7358e) {
-                    e2.printStackTrace();
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.a.p0.a.l.a() : (String) invokeV.objValue;
     }
 
-    public static String f(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        InterceptResult invokeLL;
+    @Override // b.a.p0.u.l
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, unitedSchemeEntity, str)) == null) {
-            String str2 = unitedSchemeEntity.getParams().get(str);
-            if (TextUtils.isEmpty(str2)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            m g0 = b.a.p0.a.c1.a.g0();
+            if (g0 != null) {
+                g0.getSwitch("ANDROID_UBC_SAMPLE_" + str, "");
+            }
+            if (TextUtils.isEmpty("")) {
+                return false;
             }
             try {
-                return new JSONObject(str2).optString("src");
+                i2 = new JSONObject("").getInt("probability");
             } catch (JSONException e2) {
-                if (f7358e) {
-                    e2.printStackTrace();
-                }
-                return null;
+                e2.printStackTrace();
+                i2 = 0;
             }
+            return new Random().nextInt(100) < i2;
         }
-        return (String) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public JSONObject d(String str) {
+    @Override // b.a.p0.u.l
+    public ExecutorService d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b.a.p0.a.c1.a.z0().d() : (ExecutorService) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public void e(String str, int i2, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i2, jSONArray) == null) {
+            b.a.p0.a.c1.a.z0().e(str, i2, jSONArray);
+        }
+    }
+
+    @Override // b.a.p0.u.l
+    public void f(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i2) == null) {
+            b.a.p0.a.c1.a.z0().f(str, i2);
+        }
+    }
+
+    @Override // b.a.p0.u.l
+    public void g(String str, String str2, int i2, String str3, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
+            b.a.p0.a.c1.a.z0().g(str, str2, i2, str3, i3);
+        }
+    }
+
+    @Override // b.a.p0.u.l
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            e D = f.U().D();
+            return D != null ? D.f4474f : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public String getAppVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            e D = f.U().D();
+            return D != null ? D.X().v1() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public String getDeviceId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("finalUrl", str);
-            } catch (JSONException e2) {
-                if (f7358e) {
-                    e2.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? b.a.p0.a.c1.a.h0().i(b.a.p0.a.c1.a.c()) : (String) invokeL.objValue;
     }
 
-    public boolean e(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLLL;
+    @Override // b.a.p0.u.l
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, callbackHandler, unitedSchemeEntity)) == null) {
-            String f2 = f(unitedSchemeEntity, "params");
-            if (TextUtils.isEmpty(f2)) {
-                b.a.p0.a.e0.d.g("SwanAppPayLaunchMsg", "wxPay: url is empty");
-                b.a.p0.a.e0.d.h("SwanAppPayLaunchMsg", "param check error - src" + f2);
-                b.a.p0.a.j2.k.D(false, "wechatH5Action", c(f2, "param check error - src"));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else if (!b.a.d0.b.a().a(context)) {
-                b.a.p0.a.z1.b.f.e.g(context, context.getText(h.aiapps_wx_not_install_toast_msg)).F();
-                b.a.p0.a.e0.d.h("SwanAppPayLaunchMsg", "Error: wechat not install. " + f2);
-                b.a.p0.a.j2.k.D(false, "wechatH5Action", c(f2, "Error: wechat not install. "));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
-                return false;
-            } else {
-                b.a.p0.a.l1.b e2 = b.a.p0.a.l1.b.e(f2, f2);
-                b.a.p0.a.e0.d.h("SwanAppPayLaunchMsg", "Info: open wechat pay webview, pageParam =" + e2);
-                if (!b.a.p0.a.h0.g.k.K2("wxPay", e2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    b.a.p0.a.e0.d.h("SwanAppPayLaunchMsg", "Error: webview fragment not opened.");
-                    return false;
-                }
-                b.a.p0.a.e0.d.h("SwanAppPayLaunchMsg", "Success:open wxPay page success");
-                b.a.p0.a.e0.d.h("SwanAppPayLaunchMsg", "Info: end WeChat H5 redirect " + f2);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(d(f2), 0));
-                return true;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            m g0 = b.a.p0.a.c1.a.g0();
+            return g0 != null ? g0.p() : "";
         }
-        return invokeLLL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public void i(String str, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048587, this, str, i2, str2) == null) {
+            b.a.p0.a.c1.a.z0().i(str, i2, str2);
+        }
+    }
+
+    @Override // b.a.p0.u.l
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? b.a.p0.a.c1.a.g0().j() : invokeV.booleanValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            e D = f.U().D();
+            return D != null ? D.V().T() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? d.J().l() : invokeV.intValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public b.a.p0.u.m m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? b.a.p0.a.c1.a.O().m() : (b.a.p0.u.m) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? b.a.p0.a.q2.b.h(l()) : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public void o(String str, String str2, int i2, String str3, long j, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, Integer.valueOf(i2), str3, Long.valueOf(j), Integer.valueOf(i3)}) == null) {
+            b.a.p0.a.c1.a.z0().o(str, str2, i2, str3, j, i3);
+        }
+    }
+
+    @Override // b.a.p0.u.l
+    public String p(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) ? b.a.p0.x.b.b(context).a() : (String) invokeL.objValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.f7910b == null) {
+                b.a.p0.a.c1.a.g0().getSwitch("swan_ceres_add_counter", false);
+                this.f7910b = false;
+            }
+            return this.f7910b.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? b.a.p0.a.x1.a.a.X() && (s() || k.f6864b) : invokeV.booleanValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return f7908c && PreferenceManager.getDefaultSharedPreferences(b.a.p0.a.c1.a.c()).getBoolean("KEY_UBC_DEBUG", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            String b2 = b.a.p0.a.c1.a.n().b();
+            if (q0.G() || TextUtils.isEmpty(b2)) {
+                return null;
+            }
+            return b2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public String u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? b.a.p0.a.d0.a.b() : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.u.l
+    public String v(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, context)) == null) ? b.a.p0.a.c1.a.h0().h(b.a.p0.a.c1.a.c()) : (String) invokeL.objValue;
     }
 }

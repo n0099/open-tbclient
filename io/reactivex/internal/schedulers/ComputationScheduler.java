@@ -19,7 +19,7 @@ import io.reactivex.internal.schedulers.SchedulerMultiWorkerSupport;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ComputationScheduler extends Scheduler implements SchedulerMultiWorkerSupport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_COMPUTATION_PRIORITY = "rx2.computation-priority";
@@ -33,7 +33,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
     public final AtomicReference<FixedSchedulerPool> pool;
     public final ThreadFactory threadFactory;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class FixedSchedulerPool implements SchedulerMultiWorkerSupport {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class PoolWorker extends NewThreadWorker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -268,7 +268,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         start();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class EventLoopWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

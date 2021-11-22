@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AudioChangeOperator implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DU_AUDIO_EFFECT_SHIFT_AGC = 4;

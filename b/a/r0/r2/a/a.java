@@ -2,6 +2,8 @@ package b.a.r0.r2.a;
 
 import android.view.View;
 import android.widget.TextView;
+import b.a.r0.s2.d;
+import b.a.r0.s2.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,7 +11,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.pluginCenter.PluginConfigWrapper;
 import com.baidu.tieba.pluginCenter.view.CircleProgressBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,14 +31,14 @@ public class a extends b.a.q0.k0.f.a<PluginConfigWrapper, b.a.q0.k0.d.b> {
 
     /* renamed from: b.a.r0.r2.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1129a implements View.OnClickListener {
+    public class View$OnClickListenerC1197a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23057e;
+        public final /* synthetic */ a f24589e;
 
-        public View$OnClickListenerC1129a(a aVar) {
+        public View$OnClickListenerC1197a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,16 +53,16 @@ public class a extends b.a.q0.k0.f.a<PluginConfigWrapper, b.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f23057e = aVar;
+            this.f24589e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.q0.k0.c.b bVar = new b.a.q0.k0.c.b(3, this.f23057e.a(), null, null);
-                bVar.i(this.f23057e.g());
-                this.f23057e.b().dispatchMvcEvent(bVar);
+                b.a.q0.k0.c.b bVar = new b.a.q0.k0.c.b(3, this.f24589e.a(), null, null);
+                bVar.i(this.f24589e.g());
+                this.f24589e.b().dispatchMvcEvent(bVar);
             }
         }
     }
@@ -72,7 +73,7 @@ public class a extends b.a.q0.k0.f.a<PluginConfigWrapper, b.a.q0.k0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23058e;
+        public final /* synthetic */ a f24590e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -89,16 +90,16 @@ public class a extends b.a.q0.k0.f.a<PluginConfigWrapper, b.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f23058e = aVar;
+            this.f24590e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.q0.k0.c.b bVar = new b.a.q0.k0.c.b(2, this.f23058e.a(), null, null);
-                bVar.i(this.f23058e.g());
-                this.f23058e.b().dispatchMvcEvent(bVar);
+                b.a.q0.k0.c.b bVar = new b.a.q0.k0.c.b(2, this.f24590e.a(), null, null);
+                bVar.i(this.f24590e.g());
+                this.f24590e.b().dispatchMvcEvent(bVar);
             }
         }
     }
@@ -122,16 +123,16 @@ public class a extends b.a.q0.k0.f.a<PluginConfigWrapper, b.a.q0.k0.d.b> {
                 return;
             }
         }
-        this.k = (TbImageView) view.findViewById(R.id.icon);
-        this.l = (TextView) view.findViewById(R.id.title);
-        this.m = (TextView) view.findViewById(R.id.desc);
-        TextView textView = (TextView) view.findViewById(R.id.status);
+        this.k = (TbImageView) view.findViewById(d.icon);
+        this.l = (TextView) view.findViewById(d.title);
+        this.m = (TextView) view.findViewById(d.desc);
+        TextView textView = (TextView) view.findViewById(d.status);
         this.n = textView;
-        textView.setOnClickListener(new View$OnClickListenerC1129a(this));
-        TextView textView2 = (TextView) view.findViewById(R.id.install);
+        textView.setOnClickListener(new View$OnClickListenerC1197a(this));
+        TextView textView2 = (TextView) view.findViewById(d.install);
         this.o = textView2;
         textView2.setOnClickListener(new b(this));
-        this.p = (CircleProgressBar) view.findViewById(R.id.install_progress);
+        this.p = (CircleProgressBar) view.findViewById(d.install_progress);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -153,7 +154,7 @@ public class a extends b.a.q0.k0.f.a<PluginConfigWrapper, b.a.q0.k0.d.b> {
                 this.o.setVisibility(8);
                 this.p.setVisibility(8);
                 this.n.setVisibility(0);
-                this.n.setText(R.string.view);
+                this.n.setText(f.view);
             } else if (pluginConfigWrapper.getDownLoadStatus() == 3) {
                 this.p.setProgress(pluginConfigWrapper.getDownLoadPercent());
                 this.n.setVisibility(8);
@@ -167,14 +168,14 @@ public class a extends b.a.q0.k0.f.a<PluginConfigWrapper, b.a.q0.k0.d.b> {
         }
     }
 
-    @Override // b.a.r0.l3.u
+    @Override // b.a.r0.m3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2)) == null) {
-            b.a.q0.w0.a.a(tbPageContext, d());
-            this.p.setCircleForegroundColor(SkinManager.getColor(R.color.CAM_X0302));
-            this.p.setCircleBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
+            b.a.q0.v0.a.a(tbPageContext, d());
+            this.p.setCircleForegroundColor(SkinManager.getColor(b.a.r0.s2.a.CAM_X0302));
+            this.p.setCircleBackgroundColor(SkinManager.getColor(b.a.r0.s2.a.CAM_X0109));
             return true;
         }
         return invokeLI.booleanValue;

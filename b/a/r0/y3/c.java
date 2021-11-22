@@ -1,125 +1,151 @@
 package b.a.r0.y3;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Application;
+import android.app.KeyguardManager;
+import android.app.WallpaperManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.PowerManager;
+import b.a.e.f.p.l;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1672360003, "Lb/a/r0/y3/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* renamed from: a  reason: collision with root package name */
+    public KeyguardManager f29323a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PowerManager f29324b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public PowerManager.WakeLock f29325c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public KeyguardManager.KeyguardLock f29326d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f29327e;
+
+    public c() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1672360003, "Lb/a/r0/y3/c;");
+        try {
+            Application app = TbadkCoreApplication.getInst().getApp();
+            this.f29327e = app;
+            PowerManager powerManager = (PowerManager) app.getSystemService("power");
+            this.f29324b = powerManager;
+            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
+            this.f29325c = newWakeLock;
+            newWakeLock.setReferenceCounted(false);
+            KeyguardManager keyguardManager = (KeyguardManager) this.f29327e.getSystemService("keyguard");
+            this.f29323a = keyguardManager;
+            this.f29326d = keyguardManager.newKeyguardLock("ScreenLockUtils");
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
-    public static boolean a(InputStream inputStream, String str, b.a.x0.p.a aVar) throws IOException {
-        InterceptResult invokeLLL;
+    public static Drawable a() {
+        InterceptResult invokeV;
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, aVar)) == null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
+            return (Drawable) invokeV.objValue;
+        }
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        try {
+            Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
+            if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
+                return null;
+            }
+            int min = Math.min(l.k(inst), bitmap.getWidth());
+            int min2 = Math.min(l.i(inst), bitmap.getHeight());
             try {
-                double size = inputStream instanceof FileInputStream ? ((FileInputStream) inputStream).getChannel().size() : 0.0d;
-                FileOutputStream fileOutputStream = new FileOutputStream(str);
-                byte[] bArr = new byte[1444];
-                int i2 = 0;
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    i2 += read;
-                    if (aVar != null && size != 0.0d) {
-                        aVar.b((int) ((i2 / size) * 100.0d));
-                    } else if (aVar != null && size == 0.0d) {
-                        aVar.b(80);
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                return true;
-            } finally {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean b(String str, String str2, b.a.x0.p.a aVar) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, aVar)) == null) ? a(new FileInputStream(str), str2, aVar) : invokeLLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
-    public static VideoFileInfo c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                VideoFileInfo videoFileInfo = new VideoFileInfo();
-                videoFileInfo.videoPath = str;
-                videoFileInfo.lastModified = file.lastModified();
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                 try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            videoFileInfo.videoDuration = b.a.e.e.m.b.e(mediaMetadataRetriever.extractMetadata(9), 0);
-                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
-                            videoFileInfo.videoWidth = b.a.e.e.m.b.e(mediaMetadataRetriever.extractMetadata(18), 0);
-                            videoFileInfo.videoHeight = b.a.e.e.m.b.e(mediaMetadataRetriever.extractMetadata(19), 0);
-                            int e2 = b.a.e.e.m.b.e(mediaMetadataRetriever.extractMetadata(24), 0);
-                            if (e2 == 90 || e2 == 270) {
-                                int i2 = videoFileInfo.videoWidth;
-                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
-                                videoFileInfo.videoHeight = i2;
-                            }
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e4) {
-                            e4.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e5) {
-                    e5.printStackTrace();
+                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                } catch (Throwable unused) {
+                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
                 }
-                return videoFileInfo;
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+                return null;
             }
-            return null;
+        } catch (Exception unused2) {
         }
-        return (VideoFileInfo) invokeL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.f29323a, new Object[0])).booleanValue();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29324b.isScreenOn() : invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                this.f29326d.reenableKeyguard();
+                if (this.f29325c != null) {
+                    this.f29325c.release();
+                    this.f29325c = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                if (this.f29325c == null) {
+                    PowerManager.WakeLock newWakeLock = this.f29324b.newWakeLock(268435462, "ScreenLockNotify");
+                    this.f29325c = newWakeLock;
+                    newWakeLock.setReferenceCounted(false);
+                }
+                if (this.f29325c != null) {
+                    this.f29325c.acquire(10000L);
+                    this.f29326d.disableKeyguard();
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
     }
 }

@@ -23,10 +23,10 @@ public class f extends x implements b.a.q0.k0.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21576h;
+    public String f23075h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f21577i;
+    public String f23076i;
     public int j;
     public int k;
     public String l;
@@ -121,8 +121,8 @@ public class f extends x implements b.a.q0.k0.b.a {
             return;
         }
         try {
-            this.f21576h = String.valueOf(likeForum.forum_id);
-            this.f21577i = likeForum.forum_name;
+            this.f23075h = String.valueOf(likeForum.forum_id);
+            this.f23076i = likeForum.forum_name;
             this.k = likeForum.is_sign.intValue();
             this.j = likeForum.level_id.intValue();
             this.l = likeForum.avatar;
@@ -183,7 +183,7 @@ public class f extends x implements b.a.q0.k0.b.a {
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f21576h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f23075h : (String) invokeV.objValue;
     }
 
     public int q() {
@@ -201,7 +201,7 @@ public class f extends x implements b.a.q0.k0.b.a {
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f21577i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f23076i : (String) invokeV.objValue;
     }
 
     public boolean x() {

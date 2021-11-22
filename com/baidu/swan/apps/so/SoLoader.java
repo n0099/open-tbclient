@@ -8,12 +8,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.h2.a;
-import b.a.p0.a.h2.b;
-import b.a.p0.a.h2.e;
-import b.a.p0.a.h2.f;
 import b.a.p0.a.k;
-import b.a.p0.t.d;
+import b.a.p0.a.k2.a;
+import b.a.p0.a.k2.b;
+import b.a.p0.a.k2.e;
+import b.a.p0.a.k2.f;
+import b.a.p0.w.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -63,7 +63,7 @@ public final class SoLoader {
                 return;
             }
         }
-        DEBUG = k.f6397a;
+        DEBUG = k.f6863a;
         sLoadedLibraries = Collections.synchronizedSet(new HashSet());
         soSources = new ArrayList();
     }
@@ -137,7 +137,6 @@ public final class SoLoader {
         return (File) invokeLL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     private String getNativeLibraryDir(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -232,6 +231,7 @@ public final class SoLoader {
         return invokeLL.booleanValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private boolean loadInternal(Context context, String str, b bVar, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

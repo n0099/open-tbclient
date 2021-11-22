@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class Point extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class OrientationMode {
         public static final /* synthetic */ OrientationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -118,7 +118,7 @@ public class Point extends TrackableBase {
 
     private native int nativeGetOrientationMode(long j, long j2);
 
-    private native b.i.c.a.a nativeGetPose(long j, long j2);
+    private native b.h.c.a.a nativeGetPose(long j, long j2);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Point() {

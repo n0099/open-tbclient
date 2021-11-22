@@ -24,16 +24,16 @@ public class v extends b.a.q0.x.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbEditorData.ThreadData f19500a;
+    public PbEditorData.ThreadData f21061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.q0.x.b f19501b;
+    public b.a.q0.x.b f21062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f19502c;
+    public boolean f21063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f19503d;
+    public boolean f21064d;
 
     /* loaded from: classes5.dex */
     public class a implements b.a.q0.x.b {
@@ -41,10 +41,10 @@ public class v extends b.a.q0.x.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ u f19504e;
+        public final /* synthetic */ u f21065e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ v f19505f;
+        public final /* synthetic */ v f21066f;
 
         public a(v vVar, u uVar) {
             Interceptable interceptable = $ic;
@@ -61,46 +61,46 @@ public class v extends b.a.q0.x.c {
                     return;
                 }
             }
-            this.f19505f = vVar;
-            this.f19504e = uVar;
+            this.f21066f = vVar;
+            this.f21065e = uVar;
         }
 
         @Override // b.a.q0.x.b
         public void onAction(b.a.q0.x.a aVar) {
             u uVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (uVar = this.f19504e) == null || uVar.a() == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (uVar = this.f21065e) == null || uVar.a() == null || aVar == null) {
                 return;
             }
-            if (this.f19505f.f19501b != null) {
-                this.f19505f.f19501b.onAction(aVar);
+            if (this.f21066f.f21062b != null) {
+                this.f21066f.f21062b.onAction(aVar);
             }
-            int i2 = aVar.f14195a;
+            int i2 = aVar.f14962a;
             if (i2 == 18) {
-                if (aVar.f14197c != null) {
-                    this.f19504e.l();
+                if (aVar.f14964c != null) {
+                    this.f21065e.l();
                     return;
                 }
-                int f2 = this.f19504e.f();
+                int f2 = this.f21065e.f();
                 if (f2 == 0) {
-                    this.f19504e.k();
+                    this.f21065e.k();
                 } else if (f2 != 2) {
                 } else {
-                    this.f19504e.h();
+                    this.f21065e.h();
                 }
             } else if (i2 == 20) {
-                b.a.r0.l3.o0.b.a().f(true);
+                b.a.r0.m3.o0.b.a().f(true);
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             } else if (i2 == 32) {
-                this.f19504e.a().sendAction(new b.a.q0.x.a(1, 11, null));
+                this.f21065e.a().sendAction(new b.a.q0.x.a(1, 11, null));
             } else if (i2 == 36) {
-                if (this.f19505f.h(this.f19504e.getContext().getPageContext(), 11040)) {
-                    this.f19504e.m();
+                if (this.f21066f.h(this.f21065e.getContext().getPageContext(), 11040)) {
+                    this.f21065e.m();
                 }
-            } else if (i2 == 43 && !b.a.q0.t0.b.c(this.f19504e.getContext().getPageContext(), true, false)) {
-                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.f19504e.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB);
-                if (this.f19505f.f19500a != null) {
-                    hotSelectActivityConfig.setForumExtra(b.a.e.e.m.b.g(this.f19505f.f19500a.getForumId(), 0L), this.f19505f.f19500a.getFirstDir(), this.f19505f.f19500a.getSecondDir());
+            } else if (i2 == 43 && !b.a.q0.s0.b.c(this.f21065e.getContext().getPageContext(), true, false)) {
+                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.f21065e.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB);
+                if (this.f21066f.f21061a != null) {
+                    hotSelectActivityConfig.setForumExtra(b.a.e.f.m.b.g(this.f21066f.f21061a.getForumId(), 0L), this.f21066f.f21061a.getFirstDir(), this.f21066f.f21061a.getSecondDir());
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotSelectActivityConfig));
             }
@@ -120,8 +120,8 @@ public class v extends b.a.q0.x.c {
                 return;
             }
         }
-        this.f19502c = false;
-        this.f19503d = false;
+        this.f21063c = false;
+        this.f21064d = false;
     }
 
     @Override // b.a.q0.x.c
@@ -132,9 +132,9 @@ public class v extends b.a.q0.x.c {
             EditorTools editorTools = new EditorTools(context);
             editorTools.setIsFromPb(true);
             editorTools.setBarMaxLauCount(5);
-            if (this.f19502c) {
+            if (this.f21063c) {
                 editorTools.setBarLauncherType(2);
-            } else if (this.f19503d) {
+            } else if (this.f21064d) {
                 editorTools.setBarLauncherType(5);
             } else {
                 editorTools.setBarLauncherType(3);
@@ -180,21 +180,21 @@ public class v extends b.a.q0.x.c {
             EditorTools a2 = eVar.a();
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            if (!this.f19502c) {
+            if (!this.f21063c) {
                 arrayList.add(10);
                 a2.addTool(new b.a.q0.x.r.d(a2.getContext(), 1));
             }
-            if (!this.f19503d) {
+            if (!this.f21064d) {
                 arrayList.add(6);
                 arrayList.add(9);
-                PbEditorData.ThreadData threadData = this.f19500a;
+                PbEditorData.ThreadData threadData = this.f21061a;
                 String forumName = threadData != null ? threadData.getForumName() : "";
-                if (b.a.r0.l3.r0.c.a() && b.a.r0.l3.v.a(forumName, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), b.a.q0.x.m.class)) != null && (mVar = (b.a.q0.x.m) runTask.getData()) != null) {
+                if (b.a.r0.m3.r0.c.a() && b.a.r0.m3.v.a(forumName, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), b.a.q0.x.m.class)) != null && (mVar = (b.a.q0.x.m) runTask.getData()) != null) {
                     mVar.j = 2;
                     a2.addTool(mVar);
                 }
                 a2.addTool(new b.a.q0.x.o.a(a2.getContext(), 4));
-                if (!this.f19502c) {
+                if (!this.f21063c) {
                     CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), b.a.q0.x.m.class);
                     if (runTask2 != null && runTask2.getData() != null) {
                         b.a.q0.x.m mVar2 = (b.a.q0.x.m) runTask2.getData();
@@ -208,23 +208,23 @@ public class v extends b.a.q0.x.c {
                         a2.addTool(mVar3);
                     }
                 }
-                if (!"PbChosenActivity".equals(a2.getContext().getClass().getSimpleName()) && !this.f19502c) {
+                if (!"PbChosenActivity".equals(a2.getContext().getClass().getSimpleName()) && !this.f21063c) {
                     a2.addTool(new b.a.q0.x.q.a(a2.getContext(), 5));
                 }
             }
-            if (!this.f19502c && !this.f19503d) {
+            if (!this.f21063c && !this.f21064d) {
                 arrayList.add(8);
             }
             a2.collect(arrayList);
             b.a.q0.x.m findToolById = a2.findToolById(5);
             if (findToolById != null) {
                 findToolById.j = 3;
-                if (this.f19503d) {
+                if (this.f21064d) {
                     findToolById.e(false);
                 }
             }
             a2.build();
-            if (this.f19502c || this.f19503d) {
+            if (this.f21063c || this.f21064d) {
                 a2.sendAction(new b.a.q0.x.a(35, 5, Boolean.FALSE));
             }
         }
@@ -247,28 +247,28 @@ public class v extends b.a.q0.x.c {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f19503d = z;
+            this.f21064d = z;
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f19502c = z;
+            this.f21063c = z;
         }
     }
 
     public void k(b.a.q0.x.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f19501b = bVar;
+            this.f21062b = bVar;
         }
     }
 
     public void l(PbEditorData.ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
-            this.f19500a = threadData;
+            this.f21061a = threadData;
         }
     }
 }

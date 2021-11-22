@@ -19,10 +19,10 @@ public class h extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f39209a;
+    public final /* synthetic */ String f40041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f39210b;
+    public final /* synthetic */ e f40042b;
 
     public h(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class h extends Thread {
                 return;
             }
         }
-        this.f39210b = eVar;
-        this.f39209a = str;
+        this.f40042b = eVar;
+        this.f40041a = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:103:0x01ce  */
@@ -70,9 +70,9 @@ public class h extends Thread {
         ByteArrayOutputStream byteArrayOutputStream3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39210b.a();
-            this.f39210b.b();
-            this.f39210b.f39203h = this.f39209a;
+            this.f40042b.a();
+            this.f40042b.b();
+            this.f40042b.f40035h = this.f40041a;
             HttpsURLConnection httpsURLConnection2 = null;
             InputStream inputStream3 = null;
             httpsURLConnection2 = null;
@@ -80,22 +80,22 @@ public class h extends Thread {
                 try {
                     try {
                         StringBuffer stringBuffer = new StringBuffer();
-                        URL url2 = new URL(this.f39210b.f39203h);
+                        URL url2 = new URL(this.f40042b.f40035h);
                         try {
                             HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) url2.openConnection();
                             try {
                                 httpsURLConnection3.setInstanceFollowRedirects(false);
                                 httpsURLConnection3.setDoOutput(true);
                                 httpsURLConnection3.setDoInput(true);
-                                httpsURLConnection3.setConnectTimeout(a.f39164b);
-                                httpsURLConnection3.setReadTimeout(a.f39165c);
+                                httpsURLConnection3.setConnectTimeout(a.f39996b);
+                                httpsURLConnection3.setReadTimeout(a.f39997c);
                                 httpsURLConnection3.setRequestMethod("POST");
                                 httpsURLConnection3.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                                 httpsURLConnection3.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
                                 if (k.ax != null) {
                                     httpsURLConnection3.setRequestProperty("bd-loc-android", k.ax);
                                 }
-                                for (Map.Entry<String, Object> entry : this.f39210b.k.entrySet()) {
+                                for (Map.Entry<String, Object> entry : this.f40042b.k.entrySet()) {
                                     stringBuffer.append(entry.getKey());
                                     stringBuffer.append("=");
                                     stringBuffer.append(entry.getValue());
@@ -125,8 +125,8 @@ public class h extends Thread {
                                                     }
                                                     byteArrayOutputStream3.write(bArr, 0, read);
                                                 }
-                                                this.f39210b.j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
-                                                this.f39210b.a(true);
+                                                this.f40042b.j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
+                                                this.f40042b.a(true);
                                                 inputStream3 = inputStream;
                                             } catch (Error e2) {
                                                 InputStream inputStream4 = inputStream;
@@ -136,9 +136,9 @@ public class h extends Thread {
                                                 url = url2;
                                                 inputStream2 = inputStream4;
                                                 e.printStackTrace();
-                                                String str = a.f39163a;
-                                                this.f39210b.j = null;
-                                                this.f39210b.a(false);
+                                                String str = a.f39995a;
+                                                this.f40042b.j = null;
+                                                this.f40042b.a(false);
                                                 if (httpsURLConnection != null) {
                                                 }
                                                 if (outputStream != null) {
@@ -156,9 +156,9 @@ public class h extends Thread {
                                                 url = url2;
                                                 inputStream2 = inputStream5;
                                                 e.printStackTrace();
-                                                String str2 = a.f39163a;
-                                                this.f39210b.j = null;
-                                                this.f39210b.a(false);
+                                                String str2 = a.f39995a;
+                                                this.f40042b.j = null;
+                                                this.f40042b.a(false);
                                                 if (httpsURLConnection != null) {
                                                 }
                                                 if (outputStream != null) {
@@ -179,21 +179,21 @@ public class h extends Thread {
                                                     try {
                                                         outputStream.close();
                                                     } catch (Exception unused) {
-                                                        String str3 = a.f39163a;
+                                                        String str3 = a.f39995a;
                                                     }
                                                 }
                                                 if (inputStream != null) {
                                                     try {
                                                         inputStream.close();
                                                     } catch (Exception unused2) {
-                                                        String str4 = a.f39163a;
+                                                        String str4 = a.f39995a;
                                                     }
                                                 }
                                                 if (byteArrayOutputStream != null) {
                                                     try {
                                                         byteArrayOutputStream.close();
                                                     } catch (Exception unused3) {
-                                                        String str5 = a.f39163a;
+                                                        String str5 = a.f39995a;
                                                     }
                                                 }
                                                 throw th;
@@ -225,8 +225,8 @@ public class h extends Thread {
                                             throw th;
                                         }
                                     } else {
-                                        this.f39210b.j = null;
-                                        this.f39210b.a(false);
+                                        this.f40042b.j = null;
+                                        this.f40042b.a(false);
                                         byteArrayOutputStream3 = null;
                                     }
                                     if (httpsURLConnection3 != null) {
@@ -236,14 +236,14 @@ public class h extends Thread {
                                         try {
                                             outputStream.close();
                                         } catch (Exception unused4) {
-                                            String str6 = a.f39163a;
+                                            String str6 = a.f39995a;
                                         }
                                     }
                                     if (inputStream3 != null) {
                                         try {
                                             inputStream3.close();
                                         } catch (Exception unused5) {
-                                            String str7 = a.f39163a;
+                                            String str7 = a.f39995a;
                                         }
                                     }
                                 } catch (Error e6) {
@@ -271,9 +271,9 @@ public class h extends Thread {
                                 url = url2;
                                 inputStream2 = outputStream;
                                 e.printStackTrace();
-                                String str8 = a.f39163a;
-                                this.f39210b.j = null;
-                                this.f39210b.a(false);
+                                String str8 = a.f39995a;
+                                this.f40042b.j = null;
+                                this.f40042b.a(false);
                                 if (httpsURLConnection != null) {
                                     httpsURLConnection.disconnect();
                                 }
@@ -281,14 +281,14 @@ public class h extends Thread {
                                     try {
                                         outputStream.close();
                                     } catch (Exception unused6) {
-                                        String str9 = a.f39163a;
+                                        String str9 = a.f39995a;
                                     }
                                 }
                                 if (inputStream2 != null) {
                                     try {
                                         inputStream2.close();
                                     } catch (Exception unused7) {
-                                        String str10 = a.f39163a;
+                                        String str10 = a.f39995a;
                                     }
                                 }
                                 if (byteArrayOutputStream2 == null) {
@@ -303,9 +303,9 @@ public class h extends Thread {
                                 url = url2;
                                 inputStream2 = outputStream;
                                 e.printStackTrace();
-                                String str22 = a.f39163a;
-                                this.f39210b.j = null;
-                                this.f39210b.a(false);
+                                String str22 = a.f39995a;
+                                this.f40042b.j = null;
+                                this.f40042b.a(false);
                                 if (httpsURLConnection != null) {
                                     httpsURLConnection.disconnect();
                                 }
@@ -313,14 +313,14 @@ public class h extends Thread {
                                     try {
                                         outputStream.close();
                                     } catch (Exception unused8) {
-                                        String str11 = a.f39163a;
+                                        String str11 = a.f39995a;
                                     }
                                 }
                                 if (inputStream2 != null) {
                                     try {
                                         inputStream2.close();
                                     } catch (Exception unused9) {
-                                        String str12 = a.f39163a;
+                                        String str12 = a.f39995a;
                                     }
                                 }
                                 if (byteArrayOutputStream2 == null) {
@@ -379,7 +379,7 @@ public class h extends Thread {
                     byteArrayOutputStream3.close();
                 }
             } catch (Exception unused10) {
-                String str13 = a.f39163a;
+                String str13 = a.f39995a;
             }
         }
     }

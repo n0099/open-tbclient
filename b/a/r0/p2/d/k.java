@@ -28,16 +28,16 @@ public class k extends e implements b.a.r0.z1.a, b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f22264f;
+    public TbPageContext f23741f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f22265g;
+    public long f23742g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f22266h;
+    public boolean f23743h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f22267i;
+    public BdUniqueId f23744i;
     public g j;
     public p k;
     public PersonPolymericModel l;
@@ -66,20 +66,20 @@ public class k extends e implements b.a.r0.z1.a, b {
                 return;
             }
         }
-        this.f22266h = true;
+        this.f23743h = true;
         this.q = 3;
         BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
         this.n = baseFragmentActivity;
-        this.f22264f = baseFragmentActivity.getPageContext();
-        this.f22265g = j;
+        this.f23741f = baseFragmentActivity.getPageContext();
+        this.f23742g = j;
         this.j = gVar;
-        this.f22267i = bdUniqueId;
-        this.o = gVar.f22228i;
-        this.p = new PersonPostModel(this.f22264f, bdUniqueId, null, this.f22214e, PersonPostModel.FROM_PERSON_POLYMERIC);
-        p pVar = new p(baseFragment, gVar, bdUniqueId, z, this.f22265g);
+        this.f23744i = bdUniqueId;
+        this.o = gVar.f23705i;
+        this.p = new PersonPostModel(this.f23741f, bdUniqueId, null, this.f23691e, PersonPostModel.FROM_PERSON_POLYMERIC);
+        p pVar = new p(baseFragment, gVar, bdUniqueId, z, this.f23742g);
         this.k = pVar;
         pVar.W(this);
-        f();
+        g();
         this.l = this.j.q();
         this.m = this.j.l();
         ArrayList arrayList = new ArrayList(2);
@@ -88,41 +88,51 @@ public class k extends e implements b.a.r0.z1.a, b {
         this.r.add(new b.a.r0.m2.h.e());
     }
 
-    @Override // b.a.r0.p2.d.b
-    public p a() {
-        InterceptResult invokeV;
+    @Override // b.a.r0.z1.a
+    public void a() {
+        g gVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (p) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.j) == null) {
+            return;
+        }
+        gVar.a();
     }
 
     @Override // b.a.r0.p2.d.b
-    public void c(String str) {
+    public p b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (p) invokeV.objValue;
+    }
+
+    @Override // b.a.r0.p2.d.b
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
     }
 
     @Override // b.a.r0.p2.d.b
-    public void d() {
+    public void e() {
         p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pVar = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pVar = this.k) == null) {
             return;
         }
         pVar.M();
     }
 
     @Override // b.a.r0.p2.d.b
-    public void e(String str) {
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
     }
 
     @Override // b.a.r0.z1.a
-    public void f() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.p.resetThreadPn();
             PersonPolymericModel personPolymericModel = this.l;
             if (personPolymericModel != null) {
@@ -131,17 +141,7 @@ public class k extends e implements b.a.r0.z1.a, b {
         }
     }
 
-    @Override // b.a.r0.z1.a
-    public void g() {
-        g gVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (gVar = this.j) == null) {
-            return;
-        }
-        gVar.g();
-    }
-
-    public void j(b.a.r0.c4.e eVar) {
+    public void j(b.a.r0.d4.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
             this.k.X(eVar);
@@ -163,7 +163,7 @@ public class k extends e implements b.a.r0.z1.a, b {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f22267i);
+            MessageManager.getInstance().unRegisterListener(this.f23744i);
             p pVar = this.k;
             if (pVar != null) {
                 pVar.U();
@@ -183,16 +183,16 @@ public class k extends e implements b.a.r0.z1.a, b {
 
     public void m(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && z && this.f22266h) {
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && z && this.f23743h) {
             loadData();
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && TbadkCoreApplication.isLogin() && !this.f22214e && this.f22265g == TbadkCoreApplication.getCurrentAccountId()) {
-            this.f22214e = true;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f22264f.getPageActivity()).createNormalConfig(b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && TbadkCoreApplication.isLogin() && !this.f23691e && this.f23742g == TbadkCoreApplication.getCurrentAccountId()) {
+            this.f23691e = true;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f23741f.getPageActivity()).createNormalConfig(b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
             this.n.finish();
         }
     }
@@ -211,7 +211,7 @@ public class k extends e implements b.a.r0.z1.a, b {
             }
             this.m.o();
             if (aVar.e() != null && ((aVar.e().getHide_stat() == 1 && aVar.e().getBlock_stat() == 1) || (aVar.e().getHide_stat() == 1 && aVar.e().getBlock_stat() == 2))) {
-                this.m.u(this.f22214e);
+                this.m.u(this.f23691e);
                 this.m.s(8);
                 return;
             }
@@ -221,8 +221,8 @@ public class k extends e implements b.a.r0.z1.a, b {
             if (aVar.j() != null) {
                 aVar.j().getSex();
             }
-            this.f22266h = false;
-            if (this.f22214e && aVar.j() != null) {
+            this.f23743h = false;
+            if (this.f23691e && aVar.j() != null) {
                 aVar.j().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
                 b.a.q0.a0.b.a().e(aVar.j());
             }

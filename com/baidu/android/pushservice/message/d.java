@@ -17,10 +17,10 @@ public abstract class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35778a;
+    public Context f36607a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedList<e> f35779b;
+    public LinkedList<e> f36608b;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public abstract class d {
                 return;
             }
         }
-        this.f35779b = new LinkedList<>();
-        this.f35778a = context;
+        this.f36608b = new LinkedList<>();
+        this.f36607a = context;
     }
 
     public abstract e a(byte[] bArr) throws IOException;
@@ -46,7 +46,7 @@ public abstract class d {
     public LinkedList<e> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35779b : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36608b : (LinkedList) invokeV.objValue;
     }
 
     public abstract void a(int i2, String str, byte[] bArr);
@@ -54,12 +54,12 @@ public abstract class d {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            synchronized (this.f35779b) {
+            synchronized (this.f36608b) {
                 try {
-                    this.f35779b.add(eVar);
-                    this.f35779b.notifyAll();
+                    this.f36608b.add(eVar);
+                    this.f36608b.notifyAll();
                 } catch (Exception e2) {
-                    new b.c(this.f35778a).a(Log.getStackTraceString(e2)).a();
+                    new b.c(this.f36607a).a(Log.getStackTraceString(e2)).a();
                 }
             }
         }

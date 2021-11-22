@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import b.a.e.a.j;
-import b.a.q0.w0.a;
+import b.a.q0.v0.a;
 import b.a.r0.y1.c.k.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -24,19 +24,19 @@ public class DailyPrivilegeItemView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51469e;
+    public Context f52381e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51470f;
+    public View f52382f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f51471g;
+    public TbImageView f52383g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f51472h;
+    public TbImageView f52384h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PrivilegeTextView f51473i;
+    public PrivilegeTextView f52385i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,29 +57,29 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f51469e = context;
+        this.f52381e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f51469e).inflate(R.layout.index_daily_item, this);
-            this.f51470f = inflate;
-            this.f51471g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-            TbImageView tbImageView = (TbImageView) this.f51470f.findViewById(R.id.privilege_tag_icon);
-            this.f51472h = tbImageView;
+            View inflate = LayoutInflater.from(this.f52381e).inflate(R.layout.index_daily_item, this);
+            this.f52382f = inflate;
+            this.f52383g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
+            TbImageView tbImageView = (TbImageView) this.f52382f.findViewById(R.id.privilege_tag_icon);
+            this.f52384h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f51472h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f51473i = (PrivilegeTextView) this.f51470f.findViewById(R.id.privilege_title);
-            this.j = (TextView) this.f51470f.findViewById(R.id.privilege_desc);
+            this.f52384h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f52385i = (PrivilegeTextView) this.f52382f.findViewById(R.id.privilege_title);
+            this.j = (TextView) this.f52382f.findViewById(R.id.privilege_desc);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.a((TbPageContext) j.a(this.f51469e), this.f51470f);
+            a.a((TbPageContext) j.a(this.f52381e), this.f52382f);
         }
     }
 
@@ -88,12 +88,12 @@ public class DailyPrivilegeItemView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) || hVar == null) {
             return;
         }
-        this.f51471g.setIsRound(false);
-        this.f51471g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
-        this.f51471g.startLoad(hVar.a(), 10, false);
+        this.f52383g.setIsRound(false);
+        this.f52383g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
+        this.f52383g.startLoad(hVar.a(), 10, false);
         this.j.setText(hVar.d());
-        this.f51473i.setText(hVar.b());
-        this.f51472h.startLoad(hVar.c(), 10, false);
+        this.f52385i.setText(hVar.b());
+        this.f52384h.startLoad(hVar.c(), 10, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,7 +115,7 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f51469e = context;
+        this.f52381e = context;
         a();
     }
 
@@ -138,7 +138,7 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f51469e = context;
+        this.f52381e = context;
         a();
     }
 }

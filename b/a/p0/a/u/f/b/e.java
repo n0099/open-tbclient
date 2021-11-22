@@ -16,7 +16,7 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f8410a;
+        public static final /* synthetic */ int[] f8942a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -33,13 +33,13 @@ public class e {
                 }
             }
             int[] iArr = new int[BasePendingOperation.OperationType.values().length];
-            f8410a = iArr;
+            f8942a = iArr;
             try {
                 iArr[BasePendingOperation.OperationType.OPERATION_TYPE_MAIN_THREAD.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f8410a[BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST.ordinal()] = 2;
+                f8942a[BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -49,7 +49,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, operationType)) == null) {
-            int i2 = a.f8410a[operationType.ordinal()];
+            int i2 = a.f8942a[operationType.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return new f();

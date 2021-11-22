@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements ThirdPartAliRechargeService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class b implements ThirdPartAliRechargeService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
             b.a.q0.e.a aVar = new b.a.q0.e.a();
-            aVar.f12203a = activity;
-            aVar.f12204b = str;
-            aVar.f12205c = z;
+            aVar.f12946a = activity;
+            aVar.f12947b = str;
+            aVar.f12948c = z;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, aVar);
             return runTask == null ? "" : (String) runTask.getData();
         }

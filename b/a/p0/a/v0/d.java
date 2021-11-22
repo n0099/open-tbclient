@@ -3,8 +3,8 @@ package b.a.p0.a.v0;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
-import b.a.p0.a.k2.g.h;
-import b.a.p0.a.v2.q;
+import b.a.p0.a.o2.g.h;
+import b.a.p0.a.z2.q;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +21,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8454a;
+    public static final boolean f9150a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -30,7 +30,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8455e;
+        public final /* synthetic */ String f9151e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class d {
                     return;
                 }
             }
-            this.f8455e = str;
+            this.f9151e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h.a().putString("swan_guide_toast", this.f8455e);
+                h.a().putString("swan_guide_toast", this.f9151e);
             }
         }
     }
@@ -72,7 +72,7 @@ public class d {
                 return;
             }
         }
-        f8454a = k.f6397a;
+        f9150a = k.f6863a;
     }
 
     public static void a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -98,7 +98,7 @@ public class d {
             jSONObject.put("bbaspg_guide_shown_count", jSONObject2.optString("bbaspg_guide_shown_count", "0"));
             jSONObject.put("bbaspg_guide_last_time", jSONObject2.optString("bbaspg_guide_last_time", "0"));
         } catch (JSONException e2) {
-            if (f8454a) {
+            if (f9150a) {
                 e2.printStackTrace();
             }
         }
@@ -135,7 +135,7 @@ public class d {
                                 optJSONObject.put("image_index", jSONObject2.optString("image_index", "0"));
                             }
                         } catch (JSONException e2) {
-                            if (f8454a) {
+                            if (f9150a) {
                                 e2.printStackTrace();
                             }
                         }
@@ -164,7 +164,7 @@ public class d {
             try {
                 return new JSONObject(string);
             } catch (JSONException e2) {
-                if (f8454a) {
+                if (f9150a) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -178,7 +178,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             String string = h.a().getString("guide_toast_version", "0");
-            if (f8454a) {
+            if (f9150a) {
                 String str = "version = " + string;
             }
             return string;
@@ -189,7 +189,7 @@ public class d {
     public static void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject) == null) {
-            if (f8454a) {
+            if (f9150a) {
                 String str = "processGuide guideObject = " + jSONObject;
             }
             if (jSONObject == null) {
@@ -217,6 +217,6 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(65543, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        q.j(new a(str), "swanGuideUpdateRunnable");
+        q.k(new a(str), "swanGuideUpdateRunnable");
     }
 }

@@ -12,10 +12,10 @@ public final class l implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f70314a;
+    public final /* synthetic */ List f71234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f70315b;
+    public final /* synthetic */ LocalAliasTagsManager f71235b;
 
     public l(LocalAliasTagsManager localAliasTagsManager, List list) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class l implements Runnable {
                 return;
             }
         }
-        this.f70315b = localAliasTagsManager;
-        this.f70314a = list;
+        this.f71235b = localAliasTagsManager;
+        this.f71234a = list;
     }
 
     @Override // java.lang.Runnable
@@ -41,10 +41,10 @@ public final class l implements Runnable {
         List list;
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f70314a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f71234a) == null || list.size() <= 0) {
             return;
         }
-        iSubscribeAppAliasManager = this.f70315b.mSubscribeAppAliasManager;
-        iSubscribeAppAliasManager.delAliasSuccess((String) this.f70314a.get(0));
+        iSubscribeAppAliasManager = this.f71235b.mSubscribeAppAliasManager;
+        iSubscribeAppAliasManager.delAliasSuccess((String) this.f71234a.get(0));
     }
 }

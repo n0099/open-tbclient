@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -31,10 +31,10 @@ public class TbSettingTextTipView extends FrameLayout {
     public View dividerline;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45771e;
+    public boolean f46621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45772f;
+    public int f46622f;
     public ImageView imageView;
     public Context mContext;
     public TextView textView;
@@ -59,7 +59,7 @@ public class TbSettingTextTipView extends FrameLayout {
                 return;
             }
         }
-        this.f45771e = true;
+        this.f46621e = true;
         this.mContext = context;
         initialieView();
         initializeStyle(attributeSet);
@@ -149,12 +149,12 @@ public class TbSettingTextTipView extends FrameLayout {
                 if (string2 != null) {
                     this.tipView.setText(string2);
                 }
-                this.f45771e = obtainStyledAttributes.getBoolean(R$styleable.TbSettingView_settingShowArraw, true);
+                this.f46621e = obtainStyledAttributes.getBoolean(R$styleable.TbSettingView_settingShowArraw, true);
                 obtainStyledAttributes.recycle();
             }
             this.container.setClickable(false);
             this.container.setFocusable(false);
-            if (this.f45771e) {
+            if (this.f46621e) {
                 return;
             }
             this.imageView.setVisibility(4);
@@ -167,7 +167,7 @@ public class TbSettingTextTipView extends FrameLayout {
             setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
             SkinManager.setViewTextColor(this.textView, R.color.CAM_X0105);
             TextView textView = this.tipView;
-            int i3 = this.f45772f;
+            int i3 = this.f46622f;
             if (i3 == 0) {
                 i3 = R.color.CAM_X0109;
             }
@@ -210,7 +210,7 @@ public class TbSettingTextTipView extends FrameLayout {
     public void setTipViewColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f45772f = i2;
+            this.f46622f = i2;
             SkinManager.setViewTextColor(this.tipView, i2);
         }
     }
@@ -240,8 +240,9 @@ public class TbSettingTextTipView extends FrameLayout {
                 return;
             }
         }
-        this.f45771e = true;
+        this.f46621e = true;
         this.mContext = context;
         initialieView();
+        initializeStyle(null);
     }
 }

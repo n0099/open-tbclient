@@ -11,28 +11,28 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f21729a;
+    public String f23228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f21730b;
+    public long f23229b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21731c;
+    public String f23230c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f21732d;
+    public boolean f23231d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21733e;
+    public int f23232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21734f;
+    public int f23233f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21735g;
+    public String f23234g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21736h;
+    public int f23235h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -51,22 +51,22 @@ public class b {
     public void a(RecommendForumInfo recommendForumInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, recommendForumInfo) == null) {
-            this.f21729a = recommendForumInfo.avatar;
-            this.f21730b = recommendForumInfo.forum_id.longValue();
-            this.f21731c = recommendForumInfo.forum_name;
-            this.f21732d = recommendForumInfo.is_like.intValue() == 1;
-            this.f21733e = recommendForumInfo.member_count.intValue();
-            this.f21734f = recommendForumInfo.thread_count.intValue();
+            this.f23228a = recommendForumInfo.avatar;
+            this.f23229b = recommendForumInfo.forum_id.longValue();
+            this.f23230c = recommendForumInfo.forum_name;
+            this.f23231d = recommendForumInfo.is_like.intValue() == 1;
+            this.f23232e = recommendForumInfo.member_count.intValue();
+            this.f23233f = recommendForumInfo.thread_count.intValue();
             String str = recommendForumInfo.slogan;
             recommendForumInfo.forum_type.intValue();
             String str2 = recommendForumInfo.authen;
-            this.f21735g = recommendForumInfo.recom_reason;
+            this.f23234g = recommendForumInfo.recom_reason;
             recommendForumInfo.is_brand_forum.intValue();
             String str3 = recommendForumInfo.hot_text;
             String str4 = recommendForumInfo.abtest_tag;
             String str5 = recommendForumInfo.source;
             String str6 = recommendForumInfo.extra;
-            this.f21736h = 1;
+            this.f23235h = 1;
         }
     }
 }

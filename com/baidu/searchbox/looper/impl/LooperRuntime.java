@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import b.a.h0.a.b.b;
 import b.a.h0.a.b.c;
 import b.a.h0.a.b.d;
-import b.h.b.a.j.a;
+import b.g.b.a.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.config.AppConfig;

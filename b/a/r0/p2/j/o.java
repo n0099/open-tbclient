@@ -63,10 +63,10 @@ public class o extends b.a.r0.b0.b<b.a.r0.p2.e.l> {
     @Override // b.a.r0.b0.b
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f14736e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f16223e == i2) {
             return;
         }
-        this.f14736e = i2;
+        this.f16223e = i2;
         SkinManager.setBackgroundColor(this.m, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
         SkinManager.setImageResource(this.p, R.drawable.icon_play_video, i2);
@@ -81,9 +81,9 @@ public class o extends b.a.r0.b0.b<b.a.r0.p2.e.l> {
             return;
         }
         this.q = lVar;
-        this.n.startLoad(lVar.f22317e, 10, false);
-        this.o.setText(lVar.f22318f);
-        k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+        this.n.startLoad(lVar.f23794e, 10, false);
+        this.o.setText(lVar.f23795f);
+        k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
@@ -91,9 +91,9 @@ public class o extends b.a.r0.b0.b<b.a.r0.p2.e.l> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && this.m == view) {
             MessageManager messageManager = MessageManager.getInstance();
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f14738g);
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f16225g);
             b.a.r0.p2.e.l lVar = this.q;
-            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(lVar.f22319g, lVar.f22320h, "person_page")));
+            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(lVar.f23796g, lVar.f23797h, "person_page")));
         }
     }
 }

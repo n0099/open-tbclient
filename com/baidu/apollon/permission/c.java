@@ -17,13 +17,13 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f36049a = 0;
+    public static final int f36878a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f36050b = -1;
+    public static final int f36879b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f36051c = -2;
+    public static final int f36880c = -2;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)

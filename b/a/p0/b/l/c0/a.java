@@ -9,7 +9,7 @@ import b.a.p0.b.l.b0;
 import b.a.p0.b.l.l;
 import b.a.p0.b.m.a;
 import b.a.p0.b.n.b;
-import b.a.p0.b.p.g.e;
+import b.a.p0.b.p.d.e;
 import b.a.p0.b.q.a;
 import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
 import java.util.ArrayList;
@@ -24,29 +24,27 @@ public interface a {
 
     a0 d(Context context);
 
-    String e(Context context);
+    void e(Activity activity, String str, String str2, b0 b0Var);
 
-    void f(Activity activity, String str, String str2, b0 b0Var);
+    void f(Context context, a.d dVar);
 
-    void g(Context context, a.d dVar);
+    boolean g(Context context);
 
     String getBduss(Context context);
 
-    boolean h(Context context);
+    void h(c cVar);
 
-    void i(c cVar);
+    void i(Context context, a.d dVar);
 
-    void j(Context context, a.d dVar);
+    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
 
-    void k(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
+    String k(Context context);
 
-    String l(Context context);
+    void l(Activity activity, String str, String str2, b0 b0Var);
 
-    void m(Activity activity, String str, String str2, b0 b0Var);
+    void m(Activity activity, String str, e eVar);
 
-    void n(Activity activity, String str, e eVar);
+    void n(String str, ArrayList<String> arrayList, b.c cVar);
 
-    void o(String str, ArrayList<String> arrayList, b.c cVar);
-
-    void p(l.a aVar, String str, List<String> list);
+    void o(l.a aVar, String str, List<String> list);
 }

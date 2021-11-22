@@ -14,17 +14,18 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.a;
-import b.a.e.e.m.e;
-import b.a.e.e.p.d;
-import b.a.e.e.p.f;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
-import b.a.e.e.p.m;
+import b.a.e.f.m.a;
+import b.a.e.f.m.e;
+import b.a.e.f.p.d;
+import b.a.e.f.p.f;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
+import b.a.e.f.p.m;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -1540,7 +1541,7 @@ public class FileHelper {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.error_no_sdcard);
             }
             if (!externalStorageState.equals("unmounted") && !externalStorageState.equals("unmountable")) {
-                if (externalStorageState.equals("shared")) {
+                if (externalStorageState.equals(SwanKV.FLAVOR_SHARED)) {
                     return TbadkCoreApplication.getInst().getApp().getString(R.string.error_sd_shared);
                 }
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.error_sd_error);

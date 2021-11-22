@@ -16,11 +16,11 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, ImMessageCenterPojo> f20232a;
+    public ConcurrentHashMap<String, ImMessageCenterPojo> f21754a;
 
     /* renamed from: b.a.r0.l1.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1002a {
+    public interface InterfaceC1070a {
         void a(Iterator<ImMessageCenterPojo> it);
     }
 
@@ -37,7 +37,7 @@ public class a {
                 return;
             }
         }
-        this.f20232a = new ConcurrentHashMap<>();
+        this.f21754a = new ConcurrentHashMap<>();
     }
 
     public void a(ImMessageCenterPojo imMessageCenterPojo) {
@@ -45,13 +45,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, imMessageCenterPojo) == null) || imMessageCenterPojo == null) {
             return;
         }
-        this.f20232a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+        this.f21754a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f20232a.clear();
+            this.f21754a.clear();
         }
     }
 
@@ -62,21 +62,21 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.f20232a.get(str);
+            return this.f21754a.get(str);
         }
         return (ImMessageCenterPojo) invokeL.objValue;
     }
 
-    public void d(InterfaceC1002a interfaceC1002a) {
+    public void d(InterfaceC1070a interfaceC1070a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC1002a) == null) {
-            interfaceC1002a.a(this.f20232a.values().iterator());
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC1070a) == null) {
+            interfaceC1070a.a(this.f21754a.values().iterator());
         }
     }
 
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (TextUtils.isEmpty(str) || this.f20232a.remove(str) == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (TextUtils.isEmpty(str) || this.f21754a.remove(str) == null) ? false : true : invokeL.booleanValue;
     }
 }

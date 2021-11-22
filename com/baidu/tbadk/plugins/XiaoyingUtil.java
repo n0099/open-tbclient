@@ -39,19 +39,19 @@ public class XiaoyingUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f46026e;
+        public final /* synthetic */ Context f46875e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46027f;
+        public final /* synthetic */ String f46876f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f46028g;
+        public final /* synthetic */ int f46877g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f46029h;
+        public final /* synthetic */ int f46878h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f46030i;
+        public final /* synthetic */ String f46879i;
 
         public a(Context context, String str, int i2, int i3, String str2) {
             Interceptable interceptable = $ic;
@@ -68,18 +68,18 @@ public class XiaoyingUtil {
                     return;
                 }
             }
-            this.f46026e = context;
-            this.f46027f = str;
-            this.f46028g = i2;
-            this.f46029h = i3;
-            this.f46030i = str2;
+            this.f46875e = context;
+            this.f46876f = str;
+            this.f46877g = i2;
+            this.f46878h = i3;
+            this.f46879i = str2;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f46026e, this.f46027f, this.f46028g, this.f46029h, this.f46030i)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(this.f46875e, this.f46876f, this.f46877g, this.f46878h, this.f46879i)));
                 aVar.dismiss();
             }
         }
@@ -119,10 +119,10 @@ public class XiaoyingUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f46031e;
+        public final /* synthetic */ Activity f46880e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f46032f;
+        public final /* synthetic */ TbPageContext f46881f;
 
         public c(Activity activity, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -139,15 +139,15 @@ public class XiaoyingUtil {
                     return;
                 }
             }
-            this.f46031e = activity;
-            this.f46032f = tbPageContext;
+            this.f46880e = activity;
+            this.f46881f = tbPageContext;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f46032f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f46031e, XiaoyingUtil.PKG_NAME_VIDEO)));
+                this.f46881f.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(this.f46880e, XiaoyingUtil.PKG_NAME_VIDEO)));
                 aVar.dismiss();
             }
         }
@@ -250,7 +250,7 @@ public class XiaoyingUtil {
         InterceptResult invokeV;
         PluginNetConfigInfos.PluginConfig R;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (!TbadkCoreApplication.getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (R = PluginPackageManager.O().R(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(R.display_name) || R.forbidden == 1 || b.a.e.h.j.g.d.k().h(PKG_NAME_VIDEO) == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (!TbadkCoreApplication.getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (R = PluginPackageManager.O().R(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(R.display_name) || R.forbidden == 1 || b.a.e.i.j.g.d.k().h(PKG_NAME_VIDEO) == null) ? false : true : invokeV.booleanValue;
     }
 
     public static void startPlayXiaoyingVideo(Context context, String str, int i2, int i3, String str2) {
@@ -275,10 +275,10 @@ public class XiaoyingUtil {
         }
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
             BdToast.c(context, context.getString(R.string.plugin_xiaoying_install_fail)).q();
-        } else if (z && !b.a.e.e.p.j.z()) {
+        } else if (z && !b.a.e.f.p.j.z()) {
             BdToast.c(context, context.getString(R.string.neterror)).q();
         } else if (z) {
-            if (b.a.e.e.p.j.H()) {
+            if (b.a.e.f.p.j.H()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(context, str, i2, i3, str2)));
             } else {
                 showStartPlayVideoDialog(context, str, i2, i3, str2);

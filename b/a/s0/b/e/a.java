@@ -17,16 +17,16 @@ public final class a extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f28640h;
+    public final int f29509h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final UploadDataProvider f28641i;
+    public final UploadDataProvider f29510i;
     public ByteBuffer j;
     public boolean k;
 
     /* renamed from: b.a.s0.b.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C1392a {
+    public static /* synthetic */ class C1434a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -37,7 +37,7 @@ public final class a extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28642e;
+        public final /* synthetic */ a f29511e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public final class a extends f {
                     return;
                 }
             }
-            this.f28642e = aVar;
+            this.f29511e = aVar;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
@@ -62,10 +62,10 @@ public final class a extends f {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f28642e.f28640h == -1) {
-                    return this.f28642e.k ? this.f28642e.j.limit() : this.f28642e.j.position();
+                if (this.f29511e.f29509h == -1) {
+                    return this.f29511e.k ? this.f29511e.j.limit() : this.f29511e.j.position();
                 }
-                return this.f28642e.f28640h;
+                return this.f29511e.f29509h;
             }
             return invokeV.longValue;
         }
@@ -75,11 +75,11 @@ public final class a extends f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
                 int remaining = byteBuffer.remaining();
-                if (remaining < this.f28642e.j.remaining()) {
-                    byteBuffer.put(this.f28642e.j.array(), this.f28642e.j.position(), remaining);
-                    this.f28642e.j.position(this.f28642e.j.position() + remaining);
+                if (remaining < this.f29511e.j.remaining()) {
+                    byteBuffer.put(this.f29511e.j.array(), this.f29511e.j.position(), remaining);
+                    this.f29511e.j.position(this.f29511e.j.position() + remaining);
                 } else {
-                    byteBuffer.put(this.f28642e.j);
+                    byteBuffer.put(this.f29511e.j);
                 }
                 uploadDataSink.c(false);
             }
@@ -89,12 +89,12 @@ public final class a extends f {
         public void c(UploadDataSink uploadDataSink) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
-                this.f28642e.j.position(0);
+                this.f29511e.j.position(0);
                 uploadDataSink.a();
             }
         }
 
-        public /* synthetic */ b(a aVar, C1392a c1392a) {
+        public /* synthetic */ b(a aVar, C1434a c1434a) {
             this(aVar);
         }
     }
@@ -114,7 +114,7 @@ public final class a extends f {
                 return;
             }
         }
-        this.f28641i = new b(this, null);
+        this.f29510i = new b(this, null);
         this.k = false;
         if (dVar == null) {
             throw new NullPointerException("Argument connection cannot be null.");
@@ -124,7 +124,7 @@ public final class a extends f {
         }
         if (j >= 0) {
             int i4 = (int) j;
-            this.f28640h = i4;
+            this.f29509h = i4;
             this.j = ByteBuffer.allocate(i4);
             return;
         }
@@ -142,7 +142,7 @@ public final class a extends f {
     public UploadDataProvider f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28641i : (UploadDataProvider) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29510i : (UploadDataProvider) invokeV.objValue;
     }
 
     @Override // b.a.s0.b.e.f
@@ -150,7 +150,7 @@ public final class a extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.k = true;
-            if (this.j.position() >= this.f28640h) {
+            if (this.j.position() >= this.f29509h) {
                 this.j.flip();
                 return;
             }
@@ -161,10 +161,10 @@ public final class a extends f {
     public final void l(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (this.f28640h != -1 && this.j.position() + i2 > this.f28640h) {
-                throw new ProtocolException("exceeded content-length limit of " + this.f28640h + " bytes");
+            if (this.f29509h != -1 && this.j.position() + i2 > this.f29509h) {
+                throw new ProtocolException("exceeded content-length limit of " + this.f29509h + " bytes");
             } else if (!this.k) {
-                if (this.f28640h == -1 && this.j.limit() - this.j.position() <= i2) {
+                if (this.f29509h == -1 && this.j.limit() - this.j.position() <= i2) {
                     ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.j.capacity() * 2, this.j.capacity() + i2));
                     this.j.flip();
                     allocate.put(this.j);
@@ -211,10 +211,10 @@ public final class a extends f {
                 return;
             }
         }
-        this.f28641i = new b(this, null);
+        this.f29510i = new b(this, null);
         this.k = false;
         if (dVar != null) {
-            this.f28640h = -1;
+            this.f29509h = -1;
             this.j = ByteBuffer.allocate(16384);
             return;
         }

@@ -16,12 +16,12 @@ import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.monitor.a;
 import com.baidu.webkit.internal.utils.NetWorkUtils;
-import com.baidu.webkit.sdk.IABTestInterface;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebView;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
+import com.baidu.webkit.sdk.abtest.ABTestSDK;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -44,6 +44,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public static final int STATUS_CODE_SUCCESS = 1;
     public static SessionMonitorEngine sInstance;
     public transient /* synthetic */ FieldHolder $fh;
+    public BusinessSessionEventHandler mBusinessEventHandler;
     public ConcurrentHashMap<Integer, LinkedList<WeakReference<IExtraInfoCollector>>> mExtraInfoCollectors;
     public CopyOnWriteArrayList<PageSessionObserver> mPageSessionObserverList;
     public JSONObject mStaticPublicData;
@@ -125,6 +126,7 @@ public class SessionMonitorEngine implements INoProGuard {
         if (this.mPageSessionObserverList == null) {
             this.mPageSessionObserverList = new CopyOnWriteArrayList<>();
         }
+        this.mBusinessEventHandler = new BusinessSessionEventHandler();
     }
 
     public static SessionMonitorEngine getInstance() {
@@ -215,10 +217,16 @@ public class SessionMonitorEngine implements INoProGuard {
         this.sImplement = new WeakReference<>(iPrototype);
     }
 
+    public BusinessSessionEventHandler getBusinessEventHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBusinessEventHandler : (BusinessSessionEventHandler) invokeV.objValue;
+    }
+
     public String getPublicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             JSONObject processStaticPublicData = processStaticPublicData();
             if (processStaticPublicData == null) {
                 return PUBLIC_DATA_UNDIFNED;
@@ -227,11 +235,11 @@ public class SessionMonitorEngine implements INoProGuard {
                 processStaticPublicData.put("session_id", WebKitFactory.getStatisticsSessionId());
                 processStaticPublicData.put(DpStatConstants.KEY_KERNEL_SESSION_ID, WebKitFactory.getKernelSessionId());
                 processStaticPublicData.put("network", NetWorkUtils.getNetWorkType() + "_" + NetWorkUtils.getOperatorType());
-                IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
-                if (abTestInterface != null) {
-                    JSONObject rawSwitch = abTestInterface.getRawSwitch();
-                    processStaticPublicData.put("searchbox_ab_rsid", rawSwitch);
-                    Log.i("linhua-x", "searchbox_ab_rsid is ".concat(String.valueOf(rawSwitch)));
+                String rawSwitches = ABTestSDK.getRawSwitches();
+                if (rawSwitches != null) {
+                    JSONObject jSONObject = new JSONObject(rawSwitches);
+                    processStaticPublicData.put("searchbox_ab_rsid", jSONObject);
+                    Log.i("linhua-x", "searchbox_ab_rsid is ".concat(String.valueOf(jSONObject)));
                 }
                 HashMap<String, String> statisticParams = WebKitFactory.getStatisticParams();
                 if (statisticParams != null && !statisticParams.isEmpty()) {
@@ -251,7 +259,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public long getRecordNA20SuperFrameTimeStamp(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
             b bVar = this.sExtraInterfaceProvider;
             if (bVar != null) {
                 if (i2 != 1) {
@@ -259,11 +267,11 @@ public class SessionMonitorEngine implements INoProGuard {
                         if (i2 != 3) {
                             return -1L;
                         }
-                        return bVar.f61015f;
+                        return bVar.f61935f;
                     }
-                    return bVar.f61014e;
+                    return bVar.f61934e;
                 }
-                return bVar.f61016g;
+                return bVar.f61936g;
             }
             return -1L;
         }
@@ -273,10 +281,10 @@ public class SessionMonitorEngine implements INoProGuard {
     public long getSearchButtonClickedTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             b bVar = this.sExtraInterfaceProvider;
             if (bVar != null) {
-                return bVar.f61010a;
+                return bVar.f61930a;
             }
             return -1L;
         }
@@ -286,16 +294,16 @@ public class SessionMonitorEngine implements INoProGuard {
     public IStatisticsTransmission getStatisticsTransmission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mStatisticsTransmission : (IStatisticsTransmission) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mStatisticsTransmission : (IStatisticsTransmission) invokeV.objValue;
     }
 
     public JSONObject getWebViewTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             b bVar = this.sExtraInterfaceProvider;
             if (bVar != null) {
-                return bVar.f61017h;
+                return bVar.f61937h;
             }
             return null;
         }
@@ -306,7 +314,7 @@ public class SessionMonitorEngine implements INoProGuard {
         InterceptResult invokeLL;
         JSONObject onPageSessionFinished;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, webView, str)) == null) {
             Log.i("linhua-collector", "notifyCollectorPageSessionFinished: ".concat(String.valueOf(str)));
             JSONArray jSONArray = null;
             try {
@@ -334,7 +342,7 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public final void notifyCollectorPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{webView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{webView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             Log.i("linhua-collector", "notifyCollectorPageSessionStarted: " + str + " isSameDocument: " + z2);
             try {
                 if (this.mExtraInfoCollectors != null && !this.mExtraInfoCollectors.isEmpty() && webView != null) {
@@ -355,7 +363,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void notifyPageActive(String str, WebView webView, boolean z) {
         WeakReference<IPrototype> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048588, this, str, webView, z) == null) || (weakReference = this.sImplement) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048589, this, str, webView, z) == null) || (weakReference = this.sImplement) == null || weakReference.get() == null) {
             return;
         }
         this.sImplement.get().notifyPageActive(str, webView, z);
@@ -364,7 +372,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void notifyPageLeave(String str, WebView webView) {
         WeakReference<IPrototype> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, webView) == null) || (weakReference = this.sImplement) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048590, this, str, webView) == null) || (weakReference = this.sImplement) == null || weakReference.get() == null) {
             return;
         }
         this.sImplement.get().notifyPageLeave(str, webView);
@@ -373,7 +381,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void onPageKeySectionTimeCost(WebView webView, String str, int i2, long j) {
         WebViewFactoryProvider provider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{webView, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (provider = WebViewFactory.getProvider()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{webView, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (provider = WebViewFactory.getProvider()) == null) {
             return;
         }
         provider.onPageKeySectionTimeCostKeySection(webView, str, i2, j);
@@ -381,7 +389,7 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void onPageSessionDataRecord(WebView webView, String str, int i2, int i3, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{webView, str, Integer.valueOf(i2), Integer.valueOf(i3), str2}) == null) || this.mPageSessionObserverList == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{webView, str, Integer.valueOf(i2), Integer.valueOf(i3), str2}) == null) || this.mPageSessionObserverList == null) {
             return;
         }
         Log.i("huqin-ps2", "onPageSessionDataRecord, webView = " + webView.hashCode() + ", url = " + str + ", type = " + i2 + ", status = " + i3 + ", data = " + str2);
@@ -394,13 +402,13 @@ public class SessionMonitorEngine implements INoProGuard {
     public JSONObject peekFrameworkBehaviorValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.sFrameworkBehaviorProvider.a() : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.sFrameworkBehaviorProvider.a() : (JSONObject) invokeV.objValue;
     }
 
     public JSONObject peekNA20SuperFrameTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             b bVar = this.sExtraInterfaceProvider;
             if (bVar != null) {
                 return bVar.a();
@@ -413,7 +421,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public JSONObject peekSearchTimeStamps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             b bVar = this.sExtraInterfaceProvider;
             if (bVar != null) {
                 return bVar.b();
@@ -426,7 +434,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void record(WebView webView, String str) {
         WeakReference<IPrototype> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048595, this, webView, str) == null) || (weakReference = this.sImplement) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048596, this, webView, str) == null) || (weakReference = this.sImplement) == null || weakReference.get() == null) {
             return;
         }
         this.sImplement.get().record(webView, str);
@@ -435,7 +443,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordBySourceId(WebView webView, long j, int i2, JSONObject jSONObject) {
         WeakReference<IPrototype> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{webView, Long.valueOf(j), Integer.valueOf(i2), jSONObject}) == null) || (weakReference = this.sImplement) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{webView, Long.valueOf(j), Integer.valueOf(i2), jSONObject}) == null) || (weakReference = this.sImplement) == null || weakReference.get() == null) {
             return;
         }
         this.sImplement.get().recordBySourceId(webView, j, i2, jSONObject);
@@ -443,33 +451,33 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(int i2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048597, this, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048598, this, i2, obj) == null) {
             a aVar = this.sFrameworkBehaviorProvider;
-            if (aVar.f61001a == null) {
-                aVar.f61001a = new a.C1833a(aVar, (byte) 0);
+            if (aVar.f61921a == null) {
+                aVar.f61921a = new a.C1874a(aVar, (byte) 0);
             }
             if (i2 == 9) {
-                aVar.f61001a.a();
-                aVar.f61001a.f61007f = true;
+                aVar.f61921a.a();
+                aVar.f61921a.f61927f = true;
             }
-            a.C1833a c1833a = aVar.f61001a;
-            if (c1833a.f61007f) {
+            a.C1874a c1874a = aVar.f61921a;
+            if (c1874a.f61927f) {
                 switch (i2) {
                     case 7:
-                        c1833a.f61002a = ((Boolean) obj).booleanValue();
+                        c1874a.f61922a = ((Boolean) obj).booleanValue();
                         return;
                     case 8:
-                        c1833a.f61003b = ((Boolean) obj).booleanValue();
+                        c1874a.f61923b = ((Boolean) obj).booleanValue();
                         return;
                     case 9:
-                        c1833a.f61004c = ((Long) obj).longValue();
+                        c1874a.f61924c = ((Long) obj).longValue();
                         return;
                     case 10:
-                        c1833a.f61005d = ((Long) obj).longValue();
-                        aVar.f61001a.f61007f = true;
+                        c1874a.f61925d = ((Long) obj).longValue();
+                        aVar.f61921a.f61927f = true;
                         return;
                     case 11:
-                        c1833a.f61006e = ((Boolean) obj).booleanValue();
+                        c1874a.f61926e = ((Boolean) obj).booleanValue();
                         return;
                     default:
                         return;
@@ -480,17 +488,17 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar;
-        a.C1833a c1833a;
+        a.C1874a c1874a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048598, this, str, j) == null) || (c1833a = (aVar = this.sFrameworkBehaviorProvider).f61001a) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048599, this, str, j) == null) || (c1874a = (aVar = this.sFrameworkBehaviorProvider).f61921a) == null) {
             return;
         }
-        aVar.f61001a.f61008g.put(str, Long.valueOf(j + (c1833a.f61008g.containsKey(str) ? aVar.f61001a.f61008g.get(str).longValue() : 0L)));
+        aVar.f61921a.f61928g.put(str, Long.valueOf(j + (c1874a.f61928g.containsKey(str) ? aVar.f61921a.f61928g.get(str).longValue() : 0L)));
     }
 
     public void recordImmediately(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048600, this, str, str2) == null) {
             WeakReference<IPrototype> weakReference = this.sImplement;
             if (weakReference == null || weakReference.get() == null) {
                 uploadRealTimeData(str, str2);
@@ -503,24 +511,24 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordNA20SuperFrameTimeStamp(int i2, long j) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (bVar = this.sExtraInterfaceProvider) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (bVar = this.sExtraInterfaceProvider) == null) {
             return;
         }
         if (i2 == 1) {
-            bVar.f61016g = j;
+            bVar.f61936g = j;
         } else if (i2 == 2) {
-            bVar.f61014e = j;
+            bVar.f61934e = j;
         } else if (i2 != 3) {
         } else {
-            bVar.f61015f = j;
+            bVar.f61935f = j;
         }
     }
 
     public void recordSearchBoxJsBridgeInvoked(String str) {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048601, this, str) == null) && (bVar = this.sExtraInterfaceProvider) != null && !TextUtils.isEmpty(str) && str.startsWith("baiduboxapp://v1/browser/open") && str.contains("isContainer=1")) {
-            bVar.f61013d = System.currentTimeMillis();
+        if ((interceptable == null || interceptable.invokeL(1048602, this, str) == null) && (bVar = this.sExtraInterfaceProvider) != null && !TextUtils.isEmpty(str) && str.startsWith("baiduboxapp://v1/browser/open") && str.contains("isContainer=1")) {
+            bVar.f61933d = System.currentTimeMillis();
             Log.d("linhua-x", "recordSearchBoxJsBridgeInvoked: ".concat(String.valueOf(str)));
         }
     }
@@ -528,33 +536,33 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordSearchTimeStamp(int i2, long j) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (bVar = this.sExtraInterfaceProvider) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (bVar = this.sExtraInterfaceProvider) == null) {
             return;
         }
         if (i2 == 1) {
-            bVar.f61010a = j;
+            bVar.f61930a = j;
         } else if (i2 == 2) {
-            bVar.f61011b = j;
+            bVar.f61931b = j;
         } else if (i2 != 3) {
         } else {
-            bVar.f61012c = j;
+            bVar.f61932c = j;
         }
     }
 
     public void recordWebViewTimeStamp(String str, long j) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048603, this, str, j) == null) || (bVar = this.sExtraInterfaceProvider) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048604, this, str, j) == null) || (bVar = this.sExtraInterfaceProvider) == null) {
             return;
         }
-        if (bVar.f61017h == null) {
-            bVar.f61017h = new JSONObject();
+        if (bVar.f61937h == null) {
+            bVar.f61937h = new JSONObject();
         }
         try {
-            if (TextUtils.isEmpty(str) || bVar.f61017h.has(str)) {
+            if (TextUtils.isEmpty(str) || bVar.f61937h.has(str)) {
                 return;
             }
-            bVar.f61017h.put(str, j);
+            bVar.f61937h.put(str, j);
         } catch (JSONException e2) {
             Log.printStackTrace(e2);
         }
@@ -562,7 +570,7 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public final void registerPageSessionExtraCollector(WebView webView, IExtraInfoCollector iExtraInfoCollector) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048604, this, webView, iExtraInfoCollector) == null) || iExtraInfoCollector == null || webView == null || webView.isDestroyed()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048605, this, webView, iExtraInfoCollector) == null) || iExtraInfoCollector == null || webView == null || webView.isDestroyed()) {
             return;
         }
         if (this.mExtraInfoCollectors == null) {
@@ -586,12 +594,13 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             this.sImplement = null;
             this.sExtraInterfaceProvider = null;
             this.sFrameworkBehaviorProvider = null;
             clearPageSessionObserver();
             this.mPageSessionObserverList = null;
+            this.mBusinessEventHandler = null;
             sInstance = null;
         }
     }
@@ -599,7 +608,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void removePageSessionObserver(PageSessionObserver pageSessionObserver) {
         CopyOnWriteArrayList<PageSessionObserver> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048606, this, pageSessionObserver) == null) || (copyOnWriteArrayList = this.mPageSessionObserverList) == null || pageSessionObserver == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048607, this, pageSessionObserver) == null) || (copyOnWriteArrayList = this.mPageSessionObserverList) == null || pageSessionObserver == null) {
             return;
         }
         copyOnWriteArrayList.remove(pageSessionObserver);
@@ -607,33 +616,33 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void setStatisticsTransmission(IStatisticsTransmission iStatisticsTransmission) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, iStatisticsTransmission) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, iStatisticsTransmission) == null) {
             this.mStatisticsTransmission = iStatisticsTransmission;
         }
     }
 
     public void startFrameworkBehaviorMonitor() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             a aVar = this.sFrameworkBehaviorProvider;
-            if (aVar.f61001a == null) {
-                aVar.f61001a = new a.C1833a(aVar, (byte) 0);
+            if (aVar.f61921a == null) {
+                aVar.f61921a = new a.C1874a(aVar, (byte) 0);
             }
-            a.C1833a c1833a = aVar.f61001a;
-            if (c1833a.f61004c == -1) {
-                c1833a.a();
+            a.C1874a c1874a = aVar.f61921a;
+            if (c1874a.f61924c == -1) {
+                c1874a.a();
             }
-            a.C1833a c1833a2 = aVar.f61001a;
-            if (c1833a2.f61007f) {
+            a.C1874a c1874a2 = aVar.f61921a;
+            if (c1874a2.f61927f) {
                 return;
             }
-            c1833a2.f61007f = true;
+            c1874a2.f61927f = true;
         }
     }
 
     public void updateCuidIfNeeded() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048609, this) == null) || this.mStaticPublicData == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || this.mStaticPublicData == null) {
             return;
         }
         try {
@@ -645,14 +654,14 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void updateWiseSids(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
             this.mWiseSid = str;
         }
     }
 
     public void uploadRealTimeData(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048611, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048612, this, str, str2) == null) {
             uploadRealTimeData(str, str2, true);
         }
     }
@@ -660,7 +669,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void uploadRealTimeData(String str, String str2, boolean z) {
         String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048612, this, str, str2, z) == null) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLLZ(1048613, this, str, str2, z) == null) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
             try {
                 if (WebSettingsGlobalBlink.isSessionDataEnable()) {
                     JSONObject jSONObject = new JSONObject(getPublicData());

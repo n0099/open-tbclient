@@ -15,16 +15,16 @@ public class b implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.x0.g.b f29580a;
+    public b.a.x0.g.b f30449a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29581b;
+    public int f30450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29582c;
+    public int f30451c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f29583d;
+    public boolean f30452d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class b implements h {
                 return;
             }
         }
-        this.f29583d = true;
+        this.f30452d = true;
     }
 
     @Override // b.a.x0.i.h
@@ -47,13 +47,13 @@ public class b implements h {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i2)) == null) {
-            b.a.x0.g.b bVar = this.f29580a;
+            b.a.x0.g.b bVar = this.f30449a;
             if (bVar == null || bArr == null) {
                 return 0;
             }
-            this.f29581b += bArr.length;
+            this.f30450b += bArr.length;
             bVar.putBytes(bArr, i2);
-            return this.f29581b;
+            return this.f30450b;
         }
         return invokeLI.intValue;
     }
@@ -62,7 +62,7 @@ public class b implements h {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.f29583d && this.f29580a.available() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.f30452d && this.f30449a.available() : invokeV.booleanValue;
     }
 
     @Override // b.a.x0.i.h
@@ -70,14 +70,14 @@ public class b implements h {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5)) == null) {
-            if (this.f29580a == null) {
-                this.f29580a = (b.a.x0.g.b) s.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+            if (this.f30449a == null) {
+                this.f30449a = (b.a.x0.g.b) s.a("com.baidu.ugc.audioedit.AudioChangeOperator");
             }
-            b.a.x0.g.b bVar = this.f29580a;
+            b.a.x0.g.b bVar = this.f30449a;
             if (bVar != null) {
                 bVar.initVoiceChanger(i2, i3, i4, i5);
             }
-            return this.f29580a != null;
+            return this.f30449a != null;
         }
         return invokeIIII.booleanValue;
     }
@@ -87,13 +87,13 @@ public class b implements h {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            b.a.x0.g.b bVar = this.f29580a;
+            b.a.x0.g.b bVar = this.f30449a;
             if (bVar == null || bVar.availableBytes() <= 0) {
                 return new byte[0];
             }
             byte[] bArr = new byte[4096];
-            int bytes = this.f29580a.getBytes(bArr, 4096);
-            this.f29582c += bytes;
+            int bytes = this.f30449a.getBytes(bArr, 4096);
+            this.f30451c += bytes;
             if (bytes == 0) {
                 return null;
             }
@@ -110,7 +110,7 @@ public class b implements h {
     public void b(int[] iArr) {
         b.a.x0.g.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (bVar = this.f29580a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (bVar = this.f30449a) == null) {
             return;
         }
         bVar.setVoiceChangeType(iArr);
@@ -120,14 +120,14 @@ public class b implements h {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29580a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30449a != null : invokeV.booleanValue;
     }
 
     @Override // b.a.x0.i.h
     public void c() {
         b.a.x0.g.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.f29580a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.f30449a) == null) {
             return;
         }
         bVar.flush();
@@ -136,7 +136,7 @@ public class b implements h {
     public void c(int[] iArr, int[] iArr2, double[] dArr) {
         b.a.x0.g.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (bVar = this.f29580a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (bVar = this.f30449a) == null) {
             return;
         }
         bVar.setVoiceChangeType(iArr, iArr2, dArr);
@@ -146,18 +146,18 @@ public class b implements h {
     public void d() {
         b.a.x0.g.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (bVar = this.f29580a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (bVar = this.f30449a) == null) {
             return;
         }
         bVar.close();
-        this.f29580a = null;
+        this.f30449a = null;
     }
 
     @Override // b.a.x0.i.h
     public void e() {
         b.a.x0.g.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (bVar = this.f29580a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (bVar = this.f30449a) == null) {
             return;
         }
         bVar.clearQueues();

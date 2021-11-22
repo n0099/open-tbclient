@@ -15,7 +15,7 @@ public class m0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Path f3855a;
+    public Path f3949a;
 
     public m0() {
         Interceptable interceptable = $ic;
@@ -34,13 +34,13 @@ public class m0 extends a {
     @Override // b.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.f3855a == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.f3949a == null) {
             return;
         }
-        int alpha = bVar.f3800g.getAlpha();
-        bVar.c(bVar.f3800g);
-        canvas.drawPath(this.f3855a, bVar.f3800g);
-        bVar.f3800g.setAlpha(alpha);
+        int alpha = bVar.f3894g.getAlpha();
+        bVar.c(bVar.f3894g);
+        canvas.drawPath(this.f3949a, bVar.f3894g);
+        bVar.f3894g.setAlpha(alpha);
     }
 
     @Override // b.a.p0.a.a0.a.j.a
@@ -49,16 +49,16 @@ public class m0 extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
                 if (jSONArray.length() == 4) {
-                    int g2 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
-                    int g3 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
-                    int g4 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2));
-                    int g5 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3));
+                    int g2 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(0));
+                    int g3 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(1));
+                    int g4 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(2));
+                    int g5 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(3));
                     Path path = new Path();
-                    this.f3855a = path;
+                    this.f3949a = path;
                     path.addRect(new RectF(g2, g3, g2 + g4, g3 + g5), Path.Direction.CW);
                 }
             } catch (Exception e2) {
-                if (b.a.p0.a.k.f6397a) {
+                if (b.a.p0.a.k.f6863a) {
                     e2.printStackTrace();
                 }
             }

@@ -12,7 +12,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f61442a;
+    public static volatile a f62341a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -33,12 +33,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f61442a == null) {
+            if (f62341a == null) {
                 synchronized (a.class) {
-                    f61442a = new a();
+                    f62341a = new a();
                 }
             }
-            return f61442a;
+            return f62341a;
         }
         return (a) invokeV.objValue;
     }
@@ -46,7 +46,7 @@ public class a {
     public static void a(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, null, str, jSONObject, jSONObject2, jSONObject3) == null) {
-            if (!i.a().f61438b.isCloseDefaultReport()) {
+            if (!i.a().f62337b.isCloseDefaultReport()) {
                 ZeusLogger.d("Zeus/DefaultReporterImpl", "report by defaultImpl");
                 com.bytedance.pangle.helper.d.a().monitorStatusAndEvent(str, 0, jSONObject, jSONObject2, jSONObject3);
                 com.bytedance.pangle.helper.d.a().flushBuffer(new b("report result : "));

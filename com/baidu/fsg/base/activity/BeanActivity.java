@@ -19,7 +19,7 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f37340i = "BaseActivity";
+    public static final String f38170i = "BaseActivity";
     public transient /* synthetic */ FieldHolder $fh;
     public Handler j;
     public BeanActivity mAct;

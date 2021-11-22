@@ -10,5 +10,7 @@ public interface StaticsBoundaryInterface {
 
     void initSafeBrowsing(Context context, ValueCallback<Boolean> valueCallback);
 
+    boolean isMultiProcessEnabled();
+
     void setSafeBrowsingWhitelist(List<String> list, ValueCallback<Boolean> valueCallback);
 }

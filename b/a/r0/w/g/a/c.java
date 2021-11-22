@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c extends b.a.e.l.e.a<b.a.r0.w.j.b.a, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
+public class c extends b.a.e.m.e.a<b.a.r0.w.j.b.a, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
@@ -47,7 +47,7 @@ public class c extends b.a.e.l.e.a<b.a.r0.w.j.b.a, AlaGameFrsGameLiveDoubleView.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -61,7 +61,7 @@ public class c extends b.a.e.l.e.a<b.a.r0.w.j.b.a, AlaGameFrsGameLiveDoubleView.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.w.j.b.a aVar, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder alaGameFrsGameLiveDoubleViewHolder) {
         InterceptResult invokeCommon;
@@ -69,10 +69,10 @@ public class c extends b.a.e.l.e.a<b.a.r0.w.j.b.a, AlaGameFrsGameLiveDoubleView.
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, alaGameFrsGameLiveDoubleViewHolder})) == null) {
             alaGameFrsGameLiveDoubleViewHolder.mView.j(aVar);
             alaGameFrsGameLiveDoubleViewHolder.mView.s(this.n);
-            b.a.r0.w.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f25087e.l1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(aVar.f25087e.l1().appId) ? aVar.f25087e.l1().appId : ""));
-            d2 d2Var = aVar.f25088f;
+            b.a.r0.w.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f26604e.m1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(aVar.f26604e.m1().appId) ? aVar.f26604e.m1().appId : ""));
+            d2 d2Var = aVar.f26605f;
             if (d2Var != null) {
-                b.a.r0.w.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f25088f.l1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(d2Var.l1().appId) ? "" : aVar.f25088f.l1().appId));
+                b.a.r0.w.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f26605f.m1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(d2Var.m1().appId) ? "" : aVar.f26605f.m1().appId));
             }
             return alaGameFrsGameLiveDoubleViewHolder.getView();
         }

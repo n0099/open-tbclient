@@ -22,10 +22,10 @@ public class c extends b.a.x0.h.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.x0.i.g.a f29557h;
+    public b.a.x0.i.g.a f30426h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29558i;
+    public int f30427i;
     public int j;
 
     /* loaded from: classes6.dex */
@@ -34,19 +34,19 @@ public class c extends b.a.x0.h.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f29559e;
+        public final /* synthetic */ String f30428e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f29560f;
+        public final /* synthetic */ int f30429f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AudioPlayData f29561g;
+        public final /* synthetic */ AudioPlayData f30430g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b.a.x0.h.a f29562h;
+        public final /* synthetic */ b.a.x0.h.a f30431h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c f29563i;
+        public final /* synthetic */ c f30432i;
 
         public a(c cVar, String str, int i2, AudioPlayData audioPlayData, b.a.x0.h.a aVar) {
             Interceptable interceptable = $ic;
@@ -63,28 +63,28 @@ public class c extends b.a.x0.h.f.a {
                     return;
                 }
             }
-            this.f29563i = cVar;
-            this.f29559e = str;
-            this.f29560f = i2;
-            this.f29561g = audioPlayData;
-            this.f29562h = aVar;
+            this.f30432i = cVar;
+            this.f30428e = str;
+            this.f30429f = i2;
+            this.f30430g = audioPlayData;
+            this.f30431h = aVar;
         }
 
         @Override // b.a.x0.l.d.j.c.a, b.a.x0.l.d.j.b
         public void onExceptionThrown(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f29563i.f29557h.cancel();
-                AudioPlayData audioPlayData = this.f29561g;
+                this.f30432i.f30426h.cancel();
+                AudioPlayData audioPlayData = this.f30430g;
                 if (audioPlayData.mSpeed != 1.0f || b.a.x0.i.c.o(audioPlayData.mSoundTypes)) {
-                    this.f29563i.g(str);
-                    this.f29563i.f29557h.cancel();
+                    this.f30432i.g(str);
+                    this.f30432i.f30426h.cancel();
                 } else {
-                    this.f29563i.f29557h.cancel();
-                    this.f29563i.q(this.f29562h, this.f29560f);
+                    this.f30432i.f30426h.cancel();
+                    this.f30432i.q(this.f30431h, this.f30429f);
                 }
-                synchronized (this.f29563i) {
-                    this.f29563i.notifyAll();
+                synchronized (this.f30432i) {
+                    this.f30432i.notifyAll();
                 }
             }
         }
@@ -94,10 +94,10 @@ public class c extends b.a.x0.h.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 if (z) {
-                    this.f29563i.q(new b.a.x0.h.a(new AudioPlayData(this.f29559e, 0, -1, 1.0f)), this.f29560f);
+                    this.f30432i.q(new b.a.x0.h.a(new AudioPlayData(this.f30428e, 0, -1, 1.0f)), this.f30429f);
                 }
-                synchronized (this.f29563i) {
-                    this.f29563i.notifyAll();
+                synchronized (this.f30432i) {
+                    this.f30432i.notifyAll();
                 }
             }
         }
@@ -106,8 +106,8 @@ public class c extends b.a.x0.h.f.a {
         public void onProgressChanged(int i2, double d2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Double.valueOf(d2), Long.valueOf(j)}) == null) {
-                c cVar = this.f29563i;
-                cVar.i((int) (((((cVar.j - 1) + d2) * 1.0d) / this.f29563i.f29558i) * 100.0d));
+                c cVar = this.f30432i;
+                cVar.i((int) (((((cVar.j - 1) + d2) * 1.0d) / this.f30432i.f30427i) * 100.0d));
             }
         }
     }
@@ -130,8 +130,8 @@ public class c extends b.a.x0.h.f.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f29542f = true;
-            b.a.x0.i.g.a aVar = this.f29557h;
+            this.f30411f = true;
+            b.a.x0.i.g.a aVar = this.f30426h;
             if (aVar != null) {
                 aVar.cancel();
             }
@@ -152,12 +152,12 @@ public class c extends b.a.x0.h.f.a {
                 l(cVar);
             } else {
                 String a2 = cVar.a();
-                this.f29543g = a2;
-                if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.f29543g)) {
-                    new File(this.f29543g).mkdir();
+                this.f30412g = a2;
+                if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.f30412g)) {
+                    new File(this.f30412g).mkdir();
                 }
-                this.f29541e = false;
-                this.f29542f = false;
+                this.f30410e = false;
+                this.f30411f = false;
                 y(cVar);
                 x(cVar);
                 List<e> c2 = cVar.c();
@@ -165,10 +165,10 @@ public class c extends b.a.x0.h.f.a {
                 for (int i2 = 0; i2 < size; i2++) {
                     r(c2.get(i2), i2);
                 }
-                if (this.f29541e || this.f29542f) {
+                if (this.f30410e || this.f30411f) {
                     return;
                 }
-                l(this.f29540d);
+                l(this.f30409d);
             }
         }
     }
@@ -177,7 +177,7 @@ public class c extends b.a.x0.h.f.a {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b.a.x0.i.g.a aVar = this.f29557h;
+            b.a.x0.i.g.a aVar = this.f30426h;
             if (aVar != null) {
                 aVar.J();
             }
@@ -190,19 +190,19 @@ public class c extends b.a.x0.h.f.a {
     public final void q(b.a.x0.h.a aVar, int i2) {
         b.a.x0.h.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, aVar, i2) == null) || (cVar = this.f29540d) == null || cVar.c() == null || this.f29540d.c().get(i2) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, aVar, i2) == null) || (cVar = this.f30409d) == null || cVar.c() == null || this.f30409d.c().get(i2) == null) {
             return;
         }
-        this.f29540d.c().get(i2).a().add(aVar);
+        this.f30409d.c().get(i2).a().add(aVar);
     }
 
     public final void r(e eVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, eVar, i2) == null) || eVar == null || h.e(eVar.a()) || this.f29542f || this.f29541e) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, eVar, i2) == null) || eVar == null || h.e(eVar.a()) || this.f30411f || this.f30410e) {
             return;
         }
         for (b.a.x0.h.a aVar : eVar.a()) {
-            if (this.f29541e || this.f29542f) {
+            if (this.f30410e || this.f30411f) {
                 return;
             }
             this.j++;
@@ -210,7 +210,7 @@ public class c extends b.a.x0.h.f.a {
                 v(aVar, i2);
             } else {
                 q(aVar, i2);
-                i((int) (((this.j * 1.0f) / this.f29558i) * 100.0f));
+                i((int) (((this.j * 1.0f) / this.f30427i) * 100.0f));
             }
         }
     }
@@ -232,7 +232,7 @@ public class c extends b.a.x0.h.f.a {
 
     public final void v(b.a.x0.h.a aVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, aVar, i2) == null) || this.f29542f || this.f29541e) {
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, aVar, i2) == null) || this.f30411f || this.f30410e) {
             return;
         }
         AudioPlayData b2 = aVar.b();
@@ -244,14 +244,14 @@ public class c extends b.a.x0.h.f.a {
         String a2 = a(str, System.currentTimeMillis() + "_mediacodec.aac");
         try {
             b.a.x0.i.g.a aVar2 = new b.a.x0.i.g.a(b2.audioPath, a2, b2.mSoundTypes);
-            this.f29557h = aVar2;
+            this.f30426h = aVar2;
             aVar2.S(new a(this, a2, i2, b2, aVar));
-            this.f29557h.D(b2.mSoundTypes);
-            this.f29557h.G(b2.mSpeed);
-            this.f29557h.H(b2.volume);
-            this.f29557h.B(b2.start);
-            this.f29557h.R(b2.end);
-            this.f29557h.I();
+            this.f30426h.D(b2.mSoundTypes);
+            this.f30426h.G(b2.mSpeed);
+            this.f30426h.H(b2.volume);
+            this.f30426h.B(b2.start);
+            this.f30426h.R(b2.end);
+            this.f30426h.I();
             synchronized (this) {
                 wait();
             }
@@ -271,21 +271,21 @@ public class c extends b.a.x0.h.f.a {
             arrayList.add(new e(new ArrayList()));
         }
         b.a.x0.h.c cVar2 = new b.a.x0.h.c(arrayList);
-        this.f29540d = cVar2;
+        this.f30409d = cVar2;
         cVar2.e(cVar.b());
-        this.f29540d.d(cVar.a());
+        this.f30409d.d(cVar.a());
     }
 
     public final void y(b.a.x0.h.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.f29558i = 0;
+            this.f30427i = 0;
             this.j = 0;
             List<e> c2 = cVar.c();
             int size = c2.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (c2.get(i2) != null && c2.get(i2).a() != null) {
-                    this.f29558i += c2.get(i2).a().size();
+                    this.f30427i += c2.get(i2).a().size();
                 }
             }
         }

@@ -1,64 +1,146 @@
 package b.a.r0.k2.r;
 
-import androidx.annotation.DrawableRes;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.ManagerElection;
 /* loaded from: classes5.dex */
-public class m extends PostData {
+public class m {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId M0;
     public transient /* synthetic */ FieldHolder $fh;
-    @DrawableRes
-    public int G0;
-    public String H0;
-    public int I0;
-    public int J0;
-    public int K0;
-    public int L0;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1251854153, "Lb/a/r0/k2/r/m;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1251854153, "Lb/a/r0/k2/r/m;");
-                return;
-            }
-        }
-        M0 = BdUniqueId.gen();
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f20316a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f20317b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<String> f20318c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<String> f20319d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f20320e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f20321f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f20322g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f20323h;
 
     public m() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.L0 = 0;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, b.a.e.l.e.n
-    public BdUniqueId getType() {
+    public static m i(ManagerElection managerElection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, managerElection)) == null) {
+            if (managerElection == null) {
+                return null;
+            }
+            m mVar = new m();
+            managerElection.begin_vote_time.intValue();
+            mVar.f20316a = managerElection.can_vote.intValue() == 1;
+            mVar.f20317b = managerElection.vote_num.intValue();
+            mVar.f20321f = managerElection.is_show_distribute.intValue() == 1;
+            mVar.f20322g = managerElection.remainder_time.intValue();
+            mVar.f20323h = managerElection.status.intValue();
+            mVar.f20320e = managerElection.tail_text;
+            List<String> list = managerElection.vote_condition_pic;
+            mVar.f20318c = managerElection.vote_condition_title;
+            mVar.f20319d = managerElection.vote_condition;
+            return mVar;
+        }
+        return (m) invokeL.objValue;
+    }
+
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? M0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20316a : invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20321f : invokeV.booleanValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20322g : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20323h : invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20320e : (String) invokeV.objValue;
+    }
+
+    public List<String> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20319d : (List) invokeV.objValue;
+    }
+
+    public List<String> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20318c : (List) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20317b : invokeV.intValue;
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f20316a = z;
+        }
+    }
+
+    public void k(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.f20323h = i2;
+        }
+    }
+
+    public void l(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f20317b = i2;
+        }
     }
 }

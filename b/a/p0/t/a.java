@@ -1,129 +1,90 @@
 package b.a.p0.t;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class a {
+public class a implements Comparable<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a() {
-        InterceptResult invokeV;
+    /* renamed from: e  reason: collision with root package name */
+    public int f12114e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f12115f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f12116g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f12117h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public long f12118i;
+    public MethodInfo j;
+
+    public a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            DisplayMetrics c2 = c();
-            if (c2 != null) {
-                return c2.densityDpi;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return 0;
         }
-        return invokeV.intValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(a aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            DisplayMetrics c2 = c();
-            if (c2 != null) {
-                return c2.heightPixels;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? (int) (this.f12118i - aVar.e()) : invokeL.intValue;
     }
 
-    public static DisplayMetrics c() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j = this.f12116g - this.f12115f;
+            if (j < 0) {
+                return 0L;
             }
-            return appContext.getResources().getDisplayMetrics();
+            return j;
         }
-        return (DisplayMetrics) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static int d() {
+    public MethodInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            DisplayMetrics c2 = c();
-            if (c2 != null) {
-                return c2.widthPixels;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (MethodInfo) invokeV.objValue;
     }
 
-    public static String e() {
+    public int d() {
         InterceptResult invokeV;
-        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
-            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
-                return "no";
-            }
-            if (activeNetworkInfo.getType() == 1) {
-                return "WiFi";
-            }
-            if (activeNetworkInfo.getType() == 0) {
-                switch (activeNetworkInfo.getSubtype()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        return "2G";
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        return "3G";
-                    case 13:
-                        return "4G";
-                    default:
-                        return "unknown";
-                }
-            }
-            return "unknown";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12114e : invokeV.intValue;
     }
 
-    public static String f() {
+    public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? "Android" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12118i : invokeV.longValue;
     }
 
-    public static String g() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            String str = Build.VERSION.RELEASE;
-            return TextUtils.isEmpty(str) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12117h : (String) invokeV.objValue;
     }
 }

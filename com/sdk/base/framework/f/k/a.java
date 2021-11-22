@@ -22,10 +22,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68258a;
+    public static final String f69178a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f68259b;
+    public static Boolean f69179b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +42,8 @@ public class a {
             }
         }
         new TreeMap();
-        f68258a = a.class.getSimpleName();
-        f68259b = Boolean.valueOf(f.f68205b);
+        f69178a = a.class.getSimpleName();
+        f69179b = Boolean.valueOf(f.f69125b);
     }
 
     public a() {
@@ -70,8 +70,8 @@ public class a {
                 return com.sdk.base.framework.f.i.a.b(jSONObject.optString("data"), a2.substring(0, 16), a2.substring(16));
             } catch (Throwable th) {
                 com.sdk.base.framework.f.f.a.a(th.toString());
-                String str2 = f68258a;
-                c.b(str2, "SDK解密异常：" + th.toString(), f68259b);
+                String str2 = f69178a;
+                c.b(str2, "SDK解密异常：" + th.toString(), f69179b);
                 return null;
             }
         }
@@ -91,7 +91,7 @@ public class a {
                     dataInfo.putData("msg", str);
                     dataInfo.putData("obj", a2);
                     dataInfo.putData(IAdRequestParam.SEQ, str2);
-                    aVar.a(aVar.f68215c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f68165b);
+                    aVar.a(aVar.f69135c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f69085b);
                 } catch (Throwable unused) {
                 }
             }
@@ -105,8 +105,8 @@ public class a {
             try {
                 return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
             } catch (Exception e2) {
-                String str2 = f68258a;
-                c.c(str2, "out data error" + e2, f68259b);
+                String str2 = f69178a;
+                c.c(str2, "out data error" + e2, f69179b);
                 return true;
             }
         }

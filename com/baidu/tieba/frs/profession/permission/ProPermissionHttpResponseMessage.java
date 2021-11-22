@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.profession.permission;
 
-import b.a.r0.x0.q2.a.b;
+import b.a.r0.x0.r2.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

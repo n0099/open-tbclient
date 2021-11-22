@@ -1,14 +1,14 @@
 package com.baidu.tieba.frs;
 
 import android.os.Bundle;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.t1;
-import b.a.r0.b0.e0.n;
-import b.a.r0.l3.g0;
-import b.a.r0.l3.l;
-import b.a.r0.x0.i0;
-import b.a.r0.x0.k1;
+import b.a.r0.b0.f0.o;
+import b.a.r0.m3.g0;
+import b.a.r0.m3.l;
+import b.a.r0.x0.j0;
+import b.a.r0.x0.l1;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -86,10 +86,10 @@ public class FRSExtraStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, t1.Z3, null));
-                absDelegateAdapterList.add(new b.a.r0.x0.z1.a.a(null, n.k, true));
-                absDelegateAdapterList.add(new b.a.r0.x0.z1.a.b(null, g0.a4, null));
-                absDelegateAdapterList.add(new b.a.r0.x0.d2.a(null, b.a.r0.a1.b.f14668i, null));
+                absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, t1.a4, null));
+                absDelegateAdapterList.add(new b.a.r0.x0.a2.a.a(null, o.k, true));
+                absDelegateAdapterList.add(new b.a.r0.x0.a2.a.b(null, g0.b4, null));
+                absDelegateAdapterList.add(new b.a.r0.x0.e2.a(null, b.a.r0.a1.b.f15500i, null));
             }
         }
     }
@@ -195,12 +195,12 @@ public class FRSExtraStatic {
                     videoSerializeVideoThreadInfo.threadId = paramPair.get("threadId");
                     videoSerializeVideoThreadInfo.hasAgree = "1".equals(paramPair.get("hasAgree"));
                     videoSerializeVideoThreadInfo.title = str6;
-                    videoSerializeVideoThreadInfo.video.videoDuration = b.a.e.e.m.b.e(paramPair.get(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
-                    videoSerializeVideoThreadInfo.postNum = b.a.e.e.m.b.e(paramPair.get("postNum"), 0);
-                    videoSerializeVideoThreadInfo.agreeNum = b.a.e.e.m.b.e(paramPair.get("agreeNum"), 0);
-                    videoSerializeVideoThreadInfo.disAgreeNum = b.a.e.e.m.b.e(paramPair.get("disagreeNum"), 0);
-                    videoSerializeVideoThreadInfo.agreeType = b.a.e.e.m.b.e(paramPair.get("agreeType"), 0);
-                    videoSerializeVideoThreadInfo.shareNum = b.a.e.e.m.b.e(paramPair.get("shareNum"), 0);
+                    videoSerializeVideoThreadInfo.video.videoDuration = b.a.e.f.m.b.e(paramPair.get(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
+                    videoSerializeVideoThreadInfo.postNum = b.a.e.f.m.b.e(paramPair.get("postNum"), 0);
+                    videoSerializeVideoThreadInfo.agreeNum = b.a.e.f.m.b.e(paramPair.get("agreeNum"), 0);
+                    videoSerializeVideoThreadInfo.disAgreeNum = b.a.e.f.m.b.e(paramPair.get("disagreeNum"), 0);
+                    videoSerializeVideoThreadInfo.agreeType = b.a.e.f.m.b.e(paramPair.get("agreeType"), 0);
+                    videoSerializeVideoThreadInfo.shareNum = b.a.e.f.m.b.e(paramPair.get("shareNum"), 0);
                     videoSerializeVideoThreadInfo.mVideoCardViewInfo = new VideoSerializeVideoThreadInfo.VideoCardViewInfo();
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoMiddlePageActivityConfig(tbPageContext.getContext(), paramPair.get("from"), videoSerializeVideoThreadInfo.threadId, "", "", videoSerializeVideoThreadInfo)));
                     return 1;
@@ -242,21 +242,21 @@ public class FRSExtraStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616) {
                 Object data = customResponsedMessage.getData();
-                if (data instanceof i0) {
-                    i0 i0Var = (i0) data;
-                    i0Var.a(new b.a.r0.x0.e2.a(i0Var.c(), i0Var.d()));
-                    for (FrsTabInfo frsTabInfo : i0Var.f()) {
+                if (data instanceof j0) {
+                    j0 j0Var = (j0) data;
+                    j0Var.a(new b.a.r0.x0.f2.a(j0Var.c(), j0Var.d()));
+                    for (FrsTabInfo frsTabInfo : j0Var.f()) {
                         if (frsTabInfo.tab_id.intValue() > 100) {
-                            b.a.r0.x0.i2.c cVar = new b.a.r0.x0.i2.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
-                            i0Var.a(cVar);
-                            if (i0Var.getContext() == null) {
+                            b.a.r0.x0.j2.c cVar = new b.a.r0.x0.j2.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
+                            j0Var.a(cVar);
+                            if (j0Var.getContext() == null) {
                                 continue;
                             } else {
                                 b.a.q0.h0.c fragmentTabStructure = cVar.getFragmentTabStructure();
                                 if (fragmentTabStructure == null) {
                                     return;
                                 }
-                                fragmentTabStructure.f12612a.setArguments(new Bundle());
+                                fragmentTabStructure.f13359a.setArguments(new Bundle());
                             }
                         }
                     }
@@ -295,7 +295,7 @@ public class FRSExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new b.a.r0.x0.b2.c(null, l.f20669g, true));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new b.a.r0.x0.c2.c(null, l.f22519g, true));
             }
         }
     }
@@ -323,7 +323,7 @@ public class FRSExtraStatic {
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016468, new b.a.r0.x0.b2.a()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016468, new b.a.r0.x0.c2.a()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -348,8 +348,8 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameCommentActivityConfig.class, FrsGameCommentActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsProfessionIntroActivityConfig.class, FrsProfessionIntroActivity.class);
-        d2.M3.set(true);
-        b.a.r0.x0.e.f25685a.set(new k1());
+        d2.O3.set(true);
+        b.a.r0.x0.e.f27276a.set(new l1());
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerTask(new CustomMessageTask(2003016, new b()));
         UrlManager.getInstance().addListener(new c());

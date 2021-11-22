@@ -3,7 +3,7 @@ package b.a.p0.a.e0.f.e;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import b.a.p0.a.c2.f.a0;
+import b.a.p0.a.f2.f.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class b extends a0 {
+public class b extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(b.a.p0.a.c2.e eVar) {
+    public b(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/remoteDebug");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,29 +41,29 @@ public class b extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            b.a.p0.a.e0.d.g("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
+            b.a.p0.a.e0.d.i("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
             return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            b.a.p0.a.e0.d.g("RemoteDebugAction", "handleSubAction subAction: " + str);
+            b.a.p0.a.e0.d.i("RemoteDebugAction", "handleSubAction subAction: " + str);
             if (!e.d()) {
-                b.a.p0.a.e0.d.b("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
+                b.a.p0.a.e0.d.c("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            SwanAppActivity x = b.a.p0.a.a2.d.g().x();
+            SwanAppActivity x = b.a.p0.a.d2.d.J().x();
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != -279631955) {
@@ -74,12 +74,12 @@ public class b extends a0 {
                 c2 = 1;
             }
             if (c2 == 0) {
-                b.a.p0.a.e0.d.g("RemoteDebugAction", "Remote Debug reload");
+                b.a.p0.a.e0.d.i("RemoteDebugAction", "Remote Debug reload");
                 if (x != null) {
                     Intent intent = x.getIntent();
                     e.f();
-                    b.a.p0.a.a2.d.g().o(new String[0]);
-                    b.a.p0.a.a2.d.g().m(intent.getExtras(), "update_tag_by_remote_debug");
+                    b.a.p0.a.d2.d.J().o(new String[0]);
+                    b.a.p0.a.d2.d.J().m(intent.getExtras(), "update_tag_by_remote_debug");
                 }
                 return true;
             } else if (c2 != 1) {

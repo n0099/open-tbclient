@@ -11,7 +11,7 @@ public final class y implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f70644a;
+    public final /* synthetic */ Context f71564a;
 
     public y(Context context) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public final class y implements Runnable {
                 return;
             }
         }
-        this.f70644a = context;
+        this.f71564a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageHandleService.c(this.f70644a);
+            MessageHandleService.c(this.f71564a);
         }
     }
 }

@@ -45,22 +45,21 @@ public final class CacheKeyUtil {
     }
 
     public static List<String> getResourceIds(CacheKey cacheKey) {
-        ArrayList arrayList;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cacheKey)) == null) {
             try {
                 if (cacheKey instanceof MultiCacheKey) {
                     List<CacheKey> cacheKeys = ((MultiCacheKey) cacheKey).getCacheKeys();
-                    arrayList = new ArrayList(cacheKeys.size());
+                    ArrayList arrayList = new ArrayList(cacheKeys.size());
                     for (int i2 = 0; i2 < cacheKeys.size(); i2++) {
                         arrayList.add(secureHashKey(cacheKeys.get(i2)));
                     }
-                } else {
-                    arrayList = new ArrayList(1);
-                    arrayList.add(cacheKey.isResourceIdForDebugging() ? cacheKey.getUriString() : secureHashKey(cacheKey));
+                    return arrayList;
                 }
-                return arrayList;
+                ArrayList arrayList2 = new ArrayList(1);
+                arrayList2.add(secureHashKey(cacheKey));
+                return arrayList2;
             } catch (UnsupportedEncodingException e2) {
                 throw new RuntimeException(e2);
             }

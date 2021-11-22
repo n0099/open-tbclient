@@ -7,7 +7,7 @@ public interface c {
 
     String b();
 
-    String c();
+    b.a.x0.j.a c();
 
-    b.a.x0.j.a d();
+    String e();
 }

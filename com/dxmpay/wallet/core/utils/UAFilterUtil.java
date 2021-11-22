@@ -26,7 +26,7 @@ public class UAFilterUtil {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static UAFilterUtil f62611a;
+        public static UAFilterUtil f63512a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class UAFilterUtil {
                     return;
                 }
             }
-            f62611a = new UAFilterUtil(null);
+            f63512a = new UAFilterUtil(null);
         }
     }
 
@@ -53,7 +53,7 @@ public class UAFilterUtil {
     public static UAFilterUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f62611a : (UAFilterUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f63512a : (UAFilterUtil) invokeV.objValue;
     }
 
     public synchronized String getTrueUA(Context context) {

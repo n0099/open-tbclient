@@ -14,10 +14,10 @@ public abstract class e<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f64163a;
+    public boolean f65076a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64164b;
+    public boolean f65077b;
 
     public e(boolean z) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public abstract class e<T> {
                 return;
             }
         }
-        this.f64164b = false;
-        this.f64163a = z;
+        this.f65077b = false;
+        this.f65076a = z;
     }
 
     @Nullable
@@ -43,7 +43,7 @@ public abstract class e<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f64163a && !this.f64164b) {
+            if (this.f65076a && !this.f65077b) {
                 try {
                     return b(context);
                 } catch (Throwable th) {
@@ -59,7 +59,7 @@ public abstract class e<T> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f64163a = z;
+            this.f65076a = z;
         }
     }
 

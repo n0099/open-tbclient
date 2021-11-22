@@ -37,8 +37,8 @@ public class f0 extends h {
                 return;
             }
         }
-        int g2 = b.a.e.e.p.l.g(context, R.dimen.M_H_X003);
-        int g3 = b.a.e.e.p.l.g(context, b.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+        int g2 = b.a.e.f.p.l.g(context, R.dimen.M_H_X003);
+        int g3 = b.a.e.f.p.l.g(context, b.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
         q(g2);
         p(g3);
         if ((TbadkCoreApplication.getInst().getPersonalizeViewData().t instanceof RecommendInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().t.getParent() == null) {
@@ -66,14 +66,14 @@ public class f0 extends h {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (b.a.q0.b.d.l0()) {
-                int g2 = b.a.e.e.p.l.g(this.f3216f, R.dimen.M_H_X003);
-                int g3 = b.a.e.e.p.l.g(this.f3216f, b.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+            if (b.a.q0.b.d.p0()) {
+                int g2 = b.a.e.f.p.l.g(this.f3307f, R.dimen.M_H_X003);
+                int g3 = b.a.e.f.p.l.g(this.f3307f, b.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
                 q(g2);
                 p(g3);
                 return;
             }
-            int g4 = b.a.e.e.p.l.g(this.f3216f, R.dimen.tbds10);
+            int g4 = b.a.e.f.p.l.g(this.f3307f, R.dimen.tbds10);
             q(g4);
             p(0);
             t(this.l, g4, 0);

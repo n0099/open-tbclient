@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
-public class TrackableBase implements b.i.c.a.b {
+/* loaded from: classes11.dex */
+public class TrackableBase implements b.h.c.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f63126a;
+    public final long f64026a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Session f63127b;
+    public final Session f64027b;
 
     public TrackableBase(long j, Session session) {
         Interceptable interceptable = $ic;
@@ -32,11 +32,11 @@ public class TrackableBase implements b.i.c.a.b {
                 return;
             }
         }
-        this.f63127b = session;
-        this.f63126a = j;
+        this.f64027b = session;
+        this.f64026a = j;
     }
 
-    private native long nativeCreateAnchor(long j, long j2, b.i.c.a.a aVar);
+    private native long nativeCreateAnchor(long j, long j2, b.h.c.a.a aVar);
 
     private native long[] nativeGetAnchors(long j, long j2);
 
@@ -49,13 +49,13 @@ public class TrackableBase implements b.i.c.a.b {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == getClass() && ((TrackableBase) obj).f63126a == this.f63126a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == getClass() && ((TrackableBase) obj).f64026a == this.f64026a : invokeL.booleanValue;
     }
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.f63126a;
+            long j = this.f64026a;
             if (j != 0) {
                 nativeReleaseTrackable(j);
             }
@@ -66,6 +66,6 @@ public class TrackableBase implements b.i.c.a.b {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f63126a).hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f64026a).hashCode() : invokeV.intValue;
     }
 }

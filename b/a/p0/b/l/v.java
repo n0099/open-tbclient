@@ -15,6 +15,6 @@ public class v {
     public static b.a.p0.b.l.c0.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new b.a.r0.v.b.b.d() : (b.a.p0.b.l.c0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new b.a.r0.v.b.b.c() : (b.a.p0.b.l.c0.a) invokeV.objValue;
     }
 }

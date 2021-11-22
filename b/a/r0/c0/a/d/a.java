@@ -1,6 +1,6 @@
 package b.a.r0.c0.a.d;
 
-import b.a.q0.d1.z;
+import b.a.q0.c1.z;
 import b.a.q0.k0.b.d;
 import b.a.q0.k0.b.g;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,7 @@ public class a implements g, d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15118e;
+    public int f16556e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a implements g, d {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f15118e++;
+            this.f16556e++;
         }
     }
 
@@ -48,7 +48,7 @@ public class a implements g, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.f15118e);
+            builder.pn = Integer.valueOf(this.f16556e);
             HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
             DataReq build = builder.build(false);
             builder2.data = build;

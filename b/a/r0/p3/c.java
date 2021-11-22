@@ -1,55 +1,66 @@
 package b.a.r0.p3;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.ScaleAnimation;
-import b.a.e.a.e;
-import b.a.e.e.m.g;
-import b.a.r0.l3.h0;
-import b.a.r0.l3.x;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import b.a.e.f.p.l;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivity;
-import com.baidu.tieba.tblauncherInterestGuide.NewUserGuideCommonShowBox;
-import com.baidu.tieba.tblauncherInterestGuide.NewUserGuideImgShowBox;
-import com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment;
-import com.baidu.tieba.tblauncherInterestGuide.NewUserGuideRankShowBox;
-import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c implements View.OnClickListener {
+public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public MainTabActivity f23929a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PopupWindow f23930b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public FragmentTabHost f23931c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f23932d;
+
     /* renamed from: e  reason: collision with root package name */
-    public NewUserGuideActivity f22459e;
+    public long f23933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterestFrsData.Tag f22460f;
+    public View f23934f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.r0.p3.a f22461g;
+    public TextView f23935g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LikeModel f22462h;
+    public TextView f23936h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h0 f22463i;
+    public Runnable f23937i;
+    public Runnable j;
+    public View.OnClickListener k;
 
     /* loaded from: classes5.dex */
-    public class a extends e {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f22464a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ c f23938e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -66,34 +77,33 @@ public class c implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22464a = cVar;
+            this.f23938e = cVar;
         }
 
-        @Override // b.a.e.a.e
-        public void c(Object obj) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj == null) {
-                    this.f22464a.f22459e.showToast(R.string.neterror);
-                } else if (obj instanceof x) {
-                    int e2 = b.a.e.e.m.b.e(((x) obj).g(), 0);
-                    this.f22464a.f22461g.ForumLike(e2);
-                    this.f22464a.c(e2, true);
-                    this.f22464a.f22459e.setHasLike(true);
-                    this.f22464a.f22459e.setIsChanged(true);
-                    TiebaStatic.eventStat(this.f22464a.f22459e.getPageContext().getPageActivity(), "notlogin_12", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-                }
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23938e.f23931c == null || this.f23938e.f23930b == null || this.f23938e.f23930b.getContentView() == null) {
+                return;
             }
+            FragmentTabWidget fragmentTabWidget = this.f23938e.f23931c.getFragmentTabWidget();
+            int k = l.k(this.f23938e.f23929a.getActivity());
+            int g2 = l.g(this.f23938e.f23929a.getActivity(), R.dimen.ds278);
+            this.f23938e.f23930b.getContentView().measure(0, 0);
+            b.a.e.f.m.g.l(this.f23938e.f23930b, fragmentTabWidget, (k - l.g(this.f23938e.f23929a.getActivity(), R.dimen.ds430)) / 2, -g2);
+            b.a.q0.s.e0.b.j().w("home_tip", this.f23938e.f23933e);
+            b.a.e.f.m.e.a().postDelayed(this.f23938e.j, 5000L);
+            TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 1));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements h0.a {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f22465a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ c f23939e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -110,43 +120,33 @@ public class c implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22465a = cVar;
+            this.f23939e = cVar;
         }
 
-        @Override // b.a.r0.l3.h0.a
-        public void a(String str, long j) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-                this.f22465a.f22459e.showToast(R.string.error);
-            }
-        }
-
-        @Override // b.a.r0.l3.h0.a
-        public void b(String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-                int e2 = b.a.e.e.m.b.e(String.valueOf(j), 0);
-                this.f22465a.f22461g.ForumUnLike(e2);
-                this.f22465a.c(e2, false);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f23939e.g();
             }
         }
     }
 
     /* renamed from: b.a.r0.p3.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class DialogInterface$OnDismissListenerC1096c implements DialogInterface.OnDismissListener {
+    public class View$OnClickListenerC1160c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideMainFragment.b f22466e;
+        public final /* synthetic */ c f23940e;
 
-        public DialogInterface$OnDismissListenerC1096c(c cVar, NewUserGuideMainFragment.b bVar) {
+        public View$OnClickListenerC1160c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, bVar};
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -156,24 +156,29 @@ public class c implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22466e = bVar;
+            this.f23940e = cVar;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f22466e.a();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f23940e.h();
+                if (WriteActivityConfig.isAsyncWriting()) {
+                    return;
+                }
+                WriteActivityConfig.newInstance(this.f23940e.f23929a).setType(9).setTitle(this.f23940e.f23932d).setForumId("0").send();
+                TiebaStatic.log(new StatisticItem("c13017").param("obj_locate", 1));
             }
         }
     }
 
-    public c(NewUserGuideActivity newUserGuideActivity, InterestFrsData.Tag tag, NewUserGuideMainFragment.b bVar) {
+    public c(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {newUserGuideActivity, tag, bVar};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -183,66 +188,58 @@ public class c implements View.OnClickListener {
                 return;
             }
         }
-        this.f22459e = newUserGuideActivity;
-        this.f22460f = tag;
-        int btype = tag.getBtype();
-        if (btype == 1) {
-            this.f22461g = new NewUserGuideRankShowBox(this.f22459e.getPageContext().getPageActivity(), R.style.NewUserDialog);
-        } else if (btype == 2) {
-            this.f22461g = new NewUserGuideCommonShowBox(this.f22459e.getPageContext().getPageActivity(), R.style.NewUserDialog);
-        } else if (btype == 3) {
-            this.f22461g = new NewUserGuideImgShowBox(this.f22459e.getPageContext().getPageActivity(), R.style.NewUserDialog);
-        }
-        LikeModel likeModel = new LikeModel(newUserGuideActivity.getPageContext());
-        this.f22462h = likeModel;
-        likeModel.setLoadDataCallBack(new a(this));
-        h0 h0Var = new h0();
-        this.f22463i = h0Var;
-        h0Var.b(new b(this));
-        this.f22461g.setOnClickListener(this);
-        this.f22461g.setData(this.f22460f);
-        ((Dialog) this.f22461g).setOnDismissListener(new DialogInterface$OnDismissListenerC1096c(this, bVar));
+        this.f23937i = new a(this);
+        this.j = new b(this);
+        this.k = new View$OnClickListenerC1160c(this);
+        this.f23929a = mainTabActivity;
+        this.f23931c = (FragmentTabHost) mainTabActivity.findViewById(R.id.tab_host);
     }
 
-    public void c(int i2, boolean z) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            for (int i3 = 0; i3 < this.f22460f.getCard_list().size(); i3++) {
-                if (this.f22460f.getCard_list().get(i3).getFid() == i2) {
-                    this.f22460f.getCard_list().get(i3).setIs_like(z ? 1 : 0);
-                    return;
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b.a.e.f.m.g.c(this.f23930b);
         }
     }
 
-    public void d() {
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NewUserGuideActivity newUserGuideActivity = this.f22459e;
-            if (newUserGuideActivity == null || g.e(newUserGuideActivity.getPageContext().getPageActivity())) {
-                ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 2, 0.5f, 2, 0.5f);
-                scaleAnimation.setDuration(350L);
-                this.f22461g.getRootView().setAnimation(scaleAnimation);
-                this.f22461g.show();
-            }
+            b.a.e.f.m.e.a().removeCallbacks(this.f23937i);
+            b.a.e.f.m.e.a().removeCallbacks(this.j);
+            g();
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            if (view.getId() == R.id.box_close_layout) {
-                this.f22461g.hide();
-            } else if ((view.getId() == R.id.ll_like || view.getId() == R.id.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
-                InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
-                if (card.getIs_like() == 1) {
-                    this.f22463i.c(card.getFname(), card.getFid());
-                } else {
-                    this.f22462h.M(card.getFname(), String.valueOf(card.getFid()), "newuser");
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h();
         }
+    }
+
+    public void j(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || b.a.q0.s.e0.b.j().l("home_tip", 0L) == j || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
+            return;
+        }
+        this.f23932d = str2;
+        this.f23933e = j;
+        if (this.f23934f == null) {
+            View inflate = LayoutInflater.from(this.f23929a.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
+            this.f23934f = inflate;
+            this.f23935g = (TextView) inflate.findViewById(R.id.tips);
+            this.f23936h = (TextView) this.f23934f.findViewById(R.id.tips_content);
+            this.f23934f.setOnClickListener(this.k);
+        }
+        this.f23935g.setText(StringHelper.cutHotTopicShow(str, 24, "..."));
+        this.f23936h.setText(R.string.topic_join);
+        if (this.f23930b == null) {
+            this.f23930b = new PopupWindow(this.f23934f, -2, -2);
+        } else {
+            h();
+        }
+        b.a.e.f.m.e.a().removeCallbacks(this.f23937i);
+        b.a.e.f.m.e.a().postDelayed(this.f23937i, 100L);
     }
 }

@@ -1,7 +1,7 @@
 package b.a.r0.p2.d;
 
 import android.view.View;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.s.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -39,19 +39,19 @@ public class h implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.m2.e f22232e;
+    public b.a.r0.m2.e f23709e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.p2.d.d f22233f;
+    public b.a.r0.p2.d.d f23710f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.r0.t3.a f22234g;
+    public b.a.r0.u3.a f23711g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f22235h;
+    public TbPageContext f23712h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BlackListModel f22236i;
+    public BlackListModel f23713i;
     public boolean j;
     public String k;
     public long l;
@@ -73,7 +73,7 @@ public class h implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f22237a;
+        public final /* synthetic */ h f23714a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(h hVar, int i2) {
@@ -93,7 +93,7 @@ public class h implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22237a = hVar;
+            this.f23714a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -101,7 +101,7 @@ public class h implements View.OnClickListener {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof ResponseApplyMessage) && ((ResponseApplyMessage) socketResponsedMessage).getError() != 0) {
-                this.f22237a.f22235h.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.f22237a.f22235h.getResources().getString(R.string.neterror) : socketResponsedMessage.getErrorString());
+                this.f23714a.f23712h.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.f23714a.f23712h.getResources().getString(R.string.neterror) : socketResponsedMessage.getErrorString());
             }
         }
     }
@@ -112,7 +112,7 @@ public class h implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f22238a;
+        public final /* synthetic */ h f23715a;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class h implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22238a = hVar;
+            this.f23715a = hVar;
         }
 
         @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
@@ -138,12 +138,12 @@ public class h implements View.OnClickListener {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
                 if (z && i2 != 2260104) {
                     if (StringUtils.isNull(str)) {
-                        l.M(this.f22238a.f22235h.getPageActivity(), this.f22238a.f22235h.getString(i2 == 0 ? R.string.remove_fans_success : R.string.remove_fans_fail));
+                        l.M(this.f23715a.f23712h.getPageActivity(), this.f23715a.f23712h.getString(i2 == 0 ? R.string.remove_fans_success : R.string.remove_fans_fail));
                     } else {
-                        l.M(this.f22238a.f22235h.getPageActivity(), str);
+                        l.M(this.f23715a.f23712h.getPageActivity(), str);
                     }
                 }
-                h hVar = this.f22238a;
+                h hVar = this.f23715a;
                 if (j == hVar.l && i2 == 0) {
                     hVar.p = false;
                 }
@@ -157,7 +157,7 @@ public class h implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f22239e;
+        public final /* synthetic */ h f23716e;
 
         public c(h hVar) {
             Interceptable interceptable = $ic;
@@ -174,14 +174,14 @@ public class h implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22239e = hVar;
+            this.f23716e = hVar;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f22239e.q.removeFans(this.f22239e.l);
+                this.f23716e.q.removeFans(this.f23716e.l);
                 aVar.dismiss();
             }
         }
@@ -223,7 +223,7 @@ public class h implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f22240e;
+        public final /* synthetic */ h f23717e;
 
         public e(h hVar) {
             Interceptable interceptable = $ic;
@@ -240,19 +240,19 @@ public class h implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22240e = hVar;
+            this.f23717e = hVar;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                h hVar = this.f22240e;
+                h hVar = this.f23717e;
                 if (hVar.l > 0) {
-                    if (hVar.f22236i.getMaskType() == 1) {
-                        this.f22240e.f22236i.removeFromBlackList(this.f22240e.l);
+                    if (hVar.f23713i.getMaskType() == 1) {
+                        this.f23717e.f23713i.removeFromBlackList(this.f23717e.l);
                     } else {
-                        this.f22240e.f22236i.addToBlackList(this.f22240e.l);
+                        this.f23717e.f23713i.addToBlackList(this.f23717e.l);
                     }
                 }
                 aVar.dismiss();
@@ -296,7 +296,7 @@ public class h implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f22241a;
+        public final /* synthetic */ h f23718a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(h hVar, int i2) {
@@ -316,7 +316,7 @@ public class h implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22241a = hVar;
+            this.f23718a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -331,36 +331,36 @@ public class h implements View.OnClickListener {
                     return;
                 }
                 if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
-                    this.f22241a.f22236i.setMaskType(1);
+                    this.f23718a.f23713i.setMaskType(1);
                 } else {
-                    this.f22241a.f22236i.setMaskType(0);
+                    this.f23718a.f23713i.setMaskType(0);
                 }
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    if (this.f22241a.f22236i.getMaskType() == 1) {
-                        TbPageContext tbPageContext = this.f22241a.f22235h;
+                    if (this.f23718a.f23713i.getMaskType() == 1) {
+                        TbPageContext tbPageContext = this.f23718a.f23712h;
                         tbPageContext.showToast(tbPageContext.getString(R.string.chat_message_blocked));
                         return;
                     }
-                    TbPageContext tbPageContext2 = this.f22241a.f22235h;
+                    TbPageContext tbPageContext2 = this.f23718a.f23712h;
                     tbPageContext2.showToast(tbPageContext2.getString(R.string.remove_succ));
                     return;
                 }
-                this.f22241a.f22235h.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.f22241a.f22235h.getResources().getString(R.string.neterror) : responseUpdateMaskInfoMessage.getErrorString());
+                this.f23718a.f23712h.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.f23718a.f23712h.getResources().getString(R.string.neterror) : responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }
 
     /* renamed from: b.a.r0.p2.d.h$h  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1086h extends b.a.e.c.g.c {
+    public class C1151h extends b.a.e.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f22242a;
+        public final /* synthetic */ h f23719a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1086h(h hVar, int i2) {
+        public C1151h(h hVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -377,7 +377,7 @@ public class h implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22242a = hVar;
+            this.f23719a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -389,11 +389,11 @@ public class h implements View.OnClickListener {
                 int error = responseDeleteFriendMessage.getError();
                 String errorString = responseDeleteFriendMessage.getErrorString();
                 if (error == 0) {
-                    this.f22242a.f(false);
+                    this.f23719a.f(false);
                 } else {
-                    errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.f22242a.f22235h.getResources().getString(R.string.neterror) : responseDeleteFriendMessage.getErrorString();
+                    errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.f23719a.f23712h.getResources().getString(R.string.neterror) : responseDeleteFriendMessage.getErrorString();
                 }
-                this.f22242a.f22235h.showToast(errorString);
+                this.f23719a.f23712h.showToast(errorString);
             }
         }
     }
@@ -404,7 +404,7 @@ public class h implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f22243a;
+        public final /* synthetic */ h f23720a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(h hVar, int i2) {
@@ -424,7 +424,7 @@ public class h implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22243a = hVar;
+            this.f23720a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -432,7 +432,7 @@ public class h implements View.OnClickListener {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) && ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 0) {
-                this.f22243a.f(true);
+                this.f23720a.f(true);
             }
         }
     }
@@ -443,7 +443,7 @@ public class h implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f22244a;
+        public final /* synthetic */ h f23721a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(h hVar, int i2) {
@@ -463,7 +463,7 @@ public class h implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22244a = hVar;
+            this.f23721a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -473,9 +473,9 @@ public class h implements View.OnClickListener {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
                 ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
                 if (responseNewFriendUpdateUiMsg.getAction() == -1) {
-                    this.f22244a.f(false);
+                    this.f23721a.f(false);
                 } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                    this.f22244a.f(true);
+                    this.f23721a.f(true);
                 }
             }
         }
@@ -497,18 +497,18 @@ public class h implements View.OnClickListener {
             }
         }
         this.s = new g(this, 104102);
-        this.t = new C1086h(this, 304102);
+        this.t = new C1151h(this, 304102);
         this.u = new i(this, 2001174);
         this.v = new j(this, 2001174);
         this.w = new a(this, 304103);
-        this.f22235h = tbPageContext;
-        this.f22233f = dVar;
-        this.f22236i = blackListModel;
+        this.f23712h = tbPageContext;
+        this.f23710f = dVar;
+        this.f23713i = blackListModel;
         this.o = bdUniqueId;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921343, b.a.r0.t3.a.class, tbPageContext.getPageActivity());
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921343, b.a.r0.u3.a.class, tbPageContext.getPageActivity());
         if (runTask != null) {
-            b.a.r0.t3.a aVar = (b.a.r0.t3.a) runTask.getData();
-            this.f22234g = aVar;
+            b.a.r0.u3.a aVar = (b.a.r0.u3.a) runTask.getData();
+            this.f23711g = aVar;
             aVar.b(bdUniqueId);
         }
         g();
@@ -520,10 +520,10 @@ public class h implements View.OnClickListener {
     public void e() {
         BlackListModel blackListModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f22233f == null || (blackListModel = this.f22236i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23710f == null || (blackListModel = this.f23713i) == null) {
             return;
         }
-        j(this.j, blackListModel.getMaskType() == 1, this.f22233f.e(), this.p);
+        j(this.j, blackListModel.getMaskType() == 1, this.f23710f.e(), this.p);
     }
 
     public final void f(boolean z) {
@@ -535,8 +535,8 @@ public class h implements View.OnClickListener {
             if (aVar != null) {
                 aVar.x(z);
             }
-            b.a.r0.m2.e eVar = this.f22232e;
-            if (eVar == null || (blackListModel = this.f22236i) == null) {
+            b.a.r0.m2.e eVar = this.f23709e;
+            if (eVar == null || (blackListModel = this.f23713i) == null) {
                 return;
             }
             eVar.l(this.j, blackListModel.getMaskType() == 1, this.p);
@@ -551,23 +551,23 @@ public class h implements View.OnClickListener {
             this.w.setTag(this.o);
             this.v.setTag(this.o);
             this.u.setTag(this.o);
-            this.f22235h.registerListener(this.s);
-            this.f22235h.registerListener(this.t);
-            this.f22235h.registerListener(this.w);
-            this.f22235h.registerListener(this.v);
-            this.f22235h.registerListener(this.u);
+            this.f23712h.registerListener(this.s);
+            this.f23712h.registerListener(this.t);
+            this.f23712h.registerListener(this.w);
+            this.f23712h.registerListener(this.v);
+            this.f23712h.registerListener(this.u);
         }
     }
 
     public void h(b.a.r0.p2.e.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || this.f22236i == null || aVar == null || aVar.j() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || this.f23713i == null || aVar == null || aVar.j() == null) {
             return;
         }
         this.n = aVar;
         UserData j2 = aVar.j();
         this.j = aVar.l();
-        this.f22236i.setMaskType(j2.isMask() ? 1 : 0);
+        this.f23713i.setMaskType(j2.isMask() ? 1 : 0);
         this.k = j2.getName_show();
         this.l = j2.getUserIdLong();
         this.m = j2.getPortrait();
@@ -580,34 +580,34 @@ public class h implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.k == null) {
             return;
         }
-        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f22235h.getPageActivity());
+        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f23712h.getPageActivity());
         aVar.setPositiveButton(R.string.confirm, new e(this));
         aVar.setNegativeButton(R.string.cancel, new f(this));
-        if (this.f22236i.getMaskType() == 1) {
-            format = String.format(this.f22235h.getString(R.string.block_chat_ensure_toremove_text), this.k);
+        if (this.f23713i.getMaskType() == 1) {
+            format = String.format(this.f23712h.getString(R.string.block_chat_ensure_toremove_text), this.k);
         } else {
-            format = String.format(this.f22235h.getString(R.string.block_chat_message_alert), this.k);
+            format = String.format(this.f23712h.getString(R.string.block_chat_message_alert), this.k);
         }
         aVar.setMessage(format);
-        aVar.create(this.f22235h);
+        aVar.create(this.f23712h);
         aVar.show();
     }
 
     public final void j(boolean z, boolean z2, int i2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Boolean.valueOf(z3)}) == null) {
-            b.a.r0.m2.e eVar = new b.a.r0.m2.e(this.f22235h, this);
-            this.f22232e = eVar;
+            b.a.r0.m2.e eVar = new b.a.r0.m2.e(this.f23712h, this);
+            this.f23709e = eVar;
             eVar.l(z, z2, z3);
             if (i2 != -1) {
-                this.f22232e.k(i2);
+                this.f23709e.k(i2);
             }
             b.a.r0.p2.e.a aVar = this.n;
             if (aVar != null && aVar.j() != null) {
-                this.f22232e.m(this.n.j().getUserName());
+                this.f23709e.m(this.n.j().getUserName());
             }
-            this.f22232e.j();
-            PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(this.f22235h.getPageActivity(), this.f22232e.h());
+            this.f23709e.j();
+            PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(this.f23712h.getPageActivity(), this.f23709e.h());
             this.r = personInfoMoreDialog;
             personInfoMoreDialog.show();
         }
@@ -618,11 +618,11 @@ public class h implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.l == 0) {
             return;
         }
-        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f22235h.getPageActivity());
+        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f23712h.getPageActivity());
         aVar.setPositiveButton(R.string.confirm, new c(this));
         aVar.setNegativeButton(R.string.cancel, new d(this));
-        aVar.setMessage(String.format(this.f22235h.getString(R.string.remove_fans_alert_text), this.k));
-        aVar.create(this.f22235h);
+        aVar.setMessage(String.format(this.f23712h.getString(R.string.remove_fans_alert_text), this.k));
+        aVar.create(this.f23712h);
         aVar.show();
     }
 
@@ -632,47 +632,47 @@ public class h implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, view) == null) || view == null) {
             return;
         }
-        b.a.e.e.m.g.a(this.r, this.f22235h.getPageActivity());
-        if (this.f22232e.c() != null && view.getId() == this.f22232e.c().getId()) {
+        b.a.e.f.m.g.a(this.r, this.f23712h.getPageActivity());
+        if (this.f23709e.c() != null && view.getId() == this.f23709e.c().getId()) {
             i();
-        } else if (this.f22232e.d() != null && view.getId() == this.f22232e.d().getId()) {
+        } else if (this.f23709e.d() != null && view.getId() == this.f23709e.d().getId()) {
             if (this.j) {
                 RequestDeleteFriendMessage requestDeleteFriendMessage = new RequestDeleteFriendMessage();
                 requestDeleteFriendMessage.setFriendId(this.l);
                 MessageManager.getInstance().sendMessage(requestDeleteFriendMessage);
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.f22235h.getPageActivity(), String.valueOf(this.l), this.k, this.m, null, false, null)));
-        } else if (this.f22232e.e() != null && view.getId() == this.f22232e.e().getId()) {
-            if (!b.a.e.e.p.j.z()) {
-                this.f22235h.showToast(R.string.neterror);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.f23712h.getPageActivity(), String.valueOf(this.l), this.k, this.m, null, false, null)));
+        } else if (this.f23709e.e() != null && view.getId() == this.f23709e.e().getId()) {
+            if (!b.a.e.f.p.j.z()) {
+                this.f23712h.showToast(R.string.neterror);
                 return;
             }
-            b.a.r0.p2.d.d dVar = this.f22233f;
+            b.a.r0.p2.d.d dVar = this.f23710f;
             if (dVar == null) {
                 return;
             }
             if (dVar.e() == 0) {
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
-                userMuteAddAndDelCustomMessage.setData(false, String.valueOf(this.l), this.k, null, null, 0, this.f22233f.d(), this.f22233f.f());
-                userMuteAddAndDelCustomMessage.mId = this.f22233f.f();
-                b.a.r0.p2.d.d dVar2 = this.f22233f;
+                userMuteAddAndDelCustomMessage.setData(false, String.valueOf(this.l), this.k, null, null, 0, this.f23710f.d(), this.f23710f.f());
+                userMuteAddAndDelCustomMessage.mId = this.f23710f.f();
+                b.a.r0.p2.d.d dVar2 = this.f23710f;
                 dVar2.j(false, userMuteAddAndDelCustomMessage, dVar2.d(), this.k);
-            } else if (this.f22233f.e() == 1) {
+            } else if (this.f23710f.e() == 1) {
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage2 = new UserMuteAddAndDelCustomMessage(2001430);
-                userMuteAddAndDelCustomMessage2.setData(true, String.valueOf(this.l), this.k, null, null, 0, this.f22233f.d(), this.f22233f.f());
-                userMuteAddAndDelCustomMessage2.mId = this.f22233f.f();
-                this.f22233f.j(true, userMuteAddAndDelCustomMessage2, null, this.k);
+                userMuteAddAndDelCustomMessage2.setData(true, String.valueOf(this.l), this.k, null, null, 0, this.f23710f.d(), this.f23710f.f());
+                userMuteAddAndDelCustomMessage2.mId = this.f23710f.f();
+                this.f23710f.j(true, userMuteAddAndDelCustomMessage2, null, this.k);
             }
-        } else if (this.f22232e.g() != null && view.getId() == this.f22232e.g().getId()) {
-            if (this.f22234g != null) {
+        } else if (this.f23709e.g() != null && view.getId() == this.f23709e.g().getId()) {
+            if (this.f23711g != null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_PERSON_TALK_REPORT_CLICK).param("obj_locate", 1));
-                this.f22234g.c(String.valueOf(this.l));
+                this.f23711g.c(String.valueOf(this.l));
             }
-        } else if (this.f22232e.f() == null || view.getId() != this.f22232e.f().getId()) {
+        } else if (this.f23709e.f() == null || view.getId() != this.f23709e.f().getId()) {
         } else {
-            if (!b.a.e.e.p.j.z()) {
-                l.L(this.f22235h.getPageActivity(), R.string.neterror);
+            if (!b.a.e.f.p.j.z()) {
+                l.L(this.f23712h.getPageActivity(), R.string.neterror);
             } else {
                 k();
             }

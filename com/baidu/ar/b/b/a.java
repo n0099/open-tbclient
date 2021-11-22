@@ -6,20 +6,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class a extends com.baidu.ar.c.a<C1589a> {
+public abstract class a extends com.baidu.ar.c.a<C1626a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int cI;
 
     /* renamed from: com.baidu.ar.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1589a {
+    public static class C1626a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int cJ;
         public int type;
 
-        public C1589a(int i2, int i3) {
+        public C1626a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public abstract class a extends com.baidu.ar.c.a<C1589a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.ar.c.a
     /* renamed from: aw */
-    public C1589a ay() {
+    public C1626a ay() {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
@@ -71,9 +71,9 @@ public abstract class a extends com.baidu.ar.c.a<C1589a> {
             } else {
                 i2 = 0;
             }
-            return new C1589a(this.cI, i2);
+            return new C1626a(this.cI, i2);
         }
-        return (C1589a) invokeV.objValue;
+        return (C1626a) invokeV.objValue;
     }
 
     public abstract int ax();

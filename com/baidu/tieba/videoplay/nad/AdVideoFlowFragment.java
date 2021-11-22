@@ -8,12 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.f1.r.b;
-import b.a.r0.b4.c;
-import b.a.r0.b4.e;
-import b.a.r0.b4.f;
-import b.a.r0.b4.g;
-import b.a.r0.z2.m;
+import b.a.q0.e1.r.b;
+import b.a.r0.a3.m;
+import b.a.r0.c4.c;
+import b.a.r0.c4.e;
+import b.a.r0.c4.f;
+import b.a.r0.c4.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -30,24 +30,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC0660b, b.a.r0.b4.r.a.a {
+public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC0693b, b.a.r0.c4.r.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public GestureInterceptTouchFrameLayout f55145e;
+    public GestureInterceptTouchFrameLayout f56067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f55146f;
+    public FrameLayout f56068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public m f55147g;
+    public m f56069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public VideoItemModel f55148h;
+    public VideoItemModel f56070h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f55149i;
+    public int f56071i;
     public int j;
     public CustomMessageListener k;
 
@@ -57,7 +57,7 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdVideoFlowFragment f55150a;
+        public final /* synthetic */ AdVideoFlowFragment f56072a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AdVideoFlowFragment adVideoFlowFragment, int i2) {
@@ -77,14 +77,14 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
                     return;
                 }
             }
-            this.f55150a = adVideoFlowFragment;
+            this.f56072a = adVideoFlowFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921612 && this.f55150a.isResumed() && this.f55150a.isVisible()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921612 && this.f56072a.isResumed() && this.f56072a.isVisible()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921611));
             }
         }
@@ -96,7 +96,7 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdVideoFlowFragment f55151e;
+        public final /* synthetic */ AdVideoFlowFragment f56073e;
 
         public b(AdVideoFlowFragment adVideoFlowFragment) {
             Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
                     return;
                 }
             }
-            this.f55151e = adVideoFlowFragment;
+            this.f56073e = adVideoFlowFragment;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -122,7 +122,7 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
                 if (motionEvent2.getX() - motionEvent.getX() > 50.0f) {
-                    this.f55151e.g();
+                    this.f56073e.g();
                     return true;
                 }
                 return false;
@@ -144,7 +144,7 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
                 return;
             }
         }
-        this.f55149i = -1;
+        this.f56071i = -1;
         this.k = new a(this, 2921612);
     }
 
@@ -155,18 +155,18 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
         }
     }
 
-    @Override // b.a.r0.b4.r.a.a
+    @Override // b.a.r0.c4.r.a.a
     public VideoItemModel getCurrentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55148h : (VideoItemModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56070h : (VideoItemModel) invokeV.objValue;
     }
 
-    @Override // b.a.r0.b4.r.a.a
+    @Override // b.a.r0.c4.r.a.a
     public int getFragmentIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55149i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56071i : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -190,25 +190,25 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f55147g == null) {
+            if (this.f56069g == null) {
                 return null;
             }
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f55148h = (VideoItemModel) arguments.get("video_data");
+                this.f56070h = (VideoItemModel) arguments.get("video_data");
                 this.j = arguments.getInt("current_type");
             }
-            this.f55147g.setDrawables(WebPManager.getMaskDrawable(e.icon_pure_video_play208, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(e.icon_pure_topbar_return40, SkinManager.getColor(c.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable(e.icon_mask_video_gooded36, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(e.icon_mask_video_good36, SkinManager.getColor(c.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(e.icon_mask_video_reply36, SkinManager.getColor(c.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(e.icon_mask_video_share36, SkinManager.getColor(c.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.f55147g.updateTiebaData(this.j, this.f55148h);
+            this.f56069g.setDrawables(WebPManager.getMaskDrawable(e.icon_pure_video_play208, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(e.icon_pure_topbar_return40, SkinManager.getColor(c.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable(e.icon_mask_video_gooded36, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(e.icon_mask_video_good36, SkinManager.getColor(c.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(e.icon_mask_video_reply36, SkinManager.getColor(c.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(e.icon_mask_video_share36, SkinManager.getColor(c.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.f56069g.updateTiebaData(this.j, this.f56070h);
             GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout = (GestureInterceptTouchFrameLayout) layoutInflater.inflate(g.ad_video_middle_page, (ViewGroup) null);
-            this.f55145e = gestureInterceptTouchFrameLayout;
+            this.f56067e = gestureInterceptTouchFrameLayout;
             FrameLayout frameLayout = (FrameLayout) gestureInterceptTouchFrameLayout.findViewById(f.ad_container);
-            this.f55146f = frameLayout;
+            this.f56068f = frameLayout;
             frameLayout.removeAllViews();
-            this.f55146f.addView((View) this.f55147g);
-            this.f55145e.setSimpleOnGestureListener(new b(this));
+            this.f56068f.addView((View) this.f56069g);
+            this.f56067e.setSimpleOnGestureListener(new b(this));
             registerListener(this.k);
-            return this.f55145e;
+            return this.f56067e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -218,7 +218,7 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            m mVar = this.f55147g;
+            m mVar = this.f56069g;
             if (mVar == null) {
                 return;
             }
@@ -231,7 +231,7 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPause();
-            m mVar = this.f55147g;
+            m mVar = this.f56069g;
             if (mVar == null) {
                 return;
             }
@@ -244,7 +244,7 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPrimary();
-            m mVar = this.f55147g;
+            m mVar = this.f56069g;
             if (mVar == null) {
                 return;
             }
@@ -252,31 +252,31 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
         }
     }
 
-    @Override // b.a.q0.f1.r.b.InterfaceC0660b
+    @Override // b.a.q0.e1.r.b.InterfaceC0693b
     public void onViewClick() {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (mVar = this.f55147g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (mVar = this.f56069g) == null) {
             return;
         }
         mVar.onViewClick();
     }
 
-    @Override // b.a.q0.f1.r.b.InterfaceC0660b
+    @Override // b.a.q0.e1.r.b.InterfaceC0693b
     public void onViewDoubleClick(float f2, float f3) {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (mVar = this.f55147g) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (mVar = this.f56069g) == null) {
             return;
         }
         mVar.onViewDoubleClick();
     }
 
-    @Override // b.a.q0.f1.r.b.InterfaceC0660b
+    @Override // b.a.q0.e1.r.b.InterfaceC0693b
     public void onViewDragToRight() {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (mVar = this.f55147g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (mVar = this.f56069g) == null) {
             return;
         }
         mVar.onViewDragToRight();
@@ -285,15 +285,15 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
     public void setAdView(m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, mVar) == null) {
-            this.f55147g = mVar;
+            this.f56069g = mVar;
         }
     }
 
-    @Override // b.a.r0.b4.r.a.a
+    @Override // b.a.r0.c4.r.a.a
     public void setFragmentIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f55149i = i2;
+            this.f56071i = i2;
         }
     }
 
@@ -302,7 +302,7 @@ public class AdVideoFlowFragment extends BaseFragment implements b.InterfaceC066
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             super.setUserVisibleHint(z);
-            m mVar = this.f55147g;
+            m mVar = this.f56069g;
             if (mVar == null) {
                 return;
             }

@@ -20,16 +20,16 @@ public class TbCheckBox extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45389e;
+    public int f46239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45390f;
+    public int f46240f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f45391g;
+    public boolean f46241g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f45392h;
+    public b f46242h;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -37,7 +37,7 @@ public class TbCheckBox extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbCheckBox f45393e;
+        public final /* synthetic */ TbCheckBox f46243e;
 
         public a(TbCheckBox tbCheckBox) {
             Interceptable interceptable = $ic;
@@ -54,14 +54,14 @@ public class TbCheckBox extends ImageView {
                     return;
                 }
             }
-            this.f45393e = tbCheckBox;
+            this.f46243e = tbCheckBox;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbCheckBox tbCheckBox = this.f45393e;
+                TbCheckBox tbCheckBox = this.f46243e;
                 tbCheckBox.setChecked(!tbCheckBox.c());
             }
         }
@@ -97,8 +97,8 @@ public class TbCheckBox extends ImageView {
                 return;
             }
         }
-        this.f45389e = R.drawable.icon_set_list_ok_s;
-        this.f45390f = R.drawable.icon_set_list_ok_n;
+        this.f46239e = R.drawable.icon_set_list_ok_s;
+        this.f46240f = R.drawable.icon_set_list_ok_n;
         b();
     }
 
@@ -127,18 +127,18 @@ public class TbCheckBox extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (c()) {
-                if (this.f45391g) {
-                    setImageDrawable(WebPManager.getPureDrawable(this.f45389e, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+                if (this.f46241g) {
+                    setImageDrawable(WebPManager.getPureDrawable(this.f46239e, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
                 } else {
-                    SkinManager.setImageResource(this, this.f45389e);
+                    SkinManager.setImageResource(this, this.f46239e);
                 }
                 setContentDescription(getResources().getString(R.string.check_box_checked));
                 return;
             }
-            if (this.f45391g) {
-                setImageDrawable(WebPManager.getPureDrawable(this.f45390f, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+            if (this.f46241g) {
+                setImageDrawable(WebPManager.getPureDrawable(this.f46240f, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
             } else {
-                SkinManager.setImageResource(this, this.f45390f);
+                SkinManager.setImageResource(this, this.f46240f);
             }
             setContentDescription(getResources().getString(R.string.check_box_not_checked));
         }
@@ -153,15 +153,15 @@ public class TbCheckBox extends ImageView {
     public void setBackgroundDrawableId(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.f45389e = i2;
-            this.f45390f = i3;
+            this.f46239e = i2;
+            this.f46240f = i3;
         }
     }
 
     public void setBackgroundDrawableIdIsWebP(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f45391g = z;
+            this.f46241g = z;
         }
     }
 
@@ -173,7 +173,7 @@ public class TbCheckBox extends ImageView {
                 ((c) tag).setChecked(z);
             }
             changeSkinType();
-            b bVar = this.f45392h;
+            b bVar = this.f46242h;
             if (bVar != null) {
                 bVar.a(this, z, getTag());
             }
@@ -183,7 +183,7 @@ public class TbCheckBox extends ImageView {
     public void setStatedChangedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f45392h = bVar;
+            this.f46242h = bVar;
         }
     }
 
@@ -214,8 +214,8 @@ public class TbCheckBox extends ImageView {
                 return;
             }
         }
-        this.f45389e = R.drawable.icon_set_list_ok_s;
-        this.f45390f = R.drawable.icon_set_list_ok_n;
+        this.f46239e = R.drawable.icon_set_list_ok_s;
+        this.f46240f = R.drawable.icon_set_list_ok_n;
         b();
     }
 }

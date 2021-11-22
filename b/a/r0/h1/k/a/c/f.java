@@ -16,10 +16,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f17612a;
+    public String f19081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f17613b;
+    public List<e> f19082b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class f {
         if (!(interceptable == null || interceptable.invokeJL(1048576, this, j, timeLine) == null) || timeLine == null || ListUtils.isEmpty(timeLine.timeline_info)) {
             return;
         }
-        this.f17612a = timeLine.title;
-        this.f17613b = new ArrayList();
+        this.f19081a = timeLine.title;
+        this.f19082b = new ArrayList();
         int i2 = 0;
         for (TimeLineInfo timeLineInfo : timeLine.timeline_info) {
             if (timeLineInfo != null && (((l = timeLineInfo.tid) != null && l.longValue() != 0) || !TextUtils.isEmpty(timeLineInfo.title) || !TextUtils.isEmpty(timeLineInfo.bg_color) || !TextUtils.isEmpty(timeLineInfo.show_time) || !TextUtils.isEmpty(timeLineInfo.small_title))) {
                 e eVar = new e();
-                eVar.f17606a = j;
-                eVar.f17611f = i2;
+                eVar.f19075a = j;
+                eVar.f19080f = i2;
                 eVar.a(timeLineInfo);
-                this.f17613b.add(eVar);
+                this.f19082b.add(eVar);
                 i2++;
             }
         }

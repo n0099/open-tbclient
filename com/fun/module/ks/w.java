@@ -23,7 +23,7 @@ public abstract class w extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<View> f62883a;
+    public final List<View> f63783a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public w(Context context) {
@@ -86,7 +86,7 @@ public abstract class w extends LinearLayout {
                 return;
             }
         }
-        this.f62883a = new ArrayList();
+        this.f63783a = new ArrayList();
     }
 
     public abstract void a(KsNativeAd ksNativeAd);
@@ -94,7 +94,7 @@ public abstract class w extends LinearLayout {
     public final List<View> getClickViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62883a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63783a : (List) invokeV.objValue;
     }
 
     public Bitmap getSdkLogo() {

@@ -21,16 +21,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WebView f58773a;
+    public final WebView f59695a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f58774b;
+    public final String f59696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f58775c;
+    public final String f59697c;
 
     /* renamed from: d  reason: collision with root package name */
-    public URL f58776d;
+    public URL f59698d;
 
     public b(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -47,16 +47,16 @@ public class b {
                 return;
             }
         }
-        this.f58773a = webView;
-        this.f58774b = str;
-        this.f58775c = str2;
+        this.f59695a = webView;
+        this.f59696b = str;
+        this.f59697c = str2;
         if (webView != null) {
             a(new Runnable(this) { // from class: com.baidu.wallet.lightapp.base.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f58777a;
+                public final /* synthetic */ b f59699a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -73,7 +73,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f58777a = this;
+                    this.f59699a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -81,10 +81,10 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (this.f58777a.f58773a == null) {
+                            if (this.f59699a.f59695a == null) {
                                 return;
                             }
-                            this.f58777a.f58776d = new URL(this.f58777a.f58773a.getUrl());
+                            this.f59699a.f59698d = new URL(this.f59699a.f59695a.getUrl());
                         } catch (MalformedURLException unused) {
                         }
                     }
@@ -95,7 +95,7 @@ public class b {
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(this.f58775c) || this.f58773a == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(this.f59697c) || this.f59695a == null) {
             return;
         }
         a(new Runnable(this, str) { // from class: com.baidu.wallet.lightapp.base.b.3
@@ -103,10 +103,10 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f58780a;
+            public final /* synthetic */ String f59702a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f58781b;
+            public final /* synthetic */ b f59703b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -123,8 +123,8 @@ public class b {
                         return;
                     }
                 }
-                this.f58781b = this;
-                this.f58780a = str;
+                this.f59703b = this;
+                this.f59702a = str;
             }
 
             @Override // java.lang.Runnable
@@ -132,31 +132,31 @@ public class b {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        URL url = new URL(this.f58781b.f58773a.getUrl());
-                        if (this.f58781b.f58776d != null && !url.sameFile(this.f58781b.f58776d)) {
+                        URL url = new URL(this.f59703b.f59695a.getUrl());
+                        if (this.f59703b.f59698d != null && !url.sameFile(this.f59703b.f59698d)) {
                             HashSet hashSet = new HashSet();
                             hashSet.add(url.toString());
-                            hashSet.add(this.f58781b.f58776d.toString());
+                            hashSet.add(this.f59703b.f59698d.toString());
                             return;
                         }
                     } catch (MalformedURLException unused) {
                     }
-                    String str2 = this.f58781b.f58775c;
-                    if (!TextUtils.isEmpty(this.f58780a)) {
-                        str2 = str2 + "(" + this.f58780a + SmallTailInfo.EMOTION_SUFFIX;
+                    String str2 = this.f59703b.f59697c;
+                    if (!TextUtils.isEmpty(this.f59702a)) {
+                        str2 = str2 + "(" + this.f59702a + SmallTailInfo.EMOTION_SUFFIX;
                     }
                     if (LogUtil.DEBUG) {
                         LogUtil.logd("loadUrl=" + str2);
                     }
                     try {
-                        if (this.f58781b.f58773a == null) {
+                        if (this.f59703b.f59695a == null) {
                             return;
                         }
                         if (Build.VERSION.SDK_INT >= 19) {
-                            this.f58781b.f58773a.evaluateJavascript(str2, null);
+                            this.f59703b.f59695a.evaluateJavascript(str2, null);
                             return;
                         }
-                        this.f58781b.f58773a.loadUrl("javascript:" + str2);
+                        this.f59703b.f59695a.loadUrl("javascript:" + str2);
                     } catch (Throwable unused2) {
                     }
                 }
@@ -168,9 +168,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (LogUtil.DEBUG) {
-                LogUtil.logd("sucessJsCallback=" + str + "#" + this.f58774b);
+                LogUtil.logd("sucessJsCallback=" + str + "#" + this.f59696b);
             }
-            if (TextUtils.isEmpty(this.f58774b) || this.f58773a == null) {
+            if (TextUtils.isEmpty(this.f59696b) || this.f59695a == null) {
                 return;
             }
             a(new Runnable(this, str) { // from class: com.baidu.wallet.lightapp.base.b.2
@@ -178,10 +178,10 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f58778a;
+                public final /* synthetic */ String f59700a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f58779b;
+                public final /* synthetic */ b f59701b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -198,8 +198,8 @@ public class b {
                             return;
                         }
                     }
-                    this.f58779b = this;
-                    this.f58778a = str;
+                    this.f59701b = this;
+                    this.f59700a = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -207,31 +207,31 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            URL url = new URL(this.f58779b.f58773a.getUrl());
-                            if (this.f58779b.f58776d != null && !url.sameFile(this.f58779b.f58776d)) {
+                            URL url = new URL(this.f59701b.f59695a.getUrl());
+                            if (this.f59701b.f59698d != null && !url.sameFile(this.f59701b.f59698d)) {
                                 HashSet hashSet = new HashSet();
                                 hashSet.add(url.toString());
-                                hashSet.add(this.f58779b.f58776d.toString());
+                                hashSet.add(this.f59701b.f59698d.toString());
                                 return;
                             }
                         } catch (MalformedURLException unused) {
                         }
-                        String str2 = this.f58779b.f58774b;
-                        if (!TextUtils.isEmpty(this.f58778a)) {
-                            str2 = str2 + "(" + this.f58778a + SmallTailInfo.EMOTION_SUFFIX;
+                        String str2 = this.f59701b.f59696b;
+                        if (!TextUtils.isEmpty(this.f59700a)) {
+                            str2 = str2 + "(" + this.f59700a + SmallTailInfo.EMOTION_SUFFIX;
                         }
                         if (LogUtil.DEBUG) {
                             LogUtil.logd("loadUrl=" + str2);
                         }
                         try {
-                            if (this.f58779b.f58773a == null) {
+                            if (this.f59701b.f59695a == null) {
                                 return;
                             }
                             if (Build.VERSION.SDK_INT >= 19) {
-                                this.f58779b.f58773a.evaluateJavascript(str2, null);
+                                this.f59701b.f59695a.evaluateJavascript(str2, null);
                                 return;
                             }
-                            this.f58779b.f58773a.loadUrl("javascript:" + str2);
+                            this.f59701b.f59695a.loadUrl("javascript:" + str2);
                         } catch (Throwable unused2) {
                         }
                     }

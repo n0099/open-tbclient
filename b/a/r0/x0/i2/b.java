@@ -1,38 +1,115 @@
 package b.a.r0.x0.i2;
 
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
-import b.a.e.a.f;
-import b.a.e.e.m.g;
+import b.a.r0.k0.a;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class b extends WebChromeClient {
+/* loaded from: classes6.dex */
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f25859a;
+    public Context f27416a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.r0.l3.n0.c f25860b;
+    public BdUniqueId f27417b;
 
-    public b(f fVar) {
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f27418c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b.a.r0.k0.b f27419d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f27420e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public VelocityTracker f27421f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public a.b f27422g;
+
+    /* loaded from: classes6.dex */
+    public class a implements a.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ b f27423a;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f27423a = bVar;
+        }
+
+        @Override // b.a.r0.k0.a.b
+        public void a(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && e(i3)) {
+                this.f27423a.e(true);
+            }
+        }
+
+        @Override // b.a.r0.k0.a.b
+        public void b(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) && e(i3)) {
+                this.f27423a.e(false);
+            }
+        }
+
+        @Override // b.a.r0.k0.a.b
+        public void c(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+            }
+        }
+
+        @Override // b.a.r0.k0.a.b
+        public void d(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+            }
+        }
+
+        public final boolean e(float f2) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f2)) == null) ? Math.abs(f2) >= 10.0f : invokeF.booleanValue;
+        }
+    }
+
+    public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar};
+            Object[] objArr = {context, bdUniqueId, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -42,91 +119,90 @@ public class b extends WebChromeClient {
                 return;
             }
         }
-        this.f25859a = fVar;
-    }
-
-    public void a(b.a.r0.l3.n0.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f25860b = cVar;
+        this.f27418c = false;
+        this.f27422g = new a(this);
+        this.f27416a = context;
+        this.f27417b = bdUniqueId;
+        this.f27420e = z;
+        if (z) {
+            b.a.r0.k0.b bVar = new b.a.r0.k0.b(context);
+            this.f27419d = bVar;
+            bVar.d(this.f27422g);
         }
     }
 
-    @Override // android.webkit.WebChromeClient
-    public View getVideoLoadingProgressView() {
-        InterceptResult invokeV;
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
+        if (r5 != 3) goto L12;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(View view, MotionEvent motionEvent) {
+        b.a.r0.k0.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f25859a.getPageActivity());
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            return frameLayout;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            f fVar = this.f25859a;
-            if (fVar == null || !g.f(fVar)) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view, motionEvent) == null) {
+            if (this.f27421f == null) {
+                this.f27421f = VelocityTracker.obtain();
             }
-            return super.onJsAlert(webView, str, str2, jsResult);
+            this.f27421f.addMovement(motionEvent);
+            int action = motionEvent.getAction();
+            if (action != 1) {
+                if (action == 2) {
+                    this.f27421f.computeCurrentVelocity(1000);
+                    if (Math.abs(this.f27421f.getXVelocity()) > Math.abs(this.f27421f.getYVelocity())) {
+                        this.f27420e = false;
+                    } else {
+                        this.f27420e = true;
+                    }
+                }
+                if (this.f27420e || (bVar = this.f27419d) == null) {
+                }
+                bVar.c(motionEvent);
+                return;
+            }
+            c();
+            if (this.f27420e) {
+            }
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public final void c() {
+        VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            f fVar = this.f25859a;
-            if (fVar == null || !g.f(fVar)) {
-                return true;
-            }
-            return super.onJsBeforeUnload(webView, str, str2, jsResult);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f27421f) == null) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        velocityTracker.clear();
+        this.f27421f.recycle();
+        this.f27421f = null;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public final void d(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            f fVar = this.f25859a;
-            if (fVar == null || !g.f(fVar)) {
-                return true;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                CustomMessage customMessage = new CustomMessage(2001617);
+                customMessage.setTag(this.f27417b);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
+                customResponsedMessage.setOrginalMessage(customMessage);
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+                return;
             }
-            return super.onJsConfirm(webView, str, str2, jsResult);
+            CustomMessage customMessage2 = new CustomMessage(2001618);
+            customMessage2.setTag(this.f27417b);
+            CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
+            customResponsedMessage2.setOrginalMessage(customMessage2);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        f fVar;
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            b.a.r0.l3.n0.c cVar = this.f25860b;
-            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (fVar = this.f25859a) != null && g.f(fVar)) {
-                return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f27418c = z;
+            if (this.f27420e) {
+                d(!z, true);
             }
-            return true;
         }
-        return invokeLLLLL.booleanValue;
     }
 }

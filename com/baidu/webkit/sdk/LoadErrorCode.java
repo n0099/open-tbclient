@@ -2,7 +2,6 @@ package com.baidu.webkit.sdk;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.pm.provider.BundleOpProvider;
@@ -25,17 +24,29 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class LoadErrorCode {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int APK_FILE_NOT_EXIST = 1009;
     public static final String COLON = ":";
+    public static final int CREATE_PATH_FAIL = 1016;
+    public static final int DELETE_SAVING_CLASS_FAIL = 1018;
+    public static final int DOWNLOAD_CANCEL_IN_DOWNLOAD_HELPER = 1026;
+    public static final int DOWNLOAD_FAIL_IN_DOWNLOAD_HELPER = 1025;
+    public static final int ENGINE_MANAGER_INSTALL_WRONG_URL = 1024;
+    public static final int ENGINE_MANAGER_IS_INSTALLING = 1023;
     public static final int GET_INTERN_PACKAGEINFO_FAIL = 2;
     public static final int GET_PACKAGEINFO_FAIL = 1;
     public static final int GET_PROVIDER_BACKUP_FAIL = 5;
     public static final int GET_PROVIDER_FAIL = 4;
     public static final int GET_PROVIDER_NO_EXCEPTION = 6;
     public static final int GET_SHARED_PACKAGEINFO_FAIL = 3;
+    public static final int MSG_CHECK_REVERT_ZEUS = 519;
     public static final int MSG_ENABLE_BLACK_LIST = 515;
     public static final int MSG_ERROR_NATIVE_LIB_DIR = 508;
     public static final int MSG_EXPAND_LIB_DIR_FAIL = 509;
     public static final int MSG_FORCE_USING_SYS_WEBVIEW = 511;
+    public static final int MSG_REMOVE_UNUSED_FILES_ERROR = 517;
+    public static final int MSG_RESET_ZEUS_ERROR = 516;
+    public static final int MSG_SDK_JAR_DISMATCH = 521;
+    public static final int MSG_SDK_LIB_DISMATCH = 522;
     public static final int MSG_SDK_ZEUS_DISMATCH = 500;
     public static final int MSG_STATISTICS_INTERN_ERROR = 514;
     public static final int MSG_SZ_CHECK_TIMESTAMP_FAIL = 506;
@@ -45,20 +56,44 @@ public class LoadErrorCode {
     public static final int MSG_SZ_NO_LIB_DIRECTORY = 507;
     public static final int MSG_SZ_PREPARE_FAIL1 = 501;
     public static final int MSG_SZ_PREPARE_FAIL2 = 502;
+    public static final int MSG_SZ_PREPARE_FAIL3 = 518;
     public static final int MSG_SZ_UNLOCK_FAIL = 505;
+    public static final int MSG_USE_SYS_UNDER_ANDROID5 = 520;
+    public static final int MSG_WEBKIT_MANAGER_IS_NULL = 523;
     public static final int MSG_ZEUS_DISABLED_BY_CLOUD = 510;
     public static final int MSG_ZEUS_NOT_EXIST = 513;
     public static final int NONE = 0;
+    public static final int NOT_VALUEABLE_CLIENT = 1005;
+    public static final int NOT_VALUEABLE_CONTEXT = 1002;
+    public static final int NOT_VALUEABLE_DOWNLOAD_PATH1 = 1006;
+    public static final int NOT_VALUEABLE_DOWNLOAD_PATH2 = 1007;
+    public static final int NOT_VALUEABLE_URL = 1004;
+    public static final int NOT_WIFI = 1001;
+    public static final int NO_USER_PRIVACY = 1000;
+    public static final int NULL_ENGINE_MANAGER_INSTALL_LISTENER = 1021;
+    public static final int NULL_ENGINE_MANAGER_INSTALL_URL = 1022;
+    public static final int NULL_ZEUS_FILE = 1014;
+    public static final int NULL_ZEUS_FILE_PATH = 1013;
+    public static final int NULL_ZEUS_MANEGER_OR_CONTEXT = 1012;
+    public static final int REMOVE_SO_FILE_FAIL = 1015;
+    public static final int RETRY_INSTALL_ZEUS_MORE_THAN_MAX = 1020;
+    public static final int RETRY_INSTALL_ZEUS_NULL_PATH = 1019;
+    public static final int START_DOWNLOAD_FAIL = 1008;
+    public static final int T7_VERSION_NOT_MATCH = 1003;
     public static final String TAG = "LoadErrorCode";
     public static final String TOKEN_NEXT = " -> ";
     public static final String TOKEN_NONE = "none";
+    public static final int UNZIP_DOWNLOAD_FILE_FAIL = 1017;
     public static final int UNZIP_LZMA_ERROR = 100;
     public static final int UNZIP_LZMA_WRITE_BACK_FAIL = 101;
     public static final int UNZIP_TASK_FAILED = 103;
     public static final int UNZIP_TASK_TIMEOUT = 102;
+    public static final int WRONG_FILE_LENGTH = 1010;
+    public static final int WRONG_FILE_MD5 = 1011;
     public static LoadErrorCode mInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile StringBuilder mDetails;
+    public volatile JSONArray mDownloadInfo;
     public volatile int mErrorCode;
 
     /* loaded from: classes11.dex */
@@ -505,7 +540,7 @@ public class LoadErrorCode {
                 for (int i2 = 0; i2 < bytes.length; i2++) {
                     byte b2 = bytes[i2];
                     if (b2 == 34) {
-                        bytes[i2] = ExifInterface.WEBP_VP8L_SIGNATURE;
+                        bytes[i2] = 47;
                     } else if (b2 == 91) {
                         bytes[i2] = 60;
                     } else if (b2 == 93) {
@@ -595,6 +630,7 @@ public class LoadErrorCode {
         }
         this.mErrorCode = i2;
         this.mDetails = new StringBuilder();
+        this.mDownloadInfo = new JSONArray();
     }
 
     public LoadErrorCode(int i2, String str) {
@@ -614,6 +650,7 @@ public class LoadErrorCode {
         }
         this.mErrorCode = i2;
         this.mDetails = new StringBuilder(str);
+        this.mDownloadInfo = new JSONArray();
     }
 
     public static synchronized LoadErrorCode getInstance() {
@@ -656,20 +693,58 @@ public class LoadErrorCode {
         return (String) invokeL.objValue;
     }
 
+    public synchronized void addDownloadInfo(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            synchronized (this) {
+                addDownloadInfo(String.valueOf(i2));
+            }
+        }
+    }
+
+    public synchronized void addDownloadInfo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            synchronized (this) {
+                if (this.mDownloadInfo == null) {
+                    this.mDownloadInfo = new JSONArray();
+                }
+                this.mDownloadInfo.put(str);
+            }
+        }
+    }
+
     public synchronized void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
                 this.mErrorCode = 0;
                 this.mDetails = null;
+                this.mDownloadInfo = null;
             }
         }
+    }
+
+    public synchronized JSONArray getDownloadInfo() {
+        InterceptResult invokeV;
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                if (this.mDownloadInfo == null || this.mDownloadInfo.length() <= 0) {
+                    addDownloadInfo(0);
+                }
+                jSONArray = this.mDownloadInfo;
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
     }
 
     public synchronized int getEngineType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
             }
             return 1;
@@ -681,7 +756,7 @@ public class LoadErrorCode {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 i2 = this.mErrorCode;
             }
@@ -693,7 +768,7 @@ public class LoadErrorCode {
     public synchronized String getString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
                 if (this.mDetails != null && this.mDetails.length() > 0) {
                     return this.mDetails.toString();
@@ -706,7 +781,7 @@ public class LoadErrorCode {
 
     public synchronized void set(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             synchronized (this) {
                 if (this.mErrorCode == 0) {
                     this.mErrorCode = i2;
@@ -717,7 +792,7 @@ public class LoadErrorCode {
 
     public synchronized void set(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str) == null) {
             synchronized (this) {
                 set(i2);
                 trace(str);
@@ -727,7 +802,7 @@ public class LoadErrorCode {
 
     public synchronized void trace(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             synchronized (this) {
                 trace(String.valueOf(i2));
             }
@@ -736,7 +811,7 @@ public class LoadErrorCode {
 
     public synchronized void trace(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             synchronized (this) {
                 if (this.mDetails == null) {
                     this.mDetails = new StringBuilder(str);

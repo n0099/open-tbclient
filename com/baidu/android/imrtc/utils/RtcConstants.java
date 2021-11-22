@@ -16,6 +16,7 @@ public class RtcConstants {
     public static final int ACTION_IM_RTC_ANSWER_SYNC = 85;
     public static final int ACTION_IM_RTC_CANCEL_CALL = 94;
     public static final int ACTION_IM_RTC_CANCEL_CALL_SYNC = 95;
+    public static final int ACTION_IM_RTC_CLIENT_REPORT = 110;
     public static final int ACTION_IM_RTC_CLOSE = 88;
     public static final int ACTION_IM_RTC_CLOSE_SYNC = 89;
     public static final int ACTION_IM_RTC_FETCH_ROOM_SIGNALING = 91;
@@ -63,7 +64,7 @@ public class RtcConstants {
     public static long RTC_HEART_BEAT_TIME = 10000;
     public static final int RTC_SERVICE_ID = 5;
     public static volatile long RTC_TRACK_UPLOAD_DURATION = 300000;
-    public static final int RTC_VERSION = 103010;
+    public static final int RTC_VERSION = 103050;
     public static final int SUCCESS = 0;
     public transient /* synthetic */ FieldHolder $fh;
 

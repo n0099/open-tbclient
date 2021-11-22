@@ -18,7 +18,7 @@ public class a extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6814a;
+    public static final boolean f7143a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class a extends ProviderDelegation {
                 return;
             }
         }
-        b.a.p0.a.c1.a.Z().getSwitch("swan_recovery_enable", true);
-        f6814a = true;
+        b.a.p0.a.c1.a.g0().getSwitch("swan_recovery_enable", true);
+        f7143a = true;
     }
 
     public a() {
@@ -54,15 +54,15 @@ public class a extends ProviderDelegation {
 
     public static void a(b.a.p0.a.n0.j.f.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, aVar) == null) && f6814a && aVar != null) {
+        if ((interceptable == null || interceptable.invokeL(65538, null, aVar) == null) && f7143a && aVar != null) {
             if (ProcessUtils.isMainProcess()) {
                 b.a(aVar).b();
-                b.a.p0.a.n0.j.e.b.b().a(aVar.f6824a);
+                b.a.p0.a.n0.j.e.b.b().a(aVar.f7153a);
                 return;
             }
             Bundle bundle = new Bundle();
-            bundle.putInt("recovery_level", aVar.f6824a);
-            bundle.putStringArrayList("recovery_app_list", aVar.f6825b);
+            bundle.putInt("recovery_level", aVar.f7153a);
+            bundle.putStringArrayList("recovery_app_list", aVar.f7154b);
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
         }
     }
@@ -72,16 +72,16 @@ public class a extends ProviderDelegation {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (f6814a) {
+            if (f7143a) {
                 int i2 = bundle.getInt("recovery_level", -1);
                 ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
                 b.a.p0.a.n0.j.f.a aVar = new b.a.p0.a.n0.j.f.a();
-                aVar.f6824a = i2;
+                aVar.f7153a = i2;
                 if (stringArrayList != null) {
-                    aVar.f6825b = stringArrayList;
+                    aVar.f7154b = stringArrayList;
                 }
                 b.a(aVar).b();
-                b.a.p0.a.n0.j.e.b.b().a(aVar.f6824a);
+                b.a.p0.a.n0.j.e.b.b().a(aVar.f7153a);
                 return null;
             }
             return null;

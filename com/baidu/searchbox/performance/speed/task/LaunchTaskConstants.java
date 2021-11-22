@@ -13,6 +13,7 @@ public class LaunchTaskConstants {
     public static final int LIFE_CYCLE_APP_CREATE_BEFORE = 1;
     public static final int LIFE_CYCLE_MAIN_CREATE = 3;
     public static final int LIFE_CYCLE_PRIVACY_POLICY_GRANTED = 4;
+    public static final int LIFE_CYCLE_SECONDARY_PAGE_ENTER = 5;
     public static final int LIFE_CYCLE_UI_READY = 3;
     public static final int MAIN_PROCESS = 1;
     public static final int OTHER_PROCESS = 268435456;

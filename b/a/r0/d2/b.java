@@ -39,11 +39,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f15633b;
+    public static b f16748b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f15634a;
+    public volatile boolean f16749a;
 
     /* loaded from: classes4.dex */
     public class a extends b.a.e.c.g.a {
@@ -92,11 +92,11 @@ public class b {
 
     /* renamed from: b.a.r0.d2.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0793b implements Comparator<Calendar> {
+    public class C0839b implements Comparator<Calendar> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0793b(b bVar) {
+        public C0839b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,10 +135,10 @@ public class b {
                 return;
             }
         }
-        this.f15634a = false;
+        this.f16749a = false;
         MessageManager.getInstance().registerListener(new a(this, CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
-        b.a.r0.l3.f0.a.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, b.a.r0.l3.f0.a.a("c/f/livegroup/getStoreRemindTime", 309117));
+        b.a.r0.m3.f0.a.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, b.a.r0.m3.f0.a.a("c/f/livegroup/getStoreRemindTime", 309117));
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
@@ -149,14 +149,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f15633b == null) {
+            if (f16748b == null) {
                 synchronized (b.class) {
-                    if (f15633b == null) {
-                        f15633b = new b();
+                    if (f16748b == null) {
+                        f16748b = new b();
                     }
                 }
             }
-            return f15633b;
+            return f16748b;
         }
         return (b) invokeV.objValue;
     }
@@ -210,7 +210,7 @@ public class b {
             if (arrayList.isEmpty()) {
                 return null;
             }
-            Collections.sort(arrayList, new C0793b(this));
+            Collections.sort(arrayList, new C0839b(this));
             Calendar calendar3 = (Calendar) arrayList.get(0);
             Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
             if (arrayList.size() == 1 || calendar3.after(calendar) || calendar4.before(calendar)) {
@@ -238,7 +238,7 @@ public class b {
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (this.f15634a) {
+            if (this.f16749a) {
                 z = false;
             }
             b.a.q0.s.e0.b.j().t("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
@@ -248,7 +248,7 @@ public class b {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f15634a = z;
+            this.f16749a = z;
         }
     }
 

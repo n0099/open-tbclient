@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.j.b.a;
-import b.a.e.e.p.q;
+import b.a.e.f.j.b.a;
+import b.a.e.f.p.q;
 import b.a.q0.j0.f;
 import b.a.q0.s.l.c;
 import b.a.q0.s.q.s0;
@@ -344,7 +344,7 @@ public class NetWork {
     public long getNetDataSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f1786b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f1789b : invokeV.longValue;
     }
 
     public int getNetErrorCode() {

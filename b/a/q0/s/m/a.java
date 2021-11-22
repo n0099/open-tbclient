@@ -13,16 +13,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ShareItem f13150a;
+    public ShareItem f13930a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f13151b;
+    public Activity f13931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13152c;
+    public int f13932c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DialogInterface.OnCancelListener f13153d;
+    public DialogInterface.OnCancelListener f13933d;
 
     public a(ShareItem shareItem, Activity activity, DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class a {
                 return;
             }
         }
-        this.f13150a = shareItem;
-        this.f13151b = activity;
-        this.f13153d = onCancelListener;
+        this.f13930a = shareItem;
+        this.f13931b = activity;
+        this.f13933d = onCancelListener;
     }
 
     public a(ShareItem shareItem, Activity activity, int i2, DialogInterface.OnCancelListener onCancelListener) {
@@ -59,9 +59,9 @@ public class a {
                 return;
             }
         }
-        this.f13150a = shareItem;
-        this.f13151b = activity;
-        this.f13152c = i2;
-        this.f13153d = onCancelListener;
+        this.f13930a = shareItem;
+        this.f13931b = activity;
+        this.f13932c = i2;
+        this.f13933d = onCancelListener;
     }
 }

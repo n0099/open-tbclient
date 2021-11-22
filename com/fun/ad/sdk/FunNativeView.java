@@ -21,10 +21,10 @@ public final class FunNativeView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NativeAdContainer f62741a;
+    public NativeAdContainer f63641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f62742b;
+    public boolean f63642b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunNativeView(@NonNull Context context) {
@@ -52,7 +52,7 @@ public final class FunNativeView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i2)) == null) {
             FunNativeView funNativeView = new FunNativeView(context);
-            funNativeView.f62741a.addView(LayoutInflater.from(context).inflate(i2, (ViewGroup) funNativeView, false));
+            funNativeView.f63641a.addView(LayoutInflater.from(context).inflate(i2, (ViewGroup) funNativeView, false));
             return funNativeView;
         }
         return (FunNativeView) invokeLI.objValue;
@@ -63,7 +63,7 @@ public final class FunNativeView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, view)) == null) {
             FunNativeView funNativeView = new FunNativeView(context);
-            funNativeView.f62741a.addView(view);
+            funNativeView.f63641a.addView(view);
             return funNativeView;
         }
         return (FunNativeView) invokeLL.objValue;
@@ -71,7 +71,7 @@ public final class FunNativeView extends FrameLayout {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f62742b) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f63642b) {
             IllegalStateException illegalStateException = new IllegalStateException("Forbid add/rm view from FunNativeAdView.");
             if (FunAdSdk.isLogEnabled()) {
                 throw illegalStateException;
@@ -84,9 +84,9 @@ public final class FunNativeView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
-            this.f62741a = nativeAdContainer;
+            this.f63641a = nativeAdContainer;
             addView(nativeAdContainer);
-            this.f62742b = true;
+            this.f63642b = true;
         }
     }
 
@@ -102,7 +102,7 @@ public final class FunNativeView extends FrameLayout {
     public ViewGroup getRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62741a : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63641a : (ViewGroup) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup

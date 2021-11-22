@@ -3,8 +3,8 @@ package b.a.r0.h1.k.a.b;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import b.a.r0.h1.k.a.e.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,23 +21,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
+public class a extends b.a.e.m.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
-    public b.a.e.e.k.b<ConstrainImageLayout> n;
-    public b.a.e.e.k.b<TbImageView> o;
+    public b.a.e.f.k.b<ConstrainImageLayout> n;
+    public b.a.e.f.k.b<TbImageView> o;
 
     /* renamed from: b.a.r0.h1.k.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0895a implements b.a.e.e.k.c<ConstrainImageLayout> {
+    public class C0963a implements b.a.e.f.k.c<ConstrainImageLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f17573a;
+        public final /* synthetic */ a f19042a;
 
-        public C0895a(a aVar) {
+        public C0963a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,12 +52,12 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
                     return;
                 }
             }
-            this.f17573a = aVar;
+            this.f19042a = aVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ ConstrainImageLayout a(ConstrainImageLayout constrainImageLayout) {
             ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
             e(constrainImageLayout2);
@@ -66,7 +66,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ ConstrainImageLayout c(ConstrainImageLayout constrainImageLayout) {
             ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
             h(constrainImageLayout2);
@@ -80,7 +80,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: f */
         public void b(ConstrainImageLayout constrainImageLayout) {
             Interceptable interceptable = $ic;
@@ -90,12 +90,12 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: g */
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f17573a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f19042a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
         }
 
         public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
@@ -106,12 +106,12 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements b.a.e.e.k.c<TbImageView> {
+    public class b implements b.a.e.f.k.c<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f17574a;
+        public final /* synthetic */ a f19043a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -128,12 +128,12 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
                     return;
                 }
             }
-            this.f17574a = aVar;
+            this.f19043a = aVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -142,7 +142,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -156,7 +156,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -167,13 +167,13 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.f17574a.m.getPageActivity());
+                TbImageView tbImageView = new TbImageView(this.f19043a.m.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
@@ -215,7 +215,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
             }
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             d dVar;
             Interceptable interceptable = $ic;
@@ -244,14 +244,14 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
                 return;
             }
         }
-        this.n = new b.a.e.e.k.b<>(new C0895a(this), 6, 0);
-        this.o = new b.a.e.e.k.b<>(new b(this), 12, 0);
+        this.n = new b.a.e.f.k.b<>(new C0963a(this), 6, 0);
+        this.o = new b.a.e.f.k.b<>(new b(this), 12, 0);
         this.m = tbPageContext;
         c0(new c(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public CardViewHolder<d> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -260,14 +260,14 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.a.c.c, CardViewHolder<d>> {
             d dVar = new d(this.m);
             dVar.z(this.n);
             dVar.y(this.o);
-            dVar.m(this.f2423i);
+            dVar.m(this.f2425i);
             return new CardViewHolder<>(dVar);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.h1.k.a.c.c cVar, CardViewHolder<d> cardViewHolder) {
         InterceptResult invokeCommon;

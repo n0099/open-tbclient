@@ -2,8 +2,8 @@ package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
 import android.util.Printer;
-import b.h.b.a.b;
-import b.h.b.a.j.a;
+import b.g.b.a.b;
+import b.g.b.a.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,14 +36,14 @@ public class LooperContextDispatcher extends b {
         }
     }
 
-    @Override // b.h.b.a.b
+    @Override // b.g.b.a.b
     public boolean displayNotification() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? LooperRuntime.getInstance().getLooperUIContext().displayNotification() : invokeV.booleanValue;
     }
 
-    @Override // b.h.b.a.b, b.h.b.a.d
+    @Override // b.g.b.a.b, b.g.b.a.d
     public void onBlock(Context context, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, aVar) == null) {

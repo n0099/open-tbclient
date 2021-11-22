@@ -15,13 +15,13 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f13650a;
+    public static final c f14441a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f13651b;
+    public static final c f14442b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f13652c;
+    public static final boolean f14443c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -119,15 +119,15 @@ public class e {
                 return;
             }
         }
-        f13650a = new b(null);
-        f13651b = new d(null);
-        f13652c = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        f14441a = new b(null);
+        f14442b = new d(null);
+        f14443c = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f13652c) {
-            f13650a.a(null, null, str);
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f14443c) {
+            f14441a.a(null, null, str);
         }
     }
 
@@ -141,10 +141,10 @@ public class e {
     public static void c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            if (f13652c) {
-                f13650a.a(str, str2, str3);
+            if (f14443c) {
+                f14441a.a(str, str2, str3);
             }
-            f13651b.a(str, str2, str3);
+            f14442b.a(str, str2, str3);
         }
     }
 }

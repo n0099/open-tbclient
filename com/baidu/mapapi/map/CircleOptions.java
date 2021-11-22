@@ -16,29 +16,29 @@ public final class CircleOptions extends OverlayOptions {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39312d = "CircleOptions";
+    public static final String f40144d = "CircleOptions";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39313a;
+    public int f40145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39314b;
+    public boolean f40146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f39315c;
+    public Bundle f40147c;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f39316e;
+    public LatLng f40148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39317f;
+    public int f40149f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39318g;
+    public int f40150g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Stroke f39319h;
+    public Stroke f40151h;
 
     static {
         InterceptResult invokeClinit;
@@ -68,8 +68,8 @@ public final class CircleOptions extends OverlayOptions {
                 return;
             }
         }
-        this.f39317f = -16777216;
-        this.f39314b = true;
+        this.f40149f = -16777216;
+        this.f40146b = true;
     }
 
     @Override // com.baidu.mapapi.map.OverlayOptions
@@ -78,13 +78,13 @@ public final class CircleOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Circle circle = new Circle();
-            circle.A = this.f39314b;
-            circle.z = this.f39313a;
-            circle.B = this.f39315c;
-            circle.f39309b = this.f39317f;
-            circle.f39308a = this.f39316e;
-            circle.f39310c = this.f39318g;
-            circle.f39311d = this.f39319h;
+            circle.A = this.f40146b;
+            circle.z = this.f40145a;
+            circle.B = this.f40147c;
+            circle.f40141b = this.f40149f;
+            circle.f40140a = this.f40148e;
+            circle.f40142c = this.f40150g;
+            circle.f40143d = this.f40151h;
             return circle;
         }
         return (Overlay) invokeV.objValue;
@@ -95,7 +95,7 @@ public final class CircleOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
             if (latLng != null) {
-                this.f39316e = latLng;
+                this.f40148e = latLng;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: circle center can not be null");
@@ -107,7 +107,7 @@ public final class CircleOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
-            this.f39315c = bundle;
+            this.f40147c = bundle;
             return this;
         }
         return (CircleOptions) invokeL.objValue;
@@ -117,7 +117,7 @@ public final class CircleOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.f39317f = i2;
+            this.f40149f = i2;
             return this;
         }
         return (CircleOptions) invokeI.objValue;
@@ -126,50 +126,50 @@ public final class CircleOptions extends OverlayOptions {
     public LatLng getCenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39316e : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40148e : (LatLng) invokeV.objValue;
     }
 
     public Bundle getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f39315c : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f40147c : (Bundle) invokeV.objValue;
     }
 
     public int getFillColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f39317f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40149f : invokeV.intValue;
     }
 
     public int getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f39318g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40150g : invokeV.intValue;
     }
 
     public Stroke getStroke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f39319h : (Stroke) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40151h : (Stroke) invokeV.objValue;
     }
 
     public int getZIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f39313a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40145a : invokeV.intValue;
     }
 
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f39314b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f40146b : invokeV.booleanValue;
     }
 
     public CircleOptions radius(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            this.f39318g = i2;
+            this.f40150g = i2;
             return this;
         }
         return (CircleOptions) invokeI.objValue;
@@ -179,7 +179,7 @@ public final class CircleOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, stroke)) == null) {
-            this.f39319h = stroke;
+            this.f40151h = stroke;
             return this;
         }
         return (CircleOptions) invokeL.objValue;
@@ -189,7 +189,7 @@ public final class CircleOptions extends OverlayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
-            this.f39314b = z;
+            this.f40146b = z;
             return this;
         }
         return (CircleOptions) invokeZ.objValue;
@@ -199,7 +199,7 @@ public final class CircleOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            this.f39313a = i2;
+            this.f40145a = i2;
             return this;
         }
         return (CircleOptions) invokeI.objValue;

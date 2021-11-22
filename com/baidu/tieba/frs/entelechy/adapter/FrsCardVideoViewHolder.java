@@ -4,7 +4,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import b.a.r0.b0.b;
 import b.a.r0.q2.e;
-import b.a.r0.x0.x1.g.a;
+import b.a.r0.x0.y1.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
             if (t == 0) {
                 return null;
             }
-            return ((a) t).K();
+            return ((a) t).M();
         }
         return (String) invokeV.objValue;
     }
@@ -74,7 +74,7 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
             if (t == 0) {
                 return null;
             }
-            return ((a) t).M();
+            return ((a) t).N();
         }
         return (View) invokeV.objValue;
     }

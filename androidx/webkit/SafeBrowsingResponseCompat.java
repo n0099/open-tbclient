@@ -10,7 +10,7 @@ public abstract class SafeBrowsingResponseCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public SafeBrowsingResponseCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

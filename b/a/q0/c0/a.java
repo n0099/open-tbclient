@@ -11,14 +11,14 @@ public interface a {
 
     /* renamed from: b.a.q0.c0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0639a {
+    public static class C0674a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f11972a;
+        public int f12726a;
 
-        public C0639a(int i2, int i3) {
+        public C0674a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,14 +33,14 @@ public interface a {
                     return;
                 }
             }
-            this.f11972a = 0;
-            this.f11972a = i2;
+            this.f12726a = 0;
+            this.f12726a = i2;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11972a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12726a : invokeV.intValue;
         }
     }
 
@@ -48,7 +48,7 @@ public interface a {
 
     String b(String str);
 
-    C0639a c(Context context, String str);
+    C0674a c(Context context, String str);
 
     int d(String str);
 

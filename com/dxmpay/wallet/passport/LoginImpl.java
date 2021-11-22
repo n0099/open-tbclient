@@ -36,7 +36,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ILoginBackListener f62625e;
+        public final /* synthetic */ ILoginBackListener f63526e;
 
         public a(LoginImpl loginImpl, ILoginBackListener iLoginBackListener) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                     return;
                 }
             }
-            this.f62625e = iLoginBackListener;
+            this.f63526e = iLoginBackListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
         public void onSuccess(WebAuthResult webAuthResult) {
             ILoginBackListener iLoginBackListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener = this.f62625e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener = this.f63526e) == null) {
                 return;
             }
             iLoginBackListener.onSuccess(0, "");
@@ -74,7 +74,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
         public void onFailure(WebAuthResult webAuthResult) {
             ILoginBackListener iLoginBackListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener = this.f62625e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener = this.f63526e) == null) {
                 return;
             }
             iLoginBackListener.onFail(webAuthResult.getResultCode(), webAuthResult.getResultMsg());

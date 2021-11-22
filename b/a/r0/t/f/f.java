@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import b.a.e.e.p.m;
+import b.a.e.f.p.m;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,7 +21,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f23587a;
+    public static f f25104a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -43,11 +43,11 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (f.class) {
-                if (f23587a == null) {
-                    f23587a = new f();
+                if (f25104a == null) {
+                    f25104a = new f();
                 }
             }
-            return f23587a;
+            return f25104a;
         }
         return (f) invokeV.objValue;
     }
@@ -162,7 +162,7 @@ public class f {
                     b2.beginTransaction();
                     char c2 = 0;
                     try {
-                        String[] strArr = b.a.q0.t.f.c.f14006a;
+                        String[] strArr = b.a.q0.t.f.c.f14779a;
                         int length = strArr.length;
                         int i2 = 0;
                         while (i2 < length) {
@@ -224,7 +224,7 @@ public class f {
                     b2.beginTransaction();
                     char c2 = 0;
                     try {
-                        String[] strArr = b.a.q0.t.f.c.f14006a;
+                        String[] strArr = b.a.q0.t.f.c.f14779a;
                         int length = strArr.length;
                         int i2 = 0;
                         while (i2 < length) {

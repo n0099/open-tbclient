@@ -1,9 +1,11 @@
 package b.a.r0.x0;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface p0 {
-    void changeToSpecialFrs(boolean z);
+    void g();
 
-    void forceRefresh();
+    void init();
 
-    void scrollToTop();
+    void q(int i2, int i3, z0 z0Var);
+
+    void t(t0 t0Var);
 }

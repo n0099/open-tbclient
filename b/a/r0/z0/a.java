@@ -1,9 +1,9 @@
 package b.a.r0.z0;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
-import b.a.r0.l3.j0.o;
+import b.a.r0.m3.j0.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27826a;
+    public int f29344a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -93,9 +93,9 @@ public class a {
                     }
                 }
             } else {
-                i2 = this.f27826a;
+                i2 = this.f29344a;
             }
-            this.f27826a = c(i2, e2, list, str);
+            this.f29344a = c(i2, e2, list, str);
         }
     }
 

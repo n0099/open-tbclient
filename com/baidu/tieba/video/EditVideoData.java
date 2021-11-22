@@ -1,6 +1,6 @@
 package com.baidu.tieba.video;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;

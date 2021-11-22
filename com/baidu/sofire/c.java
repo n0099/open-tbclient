@@ -14,7 +14,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, d> f42961a;
+    public static Map<String, d> f43907a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class c {
                 return;
             }
         }
-        f42961a = new HashMap();
+        f43907a = new HashMap();
     }
 
     public static void a(Context context, int i2, File file, File file2) {
@@ -43,12 +43,12 @@ public final class c {
                 if (!com.baidu.sofire.utility.c.a(file2)) {
                     com.baidu.sofire.utility.c.a(file, file2);
                 }
-                if (f42961a.containsKey(file.getAbsolutePath())) {
+                if (f43907a.containsKey(file.getAbsolutePath())) {
                     return;
                 }
                 d dVar = new d(context, i2, file.getAbsolutePath(), file2.getAbsolutePath());
                 dVar.startWatching();
-                f42961a.put(file.getAbsolutePath(), dVar);
+                f43907a.put(file.getAbsolutePath(), dVar);
             }
         } catch (Throwable unused) {
             com.baidu.sofire.utility.c.a();
@@ -61,10 +61,10 @@ public final class c {
             return;
         }
         try {
-            d dVar = f42961a.get(file.getAbsolutePath());
+            d dVar = f43907a.get(file.getAbsolutePath());
             if (dVar != null) {
                 dVar.stopWatching();
-                f42961a.remove(file.getAbsolutePath());
+                f43907a.remove(file.getAbsolutePath());
                 dVar.a();
             }
         } catch (Throwable unused) {

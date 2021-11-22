@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import b.a.q0.n.d;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.framework.MessageManager;
@@ -35,7 +35,7 @@ public class ClickableHeaderImageView extends HeadImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClickableHeaderImageView f45227e;
+        public final /* synthetic */ ClickableHeaderImageView f46077e;
 
         public a(ClickableHeaderImageView clickableHeaderImageView) {
             Interceptable interceptable = $ic;
@@ -52,26 +52,26 @@ public class ClickableHeaderImageView extends HeadImageView {
                     return;
                 }
             }
-            this.f45227e = clickableHeaderImageView;
+            this.f46077e = clickableHeaderImageView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d dVar = this.f45227e.mInterceptClickEventListener;
-                if ((dVar == null || !dVar.onClickEvent(view)) && this.f45227e.s0 != null) {
-                    MetaData t = this.f45227e.t0 ? this.f45227e.s0.v1().t() : this.f45227e.s0.J();
+                d dVar = this.f46077e.mInterceptClickEventListener;
+                if ((dVar == null || !dVar.onClickEvent(view)) && this.f46077e.s0 != null) {
+                    MetaData t = this.f46077e.t0 ? this.f46077e.s0.w1().t() : this.f46077e.s0.J();
                     if (t == null || StringUtils.isNull(t.getName_show()) || StringUtils.isNull(t.getUserId())) {
                         return;
                     }
                     long g2 = b.g(t.getUserId(), 0L);
-                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f45227e.getContext()).createNormalConfig(g2, g2 == b.g(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
-                    createNormalConfig.setSourceTid(this.f45227e.s0.s1());
-                    createNormalConfig.setSourceNid(this.f45227e.s0.F0());
+                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f46077e.getContext()).createNormalConfig(g2, g2 == b.g(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
+                    createNormalConfig.setSourceTid(this.f46077e.s0.t1());
+                    createNormalConfig.setSourceNid(this.f46077e.s0.F0());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
-                    if (this.f45227e.u0 != null) {
-                        this.f45227e.u0.onClick(view);
+                    if (this.f46077e.u0 != null) {
+                        this.f46077e.u0.onClick(view);
                     }
                 }
             }
@@ -125,14 +125,14 @@ public class ClickableHeaderImageView extends HeadImageView {
         this.s0 = d2Var;
         this.t0 = z2;
         if (z2) {
-            J = d2Var.v1().t();
+            J = d2Var.w1().t();
         } else {
             J = d2Var.J();
         }
         setContentDescription(J.getName_show() + getContext().getString(R.string.somebodys_portrait));
         setUserId(J.getUserId());
         setUserName(J.getUserName());
-        if (d2Var.l1() != null && (this.s0.o1() == 49 || this.s0.o1() == 69)) {
+        if (d2Var.m1() != null && (this.s0.p1() == 49 || this.s0.p1() == 69)) {
             setUrl(d2Var.J().getAvater());
             startLoad(d2Var.J().getAvater(), 28, false);
         } else {
@@ -196,7 +196,7 @@ public class ClickableHeaderImageView extends HeadImageView {
             return;
         }
         d2 d2Var = new d2();
-        d2Var.x3(metaData);
+        d2Var.z3(metaData);
         setData(d2Var);
     }
 }

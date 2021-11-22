@@ -20,7 +20,7 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f2981a;
+    public static volatile f f3074a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -34,13 +34,13 @@ public final class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f2982e;
+        public String f3075e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a f2983f;
+        public a f3076f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f2984g;
+        public final /* synthetic */ f f3077g;
 
         public b(f fVar, String str, a aVar) {
             Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public final class f {
                     return;
                 }
             }
-            this.f2984g = fVar;
-            this.f2982e = str;
-            this.f2983f = aVar;
+            this.f3077g = fVar;
+            this.f3075e = str;
+            this.f3076f = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -68,7 +68,7 @@ public final class f {
             ArrayList<String> arrayList2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Map e2 = this.f2984g.e(this.f2982e);
+                Map e2 = this.f3077g.e(this.f3075e);
                 if (e2 != null) {
                     arrayList2 = (ArrayList) e2.get(HttpDnsCacheForHost.JSON_KEY_IPV6);
                     arrayList = (ArrayList) e2.get("ipv4");
@@ -76,7 +76,7 @@ public final class f {
                     arrayList = null;
                     arrayList2 = null;
                 }
-                this.f2983f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f2982e);
+                this.f3076f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f3075e);
             }
         }
     }
@@ -99,14 +99,14 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2981a == null) {
+            if (f3074a == null) {
                 synchronized (f.class) {
-                    if (f2981a == null) {
-                        f2981a = new f();
+                    if (f3074a == null) {
+                        f3074a = new f();
                     }
                 }
             }
-            return f2981a;
+            return f3074a;
         }
         return (f) invokeV.objValue;
     }

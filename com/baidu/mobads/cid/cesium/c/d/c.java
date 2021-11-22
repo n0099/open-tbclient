@@ -20,29 +20,29 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f40641a;
+    public static final byte[] f41473a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40642b;
+    public int f41474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40643c;
+    public String f41475c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f40644d;
+    public f f41476d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f40645e;
+    public byte[] f41477e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40646f;
+    public int f41478f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40647g;
+    public int f41479g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f40648h;
+    public d f41480h;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public final class c {
                 return;
             }
         }
-        f40641a = new byte[0];
+        f41473a = new byte[0];
     }
 
     public c() {
@@ -73,7 +73,7 @@ public final class c {
                 return;
             }
         }
-        this.f40643c = "PKCS1Padding";
+        this.f41475c = "PKCS1Padding";
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
@@ -99,18 +99,18 @@ public final class c {
             if (dVar instanceof d) {
                 throw new InvalidKeyException("only support helios key");
             }
-            this.f40642b = z ? 1 : 4;
-            this.f40648h = dVar;
+            this.f41474b = z ? 1 : 4;
+            this.f41480h = dVar;
             int a2 = b.a(dVar.a());
-            this.f40647g = a2;
-            this.f40646f = 0;
-            String str = this.f40643c;
+            this.f41479g = a2;
+            this.f41478f = 0;
+            String str = this.f41475c;
             if (str == "NoPadding") {
                 if (algorithmParameterSpec != null) {
                     throw new InvalidAlgorithmParameterException("Parameters not supported");
                 }
-                this.f40644d = f.a(3, a2, secureRandom);
-                this.f40645e = new byte[a2];
+                this.f41476d = f.a(3, a2, secureRandom);
+                this.f41477e = new byte[a2];
                 return;
             } else if (str != "PKCS1Padding") {
                 throw new InvalidKeyException("OAEP not supported");
@@ -118,13 +118,13 @@ public final class c {
                 if (algorithmParameterSpec != null) {
                     throw new InvalidAlgorithmParameterException("Parameters not supported");
                 }
-                f a3 = f.a(this.f40642b > 2 ? 1 : 2, a2, secureRandom);
-                this.f40644d = a3;
+                f a3 = f.a(this.f41474b > 2 ? 1 : 2, a2, secureRandom);
+                this.f41476d = a3;
                 if (z) {
-                    this.f40645e = new byte[a3.a()];
+                    this.f41477e = new byte[a3.a()];
                     return;
                 } else {
-                    this.f40645e = new byte[a2];
+                    this.f41477e = new byte[a2];
                     return;
                 }
             }
@@ -138,18 +138,18 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            int i2 = this.f40646f;
-            byte[] bArr = this.f40645e;
+            int i2 = this.f41478f;
+            byte[] bArr = this.f41477e;
             if (i2 > bArr.length) {
-                throw new IllegalBlockSizeException("Data must not be longer than " + this.f40645e.length + " bytes");
+                throw new IllegalBlockSizeException("Data must not be longer than " + this.f41477e.length + " bytes");
             }
             try {
-                int i3 = this.f40642b;
+                int i3 = this.f41474b;
                 if (i3 != 1) {
                     if (i3 != 2) {
                         if (i3 != 3) {
                             if (i3 == 4) {
-                                return this.f40644d.b(b.a(b.a(bArr, 0, i2), this.f40648h));
+                                return this.f41476d.b(b.a(b.a(bArr, 0, i2), this.f41480h));
                             }
                             throw new AssertionError("Internal error");
                         }
@@ -157,9 +157,9 @@ public final class c {
                     }
                     throw new UnsupportedOperationException("only verify supported");
                 }
-                return b.a(this.f40644d.a(bArr, 0, i2), this.f40648h);
+                return b.a(this.f41476d.a(bArr, 0, i2), this.f41480h);
             } finally {
-                this.f40646f = 0;
+                this.f41478f = 0;
             }
         }
         return (byte[]) invokeV.objValue;
@@ -171,16 +171,16 @@ public final class c {
         if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i2, i3) == null) || i3 == 0 || bArr == null) {
             return;
         }
-        int i5 = this.f40646f;
+        int i5 = this.f41478f;
         int i6 = i5 + i3;
-        byte[] bArr2 = this.f40645e;
+        byte[] bArr2 = this.f41477e;
         if (i6 > bArr2.length) {
             i4 = bArr2.length + 1;
         } else {
             System.arraycopy(bArr, i2, bArr2, i5, i3);
-            i4 = this.f40646f + i3;
+            i4 = this.f41478f + i3;
         }
-        this.f40646f = i4;
+        this.f41478f = i4;
     }
 
     public void a(int i2, d dVar, SecureRandom secureRandom) {
@@ -206,7 +206,7 @@ public final class c {
                     throw new NoSuchPaddingException("Padding " + str + " not supported");
                 }
             }
-            this.f40643c = str2;
+            this.f41475c = str2;
         }
     }
 

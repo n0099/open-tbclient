@@ -43,7 +43,7 @@ public class k implements CustomMessageTask.CustomRunnable<String> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
             if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
                 b.a.q0.s.r.a.f();
-                b.a.e.e.d.l<byte[]> d2 = b.a.q0.s.r.a.d("tb.im_official_history");
+                b.a.e.f.d.l<byte[]> d2 = b.a.q0.s.r.a.d("tb.im_official_history");
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 byte[] bArr = d2.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
                 if (bArr == null) {
@@ -58,10 +58,10 @@ public class k implements CustomMessageTask.CustomRunnable<String> {
                             if (msgInfo != null) {
                                 Date date = new Date();
                                 date.setTime(msgInfo.sendTime.longValue() * 1000);
-                                aVar.f50316a = b.a.e.e.p.k.getDateStringMouth(date);
-                                aVar.f50317b = msgInfo.type.intValue();
-                                aVar.f50318c = msgInfo.content;
-                                aVar.f50319d = msgInfo.id.intValue();
+                                aVar.f51228a = b.a.e.f.p.k.getDateStringMouth(date);
+                                aVar.f51229b = msgInfo.type.intValue();
+                                aVar.f51230c = msgInfo.content;
+                                aVar.f51231d = msgInfo.id.intValue();
                                 linkedList.add(aVar);
                             }
                         }

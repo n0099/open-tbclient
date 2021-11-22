@@ -13,28 +13,28 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile a f13629d;
+    public static volatile a f14411d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FeedRecModel f13630a;
+    public FeedRecModel f14412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataRes f13631b;
+    public DataRes f14413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FeedRecModel.b f13632c;
+    public FeedRecModel.b f14414c;
 
     /* renamed from: b.a.q0.s.v.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0696a implements FeedRecModel.b {
+    public class C0732a implements FeedRecModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13633a;
+        public final /* synthetic */ a f14415a;
 
-        public C0696a(a aVar) {
+        public C0732a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,14 +49,14 @@ public class a {
                     return;
                 }
             }
-            this.f13633a = aVar;
+            this.f14415a = aVar;
         }
 
         @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.b
         public void a(DataRes dataRes, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.f13633a.f13631b = dataRes;
+                this.f14415a.f14413b = dataRes;
             }
         }
 
@@ -64,7 +64,7 @@ public class a {
         public void onLoadError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f13633a.f13631b = null;
+                this.f14415a.f14413b = null;
             }
         }
     }
@@ -82,24 +82,24 @@ public class a {
                 return;
             }
         }
-        this.f13632c = new C0696a(this);
+        this.f14414c = new C0732a(this);
         FeedRecModel feedRecModel = new FeedRecModel();
-        this.f13630a = feedRecModel;
-        feedRecModel.z(this.f13632c);
+        this.f14412a = feedRecModel;
+        feedRecModel.z(this.f14414c);
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f13629d == null) {
+            if (f14411d == null) {
                 synchronized (a.class) {
-                    if (f13629d == null) {
-                        f13629d = new a();
+                    if (f14411d == null) {
+                        f14411d = new a();
                     }
                 }
             }
-            return f13629d;
+            return f14411d;
         }
         return (a) invokeV.objValue;
     }
@@ -107,6 +107,6 @@ public class a {
     public DataRes c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13631b : (DataRes) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14413b : (DataRes) invokeV.objValue;
     }
 }

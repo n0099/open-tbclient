@@ -15,11 +15,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f34176b;
+    public static b f35010b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34177a;
+    public Context f35011a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f34176b == null) {
-                f34176b = new b();
+            if (f35010b == null) {
+                f35010b = new b();
             }
-            return f34176b;
+            return f35010b;
         }
         return (b) invokeV.objValue;
     }
@@ -66,14 +66,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             com.alipay.sdk.data.b.b();
-            this.f34177a = context.getApplicationContext();
+            this.f35011a = context.getApplicationContext();
         }
     }
 
     public Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34177a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35011a : (Context) invokeV.objValue;
     }
 
     public String c() {
@@ -81,7 +81,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return UTDevice.getUtdid(this.f34177a);
+                return UTDevice.getUtdid(this.f35011a);
             } catch (Throwable th) {
                 c.a(th);
                 return "getUtdidEx";

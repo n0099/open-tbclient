@@ -1,11 +1,12 @@
 package b.a.p0.d.g;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import b.a.p0.t.d;
-import b.a.p0.t.h;
-import b.a.p0.t.i;
-import b.a.p0.t.j;
+import b.a.p0.w.d;
+import b.a.p0.w.h;
+import b.a.p0.w.i;
+import b.a.p0.w.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,14 +26,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f9613c;
+    public static volatile c f10193c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f9614a;
+    public a f10194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f9615b;
+    public volatile boolean f10195b;
 
     /* loaded from: classes.dex */
     public static class a extends j {
@@ -71,22 +72,22 @@ public class c {
                 return;
             }
         }
-        this.f9615b = false;
-        this.f9614a = new a();
+        this.f10195b = false;
+        this.f10194a = new a();
     }
 
     public static c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9613c == null) {
+            if (f10193c == null) {
                 synchronized (c.class) {
-                    if (f9613c == null) {
-                        f9613c = new c();
+                    if (f10193c == null) {
+                        f10193c = new c();
                     }
                 }
             }
-            return f9613c;
+            return f10193c;
         }
         return (c) invokeV.objValue;
     }
@@ -95,25 +96,26 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Set<String> stringSet = this.f9614a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            Set<String> stringSet = this.f10194a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             if (stringSet != null) {
                 return stringSet;
             }
             if (h()) {
-                return this.f9614a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+                return this.f10194a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             }
             return null;
         }
         return (Set) invokeV.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String c2 = c("appKey");
             if (TextUtils.isEmpty(c2)) {
-                if (b.a.p0.d.c.f9612a) {
+                if (b.a.p0.d.c.f10192a) {
                     throw new IllegalStateException("获取 host app key 失败");
                 }
                 return "";
@@ -130,10 +132,10 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String string = this.f9614a.getString(str, "");
+            String string = this.f10194a.getString(str, "");
             if (TextUtils.isEmpty(string)) {
                 if (h()) {
-                    String string2 = this.f9614a.getString(str, "");
+                    String string2 = this.f10194a.getString(str, "");
                     if (!TextUtils.isEmpty(string2)) {
                         return string2;
                     }
@@ -145,13 +147,14 @@ public class c {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String c2 = c("hostName");
             if (TextUtils.isEmpty(c2)) {
-                if (b.a.p0.d.c.f9612a) {
+                if (b.a.p0.d.c.f10192a) {
                     throw new IllegalStateException("获取 HostName-宿主名称 失败");
                 }
                 return "";
@@ -161,13 +164,14 @@ public class c {
         return (String) invokeV.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             String c2 = c("schemeHead");
             if (TextUtils.isEmpty(c2)) {
-                if (b.a.p0.d.c.f9612a) {
+                if (b.a.p0.d.c.f10192a) {
                     throw new IllegalStateException("获取 SchemeHead-协议头 失败");
                 }
                 return "";
@@ -199,20 +203,20 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                if (this.f9615b) {
+                if (this.f10195b) {
                     return true;
                 }
-                String C = d.C(AppRuntime.getAppContext(), "config/union-cfg.json");
+                String D = d.D(AppRuntime.getAppContext(), "config/union-cfg.json");
                 HashSet hashSet = null;
-                if (TextUtils.isEmpty(C)) {
+                if (TextUtils.isEmpty(D)) {
                     File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
-                    C = file.exists() ? d.D(file) : null;
+                    D = file.exists() ? d.E(file) : null;
                 }
-                if (TextUtils.isEmpty(C)) {
+                if (TextUtils.isEmpty(D)) {
                     return false;
                 }
                 try {
-                    JSONObject jSONObject = new JSONObject(C);
+                    JSONObject jSONObject = new JSONObject(D);
                     String optString = jSONObject.optString("hostName");
                     String optString2 = jSONObject.optString("schemeHead");
                     String optString3 = jSONObject.optString("appKey");
@@ -226,10 +230,10 @@ public class c {
                         }
                     }
                     i(optString, optString2, optString3, optString4, optInt, hashSet);
-                    this.f9615b = true;
+                    this.f10195b = true;
                     return true;
                 } catch (JSONException e2) {
-                    if (b.a.p0.d.c.f9612a) {
+                    if (b.a.p0.d.c.f10192a) {
                         e2.printStackTrace();
                     }
                     return false;
@@ -244,7 +248,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i2), set}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i2 < 0) {
             return;
         }
-        SharedPreferences.Editor putInt = this.f9614a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i2);
+        SharedPreferences.Editor putInt = this.f10194a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i2);
         if (set != null && !set.isEmpty()) {
             putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
         }

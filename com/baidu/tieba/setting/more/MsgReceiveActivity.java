@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.more;
 import android.os.Bundle;
 import android.view.View;
 import b.a.q0.t.d.d;
-import b.a.r0.c3.c.f;
+import b.a.r0.d3.c.f;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -31,7 +31,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgReceiveActivity f53853a;
+        public final /* synthetic */ MsgReceiveActivity f54773a;
 
         public a(MsgReceiveActivity msgReceiveActivity) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                     return;
                 }
             }
-            this.f53853a = msgReceiveActivity;
+            this.f54773a = msgReceiveActivity;
         }
 
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
@@ -60,30 +60,30 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                         return;
                     }
                     if (z2) {
-                        this.f53853a.mView.h().turnOffNoCallback();
-                        this.f53853a.mView.n(false);
-                        this.f53853a.mView.p(false);
+                        this.f54773a.mView.h().turnOffNoCallback();
+                        this.f54773a.mView.n(false);
+                        this.f54773a.mView.p(false);
                         return;
                     }
-                    this.f53853a.mView.h().turnOnNoCallback();
-                    this.f53853a.mView.n(true);
-                    this.f53853a.mView.p(true);
+                    this.f54773a.mView.h().turnOnNoCallback();
+                    this.f54773a.mView.n(true);
+                    this.f54773a.mView.p(true);
                 } else if (i2 == 9) {
                     if (z) {
                         return;
                     }
                     if (z2) {
-                        this.f53853a.mView.j().turnOffNoCallback();
+                        this.f54773a.mView.j().turnOffNoCallback();
                     } else {
-                        this.f53853a.mView.j().turnOnNoCallback();
+                        this.f54773a.mView.j().turnOnNoCallback();
                     }
                 } else if (i2 == 7) {
                     if (z) {
                         d.d().P(z2);
                     } else if (z2) {
-                        this.f53853a.mView.g().turnOffNoCallback();
+                        this.f54773a.mView.g().turnOffNoCallback();
                     } else {
-                        this.f53853a.mView.g().turnOnNoCallback();
+                        this.f54773a.mView.g().turnOnNoCallback();
                     }
                 }
             }
@@ -96,7 +96,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgReceiveActivity f53854a;
+        public final /* synthetic */ MsgReceiveActivity f54774a;
 
         public b(MsgReceiveActivity msgReceiveActivity) {
             Interceptable interceptable = $ic;
@@ -113,14 +113,14 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                     return;
                 }
             }
-            this.f53854a = msgReceiveActivity;
+            this.f54774a = msgReceiveActivity;
         }
 
         @Override // com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.b
         public void a(ArrayList<OfficialAccountPushInfo> arrayList, int i2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i2, str) == null) && i2 == OfficialAccountPushModel.NET_SUCCESS && this.f53854a.mView != null) {
-                this.f53854a.mView.o(arrayList);
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i2, str) == null) && i2 == OfficialAccountPushModel.NET_SUCCESS && this.f54774a.mView != null) {
+                this.f54774a.mView.o(arrayList);
             }
         }
     }

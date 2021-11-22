@@ -1,6 +1,6 @@
 package com.google.android.exoplayer2.metadata.id3;
 
-import b.i.b.a.i0.a;
+import b.h.b.a.i0.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

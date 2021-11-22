@@ -1,7 +1,6 @@
 package com.googlecode.mp4parser.boxes.piff;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -50,7 +49,7 @@ public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox 
             }
         }
         ajc$preClinit();
-        USER_TYPE = new byte[]{-48, -118, 79, 24, 16, -13, 74, -126, -74, -56, 50, ExifInterface.MARKER_SOI, -85, -95, -125, -45};
+        USER_TYPE = new byte[]{-48, -118, 79, 24, 16, -13, 74, -126, -74, -56, 50, -40, -85, -95, -125, -45};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

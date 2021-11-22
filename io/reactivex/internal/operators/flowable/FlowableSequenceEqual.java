@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
     public final int prefetch;
     public final Publisher<? extends T> second;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class EqualCoordinator<T> extends DeferredScalarSubscription<Boolean> implements EqualCoordinatorHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6178010334400373240L;
@@ -203,14 +203,14 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface EqualCoordinatorHelper {
         void drain();
 
         void innerError(Throwable th);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class EqualSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4804128302091633067L;

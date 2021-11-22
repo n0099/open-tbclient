@@ -18,16 +18,16 @@ public class b implements b.a.q0.x.w.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final View f14233e;
+    public final View f15000e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14234f;
+    public boolean f15001f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14235g;
+    public boolean f15002g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14236h;
+    public boolean f15003h;
 
     public b(View view, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class b implements b.a.q0.x.w.a {
                 return;
             }
         }
-        this.f14234f = false;
-        this.f14235g = false;
-        this.f14236h = false;
-        this.f14233e = view;
+        this.f15001f = false;
+        this.f15002g = false;
+        this.f15003h = false;
+        this.f15000e = view;
         if (attributeSet != null) {
             TypedArray typedArray = null;
             try {
                 typedArray = view.getContext().obtainStyledAttributes(attributeSet, R$styleable.KPSwitchPanelLayout);
-                this.f14235g = typedArray.getBoolean(R$styleable.KPSwitchPanelLayout_ignore_recommend_height, false);
+                this.f15002g = typedArray.getBoolean(R$styleable.KPSwitchPanelLayout_ignore_recommend_height, false);
             } finally {
                 if (typedArray != null) {
                     typedArray.recycle();
@@ -66,9 +66,9 @@ public class b implements b.a.q0.x.w.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 == 0) {
-                this.f14234f = false;
+                this.f15001f = false;
             }
-            if (i2 == this.f14233e.getVisibility()) {
+            if (i2 == this.f15000e.getVisibility()) {
                 return true;
             }
             return isKeyboardShowing() && i2 == 0;
@@ -80,8 +80,8 @@ public class b implements b.a.q0.x.w.a {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-            if (this.f14234f) {
-                this.f14233e.setVisibility(8);
+            if (this.f15001f) {
+                this.f15000e.setVisibility(8);
                 int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
                 i3 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
                 i2 = makeMeasureSpec;
@@ -93,23 +93,23 @@ public class b implements b.a.q0.x.w.a {
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f14235g) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f15002g) {
             return;
         }
-        d.d(this.f14233e, i2);
+        d.d(this.f15000e, i2);
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f14235g = z;
+            this.f15002g = z;
         }
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f14236h = z;
+            this.f15003h = z;
         }
     }
 
@@ -117,7 +117,7 @@ public class b implements b.a.q0.x.w.a {
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f14234f = true;
+            this.f15001f = true;
         }
     }
 
@@ -133,13 +133,13 @@ public class b implements b.a.q0.x.w.a {
     public boolean isKeyboardShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14236h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15003h : invokeV.booleanValue;
     }
 
     @Override // b.a.q0.x.w.a
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? !this.f14234f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? !this.f15001f : invokeV.booleanValue;
     }
 }

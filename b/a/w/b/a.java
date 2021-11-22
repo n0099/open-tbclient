@@ -67,31 +67,31 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
     public final BroadcastReceiver O;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f29163a;
+    public final String f30032a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29164b;
+    public final int f30033b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f29165c;
+    public Context f30034c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FragmentManager f29166d;
+    public FragmentManager f30035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f29167e;
+    public View f30036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f29168f;
+    public View f30037f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AppBarLayout f29169g;
+    public AppBarLayout f30038g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NestedNoScrollViewPager f29170h;
+    public NestedNoScrollViewPager f30039h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BaiduLiveTabAdapter f29171i;
+    public BaiduLiveTabAdapter f30040i;
     public SmartTabLayout j;
     public RecyclerView k;
     public RecyclerView l;
@@ -112,12 +112,12 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
 
     /* renamed from: b.a.w.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C1408a extends BroadcastReceiver {
+    public class C1450a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a this$0;
 
-        public C1408a(a aVar) {
+        public C1450a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,7 +162,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29172a;
+        public final /* synthetic */ a f30041a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                     return;
                 }
             }
-            this.f29172a = aVar;
+            this.f30041a = aVar;
         }
 
         @Override // b.a.w.b.d.a.b
@@ -188,10 +188,10 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, map) == null) {
                 if (cVar == null) {
                     b(-100, "数据解析失败", map);
-                } else if ("follow".equals(cVar.f29202d)) {
-                    this.f29172a.x(cVar.f29204f);
+                } else if ("follow".equals(cVar.f30071d)) {
+                    this.f30041a.x(cVar.f30073f);
                 } else {
-                    this.f29172a.t(cVar);
+                    this.f30041a.t(cVar);
                 }
             }
         }
@@ -204,7 +204,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             }
             b.a.w.b.d.c.c cVar = new b.a.w.b.d.c.c();
             cVar.a("banner,tab,feed,follow,config", i2, str);
-            this.f29172a.t(cVar);
+            this.f30041a.t(cVar);
         }
     }
 
@@ -214,7 +214,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f29173e;
+        public final /* synthetic */ a f30042e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -231,14 +231,14 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                     return;
                 }
             }
-            this.f29173e = aVar;
+            this.f30042e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f29173e.y();
+                this.f30042e.y();
             }
         }
     }
@@ -249,7 +249,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f29174e;
+        public final /* synthetic */ a f30043e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -266,14 +266,14 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                     return;
                 }
             }
-            this.f29174e = aVar;
+            this.f30043e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f29174e.f29165c instanceof Activity) && !((Activity) this.f29174e.f29165c).isFinishing()) {
-                ((Activity) this.f29174e.f29165c).finish();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f30043e.f30034c instanceof Activity) && !((Activity) this.f30043e.f30034c).isFinishing()) {
+                ((Activity) this.f30043e.f30034c).finish();
             }
         }
     }
@@ -284,7 +284,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f29175e;
+        public final /* synthetic */ a f30044e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -301,14 +301,14 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                     return;
                 }
             }
-            this.f29175e = aVar;
+            this.f30044e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f29175e.y();
+                this.f30044e.y();
             }
         }
     }
@@ -319,7 +319,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f29176e;
+        public final /* synthetic */ a f30045e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -336,7 +336,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                     return;
                 }
             }
-            this.f29176e = aVar;
+            this.f30045e = aVar;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -359,17 +359,17 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
                 LiveFeedPageSdk.l("二级 tab 滑动/点击切换：" + i2);
                 int a2 = b.a.w.b.f.f.a();
-                if (this.f29176e.f29171i.getItem(a2) instanceof LiveBaseFragment) {
-                    ((LiveBaseFragment) this.f29176e.f29171i.getItem(a2)).onSelectedChanged(false);
+                if (this.f30045e.f30040i.getItem(a2) instanceof LiveBaseFragment) {
+                    ((LiveBaseFragment) this.f30045e.f30040i.getItem(a2)).onSelectedChanged(false);
                 }
                 b.a.w.b.f.f.c(i2);
-                if (this.f29176e.f29171i.getItem(i2) instanceof LiveBaseFragment) {
-                    ((LiveBaseFragment) this.f29176e.f29171i.getItem(i2)).onSelectedChanged(true);
+                if (this.f30045e.f30040i.getItem(i2) instanceof LiveBaseFragment) {
+                    ((LiveBaseFragment) this.f30045e.f30040i.getItem(i2)).onSelectedChanged(true);
                 }
-                this.f29176e.z(i2);
-                this.f29176e.j.onDarkModeChange("day");
-                this.f29176e.j.setScrollLineVisibility(i2);
-                this.f29176e.f29171i.externalRefresh(i2, true, true);
+                this.f30045e.z(i2);
+                this.f30045e.j.onDarkModeChange("day");
+                this.f30045e.j.setScrollLineVisibility(i2);
+                this.f30045e.f30040i.externalRefresh(i2, true, true);
             }
         }
     }
@@ -380,7 +380,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29177a;
+        public final /* synthetic */ a f30046a;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -397,16 +397,16 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                     return;
                 }
             }
-            this.f29177a = aVar;
+            this.f30046a = aVar;
         }
 
         @Override // com.baidu.live.business.view.smarttab.SmartTabLayout.e
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                LiveFeedPageSdk.l("二级 tab 点击：" + i2 + "   current：" + this.f29177a.f29170h.getCurrentItem());
-                if (this.f29177a.f29170h.getCurrentItem() == i2) {
-                    this.f29177a.f29171i.externalRefresh(i2, true, true);
+                LiveFeedPageSdk.l("二级 tab 点击：" + i2 + "   current：" + this.f30046a.f30039h.getCurrentItem());
+                if (this.f30046a.f30039h.getCurrentItem() == i2) {
+                    this.f30046a.f30040i.externalRefresh(i2, true, true);
                 }
             }
         }
@@ -418,7 +418,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29178a;
+        public final /* synthetic */ a f30047a;
 
         public h(a aVar) {
             Interceptable interceptable = $ic;
@@ -435,28 +435,28 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                     return;
                 }
             }
-            this.f29178a = aVar;
+            this.f30047a = aVar;
         }
 
         @Override // com.baidu.live.business.adapter.LiveFeedPageSubTipAdapter.b
         public void a(View view, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
-                int selectPos = this.f29178a.m.getSelectPos();
+                int selectPos = this.f30047a.m.getSelectPos();
                 LiveFeedPageSdk.l("三级 Tab 点击 pre: " + selectPos + GlideException.IndentedAppendable.INDENT + i2);
-                this.f29178a.m.setSelectPos(i2);
-                this.f29178a.m.notifyDataSetChanged();
-                if (this.f29178a.f29171i == null || this.f29178a.f29170h == null) {
+                this.f30047a.m.setSelectPos(i2);
+                this.f30047a.m.notifyDataSetChanged();
+                if (this.f30047a.f30040i == null || this.f30047a.f30039h == null) {
                     return;
                 }
                 if (selectPos != i2) {
-                    this.f29178a.f29171i.onHintLog(this.f29178a.f29170h.getCurrentItem());
+                    this.f30047a.f30040i.onHintLog(this.f30047a.f30039h.getCurrentItem());
                 }
-                this.f29178a.R();
+                this.f30047a.R();
                 if (selectPos != i2) {
-                    this.f29178a.f29171i.onShowLog(this.f29178a.f29170h.getCurrentItem());
+                    this.f30047a.f30040i.onShowLog(this.f30047a.f30039h.getCurrentItem());
                 }
-                this.f29178a.f29171i.externalRefresh(this.f29178a.f29170h.getCurrentItem(), true, selectPos == i2);
+                this.f30047a.f30040i.externalRefresh(this.f30047a.f30039h.getCurrentItem(), true, selectPos == i2);
             }
         }
     }
@@ -467,7 +467,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29179a;
+        public final /* synthetic */ a f30048a;
 
         public i(a aVar) {
             Interceptable interceptable = $ic;
@@ -484,17 +484,17 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                     return;
                 }
             }
-            this.f29179a = aVar;
+            this.f30048a = aVar;
         }
 
         @Override // com.baidu.live.business.view.emotion.ErrorView.b
         public void a(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                a aVar = this.f29179a;
+                a aVar = this.f30048a;
                 aVar.P(aVar.r);
-                if (this.f29179a.p != null) {
-                    this.f29179a.p.g();
+                if (this.f30048a.p != null) {
+                    this.f30048a.p.g();
                 }
             }
         }
@@ -506,7 +506,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29180a;
+        public final /* synthetic */ a f30049a;
 
         public j(a aVar) {
             Interceptable interceptable = $ic;
@@ -523,7 +523,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                     return;
                 }
             }
-            this.f29180a = aVar;
+            this.f30049a = aVar;
         }
 
         @Override // com.baidu.live.business.view.banner.BannerView.h
@@ -531,13 +531,13 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             LiveBannerEntity.b bVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) {
-                if (liveBannerEntity != null && (bVar = liveBannerEntity.cmdInfo) != null && !b.a.w.e.g.j.a(bVar.f38739a)) {
+                if (liveBannerEntity != null && (bVar = liveBannerEntity.cmdInfo) != null && !b.a.w.e.g.j.a(bVar.f39571a)) {
                     LiveHostInfo liveHostInfo = liveBannerEntity.hostInfo;
-                    b.a.w.b.c.a.e(this.f29180a.f29165c, this.f29180a.f29163a, liveBannerEntity.position, liveBannerEntity.roomId, liveBannerEntity.nid, liveBannerEntity.bannerType, liveHostInfo == null ? "" : liveHostInfo.uk, this.f29180a.G ? "chenjinshi" : "zhibopindao", liveBannerEntity.statInfo);
-                    LiveFeedPageSdk.e().f().invokeScheme(this.f29180a.f29165c, liveBannerEntity.cmdInfo.f38739a);
+                    b.a.w.b.c.a.e(this.f30049a.f30034c, this.f30049a.f30032a, liveBannerEntity.position, liveBannerEntity.roomId, liveBannerEntity.nid, liveBannerEntity.bannerType, liveHostInfo == null ? "" : liveHostInfo.uk, this.f30049a.G ? "chenjinshi" : "zhibopindao", liveBannerEntity.statInfo);
+                    LiveFeedPageSdk.e().f().invokeScheme(this.f30049a.f30034c, liveBannerEntity.cmdInfo.f39571a);
                     return;
                 }
-                LiveFeedPageSdk.e().f().c(this.f29180a.f29165c, this.f29180a.f29165c.getResources().getString(b.a.w.c.a.e.live_feed_page_no_banner_configured));
+                LiveFeedPageSdk.e().f().c(this.f30049a.f30034c, this.f30049a.f30034c.getResources().getString(b.a.w.c.a.e.live_feed_page_no_banner_configured));
             }
         }
     }
@@ -564,20 +564,20 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         this.L = false;
         this.M = new b(this);
         this.N = false;
-        this.O = new C1408a(this);
-        this.f29165c = context;
-        this.f29163a = str2;
-        this.f29166d = fragmentManager;
+        this.O = new C1450a(this);
+        this.f30034c = context;
+        this.f30032a = str2;
+        this.f30035d = fragmentManager;
         this.A = str;
         this.L = z;
-        this.H.f29182b = System.currentTimeMillis();
+        this.H.f30051b = System.currentTimeMillis();
         this.G = "immersion".equals(this.A);
-        this.f29164b = i2;
+        this.f30033b = i2;
         b.a.w.e.c.d.a().d(this, b.a.w.b.b.b.class, this);
         b.a.w.e.c.d.a().d(this, b.a.w.b.b.d.class, this);
         b.a.w.e.c.d.a().d(this, b.a.w.b.b.c.class, this);
         C();
-        b.a.w.b.d.a aVar = new b.a.w.b.d.a(this.f29165c, this.G, this.f29163a);
+        b.a.w.b.d.a aVar = new b.a.w.b.d.a(this.f30034c, this.G, this.f30032a);
         this.p = aVar;
         aVar.i(this.M);
     }
@@ -589,11 +589,11 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             return;
         }
         b.a.w.b.f.f.b();
-        if (this.N || (gVar = cVar.f29205g) == null || b.a.w.e.g.d.c(gVar.f29223c)) {
+        if (this.N || (gVar = cVar.f30074g) == null || b.a.w.e.g.d.c(gVar.f30092c)) {
             return;
         }
         this.N = true;
-        List<LiveTabEntity> list = cVar.f29205g.f29223c;
+        List<LiveTabEntity> list = cVar.f30074g.f30092c;
         this.F = list;
         int size = list.size();
         int i2 = 0;
@@ -608,36 +608,36 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                 i3++;
             }
         }
-        this.f29171i.setTabList(this.F, cVar.f29206h);
-        this.j.setViewPager(this.f29170h);
+        this.f30040i.setTabList(this.F, cVar.f30075h);
+        this.j.setViewPager(this.f30039h);
         if (!b.a.w.e.g.d.c(this.F)) {
             b.a.w.b.f.f.c(i2);
-            this.f29170h.setCurrentItem(i2);
+            this.f30039h.setCurrentItem(i2);
         }
-        this.f29171i.selectDefault(i2);
-        if (cVar.f29205g.f29224d) {
-            Context context = this.f29165c;
-            String str = this.f29163a;
+        this.f30040i.selectDefault(i2);
+        if (cVar.f30074g.f30093d) {
+            Context context = this.f30034c;
+            String str = this.f30032a;
             String m = b.a.w.b.c.a.m(this.G);
-            b.a.w.b.d.c.g gVar2 = cVar.f29205g;
-            b.a.w.b.c.a.o(context, str, m, gVar2.f29221a, gVar2.f29222b, cVar.f29201c, cVar.f29202d, "", "", "", gVar2.f29226f, "tab", gVar2.f29225e, System.currentTimeMillis(), 1);
+            b.a.w.b.d.c.g gVar2 = cVar.f30074g;
+            b.a.w.b.c.a.o(context, str, m, gVar2.f30090a, gVar2.f30091b, cVar.f30070c, cVar.f30071d, "", "", "", gVar2.f30095f, "tab", gVar2.f30094e, System.currentTimeMillis(), 1);
         }
     }
 
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            BannerView bannerView = new BannerView(this.f29165c);
+            BannerView bannerView = new BannerView(this.f30034c);
             this.q = bannerView;
             bannerView.setShowRoundPicture(true, 10);
             this.q.setIndicatorGravity(81);
-            this.q.setIndicatorMargin(0, 0, 0, (int) b.a.w.b.f.a.b(this.f29165c.getResources(), 7.0f));
-            this.q.setLargeIndicatorItemSize((int) b.a.w.b.f.a.b(this.f29165c.getResources(), 4.0f));
-            this.q.setSmallIndicatorItemSize((int) b.a.w.b.f.a.b(this.f29165c.getResources(), 4.0f));
-            this.q.setIndicatorInterval((int) b.a.w.b.f.a.b(this.f29165c.getResources(), 6.0f));
+            this.q.setIndicatorMargin(0, 0, 0, (int) b.a.w.b.f.a.b(this.f30034c.getResources(), 7.0f));
+            this.q.setLargeIndicatorItemSize((int) b.a.w.b.f.a.b(this.f30034c.getResources(), 4.0f));
+            this.q.setSmallIndicatorItemSize((int) b.a.w.b.f.a.b(this.f30034c.getResources(), 4.0f));
+            this.q.setIndicatorInterval((int) b.a.w.b.f.a.b(this.f30034c.getResources(), 6.0f));
             this.q.setAspectRatio(0.336f);
             this.q.setIsImmersion(this.G);
-            this.q.setSource(this.f29163a);
+            this.q.setSource(this.f30032a);
             this.q.setOnBannerClickListener(new j(this));
             this.o.addView(this.q, new FrameLayout.LayoutParams(-1, -1));
         }
@@ -646,28 +646,28 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.f29165c).inflate(b.a.w.c.a.d.live_feed_page_tab_layout, (ViewGroup) null);
-            this.f29167e = inflate;
-            this.f29168f = inflate.findViewById(b.a.w.c.a.c.live_tab_root_container);
-            this.f29169g = (AppBarLayout) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_appbar_layout);
-            this.o = (FrameLayout) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_content_container);
-            this.j = (SmartTabLayout) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_top_tab_layout);
-            this.k = (RecyclerView) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_top_tab_sub_tag_layout);
-            this.l = (RecyclerView) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_top_concern_list_layout);
-            this.t = (LinearLayout) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_base_container);
-            this.u = this.f29167e.findViewById(b.a.w.c.a.c.live_tab_top_space_layout);
-            this.v = (LinearLayout) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_top_start_live_layout);
-            this.w = (TextView) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_top_start_live_tv);
-            this.y = this.f29167e.findViewById(b.a.w.c.a.c.live_tab_top_tab_divider_view);
-            FakeStartLiveButton fakeStartLiveButton = (FakeStartLiveButton) this.f29167e.findViewById(b.a.w.c.a.c.live_feed_page_fake_start_live_id);
+            View inflate = LayoutInflater.from(this.f30034c).inflate(b.a.w.c.a.d.live_feed_page_tab_layout, (ViewGroup) null);
+            this.f30036e = inflate;
+            this.f30037f = inflate.findViewById(b.a.w.c.a.c.live_tab_root_container);
+            this.f30038g = (AppBarLayout) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_appbar_layout);
+            this.o = (FrameLayout) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_content_container);
+            this.j = (SmartTabLayout) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_top_tab_layout);
+            this.k = (RecyclerView) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_top_tab_sub_tag_layout);
+            this.l = (RecyclerView) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_top_concern_list_layout);
+            this.t = (LinearLayout) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_base_container);
+            this.u = this.f30036e.findViewById(b.a.w.c.a.c.live_tab_top_space_layout);
+            this.v = (LinearLayout) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_top_start_live_layout);
+            this.w = (TextView) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_top_start_live_tv);
+            this.y = this.f30036e.findViewById(b.a.w.c.a.c.live_tab_top_tab_divider_view);
+            FakeStartLiveButton fakeStartLiveButton = (FakeStartLiveButton) this.f30036e.findViewById(b.a.w.c.a.c.live_feed_page_fake_start_live_id);
             this.x = fakeStartLiveButton;
             fakeStartLiveButton.setOnClickListener(new c(this));
-            ImageView imageView = (ImageView) this.f29167e.findViewById(b.a.w.c.a.c.live_feed_page_imm_back_btn);
+            ImageView imageView = (ImageView) this.f30036e.findViewById(b.a.w.c.a.c.live_feed_page_imm_back_btn);
             this.z = imageView;
             imageView.setOnClickListener(new d(this));
             this.z.setVisibility(this.G ? 0 : 8);
             if (this.G && b.a.w.e.g.c.a()) {
-                this.f29167e.setPadding(0, b.a.w.e.g.c.d(this.f29165c), 0, 0);
+                this.f30036e.setPadding(0, b.a.w.e.g.c.d(this.f30034c), 0, 0);
             }
             this.v.setVisibility((!"haokan".equals(LiveFeedPageSdk.e().d()) || this.G || this.L) ? 8 : 0);
             this.v.setOnClickListener(new e(this));
@@ -678,47 +678,47 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             StaggeredGridLayoutManager staggeredGridLayoutManager2 = new StaggeredGridLayoutManager(1, 0);
             staggeredGridLayoutManager2.setOrientation(0);
             this.l.setLayoutManager(staggeredGridLayoutManager2);
-            NestedNoScrollViewPager nestedNoScrollViewPager = (NestedNoScrollViewPager) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_view_pager);
-            this.f29170h = nestedNoScrollViewPager;
+            NestedNoScrollViewPager nestedNoScrollViewPager = (NestedNoScrollViewPager) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_view_pager);
+            this.f30039h = nestedNoScrollViewPager;
             nestedNoScrollViewPager.setId(View.generateViewId());
-            this.f29170h.setOffscreenPageLimit(1);
-            this.f29170h.setSaveEnabled(false);
+            this.f30039h.setOffscreenPageLimit(1);
+            this.f30039h.setSaveEnabled(false);
             if ("immersion".equals(this.A)) {
-                this.f29170h.setCanScrollHorizontally(true);
+                this.f30039h.setCanScrollHorizontally(true);
             }
             this.j.setOnPageChangeListener(new f(this));
             this.j.setOnTabClickListener(new g(this));
-            BaiduLiveTabAdapter baiduLiveTabAdapter = new BaiduLiveTabAdapter(this.f29166d, this.f29164b, this.G, this.f29163a);
-            this.f29171i = baiduLiveTabAdapter;
-            this.f29170h.setAdapter(baiduLiveTabAdapter);
+            BaiduLiveTabAdapter baiduLiveTabAdapter = new BaiduLiveTabAdapter(this.f30035d, this.f30033b, this.G, this.f30032a);
+            this.f30040i = baiduLiveTabAdapter;
+            this.f30039h.setAdapter(baiduLiveTabAdapter);
             this.j.setAllTabIsBold(false);
             this.j.setTabSelectedColorEnable(true);
             this.j.setShowBottomLine(this.G);
             this.j.setDarkModeCompatColor("color_FF33551", "color_1F1F1F");
             this.j.setIsImmersion(this.G);
-            LiveFeedPageSubTipAdapter liveFeedPageSubTipAdapter = new LiveFeedPageSubTipAdapter(this.f29165c, this.G);
+            LiveFeedPageSubTipAdapter liveFeedPageSubTipAdapter = new LiveFeedPageSubTipAdapter(this.f30034c, this.G);
             this.m = liveFeedPageSubTipAdapter;
             liveFeedPageSubTipAdapter.setOnItemClickListener(new h(this));
             this.k.setAdapter(this.m);
             if (this.G) {
                 RecyclerView recyclerView = this.k;
                 if (recyclerView != null) {
-                    recyclerView.setPadding(0, b.a.w.b.f.a.a(this.f29165c, 11.0f), 0, b.a.w.b.f.a.a(this.f29165c, 8.0f));
+                    recyclerView.setPadding(0, b.a.w.b.f.a.a(this.f30034c, 11.0f), 0, b.a.w.b.f.a.a(this.f30034c, 8.0f));
                 }
                 RecyclerView recyclerView2 = this.l;
                 if (recyclerView2 != null) {
-                    recyclerView2.setPadding(0, 0, 0, b.a.w.b.f.a.a(this.f29165c, 9.0f));
+                    recyclerView2.setPadding(0, 0, 0, b.a.w.b.f.a.a(this.f30034c, 9.0f));
                 }
             }
-            LiveFeedPageConcernAdapter liveFeedPageConcernAdapter = new LiveFeedPageConcernAdapter(this.f29165c, this.G, this.f29163a);
+            LiveFeedPageConcernAdapter liveFeedPageConcernAdapter = new LiveFeedPageConcernAdapter(this.f30034c, this.G, this.f30032a);
             this.n = liveFeedPageConcernAdapter;
             this.l.setAdapter(liveFeedPageConcernAdapter);
             B();
-            LoadingView loadingView = (LoadingView) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_loading);
+            LoadingView loadingView = (LoadingView) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_loading);
             this.r = loadingView;
             loadingView.onDarkModeChange(this.G);
             P(this.r);
-            ErrorView errorView = (ErrorView) this.f29167e.findViewById(b.a.w.c.a.c.live_tab_error);
+            ErrorView errorView = (ErrorView) this.f30036e.findViewById(b.a.w.c.a.c.live_tab_error);
             this.s = errorView;
             errorView.setActionCallback(new i(this));
             E("day");
@@ -737,19 +737,19 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
     public void E(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            View view = this.f29167e;
+            View view = this.f30036e;
             if (view != null) {
-                view.setBackgroundColor(b.a.w.i.f.e().a(this.f29165c, this.G, "color_white1"));
+                view.setBackgroundColor(b.a.w.i.f.e().a(this.f30034c, this.G, "color_white1"));
             }
             View view2 = this.u;
             if (view2 != null) {
-                view2.setBackgroundColor(b.a.w.i.f.e().a(this.f29165c, this.G, "color_F5F5F52"));
+                view2.setBackgroundColor(b.a.w.i.f.e().a(this.f30034c, this.G, "color_F5F5F52"));
             }
             TextView textView = this.w;
             if (textView != null) {
-                textView.setTextColor(b.a.w.i.f.e().a(this.f29165c, this.G, "color_1F1F1F"));
+                textView.setTextColor(b.a.w.i.f.e().a(this.f30034c, this.G, "color_1F1F1F"));
             }
-            BaiduLiveTabAdapter baiduLiveTabAdapter = this.f29171i;
+            BaiduLiveTabAdapter baiduLiveTabAdapter = this.f30040i;
             if (baiduLiveTabAdapter != null) {
                 baiduLiveTabAdapter.onDarkModeChange(str);
             }
@@ -795,7 +795,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             }
             this.D = true;
             b.a.w.b.f.f.b();
-            BaiduLiveTabAdapter baiduLiveTabAdapter = this.f29171i;
+            BaiduLiveTabAdapter baiduLiveTabAdapter = this.f30040i;
             if (baiduLiveTabAdapter != null) {
                 baiduLiveTabAdapter.onDestroy();
             }
@@ -807,7 +807,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         BaiduLiveTabAdapter baiduLiveTabAdapter;
         NestedNoScrollViewPager nestedNoScrollViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (baiduLiveTabAdapter = this.f29171i) == null || (nestedNoScrollViewPager = this.f29170h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (baiduLiveTabAdapter = this.f30040i) == null || (nestedNoScrollViewPager = this.f30039h) == null) {
             return;
         }
         baiduLiveTabAdapter.externalRefresh(nestedNoScrollViewPager.getCurrentItem(), true, true);
@@ -817,7 +817,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         BaiduLiveTabAdapter baiduLiveTabAdapter;
         NestedNoScrollViewPager nestedNoScrollViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (baiduLiveTabAdapter = this.f29171i) == null || (nestedNoScrollViewPager = this.f29170h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (baiduLiveTabAdapter = this.f30040i) == null || (nestedNoScrollViewPager = this.f30039h) == null) {
             return;
         }
         baiduLiveTabAdapter.onHintLog(nestedNoScrollViewPager.getCurrentItem());
@@ -828,13 +828,13 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         NestedNoScrollViewPager nestedNoScrollViewPager2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            BaiduLiveTabAdapter baiduLiveTabAdapter = this.f29171i;
-            if (baiduLiveTabAdapter != null && (nestedNoScrollViewPager2 = this.f29170h) != null) {
+            BaiduLiveTabAdapter baiduLiveTabAdapter = this.f30040i;
+            if (baiduLiveTabAdapter != null && (nestedNoScrollViewPager2 = this.f30039h) != null) {
                 baiduLiveTabAdapter.onShowLog(nestedNoScrollViewPager2.getCurrentItem());
             }
             if (this.H.a()) {
-                BaiduLiveTabAdapter baiduLiveTabAdapter2 = this.f29171i;
-                if (baiduLiveTabAdapter2 != null && (nestedNoScrollViewPager = this.f29170h) != null) {
+                BaiduLiveTabAdapter baiduLiveTabAdapter2 = this.f30040i;
+                if (baiduLiveTabAdapter2 != null && (nestedNoScrollViewPager = this.f30039h) != null) {
                     baiduLiveTabAdapter2.externalRefresh(nestedNoScrollViewPager.getCurrentItem(), true, true);
                 }
             } else {
@@ -902,8 +902,8 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             return;
         }
         if (aVar != null) {
-            if (!b.a.w.e.g.d.c(aVar.f29196a)) {
-                List<LiveBannerEntity> list = aVar.f29196a;
+            if (!b.a.w.e.g.d.c(aVar.f30065a)) {
+                List<LiveBannerEntity> list = aVar.f30065a;
                 if (this.q.isBannerNeedUpdate(list)) {
                     BannerEntity bannerEntity = new BannerEntity();
                     bannerEntity.mBannerList = list;
@@ -943,14 +943,14 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
     public final void O() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (context = this.f29165c) == null || this.J) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (context = this.f30034c) == null || this.J) {
             return;
         }
         this.K = NetWorkUtils.b(context);
         LiveFeedPageSdk.l("注册网络变化广播");
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        this.f29165c.registerReceiver(this.O, intentFilter);
+        this.f30034c.registerReceiver(this.O, intentFilter);
         this.J = true;
     }
 
@@ -967,7 +967,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             if (loadingView != null) {
                 loadingView.setVisibility(view == loadingView ? 0 : 8);
             }
-            View view2 = this.f29168f;
+            View view2 = this.f30037f;
             if (view2 != null) {
                 view2.setVisibility(view == view2 ? 0 : 4);
             }
@@ -984,9 +984,9 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
 
     public final void Q() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.f29165c != null && this.J) {
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.f30034c != null && this.J) {
             LiveFeedPageSdk.l("解注册网络变化广播");
-            this.f29165c.unregisterReceiver(this.O);
+            this.f30034c.unregisterReceiver(this.O);
             this.J = false;
         }
     }
@@ -996,11 +996,11 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         NestedNoScrollViewPager nestedNoScrollViewPager;
         LiveTabEntity subTab;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (baiduLiveTabAdapter = this.f29171i) == null || (nestedNoScrollViewPager = this.f29170h) == null || (subTab = baiduLiveTabAdapter.getSubTab(nestedNoScrollViewPager.getCurrentItem())) == null || TextUtils.isEmpty(subTab.type)) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (baiduLiveTabAdapter = this.f30040i) == null || (nestedNoScrollViewPager = this.f30039h) == null || (subTab = baiduLiveTabAdapter.getSubTab(nestedNoScrollViewPager.getCurrentItem())) == null || TextUtils.isEmpty(subTab.type)) {
             return;
         }
         LiveTabEntity.TabLabelInfo selectSubTabInfo = this.m.getSelectSubTabInfo();
-        this.f29171i.updateTabInfo(subTab.type, selectSubTabInfo != null ? selectSubTabInfo.type : "", this.f29170h.getCurrentItem());
+        this.f30040i.updateTabInfo(subTab.type, selectSubTabInfo != null ? selectSubTabInfo.type : "", this.f30039h.getCurrentItem());
     }
 
     public final void r() {
@@ -1023,11 +1023,11 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         b.a.w.b.d.c.g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, cVar) == null) {
-            if (cVar != null && (gVar = cVar.f29205g) != null && !b.a.w.e.g.d.c(gVar.f29223c)) {
+            if (cVar != null && (gVar = cVar.f30074g) != null && !b.a.w.e.g.d.c(gVar.f30092c)) {
                 w(cVar);
-                P(this.f29168f);
+                P(this.f30037f);
                 this.I = true;
-                if (cVar.f29205g.f29224d) {
+                if (cVar.f30074g.f30093d) {
                     return;
                 }
                 this.H.c();
@@ -1041,7 +1041,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
     public View u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f29167e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f30036e : (View) invokeV.objValue;
     }
 
     public final void v(b.a.w.b.d.c.b bVar) {
@@ -1049,7 +1049,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         if (interceptable == null || interceptable.invokeL(1048600, this, bVar) == null) {
             this.B = bVar;
             if (bVar != null) {
-                this.H.b(bVar.f29198b * 1000);
+                this.H.b(bVar.f30067b * 1000);
             }
         }
     }
@@ -1059,19 +1059,19 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         if (!(interceptable == null || interceptable.invokeL(1048601, this, cVar) == null) || cVar == null) {
             return;
         }
-        v(cVar.f29207i);
-        M(cVar.f29203e);
+        v(cVar.f30076i);
+        M(cVar.f30072e);
         A(cVar);
         z(b.a.w.b.f.f.a());
-        x(cVar.f29204f);
+        x(cVar.f30073f);
     }
 
     public final void x(b.a.w.b.d.c.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, eVar) == null) {
             if (eVar != null) {
-                if (!b.a.w.e.g.d.c(eVar.f29215a)) {
-                    this.n.setConcernList(eVar.f29215a);
+                if (!b.a.w.e.g.d.c(eVar.f30084a)) {
+                    this.n.setConcernList(eVar.f30084a);
                     this.l.setVisibility(0);
                 } else {
                     this.n.setConcernList(new ArrayList());
@@ -1089,12 +1089,12 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             return;
         }
         b.a.w.b.d.c.b bVar = this.B;
-        if (bVar != null && !TextUtils.isEmpty(bVar.f29197a)) {
-            c2 = this.B.f29197a;
+        if (bVar != null && !TextUtils.isEmpty(bVar.f30066a)) {
+            c2 = this.B.f30066a;
         } else {
             c2 = LiveFeedPageSdk.e().c();
         }
-        LiveFeedPageSdk.e().f().invokeScheme(this.f29165c, c2);
+        LiveFeedPageSdk.e().f().invokeScheme(this.f30034c, c2);
     }
 
     public final void z(int i2) {
@@ -1116,7 +1116,7 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             }
             int i3 = this.G ? 85 : 81;
             boolean z = this.G;
-            this.t.setMinimumHeight(b.a.w.b.f.a.a(this.f29165c, this.k.getVisibility() == 0 ? i3 : 42));
+            this.t.setMinimumHeight(b.a.w.b.f.a.a(this.f30034c, this.k.getVisibility() == 0 ? i3 : 42));
         }
     }
 
@@ -1126,10 +1126,10 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f29181a;
+        public long f30050a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f29182b;
+        public long f30051b;
 
         public k() {
             Interceptable interceptable = $ic;
@@ -1144,15 +1144,15 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
                     return;
                 }
             }
-            this.f29181a = 180000L;
+            this.f30050a = 180000L;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                LiveFeedPageSdk.l("onShow   " + (System.currentTimeMillis() - this.f29182b));
-                return System.currentTimeMillis() - this.f29182b > this.f29181a;
+                LiveFeedPageSdk.l("onShow   " + (System.currentTimeMillis() - this.f30051b));
+                return System.currentTimeMillis() - this.f30051b > this.f30050a;
             }
             return invokeV.booleanValue;
         }
@@ -1162,13 +1162,13 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
             if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || j <= 0) {
                 return;
             }
-            this.f29181a = j;
+            this.f30050a = j;
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f29182b = System.currentTimeMillis();
+                this.f30051b = System.currentTimeMillis();
             }
         }
 
@@ -1181,15 +1181,15 @@ public class a implements b.a.w.e.c.a<b.a.w.b.b.a> {
     @Override // b.a.w.e.c.a
     public void call(b.a.w.b.b.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) && aVar != null && aVar.a() == this.f29164b) {
+        if ((interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) && aVar != null && aVar.a() == this.f30033b) {
             LiveFeedPageSdk.l("LiveEventBus event: " + aVar.getClass() + GlideException.IndentedAppendable.INDENT + aVar.a());
             if (aVar instanceof b.a.w.b.b.b) {
-                b.a.w.b.d.c.a aVar2 = ((b.a.w.b.b.b) aVar).f29184b;
+                b.a.w.b.d.c.a aVar2 = ((b.a.w.b.b.b) aVar).f30053b;
                 if (aVar2 != null) {
                     M(aVar2);
                 }
             } else if (aVar instanceof b.a.w.b.b.d) {
-                b.a.w.b.d.c.e eVar = ((b.a.w.b.b.d) aVar).f29185b;
+                b.a.w.b.d.c.e eVar = ((b.a.w.b.b.d) aVar).f30054b;
                 if (eVar != null) {
                     x(eVar);
                 }

@@ -19,16 +19,16 @@ public class LoadingDialogForLightApp extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f59268a;
+    public TextView f60190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f59269b;
+    public ProgressBar f60191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59270c;
+    public String f60192c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f59271d;
+    public Context f60193d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialogForLightApp(Context context) {
@@ -49,8 +49,8 @@ public class LoadingDialogForLightApp extends Dialog {
                 return;
             }
         }
-        this.f59271d = null;
-        this.f59271d = context;
+        this.f60193d = null;
+        this.f60193d = context;
     }
 
     @Override // android.app.Dialog
@@ -59,14 +59,14 @@ public class LoadingDialogForLightApp extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
-            setContentView(ResUtils.layout(this.f59271d, "wallet_base_loading_dialog_for_light_app"));
-            this.f59268a = (TextView) findViewById(ResUtils.id(this.f59271d, "dialog_msg"));
-            this.f59269b = (ProgressBar) findViewById(ResUtils.id(this.f59271d, "progress_bar"));
-            if (!TextUtils.isEmpty(this.f59270c)) {
-                this.f59268a.setText(this.f59270c);
+            setContentView(ResUtils.layout(this.f60193d, "wallet_base_loading_dialog_for_light_app"));
+            this.f60190a = (TextView) findViewById(ResUtils.id(this.f60193d, "dialog_msg"));
+            this.f60191b = (ProgressBar) findViewById(ResUtils.id(this.f60193d, "progress_bar"));
+            if (!TextUtils.isEmpty(this.f60192c)) {
+                this.f60190a.setText(this.f60192c);
             }
             if (!TextUtils.isEmpty(GlobalUtils.showStr)) {
-                this.f59268a.setText(GlobalUtils.showStr);
+                this.f60190a.setText(GlobalUtils.showStr);
             }
             setCanceledOnTouchOutside(false);
             setCancelable(true);
@@ -76,7 +76,7 @@ public class LoadingDialogForLightApp extends Dialog {
     public void setMessage(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (textView = this.f59268a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (textView = this.f60190a) == null) {
             return;
         }
         textView.setText(i2);
@@ -85,7 +85,7 @@ public class LoadingDialogForLightApp extends Dialog {
     public void setMessage(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f59268a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f60190a) == null) {
             return;
         }
         textView.setText(str);
@@ -110,9 +110,9 @@ public class LoadingDialogForLightApp extends Dialog {
                 return;
             }
         }
-        this.f59271d = null;
-        this.f59270c = str;
-        this.f59271d = context;
+        this.f60193d = null;
+        this.f60192c = str;
+        this.f60193d = context;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -134,6 +134,6 @@ public class LoadingDialogForLightApp extends Dialog {
                 return;
             }
         }
-        this.f59271d = null;
+        this.f60193d = null;
     }
 }

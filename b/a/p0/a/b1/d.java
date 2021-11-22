@@ -20,7 +20,7 @@ public class d extends DataOutputStream {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b.a.p0.a.b1.b<byte[], String> f4019e;
+    public static final b.a.p0.a.b1.b<byte[], String> f4151e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -64,7 +64,7 @@ public class d extends DataOutputStream {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f4020a;
+        public final /* synthetic */ d f4152a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class d extends DataOutputStream {
                     return;
                 }
             }
-            this.f4020a = dVar;
+            this.f4152a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,7 +113,7 @@ public class d extends DataOutputStream {
                 return;
             }
         }
-        f4019e = new a();
+        f4151e = new a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -203,7 +203,7 @@ public class d extends DataOutputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             try {
-                b(f4019e.call(str));
+                b(f4151e.call(str));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -213,14 +213,14 @@ public class d extends DataOutputStream {
     public void g(Collection<String> collection) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
-            d(collection, f4019e);
+            d(collection, f4151e);
         }
     }
 
     public void h(Map<String, String> map) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            e(map, f4019e);
+            e(map, f4151e);
         }
     }
 }

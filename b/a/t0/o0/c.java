@@ -10,10 +10,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b.a.t0.n0.d f28858a;
+    public static volatile b.a.t0.n0.d f29727a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f28859b;
+    public static e f29728b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,17 +29,17 @@ public class c {
                 return;
             }
         }
-        f28859b = new e();
+        f29728b = new e();
     }
 
     public static b.a.t0.n0.d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f28858a == null) {
-                f28858a = f28859b.a();
+            if (f29727a == null) {
+                f29727a = f29728b.a();
             }
-            return f28858a;
+            return f29727a;
         }
         return (b.a.t0.n0.d) invokeV.objValue;
     }

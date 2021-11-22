@@ -14,7 +14,7 @@ public class c implements b.a.x0.k.e.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Executor f29652a;
+    public Executor f30521a;
 
     /* loaded from: classes6.dex */
     public class a implements Executor {
@@ -22,7 +22,7 @@ public class c implements b.a.x0.k.e.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Handler f29653e;
+        public final /* synthetic */ Handler f30522e;
 
         public a(c cVar, Handler handler) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class c implements b.a.x0.k.e.d {
                     return;
                 }
             }
-            this.f29653e = handler;
+            this.f30522e = handler;
         }
 
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                this.f29653e.post(runnable);
+                this.f30522e.post(runnable);
             }
         }
     }
@@ -57,10 +57,10 @@ public class c implements b.a.x0.k.e.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final b.a.x0.k.e.c f29654e;
+        public final b.a.x0.k.e.c f30523e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final b.a.x0.k.e.a f29655f;
+        public final b.a.x0.k.e.a f30524f;
 
         public b(b.a.x0.k.e.c cVar) {
             Interceptable interceptable = $ic;
@@ -77,46 +77,46 @@ public class c implements b.a.x0.k.e.d {
                     return;
                 }
             }
-            this.f29654e = cVar;
-            this.f29655f = cVar.a();
+            this.f30523e = cVar;
+            this.f30524f = cVar.a();
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                switch (this.f29654e.h()) {
+                switch (this.f30523e.h()) {
                     case 102:
                         b.a.x0.t.i.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
-                        this.f29655f.c();
+                        this.f30524f.c();
                         return;
                     case 103:
-                        b.a.x0.t.i.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.f29654e.e() + " acceptRanges: " + this.f29654e.i());
-                        this.f29655f.b(this.f29654e.e(), this.f29654e.i());
+                        b.a.x0.t.i.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.f30523e.e() + " acceptRanges: " + this.f30523e.i());
+                        this.f30524f.b(this.f30523e.e(), this.f30523e.i());
                         return;
                     case 104:
-                        b.a.x0.t.i.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.f29654e.d() + " length: " + this.f29654e.e() + " percent: " + this.f29654e.f());
-                        this.f29655f.g(this.f29654e.d(), this.f29654e.e(), this.f29654e.f());
+                        b.a.x0.t.i.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.f30523e.d() + " length: " + this.f30523e.e() + " percent: " + this.f30523e.f());
+                        this.f30524f.g(this.f30523e.d(), this.f30523e.e(), this.f30523e.f());
                         return;
                     case 105:
-                        b.a.x0.t.i.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.f29654e.g());
-                        if (this.f29654e.b()) {
+                        b.a.x0.t.i.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.f30523e.g());
+                        if (this.f30523e.b()) {
                             return;
                         }
-                        this.f29654e.l(true);
-                        this.f29655f.a(this.f29654e.g());
+                        this.f30523e.l(true);
+                        this.f30524f.a(this.f30523e.g());
                         return;
                     case 106:
                         b.a.x0.t.i.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
-                        this.f29655f.e();
+                        this.f30524f.e();
                         return;
                     case 107:
                         b.a.x0.t.i.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
-                        this.f29655f.d();
+                        this.f30524f.d();
                         return;
                     case 108:
-                        b.a.x0.t.i.c(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.f29654e.c().getCause());
-                        this.f29655f.f((DownloadException) this.f29654e.c());
+                        b.a.x0.t.i.c(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.f30523e.c().getCause());
+                        this.f30524f.f((DownloadException) this.f30523e.c());
                         return;
                     default:
                         return;
@@ -140,14 +140,14 @@ public class c implements b.a.x0.k.e.d {
                 return;
             }
         }
-        this.f29652a = new a(this, handler);
+        this.f30521a = new a(this, handler);
     }
 
     @Override // b.a.x0.k.e.d
     public void a(b.a.x0.k.e.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f29652a.execute(new b(cVar));
+            this.f30521a.execute(new b(cVar));
         }
     }
 }

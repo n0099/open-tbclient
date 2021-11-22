@@ -12,10 +12,10 @@ public /* synthetic */ class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f39925a;
+    public static final /* synthetic */ int[] f40757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f39926b;
+    public static final /* synthetic */ int[] f40758b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,31 +32,31 @@ public /* synthetic */ class b {
             }
         }
         int[] iArr = new int[HttpClient.HttpStateError.values().length];
-        f39926b = iArr;
+        f40758b = iArr;
         try {
             iArr[HttpClient.HttpStateError.NETWORK_ERROR.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f39926b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
+            f40758b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         int[] iArr2 = new int[PanoStateError.values().length];
-        f39925a = iArr2;
+        f40757a = iArr2;
         try {
-            iArr2[PanoStateError.f42046b.ordinal()] = 1;
+            iArr2[PanoStateError.f42894b.ordinal()] = 1;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f39925a[PanoStateError.f42047c.ordinal()] = 2;
+            f40757a[PanoStateError.f42895c.ordinal()] = 2;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f39925a[PanoStateError.f42048d.ordinal()] = 3;
+            f40757a[PanoStateError.f42896d.ordinal()] = 3;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f39925a[PanoStateError.f42045a.ordinal()] = 4;
+            f40757a[PanoStateError.f42893a.ordinal()] = 4;
         } catch (NoSuchFieldError unused6) {
         }
     }

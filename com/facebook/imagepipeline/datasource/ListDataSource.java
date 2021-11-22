@@ -105,7 +105,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
     public void onDataSourceFinished() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65545, this) == null) && increaseAndCheckIfLast()) {
-            setResult(null, true, null);
+            setResult(null, true);
         }
     }
 

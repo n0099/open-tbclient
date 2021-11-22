@@ -24,6 +24,7 @@ public class ForbiddenInfo implements Parcelable {
     public String appKey;
     public String appTitle;
     public int enableSlidingFlag;
+    public b.a.p0.a.u2.a errCode;
     public String forbiddenDetail;
     public String forbiddenInformation;
     public String forbiddenReason;
@@ -93,11 +94,11 @@ public class ForbiddenInfo implements Parcelable {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.appId = bVar.G();
-        this.appKey = bVar.H();
-        this.appTitle = bVar.J();
-        this.launchPath = bVar.d0();
-        this.launchSource = bVar.S();
+        this.appId = bVar.H();
+        this.appKey = bVar.I();
+        this.appTitle = bVar.K();
+        this.launchPath = bVar.e0();
+        this.launchSource = bVar.T();
     }
 
     @Override // android.os.Parcelable

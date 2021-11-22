@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class AtomicThrowable extends AtomicReference<Throwable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3949248817947090603L;

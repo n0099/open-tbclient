@@ -3,13 +3,15 @@ package com.baidu.swan.apps.network;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.h0.u.g;
 import b.a.p0.a.k;
-import b.a.p0.a.n1.m;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.p1.l;
+import b.a.p0.a.y1.b.e;
+import b.a.p0.a.z2.q0;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -31,7 +33,7 @@ public class SwanAppNetworkUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43865a;
+    public static final boolean f44636a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -108,12 +110,12 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes8.dex */
-    public static class a extends b.a.p0.a.v1.a.b.c.b {
+    public static class a implements b.a.p0.a.y1.b.a<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f43866c;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ b f44637a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -130,20 +132,19 @@ public class SwanAppNetworkUtils {
                     return;
                 }
             }
-            this.f43866c = bVar;
+            this.f44637a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v1.a.b.c.b, b.a.p0.a.v1.a.b.c.c, b.a.p0.a.v1.a.b.c.a
-        public void onEvent(@NonNull b.a.p0.a.v1.a.b.a.b bVar) {
+        @Override // b.a.p0.a.y1.b.a
+        /* renamed from: a */
+        public void onResult(Bundle bundle) {
+            b bVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                int i2 = bVar.a() != null ? bVar.a().getInt("net_quality") : -1;
-                b bVar2 = this.f43866c;
-                if (bVar2 != null) {
-                    bVar2.onResult(i2);
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || (bVar = this.f44637a) == null) {
+                return;
             }
+            bVar.onResult(bundle.getInt("net_quality"));
         }
     }
 
@@ -165,7 +166,7 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        f43865a = k.f6397a;
+        f44636a = k.f6863a;
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
@@ -195,7 +196,7 @@ public class SwanAppNetworkUtils {
     public static void b(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            b.a.p0.a.v1.c.e.a.E().L(null, m.class, new a(bVar));
+            e.a(l.class, null, new a(bVar));
         }
     }
 
@@ -217,7 +218,7 @@ public class SwanAppNetworkUtils {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, str)) == null) {
-            if (f43865a) {
+            if (f44636a) {
                 String str2 = "——> getNetworkType: netType " + i2 + " subTypeName " + str;
             }
             switch (i2) {
@@ -332,7 +333,7 @@ public class SwanAppNetworkUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String f2 = q0.f(g.M().X());
+            String f2 = q0.f(g.U().g0());
             return TextUtils.isEmpty(f2) ? "" : f2;
         }
         return (String) invokeV.objValue;
@@ -378,15 +379,15 @@ public class SwanAppNetworkUtils {
                 e2 = "none";
             }
             jSONObject.put("networkType", e2);
-            if (f43865a) {
+            if (f44636a) {
                 String str2 = "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType");
             }
         } catch (JSONException e3) {
-            if (f43865a) {
+            if (f44636a) {
                 e3.printStackTrace();
             }
         }
         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        boolean z = f43865a;
+        boolean z = f44636a;
     }
 }

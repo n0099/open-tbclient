@@ -13,10 +13,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f62886a;
+    public static boolean f63786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f62887b;
+    public static boolean f63787b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {
@@ -59,18 +59,18 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             q a2 = q.a(context);
             a2.getClass();
-            if (q.f62911b) {
-                String str = q.f62917h;
+            if (q.f63811b) {
+                String str = q.f63817h;
                 if (str != null) {
                     return str;
                 }
                 a2.a(0, null);
-                if (q.f62912c == null) {
-                    Context context2 = q.f62910a;
-                    q.f62912c = new s(q.f62918i, 0, null);
-                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f62912c);
+                if (q.f63812c == null) {
+                    Context context2 = q.f63810a;
+                    q.f63812c = new s(q.f63818i, 0, null);
+                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f63812c);
                 }
-                return q.f62917h;
+                return q.f63817h;
             }
             return null;
         }

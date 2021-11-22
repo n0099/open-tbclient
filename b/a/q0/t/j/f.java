@@ -1,7 +1,7 @@
 package b.a.q0.t.j;
 
 import android.text.TextUtils;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +17,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f14089a;
+    public boolean f14862a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14090b;
+    public int f14863b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class f {
                 return;
             }
         }
-        this.f14089a = false;
-        this.f14090b = 0;
+        this.f14862a = false;
+        this.f14863b = 0;
     }
 
     public void a(String str) {
@@ -44,8 +44,8 @@ public class f {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f14089a = false;
-            this.f14090b = 0;
+            this.f14862a = false;
+            this.f14863b = 0;
             if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
                 String str3 = null;
                 try {
@@ -74,11 +74,11 @@ public class f {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, b.a.e.e.m.b.e(String.valueOf(str3), 8000)), c());
+                            socket.connect(new InetSocketAddress(str2, b.a.e.f.m.b.e(String.valueOf(str3), 8000)), c());
                             if (socket.isConnected()) {
                                 i2++;
                                 i3 = (int) (i3 + (System.currentTimeMillis() - currentTimeMillis));
-                                this.f14089a = true;
+                                this.f14862a = true;
                             }
                             try {
                                 socket.close();
@@ -98,10 +98,10 @@ public class f {
                         socket.close();
                     }
                 }
-                if (!this.f14089a || i2 <= 0) {
+                if (!this.f14862a || i2 <= 0) {
                     return;
                 }
-                this.f14090b = i3 / i2;
+                this.f14863b = i3 / i2;
             }
         }
     }
@@ -109,7 +109,7 @@ public class f {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14090b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14863b : invokeV.intValue;
     }
 
     public final int c() {
@@ -128,6 +128,6 @@ public class f {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14089a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14862a : invokeV.booleanValue;
     }
 }

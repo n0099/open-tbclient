@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import com.baidu.android.glview.GL2RenderJNIView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,6 +40,7 @@ public class GL2JNIActivity extends Activity {
             GL2RenderJNIView gL2RenderJNIView = new GL2RenderJNIView(getApplication());
             this.mView = gL2RenderJNIView;
             setContentView(gL2RenderJNIView);
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

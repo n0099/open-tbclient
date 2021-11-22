@@ -13,13 +13,13 @@ public class m implements r.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f37533a;
+    public final /* synthetic */ String f38363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h[] f37534b;
+    public final /* synthetic */ h[] f38364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ n f37535c;
+    public final /* synthetic */ n f38365c;
 
     public m(n nVar, String str, h[] hVarArr) {
         Interceptable interceptable = $ic;
@@ -36,16 +36,16 @@ public class m implements r.a {
                 return;
             }
         }
-        this.f37535c = nVar;
-        this.f37533a = str;
-        this.f37534b = hVarArr;
+        this.f38365c = nVar;
+        this.f38363a = str;
+        this.f38364b = hVarArr;
     }
 
     @Override // com.baidu.fsg.base.statistics.r.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogUtil.d(n.f37536a, "====send-fail=====");
+            LogUtil.d(n.f38366a, "====send-fail=====");
         }
     }
 
@@ -53,11 +53,11 @@ public class m implements r.a {
     public void onSuccess() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogUtil.d(n.f37536a, "====send-success==");
-            if (b.o.equals(this.f37533a)) {
-                g.b().a(this.f37533a);
+            LogUtil.d(n.f38366a, "====send-success==");
+            if (b.o.equals(this.f38363a)) {
+                g.b().a(this.f38363a);
             } else {
-                i.a(RimStatisticsUtil.getAppContext()).a(this.f37534b);
+                i.a(RimStatisticsUtil.getAppContext()).a(this.f38364b);
             }
         }
     }

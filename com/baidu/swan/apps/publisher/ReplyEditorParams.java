@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import b.a.p0.a.c;
 import b.a.p0.a.h;
 import b.a.p0.a.k;
-import b.a.p0.a.w1.b;
+import b.a.p0.a.z1.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -143,25 +143,25 @@ public class ReplyEditorParams implements Parcelable {
             }
             String str = c2;
             try {
-                i2 = SwanAppConfigData.s(b.c(jSONObject, "sendTextColor", "#FFFFFF"));
+                i2 = SwanAppConfigData.t(b.c(jSONObject, "sendTextColor", "#FFFFFF"));
             } catch (Exception e2) {
-                if (k.f6397a) {
+                if (k.f6863a) {
                     e2.printStackTrace();
                 }
                 i2 = -1;
             }
-            Application b2 = b.a.p0.a.c1.a.b();
-            String c3 = b.c(jSONObject, "sendBackgroundColor", "#3388FF");
-            int color = b2.getResources().getColor(c.swanapp_publish_btn_enable_color);
+            Application c3 = b.a.p0.a.c1.a.c();
+            String c4 = b.c(jSONObject, "sendBackgroundColor", "#3388FF");
+            int color = c3.getResources().getColor(c.swanapp_publish_btn_enable_color);
             try {
-                i3 = SwanAppConfigData.s(c3);
+                i3 = SwanAppConfigData.t(c4);
             } catch (Exception e3) {
-                if (k.f6397a) {
+                if (k.f6863a) {
                     e3.printStackTrace();
                 }
                 i3 = color;
             }
-            String d2 = b.d(jSONObject.optString("contentPlaceholder", b2.getResources().getString(h.swanapp_reply_editor_place_holder)), 20, "...");
+            String d2 = b.d(jSONObject.optString("contentPlaceholder", c3.getResources().getString(h.swanapp_reply_editor_place_holder)), 20, "...");
             String optString2 = jSONObject.optString("emojiPath");
             if (TextUtils.isEmpty(optString2)) {
                 arrayList.remove(MODULE_EMOJI);

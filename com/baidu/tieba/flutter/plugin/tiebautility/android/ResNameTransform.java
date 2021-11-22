@@ -35,6 +35,7 @@ public class ResNameTransform {
         platformImageNameMap.put("ad_refresh_load", "lottie_frs_refresh");
         platformImageNameMap.put("lottie_live_status_new", "ala_live2");
         platformImageNameMap.put("profileViewOnLivingCardNormal", "card_live_bg");
+        platformImageNameMap.put("lottie_voice_room", "lottie_voice_room_voicing_icon");
         assetsImageNameMap.put("lottie_portrait_live", "live/personcenter_live_bg.json");
     }
 

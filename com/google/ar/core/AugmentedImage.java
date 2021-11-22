@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class AugmentedImage extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class AugmentedImage extends TrackableBase {
         }
     }
 
-    private native b.i.c.a.a nativeGetCenterPose(long j, long j2);
+    private native b.h.c.a.a nativeGetCenterPose(long j, long j2);
 
     private native float nativeGetExtentX(long j, long j2);
 

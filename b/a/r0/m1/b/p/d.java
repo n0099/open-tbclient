@@ -1,9 +1,9 @@
 package b.a.r0.m1.b.p;
 
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
-import b.a.e.l.e.x;
-import b.a.r0.b0.c0;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
+import b.a.e.m.e.x;
+import b.a.r0.b0.d0;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -20,28 +20,28 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeRecyclerView f21123a;
+    public BdTypeRecyclerView f22278a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<n> f21124b;
+    public ArrayList<n> f22279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f21125c;
+    public List<b.a.e.m.e.a> f22280c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f21126d;
+    public b f22281d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f21127e;
+    public b f22282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f21128f;
+    public b f22283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f21129g;
+    public b f22284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21130h;
+    public b f22285h;
 
     public d(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -58,18 +58,18 @@ public class d {
                 return;
             }
         }
-        this.f21125c = new LinkedList();
+        this.f22280c = new LinkedList();
         if (tbPageContext == null || bdTypeRecyclerView == null) {
             return;
         }
-        this.f21123a = bdTypeRecyclerView;
+        this.f22278a = bdTypeRecyclerView;
         b(tbPageContext);
     }
 
     public void a(int i2) {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (bdTypeRecyclerView = this.f21123a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (bdTypeRecyclerView = this.f22278a) == null) {
             return;
         }
         bdTypeRecyclerView.removeItem(i2);
@@ -78,31 +78,31 @@ public class d {
     public final void b(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            this.f21126d = new b(tbPageContext, a.x);
-            this.f21127e = new b(tbPageContext, a.y);
-            this.f21128f = new b(tbPageContext, a.B);
-            this.f21129g = new b(tbPageContext, a.A);
-            this.f21130h = new b(tbPageContext, a.z);
-            this.f21125c.add(this.f21126d);
-            this.f21125c.add(this.f21127e);
-            this.f21125c.add(this.f21128f);
-            this.f21125c.add(this.f21129g);
-            this.f21125c.add(this.f21130h);
-            this.f21123a.addAdapters(this.f21125c);
+            this.f22281d = new b(tbPageContext, a.x);
+            this.f22282e = new b(tbPageContext, a.y);
+            this.f22283f = new b(tbPageContext, a.B);
+            this.f22284g = new b(tbPageContext, a.A);
+            this.f22285h = new b(tbPageContext, a.z);
+            this.f22280c.add(this.f22281d);
+            this.f22280c.add(this.f22282e);
+            this.f22280c.add(this.f22283f);
+            this.f22280c.add(this.f22284g);
+            this.f22280c.add(this.f22285h);
+            this.f22278a.addAdapters(this.f22280c);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f21123a.getAdapter().notifyDataSetChanged();
+            this.f22278a.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (b.a.e.l.e.a aVar : this.f21125c) {
+            for (b.a.e.m.e.a aVar : this.f22280c) {
             }
         }
     }
@@ -110,7 +110,7 @@ public class d {
     public void e(w wVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, wVar) == null) {
-            for (b.a.e.l.e.a aVar : this.f21125c) {
+            for (b.a.e.m.e.a aVar : this.f22280c) {
                 if (aVar != null) {
                     aVar.c0(wVar);
                 }
@@ -121,15 +121,15 @@ public class d {
     public void f(ArrayList<n> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            this.f21123a.setData(arrayList);
-            this.f21124b = arrayList;
+            this.f22278a.setData(arrayList);
+            this.f22279b = arrayList;
         }
     }
 
     public void g(x xVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, xVar) == null) {
-            for (b.a.e.l.e.a aVar : this.f21125c) {
+            for (b.a.e.m.e.a aVar : this.f22280c) {
                 if (aVar != null) {
                     aVar.d0(xVar);
                 }
@@ -137,12 +137,12 @@ public class d {
         }
     }
 
-    public void h(c0 c0Var) {
+    public void h(d0 d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, c0Var) == null) {
-            this.f21130h.i0(c0Var);
-            this.f21129g.i0(c0Var);
-            this.f21128f.i0(c0Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, d0Var) == null) {
+            this.f22285h.i0(d0Var);
+            this.f22284g.i0(d0Var);
+            this.f22283f.i0(d0Var);
         }
     }
 }

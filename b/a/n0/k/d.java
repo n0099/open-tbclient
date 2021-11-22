@@ -14,17 +14,17 @@ public class d implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final AtomicInteger f3697h;
+    public static final AtomicInteger f3787h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicInteger f3698e;
+    public final AtomicInteger f3788e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3699f;
+    public String f3789f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3700g;
+    public int f3790g;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class d implements ThreadFactory {
                 return;
             }
         }
-        f3697h = new AtomicInteger(1);
+        f3787h = new AtomicInteger(1);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -65,11 +65,11 @@ public class d implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            Thread thread = new Thread(runnable, this.f3699f + this.f3698e.getAndIncrement());
+            Thread thread = new Thread(runnable, this.f3789f + this.f3788e.getAndIncrement());
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
-            int i2 = this.f3700g;
+            int i2 = this.f3790g;
             if (i2 != 5) {
                 thread.setPriority(i2);
             } else {
@@ -95,8 +95,8 @@ public class d implements ThreadFactory {
                 return;
             }
         }
-        this.f3698e = new AtomicInteger(1);
-        this.f3699f = "sso-" + f3697h.getAndIncrement() + "-thread-";
-        this.f3700g = i2;
+        this.f3788e = new AtomicInteger(1);
+        this.f3789f = "sso-" + f3787h.getAndIncrement() + "-thread-";
+        this.f3790g = i2;
     }
 }

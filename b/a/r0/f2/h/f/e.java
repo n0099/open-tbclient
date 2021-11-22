@@ -19,13 +19,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f16573a;
+    public View f18073a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f16574b;
+    public View f18074b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f16575c;
+    public TextView f18075c;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -33,10 +33,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Integer f16576e;
+        public final /* synthetic */ Integer f18076e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f16577f;
+        public final /* synthetic */ e f18077f;
 
         public a(e eVar, Integer num) {
             Interceptable interceptable = $ic;
@@ -53,18 +53,18 @@ public class e {
                     return;
                 }
             }
-            this.f16577f = eVar;
-            this.f16576e = num;
+            this.f18077f = eVar;
+            this.f18076e = num;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Integer num;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.f16576e) == null || num.intValue() == 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.f18076e) == null || num.intValue() == 0) {
                 return;
             }
-            this.f16577f.f16573a.setVisibility(0);
+            this.f18077f.f18073a.setVisibility(0);
         }
     }
 
@@ -84,31 +84,31 @@ public class e {
             }
         }
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.emotion_simple_header, (ViewGroup) null);
-        this.f16574b = inflate;
+        this.f18074b = inflate;
         View findViewById = inflate.findViewById(R.id.emotion_manage_item_header);
-        this.f16573a = findViewById;
+        this.f18073a = findViewById;
         findViewById.setVisibility(8);
-        this.f16575c = (TextView) this.f16574b.findViewById(R.id.emotion_manage_total_title);
+        this.f18075c = (TextView) this.f18074b.findViewById(R.id.emotion_manage_total_title);
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16574b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18074b : (View) invokeV.objValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            View view = this.f16574b;
+            View view = this.f18074b;
             if (view != null) {
                 SkinManager.setBackgroundColor(view, R.color.cp_bg_line_d_alpha90, i2);
             }
-            View view2 = this.f16573a;
+            View view2 = this.f18073a;
             if (view2 != null) {
                 SkinManager.setBackgroundColor(view2, R.color.CAM_X0204, i2);
             }
-            TextView textView = this.f16575c;
+            TextView textView = this.f18075c;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i2);
             }
@@ -119,7 +119,7 @@ public class e {
     public void update(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
-            b.a.e.e.m.e.a().post(new a(this, num));
+            b.a.e.f.m.e.a().post(new a(this, num));
         }
     }
 }

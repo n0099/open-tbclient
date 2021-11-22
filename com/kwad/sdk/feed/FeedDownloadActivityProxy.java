@@ -35,7 +35,7 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
     public static final boolean DEBUG = false;
     public static final String KEY_AD_DATA = "key_template_json";
     public static final String TAG = "FeedDownloadActivity";
-    public static a.InterfaceC1925a mAdClickListener;
+    public static a.InterfaceC1965a mAdClickListener;
     public transient /* synthetic */ FieldHolder $fh;
     public KsAdContainer mAdContainer;
     public AdInfo mAdInfo;
@@ -67,7 +67,7 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FeedDownloadActivityProxy f65683b;
+                public final /* synthetic */ FeedDownloadActivityProxy f66596b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -84,15 +84,15 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
                             return;
                         }
                     }
-                    this.f65683b = this;
+                    this.f66596b = this;
                 }
 
                 @Override // com.kwad.sdk.core.download.b.c
                 public void a(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        this.f65683b.mAppTailFrameView.a(this.f65683b.mAdInfo);
-                        this.f65683b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.b(i2), i2);
+                        this.f66596b.mAppTailFrameView.a(this.f66596b.mAdInfo);
+                        this.f66596b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.b(i2), i2);
                     }
                 }
 
@@ -100,8 +100,8 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
                 public void onDownloadFailed() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f65683b.mAppTailFrameView.a(this.f65683b.mAdInfo);
-                        this.f65683b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.u(this.f65683b.mAdInfo), this.f65683b.mProgressBarTv.getMax());
+                        this.f66596b.mAppTailFrameView.a(this.f66596b.mAdInfo);
+                        this.f66596b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.u(this.f66596b.mAdInfo), this.f66596b.mProgressBarTv.getMax());
                     }
                 }
 
@@ -109,8 +109,8 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
                 public void onDownloadFinished() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f65683b.mAppTailFrameView.a(this.f65683b.mAdInfo);
-                        this.f65683b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.a(this.f65683b.mAdTemplate), this.f65683b.mProgressBarTv.getMax());
+                        this.f66596b.mAppTailFrameView.a(this.f66596b.mAdInfo);
+                        this.f66596b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.a(this.f66596b.mAdTemplate), this.f66596b.mProgressBarTv.getMax());
                     }
                 }
 
@@ -118,8 +118,8 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
                 public void onIdle() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                        this.f65683b.mAppTailFrameView.a(this.f65683b.mAdInfo);
-                        this.f65683b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.u(this.f65683b.mAdInfo), this.f65683b.mProgressBarTv.getMax());
+                        this.f66596b.mAppTailFrameView.a(this.f66596b.mAdInfo);
+                        this.f66596b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.u(this.f66596b.mAdInfo), this.f66596b.mProgressBarTv.getMax());
                     }
                 }
 
@@ -127,8 +127,8 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
                 public void onInstalled() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                        this.f65683b.mAppTailFrameView.a(this.f65683b.mAdInfo);
-                        this.f65683b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.j(this.f65683b.mAdInfo), this.f65683b.mProgressBarTv.getMax());
+                        this.f66596b.mAppTailFrameView.a(this.f66596b.mAdInfo);
+                        this.f66596b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.j(this.f66596b.mAdInfo), this.f66596b.mProgressBarTv.getMax());
                     }
                 }
 
@@ -136,8 +136,8 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
                 public void onProgressUpdate(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                        this.f65683b.mAppTailFrameView.a(this.f65683b.mAdInfo);
-                        this.f65683b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.a(i2), i2);
+                        this.f66596b.mAppTailFrameView.a(this.f66596b.mAdInfo);
+                        this.f66596b.mProgressBarTv.a(com.kwad.sdk.core.response.b.a.a(i2), i2);
                     }
                 }
             });
@@ -185,14 +185,14 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
         }
     }
 
-    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC1925a interfaceC1925a) {
+    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC1965a interfaceC1965a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, context, adTemplate, interfaceC1925a) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65545, null, context, adTemplate, interfaceC1965a) == null) {
             KsAdSDKImpl.putComponentProxy(FeedDownloadActivity.class, FeedDownloadActivityProxy.class);
             Intent intent = new Intent(context, FeedDownloadActivity.class);
             intent.setFlags(268435456);
             intent.putExtra("key_template_json", adTemplate.toJson().toString());
-            mAdClickListener = interfaceC1925a;
+            mAdClickListener = interfaceC1965a;
             context.startActivity(intent);
         }
     }
@@ -202,9 +202,9 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             com.kwad.sdk.core.report.a.a(this.mAdTemplate, this.mAdContainer.getTouchCoords());
-            a.InterfaceC1925a interfaceC1925a = mAdClickListener;
-            if (interfaceC1925a != null) {
-                interfaceC1925a.a();
+            a.InterfaceC1965a interfaceC1965a = mAdClickListener;
+            if (interfaceC1965a != null) {
+                interfaceC1965a.a();
             }
         }
     }
@@ -230,12 +230,12 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.mAdTemplate, new a.InterfaceC1901a(this) { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.mAdTemplate, new a.InterfaceC1941a(this) { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ FeedDownloadActivityProxy f65684a;
+                public final /* synthetic */ FeedDownloadActivityProxy f66597a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -252,14 +252,14 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.c.a implements View.
                             return;
                         }
                     }
-                    this.f65684a = this;
+                    this.f66597a = this;
                 }
 
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1901a
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1941a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f65684a.notifyAdClick();
+                        this.f66597a.notifyAdClick();
                     }
                 }
             }, this.mApkDownloadHelper, view == this.mProgressBarTv);

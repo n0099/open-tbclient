@@ -1,6 +1,6 @@
 package b.a.r0.w.g.a;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,19 +16,19 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.e.a.f f24976a;
+    public b.a.e.a.f f26493a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b.a.e.l.e.a> f24977b;
+    public final List<b.a.e.m.e.a> f26494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeMultiColumnListView f24978c;
+    public BdTypeMultiColumnListView f26495c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f24979d;
+    public e f26496d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f24980e;
+    public h f26497e;
 
     public d(b.a.e.a.f fVar, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         Interceptable interceptable = $ic;
@@ -45,31 +45,31 @@ public class d {
                 return;
             }
         }
-        this.f24977b = new ArrayList();
-        this.f24976a = fVar;
-        this.f24978c = bdTypeMultiColumnListView;
+        this.f26494b = new ArrayList();
+        this.f26493a = fVar;
+        this.f26495c = bdTypeMultiColumnListView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f24979d = new e((TbPageContext) this.f24976a, b.a.r0.w.g.b.c.f24990f);
-            this.f24980e = new h((TbPageContext) this.f24976a, b.a.r0.w.g.b.c.f24991g);
-            this.f24977b.add(this.f24979d);
-            this.f24977b.add(this.f24980e);
-            this.f24978c.addAdapters(this.f24977b);
+            this.f26496d = new e((TbPageContext) this.f26493a, b.a.r0.w.g.b.c.f26507f);
+            this.f26497e = new h((TbPageContext) this.f26493a, b.a.r0.w.g.b.c.f26508g);
+            this.f26494b.add(this.f26496d);
+            this.f26494b.add(this.f26497e);
+            this.f26495c.addAdapters(this.f26494b);
         }
     }
 
     public void b(b.a.r0.w.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            e eVar2 = this.f24979d;
+            e eVar2 = this.f26496d;
             if (eVar2 != null) {
                 eVar2.i0(eVar);
             }
-            h hVar = this.f24980e;
+            h hVar = this.f26497e;
             if (hVar != null) {
                 hVar.i0(eVar);
             }
@@ -79,7 +79,7 @@ public class d {
     public void c(List<n> list) {
         BdTypeMultiColumnListView bdTypeMultiColumnListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeMultiColumnListView = this.f24978c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeMultiColumnListView = this.f26495c) == null) {
             return;
         }
         bdTypeMultiColumnListView.setData(list);

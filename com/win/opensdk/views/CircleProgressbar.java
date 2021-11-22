@@ -11,12 +11,11 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.q.a.b5;
-import b.q.a.d6;
-import b.q.a.n1;
-import b.q.a.r0;
+import b.o.a.b5;
+import b.o.a.d6;
+import b.o.a.n1;
+import b.o.a.r0;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,31 +28,31 @@ public class CircleProgressbar extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f70524a;
+    public int f71444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ColorStateList f70525b;
+    public ColorStateList f71445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f70526c;
+    public int f71446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f70527d;
+    public int f71447d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f70528e;
+    public int f71448e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f70529f;
+    public Paint f71449f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f70530g;
+    public RectF f71450g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f70531h;
+    public int f71451h;
 
     /* renamed from: i  reason: collision with root package name */
-    public s2 f70532i;
+    public s2 f71452i;
     public long j;
     public final Rect k;
     public d6 l;
@@ -121,14 +120,14 @@ public class CircleProgressbar extends TextView {
                 return;
             }
         }
-        this.f70524a = 2;
-        this.f70525b = ColorStateList.valueOf(0);
-        this.f70527d = BaseAnimatedElement.DEBUG_PAINT_COLOR;
-        this.f70528e = 8;
-        this.f70529f = new Paint();
-        this.f70530g = new RectF();
-        this.f70531h = 100;
-        this.f70532i = s2.f70521b;
+        this.f71444a = 2;
+        this.f71445b = ColorStateList.valueOf(0);
+        this.f71447d = -16776961;
+        this.f71448e = 8;
+        this.f71449f = new Paint();
+        this.f71450g = new RectF();
+        this.f71451h = 100;
+        this.f71452i = s2.f71441b;
         this.j = 3000L;
         this.k = new Rect();
         this.m = 0;
@@ -155,14 +154,14 @@ public class CircleProgressbar extends TextView {
                 return;
             }
         }
-        this.f70524a = 2;
-        this.f70525b = ColorStateList.valueOf(0);
-        this.f70527d = BaseAnimatedElement.DEBUG_PAINT_COLOR;
-        this.f70528e = 8;
-        this.f70529f = new Paint();
-        this.f70530g = new RectF();
-        this.f70531h = 100;
-        this.f70532i = s2.f70521b;
+        this.f71444a = 2;
+        this.f71445b = ColorStateList.valueOf(0);
+        this.f71447d = -16776961;
+        this.f71448e = 8;
+        this.f71449f = new Paint();
+        this.f71450g = new RectF();
+        this.f71451h = 100;
+        this.f71452i = s2.f71441b;
         this.j = 3000L;
         this.k = new Rect();
         this.m = 0;
@@ -189,10 +188,10 @@ public class CircleProgressbar extends TextView {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            this.f70529f.setAntiAlias(true);
+            this.f71449f.setAntiAlias(true);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n1.win_CircleProgressbar);
-            this.f70525b = obtainStyledAttributes.hasValue(n1.win_CircleProgressbar_win_in_circle_color) ? obtainStyledAttributes.getColorStateList(n1.win_CircleProgressbar_win_in_circle_color) : ColorStateList.valueOf(0);
-            this.f70526c = this.f70525b.getColorForState(getDrawableState(), 0);
+            this.f71445b = obtainStyledAttributes.hasValue(n1.win_CircleProgressbar_win_in_circle_color) ? obtainStyledAttributes.getColorStateList(n1.win_CircleProgressbar_win_in_circle_color) : ColorStateList.valueOf(0);
+            this.f71446c = this.f71445b.getColorForState(getDrawableState(), 0);
             obtainStyledAttributes.recycle();
         }
     }
@@ -201,7 +200,7 @@ public class CircleProgressbar extends TextView {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int ordinal = this.f70532i.ordinal();
+            int ordinal = this.f71452i.ordinal();
             if (ordinal == 0) {
                 i2 = 0;
             } else if (ordinal != 1) {
@@ -209,7 +208,7 @@ public class CircleProgressbar extends TextView {
             } else {
                 i2 = 100;
             }
-            this.f70531h = i2;
+            this.f71451h = i2;
         }
     }
 
@@ -233,9 +232,9 @@ public class CircleProgressbar extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.drawableStateChanged();
-            int colorForState = this.f70525b.getColorForState(getDrawableState(), 0);
-            if (this.f70526c != colorForState) {
-                this.f70526c = colorForState;
+            int colorForState = this.f71445b.getColorForState(getDrawableState(), 0);
+            if (this.f71446c != colorForState) {
+                this.f71446c = colorForState;
                 invalidate();
             }
         }
@@ -244,13 +243,13 @@ public class CircleProgressbar extends TextView {
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f70531h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f71451h : invokeV.intValue;
     }
 
     public s2 getProgressType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f70532i : (s2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f71452i : (s2) invokeV.objValue;
     }
 
     public long getTimeMillis() {
@@ -265,29 +264,29 @@ public class CircleProgressbar extends TextView {
         if (interceptable == null || interceptable.invokeL(1048586, this, canvas) == null) {
             getDrawingRect(this.k);
             int width = this.k.height() > this.k.width() ? this.k.width() : this.k.height();
-            int colorForState = this.f70525b.getColorForState(getDrawableState(), 0);
-            this.f70529f.setStyle(Paint.Style.FILL);
-            this.f70529f.setColor(colorForState);
-            canvas.drawCircle(this.k.centerX(), this.k.centerY(), (width / 2) - this.f70524a, this.f70529f);
+            int colorForState = this.f71445b.getColorForState(getDrawableState(), 0);
+            this.f71449f.setStyle(Paint.Style.FILL);
+            this.f71449f.setColor(colorForState);
+            canvas.drawCircle(this.k.centerX(), this.k.centerY(), (width / 2) - this.f71444a, this.f71449f);
             TextPaint paint = getPaint();
             paint.setColor(getCurrentTextColor());
             paint.setAntiAlias(true);
             paint.setTextAlign(Paint.Align.CENTER);
             canvas.drawText(getText().toString(), this.k.centerX(), this.k.centerY() - ((paint.ascent() + paint.descent()) / 2.0f), paint);
-            this.f70529f.setColor(this.f70527d);
-            this.f70529f.setStyle(Paint.Style.STROKE);
-            this.f70529f.setStrokeWidth(this.f70528e);
-            this.f70529f.setAntiAlias(true);
-            int i2 = this.f70528e;
-            int i3 = this.f70524a;
+            this.f71449f.setColor(this.f71447d);
+            this.f71449f.setStyle(Paint.Style.STROKE);
+            this.f71449f.setStrokeWidth(this.f71448e);
+            this.f71449f.setAntiAlias(true);
+            int i2 = this.f71448e;
+            int i3 = this.f71444a;
             int i4 = i2 + i3;
-            RectF rectF = this.f70530g;
+            RectF rectF = this.f71450g;
             Rect rect = this.k;
             int i5 = i4 / 2;
             int i6 = (rect.top - i4) + i3 + i2;
             Rect rect2 = this.k;
-            rectF.set(rect.left + i5, r0.a(getContext(), 0.4f) + i6, rect2.right - i5, (((rect2.bottom + i4) - this.f70524a) - this.f70528e) - r0.a(getContext(), 0.5f));
-            canvas.drawArc(this.f70530g, -90.0f, (this.f70531h * (-360)) / 100, false, this.f70529f);
+            rectF.set(rect.left + i5, r0.a(getContext(), 0.4f) + i6, rect2.right - i5, (((rect2.bottom + i4) - this.f71444a) - this.f71448e) - r0.a(getContext(), 0.5f));
+            canvas.drawArc(this.f71450g, -90.0f, (this.f71451h * (-360)) / 100, false, this.f71449f);
         }
     }
 
@@ -296,7 +295,7 @@ public class CircleProgressbar extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            int i4 = (this.f70524a + this.f70528e) * 4;
+            int i4 = (this.f71444a + this.f71448e) * 4;
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
             if (measuredWidth <= measuredHeight) {
@@ -310,7 +309,7 @@ public class CircleProgressbar extends TextView {
     public void setInCircleColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f70525b = ColorStateList.valueOf(i2);
+            this.f71445b = ColorStateList.valueOf(i2);
             invalidate();
         }
     }
@@ -325,7 +324,7 @@ public class CircleProgressbar extends TextView {
     public void setOutLineWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f70524a = i2;
+            this.f71444a = i2;
             invalidate();
         }
     }
@@ -338,7 +337,7 @@ public class CircleProgressbar extends TextView {
             } else if (i2 < 0) {
                 i2 = 0;
             }
-            this.f70531h = i2;
+            this.f71451h = i2;
             invalidate();
         }
     }
@@ -346,7 +345,7 @@ public class CircleProgressbar extends TextView {
     public void setProgressColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f70527d = i2;
+            this.f71447d = i2;
             invalidate();
         }
     }
@@ -354,7 +353,7 @@ public class CircleProgressbar extends TextView {
     public void setProgressLineWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f70528e = i2;
+            this.f71448e = i2;
             invalidate();
         }
     }
@@ -362,7 +361,7 @@ public class CircleProgressbar extends TextView {
     public void setProgressType(s2 s2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, s2Var) == null) {
-            this.f70532i = s2Var;
+            this.f71452i = s2Var;
             b();
             invalidate();
         }

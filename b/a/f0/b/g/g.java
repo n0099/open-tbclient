@@ -115,7 +115,7 @@ public class g {
             g(jSONObject.optInt("open_bes_switch", 0));
             l(jSONObject.optInt("md5_check_switch", 0));
         } catch (JSONException e2) {
-            if (b.a.f0.a.a.a.f2779a) {
+            if (b.a.f0.a.a.a.f2872a) {
                 e2.printStackTrace();
             }
         }

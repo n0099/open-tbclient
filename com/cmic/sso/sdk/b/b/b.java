@@ -15,25 +15,25 @@ public class b extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61909a;
+    public String f62808a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61910b;
+    public String f62809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61911c;
+    public String f62810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61912d;
+    public String f62811d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61913e;
+    public String f62812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61914f;
+    public String f62813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61915g;
+    public String f62814g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class b extends g {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61914f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62813f : (String) invokeV.objValue;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
@@ -63,14 +63,14 @@ public class b extends g {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("version", this.f61909a);
-                jSONObject.put("apptype", this.f61910b);
-                jSONObject.put("phone_ID", this.f61911c);
-                jSONObject.put("certflag", this.f61912d);
-                jSONObject.put("sdkversion", this.f61913e);
-                jSONObject.put("appid", this.f61914f);
+                jSONObject.put("version", this.f62808a);
+                jSONObject.put("apptype", this.f62809b);
+                jSONObject.put("phone_ID", this.f62810c);
+                jSONObject.put("certflag", this.f62811d);
+                jSONObject.put("sdkversion", this.f62812e);
+                jSONObject.put("appid", this.f62813f);
                 jSONObject.put("expandparams", "");
-                jSONObject.put("sign", this.f61915g);
+                jSONObject.put("sign", this.f62814g);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -82,42 +82,42 @@ public class b extends g {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f61910b = str;
+            this.f62809b = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f61911c = str;
+            this.f62810c = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f61912d = str;
+            this.f62811d = str;
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f61913e = str;
+            this.f62812e = str;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f61914f = str;
+            this.f62813f = str;
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f61915g = str;
+            this.f62814g = str;
         }
     }
 
@@ -126,7 +126,7 @@ public class b extends g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.f61909a + this.f61913e + this.f61914f + "iYm0HAnkxQtpvN44";
+            return this.f62808a + this.f62812e + this.f62813f + "iYm0HAnkxQtpvN44";
         }
         return (String) invokeL.objValue;
     }
@@ -134,7 +134,7 @@ public class b extends g {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f61909a = str;
+            this.f62808a = str;
         }
     }
 }

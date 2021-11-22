@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ErrorData;
@@ -33,44 +33,44 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SearchMajorActivity f25341a;
+    public SearchMajorActivity f26858a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f25342b;
+    public View f26859b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f25343c;
+    public NavigationBar f26860c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f25344d;
+    public RelativeLayout f26861d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f25345e;
+    public EditText f26862e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f25346f;
+    public ImageView f26863f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f25347g;
+    public ImageView f26864g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView f25348h;
+    public RecyclerView f26865h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayoutManager f25349i;
+    public LinearLayoutManager f26866i;
     public SearchMajorResultItemAdapter j;
     public LinearLayout k;
 
     /* renamed from: b.a.r0.w1.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnTouchListenerC1242a implements View.OnTouchListener {
+    public class View$OnTouchListenerC1310a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25350e;
+        public final /* synthetic */ a f26867e;
 
-        public View$OnTouchListenerC1242a(a aVar) {
+        public View$OnTouchListenerC1310a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +85,7 @@ public class a {
                     return;
                 }
             }
-            this.f25350e = aVar;
+            this.f26867e = aVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -94,10 +94,10 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f25350e.f25344d.setFocusable(true);
-                    this.f25350e.f25344d.setFocusableInTouchMode(true);
-                    if (this.f25350e.f25345e.hasFocus()) {
-                        l.x(this.f25350e.f25341a, this.f25350e.f25345e);
+                    this.f26867e.f26861d.setFocusable(true);
+                    this.f26867e.f26861d.setFocusableInTouchMode(true);
+                    if (this.f26867e.f26862e.hasFocus()) {
+                        l.x(this.f26867e.f26858a, this.f26867e.f26862e);
                         return false;
                     }
                     return false;
@@ -114,7 +114,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25351e;
+        public final /* synthetic */ a f26868e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -131,14 +131,14 @@ public class a {
                     return;
                 }
             }
-            this.f25351e = aVar;
+            this.f26868e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25351e.f25345e.setText("");
+                this.f26868e.f26862e.setText("");
             }
         }
     }
@@ -158,8 +158,8 @@ public class a {
                 return;
             }
         }
-        this.f25342b = view;
-        this.f25341a = searchMajorActivity;
+        this.f26859b = view;
+        this.f26858a = searchMajorActivity;
         h();
     }
 
@@ -172,41 +172,41 @@ public class a {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.f25342b.findViewById(R.id.navigation_bar);
-            this.f25343c = navigationBar;
+            NavigationBar navigationBar = (NavigationBar) this.f26859b.findViewById(R.id.navigation_bar);
+            this.f26860c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f25343c.setCenterTextTitle(this.f25341a.getResources().getString(R.string.search_major));
+            this.f26860c.setCenterTextTitle(this.f26858a.getResources().getString(R.string.search_major));
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) this.f25342b.findViewById(R.id.search_container);
-            this.f25344d = relativeLayout;
-            relativeLayout.setOnTouchListener(new View$OnTouchListenerC1242a(this));
-            this.f25347g = (ImageView) this.f25342b.findViewById(R.id.search_icon);
-            this.f25345e = (EditText) this.f25342b.findViewById(R.id.search_box);
-            ImageView imageView = (ImageView) this.f25342b.findViewById(R.id.search_del);
-            this.f25346f = imageView;
+            RelativeLayout relativeLayout = (RelativeLayout) this.f26859b.findViewById(R.id.search_container);
+            this.f26861d = relativeLayout;
+            relativeLayout.setOnTouchListener(new View$OnTouchListenerC1310a(this));
+            this.f26864g = (ImageView) this.f26859b.findViewById(R.id.search_icon);
+            this.f26862e = (EditText) this.f26859b.findViewById(R.id.search_box);
+            ImageView imageView = (ImageView) this.f26859b.findViewById(R.id.search_del);
+            this.f26863f = imageView;
             imageView.setOnClickListener(new b(this));
             k(false);
-            this.f25345e.setText("");
-            this.f25345e.requestFocus();
+            this.f26862e.setText("");
+            this.f26862e.requestFocus();
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.k = (LinearLayout) this.f25342b.findViewById(R.id.layout_container);
-            this.f25348h = (RecyclerView) this.f25342b.findViewById(R.id.rv_major_list);
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.f25341a);
-            this.f25349i = linearLayoutManager;
-            this.f25348h.setLayoutManager(linearLayoutManager);
-            SearchMajorResultItemAdapter searchMajorResultItemAdapter = new SearchMajorResultItemAdapter(this.f25341a);
+            this.k = (LinearLayout) this.f26859b.findViewById(R.id.layout_container);
+            this.f26865h = (RecyclerView) this.f26859b.findViewById(R.id.rv_major_list);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.f26858a);
+            this.f26866i = linearLayoutManager;
+            this.f26865h.setLayoutManager(linearLayoutManager);
+            SearchMajorResultItemAdapter searchMajorResultItemAdapter = new SearchMajorResultItemAdapter(this.f26858a);
             this.j = searchMajorResultItemAdapter;
-            this.f25348h.setAdapter(searchMajorResultItemAdapter);
+            this.f26865h.setAdapter(searchMajorResultItemAdapter);
         }
     }
 
@@ -226,41 +226,41 @@ public class a {
             if (searchMajorResultItemAdapter != null) {
                 searchMajorResultItemAdapter.notifyDataSetChanged();
             }
-            this.f25343c.onChangeSkinType(this.f25341a.getPageContext(), i2);
-            this.f25345e.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            this.f25345e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f25347g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setBackgroundResource(this.f25344d, R.drawable.search_major_bg);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f25346f, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f26860c.onChangeSkinType(this.f26858a.getPageContext(), i2);
+            this.f26862e.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            this.f26862e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f26864g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setBackgroundResource(this.f26861d, R.drawable.search_major_bg);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f26863f, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || StringUtils.isNull(this.f25345e.getText().toString())) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || StringUtils.isNull(this.f26862e.getText().toString())) {
             return;
         }
-        this.f25344d.setFocusable(true);
-        this.f25344d.setFocusableInTouchMode(true);
-        this.f25344d.requestFocus();
+        this.f26861d.setFocusable(true);
+        this.f26861d.setFocusableInTouchMode(true);
+        this.f26861d.requestFocus();
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f25346f.setVisibility(z ? 0 : 8);
+            this.f26863f.setVisibility(z ? 0 : 8);
         }
     }
 
     public void l(List<String> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, str) == null) {
-            this.f25348h.setVisibility(0);
+            this.f26865h.setVisibility(0);
             SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.j;
             if (searchMajorResultItemAdapter != null) {
                 searchMajorResultItemAdapter.setKeyWord(str);
                 this.j.setData(list);
-                this.f25348h.setAdapter(this.j);
+                this.f26865h.setAdapter(this.j);
             }
         }
     }
@@ -268,7 +268,7 @@ public class a {
     public void m(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, errorData) == null) {
-            this.f25348h.setVisibility(8);
+            this.f26865h.setVisibility(8);
             SearchMajorResultItemAdapter searchMajorResultItemAdapter = this.j;
             if (searchMajorResultItemAdapter != null) {
                 searchMajorResultItemAdapter.setNoData();
@@ -286,28 +286,28 @@ public class a {
     public void o(RecyclerView.OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, onScrollListener) == null) {
-            this.f25348h.addOnScrollListener(onScrollListener);
+            this.f26865h.addOnScrollListener(onScrollListener);
         }
     }
 
     public void p(TextView.OnEditorActionListener onEditorActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onEditorActionListener) == null) {
-            this.f25345e.setOnEditorActionListener(onEditorActionListener);
+            this.f26862e.setOnEditorActionListener(onEditorActionListener);
         }
     }
 
     public void q(View.OnFocusChangeListener onFocusChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onFocusChangeListener) == null) {
-            this.f25345e.setOnFocusChangeListener(onFocusChangeListener);
+            this.f26862e.setOnFocusChangeListener(onFocusChangeListener);
         }
     }
 
     public void r(TextWatcher textWatcher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, textWatcher) == null) {
-            this.f25345e.addTextChangedListener(textWatcher);
+            this.f26862e.addTextChangedListener(textWatcher);
         }
     }
 }

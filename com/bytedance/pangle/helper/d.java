@@ -24,7 +24,7 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SDKMonitor f61432a;
+    public static SDKMonitor f62331a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,10 +47,10 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f61432a == null) {
-                f61432a = SDKMonitorUtils.getInstance("7520");
+            if (f62331a == null) {
+                f62331a = SDKMonitorUtils.getInstance("7520");
             }
-            return f61432a;
+            return f62331a;
         }
         return (SDKMonitor) invokeV.objValue;
     }

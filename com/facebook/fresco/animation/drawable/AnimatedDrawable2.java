@@ -48,9 +48,6 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     public volatile boolean mIsRunning;
     public int mLastDrawnFrameNumber;
     public long mLastFrameAnimationTimeMs;
-    public int mPausedLastDrawnFrameNumber;
-    public long mPausedLastFrameAnimationTimeMsDifference;
-    public long mPausedStartTimeMsDifference;
     public long mStartTimeMs;
 
     /* loaded from: classes11.dex */
@@ -169,8 +166,6 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
                     scheduleNextFrame(j4);
                     j2 = j4;
                 } else {
-                    this.mAnimationListener.onAnimationStop(this);
-                    this.mIsRunning = false;
                     j2 = -1;
                 }
                 j = targetRenderTimeForNextFrameMs;
@@ -452,11 +447,10 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         }
         this.mIsRunning = true;
         long now = now();
-        long j = now - this.mPausedStartTimeMsDifference;
-        this.mStartTimeMs = j;
-        this.mExpectedRenderTimeMs = j;
-        this.mLastFrameAnimationTimeMs = now - this.mPausedLastFrameAnimationTimeMsDifference;
-        this.mLastDrawnFrameNumber = this.mPausedLastDrawnFrameNumber;
+        this.mStartTimeMs = now;
+        this.mExpectedRenderTimeMs = now;
+        this.mLastFrameAnimationTimeMs = -1L;
+        this.mLastDrawnFrameNumber = -1;
         invalidateSelf();
         this.mAnimationListener.onAnimationStart(this);
     }
@@ -465,10 +459,6 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     public void stop() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.mIsRunning) {
-            long now = now();
-            this.mPausedStartTimeMsDifference = now - this.mStartTimeMs;
-            this.mPausedLastFrameAnimationTimeMsDifference = now - this.mLastFrameAnimationTimeMs;
-            this.mPausedLastDrawnFrameNumber = this.mLastDrawnFrameNumber;
             this.mIsRunning = false;
             this.mStartTimeMs = 0L;
             this.mExpectedRenderTimeMs = 0L;

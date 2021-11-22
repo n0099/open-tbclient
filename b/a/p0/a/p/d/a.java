@@ -29,7 +29,7 @@ public abstract class a {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.p0.a.k2.g.h.a().getBoolean("PREFS_NIGHT_MODE", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.p0.a.o2.g.h.a().getBoolean("PREFS_NIGHT_MODE", false) : invokeV.booleanValue;
     }
 
     public Resources b() {
@@ -52,11 +52,11 @@ public abstract class a {
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            b.a.p0.a.k2.g.h.a().putBoolean("PREFS_NIGHT_MODE", z);
+            b.a.p0.a.o2.g.h.a().putBoolean("PREFS_NIGHT_MODE", z);
         }
     }
 
-    public void f(Object obj, b.a.p0.a.g2.a aVar) {
+    public void f(Object obj, b.a.p0.a.j2.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, obj, aVar) == null) {
         }

@@ -23,16 +23,16 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f33769a = "e";
+    public static final String f34603a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f33770b;
+    public static int f34604b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, b> f33771c;
+    public static Map<String, b> f34605c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<String> f33772d;
+    public static List<String> f34606d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,8 +48,8 @@ public class e {
                 return;
             }
         }
-        f33771c = new HashMap();
-        f33772d = new ArrayList();
+        f34605c = new HashMap();
+        f34606d = new ArrayList();
     }
 
     public e() {
@@ -73,10 +73,10 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (e.class) {
                 try {
-                    bVar = f33771c.containsKey(str) ? f33771c.get(str) : null;
+                    bVar = f34605c.containsKey(str) ? f34605c.get(str) : null;
                     if (bVar == null) {
                         bVar = new b(str);
-                        f33771c.put(str, bVar);
+                        f34605c.put(str, bVar);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -93,18 +93,18 @@ public class e {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
             try {
                 synchronized (e.class) {
-                    if (f33771c.containsKey(str)) {
-                        f33772d.add(f33771c.get(str).toString());
-                        f33771c.remove(str);
+                    if (f34605c.containsKey(str)) {
+                        f34606d.add(f34605c.get(str).toString());
+                        f34605c.remove(str);
                     }
-                    if (f33770b != 1 && !f33772d.isEmpty()) {
-                        f33770b = 1;
+                    if (f34604b != 1 && !f34606d.isEmpty()) {
+                        f34604b = 1;
                         new Timer().schedule(new TimerTask(context) { // from class: cn.com.chinatelecom.gateway.lib.b.e.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Context f33773a;
+                            public final /* synthetic */ Context f34607a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -121,14 +121,14 @@ public class e {
                                         return;
                                     }
                                 }
-                                this.f33773a = context;
+                                this.f34607a = context;
                             }
 
                             @Override // java.util.TimerTask, java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    e.b(this.f33773a);
+                                    e.b(this.f34607a);
                                 }
                             }
                         }, 8000L);
@@ -171,9 +171,9 @@ public class e {
         try {
             ArrayList arrayList = new ArrayList();
             synchronized (e.class) {
-                arrayList.addAll(f33772d);
-                f33770b = 0;
-                f33772d.clear();
+                arrayList.addAll(f34606d);
+                f34604b = 0;
+                f34606d.clear();
             }
             if (arrayList.isEmpty()) {
                 return;

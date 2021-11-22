@@ -2,7 +2,7 @@ package b.a.p0.b.o;
 
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import b.a.p0.a.e2.c.h;
+import b.a.p0.a.h2.c.h;
 import b.a.p0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -19,7 +19,7 @@ public class b extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9385a;
+    public static final boolean f9968a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class b extends h {
                 return;
             }
         }
-        f9385a = k.f6397a;
+        f9968a = k.f6863a;
         try {
             CookieSyncManager.createInstance(AppRuntime.getAppContext());
         } catch (Exception unused) {
@@ -59,7 +59,7 @@ public class b extends h {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (b.a.p0.a.v2.d.f()) {
+            if (b.a.p0.a.z2.d.f()) {
                 CookieManager.getInstance().flush();
                 return;
             }
@@ -68,7 +68,7 @@ public class b extends h {
         }
     }
 
-    @Override // b.a.p0.a.e2.c.h, com.baidu.searchbox.http.cookie.CookieManager
+    @Override // b.a.p0.a.h2.c.h, com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class b extends h {
             String str2 = "";
             try {
                 str2 = CookieManager.getInstance().getCookie(str);
-                if (f9385a) {
+                if (f9968a) {
                     String str3 = "RealCookieManager:" + str2;
                 }
             } catch (Exception unused) {
@@ -110,7 +110,7 @@ public class b extends h {
     public void storeCookie(String str, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (f9385a) {
+            if (f9968a) {
                 String str2 = "storeCookie httpUrl: " + str;
                 String str3 = "storeCookie cookies: " + list;
             }

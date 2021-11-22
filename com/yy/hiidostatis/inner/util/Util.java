@@ -185,7 +185,7 @@ public class Util {
                 }
                 return "";
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f34816b, "getInnerIP ex=%s", th);
+                L.debug(com.baidu.android.common.util.Util.f35645b, "getInnerIP ex=%s", th);
                 return "";
             }
         }
@@ -219,7 +219,7 @@ public class Util {
                     return str;
                 }
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f34816b, "getOutNetIp ex=%s", th);
+                L.debug(com.baidu.android.common.util.Util.f35645b, "getOutNetIp ex=%s", th);
             }
             return "";
         }
@@ -287,7 +287,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j)) == null) {
             if (j >= 2147483647L) {
-                L.debug(com.baidu.android.common.util.Util.f34816b, "Failed to convert long %d to int.", Long.valueOf(j));
+                L.debug(com.baidu.android.common.util.Util.f35645b, "Failed to convert long %d to int.", Long.valueOf(j));
             }
             return (int) j;
         }
@@ -325,7 +325,7 @@ public class Util {
                 }
                 return "";
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f34816b, th.getMessage(), new Object[0]);
+                L.debug(com.baidu.android.common.util.Util.f35645b, th.getMessage(), new Object[0]);
                 return "";
             }
         }
@@ -343,7 +343,7 @@ public class Util {
                     hashMap.put(split[0], split[1]);
                 }
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f34816b, th.getMessage(), new Object[0]);
+                L.debug(com.baidu.android.common.util.Util.f35645b, th.getMessage(), new Object[0]);
             }
             return hashMap;
         }

@@ -34,7 +34,7 @@ public class cu implements com.kwad.sdk.core.d<r.a> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f65403a = jSONObject.optInt("status");
+        aVar.f66316a = jSONObject.optInt("status");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,7 +46,7 @@ public class cu implements com.kwad.sdk.core.d<r.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "status", aVar.f65403a);
+            com.kwad.sdk.utils.q.a(jSONObject, "status", aVar.f66316a);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

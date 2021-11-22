@@ -19,7 +19,7 @@ public class i implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final StatisticItem f22582a;
+    public final StatisticItem f24103a;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -120,7 +120,7 @@ public class i implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
             g(iCardInfo);
-            TiebaStatic.log(this.f22582a);
+            TiebaStatic.log(this.f24103a);
         }
     }
 
@@ -130,7 +130,7 @@ public class i implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f22582a.param(str, i2);
+                this.f24103a.param(str, i2);
             }
             return this;
         }
@@ -143,7 +143,7 @@ public class i implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f22582a.param(str, String.valueOf(j));
+                this.f24103a.param(str, String.valueOf(j));
             }
             return this;
         }
@@ -156,7 +156,7 @@ public class i implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                this.f22582a.param(str, str2);
+                this.f24103a.param(str, str2);
             }
             return this;
         }
@@ -170,7 +170,7 @@ public class i implements e {
             if (TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) || TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
                 return;
             }
-            List<Object> params = this.f22582a.getParams();
+            List<Object> params = this.f24103a.getParams();
             for (String str : baseLegoCardInfo.getsExtras().split("&")) {
                 String[] split = str.split("=");
                 if (split.length == 2) {
@@ -187,7 +187,7 @@ public class i implements e {
                         }
                     }
                     if (!z) {
-                        this.f22582a.param(str2, str3);
+                        this.f24103a.param(str2, str3);
                     }
                 }
             }
@@ -211,12 +211,12 @@ public class i implements e {
             }
         }
         StatisticItem statisticItem = new StatisticItem(str);
-        this.f22582a = statisticItem;
+        this.f24103a = statisticItem;
         statisticItem.param("obj_source", i2);
-        this.f22582a.param("obj_type", i3);
+        this.f24103a.param("obj_type", i3);
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f22582a.param("obj_card", str2);
+        this.f24103a.param("obj_card", str2);
     }
 }

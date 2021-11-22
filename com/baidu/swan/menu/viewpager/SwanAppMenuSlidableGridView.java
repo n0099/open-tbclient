@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.viewpager.widget.ViewPager;
-import b.a.p0.k.g;
-import b.a.p0.k.h;
+import b.a.p0.n.g;
+import b.a.p0.n.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppMenuSlidableGridView f44859e;
+        public final /* synthetic */ SwanAppMenuSlidableGridView f45667e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAppMenuSlidableGridView swanAppMenuSlidableGridView, Context context) {
@@ -46,7 +46,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
                     return;
                 }
             }
-            this.f44859e = swanAppMenuSlidableGridView;
+            this.f45667e = swanAppMenuSlidableGridView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager
@@ -85,7 +85,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public void addIndicator(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.mIndicator = new b.a.p0.k.r.a(context).setPointDrawableResId(h.menu_indicator_normal, h.menu_indicator_selected).setPointMargin((int) getResources().getDimension(g.common_grid_indicator_margin));
+            this.mIndicator = new b.a.p0.n.r.a(context).setPointDrawableResId(h.menu_indicator_normal, h.menu_indicator_selected).setPointMargin((int) getResources().getDimension(g.common_grid_indicator_margin));
             this.mIndicatorHeight[0] = (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);
             this.mIndicatorHeight[1] = (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);
             addView(this.mIndicator, createIndicatorParams());

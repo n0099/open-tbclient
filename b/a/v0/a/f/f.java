@@ -19,13 +19,13 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f29145a;
+    public static String[] f30014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static File f29146b;
+    public static File f30015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static RandomAccessFile f29147c;
+    public static RandomAccessFile f30016c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public final class f {
                 return;
             }
         }
-        f29145a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
+        f30014a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
     public static boolean a(String str) {
@@ -49,7 +49,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             File file = new File(str);
-            f29146b = file;
+            f30015b = file;
             return file.exists();
         }
         return invokeL.booleanValue;
@@ -60,7 +60,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             File file = new File(str);
-            f29146b = file;
+            f30015b = file;
             return file.delete();
         }
         return invokeL.booleanValue;
@@ -72,7 +72,7 @@ public final class f {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             String externalStorageState = Environment.getExternalStorageState();
             if (Build.VERSION.SDK_INT >= 23) {
-                return b.a.v0.a.c.h().getContext().checkCallingOrSelfPermission(f29145a[0]) == 0 && externalStorageState.equals("mounted");
+                return b.a.v0.a.c.h().getContext().checkCallingOrSelfPermission(f30014a[0]) == 0 && externalStorageState.equals("mounted");
             }
             return externalStorageState.equals("mounted");
         }
@@ -86,12 +86,12 @@ public final class f {
             synchronized (f.class) {
                 if (c() && f(str2, str3)) {
                     try {
-                        f29146b = new File(str2 + str3);
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(f29146b, "rwd");
-                        f29147c = randomAccessFile;
-                        randomAccessFile.seek(f29146b.length());
-                        f29147c.write((str + Part.CRLF).getBytes("UTF-8"));
-                        f29147c.close();
+                        f30015b = new File(str2 + str3);
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(f30015b, "rwd");
+                        f30016c = randomAccessFile;
+                        randomAccessFile.seek(f30015b.length());
+                        f30016c.write((str + Part.CRLF).getBytes("UTF-8"));
+                        f30016c.close();
                         return true;
                     } catch (Exception e2) {
                         i.e(e2);
@@ -112,11 +112,11 @@ public final class f {
                 if (c()) {
                     if (a(str + str2)) {
                         try {
-                            f29146b = new File(str + str2);
-                            f29147c = new RandomAccessFile(f29146b, r.f40168a);
+                            f30015b = new File(str + str2);
+                            f30016c = new RandomAccessFile(f30015b, r.f41000a);
                             StringBuffer stringBuffer = new StringBuffer();
                             while (true) {
-                                String readLine = f29147c.readLine();
+                                String readLine = f30016c.readLine();
                                 if (readLine == null) {
                                     break;
                                 }
@@ -125,7 +125,7 @@ public final class f {
                             }
                             String stringBuffer2 = stringBuffer.toString();
                             try {
-                                f29147c.close();
+                                f30016c.close();
                             } catch (IOException e2) {
                                 e2.printStackTrace();
                             }
@@ -133,7 +133,7 @@ public final class f {
                         } catch (Exception e3) {
                             e3.printStackTrace();
                             try {
-                                f29147c.close();
+                                f30016c.close();
                             } catch (IOException e4) {
                                 e4.printStackTrace();
                             }
@@ -152,20 +152,20 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
             try {
-                f29146b = new File(str);
+                f30015b = new File(str);
                 if (!a(str)) {
-                    f29146b.mkdirs();
+                    f30015b.mkdirs();
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             try {
                 File file = new File(str + str2);
-                f29146b = file;
+                f30015b = file;
                 if (file.exists()) {
                     return true;
                 }
-                return f29146b.createNewFile();
+                return f30015b.createNewFile();
             } catch (Exception e3) {
                 e3.printStackTrace();
                 return false;

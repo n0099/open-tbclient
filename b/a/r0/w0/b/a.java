@@ -14,7 +14,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.r0.w0.a.c f25292a;
+    public b.a.r0.w0.a.c f26809a;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -35,19 +35,19 @@ public class a {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new b.a.r0.w0.a.a(tbPageContext, b.a.r0.w0.c.a.f25321h, tbPageContext.getUniqueId()));
+        arrayList.add(new b.a.r0.w0.a.a(tbPageContext, b.a.r0.w0.c.a.f26838h, tbPageContext.getUniqueId()));
         b.a.r0.w0.a.c cVar = new b.a.r0.w0.a.c(tbPageContext, b.a.r0.w0.c.b.l, tbPageContext.getUniqueId());
-        this.f25292a = cVar;
+        this.f26809a = cVar;
         arrayList.add(cVar);
-        arrayList.add(new b.a.r0.w0.a.b(tbPageContext, b.a.r0.w0.c.a.f25320g, tbPageContext.getUniqueId()));
-        arrayList.add(new b.a.r0.w0.a.d(tbPageContext, b.a.r0.w0.c.a.f25322i, tbPageContext.getUniqueId()));
+        arrayList.add(new b.a.r0.w0.a.b(tbPageContext, b.a.r0.w0.c.a.f26837g, tbPageContext.getUniqueId()));
+        arrayList.add(new b.a.r0.w0.a.d(tbPageContext, b.a.r0.w0.c.a.f26839i, tbPageContext.getUniqueId()));
         bdTypeListView.addAdapters(arrayList);
     }
 
     public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.f25292a.i0(onClickListener);
+            this.f26809a.i0(onClickListener);
         }
     }
 }

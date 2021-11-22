@@ -13,13 +13,13 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f24609a;
+    public boolean f26126a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f24610b;
+    public ArrayList<a> f26127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24611c;
+    public String f26128c;
 
     /* loaded from: classes5.dex */
     public class a {
@@ -27,7 +27,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f24612a;
+        public String f26129a;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class h {
                 return;
             }
             jSONObject.optString("user_id");
-            this.f24612a = jSONObject.optString("portrait");
+            this.f26129a = jSONObject.optString("portrait");
         }
     }
 
@@ -68,7 +68,7 @@ public class h {
                 return;
             }
         }
-        this.f24609a = false;
+        this.f26126a = false;
     }
 
     public void a(JSONObject jSONObject) {
@@ -78,23 +78,23 @@ public class h {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
         if (optJSONObject != null) {
-            this.f24609a = optJSONObject.optInt("has_follow_live") == 1;
+            this.f26126a = optJSONObject.optInt("has_follow_live") == 1;
             JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.f24610b = new ArrayList<>(optJSONArray.length());
+                this.f26127b = new ArrayList<>(optJSONArray.length());
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
                         a aVar = new a(this);
                         aVar.a(optJSONObject2);
-                        this.f24610b.add(aVar);
+                        this.f26127b.add(aVar);
                     }
                 }
             }
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
         if (optJSONObject3 != null) {
-            this.f24611c = optJSONObject3.optString("url");
+            this.f26128c = optJSONObject3.optString("url");
         }
     }
 }

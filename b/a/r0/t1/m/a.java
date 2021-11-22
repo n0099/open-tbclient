@@ -1,6 +1,6 @@
 package b.a.r0.t1.m;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;

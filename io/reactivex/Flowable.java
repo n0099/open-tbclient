@@ -215,7 +215,7 @@ import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class Flowable<T> implements Publisher<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final int BUFFER_SIZE;

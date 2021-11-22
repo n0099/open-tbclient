@@ -36,19 +36,19 @@ public class b extends Thread {
     public byte[] T;
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f3069e;
+    public InputStream f3162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3070f;
+    public int f3163f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3071g;
+    public int f3164g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f3072h;
+    public int f3165h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f3073i;
+    public boolean f3166i;
     public int j;
     public int[] k;
     public int[] l;
@@ -236,7 +236,7 @@ public class b extends Thread {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3070f != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3163f != 0 : invokeV.booleanValue;
     }
 
     public void c() {
@@ -244,17 +244,17 @@ public class b extends Thread {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             c cVar = this.Q;
             while (cVar != null) {
-                cVar.f3074a = null;
-                cVar = this.Q.f3076c;
+                cVar.f3167a = null;
+                cVar = this.Q.f3169c;
                 this.Q = cVar;
             }
-            InputStream inputStream = this.f3069e;
+            InputStream inputStream = this.f3162e;
             if (inputStream != null) {
                 try {
                     inputStream.close();
                 } catch (Exception unused) {
                 }
-                this.f3069e = null;
+                this.f3162e = null;
             }
             this.T = null;
         }
@@ -270,7 +270,7 @@ public class b extends Thread {
                 if (i3 == i2) {
                     return cVar;
                 }
-                cVar = cVar.f3076c;
+                cVar = cVar.f3169c;
                 i3++;
             }
             return null;
@@ -292,7 +292,7 @@ public class b extends Thread {
             if (d2 == null) {
                 return null;
             }
-            return d2.f3074a;
+            return d2.f3167a;
         }
         return (Bitmap) invokeI.objValue;
     }
@@ -306,7 +306,7 @@ public class b extends Thread {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f3070f = 0;
+            this.f3163f = 0;
             this.R = 0;
             this.Q = null;
             this.k = null;
@@ -322,13 +322,13 @@ public class b extends Thread {
                 this.E = true;
                 return this.Q;
             }
-            if (this.f3070f == 0) {
-                c cVar = this.D.f3076c;
+            if (this.f3163f == 0) {
+                c cVar = this.D.f3169c;
                 if (cVar != null) {
                     this.D = cVar;
                 }
             } else {
-                c cVar2 = this.D.f3076c;
+                c cVar2 = this.D.f3169c;
                 this.D = cVar2;
                 if (cVar2 == null) {
                     this.D = this.Q;
@@ -344,9 +344,9 @@ public class b extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             try {
-                return this.f3069e.read();
+                return this.f3162e.read();
             } catch (Exception unused) {
-                this.f3070f = 1;
+                this.f3163f = 1;
                 return 0;
             }
         }
@@ -363,7 +363,7 @@ public class b extends Thread {
             if (j > 0) {
                 while (i2 < this.G) {
                     try {
-                        int read = this.f3069e.read(this.F, i2, this.G - i2);
+                        int read = this.f3162e.read(this.F, i2, this.G - i2);
                         if (read == -1) {
                             break;
                         }
@@ -372,7 +372,7 @@ public class b extends Thread {
                     }
                 }
                 if (i2 < this.G) {
-                    this.f3070f = 1;
+                    this.f3163f = 1;
                 }
             }
             return i2;
@@ -384,7 +384,7 @@ public class b extends Thread {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            this.f3069e = new ByteArrayInputStream(this.T);
+            this.f3162e = new ByteArrayInputStream(this.T);
             this.T = null;
             return u();
         }
@@ -399,12 +399,12 @@ public class b extends Thread {
             int i4 = i2 * 3;
             byte[] bArr = new byte[i4];
             try {
-                i3 = this.f3069e.read(bArr);
+                i3 = this.f3162e.read(bArr);
             } catch (Exception unused) {
                 i3 = 0;
             }
             if (i3 < i4) {
-                this.f3070f = 1;
+                this.f3163f = 1;
                 return null;
             }
             int[] iArr = new int[256];
@@ -448,7 +448,7 @@ public class b extends Thread {
                     } else if (j == 44) {
                         q();
                     } else if (j != 59) {
-                        this.f3070f = 1;
+                        this.f3163f = 1;
                     } else {
                         z = true;
                     }
@@ -482,11 +482,11 @@ public class b extends Thread {
                 str = str + ((char) j());
             }
             if (!str.startsWith("GIF")) {
-                this.f3070f = 1;
+                this.f3163f = 1;
                 return;
             }
             r();
-            if (!this.f3073i || b()) {
+            if (!this.f3166i || b()) {
                 return;
             }
             int[] m = m(this.j);
@@ -527,7 +527,7 @@ public class b extends Thread {
                 i2 = i5;
             }
             if (this.m == null) {
-                this.f3070f = 1;
+                this.f3163f = 1;
             }
             if (b()) {
                 return;
@@ -538,7 +538,7 @@ public class b extends Thread {
                 return;
             }
             this.R++;
-            this.B = Bitmap.createBitmap(this.f3071g, this.f3072h, Bitmap.Config.ARGB_4444);
+            this.B = Bitmap.createBitmap(this.f3164g, this.f3165h, Bitmap.Config.ARGB_4444);
             w();
             c cVar = this.Q;
             if (cVar == null) {
@@ -547,13 +547,13 @@ public class b extends Thread {
                 this.D = cVar2;
             } else {
                 while (true) {
-                    c cVar3 = cVar.f3076c;
+                    c cVar3 = cVar.f3169c;
                     if (cVar3 == null) {
                         break;
                     }
                     cVar = cVar3;
                 }
-                cVar.f3076c = new c(this.B, this.K);
+                cVar.f3169c = new c(this.B, this.K);
             }
             if (this.J && (iArr = this.m) != null) {
                 iArr[this.L] = i2;
@@ -566,10 +566,10 @@ public class b extends Thread {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f3071g = t();
-            this.f3072h = t();
+            this.f3164g = t();
+            this.f3165h = t();
             int j = j();
-            this.f3073i = (j & 128) != 0;
+            this.f3166i = (j & 128) != 0;
             this.j = 2 << (j & 7);
             this.n = j();
             j();
@@ -581,7 +581,7 @@ public class b extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             try {
-                if (this.f3069e != null) {
+                if (this.f3162e != null) {
                     u();
                 } else if (this.T != null) {
                     l();
@@ -619,27 +619,27 @@ public class b extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             h();
-            if (this.f3069e != null) {
+            if (this.f3162e != null) {
                 p();
                 if (!b()) {
                     n();
                     if (this.R < 0) {
-                        this.f3070f = 1;
+                        this.f3163f = 1;
                         this.S.parseOk(false, -1);
                     } else {
-                        this.f3070f = -1;
+                        this.f3163f = -1;
                         this.S.parseOk(true, -1);
                     }
                 }
                 try {
-                    this.f3069e.close();
+                    this.f3162e.close();
                 } catch (Exception unused) {
                 }
             } else {
-                this.f3070f = 2;
+                this.f3163f = 2;
                 this.S.parseOk(false, -1);
             }
-            return this.f3070f;
+            return this.f3163f;
         }
         return invokeV.intValue;
     }
@@ -667,7 +667,7 @@ public class b extends Thread {
         if (interceptable != null && interceptable.invokeV(1048599, this) != null) {
             return;
         }
-        int[] iArr = new int[this.f3071g * this.f3072h];
+        int[] iArr = new int[this.f3164g * this.f3165h];
         int i3 = this.I;
         int i4 = 0;
         if (i3 > 0) {
@@ -681,12 +681,12 @@ public class b extends Thread {
             }
             Bitmap bitmap = this.C;
             if (bitmap != null) {
-                int i6 = this.f3071g;
-                bitmap.getPixels(iArr, 0, i6, 0, 0, i6, this.f3072h);
+                int i6 = this.f3164g;
+                bitmap.getPixels(iArr, 0, i6, 0, 0, i6, this.f3165h);
                 if (this.I == 2) {
                     int i7 = !this.J ? this.p : 0;
                     for (int i8 = 0; i8 < this.A; i8++) {
-                        int i9 = ((this.y + i8) * this.f3071g) + this.x;
+                        int i9 = ((this.y + i8) * this.f3164g) + this.x;
                         int i10 = this.z + i9;
                         while (i9 < i10) {
                             iArr[i9] = i7;
@@ -721,8 +721,8 @@ public class b extends Thread {
                     i12 = i4;
                 }
                 int i15 = i12 + this.u;
-                if (i15 < this.f3072h) {
-                    int i16 = this.f3071g;
+                if (i15 < this.f3165h) {
+                    int i16 = this.f3164g;
                     int i17 = i15 * i16;
                     int i18 = this.t + i17;
                     int i19 = this.v + i18;
@@ -744,7 +744,7 @@ public class b extends Thread {
                 i12 = i2;
             } else {
                 try {
-                    this.B = Bitmap.createBitmap(iArr, this.f3071g, this.f3072h, Bitmap.Config.ARGB_4444);
+                    this.B = Bitmap.createBitmap(iArr, this.f3164g, this.f3165h, Bitmap.Config.ARGB_4444);
                     return;
                 } catch (OutOfMemoryError unused) {
                     return;
@@ -790,7 +790,7 @@ public class b extends Thread {
         this.K = 0;
         this.S = null;
         this.T = null;
-        this.f3069e = inputStream;
+        this.f3162e = inputStream;
         this.S = aVar;
     }
 }

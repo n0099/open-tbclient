@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.stream.JsonReader;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public abstract class JsonReaderInternalAccess {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReaderInternalAccess INSTANCE;

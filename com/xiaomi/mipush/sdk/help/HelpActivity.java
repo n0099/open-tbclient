@@ -2,6 +2,7 @@ package com.xiaomi.mipush.sdk.help;
 
 import android.app.Activity;
 import android.os.Bundle;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,6 +34,7 @@ public class HelpActivity extends Activity {
             super.onCreate(bundle);
             o.a(this, getIntent(), null);
             finish();
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

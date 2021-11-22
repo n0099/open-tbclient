@@ -12,8 +12,8 @@ import b.a.e.c.h.a;
 import b.a.e.c.h.b;
 import b.a.e.c.h.c;
 import b.a.e.c.h.d;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.cmdRouter.CmdRouter;
@@ -405,7 +405,7 @@ public class MessageManager {
                     if (responsedMessage.getError() != 0) {
                         if (j.z()) {
                             this.mHttpMsgCWSendFailedCnt++;
-                            if (this.mHttpMsgCWSendFailedCnt >= b.a.e.e.n.m.a.o().q("alert_http", 3)) {
+                            if (this.mHttpMsgCWSendFailedCnt >= b.a.e.f.n.m.a.o().q("alert_http", 3)) {
                                 BdStatisticsManager.getInstance().alert("alert_http", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                             }
                         }
@@ -418,7 +418,7 @@ public class MessageManager {
                     if (responsedMessage.getError() != 0) {
                         if (j.z()) {
                             this.mSocketMsgCWSendFailedCnt++;
-                            if (this.mSocketMsgCWSendFailedCnt >= b.a.e.e.n.m.a.o().q("alert_im", 3)) {
+                            if (this.mSocketMsgCWSendFailedCnt >= b.a.e.f.n.m.a.o().q("alert_im", 3)) {
                                 BdStatisticsManager.getInstance().alert("alert_im", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                             }
                         }
@@ -966,37 +966,32 @@ public class MessageManager {
                 BdLog.e("message invalid" + b.a.e.c.a.a().b(message.getCmd()));
                 return false;
             } else {
-                CustomMessage customMessage = (CustomMessage) message;
-                if (customMessage.getData() != null) {
-                    MultiValueMap<String, String> multiValueMap = CmdRouter.cmdMaps;
-                    if (multiValueMap.containsKey(message.getCmd() + "")) {
-                        try {
-                            if (message.getCmd() == 2002001) {
-                                MultiValueMap<String, String> multiValueMap2 = CmdRouter.cmdMaps;
-                                List<String> values = multiValueMap2.getValues(message.getCmd() + "");
-                                String cls = ((CustomMessage) message).getData().getClass().toString();
-                                String substring = cls.substring(cls.lastIndexOf(".") + 1);
-                                for (String str : values) {
-                                    if (CmdRouter.configMaps.getValues(str).get(0).contains(substring)) {
-                                        Class.forName(str);
-                                        CmdRouter.configMaps.getValues(str).get(0).remove(substring);
-                                    }
+                MultiValueMap<String, String> multiValueMap = CmdRouter.cmdMaps;
+                if (multiValueMap.containsKey(message.getCmd() + "")) {
+                    try {
+                        MultiValueMap<String, String> multiValueMap2 = CmdRouter.cmdMaps;
+                        List<String> values = multiValueMap2.getValues(message.getCmd() + "");
+                        if (message.getCmd() == 2002001 && ((CustomMessage) message).getData() != null) {
+                            String cls = ((CustomMessage) message).getData().getClass().toString();
+                            String substring = cls.substring(cls.lastIndexOf(".") + 1);
+                            for (String str : values) {
+                                if (CmdRouter.configMaps.getValues(str).get(0).contains(substring)) {
+                                    Class.forName(str);
+                                    CmdRouter.configMaps.getValues(str).get(0).remove(substring);
                                 }
-                            } else {
-                                MultiValueMap<String, String> multiValueMap3 = CmdRouter.cmdMaps;
-                                for (String str2 : multiValueMap3.getValues(message.getCmd() + "")) {
-                                    System.currentTimeMillis();
-                                    Class.forName(str2);
-                                }
-                                MultiValueMap<String, String> multiValueMap4 = CmdRouter.cmdMaps;
-                                multiValueMap4.remove(message.getCmd() + "");
                             }
-                        } catch (Throwable th) {
-                            BdLog.e(th);
+                        } else {
+                            for (String str2 : values) {
+                                Class.forName(str2);
+                            }
+                            MultiValueMap<String, String> multiValueMap3 = CmdRouter.cmdMaps;
+                            multiValueMap3.remove(message.getCmd() + "");
                         }
+                    } catch (Throwable th) {
+                        BdLog.e(th);
                     }
                 }
-                return this.mCustomManager.c(customMessage, null);
+                return this.mCustomManager.c((CustomMessage) message, null);
             }
         }
         return invokeL.booleanValue;

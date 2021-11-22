@@ -8,7 +8,7 @@ public interface a extends d {
 
     /* renamed from: b.a.p0.a.y0.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0458a {
+    public interface InterfaceC0473a {
         void a(Bundle bundle);
 
         void onRelease();
@@ -18,5 +18,5 @@ public interface a extends d {
 
     void release();
 
-    void w(InterfaceC0458a interfaceC0458a);
+    void w(InterfaceC0473a interfaceC0473a);
 }

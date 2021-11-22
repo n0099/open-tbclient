@@ -1,150 +1,108 @@
 package b.e.b.a.b;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.apollon.utils.DxmApplicationContextImpl;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.wallet.core.utils.LogUtil;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.apollon.armor.SecurePay;
 /* loaded from: classes6.dex */
-public class a {
+public class a implements b {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f30626a;
+    /* renamed from: d  reason: collision with root package name */
+    public static final int[] f31613d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(String str, String str2) {
-        InterceptResult invokeLL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            long j2 = -1;
-            try {
-                j = simpleDateFormat.parse(str2).getTime() - simpleDateFormat.parse(str).getTime();
-                try {
-                    j2 = j / 86400000;
-                } catch (Exception unused) {
-                }
-            } catch (Exception unused2) {
-                j = -1;
+    /* renamed from: a  reason: collision with root package name */
+    public String f31614a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f31615b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f31616c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-751842171, "Lb/e/b/a/b/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            LogUtil.d("date", "before = " + str + " ; current = " + str2 + " ; diff = " + j + " ; days = " + j2);
-            return j2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-751842171, "Lb/e/b/a/b/a;");
+                return;
+            }
         }
-        return invokeLL.longValue;
+        f31613d = new int[]{1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
     }
 
-    public static String b(String str) {
+    public a(String str, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f31614a = str;
+        this.f31615b = j;
+        this.f31616c = i2;
+    }
+
+    public static byte[] c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return "sdk_market_polling" + str + "count";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            int length = str.length() / 2;
+            byte[] bArr = new byte[length];
+            for (int i2 = 0; i2 < length; i2++) {
+                int i3 = i2 * 2;
+                bArr[i2] = (byte) Integer.parseInt(str.substring(i3, i3 + 2), 16);
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    @Override // b.e.b.a.b.b
+    public String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            byte[] bArr = new byte[8];
+            long j = this.f31615b;
+            for (int i2 = 7; i2 >= 0; i2--) {
+                bArr[i2] = (byte) (255 & j);
+                j >>= 8;
+            }
+            SecurePay securePay = SecurePay.getInstance();
+            byte[] c2 = c(this.f31614a);
+            int[] iArr = f31613d;
+            int i3 = this.f31616c;
+            return securePay.getDyKey(c2, bArr, iArr[i3], i3);
         }
         return (String) invokeL.objValue;
     }
 
-    public static void c(Context context, String str, int i2) {
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, null, context, str, i2) == null) {
-            h(context, b(str), i(context, b(str), 0) + 1);
-            d(context, g(str), new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            h(context, j(str), i2);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.f31615b = j;
+            String str = "+++++++++HotpToken movingFactor is " + this.f31615b;
         }
-    }
-
-    public static void d(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, str, str2) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (f30626a == null) {
-            f30626a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
-        }
-        SharedPreferences.Editor edit = f30626a.edit();
-        edit.putString(str, str2);
-        edit.commit();
-    }
-
-    public static boolean e(Context context, String str, int i2, int i3) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2, i3)) == null) {
-            boolean z = i(context, b(str), 0) < i2;
-            String f2 = f(context, g(str), "");
-            String format = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-            long a2 = a(f2, format);
-            LogUtil.d("date", "before = " + f2 + " ; current = " + format);
-            return z && ((a2 > (-1L) ? 1 : (a2 == (-1L) ? 0 : -1)) == 0 || (a(f2, format) > ((long) i(context, j(str), 1)) ? 1 : (a(f2, format) == ((long) i(context, j(str), 1)) ? 0 : -1)) >= 0);
-        }
-        return invokeLLII.booleanValue;
-    }
-
-    public static String f(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            if (f30626a == null) {
-                f30626a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
-            }
-            return f30626a.getString(str, str2);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            return "sdk_market_polling" + str + "time";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void h(Context context, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65543, null, context, str, i2) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (f30626a == null) {
-            f30626a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
-        }
-        SharedPreferences.Editor edit = f30626a.edit();
-        edit.putInt(str, i2);
-        edit.commit();
-    }
-
-    public static int i(Context context, String str, int i2) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, context, str, i2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            if (f30626a == null) {
-                f30626a = DxmApplicationContextImpl.getApplicationContext(context).getSharedPreferences("pop_window_sign_record", 0);
-            }
-            return f30626a.getInt(str, i2);
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            return "sdk_market_polling" + str + "interval_count";
-        }
-        return (String) invokeL.objValue;
     }
 }

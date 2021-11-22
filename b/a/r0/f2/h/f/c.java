@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.e.q.h;
+import b.a.e.f.q.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -21,19 +21,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f16559a;
+    public View f18059a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f16560b;
+    public TextView f18060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f16561c;
+    public View f18061c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f16562d;
+    public View f18062d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f16563e;
+    public LinearLayout f18063e;
 
     public c(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -51,43 +51,43 @@ public class c {
             }
         }
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.emotion_manage_header, (ViewGroup) null, false);
-        this.f16562d = inflate;
+        this.f18062d = inflate;
         LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.emotion_manage_header_content);
-        this.f16563e = linearLayout;
+        this.f18063e = linearLayout;
         linearLayout.setVisibility(8);
-        this.f16559a = this.f16562d.findViewById(R.id.emotion_manage_item_header);
-        this.f16560b = (TextView) this.f16562d.findViewById(R.id.emotion_manage_total_title);
-        View findViewById = this.f16562d.findViewById(R.id.emotion_manage_edit_lable);
-        this.f16561c = findViewById;
+        this.f18059a = this.f18062d.findViewById(R.id.emotion_manage_item_header);
+        this.f18060b = (TextView) this.f18062d.findViewById(R.id.emotion_manage_total_title);
+        View findViewById = this.f18062d.findViewById(R.id.emotion_manage_edit_lable);
+        this.f18061c = findViewById;
         findViewById.setVisibility(8);
     }
 
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16562d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18062d : (View) invokeV.objValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            View view = this.f16559a;
+            View view = this.f18059a;
             if (view != null) {
                 SkinManager.setBackgroundColor(view, R.color.CAM_X0204, i2);
             }
-            LinearLayout linearLayout = this.f16563e;
+            LinearLayout linearLayout = this.f18063e;
             if (linearLayout != null) {
                 SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0204, i2);
             }
-            TextView textView = this.f16560b;
+            TextView textView = this.f18060b;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i2);
-                SkinManager.setBackgroundColor(this.f16560b, R.color.CAM_X0204, i2);
+                SkinManager.setBackgroundColor(this.f18060b, R.color.CAM_X0204, i2);
             }
-            View view2 = this.f16561c;
+            View view2 = this.f18061c;
             if (view2 != null) {
                 SkinManager.setViewTextColor(view2, R.color.CAM_X0107, i2);
-                SkinManager.setBackgroundColor(this.f16561c, R.color.CAM_X0204, i2);
+                SkinManager.setBackgroundColor(this.f18061c, R.color.CAM_X0204, i2);
             }
         }
     }
@@ -96,9 +96,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (b.a.r0.f2.h.a.b().a()) {
-                this.f16561c.setVisibility(0);
+                this.f18061c.setVisibility(0);
             } else {
-                this.f16561c.setVisibility(8);
+                this.f18061c.setVisibility(8);
             }
         }
     }
@@ -110,15 +110,15 @@ public class c {
             return;
         }
         if (num.intValue() == 0) {
-            this.f16563e.setVisibility(8);
+            this.f18063e.setVisibility(8);
         } else {
-            this.f16560b.setText(String.format(h.a(R.string.emotion_manage_local_number), num));
-            this.f16563e.setVisibility(0);
+            this.f18060b.setText(String.format(h.a(R.string.emotion_manage_local_number), num));
+            this.f18063e.setVisibility(0);
         }
         if (b.a.r0.f2.h.a.b().a()) {
-            this.f16561c.setVisibility(0);
+            this.f18061c.setVisibility(0);
         } else {
-            this.f16561c.setVisibility(8);
+            this.f18061c.setVisibility(8);
         }
     }
 }

@@ -41,22 +41,22 @@ public final class a {
     public static StringBuilder A;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f36897a;
+    public static a f37727a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f36898b;
+    public static Context f37728b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36899c;
+    public static String f37729c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f36900d;
+    public static String f37730d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f36901f;
+    public static String f37731f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f36902g;
+    public static String f37732g;
     public static String l;
     public static String m;
     public static String n;
@@ -66,13 +66,13 @@ public final class a {
     public d B;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36903e;
+    public String f37733e;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f36904h;
+    public String f37734h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f36905i;
+    public boolean f37735i;
     public String j;
     public Map k;
     public String o;
@@ -101,11 +101,11 @@ public final class a {
                 return;
             }
         }
-        this.f36905i = false;
+        this.f37735i = false;
         this.k = new HashMap();
         this.z = Boolean.FALSE;
         Context applicationContext = context.getApplicationContext();
-        f36898b = applicationContext;
+        f37728b = applicationContext;
         this.B = d.a(applicationContext);
         d();
     }
@@ -116,10 +116,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (a.class) {
-                if (f36897a == null) {
-                    f36897a = new a(context);
+                if (f37727a == null) {
+                    f37727a = new a(context);
                 }
-                aVar = f36897a;
+                aVar = f37727a;
             }
             return aVar;
         }
@@ -142,7 +142,7 @@ public final class a {
             stringBuffer.append("_");
             stringBuffer.append(str);
             stringBuffer.append("_");
-            stringBuffer.append(f36899c);
+            stringBuffer.append(f37729c);
             stringBuffer.append("_");
             stringBuffer.append(i4);
             String stringBuffer2 = stringBuffer.toString();
@@ -178,20 +178,20 @@ public final class a {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            this.f36903e = f36898b.getPackageName();
-            this.s = (ActivityManager) f36898b.getSystemService("activity");
+            this.f37733e = f37728b.getPackageName();
+            this.s = (ActivityManager) f37728b.getSystemService("activity");
             try {
-                PackageInfo packageInfo = f36898b.getPackageManager().getPackageInfo(this.f36903e, 64);
-                f36899c = packageInfo.versionName;
-                f36900d = String.valueOf(packageInfo.versionCode);
+                PackageInfo packageInfo = f37728b.getPackageManager().getPackageInfo(this.f37733e, 64);
+                f37729c = packageInfo.versionName;
+                f37730d = String.valueOf(packageInfo.versionCode);
                 x = new File(packageInfo.applicationInfo.publicSourceDir).length() + "";
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
             }
-            w = j.a(f36898b, this.f36903e);
-            f36901f = g();
-            this.f36904h = f();
-            f36902g = b(f36898b);
+            w = j.a(f37728b, this.f37733e);
+            f37731f = g();
+            this.f37734h = f();
+            f37732g = b(f37728b);
         }
     }
 
@@ -210,40 +210,41 @@ public final class a {
                 try {
                     try {
                         fileInputStream = new FileInputStream(file);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                        return;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    properties.load(fileInputStream);
-                    if (properties.getProperty("server") != null) {
-                        this.u = String.valueOf(properties.getProperty("server"));
-                    }
-                    LogUtil.logD("BaiduParamManager", "设置server:" + this.u);
-                    fileInputStream.close();
                 } catch (Exception e3) {
                     e = e3;
-                    fileInputStream2 = fileInputStream;
-                    e.printStackTrace();
-                    if (fileInputStream2 != null) {
-                        fileInputStream2.close();
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream2 = fileInputStream;
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
                 }
-            } catch (IOException e5) {
-                e5.printStackTrace();
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                properties.load(fileInputStream);
+                if (properties.getProperty("server") != null) {
+                    this.u = String.valueOf(properties.getProperty("server"));
+                }
+                LogUtil.logD("BaiduParamManager", "设置server:" + this.u);
+                fileInputStream.close();
+            } catch (Exception e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
             }
         }
     }
@@ -268,9 +269,9 @@ public final class a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            if (TextUtils.isEmpty(f36901f)) {
+            if (TextUtils.isEmpty(f37731f)) {
                 try {
-                    str = CommonParam.getCUID(f36898b);
+                    str = CommonParam.getCUID(f37728b);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     str = System.currentTimeMillis() + "";
@@ -278,7 +279,7 @@ public final class a {
                 LogUtil.logD("BaiduParamManager", "new generated uid " + str);
                 return str;
             }
-            return f36901f;
+            return f37731f;
         }
         return (String) invokeV.objValue;
     }
@@ -317,7 +318,7 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                ((ActivityManager) f36898b.getSystemService("activity")).getMemoryInfo(memoryInfo);
+                ((ActivityManager) f37728b.getSystemService("activity")).getMemoryInfo(memoryInfo);
                 return Long.toHexString(memoryInfo.totalMem);
             }
             try {
@@ -369,7 +370,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.v = str;
-            f36902g = b(f36898b);
+            f37732g = b(f37728b);
         }
     }
 
@@ -393,25 +394,25 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             StringBuilder sb = new StringBuilder();
             A = sb;
-            sb.append("{\"cid\":\"" + f36901f + "\",");
+            sb.append("{\"cid\":\"" + f37731f + "\",");
             StringBuilder sb2 = A;
             sb2.append("\"pl\":\"" + l + "\",");
             StringBuilder sb3 = A;
-            sb3.append("\"os\":\"" + f36902g + "\",");
+            sb3.append("\"os\":\"" + f37732g + "\",");
             StringBuilder sb4 = A;
             sb4.append("\"ot\":\"" + m + "\",");
             StringBuilder sb5 = A;
             sb5.append("\"cl\":\"" + n + "\",");
             StringBuilder sb6 = A;
-            sb6.append("\"cvn\":\"" + f36899c + "\",");
+            sb6.append("\"cvn\":\"" + f37729c + "\",");
             StringBuilder sb7 = A;
-            sb7.append("\"cvc\":\"" + f36900d + "\",");
+            sb7.append("\"cvc\":\"" + f37730d + "\",");
             StringBuilder sb8 = A;
             sb8.append("\"csz\":\"" + x + "\",");
             StringBuilder sb9 = A;
             sb9.append("\"cmd5\":\"" + w + "\",");
-            ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f36898b).a();
-            RuleInfo b2 = com.baidu.clientupdate.d.a.a(f36898b).b();
+            ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f37728b).a();
+            RuleInfo b2 = com.baidu.clientupdate.d.a.a(f37728b).b();
             if (a2 == null || b2 == null) {
                 A.append("\"ug\":\"\",");
                 A.append("\"vn\":\"\",");
@@ -442,14 +443,14 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             try {
                 b bVar = new b(a() + str);
-                bVar.a("versioncode", f36900d);
-                bVar.a("versionname", f36899c);
-                bVar.a("pkgname", this.f36903e);
-                bVar.a("cuid", f36901f);
-                bVar.a("ua", f36902g);
-                bVar.a("ut", this.f36904h);
-                bVar.a(DebugKt.DEBUG_PROPERTY_VALUE_AUTO, String.valueOf(this.f36905i));
-                String c2 = c(f36898b);
+                bVar.a("versioncode", f37730d);
+                bVar.a("versionname", f37729c);
+                bVar.a("pkgname", this.f37733e);
+                bVar.a("cuid", f37731f);
+                bVar.a("ua", f37732g);
+                bVar.a("ut", this.f37734h);
+                bVar.a(DebugKt.DEBUG_PROPERTY_VALUE_AUTO, String.valueOf(this.f37735i));
+                String c2 = c(f37728b);
                 this.j = c2;
                 bVar.a("network", c2);
                 String h2 = h();
@@ -470,7 +471,7 @@ public final class a {
                 if (!TextUtils.isEmpty(w)) {
                     bVar.a("usermd5", w);
                 }
-                String a2 = j.a(f36898b, "com.baidu.appsearch");
+                String a2 = j.a(f37728b, "com.baidu.appsearch");
                 this.y = a2;
                 if (!TextUtils.isEmpty(a2)) {
                     bVar.a("appsearchmd5", this.y);
@@ -495,7 +496,7 @@ public final class a {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f36905i = z;
+            this.f37735i = z;
         }
     }
 
@@ -503,7 +504,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RuleInfo b2 = com.baidu.clientupdate.d.a.a(f36898b).b();
+            RuleInfo b2 = com.baidu.clientupdate.d.a.a(f37728b).b();
             return b2 != null ? b2.mUpgradeid : "-1";
         }
         return (String) invokeV.objValue;
@@ -512,14 +513,14 @@ public final class a {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            f36899c = str;
+            f37729c = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            f36900d = str;
+            f37730d = str;
         }
     }
 

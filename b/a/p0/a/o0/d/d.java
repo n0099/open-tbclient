@@ -1,80 +1,86 @@
 package b.a.p0.a.o0.d;
 
-import android.util.Log;
-import b.a.p0.a.k;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ContentValues;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes.dex */
-public final class d {
+public class d extends c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7108c;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
 
-    /* renamed from: a  reason: collision with root package name */
-    public final String f7109a;
+    /* renamed from: d  reason: collision with root package name */
+    public ContentValues f7446d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final String f7110b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-780095270, "Lb/a/p0/a/o0/d/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-780095270, "Lb/a/p0/a/o0/d/d;");
-                return;
-            }
-        }
-        f7108c = k.f6397a;
-    }
-
-    public d(String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(@Nullable Map<String, String> map) {
+        super("lifecycle", map);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f7109a = str;
-        this.f7110b = str2;
     }
 
-    public static d a(String str) {
-        InterceptResult invokeL;
+    @Override // b.a.p0.a.o0.d.c, b.a.p0.a.o0.d.b
+    public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                return new d(jSONObject.optString("webviewid"), jSONObject.optString("message"));
-            } catch (JSONException e2) {
-                if (f7108c) {
-                    String str2 = "createEvent failed. " + Log.getStackTraceString(e2);
-                    return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            map.put("cuid", b.a.p0.a.c1.a.h0().i(b.a.p0.a.c1.a.c()));
+            map.put("mtjCuid", b.a.p0.a.c1.a.h0().i(b.a.p0.a.c1.a.c()));
+            ContentValues contentValues = this.f7446d;
+            if (contentValues != null) {
+                for (String str : contentValues.keySet()) {
+                    Object obj = this.f7446d.get(str);
+                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
+                        map.put(str, String.valueOf(obj));
+                    } else {
+                        map.put(str, obj);
+                    }
                 }
-                return null;
+                return;
+            }
+            for (Map.Entry<String, String> entry : this.f7445c.entrySet()) {
+                map.put(entry.getKey(), entry.getValue());
             }
         }
-        return (d) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(@NonNull ContentValues contentValues) {
+        super("lifecycle", null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {contentValues};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f7446d = contentValues;
     }
 }

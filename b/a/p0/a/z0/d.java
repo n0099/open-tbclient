@@ -3,7 +3,7 @@ package b.a.p0.a.z0;
 import android.content.Context;
 import android.text.TextUtils;
 import b.a.p0.a.c0.c.f.a;
-import b.a.p0.a.c2.f.a0;
+import b.a.p0.a.f2.f.z;
 import b.a.p0.a.g1.f;
 import b.a.p0.a.h0.g.g;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d extends a0 {
+public class d extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,10 +30,10 @@ public class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9175a;
+        public final /* synthetic */ CallbackHandler f9600a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f9176b;
+        public final /* synthetic */ d f9601b;
 
         public a(d dVar, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -50,21 +50,21 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f9176b = dVar;
-            this.f9175a = callbackHandler;
+            this.f9601b = dVar;
+            this.f9600a = callbackHandler;
         }
 
         @Override // b.a.p0.a.c0.c.f.a.g
         public void a(String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-                this.f9176b.k(this.f9175a, 0, str, jSONObject);
+                this.f9601b.k(this.f9600a, 0, str, jSONObject);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(b.a.p0.a.c2.e eVar) {
+    public d(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/openInput");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,36 +84,36 @@ public class d extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4160b) {
+            if (z.f5228b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            f T = f.T();
+            f U = f.U();
             if (optParamsAsJo == null) {
-                b.a.p0.a.e0.d.b("openInput", "paramsJson is null");
+                b.a.p0.a.e0.d.c("openInput", "paramsJson is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            g U = T.U();
-            if (U == null) {
-                b.a.p0.a.e0.d.b("openInput", "fragmentManager is null");
+            g V = U.V();
+            if (V == null) {
+                b.a.p0.a.e0.d.c("openInput", "fragmentManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
                 return false;
             }
-            SwanAppActivity activity = f.T().getActivity();
+            SwanAppActivity activity = f.U().getActivity();
             if (activity == null) {
-                b.a.p0.a.e0.d.b("openInput", "activity is null when add input");
+                b.a.p0.a.e0.d.c("openInput", "activity is null when add input");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add input");
                 return false;
             }
-            b.a.p0.a.h0.g.f o = U.o();
+            b.a.p0.a.h0.g.f o = V.o();
             if (o == null) {
-                b.a.p0.a.e0.d.b("openInput", "fragment is null when add input");
+                b.a.p0.a.e0.d.c("openInput", "fragment is null when add input");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
                 return false;
             }
@@ -122,7 +122,7 @@ public class d extends a0 {
                 bVar.a(optParamsAsJo);
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                b.a.p0.a.e0.d.c("OpenInputAction", "model parse exception:", e2);
+                b.a.p0.a.e0.d.d("OpenInputAction", "model parse exception:", e2);
             }
             boolean a2 = new b.a.p0.a.c0.c.f.a(context, bVar, activity, o, new a(this, callbackHandler)).insert().a();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a2 ? 0 : 1001));
@@ -134,7 +134,7 @@ public class d extends a0 {
     public final void k(CallbackHandler callbackHandler, int i2, String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, i2, str, jSONObject) == null) {
-            if (a0.f4160b) {
+            if (z.f5228b) {
                 String str2 = "sendAsyncCallback, arg0: " + i2 + ", arg1: " + jSONObject;
             }
             if (TextUtils.isEmpty(str)) {

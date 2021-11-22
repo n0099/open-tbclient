@@ -29,6 +29,7 @@ import b.a.c0.a.f;
 import b.a.c0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.Log;
@@ -50,26 +51,26 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     public static final String EXTRA_SHOW_BOTTOM_BACK = "show_bottom_back";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f42493f = ":pass";
+    public static final String f43439f = ":pass";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42494a;
+    public boolean f43440a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42495b;
+    public boolean f43441b;
     public View bottomBackView;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42496c;
+    public String f43442c;
     public SapiConfiguration configuration;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42497d;
+    public String f43443d;
     public View dividerLine;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebView f42498e;
+    public WebView f43444e;
     public ImageView mBottomBackBtnIv;
     public TextView mBottomBackTvText;
     public RelativeLayout mBottomBgLayout;
@@ -98,10 +99,10 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f42494a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
-            this.f42495b = getIntent().getBooleanExtra(EXTRA_SHOW_BOTTOM_BACK, false);
-            this.f42496c = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
-            this.f42497d = getIntent().getStringExtra("external_url");
+            this.f43440a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
+            this.f43441b = getIntent().getBooleanExtra(EXTRA_SHOW_BOTTOM_BACK, false);
+            this.f43442c = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
+            this.f43443d = getIntent().getStringExtra("external_url");
         }
     }
 
@@ -109,10 +110,10 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
         ViewStub viewStub;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            if (this.f42494a) {
+            if (this.f43440a) {
                 setTheme(h.SDKDarkTheme);
             }
-            this.f42498e = (WebView) findViewById(e.webview);
+            this.f43444e = (WebView) findViewById(e.webview);
             this.mTitle = (TextView) findViewById(e.title);
             ImageView imageView = (ImageView) findViewById(e.title_btn_left_iv);
             this.mLeftBtnIv = imageView;
@@ -120,8 +121,8 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             this.mLeftBtnLayout = (LinearLayout) findViewById(e.title_left_btn_layout);
             this.dividerLine = findViewById(e.title_divider_line);
             this.mTitleBgLayout = (RelativeLayout) findViewById(e.sapi_title_bg_layout);
-            this.mTitle.setText(this.f42496c);
-            if (this.f42495b) {
+            this.mTitle.setText(this.f43442c);
+            if (this.f43441b) {
                 if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(e.stub_bottom_back)) != null) {
                     this.bottomBackView = viewStub.inflate();
                     this.mBottomBackBtnIv = (ImageView) findViewById(e.sapi_bottom_back);
@@ -143,7 +144,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                 ViewUtility.enlargedViews(this.mBottomBackBtnIv, this.configuration.textZoom);
                 ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.textZoom);
             }
-            if (this.f42494a) {
+            if (this.f43440a) {
                 this.mTitleBgLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
                 this.mLeftBtnIv.setImageResource(d.sapi_sdk_btn_back_dark_mode);
                 this.mTitle.setTextColor(getResources().getColor(b.sapi_sdk_dark_mode_edit_text_color));
@@ -167,7 +168,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                 }
             }
             a();
-            this.f42498e.loadUrl(this.f42497d);
+            this.f43444e.loadUrl(this.f43443d);
         }
     }
 
@@ -194,7 +195,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 String curProcessName = SapiUtils.getCurProcessName(this);
-                if (!TextUtils.isEmpty(curProcessName) && curProcessName.endsWith(f42493f)) {
+                if (!TextUtils.isEmpty(curProcessName) && curProcessName.endsWith(f43439f)) {
                     try {
                         WebView.setDataDirectorySuffix(curProcessName);
                     } catch (Throwable unused) {
@@ -209,6 +210,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             a(true);
             b();
             c();
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -227,14 +229,14 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            WebSettings settings = this.f42498e.getSettings();
+            WebSettings settings = this.f43444e.getSettings();
             try {
                 settings.setJavaScriptEnabled(true);
             } catch (Exception unused) {
             }
             settings.setTextSize(WebSettings.TextSize.NORMAL);
             settings.setDomStorageEnabled(true);
-            this.f42498e.setScrollBarStyle(0);
+            this.f43444e.setScrollBarStyle(0);
             settings.setSaveFormData(false);
             settings.setSavePassword(false);
             settings.setAllowFileAccess(false);
@@ -247,16 +249,16 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                 this.progressBar = progressBar;
                 progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(this, 2.0f), 0, 0));
                 this.progressBar.setBackgroundColor(getResources().getColor(b.sapi_sdk_explain_camera_detail_color));
-                this.f42498e.addView(this.progressBar);
+                this.f43444e.addView(this.progressBar);
             } catch (Throwable th) {
                 Log.e(th);
             }
-            this.f42498e.setWebChromeClient(new WebChromeClient(this) { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.1
+            this.f43444e.setWebChromeClient(new WebChromeClient(this) { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RemoteProcessWebviewActivity f42499a;
+                public final /* synthetic */ RemoteProcessWebviewActivity f43445a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -273,7 +275,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                             return;
                         }
                     }
-                    this.f42499a = this;
+                    this.f43445a = this;
                 }
 
                 @Override // android.webkit.WebChromeClient
@@ -296,27 +298,27 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                 public void onProgressChanged(WebView webView, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i2) == null) {
-                        ProgressBar progressBar2 = this.f42499a.progressBar;
+                        ProgressBar progressBar2 = this.f43445a.progressBar;
                         if (progressBar2 != null) {
                             if (i2 == 100) {
                                 progressBar2.setVisibility(8);
                             } else {
                                 if (progressBar2.getVisibility() == 8) {
-                                    this.f42499a.progressBar.setVisibility(0);
+                                    this.f43445a.progressBar.setVisibility(0);
                                 }
-                                this.f42499a.progressBar.setProgress(i2);
+                                this.f43445a.progressBar.setProgress(i2);
                             }
                         }
                         super.onProgressChanged(webView, i2);
                     }
                 }
             });
-            this.f42498e.setWebViewClient(new WebViewClient(this) { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.2
+            this.f43444e.setWebViewClient(new WebViewClient(this) { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RemoteProcessWebviewActivity f42500a;
+                public final /* synthetic */ RemoteProcessWebviewActivity f43446a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -333,7 +335,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                             return;
                         }
                     }
-                    this.f42500a = this;
+                    this.f43446a = this;
                 }
 
                 @Override // android.webkit.WebViewClient
@@ -341,15 +343,15 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, webView, str, bitmap) == null) {
                         super.onPageStarted(webView, str, bitmap);
-                        if (SapiUtils.hasActiveNetwork(this.f42500a)) {
+                        if (SapiUtils.hasActiveNetwork(this.f43446a)) {
                             return;
                         }
-                        RemoteProcessWebviewActivity remoteProcessWebviewActivity = this.f42500a;
+                        RemoteProcessWebviewActivity remoteProcessWebviewActivity = this.f43446a;
                         if (remoteProcessWebviewActivity.noNetworkView == null) {
-                            remoteProcessWebviewActivity.noNetworkView = com.baidu.sapi2.utils.b.a(remoteProcessWebviewActivity, remoteProcessWebviewActivity.f42498e);
-                            this.f42500a.f42498e.addView(this.f42500a.noNetworkView, new ViewGroup.LayoutParams(-1, -1));
+                            remoteProcessWebviewActivity.noNetworkView = com.baidu.sapi2.utils.b.a(remoteProcessWebviewActivity, remoteProcessWebviewActivity.f43444e);
+                            this.f43446a.f43444e.addView(this.f43446a.noNetworkView, new ViewGroup.LayoutParams(-1, -1));
                         }
-                        this.f42500a.noNetworkView.setVisibility(0);
+                        this.f43446a.noNetworkView.setVisibility(0);
                     }
                 }
             });

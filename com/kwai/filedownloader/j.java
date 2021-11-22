@@ -21,33 +21,33 @@ public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f66990a = 10;
+    public static int f67903a = 10;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f66991b = 5;
+    public static int f67904b = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Executor f66992c;
+    public final Executor f67905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f66993d;
+    public final Handler f67906d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedBlockingQueue<s> f66994e;
+    public final LinkedBlockingQueue<s> f67907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f66995f;
+    public final Object f67908f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ArrayList<s> f66996g;
+    public final ArrayList<s> f67909g;
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final j f66999a;
+        public static final j f67912a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -63,7 +63,7 @@ public class j {
                     return;
                 }
             }
-            f66999a = new j();
+            f67912a = new j();
         }
     }
 
@@ -143,23 +143,23 @@ public class j {
                 return;
             }
         }
-        this.f66992c = com.kwai.filedownloader.f.b.a(5, "BlockCompleted");
-        this.f66995f = new Object();
-        this.f66996g = new ArrayList<>();
-        this.f66993d = new Handler(Looper.getMainLooper(), new b());
-        this.f66994e = new LinkedBlockingQueue<>();
+        this.f67905c = com.kwai.filedownloader.f.b.a(5, "BlockCompleted");
+        this.f67908f = new Object();
+        this.f67909g = new ArrayList<>();
+        this.f67906d = new Handler(Looper.getMainLooper(), new b());
+        this.f67907e = new LinkedBlockingQueue<>();
     }
 
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f66999a : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f67912a : (j) invokeV.objValue;
     }
 
     private void b(s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, sVar) == null) {
-            Handler handler = this.f66993d;
+            Handler handler = this.f67906d;
             handler.sendMessage(handler.obtainMessage(1, sVar));
         }
     }
@@ -167,32 +167,32 @@ public class j {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f66990a > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f67903a > 0 : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            synchronized (this.f66995f) {
-                if (this.f66996g.isEmpty()) {
-                    if (this.f66994e.isEmpty()) {
+            synchronized (this.f67908f) {
+                if (this.f67909g.isEmpty()) {
+                    if (this.f67907e.isEmpty()) {
                         return;
                     }
                     int i2 = 0;
                     if (b()) {
-                        int i3 = f66990a;
-                        int min = Math.min(this.f66994e.size(), f66991b);
+                        int i3 = f67903a;
+                        int min = Math.min(this.f67907e.size(), f67904b);
                         while (i2 < min) {
-                            this.f66996g.add(this.f66994e.remove());
+                            this.f67909g.add(this.f67907e.remove());
                             i2++;
                         }
                         i2 = i3;
                     } else {
-                        this.f66994e.drainTo(this.f66996g);
+                        this.f67907e.drainTo(this.f67909g);
                     }
-                    Handler handler = this.f66993d;
-                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f66996g), i2);
+                    Handler handler = this.f67906d;
+                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f67909g), i2);
                 }
             }
         }
@@ -201,8 +201,8 @@ public class j {
     private void c(s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, sVar) == null) {
-            synchronized (this.f66995f) {
-                this.f66994e.offer(sVar);
+            synchronized (this.f67908f) {
+                this.f67907e.offer(sVar);
             }
             c();
         }
@@ -221,15 +221,15 @@ public class j {
             if (sVar.c()) {
                 sVar.b();
             } else if (sVar.d()) {
-                this.f66992c.execute(new Runnable(this, sVar) { // from class: com.kwai.filedownloader.j.1
+                this.f67905c.execute(new Runnable(this, sVar) { // from class: com.kwai.filedownloader.j.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ s f66997a;
+                    public final /* synthetic */ s f67910a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ j f66998b;
+                    public final /* synthetic */ j f67911b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -246,28 +246,28 @@ public class j {
                                 return;
                             }
                         }
-                        this.f66998b = this;
-                        this.f66997a = sVar;
+                        this.f67911b = this;
+                        this.f67910a = sVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f66997a.b();
+                            this.f67910a.b();
                         }
                     }
                 });
             } else {
-                if (!b() && !this.f66994e.isEmpty()) {
-                    synchronized (this.f66995f) {
-                        if (!this.f66994e.isEmpty()) {
-                            Iterator<s> it = this.f66994e.iterator();
+                if (!b() && !this.f67907e.isEmpty()) {
+                    synchronized (this.f67908f) {
+                        if (!this.f67907e.isEmpty()) {
+                            Iterator<s> it = this.f67907e.iterator();
                             while (it.hasNext()) {
                                 b(it.next());
                             }
                         }
-                        this.f66994e.clear();
+                        this.f67907e.clear();
                     }
                 }
                 if (!b() || z) {

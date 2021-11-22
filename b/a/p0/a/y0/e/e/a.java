@@ -23,14 +23,14 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f8991e;
+    public Context f9337e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f8992f;
+    public String[] f9338f;
 
     /* renamed from: b.a.p0.a.y0.e.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0456a {
+    public static /* synthetic */ class C0471a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -41,7 +41,7 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f8993a;
+        public ImageView f9339a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(C0456a c0456a) {
+        public /* synthetic */ b(C0471a c0471a) {
             this();
         }
     }
@@ -68,7 +68,7 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f8994a;
+        public TextView f9340a;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ c(C0456a c0456a) {
+        public /* synthetic */ c(C0471a c0471a) {
             this();
         }
     }
@@ -104,22 +104,22 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f8991e = context;
-        this.f8992f = strArr;
+        this.f9337e = context;
+        this.f9338f = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8992f.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9338f.length : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f8992f[i2] : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f9338f[i2] : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -141,18 +141,18 @@ public class a extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 if (i2 == 11) {
-                    inflate = View.inflate(this.f8991e, g.aiapps_keyboard_img_item, null);
+                    inflate = View.inflate(this.f9337e, g.aiapps_keyboard_img_item, null);
                     b bVar = new b(null);
-                    bVar.f8993a = (ImageView) inflate.findViewById(f.delete_key_img_view);
+                    bVar.f9339a = (ImageView) inflate.findViewById(f.delete_key_img_view);
                     cVar2 = bVar;
                 } else {
-                    inflate = View.inflate(this.f8991e, g.aiapps_keyboard_text_item, null);
+                    inflate = View.inflate(this.f9337e, g.aiapps_keyboard_text_item, null);
                     c cVar3 = new c(null);
-                    cVar3.f8994a = (TextView) inflate.findViewById(f.key_text_view);
+                    cVar3.f9340a = (TextView) inflate.findViewById(f.key_text_view);
                     cVar2 = cVar3;
                     if (i2 == 9) {
-                        if (TextUtils.isEmpty(this.f8992f[9])) {
-                            inflate.setBackgroundColor(this.f8991e.getResources().getColor(b.a.p0.a.c.aiapps_keyboard_non_number_item_background_normal));
+                        if (TextUtils.isEmpty(this.f9338f[9])) {
+                            inflate.setBackgroundColor(this.f9337e.getResources().getColor(b.a.p0.a.c.aiapps_keyboard_non_number_item_background_normal));
                             cVar2 = cVar3;
                         } else {
                             inflate.setBackgroundResource(e.aiapps_keyboard_non_number_item_selector);
@@ -167,7 +167,7 @@ public class a extends BaseAdapter {
                 cVar = view.getTag();
             }
             if (i2 != 11 && (cVar instanceof c)) {
-                ((c) cVar).f8994a.setText(this.f8992f[i2]);
+                ((c) cVar).f9340a.setText(this.f9338f[i2]);
             }
             return view;
         }

@@ -17,13 +17,13 @@ public class a {
     public static void a(b bVar) {
         ItemData itemData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, bVar) == null) || bVar == null || (itemData = bVar.f18296e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65536, null, bVar) == null) || bVar == null || (itemData = bVar.f19630e) == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
         httpMessage.addParam("item_id", itemData.itemId);
         httpMessage.addParam("app_name", itemData.mTitle);
-        httpMessage.addParam("source_type", bVar.f18297f);
+        httpMessage.addParam("source_type", bVar.f19631f);
         httpMessage.addParam("icon_url", itemData.mIconUrl);
         httpMessage.addParam("score", Double.valueOf(itemData.mScore));
         httpMessage.addParam(CommandMessage.TYPE_TAGS, itemData.mTags);

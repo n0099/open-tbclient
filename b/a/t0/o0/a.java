@@ -79,14 +79,14 @@ public class a implements b.a.t0.n0.a {
     public int getInt(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i2)) == null) ? b.a.t0.m0.b.e().getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i2)) == null) ? b.a.t0.m0.b.d().getInt(str, i2) : invokeLI.intValue;
     }
 
     @Override // b.a.t0.n0.a
     public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) ? b.a.t0.m0.b.e().getLong(str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) ? b.a.t0.m0.b.d().getLong(str, j) : invokeLJ.longValue;
     }
 
     @Override // b.a.t0.n0.a
@@ -100,7 +100,7 @@ public class a implements b.a.t0.n0.a {
     public void putInt(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, str, i2) == null) {
-            b.a.t0.m0.b.e().putInt(str, i2);
+            b.a.t0.m0.b.d().putInt(str, i2);
         }
     }
 
@@ -108,7 +108,7 @@ public class a implements b.a.t0.n0.a {
     public void putLong(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
-            b.a.t0.m0.b.e().putLong(str, j);
+            b.a.t0.m0.b.d().putLong(str, j);
         }
     }
 
@@ -116,7 +116,7 @@ public class a implements b.a.t0.n0.a {
     public void putString(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            b.a.t0.m0.b.e().putString(str, str2);
+            b.a.t0.m0.b.d().putString(str, str2);
         }
     }
 }

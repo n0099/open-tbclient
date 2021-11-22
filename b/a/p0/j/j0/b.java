@@ -1,0 +1,39 @@
+package b.a.p0.j.j0;
+
+import android.text.TextUtils;
+import b.a.p0.a.d2.e;
+import b.a.p0.q.j.m.g;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes4.dex */
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(int i2);
+
+        void b(int i2, long j, long j2);
+
+        void success();
+    }
+
+    public static void a(String str, a aVar) {
+        e L;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, str, aVar) == null) || aVar == null || TextUtils.isEmpty(str) || (L = e.L()) == null) {
+            return;
+        }
+        if (b.a.p0.j.j0.a.b().d(str)) {
+            aVar.success();
+            return;
+        }
+        String a2 = b.a.p0.j.j0.a.b().a(str);
+        if (TextUtils.isEmpty(a2)) {
+            aVar.a(2112);
+        } else {
+            b.a.p0.q.b.h(new g(L.f4474f, L.j0(), a2, 1), new b.a.p0.j.j0.e.a(L.f4474f, L.j0(), b.a.p0.j.j0.a.b().c(str, 2), aVar));
+        }
+    }
+}

@@ -21,7 +21,7 @@ public final class b extends b.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.p0.a.c0.c.e.b.a f4072i;
+    public b.a.p0.a.c0.c.e.b.a f4212i;
     public SwanAppComponentContainerView j;
     public SimpleDraweeView k;
 
@@ -31,13 +31,13 @@ public final class b extends b.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f4073a;
+        public final /* synthetic */ boolean f4213a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SimpleDraweeView f4074b;
+        public final /* synthetic */ SimpleDraweeView f4214b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f4075c;
+        public final /* synthetic */ b f4215c;
 
         public a(b bVar, boolean z, SimpleDraweeView simpleDraweeView) {
             Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public final class b extends b.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
                     return;
                 }
             }
-            this.f4075c = bVar;
-            this.f4073a = z;
-            this.f4074b = simpleDraweeView;
+            this.f4215c = bVar;
+            this.f4213a = z;
+            this.f4214b = simpleDraweeView;
         }
 
         @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
@@ -64,10 +64,10 @@ public final class b extends b.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, th) == null) {
                 super.onFailure(str, th);
-                if (!this.f4073a || this.f4075c.f4072i == null) {
+                if (!this.f4213a || this.f4215c.f4212i == null) {
                     return;
                 }
-                this.f4075c.f4072i.a(0, this.f4074b, null);
+                this.f4215c.f4212i.a(0, this.f4214b, null);
             }
         }
 
@@ -77,10 +77,10 @@ public final class b extends b.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, animatable) == null) {
                 super.onFinalImageSet(str, (String) imageInfo, animatable);
-                if (!this.f4073a || this.f4075c.f4072i == null) {
+                if (!this.f4213a || this.f4215c.f4212i == null) {
                     return;
                 }
-                this.f4075c.f4072i.a(1, this.f4074b, null);
+                this.f4215c.f4212i.a(1, this.f4214b, null);
             }
         }
     }
@@ -176,7 +176,7 @@ public final class b extends b.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
     public void e0(b.a.p0.a.c0.c.e.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-            this.f4072i = aVar;
+            this.f4212i = aVar;
         }
     }
 

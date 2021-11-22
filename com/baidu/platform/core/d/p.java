@@ -2,6 +2,7 @@ package com.baidu.platform.core.d;
 
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,22 +34,22 @@ public class p extends com.baidu.platform.base.e {
     private void a(WalkingRoutePlanOption walkingRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, walkingRoutePlanOption) == null) {
-            this.f42041a.a("qt", "walk2");
-            this.f42041a.a("sn", a(walkingRoutePlanOption.mFrom));
-            this.f42041a.a(com.baidu.fsg.base.statistics.h.f37503a, a(walkingRoutePlanOption.mTo));
+            this.f42889a.a("qt", "walk2");
+            this.f42889a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
+            this.f42889a.a(com.baidu.fsg.base.statistics.h.f38333a, a(walkingRoutePlanOption.mTo));
             PlanNode planNode = walkingRoutePlanOption.mFrom;
             if (planNode != null) {
-                this.f42041a.a("sc", planNode.getCity());
+                this.f42889a.a("sc", planNode.getCity());
             }
             PlanNode planNode2 = walkingRoutePlanOption.mTo;
             if (planNode2 != null) {
-                this.f42041a.a("ec", planNode2.getCity());
+                this.f42889a.a("ec", planNode2.getCity());
             }
-            this.f42041a.a("ie", "utf-8");
-            this.f42041a.a("lrn", "20");
-            this.f42041a.a("version", "3");
-            this.f42041a.a("rp_format", "json");
-            this.f42041a.a("rp_filter", "mobile");
+            this.f42889a.a("ie", "utf-8");
+            this.f42889a.a("lrn", "20");
+            this.f42889a.a("version", "3");
+            this.f42889a.a("rp_format", "json");
+            this.f42889a.a("rp_filter", "mobile");
         }
     }
 

@@ -33,12 +33,12 @@ public class TTFileProvider extends FileProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean onCreate = super.onCreate();
-            g.f61689a.execute(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.TTFileProvider.1
+            g.f62588a.execute(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.TTFileProvider.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTFileProvider f61578a;
+                public final /* synthetic */ TTFileProvider f62477a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -55,14 +55,14 @@ public class TTFileProvider extends FileProvider {
                             return;
                         }
                     }
-                    this.f61578a = this;
+                    this.f62477a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        f.a(this.f61578a.getContext()).a();
+                        f.a(this.f62477a.getContext()).a();
                     }
                 }
             });

@@ -12,17 +12,17 @@ public class z implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MiTinyDataClient.a.C2028a f70645a;
+    public final /* synthetic */ MiTinyDataClient.a.C2066a f71565a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ hj f105a;
 
-    public z(MiTinyDataClient.a.C2028a c2028a, hj hjVar) {
+    public z(MiTinyDataClient.a.C2066a c2066a, hj hjVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c2028a, hjVar};
+            Object[] objArr = {c2066a, hjVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,7 +32,7 @@ public class z implements Runnable {
                 return;
             }
         }
-        this.f70645a = c2028a;
+        this.f71565a = c2066a;
         this.f105a = hjVar;
     }
 
@@ -40,8 +40,8 @@ public class z implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f70645a.f59a.add(this.f105a);
-            this.f70645a.a();
+            this.f71565a.f59a.add(this.f105a);
+            this.f71565a.a();
         }
     }
 }

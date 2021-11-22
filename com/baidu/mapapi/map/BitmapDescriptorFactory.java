@@ -25,10 +25,10 @@ public class BitmapDescriptorFactory {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f39306a;
+    public static final /* synthetic */ boolean f40138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39307b;
+    public static final String f40139b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,8 +44,8 @@ public class BitmapDescriptorFactory {
                 return;
             }
         }
-        f39306a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-        f39307b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+        f40138a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+        f40139b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
     public BitmapDescriptorFactory() {
@@ -73,7 +73,7 @@ public class BitmapDescriptorFactory {
             try {
                 Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
                 BitmapDescriptor fromBitmap = fromBitmap(a2);
-                if (!f39306a && a2 == null) {
+                if (!f40138a && a2 == null) {
                     throw new AssertionError();
                 }
                 a2.recycle();

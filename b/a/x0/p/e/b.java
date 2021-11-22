@@ -90,19 +90,19 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     public float c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f29807e;
+    public Context f30676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.e f29808f;
+    public b.e f30677f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.d f29809g;
+    public b.d f30678g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SurfaceTexture.OnFrameAvailableListener f29810h;
+    public SurfaceTexture.OnFrameAvailableListener f30679h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GLSurfaceView f29811i;
+    public GLSurfaceView f30680i;
     public float i0;
     public int j;
     public float j0;
@@ -120,7 +120,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     public int p0;
     public String q;
     public b.a.x0.r.a q0;
-    public b.InterfaceC1429b r;
+    public b.InterfaceC1471b r;
     public boolean r0;
     public boolean s;
     public b.a.x0.p.c.a s0;
@@ -144,21 +144,21 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29812a;
+        public final /* synthetic */ b f30681a;
 
         /* renamed from: b.a.x0.p.e.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC1431a implements Runnable {
+        public class RunnableC1473a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f29813e;
+            public final /* synthetic */ int f30682e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f29814f;
+            public final /* synthetic */ a f30683f;
 
-            public RunnableC1431a(a aVar, int i2) {
+            public RunnableC1473a(a aVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,17 +173,17 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                         return;
                     }
                 }
-                this.f29814f = aVar;
-                this.f29813e = i2;
+                this.f30683f = aVar;
+                this.f30682e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29814f.f29812a.f29808f == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30683f.f30681a.f30677f == null) {
                     return;
                 }
-                this.f29814f.f29812a.f29808f.d(this.f29813e);
+                this.f30683f.f30681a.f30677f.d(this.f30682e);
             }
         }
 
@@ -202,16 +202,16 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29812a = bVar;
+            this.f30681a = bVar;
         }
 
         @Override // b.a.x0.p.h.a.l
         public void a(ICaptureResult iCaptureResult) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, iCaptureResult) == null) || this.f29812a.f29808f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, iCaptureResult) == null) || this.f30681a.f30677f == null) {
                 return;
             }
-            this.f29812a.f29808f.a(iCaptureResult);
+            this.f30681a.f30677f.a(iCaptureResult);
         }
 
         @Override // b.a.x0.p.h.a.l
@@ -224,56 +224,56 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         @Override // b.a.x0.p.h.a.l
         public void c() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f29812a.f29808f == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f30681a.f30677f == null) {
                 return;
             }
-            this.f29812a.f29808f.c();
+            this.f30681a.f30677f.c();
         }
 
         @Override // b.a.x0.p.h.a.l
         public void d(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.f29812a.t.post(new RunnableC1431a(this, i2));
+                this.f30681a.t.post(new RunnableC1473a(this, i2));
             }
         }
 
         @Override // b.a.x0.p.h.a.l
         public void e(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) || this.f29812a.r == null) {
+            if (!(interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) || this.f30681a.r == null) {
                 return;
             }
-            if ((this.f29812a.r.f() || this.f29812a.h0()) && this.f29812a.r.a()) {
-                this.f29812a.r.t(i2, i3, i4, i5);
+            if ((this.f30681a.r.f() || this.f30681a.h0()) && this.f30681a.r.a()) {
+                this.f30681a.r.t(i2, i3, i4, i5);
             }
         }
 
         @Override // b.a.x0.p.h.a.l
         public void f(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || i2 == this.f29812a.r.o()) {
+            if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || i2 == this.f30681a.r.o()) {
                 return;
             }
-            this.f29812a.X();
+            this.f30681a.X();
         }
 
         @Override // b.a.x0.p.h.a.l
         public void onBeautyEnableChanged(b.a.a0.a.f.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || this.f29812a.f29809g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || this.f30681a.f30678g == null) {
                 return;
             }
-            this.f29812a.f29809g.onBeautyEnableChanged(aVar);
+            this.f30681a.f30678g.onBeautyEnableChanged(aVar);
         }
 
         @Override // b.a.x0.p.h.a.l
         public void onChangeGender(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                this.f29812a.y = z;
-                if (this.f29812a.f29809g != null) {
-                    this.f29812a.f29809g.onChangeGender(z);
+                this.f30681a.y = z;
+                if (this.f30681a.f30678g != null) {
+                    this.f30681a.f30678g.onChangeGender(z);
                 }
             }
         }
@@ -288,23 +288,23 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         @Override // b.a.x0.p.h.a.l
         public void onLuaMessage(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048585, this, hashMap) == null) || this.f29812a.f29809g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048585, this, hashMap) == null) || this.f30681a.f30678g == null) {
                 return;
             }
-            this.f29812a.f29809g.onLuaMessage(hashMap);
+            this.f30681a.f30678g.onLuaMessage(hashMap);
         }
     }
 
     /* renamed from: b.a.x0.p.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class View$OnTouchListenerC1432b implements View.OnTouchListener {
+    public class View$OnTouchListenerC1474b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f29815e;
+        public final /* synthetic */ b f30684e;
 
-        public View$OnTouchListenerC1432b(b bVar) {
+        public View$OnTouchListenerC1474b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -319,14 +319,14 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29815e = bVar;
+            this.f30684e = bVar;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? (this.f29815e.U(motionEvent) || this.f29815e.G == null || !this.f29815e.G.s(this.f29815e.f29811i, motionEvent)) ? false : true : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? (this.f30684e.U(motionEvent) || this.f30684e.G == null || !this.f30684e.G.s(this.f30684e.f30680i, motionEvent)) ? false : true : invokeLL.booleanValue;
         }
     }
 
@@ -336,10 +336,10 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f29816e;
+        public final /* synthetic */ boolean f30685e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f29817f;
+        public final /* synthetic */ b f30686f;
 
         public c(b bVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -356,15 +356,15 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29817f = bVar;
-            this.f29816e = z;
+            this.f30686f = bVar;
+            this.f30685e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29817f.z.setWaitingDrawFrame(this.f29816e);
+                this.f30686f.z.setWaitingDrawFrame(this.f30685e);
             }
         }
     }
@@ -375,10 +375,10 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f29818e;
+        public final /* synthetic */ boolean f30687e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f29819f;
+        public final /* synthetic */ b f30688f;
 
         public d(b bVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -395,17 +395,17 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29819f = bVar;
-            this.f29818e = z;
+            this.f30688f = bVar;
+            this.f30687e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29819f.f29808f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30688f.f30677f == null) {
                 return;
             }
-            this.f29819f.f29808f.h(this.f29818e);
+            this.f30688f.f30677f.h(this.f30687e);
         }
     }
 
@@ -415,7 +415,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f29820e;
+        public final /* synthetic */ b f30689e;
 
         public e(b bVar) {
             Interceptable interceptable = $ic;
@@ -432,16 +432,16 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29820e = bVar;
+            this.f30689e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29820e.f29808f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30689e.f30677f == null) {
                 return;
             }
-            this.f29820e.f29808f.g(this.f29820e.m, this.f29820e.n);
+            this.f30689e.f30677f.g(this.f30689e.m, this.f30689e.n);
         }
     }
 
@@ -451,7 +451,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29821a;
+        public final /* synthetic */ b f30690a;
 
         /* loaded from: classes6.dex */
         public class a implements Runnable {
@@ -459,7 +459,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f29822e;
+            public final /* synthetic */ f f30691e;
 
             public a(f fVar) {
                 Interceptable interceptable = $ic;
@@ -476,29 +476,29 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                         return;
                     }
                 }
-                this.f29822e = fVar;
+                this.f30691e = fVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29822e.f29821a.f29808f == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30691e.f30690a.f30677f == null) {
                     return;
                 }
-                this.f29822e.f29821a.f29808f.onStartSuccess();
+                this.f30691e.f30690a.f30677f.onStartSuccess();
             }
         }
 
         /* renamed from: b.a.x0.p.e.b$f$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC1433b implements Runnable {
+        public class RunnableC1475b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f29823e;
+            public final /* synthetic */ f f30692e;
 
-            public RunnableC1433b(f fVar) {
+            public RunnableC1475b(f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -513,16 +513,16 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                         return;
                     }
                 }
-                this.f29823e = fVar;
+                this.f30692e = fVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29823e.f29821a.f29808f == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30692e.f30690a.f30677f == null) {
                     return;
                 }
-                this.f29823e.f29821a.f29808f.onStopSuccess();
+                this.f30692e.f30690a.f30677f.onStopSuccess();
             }
         }
 
@@ -541,23 +541,23 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29821a = bVar;
+            this.f30690a = bVar;
         }
 
         @Override // b.a.x0.p.f.a.b
         public void b(long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || this.f29821a.f29808f == null) {
+            if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || this.f30690a.f30677f == null) {
                 return;
             }
-            this.f29821a.f29808f.b(j);
+            this.f30690a.f30677f.b(j);
         }
 
         @Override // b.a.x0.p.f.a.b
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f29821a.t(i2, str);
+                this.f30690a.t(i2, str);
             }
         }
 
@@ -565,10 +565,10 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public void onStartSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f29821a.N != null) {
-                    this.f29821a.N.e(7);
+                if (this.f30690a.N != null) {
+                    this.f30690a.N.e(7);
                 }
-                this.f29821a.t.post(new a(this));
+                this.f30690a.t.post(new a(this));
             }
         }
 
@@ -576,7 +576,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public void onStopSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f29821a.t.post(new RunnableC1433b(this));
+                this.f30690a.t.post(new RunnableC1475b(this));
             }
         }
     }
@@ -587,7 +587,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f29824e;
+        public final /* synthetic */ b f30693e;
 
         public g(b bVar) {
             Interceptable interceptable = $ic;
@@ -604,19 +604,19 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29824e = bVar;
+            this.f30693e = bVar;
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, surfaceTexture) == null) {
-                this.f29824e.f29811i.requestRender();
-                if (this.f29824e.f29810h != null) {
-                    this.f29824e.f29810h.onFrameAvailable(surfaceTexture);
+                this.f30693e.f30680i.requestRender();
+                if (this.f30693e.f30679h != null) {
+                    this.f30693e.f30679h.onFrameAvailable(surfaceTexture);
                 }
-                if (this.f29824e.x0 != null) {
-                    this.f29824e.x0.n();
+                if (this.f30693e.x0 != null) {
+                    this.f30693e.x0.n();
                 }
             }
         }
@@ -628,7 +628,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29825a;
+        public final /* synthetic */ b f30694a;
 
         /* loaded from: classes6.dex */
         public class a implements Runnable {
@@ -636,10 +636,10 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ long f29826e;
+            public final /* synthetic */ long f30695e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h f29827f;
+            public final /* synthetic */ h f30696f;
 
             public a(h hVar, long j) {
                 Interceptable interceptable = $ic;
@@ -656,17 +656,17 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                         return;
                     }
                 }
-                this.f29827f = hVar;
-                this.f29826e = j;
+                this.f30696f = hVar;
+                this.f30695e = j;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29827f.f29825a.f29808f == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30696f.f30694a.f30677f == null) {
                     return;
                 }
-                this.f29827f.f29825a.f29808f.b(this.f29826e);
+                this.f30696f.f30694a.f30677f.b(this.f30695e);
             }
         }
 
@@ -685,14 +685,14 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29825a = bVar;
+            this.f30694a = bVar;
         }
 
         @Override // b.a.x0.p.f.a.e
         public void a(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.f29825a.t.post(new a(this, j));
+                this.f30694a.t.post(new a(this, j));
             }
         }
     }
@@ -703,7 +703,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29828a;
+        public final /* synthetic */ b f30697a;
 
         public i(b bVar) {
             Interceptable interceptable = $ic;
@@ -720,16 +720,16 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29828a = bVar;
+            this.f30697a = bVar;
         }
 
         @Override // b.a.x0.p.g.c
         public void a(double d2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) || this.f29828a.G == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) || this.f30697a.G == null) {
                 return;
             }
-            this.f29828a.G.r(b.a.x0.t.j.e(d2));
+            this.f30697a.G.r(b.a.x0.t.j.e(d2));
         }
 
         @Override // b.a.x0.p.g.c
@@ -746,13 +746,13 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f29829e;
+        public final /* synthetic */ int f30698e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f29830f;
+        public final /* synthetic */ String f30699f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f29831g;
+        public final /* synthetic */ b f30700g;
 
         public j(b bVar, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -769,18 +769,18 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29831g = bVar;
-            this.f29829e = i2;
-            this.f29830f = str;
+            this.f30700g = bVar;
+            this.f30698e = i2;
+            this.f30699f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29831g.f29808f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30700g.f30677f == null) {
                 return;
             }
-            this.f29831g.f29808f.onError(this.f29829e, this.f29830f);
+            this.f30700g.f30677f.onError(this.f30698e, this.f30699f);
         }
     }
 
@@ -790,13 +790,13 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f29832e;
+        public final /* synthetic */ int f30701e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f29833f;
+        public final /* synthetic */ String f30702f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f29834g;
+        public final /* synthetic */ b f30703g;
 
         public k(b bVar, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -813,18 +813,18 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29834g = bVar;
-            this.f29832e = i2;
-            this.f29833f = str;
+            this.f30703g = bVar;
+            this.f30701e = i2;
+            this.f30702f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29834g.f29808f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30703g.f30677f == null) {
                 return;
             }
-            this.f29834g.f29808f.onError(this.f29832e, this.f29833f);
+            this.f30703g.f30677f.onError(this.f30701e, this.f30702f);
         }
     }
 
@@ -834,7 +834,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29835a;
+        public final /* synthetic */ b f30704a;
 
         public l(b bVar) {
             Interceptable interceptable = $ic;
@@ -851,16 +851,16 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29835a = bVar;
+            this.f30704a = bVar;
         }
 
         @Override // b.a.x0.p.g.c
         public void a(double d2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) || this.f29835a.G == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) || this.f30704a.G == null) {
                 return;
             }
-            this.f29835a.G.r(b.a.x0.t.j.e(d2));
+            this.f30704a.G.r(b.a.x0.t.j.e(d2));
         }
 
         @Override // b.a.x0.p.g.c
@@ -877,7 +877,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29836a;
+        public final /* synthetic */ b f30705a;
 
         public m(b bVar) {
             Interceptable interceptable = $ic;
@@ -894,7 +894,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29836a = bVar;
+            this.f30705a = bVar;
         }
 
         @Override // com.baidu.ar.arrender.ARRenderFpsCallback
@@ -910,19 +910,19 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         @Override // com.baidu.ar.arrender.ARRenderFpsCallback
         public void onRenderFinished() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29836a.x0 == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f30705a.x0 == null) {
                 return;
             }
-            this.f29836a.x0.o();
+            this.f30705a.x0.o();
         }
 
         @Override // com.baidu.ar.arrender.ARRenderFpsCallback
         public void onRenderStarted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f29836a.x0 == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f30705a.x0 == null) {
                 return;
             }
-            this.f29836a.x0.p();
+            this.f30705a.x0.p();
         }
 
         @Override // com.baidu.ar.arrender.ARRenderFpsCallback
@@ -939,7 +939,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f29837e;
+        public final /* synthetic */ b f30706e;
 
         public n(b bVar) {
             Interceptable interceptable = $ic;
@@ -956,62 +956,62 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29837e = bVar;
+            this.f30706e = bVar;
         }
 
         @Override // com.baidu.ar.DuMixCallback
         public void onCaseCreate(boolean z, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) || this.f29837e.H == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) || this.f30706e.H == null) {
                 return;
             }
-            this.f29837e.H.onCaseCreate(z, str, str2);
+            this.f30706e.H.onCaseCreate(z, str, str2);
         }
 
         @Override // com.baidu.ar.DuMixCallback
         public void onCaseDestroy() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29837e.H == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f30706e.H == null) {
                 return;
             }
-            this.f29837e.H.onCaseDestroy();
+            this.f30706e.H.onCaseDestroy();
         }
 
         @Override // com.baidu.ar.DuMixCallback
         public void onError(DuMixErrorType duMixErrorType, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, duMixErrorType, str, str2) == null) || this.f29837e.H == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, duMixErrorType, str, str2) == null) || this.f30706e.H == null) {
                 return;
             }
-            this.f29837e.H.onError(duMixErrorType, str, str2);
+            this.f30706e.H.onError(duMixErrorType, str, str2);
         }
 
         @Override // com.baidu.ar.DuMixCallback
         public void onRelease() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f29837e.H == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f30706e.H == null) {
                 return;
             }
-            this.f29837e.H.onRelease();
+            this.f30706e.H.onRelease();
         }
 
         @Override // com.baidu.ar.DuMixCallback
         public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), duMixInput, duMixOutput}) == null) || this.f29837e.H == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), duMixInput, duMixOutput}) == null) || this.f30706e.H == null) {
                 return;
             }
-            this.f29837e.H.onSetup(z, duMixInput, duMixOutput);
+            this.f30706e.H.onSetup(z, duMixInput, duMixOutput);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class o implements b.InterfaceC1438b {
+    public class o implements b.InterfaceC1480b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29838a;
+        public final /* synthetic */ b f30707a;
 
         public o(b bVar) {
             Interceptable interceptable = $ic;
@@ -1028,7 +1028,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     return;
                 }
             }
-            this.f29838a = bVar;
+            this.f30707a = bVar;
         }
 
         public void a() {
@@ -1046,23 +1046,23 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             }
         }
 
-        @Override // b.a.x0.p.i.b.InterfaceC1438b
+        @Override // b.a.x0.p.i.b.InterfaceC1480b
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 if (i2 != 1) {
                     if (i2 == 2) {
-                        this.f29838a.k();
+                        this.f30707a.k();
                         return;
                     } else if (i2 == 3) {
-                        this.f29838a.l();
+                        this.f30707a.l();
                         b.z0.c(null);
                         return;
                     } else if (i2 != 4) {
                         return;
                     }
                 }
-                this.f29838a.j();
+                this.f30707a.j();
             }
         }
 
@@ -1135,10 +1135,10 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         this.t0 = false;
         this.v0 = true;
         this.y0 = new l(this);
-        this.f29807e = context;
+        this.f30676e = context;
         this.x0 = new b.a.x0.f.b.b();
         f();
-        this.X = new b.a.x0.p.e.c(this.f29807e);
+        this.X = new b.a.x0.p.e.c(this.f30676e);
     }
 
     public static Bitmap N(int i2, int i3) {
@@ -1166,9 +1166,9 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         return (Bitmap) invokeII.objValue;
     }
 
-    public void A(b.InterfaceC1429b interfaceC1429b, int i2, int i3, boolean z, String str) {
+    public void A(b.InterfaceC1471b interfaceC1471b, int i2, int i3, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{interfaceC1429b, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{interfaceC1471b, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), str}) == null) {
             this.u = false;
             if (!Q(str)) {
                 t(1101, "设置输出路径错误outputDir:" + str);
@@ -1176,8 +1176,8 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             }
             this.v = i3;
             this.w = i2;
-            this.r = interfaceC1429b;
-            interfaceC1429b.g(this.j, this.k, i2, z);
+            this.r = interfaceC1471b;
+            interfaceC1471b.g(this.j, this.k, i2, z);
             if (!(this.E instanceof b.a.x0.p.d.b)) {
                 this.E = new b.a.x0.p.d.a();
             }
@@ -1186,7 +1186,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             F(this.B);
             ArrayList arrayList = new ArrayList();
             try {
-                b.a.x0.p.h.a aVar = new b.a.x0.p.h.a(this.f29811i.getContext().getApplicationContext(), new g(this));
+                b.a.x0.p.h.a aVar = new b.a.x0.p.h.a(this.f30680i.getContext().getApplicationContext(), new g(this));
                 this.G = aVar;
                 aVar.j(new m(this));
                 this.G.i(new n(this));
@@ -1198,7 +1198,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             }
             L(arrayList);
             this.x = true;
-            b.e eVar = this.f29808f;
+            b.e eVar = this.f30677f;
             if (eVar != null) {
                 eVar.f();
             }
@@ -1215,14 +1215,14 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     public void C(b.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f29809g = dVar;
+            this.f30678g = dVar;
         }
     }
 
     public void D(b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f29808f = eVar;
+            this.f30677f = eVar;
         }
     }
 
@@ -1275,9 +1275,9 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            b.InterfaceC1429b interfaceC1429b = this.r;
-            if (interfaceC1429b != null) {
-                return interfaceC1429b.o();
+            b.InterfaceC1471b interfaceC1471b = this.r;
+            if (interfaceC1471b != null) {
+                return interfaceC1471b.o();
             }
             return true;
         }
@@ -1287,7 +1287,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     public void P(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f29811i.queueEvent(new c(this, z));
+            this.f30680i.queueEvent(new c(this, z));
         }
     }
 
@@ -1373,9 +1373,9 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         if (this.W && (fVar = this.F) != null && fVar.r()) {
             this.X.h(bArr);
         }
-        b.InterfaceC1429b interfaceC1429b = this.r;
-        if (interfaceC1429b != null) {
-            interfaceC1429b.d(bArr);
+        b.InterfaceC1471b interfaceC1471b = this.r;
+        if (interfaceC1471b != null) {
+            interfaceC1471b.d(bArr);
         }
     }
 
@@ -1445,7 +1445,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             if (aVar != null) {
                 aVar.e(6);
             }
-            return (this.F == null || this.f29808f == null) ? false : true;
+            return (this.F == null || this.f30677f == null) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -1538,8 +1538,8 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 e2.printStackTrace();
             }
             b.a.x0.f.a.b("aps_RecordMng_load", jSONObject.toString());
-            b.InterfaceC1429b interfaceC1429b = this.r;
-            if (interfaceC1429b != null && !interfaceC1429b.f() && (surfaceTexture = this.C) != null) {
+            b.InterfaceC1471b interfaceC1471b = this.r;
+            if (interfaceC1471b != null && !interfaceC1471b.f() && (surfaceTexture = this.C) != null) {
                 v(surfaceTexture, this.D);
             }
             m0(true);
@@ -1582,12 +1582,12 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             try {
                 jSONObject.put("cameraW", this.m);
                 jSONObject.put("cameraH", this.n);
-                jSONObject.put("glSfW", this.f29811i.getMeasuredWidth());
-                jSONObject.put("glSfH", this.f29811i.getMeasuredHeight());
+                jSONObject.put("glSfW", this.f30680i.getMeasuredWidth());
+                jSONObject.put("glSfH", this.f30680i.getMeasuredHeight());
                 jSONObject.put("sW", v.e());
                 jSONObject.put("sH", v.d());
-                jSONObject.put("vW:", this.f29811i.getWidth());
-                jSONObject.put("vH:", this.f29811i.getHeight());
+                jSONObject.put("vW:", this.f30680i.getWidth());
+                jSONObject.put("vH:", this.f30680i.getHeight());
                 if (this.r.e() != null) {
                     jSONObject.put("preSizes", this.r.e());
                 }
@@ -1615,8 +1615,8 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            b.InterfaceC1429b interfaceC1429b = this.r;
-            return interfaceC1429b != null && interfaceC1429b.f();
+            b.InterfaceC1471b interfaceC1471b = this.r;
+            return interfaceC1471b != null && interfaceC1471b.f();
         }
         return invokeV.booleanValue;
     }
@@ -1629,7 +1629,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 return false;
             }
             this.s = false;
-            b.e eVar = this.f29808f;
+            b.e eVar = this.f30677f;
             if (eVar != null) {
                 eVar.e();
             }
@@ -1659,12 +1659,12 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     }
 
     public final void k() {
-        b.InterfaceC1429b interfaceC1429b;
+        b.InterfaceC1471b interfaceC1471b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (interfaceC1429b = this.r) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (interfaceC1471b = this.r) == null) {
             return;
         }
-        interfaceC1429b.q();
+        interfaceC1471b.q();
     }
 
     public void k0() {
@@ -1677,12 +1677,12 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     }
 
     public final void l() {
-        b.InterfaceC1429b interfaceC1429b;
+        b.InterfaceC1471b interfaceC1471b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (interfaceC1429b = this.r) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (interfaceC1471b = this.r) == null) {
             return;
         }
-        interfaceC1429b.release();
+        interfaceC1471b.release();
     }
 
     public final void m() {
@@ -1790,7 +1790,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             if (bVar != null) {
                 bVar.m();
             }
-            this.f29807e = null;
+            this.f30676e = null;
         }
     }
 
@@ -1824,7 +1824,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaGLRenderer.OnMediaGLRendererStatusListener
     public void onError(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048616, this, i2, str) == null) || this.f29808f == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048616, this, i2, str) == null) || this.f30677f == null) {
             return;
         }
         this.t.post(new k(this, i2, str));
@@ -1880,7 +1880,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             this.C = g0;
             v(g0, this.D);
             this.G.B(this.m, this.n);
-            this.f29811i.onResume();
+            this.f30680i.onResume();
             this.z.onResume();
             List<IEffectProcessor> list = this.A;
             if (list != null) {
@@ -1898,7 +1898,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             if (aVar != null) {
                 aVar.c();
             }
-            this.f29811i.requestRender();
+            this.f30680i.requestRender();
             n();
         }
     }
@@ -1959,8 +1959,8 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
-            b.InterfaceC1429b interfaceC1429b = this.r;
-            return interfaceC1429b != null && interfaceC1429b.f();
+            b.InterfaceC1471b interfaceC1471b = this.r;
+            return interfaceC1471b != null && interfaceC1471b.f();
         }
         return invokeV.booleanValue;
     }
@@ -1994,7 +1994,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             return;
         }
         this.u = true;
-        if (this.f29808f != null) {
+        if (this.f30677f != null) {
             this.t.post(new j(this, i2, str));
         }
     }
@@ -2002,7 +2002,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     public void u(SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, onFrameAvailableListener) == null) {
-            this.f29810h = onFrameAvailableListener;
+            this.f30679h = onFrameAvailableListener;
         }
     }
 
@@ -2022,7 +2022,7 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     public void w(GLSurfaceView gLSurfaceView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, gLSurfaceView) == null) {
-            this.f29811i = gLSurfaceView;
+            this.f30680i = gLSurfaceView;
             MediaGLRenderer mediaGLRenderer = new MediaGLRenderer();
             this.z = mediaGLRenderer;
             mediaGLRenderer.setRendererListener(this);
@@ -2030,8 +2030,8 @@ public class b implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             this.z.setOnMediaGLRendererStatusListener(this);
             this.z.setTextureReader(this.q0);
             this.z.setGlClearColor(0.102f, 0.102f, 0.102f, 0.0f);
-            this.f29811i.setRenderer(this.z);
-            this.f29811i.setOnTouchListener(new View$OnTouchListenerC1432b(this));
+            this.f30680i.setRenderer(this.z);
+            this.f30680i.setOnTouchListener(new View$OnTouchListenerC1474b(this));
         }
     }
 

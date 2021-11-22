@@ -6,10 +6,10 @@ import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a2.e;
+import b.a.p0.a.d2.e;
 import b.a.p0.a.k;
-import b.a.p0.a.k2.g.g;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.o2.g.g;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,11 +25,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f8451b;
+    public static final boolean f9147b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f8452a;
+    public g f9148a;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -44,11 +44,11 @@ public class c {
 
     /* renamed from: b.a.p0.a.v0.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0422c {
+    public static final class C0455c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f8453a;
+        public static final c f9149a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -64,7 +64,7 @@ public class c {
                     return;
                 }
             }
-            f8453a = new c(null);
+            f9149a = new c(null);
         }
     }
 
@@ -81,7 +81,7 @@ public class c {
                 return;
             }
         }
-        f8451b = k.f6397a;
+        f9147b = k.f6863a;
     }
 
     public /* synthetic */ c(a aVar) {
@@ -91,19 +91,19 @@ public class c {
     public static c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0422c.f8453a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0455c.f9149a : (c) invokeV.objValue;
     }
 
     public boolean a(@NonNull WeakReference<Activity> weakReference) {
         InterceptResult invokeL;
-        e i2;
+        e L;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, weakReference)) == null) {
             if (!q0.G() || weakReference == null || weakReference.get() == null) {
                 return false;
             }
             Activity activity = weakReference.get();
-            if (TextUtils.equals("0", g()) || (i2 = e.i()) == null || i2.I().c("boolean_var_key_fav_guide_show", Boolean.FALSE).booleanValue()) {
+            if (TextUtils.equals("0", g()) || (L = e.L()) == null || L.T().c("boolean_var_key_fav_guide_show", Boolean.FALSE).booleanValue()) {
                 return false;
             }
             return i(activity) && !TextUtils.isEmpty(f());
@@ -127,36 +127,36 @@ public class c {
     public final int d(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) ? this.f8452a.getInt("up_first_in", b(activity)) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) ? this.f9148a.getInt("up_first_in", b(activity)) : invokeL.intValue;
     }
 
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8452a.getBoolean("new_first_in", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9148a.getBoolean("new_first_in", true) : invokeV.booleanValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f8452a.getString("url", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f9148a.getString("url", "") : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8452a.getString(SetImageWatermarkTypeReqMsg.SWITCH, "1") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9148a.getString(SetImageWatermarkTypeReqMsg.SWITCH, "1") : (String) invokeV.objValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            e i2 = e.i();
-            if (i2 == null) {
+            e L = e.L();
+            if (L == null) {
                 return false;
             }
-            return i2.I().c("boolean_var_key_fav_guide_show", Boolean.FALSE).booleanValue();
+            return L.T().c("boolean_var_key_fav_guide_show", Boolean.FALSE).booleanValue();
         }
         return invokeV.booleanValue;
     }
@@ -166,7 +166,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
             boolean e2 = e();
-            if (f8451b) {
+            if (f9147b) {
                 String str = "is first in " + e2;
             }
             if (e2) {
@@ -174,7 +174,7 @@ public class c {
             }
             int d2 = d(activity);
             int b2 = b(activity);
-            if (f8451b) {
+            if (f9147b) {
                 String str2 = "version =" + d2 + " curVerCode" + b2;
             }
             return b2 > d2;
@@ -185,7 +185,7 @@ public class c {
     public void j(@NonNull Activity activity, String str, String str2, b.a.p0.a.v0.b bVar, b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, str, str2, bVar, bVar2) == null) {
-            b.a.p0.a.c1.a.e0().h(activity, str, str2, bVar, bVar2);
+            b.a.p0.a.c1.a.l0().h(activity, str, str2, bVar, bVar2);
         }
     }
 
@@ -203,7 +203,7 @@ public class c {
             }
         }
         g gVar = new g("aiapps_guide_dialog_sp");
-        this.f8452a = gVar;
+        this.f9148a = gVar;
         gVar.edit();
     }
 }

@@ -28,7 +28,7 @@ public final /* synthetic */ class g {
         HashMap wrapError;
         final HashMap hashMap = new HashMap();
         try {
-            hostGlobalStateSync.readAllState(new GlobalStateSyncAuto.Result() { // from class: b.a.r0.t0.a.b.c
+            hostGlobalStateSync.readAllState(new GlobalStateSyncAuto.Result() { // from class: b.a.r0.t0.a.b.e
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public final /* synthetic */ class g {
             }
             BasicMessageChannel basicMessageChannel2 = new BasicMessageChannel(binaryMessenger, "dev.flutter.pigeon.HostGlobalStateSync.readStateForType", new StandardMessageCodec());
             if (hostGlobalStateSync != null) {
-                basicMessageChannel2.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.b.f
+                basicMessageChannel2.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.b.c
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,7 +122,7 @@ public final /* synthetic */ class g {
             }
             BasicMessageChannel basicMessageChannel3 = new BasicMessageChannel(binaryMessenger, "dev.flutter.pigeon.HostGlobalStateSync.write", new StandardMessageCodec());
             if (hostGlobalStateSync != null) {
-                basicMessageChannel3.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.b.e
+                basicMessageChannel3.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.b.f
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

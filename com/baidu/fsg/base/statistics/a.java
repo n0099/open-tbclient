@@ -26,10 +26,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37470a = "utf-8";
+    public static final String f38300a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37471b = "c82c403505338808201aad86f8194734";
+    public static final String f38301b = "c82c403505338808201aad86f8194734";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

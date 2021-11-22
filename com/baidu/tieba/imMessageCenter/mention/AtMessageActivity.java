@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.k0.c.b;
 import b.a.q0.s.g0.f;
 import b.a.r0.m1.b.d;
@@ -46,7 +46,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtMessageActivity f50788a;
+        public final /* synthetic */ AtMessageActivity f51700a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AtMessageActivity atMessageActivity, int i2) {
@@ -66,7 +66,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
                     return;
                 }
             }
-            this.f50788a = atMessageActivity;
+            this.f51700a = atMessageActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,8 +75,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (this.f50788a.atMeModelController != null) {
-                    this.f50788a.atMeModelController.y();
+                if (this.f51700a.atMeModelController != null) {
+                    this.f51700a.atMeModelController.y();
                 }
             }
         }
@@ -194,11 +194,11 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.atMeViewController) == null) {
             return;
         }
-        BdListView bdListView = dVar.f21002b;
+        BdListView bdListView = dVar.f22157b;
         if (bdListView != null) {
             bdListView.setVisibility(0);
         }
-        hideNetRefreshView(this.atMeViewController.f21003c);
+        hideNetRefreshView(this.atMeViewController.f22158c);
     }
 
     @Override // b.a.q0.k0.c.a
@@ -310,11 +310,11 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!StringUtils.isNull(errorData.error_msg)) {
             showToast(errorData.error_msg);
         }
-        BdListView bdListView = this.atMeViewController.f21002b;
+        BdListView bdListView = this.atMeViewController.f22157b;
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.f21003c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+        showNetRefreshView(this.atMeViewController.f22158c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
         setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 

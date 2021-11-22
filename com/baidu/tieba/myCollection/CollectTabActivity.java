@@ -43,7 +43,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CollectTabActivity f51700a;
+        public final /* synthetic */ CollectTabActivity f52613a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CollectTabActivity collectTabActivity, int i2) {
@@ -63,7 +63,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f51700a = collectTabActivity;
+            this.f52613a = collectTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,10 +74,10 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean(CollectFragment.EDITOR_ENABLE_EXTRA, true);
                 int i2 = bundle.getInt(CollectFragment.FRAGMENT_TYPE, -1);
-                if (i2 == -1 || i2 != this.f51700a.mController.f()) {
+                if (i2 == -1 || i2 != this.f52613a.mController.f()) {
                     return;
                 }
-                this.f51700a.mController.k(z);
+                this.f52613a.mController.k(z);
             }
         }
     }
@@ -137,7 +137,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 if (fragmentTabStructure == null) {
                     return;
                 }
-                fragmentTabStructure.f12612a.setArguments(new Bundle());
+                fragmentTabStructure.f13359a.setArguments(new Bundle());
             }
             this.mController.h(aVar.b());
         }

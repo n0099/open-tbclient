@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.q0.d1.y;
+import b.a.q0.c1.y;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,19 +28,19 @@ public class FrsPraiseView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54170e;
+    public Context f55090e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54171f;
+    public View f55091f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f54172g;
+    public TextView f55092g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f54173h;
+    public TextView f55093h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f54174i;
+    public TextView f55094i;
     public PraiseData j;
     public String k;
     public String l;
@@ -53,7 +53,7 @@ public class FrsPraiseView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsPraiseView f54175e;
+        public final /* synthetic */ FrsPraiseView f55095e;
 
         public a(FrsPraiseView frsPraiseView) {
             Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class FrsPraiseView extends LinearLayout {
                     return;
                 }
             }
-            this.f54175e = frsPraiseView;
+            this.f55095e = frsPraiseView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                y.b(new PraiseListActivityConfig(this.f54175e.f54170e, this.f54175e.k, this.f54175e.l, this.f54175e.j != null ? this.f54175e.j.getTitle() : "", this.f54175e.m));
+                y.b(new PraiseListActivityConfig(this.f55095e.f55090e, this.f55095e.k, this.f55095e.l, this.f55095e.j != null ? this.f55095e.j.getTitle() : "", this.f55095e.m));
             }
         }
     }
@@ -88,7 +88,7 @@ public class FrsPraiseView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsPraiseView f54176e;
+        public final /* synthetic */ FrsPraiseView f55096e;
 
         public b(FrsPraiseView frsPraiseView) {
             Interceptable interceptable = $ic;
@@ -105,17 +105,17 @@ public class FrsPraiseView extends LinearLayout {
                     return;
                 }
             }
-            this.f54176e = frsPraiseView;
+            this.f55096e = frsPraiseView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (metaData = this.f54176e.j.getUser().get(1)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (metaData = this.f55096e.j.getUser().get(1)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f54176e.f54170e).createNormalConfig(b.a.e.e.m.b.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f55096e.f55090e).createNormalConfig(b.a.e.f.m.b.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
         }
     }
 
@@ -125,7 +125,7 @@ public class FrsPraiseView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsPraiseView f54177e;
+        public final /* synthetic */ FrsPraiseView f55097e;
 
         public c(FrsPraiseView frsPraiseView) {
             Interceptable interceptable = $ic;
@@ -142,17 +142,17 @@ public class FrsPraiseView extends LinearLayout {
                     return;
                 }
             }
-            this.f54177e = frsPraiseView;
+            this.f55097e = frsPraiseView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (metaData = this.f54177e.j.getUser().get(0)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (metaData = this.f55097e.j.getUser().get(0)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f54177e.f54170e).createNormalConfig(b.a.e.e.m.b.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f55097e.f55090e).createNormalConfig(b.a.e.f.m.b.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
         }
     }
 
@@ -183,36 +183,36 @@ public class FrsPraiseView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             long num = this.j.getNum();
-            this.f54174i.setVisibility(8);
-            this.f54173h.setVisibility(8);
+            this.f55094i.setVisibility(8);
+            this.f55093h.setVisibility(8);
             if (num > 0) {
                 ArrayList<MetaData> user = this.j.getUser();
                 if (user != null && user.size() > 0) {
                     if (user.size() == 1) {
                         if (user.get(0) != null) {
-                            this.f54173h.setVisibility(0);
-                            this.f54173h.setText(g(user.get(0).getName_show()));
+                            this.f55093h.setVisibility(0);
+                            this.f55093h.setText(g(user.get(0).getName_show()));
                         }
                     } else {
                         if (user.get(0) != null) {
-                            this.f54173h.setVisibility(0);
-                            this.f54173h.setText(g(user.get(0).getName_show()));
+                            this.f55093h.setVisibility(0);
+                            this.f55093h.setText(g(user.get(0).getName_show()));
                         }
                         if (user.get(1) != null) {
-                            this.f54174i.setVisibility(0);
-                            TextView textView = this.f54174i;
+                            this.f55094i.setVisibility(0);
+                            TextView textView = this.f55094i;
                             textView.setText("、" + g(user.get(1).getName_show()));
                         }
                     }
                 }
                 if (num <= 2) {
-                    this.f54172g.setText(this.f54170e.getString(R.string.common_praise_view_text));
+                    this.f55092g.setText(this.f55090e.getString(R.string.common_praise_view_text));
                 } else if (num <= 999999) {
-                    TextView textView2 = this.f54172g;
-                    textView2.setText(this.f54170e.getString(R.string.etc) + num + this.f54170e.getString(R.string.common_praise_view_text2));
+                    TextView textView2 = this.f55092g;
+                    textView2.setText(this.f55090e.getString(R.string.etc) + num + this.f55090e.getString(R.string.common_praise_view_text2));
                 } else {
-                    TextView textView3 = this.f54172g;
-                    textView3.setText(this.f54170e.getString(R.string.etc) + "999999+" + this.f54170e.getString(R.string.common_praise_view_text2));
+                    TextView textView3 = this.f55092g;
+                    textView3.setText(this.f55090e.getString(R.string.etc) + "999999+" + this.f55090e.getString(R.string.common_praise_view_text2));
                 }
             }
         }
@@ -227,14 +227,14 @@ public class FrsPraiseView extends LinearLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = View.inflate(this.f54170e, R.layout.frs_item_praise, this);
-            this.f54171f = inflate;
-            this.f54172g = (TextView) inflate.findViewById(R.id.frs_go_praise_list_num);
-            this.f54173h = (TextView) this.f54171f.findViewById(R.id.frs_praise_user_name_text1);
-            this.f54174i = (TextView) this.f54171f.findViewById(R.id.frs_praise_user_name_text2);
+            View inflate = View.inflate(this.f55090e, R.layout.frs_item_praise, this);
+            this.f55091f = inflate;
+            this.f55092g = (TextView) inflate.findViewById(R.id.frs_go_praise_list_num);
+            this.f55093h = (TextView) this.f55091f.findViewById(R.id.frs_praise_user_name_text1);
+            this.f55094i = (TextView) this.f55091f.findViewById(R.id.frs_praise_user_name_text2);
             setOnClickListener(new a(this));
-            this.f54174i.setOnClickListener(new b(this));
-            this.f54173h.setOnClickListener(new c(this));
+            this.f55094i.setOnClickListener(new b(this));
+            this.f55093h.setOnClickListener(new c(this));
         }
     }
 
@@ -243,22 +243,22 @@ public class FrsPraiseView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (this.m) {
                 if (this.n) {
-                    SkinManager.setBackgroundResource(this.f54171f, R.drawable.praise_video_selector);
-                    SkinManager.setViewTextColor(this.f54172g, R.color.CAM_X0108, 1);
-                    SkinManager.setViewTextColor(this.f54173h, R.color.CAM_X0304, 1);
-                    SkinManager.setViewTextColor(this.f54174i, R.color.CAM_X0304, 1);
+                    SkinManager.setBackgroundResource(this.f55091f, R.drawable.praise_video_selector);
+                    SkinManager.setViewTextColor(this.f55092g, R.color.CAM_X0108, 1);
+                    SkinManager.setViewTextColor(this.f55093h, R.color.CAM_X0304, 1);
+                    SkinManager.setViewTextColor(this.f55094i, R.color.CAM_X0304, 1);
                     return;
                 }
-                SkinManager.setBackgroundResource(this.f54171f, R.drawable.praise_head_selector);
-                SkinManager.setViewTextColor(this.f54172g, R.color.CAM_X0109, 1);
-                SkinManager.setViewTextColor(this.f54173h, R.color.CAM_X0304, 1);
-                SkinManager.setViewTextColor(this.f54174i, R.color.CAM_X0304, 1);
+                SkinManager.setBackgroundResource(this.f55091f, R.drawable.praise_head_selector);
+                SkinManager.setViewTextColor(this.f55092g, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.f55093h, R.color.CAM_X0304, 1);
+                SkinManager.setViewTextColor(this.f55094i, R.color.CAM_X0304, 1);
                 return;
             }
-            SkinManager.setBackgroundResource(this.f54171f, R.drawable.praise_view_btn_color);
-            SkinManager.setViewTextColor(this.f54172g, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.f54173h, R.color.CAM_X0108, 1);
-            SkinManager.setViewTextColor(this.f54174i, R.color.CAM_X0108, 1);
+            SkinManager.setBackgroundResource(this.f55091f, R.drawable.praise_view_btn_color);
+            SkinManager.setViewTextColor(this.f55092g, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.f55093h, R.color.CAM_X0108, 1);
+            SkinManager.setViewTextColor(this.f55094i, R.color.CAM_X0108, 1);
         }
     }
 
@@ -309,7 +309,7 @@ public class FrsPraiseView extends LinearLayout {
         this.m = false;
         this.n = false;
         setOrientation(0);
-        this.f54170e = context;
+        this.f55090e = context;
         h();
     }
 }

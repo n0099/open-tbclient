@@ -2,7 +2,7 @@ package b.a.r0.o0.k.d;
 
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.o0.k.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -68,7 +68,7 @@ public class d extends b.a.r0.b0.b<e> {
             return;
         }
         ViewGroup.LayoutParams layoutParams = this.n.getLayoutParams();
-        layoutParams.height = l.g(this.f14738g, eVar.f21746e);
+        layoutParams.height = l.g(this.f16225g, eVar.f23245e);
         this.n.setLayoutParams(layoutParams);
     }
 

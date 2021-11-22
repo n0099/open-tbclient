@@ -28,49 +28,49 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonalGroupFragment f20284e;
+    public PersonalGroupFragment f21806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<GroupInfoData> f20285f;
+    public List<GroupInfoData> f21807f;
 
     /* renamed from: b.a.r0.l1.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1006a {
+    public static class C1074a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f20286a;
+        public LinearLayout f21808a;
 
         /* renamed from: b  reason: collision with root package name */
-        public GroupImageView f20287b;
+        public GroupImageView f21809b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f20288c;
+        public TextView f21810c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f20289d;
+        public TextView f21811d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f20290e;
+        public TextView f21812e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f20291f;
+        public TextView f21813f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ImageView f20292g;
+        public ImageView f21814g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f20293h;
+        public ImageView f21815h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ImageView f20294i;
+        public ImageView f21816i;
         public ImageView j;
         public ImageView k;
         public ImageView l;
         public ImageView[] m;
 
-        public C1006a() {
+        public C1074a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,8 +100,8 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f20285f = new ArrayList();
-        this.f20284e = personalGroupFragment;
+        this.f21807f = new ArrayList();
+        this.f21806e = personalGroupFragment;
     }
 
     public final void a(ImageView[] imageViewArr, int i2) {
@@ -131,10 +131,10 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             int itemId = (int) getItemId(i2);
-            if (itemId < 0 || itemId >= this.f20285f.size()) {
+            if (itemId < 0 || itemId >= this.f21807f.size()) {
                 return null;
             }
-            return this.f20285f.get(itemId);
+            return this.f21807f.get(itemId);
         }
         return (GroupInfoData) invokeI.objValue;
     }
@@ -142,7 +142,7 @@ public class a extends BaseAdapter {
     public void c(List<GroupInfoData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f20285f = list;
+            this.f21807f = list;
         }
     }
 
@@ -150,7 +150,7 @@ public class a extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20285f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21807f.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -163,68 +163,68 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C1006a c1006a;
+        C1074a c1074a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
-            if (view != null && view.getTag() != null && (view.getTag() instanceof C1006a)) {
-                c1006a = (C1006a) view.getTag();
+            if (view != null && view.getTag() != null && (view.getTag() instanceof C1074a)) {
+                c1074a = (C1074a) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f20284e.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
-                c1006a = new C1006a();
-                c1006a.f20286a = (LinearLayout) view.findViewById(R.id.click_head);
-                c1006a.f20292g = (ImageView) view.findViewById(R.id.diver_top);
-                c1006a.f20293h = (ImageView) view.findViewById(R.id.diver_buttom_px);
-                c1006a.f20294i = (ImageView) view.findViewById(R.id.diver_top_px);
-                c1006a.f20287b = (GroupImageView) view.findViewById(R.id.item_head);
-                c1006a.f20288c = (TextView) view.findViewById(R.id.item_group_name);
-                c1006a.f20289d = (TextView) view.findViewById(R.id.item_group_num);
-                c1006a.f20290e = (TextView) view.findViewById(R.id.item_introduce);
-                c1006a.f20291f = (TextView) view.findViewById(R.id.isCreator);
-                c1006a.j = (ImageView) view.findViewById(R.id.item_grade1);
-                c1006a.k = (ImageView) view.findViewById(R.id.item_grade2);
+                view = LayoutInflater.from(this.f21806e.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
+                c1074a = new C1074a();
+                c1074a.f21808a = (LinearLayout) view.findViewById(R.id.click_head);
+                c1074a.f21814g = (ImageView) view.findViewById(R.id.diver_top);
+                c1074a.f21815h = (ImageView) view.findViewById(R.id.diver_buttom_px);
+                c1074a.f21816i = (ImageView) view.findViewById(R.id.diver_top_px);
+                c1074a.f21809b = (GroupImageView) view.findViewById(R.id.item_head);
+                c1074a.f21810c = (TextView) view.findViewById(R.id.item_group_name);
+                c1074a.f21811d = (TextView) view.findViewById(R.id.item_group_num);
+                c1074a.f21812e = (TextView) view.findViewById(R.id.item_introduce);
+                c1074a.f21813f = (TextView) view.findViewById(R.id.isCreator);
+                c1074a.j = (ImageView) view.findViewById(R.id.item_grade1);
+                c1074a.k = (ImageView) view.findViewById(R.id.item_grade2);
                 ImageView imageView = (ImageView) view.findViewById(R.id.item_grade3);
-                c1006a.l = imageView;
+                c1074a.l = imageView;
                 ImageView[] imageViewArr = new ImageView[4];
-                c1006a.m = imageViewArr;
-                imageViewArr[1] = c1006a.j;
-                imageViewArr[2] = c1006a.k;
+                c1074a.m = imageViewArr;
+                imageViewArr[1] = c1074a.j;
+                imageViewArr[2] = c1074a.k;
                 imageViewArr[3] = imageView;
-                view.setTag(c1006a);
+                view.setTag(c1074a);
             }
-            GroupInfoData groupInfoData = this.f20285f.get(i2);
-            c1006a.f20287b.setTag(null);
-            c1006a.f20287b.setDrawBorder(true);
-            c1006a.f20287b.setPlaceHolder(1);
+            GroupInfoData groupInfoData = this.f21807f.get(i2);
+            c1074a.f21809b.setTag(null);
+            c1074a.f21809b.setDrawBorder(true);
+            c1074a.f21809b.setPlaceHolder(1);
             if (groupInfoData != null) {
                 String portrait = groupInfoData.getPortrait();
                 if (!TextUtils.isEmpty(portrait)) {
-                    c1006a.f20287b.startLoad(portrait, 10, false);
+                    c1074a.f21809b.startLoad(portrait, 10, false);
                 } else {
-                    c1006a.f20287b.startLoad("", 10, false);
+                    c1074a.f21809b.startLoad("", 10, false);
                 }
-                c1006a.f20286a.setOnClickListener(this.f20284e);
-                c1006a.f20286a.setTag(groupInfoData);
-                c1006a.f20292g.setVisibility(8);
-                c1006a.f20294i.setVisibility(8);
-                c1006a.f20293h.setVisibility(0);
-                c1006a.f20288c.setText(groupInfoData.getName());
-                TextView textView = c1006a.f20289d;
+                c1074a.f21808a.setOnClickListener(this.f21806e);
+                c1074a.f21808a.setTag(groupInfoData);
+                c1074a.f21814g.setVisibility(8);
+                c1074a.f21816i.setVisibility(8);
+                c1074a.f21815h.setVisibility(0);
+                c1074a.f21810c.setText(groupInfoData.getName());
+                TextView textView = c1074a.f21811d;
                 textView.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-                c1006a.f20290e.setText(groupInfoData.getIntro());
+                c1074a.f21812e.setText(groupInfoData.getIntro());
                 if (groupInfoData.getIsGroupManager() == 1) {
-                    c1006a.f20291f.setVisibility(0);
+                    c1074a.f21813f.setVisibility(0);
                 } else {
-                    c1006a.f20291f.setVisibility(8);
+                    c1074a.f21813f.setVisibility(8);
                 }
-                a(c1006a.m, groupInfoData.getGrade());
+                a(c1074a.m, groupInfoData.getGrade());
             }
-            this.f20284e.getBaseFragmentActivity().getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-            this.f20284e.getBaseFragmentActivity().getLayoutMode().j(view);
+            this.f21806e.getBaseFragmentActivity().getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
+            this.f21806e.getBaseFragmentActivity().getLayoutMode().j(view);
             if (groupInfoData != null && groupInfoData.isMemGroup()) {
-                SkinManager.setViewTextColor(c1006a.f20288c, R.color.common_color_10009, 1);
-                SkinManager.setImageResource(c1006a.j, R.drawable.icon_vip_grade_big_small_s);
-                SkinManager.setImageResource(c1006a.k, R.drawable.icon_vip_grade_big_small_s);
-                SkinManager.setImageResource(c1006a.l, R.drawable.icon_vip_grade_big_small_s);
+                SkinManager.setViewTextColor(c1074a.f21810c, R.color.common_color_10009, 1);
+                SkinManager.setImageResource(c1074a.j, R.drawable.icon_vip_grade_big_small_s);
+                SkinManager.setImageResource(c1074a.k, R.drawable.icon_vip_grade_big_small_s);
+                SkinManager.setImageResource(c1074a.l, R.drawable.icon_vip_grade_big_small_s);
             }
             return view;
         }

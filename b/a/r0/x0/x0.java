@@ -1,7 +1,9 @@
 package b.a.r0.x0;
-
-import b.a.q0.s.q.d2;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface x0 {
-    void a(d2 d2Var);
+    void a(boolean z, boolean z2, int i2);
+
+    void b(int i2);
+
+    void c(int i2, int i3);
 }

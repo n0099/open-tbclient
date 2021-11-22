@@ -26,14 +26,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class r extends b.a.e.l.e.a<b.a.r0.b0.e0.k, ThreadCardViewHolder<b.a.r0.b0.e0.k>> implements b.a.r0.p.f {
+public class r extends b.a.e.m.e.a<b.a.r0.b0.f0.k, ThreadCardViewHolder<b.a.r0.b0.f0.k>> implements b.a.r0.p.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
     public TbPageContext<?> n;
     public boolean o;
     public NEGFeedBackView.b p;
-    public b.a.r0.b0.c0<b.a.r0.b0.e0.k> q;
+    public b.a.r0.b0.d0<b.a.r0.b0.f0.k> q;
 
     /* loaded from: classes4.dex */
     public class a implements d.b {
@@ -73,12 +73,12 @@ public class r extends b.a.e.l.e.a<b.a.r0.b0.e0.k, ThreadCardViewHolder<b.a.r0.b
     }
 
     /* loaded from: classes4.dex */
-    public class b implements b.a.e.l.e.w {
+    public class b implements b.a.e.m.e.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f17415e;
+        public final /* synthetic */ r f18884e;
 
         public b(r rVar) {
             Interceptable interceptable = $ic;
@@ -95,31 +95,31 @@ public class r extends b.a.e.l.e.a<b.a.r0.b0.e0.k, ThreadCardViewHolder<b.a.r0.b
                     return;
                 }
             }
-            this.f17415e = rVar;
+            this.f18884e = rVar;
         }
 
-        @Override // b.a.e.l.e.w
-        public void b(View view, b.a.e.l.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
-            b.a.r0.b0.e0.k kVar;
+        @Override // b.a.e.m.e.w
+        public void b(View view, b.a.e.m.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
+            b.a.r0.b0.f0.k kVar;
             d2 d2Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) || !(nVar instanceof b.a.r0.b0.e0.k) || (kVar = (b.a.r0.b0.e0.k) nVar) == null || (d2Var = kVar.f14748e) == null || d2Var.e1() == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) || !(nVar instanceof b.a.r0.b0.f0.k) || (kVar = (b.a.r0.b0.f0.k) nVar) == null || (d2Var = kVar.f16235e) == null || d2Var.f1() == null) {
                 return;
             }
-            this.f17415e.o0(kVar.f14748e, view);
+            this.f18884e.o0(kVar.f16235e, view);
             TiebaStatic.log(kVar.A());
             TiebaStatic.log(kVar.o());
-            this.f17415e.j0(kVar.f14748e, kVar.q());
+            this.f18884e.j0(kVar.f16235e, kVar.q());
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends b.a.r0.b0.c0<b.a.r0.b0.e0.k> {
+    public class c extends b.a.r0.b0.d0<b.a.r0.b0.f0.k> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ r f17416b;
+        public final /* synthetic */ r f18885b;
 
         public c(r rVar) {
             Interceptable interceptable = $ic;
@@ -136,24 +136,24 @@ public class r extends b.a.e.l.e.a<b.a.r0.b0.e0.k, ThreadCardViewHolder<b.a.r0.b
                     return;
                 }
             }
-            this.f17416b = rVar;
+            this.f18885b = rVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
-        public boolean c(View view, b.a.r0.b0.e0.k kVar, String str) {
+        public boolean c(View view, b.a.r0.b0.f0.k kVar, String str) {
             InterceptResult invokeLLL;
             d2 d2Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, kVar, str)) == null) {
-                if (kVar == null || (d2Var = kVar.f14748e) == null || d2Var.e1() == null) {
+                if (kVar == null || (d2Var = kVar.f16235e) == null || d2Var.f1() == null) {
                     return false;
                 }
-                this.f17416b.o0(kVar.f14748e, view);
+                this.f18885b.o0(kVar.f16235e, view);
                 TiebaStatic.log(kVar.A());
                 TiebaStatic.log(kVar.o());
-                this.f17416b.j0(kVar.f14748e, kVar.q());
+                this.f18885b.j0(kVar.f16235e, kVar.q());
                 return true;
             }
             return invokeLLL.booleanValue;
@@ -196,32 +196,32 @@ public class r extends b.a.e.l.e.a<b.a.r0.b0.e0.k, ThreadCardViewHolder<b.a.r0.b
     public final void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b.a.r0.b0.e0.k.m0 = "c13388";
-            b.a.r0.b0.e0.k.n0 = "c13389";
+            b.a.r0.b0.f0.k.o0 = "c13388";
+            b.a.r0.b0.f0.k.p0 = "c13389";
         }
     }
 
     public final void j0(d2 d2Var, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, d2Var, i2) == null) || d2Var == null || d2Var.e1() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, d2Var, i2) == null) || d2Var == null || d2Var.f1() == null) {
             return;
         }
-        b.a.r0.k3.c.g().c(this.m, b.a.r0.k3.a.j(d2Var, "a002", "common_click", 1, i2, d2Var.e1().id));
+        b.a.r0.l3.c.g().c(this.m, b.a.r0.l3.a.j(d2Var, "a002", "common_click", 1, i2, d2Var.f1().id));
     }
 
     public final void k0(d2 d2Var, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, d2Var, i2) == null) || d2Var == null || d2Var.e1() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, d2Var, i2) == null) || d2Var == null || d2Var.f1() == null) {
             return;
         }
-        String str = d2Var.e1().id;
-        b.a.r0.k3.c.g().d(this.m, b.a.r0.k3.a.c(d2Var.s1(), "", str, null), b.a.r0.k3.a.k(d2Var, "a002", "common_exp", i2, str));
+        String str = d2Var.f1().id;
+        b.a.r0.l3.c.g().d(this.m, b.a.r0.l3.a.c(d2Var.t1(), "", str, null), b.a.r0.l3.a.k(d2Var, "a002", "common_exp", i2, str));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: l0 */
-    public ThreadCardViewHolder<b.a.r0.b0.e0.k> T(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<b.a.r0.b0.f0.k> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
@@ -238,7 +238,7 @@ public class r extends b.a.e.l.e.a<b.a.r0.b0.e0.k, ThreadCardViewHolder<b.a.r0.b
             xVar.p(this.o);
             bVar.n(xVar);
             bVar.m(new i0(this.n.getPageActivity()));
-            ThreadCardViewHolder<b.a.r0.b0.e0.k> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.j(BaseCardInfo.SupportType.FULL, viewGroup));
+            ThreadCardViewHolder<b.a.r0.b0.f0.k> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.j(BaseCardInfo.SupportType.FULL, viewGroup));
             threadCardViewHolder.setPageId(this.m);
             c0(new b(this));
             return threadCardViewHolder;
@@ -247,24 +247,24 @@ public class r extends b.a.e.l.e.a<b.a.r0.b0.e0.k, ThreadCardViewHolder<b.a.r0.b
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: m0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.b0.e0.k kVar, ThreadCardViewHolder<b.a.r0.b0.e0.k> threadCardViewHolder) {
+    public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.b0.f0.k kVar, ThreadCardViewHolder<b.a.r0.b0.f0.k> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
-            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f14748e == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f16235e == null) {
                 return null;
             }
             kVar.K(kVar.position + 1);
-            kVar.f14748e.T1 = kVar.q();
+            kVar.f16235e.T1 = kVar.q();
             threadCardViewHolder.showNEGFeedBackView(false).t(this.p);
             threadCardViewHolder.onBindDataToView(kVar);
             threadCardViewHolder.getCardView().onChangeSkinType(this.n, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.getCardView().o(this.q);
-            b.a.r0.b0.u.b().a(kVar.B());
+            b.a.r0.b0.v.b().a(kVar.B());
             b.a.r0.p.d.c().i("page_recommend", "show_", kVar.B());
-            k0(kVar.f14748e, kVar.q());
+            k0(kVar.f16235e, kVar.q());
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -279,29 +279,29 @@ public class r extends b.a.e.l.e.a<b.a.r0.b0.e0.k, ThreadCardViewHolder<b.a.r0.b
 
     public final void o0(d2 d2Var, View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, d2Var, view) == null) || d2Var == null || d2Var.e1() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, d2Var, view) == null) || d2Var == null || d2Var.f1() == null) {
             return;
         }
-        String str = d2Var.e1().id;
-        String str2 = d2Var.e1().link;
-        String str3 = d2Var.e1().h5_url;
-        Long l = d2Var.e1().swan_app_id;
-        long parseLong = Long.parseLong(d2Var.s1());
+        String str = d2Var.f1().id;
+        String str2 = d2Var.f1().link;
+        String str3 = d2Var.f1().h5_url;
+        Long l = d2Var.f1().swan_app_id;
+        long parseLong = Long.parseLong(d2Var.t1());
         long T = d2Var.T();
-        String str4 = d2Var.e1().name;
+        String str4 = d2Var.f1().name;
         b.a.q0.s.e0.b.j().w("smart_app_tid", parseLong);
         b.a.q0.s.e0.b.j().x("smart_app_name", str4);
         b.a.q0.s.e0.b.j().x("smart_app_id", str);
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (!b.a.r0.v.a.b(str, str2, "1191008600000000", d2Var.e1().is_game)) {
+        if (!b.a.r0.v.a.b(str, str2, "1191008600000000", d2Var.f1().is_game)) {
             if (StringUtils.isNull(str3)) {
                 return;
             }
-            b.a.q0.m.a.l(view.getContext(), str3);
+            b.a.q0.m.a.m(view.getContext(), str3);
         }
-        b.a.r0.b0.m.a(d2Var.s1());
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", T).param("tid", parseLong).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str4).param("obj_id", l.longValue()).param("obj_source", "index_card").param("obj_param1", d2Var.e1().is_game.intValue()));
+        b.a.r0.b0.m.a(d2Var.t1());
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", T).param("tid", parseLong).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str4).param("obj_id", l.longValue()).param("obj_source", "index_card").param("obj_param1", d2Var.f1().is_game.intValue()));
     }
 }

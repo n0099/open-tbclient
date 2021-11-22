@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7296e;
+    /* renamed from: d  reason: collision with root package name */
+    public static final boolean f7720d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class b extends a {
                 return;
             }
         }
-        f7296e = k.f6397a;
+        f7720d = k.f6863a;
     }
 
     public b() {
@@ -61,7 +61,7 @@ public class b extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            boolean z = f7296e;
+            boolean z = f7720d;
             return null;
         }
         return (Exception) invokeL.objValue;
@@ -105,7 +105,7 @@ public class b extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean z = f7296e;
+            boolean z = f7720d;
             return false;
         }
         return invokeV.booleanValue;

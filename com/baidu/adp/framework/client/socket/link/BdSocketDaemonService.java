@@ -8,7 +8,7 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import b.a.e.c.e.c.k.c;
-import b.a.e.e.m.f;
+import b.a.e.f.m.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -143,7 +143,7 @@ public class BdSocketDaemonService extends BdBaseService {
                 try {
                     startForeground(2147483646, new Notification());
                 } catch (Exception unused) {
-                    b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                    b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onCreate-startForeground");
                     BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
                 }
@@ -160,7 +160,7 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 unbindService(this.conn);
             } catch (Exception unused) {
-                b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-unbindService");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
             }
@@ -169,7 +169,7 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 startService(intent);
             } catch (Exception unused2) {
-                b.a.e.e.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                b.a.e.f.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem2.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-startService");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem2);
             }

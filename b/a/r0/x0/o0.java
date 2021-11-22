@@ -1,11 +1,11 @@
 package b.a.r0.x0;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface o0 {
-    void g();
+    void changeSkinType();
 
-    void init();
+    void onPageOutEnd();
 
-    void q(int i2, int i3, y0 y0Var);
+    void onPageStartIn();
 
-    void t(s0 s0Var);
+    void refreshPage();
 }

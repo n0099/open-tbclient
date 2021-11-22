@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.voice;
 
-import b.a.e.e.p.h;
-import b.a.e.e.p.i;
+import b.a.e.f.p.h;
+import b.a.e.f.p.i;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -39,7 +39,7 @@ public class Amrnb {
             }
         }
 
-        @Override // b.a.e.e.p.i
+        @Override // b.a.e.f.p.i
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {

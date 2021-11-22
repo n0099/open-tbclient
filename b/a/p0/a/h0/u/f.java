@@ -16,10 +16,10 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5822a;
+    public static final boolean f6158a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static LruCache<String, Object> f5823b;
+    public static LruCache<String, Object> f6159b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -33,7 +33,7 @@ public final class f {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f f5824a;
+        public static final f f6160a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public final class f {
                     return;
                 }
             }
-            f5824a = new f(null);
+            f6160a = new f(null);
         }
     }
 
@@ -66,7 +66,7 @@ public final class f {
                 return;
             }
         }
-        f5822a = k.f6397a;
+        f6158a = k.f6863a;
     }
 
     public /* synthetic */ f(a aVar) {
@@ -76,7 +76,7 @@ public final class f {
     public static f b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f5824a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f6160a : (f) invokeV.objValue;
     }
 
     public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
@@ -87,11 +87,11 @@ public final class f {
                 if (TextUtils.isEmpty(str)) {
                     return config;
                 }
-                CONFIG config2 = (CONFIG) f5823b.get(str);
+                CONFIG config2 = (CONFIG) f6159b.get(str);
                 if (config2 == null) {
                     return config;
                 }
-                if (f5822a) {
+                if (f6158a) {
                     String str2 = "getConfig hit key: " + str;
                 }
                 return config2;
@@ -105,10 +105,10 @@ public final class f {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, config) == null) {
             synchronized (this) {
                 if (!TextUtils.isEmpty(str) && config != null) {
-                    if (f5822a) {
+                    if (f6158a) {
                         String str2 = "putConfig key: " + str;
                     }
-                    f5823b.put(str, config);
+                    f6159b.put(str, config);
                 }
             }
         }
@@ -127,6 +127,6 @@ public final class f {
                 return;
             }
         }
-        f5823b = new LruCache<>(10);
+        f6159b = new LruCache<>(10);
     }
 }

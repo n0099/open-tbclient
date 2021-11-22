@@ -44,7 +44,7 @@ public class q implements CustomMessageTask.CustomRunnable<Object> {
             responseSearchGroupLocalMessage.setGid(groupId);
             String str = groupId + "";
             b.a.q0.s.r.a.f();
-            b.a.e.e.d.l<String> g2 = b.a.q0.s.r.a.g("tb.im_group_search_history");
+            b.a.e.f.d.l<String> g2 = b.a.q0.s.r.a.g("tb.im_group_search_history");
             g2.g(str, g2.get(str));
             return responseSearchGroupLocalMessage;
         }

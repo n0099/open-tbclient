@@ -1,6 +1,6 @@
 package b.a.r0.k2.p.a;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -21,44 +21,44 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f18651a;
+    public static final String f20187a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.r0.k2.p.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0944a extends BdAsyncTask<String, Object, ForbidResultData> {
+    public static class C1013a extends BdAsyncTask<String, Object, ForbidResultData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18652a;
+        public String f20188a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18653b;
+        public String f20189b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18654c;
+        public String f20190c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f18655d;
+        public String f20191d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f18656e;
+        public String f20192e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18657f;
+        public String f20193f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f18658g;
+        public String f20194g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f18659h;
+        public String f20195h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f18660i;
+        public String f20196i;
         public WeakReference<b> j;
 
-        public C0944a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public C1013a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,15 +73,15 @@ public class a {
                     return;
                 }
             }
-            this.f18652a = str;
-            this.f18653b = str2;
-            this.f18654c = str3;
-            this.f18655d = str4;
-            this.f18658g = str6;
-            this.f18656e = str8;
-            this.f18657f = str9;
-            this.f18659h = str7;
-            this.f18660i = str5;
+            this.f20188a = str;
+            this.f20189b = str2;
+            this.f20190c = str3;
+            this.f20191d = str4;
+            this.f20194g = str6;
+            this.f20192e = str8;
+            this.f20193f = str9;
+            this.f20195h = str7;
+            this.f20196i = str5;
             this.j = new WeakReference<>(bVar);
             setPriority(3);
         }
@@ -93,17 +93,17 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                NetWork netWork = new NetWork(a.f18651a);
-                netWork.addPostData("day", this.f18658g);
-                netWork.addPostData("un", this.f18655d);
-                netWork.addPostData("fid", this.f18652a);
-                netWork.addPostData("word", this.f18653b);
-                netWork.addPostData("z", this.f18654c);
-                netWork.addPostData("reason", this.f18659h);
+                NetWork netWork = new NetWork(a.f20187a);
+                netWork.addPostData("day", this.f20194g);
+                netWork.addPostData("un", this.f20191d);
+                netWork.addPostData("fid", this.f20188a);
+                netWork.addPostData("word", this.f20189b);
+                netWork.addPostData("z", this.f20190c);
+                netWork.addPostData("reason", this.f20195h);
                 netWork.addPostData("ntn", "banid");
-                netWork.addPostData("post_id", this.f18660i);
-                netWork.addPostData("nick_name", this.f18656e);
-                netWork.addPostData("portrait", this.f18657f);
+                netWork.addPostData("post_id", this.f20196i);
+                netWork.addPostData("nick_name", this.f20192e);
+                netWork.addPostData("portrait", this.f20193f);
                 netWork.getNetContext().getRequest().mIsNeedTbs = true;
                 String postNetData = netWork.postNetData();
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
@@ -163,13 +163,13 @@ public class a {
                 return;
             }
         }
-        f18651a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+        f20187a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
     }
 
     public static void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, bVar}) == null) {
-            new C0944a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+            new C1013a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
         }
     }
 }

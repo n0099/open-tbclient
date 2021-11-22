@@ -13,31 +13,31 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f14208a;
+    public Context f14975a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14209b;
+    public String f14976b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14210c;
+    public int f14977c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14211d;
+    public int f14978d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14212e;
+    public int f14979e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14213f;
+    public int f14980f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14214g;
+    public boolean f14981g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14215h;
+    public boolean f14982h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14216i;
+    public boolean f14983i;
     public int j;
     public n k;
     public int l;
@@ -62,11 +62,11 @@ public class m {
                 return;
             }
         }
-        this.f14216i = true;
+        this.f14983i = true;
         this.m = false;
         this.q = true;
-        this.f14209b = str;
-        this.f14210c = i2;
+        this.f14976b = str;
+        this.f14977c = i2;
         this.j = i3;
     }
 
@@ -110,7 +110,7 @@ public class m {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14208a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14975a : (Context) invokeV.objValue;
     }
 
     public m(Context context, String str, int i2) {
@@ -128,12 +128,12 @@ public class m {
                 return;
             }
         }
-        this.f14216i = true;
+        this.f14983i = true;
         this.m = false;
         this.q = true;
-        this.f14209b = str;
-        this.f14210c = i2;
-        this.f14208a = context;
+        this.f14976b = str;
+        this.f14977c = i2;
+        this.f14975a = context;
     }
 
     public m(Context context, String str, int i2, int i3) {
@@ -151,12 +151,12 @@ public class m {
                 return;
             }
         }
-        this.f14216i = true;
+        this.f14983i = true;
         this.m = false;
         this.q = true;
-        this.f14209b = str;
-        this.f14210c = i2;
-        this.f14208a = context;
+        this.f14976b = str;
+        this.f14977c = i2;
+        this.f14975a = context;
         this.j = i3;
     }
 }

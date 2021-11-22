@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Hottopic.TopicInfo;
 import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
-public class f implements b.a.e.l.e.n {
+public class f implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId t;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18447e;
+    public String f19781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18448f;
+    public String f19782f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18449g;
+    public String f19783g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f18450h;
+    public long f19784h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f18451i;
+    public String f19785i;
     public String j;
     public String k;
     public long l;
@@ -78,11 +78,11 @@ public class f implements b.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, topicInfo) == null) || topicInfo == null) {
             return;
         }
-        this.f18447e = String.valueOf(topicInfo.topic_id);
-        this.f18448f = topicInfo.topic_name;
-        this.f18449g = topicInfo.desc;
-        this.f18450h = topicInfo.total_post_num.longValue();
-        this.f18451i = topicInfo.head_photo_url;
+        this.f19781e = String.valueOf(topicInfo.topic_id);
+        this.f19782f = topicInfo.topic_name;
+        this.f19783g = topicInfo.desc;
+        this.f19784h = topicInfo.total_post_num.longValue();
+        this.f19785i = topicInfo.head_photo_url;
         this.j = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
         this.k = topicInfo.share_pic;
         this.l = topicInfo.idx_num.longValue();
@@ -113,7 +113,7 @@ public class f implements b.a.e.l.e.n {
         }
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

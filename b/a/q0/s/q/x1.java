@@ -16,17 +16,17 @@ public class x1 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f13487h;
+    public static final BdUniqueId f14269h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13488e;
+    public String f14270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13489f;
+    public String f14271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13490g;
+    public int f14272g;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class x1 extends BaseCardInfo {
                 return;
             }
         }
-        f13487h = BdUniqueId.gen();
+        f14269h = BdUniqueId.gen();
     }
 
     public x1() {
@@ -63,15 +63,15 @@ public class x1 extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, generalResource) == null) || generalResource == null) {
             return;
         }
-        this.f13488e = generalResource.res_image;
-        this.f13489f = generalResource.res_link;
-        this.f13490g = generalResource.res_floor.intValue();
+        this.f14270e = generalResource.res_image;
+        this.f14271f = generalResource.res_link;
+        this.f14272g = generalResource.res_floor.intValue();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f13487h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14269h : (BdUniqueId) invokeV.objValue;
     }
 }

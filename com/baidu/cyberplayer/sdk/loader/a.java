@@ -27,38 +27,38 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class a implements a.InterfaceC1604a {
+public class a implements a.InterfaceC1641a {
     public static /* synthetic */ Interceptable $ic;
     public static ClassLoader m;
     public static a n;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f37155a;
+    public long f37985a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37156b;
+    public int f37986b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f37157c;
+    public Context f37987c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37158d;
+    public String f37988d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37159e;
+    public String f37989e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37160f;
+    public String f37990f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37161g;
+    public String f37991g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f37162h;
+    public boolean f37992h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile int f37163i;
+    public volatile int f37993i;
     public Map<String, String> j;
     public ArrayList<String> k;
     public CyberPlayerManager.InstallListener2 l;
@@ -94,14 +94,14 @@ public class a implements a.InterfaceC1604a {
                 return;
             }
         }
-        this.f37155a = 0L;
-        this.f37156b = 0;
-        this.f37157c = null;
-        this.f37158d = SDKVersion.VERSION;
-        this.f37159e = null;
-        this.f37160f = null;
-        this.f37161g = null;
-        this.f37162h = false;
+        this.f37985a = 0L;
+        this.f37986b = 0;
+        this.f37987c = null;
+        this.f37988d = SDKVersion.VERSION;
+        this.f37989e = null;
+        this.f37990f = null;
+        this.f37991g = null;
+        this.f37992h = false;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -153,7 +153,7 @@ public class a implements a.InterfaceC1604a {
             }
             CyberPlayerManager.InstallListener2 installListener2 = this.l;
             if (installListener2 != null) {
-                installListener2.onInstallError(this.f37163i, i2, str);
+                installListener2.onInstallError(this.f37993i, i2, str);
             }
             if (i2 == -4 || !o.m()) {
                 return;
@@ -169,11 +169,11 @@ public class a implements a.InterfaceC1604a {
         if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) && e() && !TextUtils.isEmpty(str)) {
             com.baidu.cyberplayer.sdk.downloader.a aVar = new com.baidu.cyberplayer.sdk.downloader.a();
             if (str.startsWith("model_")) {
-                str2 = this.f37161g;
-                str3 = this.f37160f;
+                str2 = this.f37991g;
+                str3 = this.f37990f;
             } else {
-                str2 = this.f37161g;
-                str3 = this.f37159e;
+                str2 = this.f37991g;
+                str3 = this.f37989e;
             }
             aVar.a(str2, str, str3, this);
         }
@@ -209,7 +209,7 @@ public class a implements a.InterfaceC1604a {
         if (!(interceptable == null || interceptable.invokeI(65544, this, i2) == null) || (installListener2 = this.l) == null) {
             return;
         }
-        installListener2.onInstallProgress(this.f37163i, i2);
+        installListener2.onInstallProgress(this.f37993i, i2);
     }
 
     private void c() {
@@ -218,31 +218,31 @@ public class a implements a.InterfaceC1604a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            CyberLog.d("CyberCoreLoader", "tryLoadCore:" + this.f37163i);
-            if (d.a(this.f37163i)) {
+            CyberLog.d("CyberCoreLoader", "tryLoadCore:" + this.f37993i);
+            if (d.a(this.f37993i)) {
                 return;
             }
             if (!d.g()) {
-                this.f37158d = CyberCoreLoaderManager.a().b();
+                this.f37988d = CyberCoreLoaderManager.a().b();
                 i();
-                File file = new File(this.f37159e, "cyber-media-dex_" + this.f37158d + ".jar");
+                File file = new File(this.f37989e, "cyber-media-dex_" + this.f37988d + ".jar");
                 if (file.exists()) {
                     CyberLog.d("CyberCoreLoader", "try load from extend:" + file.getAbsolutePath());
-                    classLoader = new CyberClassLoader(file.getAbsolutePath(), new File(this.f37159e), null, this.f37157c.getClassLoader());
-                } else if (!this.f37158d.equals(SDKVersion.VERSION)) {
+                    classLoader = new CyberClassLoader(file.getAbsolutePath(), new File(this.f37989e), null, this.f37987c.getClassLoader());
+                } else if (!this.f37988d.equals(SDKVersion.VERSION)) {
                     sb = new StringBuilder();
                     sb.append(o.o());
                     sb.append("_cyber-media-dex_");
-                    sb.append(this.f37158d);
+                    sb.append(this.f37988d);
                     sb.append(".zip");
                     a(sb.toString());
                     return;
                 } else {
-                    classLoader = this.f37157c.getClassLoader();
+                    classLoader = this.f37987c.getClassLoader();
                 }
                 m = classLoader;
                 try {
-                    d.a(this.f37157c, m, this.f37160f, this.l);
+                    d.a(this.f37987c, m, this.f37990f, this.l);
                     this.o = System.currentTimeMillis() - currentTimeMillis;
                 } catch (Exception unused) {
                     m = null;
@@ -251,10 +251,10 @@ public class a implements a.InterfaceC1604a {
             }
             try {
                 long currentTimeMillis2 = System.currentTimeMillis();
-                if (d.a(this.f37163i, this.j)) {
+                if (d.a(this.f37993i, this.j)) {
                     this.p = System.currentTimeMillis() - currentTimeMillis2;
                     g();
-                    CyberLog.d("CyberCoreLoader", "load success curVer:" + d.a() + " installType:" + this.f37163i);
+                    CyberLog.d("CyberCoreLoader", "load success curVer:" + d.a() + " installType:" + this.f37993i);
                 }
             } catch (FileNotFoundException e2) {
                 CyberLog.d("CyberCoreLoader", "FileNotFoundException:" + e2.getMessage());
@@ -271,7 +271,7 @@ public class a implements a.InterfaceC1604a {
     private SharedPreferences d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.f37157c.getSharedPreferences("video_cfg", 0) : (SharedPreferences) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.f37987c.getSharedPreferences("video_cfg", 0) : (SharedPreferences) invokeV.objValue;
     }
 
     private boolean e() {
@@ -284,7 +284,7 @@ public class a implements a.InterfaceC1604a {
                 return false;
             }
             int a2 = a("success-download-core-count", 0);
-            this.f37156b = a2;
+            this.f37986b = a2;
             if (a2 >= 12) {
                 CyberLog.w("CyberCoreLoader", "Achieve max success download time:12");
                 a(-1, "Achieve max success download time");
@@ -314,7 +314,7 @@ public class a implements a.InterfaceC1604a {
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             CyberPlayerManager.InstallListener2 installListener2 = this.l;
             if (installListener2 != null) {
-                installListener2.onInstallSuccess(this.f37163i, d.a());
+                installListener2.onInstallSuccess(this.f37993i, d.a());
             }
             if (o.m()) {
                 CyberCfgManager.getInstance().setPrefInt("install_error_count", 0);
@@ -326,18 +326,18 @@ public class a implements a.InterfaceC1604a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            if (this.f37162h) {
+            if (this.f37992h) {
                 return false;
             }
-            if (SDKVersion.VERSION.equals(this.f37158d)) {
+            if (SDKVersion.VERSION.equals(this.f37988d)) {
                 if (d.k()) {
-                    this.f37162h = true;
+                    this.f37992h = true;
                     return true;
                 }
                 return false;
-            } else if (!this.f37158d.equals(d.a()) && CyberCfgManager.getInstance().getCfgBoolValue("update_core_enable_downgrade", true)) {
-                this.f37158d = SDKVersion.VERSION;
-                this.f37162h = true;
+            } else if (!this.f37988d.equals(d.a()) && CyberCfgManager.getInstance().getCfgBoolValue("update_core_enable_downgrade", true)) {
+                this.f37988d = SDKVersion.VERSION;
+                this.f37992h = true;
                 return true;
             } else {
                 return false;
@@ -350,11 +350,11 @@ public class a implements a.InterfaceC1604a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65551, this) == null) && o.m()) {
             CyberCfgManager.getInstance().setPrefInt("install_error_count", CyberCfgManager.getInstance().getPrefInt("install_error_count", 0) + 1);
-            if (SDKVersion.VERSION.equals(this.f37158d)) {
+            if (SDKVersion.VERSION.equals(this.f37988d)) {
                 return;
             }
             CyberCfgManager.getInstance().setPrefStr(CyberCfgManager.SP_KEY_UPDATE_TYPE, "cyber-media-dex");
-            CyberCfgManager.getInstance().setPrefStr("update_version", this.f37158d);
+            CyberCfgManager.getInstance().setPrefStr("update_version", this.f37988d);
         }
     }
 
@@ -381,7 +381,7 @@ public class a implements a.InterfaceC1604a {
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, map, installListener2) == null) {
             synchronized (this) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f37163i = i2;
+                this.f37993i = i2;
                 this.j = map;
                 if (!f()) {
                     if (installListener2 != null) {
@@ -392,64 +392,64 @@ public class a implements a.InterfaceC1604a {
                 CyberLog.d("CyberCoreLoader", "InstallTask:" + i2 + " start");
                 CyberCfgManager.getInstance().init();
                 this.q = System.currentTimeMillis() - currentTimeMillis;
-                this.f37161g = c.a().a(str);
+                this.f37991g = c.a().a(str);
                 this.l = installListener2;
-                this.f37157c = CyberPlayerManager.getApplicationContext();
+                this.f37987c = CyberPlayerManager.getApplicationContext();
                 String d2 = o.d();
                 if (!d2.equals(b("success-download-core-time", null))) {
                     a("success-download-core-count", Integer.toString(0));
                     a("success-download-core-time", d2);
                 }
-                this.f37160f = o.b();
-                this.f37159e = this.f37160f + File.separator + "libs";
+                this.f37990f = o.b();
+                this.f37989e = this.f37990f + File.separator + "libs";
                 c();
                 CyberLog.d("CyberCoreLoader", "InstallTask:" + i2 + " end");
             }
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1604a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1641a
     public void a(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1604a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1641a
     public void a(String str, long j, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i2), str2}) == null) {
             CyberLog.d("CyberCoreLoader", "srcUrl:" + str + " detail:" + str2);
             if (i2 != -1) {
-                int i3 = this.f37156b + 1;
-                this.f37156b = i3;
+                int i3 = this.f37986b + 1;
+                this.f37986b = i3;
                 a("success-download-core-count", Integer.toString(i3));
             }
             a(i2, str2);
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1604a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1641a
     public void a(String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             Long valueOf = Long.valueOf(System.currentTimeMillis());
-            if (valueOf.longValue() - this.f37155a > 500) {
+            if (valueOf.longValue() - this.f37985a > 500) {
                 int i2 = (int) ((((float) j) / ((float) j2)) * 99.0f);
                 b(i2);
-                this.f37155a = valueOf.longValue();
+                this.f37985a = valueOf.longValue();
                 CyberLog.d("CyberCoreLoader", "onDownloading:" + i2 + "%");
             }
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1604a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC1641a
     public void a(String str, long j, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), arrayList}) == null) {
             this.k = arrayList;
-            int i2 = this.f37156b + 1;
-            this.f37156b = i2;
+            int i2 = this.f37986b + 1;
+            this.f37986b = i2;
             a("success-download-core-count", Integer.toString(i2));
             CyberLog.d("CyberCoreLoader", "onDownloadSuccess:" + this.k);
             c();
@@ -459,6 +459,6 @@ public class a implements a.InterfaceC1604a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37162h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37992h : invokeV.booleanValue;
     }
 }

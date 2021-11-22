@@ -1,9 +1,9 @@
 package b.a.r0.k2.w;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.f1.n.e;
+import b.a.q0.e1.n.e;
 import b.a.r0.k2.r.f;
-import b.a.r0.k3.c;
+import b.a.r0.l3.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
@@ -110,7 +110,7 @@ public class a {
                 }
             }
             int i4 = 2;
-            if (fVar.O().a2()) {
+            if (fVar.O().c2()) {
                 statisticItem.param(TiebaStatic.Params.GUA_TYPE, 1);
             } else if (postData.H() != null) {
                 statisticItem.param(TiebaStatic.Params.GUA_TYPE, 2);
@@ -123,7 +123,7 @@ public class a {
                 statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().q);
             }
             if (!fVar.g0()) {
-                int i5 = fVar.f18763g;
+                int i5 = fVar.f20299g;
                 if (i5 == 2) {
                     i4 = 1;
                 } else if (i5 == 1) {
@@ -132,7 +132,7 @@ public class a {
                 statisticItem.param(TiebaStatic.Params.LIST_ORDER, i4);
             }
             if (fVar.O() != null) {
-                statisticItem.param(TiebaStatic.Params.IS_ZP, fVar.O().I2() ? 1 : 0);
+                statisticItem.param(TiebaStatic.Params.IS_ZP, fVar.O().K2() ? 1 : 0);
             }
             return statisticItem;
         }
@@ -200,7 +200,7 @@ public class a {
             statisticItem.param("obj_type", j(aVar.getThreadData().Y().j));
         }
         statisticItem.param("obj_locate", aVar.getThreadData().J2);
-        statisticItem.param("tid", aVar.getThreadData().s1());
+        statisticItem.param("tid", aVar.getThreadData().t1());
         statisticItem.param("fid", aVar.getThreadData().T());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("obj_source", i2);
@@ -220,7 +220,7 @@ public class a {
         if (aVar.getThreadData().Y() != null) {
             statisticItem.param("obj_type", j(aVar.getThreadData().Y().j));
         }
-        statisticItem.param("tid", aVar.getThreadData().s1());
+        statisticItem.param("tid", aVar.getThreadData().t1());
         statisticItem.param("fid", aVar.getThreadData().T());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("page_type", "a005");

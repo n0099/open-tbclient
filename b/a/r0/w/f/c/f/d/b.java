@@ -73,12 +73,12 @@ public class b extends b.a.r0.b0.b<b.a.r0.w.f.g.c.e> {
     public void j(b.a.r0.w.f.g.c.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            if (eVar.f24828e == 1) {
-                this.m.setText(this.f14737f.getResources().getString(R.string.live_sub_tab_no_attention_txt));
+            if (eVar.f26345e == 1) {
+                this.m.setText(this.f16224f.getResources().getString(R.string.live_sub_tab_no_attention_txt));
                 SkinManager.setImageResource(this.n, R.drawable.new_pic_emotion_07);
                 return;
             }
-            this.m.setText(this.f14737f.getResources().getString(R.string.live_sub_tab_empty_txt));
+            this.m.setText(this.f16224f.getResources().getString(R.string.live_sub_tab_empty_txt));
             SkinManager.setImageResource(this.n, R.drawable.new_pic_emotion_06);
         }
     }

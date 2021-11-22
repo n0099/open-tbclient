@@ -1,7 +1,6 @@
 package com.ta.utdid2.a.a;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +49,7 @@ public class a {
     public static byte[] a() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f.a(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 83, ExifInterface.MARKER_SOF14, -89, -84, -114, 80, 99, 10, 63, 22, -65, -11, 30, Constants.SHORT_PING_CMD_TYPE, -118}) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f.a(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 83, -50, -89, -84, -114, 80, 99, 10, 63, 22, -65, -11, 30, Constants.SHORT_PING_CMD_TYPE, -118}) : (byte[]) invokeV.objValue;
     }
 
     public static byte[] b(byte[] bArr, byte[] bArr2) throws Exception {

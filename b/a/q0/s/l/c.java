@@ -57,7 +57,7 @@ public class c {
                 }
                 return i2;
             } finally {
-                b.a.e.e.m.a.a(cursor);
+                b.a.e.f.m.a.a(cursor);
             }
         }
         return invokeV.intValue;
@@ -97,7 +97,7 @@ public class c {
                                     } catch (Exception e3) {
                                         e2 = e3;
                                         mainDBDatabaseManager.i(e2, "getActiveAccountData");
-                                        b.a.e.e.m.a.a(cursor);
+                                        b.a.e.f.m.a.a(cursor);
                                         return accountData;
                                     }
                                 }
@@ -108,7 +108,7 @@ public class c {
                         } catch (Throwable th) {
                             th = th;
                             cursor2 = cursor;
-                            b.a.e.e.m.a.a(cursor2);
+                            b.a.e.f.m.a.a(cursor2);
                             throw th;
                         }
                     }
@@ -120,13 +120,13 @@ public class c {
                     cursor = null;
                 } catch (Throwable th2) {
                     th = th2;
-                    b.a.e.e.m.a.a(cursor2);
+                    b.a.e.f.m.a.a(cursor2);
                     throw th;
                 }
             } else {
                 accountData = null;
             }
-            b.a.e.e.m.a.a(cursor2);
+            b.a.e.f.m.a.a(cursor2);
             return accountData;
         }
         return (AccountData) invokeV.objValue;
@@ -165,7 +165,7 @@ public class c {
                 }
                 return arrayList;
             } finally {
-                b.a.e.e.m.a.a(cursor);
+                b.a.e.f.m.a.a(cursor);
             }
         }
         return (ArrayList) invokeV.objValue;

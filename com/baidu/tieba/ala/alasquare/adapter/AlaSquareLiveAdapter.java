@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.adapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import b.a.e.l.e.a;
+import b.a.e.m.e.a;
 import b.a.r0.w.f.a.e;
 import b.a.r0.w.f.i.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
     public int r;
     public d s;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class SquareLiveViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public SquareLiveViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -118,7 +118,7 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public View Z(int i2, View view, ViewGroup viewGroup, e eVar, SquareLiveViewHolder squareLiveViewHolder) {
         InterceptResult invokeCommon;
@@ -129,12 +129,12 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
                 return null;
             }
             if (eVar != null) {
-                eVar.f24511i = i2 + 1;
+                eVar.f26028i = i2 + 1;
             }
             eVar2.j(eVar);
             b.a.r0.w.f.e.a.c().a(eVar.k(h0(), false));
             if (i2 == this.r) {
-                eVar2.i().setAnimation(AnimationUtils.loadAnimation(this.f2419e, R.anim.list_anim));
+                eVar2.i().setAnimation(AnimationUtils.loadAnimation(this.f2421e, R.anim.list_anim));
             }
             return squareLiveViewHolder.getView();
         }

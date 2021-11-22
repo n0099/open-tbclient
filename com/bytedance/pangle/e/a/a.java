@@ -18,31 +18,31 @@ public final class a implements XmlResourceParser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f61362a;
+    public c f62261a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61363b;
+    public boolean f62262b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f61364c;
+    public f f62263c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f61365d;
+    public int[] f62264d;
 
     /* renamed from: e  reason: collision with root package name */
-    public C1843a f61366e;
+    public C1882a f62265e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61367f;
+    public boolean f62266f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f61368g;
+    public int f62267g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61369h;
+    public int f62268h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f61370i;
+    public int f62269i;
     public int j;
     public int[] k;
     public int l;
@@ -62,8 +62,8 @@ public final class a implements XmlResourceParser {
                 return;
             }
         }
-        this.f61363b = false;
-        this.f61366e = new C1843a();
+        this.f62262b = false;
+        this.f62265e = new C1882a();
         a();
     }
 
@@ -71,7 +71,7 @@ public final class a implements XmlResourceParser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
-            if (this.f61368g == 2) {
+            if (this.f62267g == 2) {
                 int i3 = i2 * 5;
                 if (i3 < this.k.length) {
                     return i3;
@@ -98,10 +98,10 @@ public final class a implements XmlResourceParser {
     @Override // android.content.res.XmlResourceParser, java.lang.AutoCloseable
     public final void close() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f61363b) {
-            this.f61363b = false;
-            c cVar = this.f61362a;
-            InputStream inputStream = cVar.f61376a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f62262b) {
+            this.f62262b = false;
+            c cVar = this.f62261a;
+            InputStream inputStream = cVar.f62275a;
             if (inputStream != null) {
                 try {
                     inputStream.close();
@@ -109,12 +109,12 @@ public final class a implements XmlResourceParser {
                 }
                 cVar.a((InputStream) null);
             }
-            this.f61362a = null;
-            this.f61364c = null;
-            this.f61365d = null;
-            C1843a c1843a = this.f61366e;
-            c1843a.f61374b = 0;
-            c1843a.f61375c = 0;
+            this.f62261a = null;
+            this.f62263c = null;
+            this.f62264d = null;
+            C1882a c1882a = this.f62265e;
+            c1882a.f62273b = 0;
+            c1882a.f62274c = 0;
             a();
         }
     }
@@ -139,7 +139,7 @@ public final class a implements XmlResourceParser {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f61368g != 2) {
+            if (this.f62267g != 2) {
                 return -1;
             }
             return this.k.length / 5;
@@ -198,7 +198,7 @@ public final class a implements XmlResourceParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
             int i3 = this.k[c(i2) + 1];
-            return i3 == -1 ? "" : this.f61364c.a(i3);
+            return i3 == -1 ? "" : this.f62263c.a(i3);
         }
         return (String) invokeI.objValue;
     }
@@ -209,7 +209,7 @@ public final class a implements XmlResourceParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
             int i3 = this.k[c(i2) + 1];
-            int[] iArr = this.f61365d;
+            int[] iArr = this.f62264d;
             if (iArr == null || i3 < 0 || i3 >= iArr.length) {
                 return 0;
             }
@@ -224,7 +224,7 @@ public final class a implements XmlResourceParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
             int i3 = this.k[c(i2) + 0];
-            return i3 == -1 ? "" : this.f61364c.a(i3);
+            return i3 == -1 ? "" : this.f62263c.a(i3);
         }
         return (String) invokeI.objValue;
     }
@@ -234,8 +234,8 @@ public final class a implements XmlResourceParser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            int a2 = this.f61366e.a(this.k[c(i2) + 0]);
-            return a2 == -1 ? "" : this.f61364c.a(a2);
+            int a2 = this.f62265e.a(this.k[c(i2) + 0]);
+            return a2 == -1 ? "" : this.f62263c.a(a2);
         }
         return (String) invokeI.objValue;
     }
@@ -273,7 +273,7 @@ public final class a implements XmlResourceParser {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
             int c2 = c(i2);
             int[] iArr = this.k;
-            return iArr[c2 + 3] == 3 ? this.f61364c.a(iArr[c2 + 2]) : "";
+            return iArr[c2 + 3] == 3 ? this.f62263c.a(iArr[c2 + 2]) : "";
         }
         return (String) invokeI.objValue;
     }
@@ -287,7 +287,7 @@ public final class a implements XmlResourceParser {
             if (i2 == -1) {
                 return null;
             }
-            return this.f61364c.a(this.k[c(i2) + 2]);
+            return this.f62263c.a(this.k[c(i2) + 2]);
         }
         return (String) invokeV.objValue;
     }
@@ -306,14 +306,14 @@ public final class a implements XmlResourceParser {
     public final int getDepth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f61366e.f61375c - 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f62265e.f62274c - 1 : invokeV.intValue;
     }
 
     @Override // org.xmlpull.v1.XmlPullParser
     public final int getEventType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f61368g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f62267g : invokeV.intValue;
     }
 
     @Override // org.xmlpull.v1.XmlPullParser
@@ -335,7 +335,7 @@ public final class a implements XmlResourceParser {
             if (i2 == -1) {
                 return null;
             }
-            return this.f61364c.a(this.k[c(i2) + 2]);
+            return this.f62263c.a(this.k[c(i2) + 2]);
         }
         return (String) invokeV.objValue;
     }
@@ -370,7 +370,7 @@ public final class a implements XmlResourceParser {
     public final int getLineNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f61369h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f62268h : invokeV.intValue;
     }
 
     @Override // org.xmlpull.v1.XmlPullParser
@@ -378,10 +378,10 @@ public final class a implements XmlResourceParser {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            if (this.f61370i != -1) {
-                int i2 = this.f61368g;
+            if (this.f62269i != -1) {
+                int i2 = this.f62267g;
                 if (i2 == 2 || i2 == 3) {
-                    return this.f61364c.a(this.f61370i);
+                    return this.f62263c.a(this.f62269i);
                 }
                 return null;
             }
@@ -394,7 +394,7 @@ public final class a implements XmlResourceParser {
     public final String getNamespace() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f61364c.a(this.j) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f62263c.a(this.j) : (String) invokeV.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlPullParser
@@ -402,16 +402,16 @@ public final class a implements XmlResourceParser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i2)) == null) {
-            C1843a c1843a = this.f61366e;
+            C1882a c1882a = this.f62265e;
             int i3 = 0;
-            if (c1843a.f61374b != 0 && i2 >= 0) {
-                int i4 = c1843a.f61375c;
+            if (c1882a.f62273b != 0 && i2 >= 0) {
+                int i4 = c1882a.f62274c;
                 if (i2 > i4) {
                     i2 = i4;
                 }
                 int i5 = 0;
                 while (i2 != 0) {
-                    int i6 = c1843a.f61373a[i5];
+                    int i6 = c1882a.f62272a[i5];
                     i3 += i6;
                     i5 += (i6 * 2) + 2;
                     i2--;
@@ -426,14 +426,14 @@ public final class a implements XmlResourceParser {
     public final String getNamespacePrefix(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) ? this.f61364c.a(this.f61366e.a(i2, true)) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) ? this.f62263c.a(this.f62265e.a(i2, true)) : (String) invokeI.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlPullParser
     public final String getNamespaceUri(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) ? this.f61364c.a(this.f61366e.a(i2, false)) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) ? this.f62263c.a(this.f62265e.a(i2, false)) : (String) invokeI.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlPullParser, android.util.AttributeSet
@@ -450,7 +450,7 @@ public final class a implements XmlResourceParser {
     public final String getPrefix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f61364c.a(this.f61366e.a(this.j)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f62263c.a(this.f62265e.a(this.j)) : (String) invokeV.objValue;
     }
 
     @Override // org.xmlpull.v1.XmlPullParser
@@ -482,11 +482,11 @@ public final class a implements XmlResourceParser {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            int i2 = this.f61370i;
-            if (i2 == -1 || this.f61368g != 4) {
+            int i2 = this.f62269i;
+            if (i2 == -1 || this.f62267g != 4) {
                 return null;
             }
-            return this.f61364c.a(i2);
+            return this.f62263c.a(i2);
         }
         return (String) invokeV.objValue;
     }
@@ -544,10 +544,10 @@ public final class a implements XmlResourceParser {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            if (this.f61362a != null) {
+            if (this.f62261a != null) {
                 try {
                     b();
-                    return this.f61368g;
+                    return this.f62267g;
                 } catch (IOException e2) {
                     close();
                     throw e2;
@@ -687,11 +687,11 @@ public final class a implements XmlResourceParser {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, str, str2)) == null) {
-            f fVar = this.f61364c;
+            f fVar = this.f62263c;
             if (fVar == null || str2 == null || (a2 = fVar.a(str2)) == -1) {
                 return -1;
             }
-            int a3 = str != null ? this.f61364c.a(str) : -1;
+            int a3 = str != null ? this.f62263c.a(str) : -1;
             while (true) {
                 int[] iArr = this.k;
                 if (i2 == iArr.length) {
@@ -718,10 +718,10 @@ public final class a implements XmlResourceParser {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (this.f61364c == null) {
-                b.a(this.f61362a, 524291);
-                this.f61362a.c();
-                c cVar = this.f61362a;
+            if (this.f62263c == null) {
+                b.a(this.f62261a, 524291);
+                this.f62261a.c();
+                c cVar = this.f62261a;
                 b.a(cVar, 1835009);
                 int b2 = cVar.b();
                 int b3 = cVar.b();
@@ -730,13 +730,13 @@ public final class a implements XmlResourceParser {
                 int b5 = cVar.b();
                 int b6 = cVar.b();
                 f fVar = new f();
-                fVar.f61381a = cVar.a(b3);
+                fVar.f62280a = cVar.a(b3);
                 if (b4 != 0) {
                     cVar.a(b4);
                 }
                 int i4 = (b6 == 0 ? b2 : b6) - b5;
                 if (i4 % 4 == 0) {
-                    fVar.f61382b = cVar.a(i4 / 4);
+                    fVar.f62281b = cVar.a(i4 / 4);
                     if (b6 != 0) {
                         int i5 = b2 - b6;
                         if (i5 % 4 == 0) {
@@ -745,123 +745,123 @@ public final class a implements XmlResourceParser {
                             throw new IOException("Style data size is not multiple of 4 (" + i5 + ").");
                         }
                     }
-                    this.f61364c = fVar;
-                    this.f61366e.a();
-                    this.f61363b = true;
+                    this.f62263c = fVar;
+                    this.f62265e.a();
+                    this.f62262b = true;
                 } else {
                     throw new IOException("String data size is not multiple of 4 (" + i4 + ").");
                 }
             }
-            int i6 = this.f61368g;
+            int i6 = this.f62267g;
             if (i6 != 1) {
                 a();
                 while (true) {
-                    if (this.f61367f) {
-                        this.f61367f = false;
-                        C1843a c1843a = this.f61366e;
-                        int i7 = c1843a.f61374b;
+                    if (this.f62266f) {
+                        this.f62266f = false;
+                        C1882a c1882a = this.f62265e;
+                        int i7 = c1882a.f62273b;
                         if (i7 != 0) {
                             int i8 = i7 - 1;
-                            int i9 = c1843a.f61373a[i8] * 2;
+                            int i9 = c1882a.f62272a[i8] * 2;
                             if ((i8 - 1) - i9 != 0) {
-                                c1843a.f61374b = i7 - (i9 + 2);
-                                c1843a.f61375c--;
+                                c1882a.f62273b = i7 - (i9 + 2);
+                                c1882a.f62274c--;
                             }
                         }
                     }
                     int i10 = 3;
                     if (i6 == 3) {
-                        C1843a c1843a2 = this.f61366e;
-                        if (c1843a2.f61375c == 1) {
-                            int i11 = c1843a2.f61374b;
-                            if ((i11 == 0 ? 0 : c1843a2.f61373a[i11 - 1]) == 0) {
-                                this.f61368g = 1;
+                        C1882a c1882a2 = this.f62265e;
+                        if (c1882a2.f62274c == 1) {
+                            int i11 = c1882a2.f62273b;
+                            if ((i11 == 0 ? 0 : c1882a2.f62272a[i11 - 1]) == 0) {
+                                this.f62267g = 1;
                                 return;
                             }
                         }
                     }
-                    int a3 = i6 == 0 ? 1048834 : this.f61362a.a();
+                    int a3 = i6 == 0 ? 1048834 : this.f62261a.a();
                     if (a3 == 524672) {
-                        a2 = this.f61362a.a();
+                        a2 = this.f62261a.a();
                         if (a2 < 8 || a2 % 4 != 0) {
                             break;
                         }
-                        this.f61365d = this.f61362a.a((a2 / 4) - 2);
+                        this.f62264d = this.f62261a.a((a2 / 4) - 2);
                     } else if (a3 < 1048832 || a3 > 1048836) {
                         break;
                     } else if (a3 == 1048834 && i6 == -1) {
-                        this.f61368g = 0;
+                        this.f62267g = 0;
                         return;
                     } else {
-                        this.f61362a.c();
-                        int a4 = this.f61362a.a();
-                        this.f61362a.c();
+                        this.f62261a.c();
+                        int a4 = this.f62261a.a();
+                        this.f62261a.c();
                         if (a3 != 1048832 && a3 != 1048833) {
-                            this.f61369h = a4;
+                            this.f62268h = a4;
                             if (a3 == 1048834) {
-                                this.j = this.f61362a.a();
-                                this.f61370i = this.f61362a.a();
-                                this.f61362a.c();
-                                int a5 = this.f61362a.a();
+                                this.j = this.f62261a.a();
+                                this.f62269i = this.f62261a.a();
+                                this.f62261a.c();
+                                int a5 = this.f62261a.a();
                                 this.l = (a5 >>> 16) - 1;
-                                int a6 = this.f61362a.a();
+                                int a6 = this.f62261a.a();
                                 this.m = a6;
                                 this.n = (a6 >>> 16) - 1;
                                 this.m = (65535 & a6) - 1;
-                                this.k = this.f61362a.a((a5 & 65535) * 5);
+                                this.k = this.f62261a.a((a5 & 65535) * 5);
                                 while (true) {
                                     int[] iArr2 = this.k;
                                     if (i10 < iArr2.length) {
                                         iArr2[i10] = iArr2[i10] >>> 24;
                                         i10 += 5;
                                     } else {
-                                        this.f61366e.a();
-                                        this.f61368g = 2;
+                                        this.f62265e.a();
+                                        this.f62267g = 2;
                                         return;
                                     }
                                 }
                             } else if (a3 == 1048835) {
-                                this.j = this.f61362a.a();
-                                this.f61370i = this.f61362a.a();
-                                this.f61368g = 3;
-                                this.f61367f = true;
+                                this.j = this.f62261a.a();
+                                this.f62269i = this.f62261a.a();
+                                this.f62267g = 3;
+                                this.f62266f = true;
                                 return;
                             } else if (a3 == 1048836) {
-                                this.f61370i = this.f61362a.a();
-                                this.f61362a.c();
-                                this.f61362a.c();
-                                this.f61368g = 4;
+                                this.f62269i = this.f62261a.a();
+                                this.f62261a.c();
+                                this.f62261a.c();
+                                this.f62267g = 4;
                                 return;
                             }
                         } else if (a3 == 1048832) {
-                            int a7 = this.f61362a.a();
-                            int a8 = this.f61362a.a();
-                            C1843a c1843a3 = this.f61366e;
-                            if (c1843a3.f61375c == 0) {
-                                c1843a3.a();
+                            int a7 = this.f62261a.a();
+                            int a8 = this.f62261a.a();
+                            C1882a c1882a3 = this.f62265e;
+                            if (c1882a3.f62274c == 0) {
+                                c1882a3.a();
                             }
-                            c1843a3.b();
-                            int i12 = c1843a3.f61374b;
+                            c1882a3.b();
+                            int i12 = c1882a3.f62273b;
                             int i13 = i12 - 1;
-                            int[] iArr3 = c1843a3.f61373a;
+                            int[] iArr3 = c1882a3.f62272a;
                             int i14 = iArr3[i13];
                             int i15 = i14 + 1;
                             iArr3[(i13 - 1) - (i14 * 2)] = i15;
                             iArr3[i13] = a7;
                             iArr3[i13 + 1] = a8;
                             iArr3[i13 + 2] = i15;
-                            c1843a3.f61374b = i12 + 2;
+                            c1882a3.f62273b = i12 + 2;
                         } else {
-                            this.f61362a.c();
-                            this.f61362a.c();
-                            C1843a c1843a4 = this.f61366e;
-                            int i16 = c1843a4.f61374b;
-                            if (i16 != 0 && (i3 = (iArr = c1843a4.f61373a)[i16 - 1]) != 0) {
+                            this.f62261a.c();
+                            this.f62261a.c();
+                            C1882a c1882a4 = this.f62265e;
+                            int i16 = c1882a4.f62273b;
+                            if (i16 != 0 && (i3 = (iArr = c1882a4.f62272a)[i16 - 1]) != 0) {
                                 int i17 = i3 - 1;
                                 int i18 = i2 - 2;
                                 iArr[i18] = i17;
                                 iArr[i18 - ((i17 * 2) + 1)] = i17;
-                                c1843a4.f61374b = i16 - 2;
+                                c1882a4.f62273b = i16 - 2;
                             }
                         }
                     }
@@ -920,20 +920,20 @@ public final class a implements XmlResourceParser {
 
     /* renamed from: com.bytedance.pangle.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static final class C1843a {
+    public static final class C1882a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int[] f61373a;
+        public int[] f62272a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f61374b;
+        public int f62273b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f61375c;
+        public int f62274c;
 
-        public C1843a() {
+        public C1882a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -946,33 +946,33 @@ public final class a implements XmlResourceParser {
                     return;
                 }
             }
-            this.f61373a = new int[32];
+            this.f62272a = new int[32];
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 b();
-                int i2 = this.f61374b;
-                int[] iArr = this.f61373a;
+                int i2 = this.f62273b;
+                int[] iArr = this.f62272a;
                 iArr[i2] = 0;
                 iArr[i2 + 1] = 0;
-                this.f61374b = i2 + 2;
-                this.f61375c++;
+                this.f62273b = i2 + 2;
+                this.f62274c++;
             }
         }
 
         public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                int[] iArr = this.f61373a;
+                int[] iArr = this.f62272a;
                 int length = iArr.length;
-                int i2 = this.f61374b;
+                int i2 = this.f62273b;
                 int i3 = length - i2;
                 if (i3 <= 2) {
                     int[] iArr2 = new int[(iArr.length + i3) * 2];
                     System.arraycopy(iArr, 0, iArr2, 0, i2);
-                    this.f61373a = iArr2;
+                    this.f62272a = iArr2;
                 }
             }
         }
@@ -981,15 +981,15 @@ public final class a implements XmlResourceParser {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                int i3 = this.f61374b;
+                int i3 = this.f62273b;
                 if (i3 == 0) {
                     return -1;
                 }
                 int i4 = i3 - 1;
-                for (int i5 = this.f61375c; i5 != 0; i5--) {
+                for (int i5 = this.f62274c; i5 != 0; i5--) {
                     i4 -= 2;
-                    for (int i6 = this.f61373a[i4]; i6 != 0; i6--) {
-                        int[] iArr = this.f61373a;
+                    for (int i6 = this.f62272a[i4]; i6 != 0; i6--) {
+                        int[] iArr = this.f62272a;
                         if (iArr[i4 + 1] == i2) {
                             return iArr[i4];
                         }
@@ -1005,16 +1005,16 @@ public final class a implements XmlResourceParser {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                if (this.f61374b != 0 && i2 >= 0) {
+                if (this.f62273b != 0 && i2 >= 0) {
                     int i3 = 0;
-                    for (int i4 = this.f61375c; i4 != 0; i4--) {
-                        int i5 = this.f61373a[i3];
+                    for (int i4 = this.f62274c; i4 != 0; i4--) {
+                        int i5 = this.f62272a[i3];
                         if (i2 < i5) {
                             int i6 = i3 + (i2 * 2) + 1;
                             if (!z) {
                                 i6++;
                             }
-                            return this.f61373a[i6];
+                            return this.f62272a[i6];
                         }
                         i2 -= i5;
                         i3 += (i5 * 2) + 2;
@@ -1029,9 +1029,9 @@ public final class a implements XmlResourceParser {
     private final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f61368g = -1;
-            this.f61369h = -1;
-            this.f61370i = -1;
+            this.f62267g = -1;
+            this.f62268h = -1;
+            this.f62269i = -1;
             this.j = -1;
             this.k = null;
             this.l = -1;

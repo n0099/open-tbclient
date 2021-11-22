@@ -6,14 +6,14 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.l.b0;
 import b.a.q0.j0.h;
 import b.a.q0.s.e0.b;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.x0;
-import b.a.r0.l3.j0.e;
-import b.a.r0.y2.a;
+import b.a.r0.m3.j0.e;
+import b.a.r0.z2.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -86,7 +86,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), jSONObject, str}) == null) {
             d2 d2Var = new d2();
-            d2Var.X2(jSONObject);
+            d2Var.Z2(jSONObject);
             AgreeData B = d2Var.B();
             int i2 = 1;
             if (z) {
@@ -141,7 +141,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 sendMesage(i2, B);
             }
             e eVar = new e();
-            eVar.f20602b = B;
+            eVar.f22452b = B;
             if (d2Var.L() != null) {
                 B.nid = d2Var.L().oriUgcNid;
             }
@@ -300,7 +300,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         if (result2.get("item") != null) {
             JSONObject optJSONObject = new JSONObject((HashMap) result2.get("item")).optJSONObject("item");
             d2 d2Var = new d2();
-            d2Var.X2(optJSONObject);
+            d2Var.Z2(optJSONObject);
             x0 negFeedBackData = d2Var.getNegFeedBackData();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
@@ -373,7 +373,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 }
                 viewGroup.addView(this.mNegFeedBackItem.a(), this.mNegFeedBackItem.b());
                 this.mNegFeedBackItem.a().setVisibility(4);
-                b.a.e.e.m.e.a().postDelayed(new Runnable(this) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.UtilityComponents.3
+                b.a.e.f.m.e.a().postDelayed(new Runnable(this) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.UtilityComponents.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UtilityComponents this$0;
@@ -455,7 +455,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, result) == null) {
             TiebaUtilityComponentsAuto.ComponentsBoolResult componentsBoolResult = new TiebaUtilityComponentsAuto.ComponentsBoolResult();
-            componentsBoolResult.setResult(Boolean.valueOf(b.a.r0.a3.a.v().z()));
+            componentsBoolResult.setResult(Boolean.valueOf(b.a.r0.b3.a.v().z()));
             result.success(componentsBoolResult);
         }
     }

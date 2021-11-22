@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.t.c.m;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -36,17 +36,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f17968d;
+    public static volatile b f19423d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0916b f17969a;
+    public InterfaceC0982b f19424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f17970b;
+    public AtomicBoolean f19425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f17971c;
+    public AtomicBoolean f19426c;
 
     /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<m> {
@@ -99,17 +99,17 @@ public class b {
 
     /* renamed from: b.a.r0.i2.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0916b {
+    public interface InterfaceC0982b {
         void a(m.c cVar);
     }
 
     /* loaded from: classes4.dex */
-    public static class c implements InterfaceC0916b {
+    public static class c implements InterfaceC0982b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public m f17972a;
+        public m f19427a;
 
         public c(m mVar) {
             Interceptable interceptable = $ic;
@@ -126,17 +126,17 @@ public class b {
                     return;
                 }
             }
-            this.f17972a = mVar;
+            this.f19427a = mVar;
         }
 
-        @Override // b.a.r0.i2.d.b.InterfaceC0916b
+        @Override // b.a.r0.i2.d.b.InterfaceC0982b
         public void a(m.c cVar) {
             m mVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (mVar = this.f17972a) == null || mVar.f() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (mVar = this.f19427a) == null || mVar.f() == null) {
                 return;
             }
-            this.f17972a.f().b(cVar);
+            this.f19427a.f().b(cVar);
         }
     }
 
@@ -153,22 +153,22 @@ public class b {
                 return;
             }
         }
-        this.f17970b = new AtomicBoolean(false);
-        this.f17971c = new AtomicBoolean(false);
+        this.f19425b = new AtomicBoolean(false);
+        this.f19426c = new AtomicBoolean(false);
     }
 
     public static b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f17968d == null) {
+            if (f19423d == null) {
                 synchronized (b.class) {
-                    if (f17968d == null) {
-                        f17968d = new b();
+                    if (f19423d == null) {
+                        f19423d = new b();
                     }
                 }
             }
-            return f17968d;
+            return f19423d;
         }
         return (b) invokeV.objValue;
     }
@@ -192,14 +192,14 @@ public class b {
     public void a(m.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            if (this.f17969a != null) {
+            if (this.f19424a != null) {
                 if (cVar == null) {
                     cVar = new m.c(false);
                 }
-                this.f17969a.a(cVar);
+                this.f19424a.a(cVar);
             }
-            this.f17969a = null;
-            this.f17970b.set(false);
+            this.f19424a = null;
+            this.f19425b.set(false);
         }
     }
 
@@ -271,10 +271,10 @@ public class b {
         return invokeV.booleanValue;
     }
 
-    public final void i(m mVar, InterfaceC0916b interfaceC0916b) {
+    public final void i(m mVar, InterfaceC0982b interfaceC0982b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, mVar, interfaceC0916b) == null) {
-            q(interfaceC0916b);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, mVar, interfaceC0982b) == null) {
+            q(interfaceC0982b);
             SapiAccount session = SapiAccountManager.getInstance().getSession();
             if (mVar != null && session != null) {
                 if (mVar.getType() == 0) {
@@ -364,31 +364,31 @@ public class b {
         }
     }
 
-    public void q(InterfaceC0916b interfaceC0916b) {
+    public void q(InterfaceC0982b interfaceC0982b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, interfaceC0916b) == null) {
-            this.f17969a = interfaceC0916b;
+        if (interceptable == null || interceptable.invokeL(1048589, this, interfaceC0982b) == null) {
+            this.f19424a = interfaceC0982b;
         }
     }
 
-    public void r(m mVar, InterfaceC0916b interfaceC0916b) {
+    public void r(m mVar, InterfaceC0982b interfaceC0982b) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, mVar, interfaceC0916b) == null) && this.f17971c.compareAndSet(false, true)) {
-            if (this.f17970b.compareAndSet(false, true)) {
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, mVar, interfaceC0982b) == null) && this.f19426c.compareAndSet(false, true)) {
+            if (this.f19425b.compareAndSet(false, true)) {
                 try {
-                    i(mVar, interfaceC0916b);
+                    i(mVar, interfaceC0982b);
                 } catch (Exception e2) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e2.toString());
-                    this.f17970b.set(false);
+                    this.f19425b.set(false);
                 }
             } else if (!h()) {
                 try {
-                    i(mVar, interfaceC0916b);
+                    i(mVar, interfaceC0982b);
                 } catch (Exception unused) {
-                    this.f17970b.set(false);
+                    this.f19425b.set(false);
                 }
             }
-            this.f17971c.set(false);
+            this.f19426c.set(false);
         }
     }
 }

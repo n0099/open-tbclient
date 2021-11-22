@@ -112,30 +112,37 @@ public class WebStorage {
         }
     }
 
+    public void deleteAllDataIncludeServiceWorker() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            WebViewFactory.getProvider().getWebStorage().deleteAllDataIncludeServiceWorker();
+        }
+    }
+
     public void deleteOrigin(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             WebViewFactory.getProvider().getWebStorage().deleteOrigin(str);
         }
     }
 
     public void getOrigins(ValueCallback<Map> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, valueCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, valueCallback) == null) {
             WebViewFactory.getProvider().getWebStorage().getOrigins(valueCallback);
         }
     }
 
     public void getQuotaForOrigin(String str, ValueCallback<Long> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, valueCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, valueCallback) == null) {
             WebViewFactory.getProvider().getWebStorage().getQuotaForOrigin(str, valueCallback);
         }
     }
 
     public void getUsageForOrigin(String str, ValueCallback<Long> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, valueCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, valueCallback) == null) {
             WebViewFactory.getProvider().getWebStorage().getUsageForOrigin(str, valueCallback);
         }
     }
@@ -143,7 +150,7 @@ public class WebStorage {
     @Deprecated
     public void setQuotaForOrigin(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
             WebViewFactory.getProvider().getWebStorage().setQuotaForOrigin(str, j);
         }
     }

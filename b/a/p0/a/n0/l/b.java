@@ -10,7 +10,7 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface b {
-    public static final boolean e0 = k.f6397a;
+    public static final boolean e0 = k.f6863a;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,23 +23,23 @@ public interface b {
 
     /* renamed from: b.a.p0.a.n0.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0310b {
+    public static final class C0322b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, a> f6878a;
+        public final Map<String, a> f7207a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f6879b;
+        public boolean f7208b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f6880c;
+        public int f7209c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f6881d;
+        public int f7210d;
 
-        public C0310b() {
+        public C0322b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,10 +52,10 @@ public interface b {
                     return;
                 }
             }
-            this.f6878a = new HashMap();
-            this.f6879b = true;
-            this.f6880c = 0;
-            this.f6881d = 0;
+            this.f7207a = new HashMap();
+            this.f7208b = true;
+            this.f7209c = 0;
+            this.f7210d = 0;
         }
     }
 }

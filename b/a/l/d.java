@@ -28,7 +28,7 @@ public class d extends b.a.l.a<b.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f3227e;
+        public final /* synthetic */ d f3318e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -45,18 +45,18 @@ public class d extends b.a.l.a<b.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3227e = dVar;
+            this.f3318e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f3227e.m != null) {
-                    this.f3227e.m.a(this.f3227e.l, view);
+                if (this.f3318e.m != null) {
+                    this.f3318e.m.a(this.f3318e.l, view);
                 }
-                if (this.f3227e.c() != null) {
-                    this.f3227e.c().a(view, this.f3227e.l);
+                if (this.f3318e.c() != null) {
+                    this.f3318e.c().a(view, this.f3318e.l);
                 }
             }
         }
@@ -86,8 +86,8 @@ public class d extends b.a.l.a<b.a.q0.s.q.a> {
             }
         }
         this.k = 34053;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13370d instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13370d.getParent() == null) {
-            this.j = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13370d;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14150d instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14150d.getParent() == null) {
+            this.j = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14150d;
         } else {
             this.j = new CardUserInfoLayout(context);
         }

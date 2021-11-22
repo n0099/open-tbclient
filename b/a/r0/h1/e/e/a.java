@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.e0.b;
+import b.a.r0.b0.f0.b;
 import b.a.r0.b0.m;
 import b.a.r0.x0.l;
 import com.baidu.adp.framework.MessageManager;
@@ -31,7 +31,7 @@ public class a {
                 return false;
             }
             int i2 = d2Var.i0;
-            return i2 == 0 || i2 == 11 || i2 == 40 || d2Var.D2();
+            return i2 == 0 || i2 == 11 || i2 == 40 || d2Var.F2();
         }
         return invokeL.booleanValue;
     }
@@ -57,7 +57,7 @@ public class a {
         }
         createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
         createFromThreadCfg.setJumpGodReply(z);
-        m.a(threadData.s1());
+        m.a(threadData.t1());
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
 
@@ -71,7 +71,7 @@ public class a {
         if (y != null) {
             if (bVar.getThreadData() != null) {
                 d2 threadData = bVar.getThreadData();
-                if (threadData.v1() == null || (threadData.v1().M() == null && threadData.v1().Y() == null)) {
+                if (threadData.w1() == null || (threadData.w1().M() == null && threadData.w1().Y() == null)) {
                     i3 = 0;
                 }
                 y.param("obj_name", i3);
@@ -87,7 +87,7 @@ public class a {
     public static void d(b bVar, int i2) {
         StatisticItem y;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, bVar, i2) == null) || bVar == null || bVar.getThreadData() == null || !b.a.r0.b0.e0.l.T(bVar.f14748e) || (y = bVar.y("c13494", true)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, bVar, i2) == null) || bVar == null || bVar.getThreadData() == null || !b.a.r0.b0.f0.l.T(bVar.f16235e) || (y = bVar.y("c13494", true)) == null) {
             return;
         }
         y.param("obj_type", i2);
@@ -97,7 +97,7 @@ public class a {
     public static void e(b bVar, int i2) {
         StatisticItem y;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, i2) == null) || bVar == null || !b.a.r0.b0.e0.l.T(bVar.f14748e) || (y = bVar.y("c13495", true)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, i2) == null) || bVar == null || !b.a.r0.b0.f0.l.T(bVar.f16235e) || (y = bVar.y("c13495", true)) == null) {
             return;
         }
         y.param("obj_type", i2);

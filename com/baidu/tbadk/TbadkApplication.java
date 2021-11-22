@@ -10,9 +10,9 @@ import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.c;
-import b.a.e.h.h.b;
-import b.a.e.h.j.g.d;
+import b.a.e.f.m.c;
+import b.a.e.i.h.b;
+import b.a.e.i.j.g.d;
 import b.a.q0.q0.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -29,7 +29,10 @@ import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ColdStartStatsUtil;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.switchs.LaunchUpSpeedSwitch;
 import com.baidu.tbadk.switchs.PluginClassChangeSwitch;
@@ -299,7 +302,7 @@ public class TbadkApplication extends TbadkCoreApplication {
                     boolean z4 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
                     if (!this.isKeepLiveProcess) {
                         if (!this.mPluginIsInited) {
-                            PluginPackageManager.O().i0(b.a.q0.s0.c.n(), new b.a.q0.s0.d(), z4, null);
+                            PluginPackageManager.O().i0(b.a.q0.r0.c.n(), new b.a.q0.r0.d(), z4, null);
                         }
                         PluginSettings l = d.k().l();
                         if (l != null) {
@@ -363,6 +366,7 @@ public class TbadkApplication extends TbadkCoreApplication {
                         public void callback(String str2, String str3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str2, str3) == null) {
+                                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).addParam("obj_param1", 1));
                                 UrlManager.getInstance().dealOneLink(null, new String[]{str3});
                             }
                         }
@@ -432,7 +436,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         super.loadPatchs();
         int k = b.a.q0.s.e0.b.j().k("plugin_patch_hook_failed_count", 0);
         PluginPackageManager.O().v0(k);
-        if (checkSyncPatchBlacklist() && b.a.e.h.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
+        if (checkSyncPatchBlacklist() && b.a.e.i.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
             long currentTimeMillis = System.currentTimeMillis();
             PluginPackageManager.O().k0();
             l.b().B(System.currentTimeMillis() - currentTimeMillis);

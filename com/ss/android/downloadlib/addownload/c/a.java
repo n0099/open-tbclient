@@ -20,7 +20,7 @@ public class a implements r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68540a;
+    public int f69460a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class a implements r {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f68540a = i2;
+            this.f69460a = i2;
         }
     }
 
@@ -72,7 +72,7 @@ public class a implements r {
         long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), qVar})) == null) {
-            com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(this.f68540a);
+            com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(this.f69460a);
             if (a(a2)) {
                 long currentTimeMillis = System.currentTimeMillis();
                 d.a().c();
@@ -132,7 +132,7 @@ public class a implements r {
     private void a(long j, long j2, long j3, long j4, long j5) {
         DownloadInfo downloadInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) || (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(this.f68540a)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) || (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(this.f69460a)) == null) {
             return;
         }
         try {

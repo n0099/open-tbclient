@@ -14,11 +14,11 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import b.a.e.c.e.c.i;
-import b.a.e.e.m.f;
-import b.a.e.e.p.l;
-import b.a.e.e.r.h;
-import b.a.e.e.r.j;
-import b.a.e.e.r.k;
+import b.a.e.f.m.f;
+import b.a.e.f.p.l;
+import b.a.e.f.r.h;
+import b.a.e.f.r.j;
+import b.a.e.f.r.k;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.framework.MessageManager;
@@ -152,7 +152,7 @@ public class BdSocketLinkService extends BdBaseService {
             }
         }
 
-        @Override // b.a.e.e.r.g
+        @Override // b.a.e.f.r.g
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || BdSocketLinkService.connStateCallBack == null) {
@@ -161,7 +161,7 @@ public class BdSocketLinkService extends BdBaseService {
             BdSocketLinkService.connStateCallBack.a(str);
         }
 
-        @Override // b.a.e.e.r.j, b.a.e.e.r.g
+        @Override // b.a.e.f.r.j, b.a.e.f.r.g
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
@@ -178,8 +178,8 @@ public class BdSocketLinkService extends BdBaseService {
             }
         }
 
-        @Override // b.a.e.e.r.g
-        public void c(b.a.e.e.r.c cVar) {
+        @Override // b.a.e.f.r.g
+        public void c(b.a.e.f.r.c cVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || BdSocketLinkService.connStateCallBack == null) {
                 return;
@@ -187,7 +187,7 @@ public class BdSocketLinkService extends BdBaseService {
             BdSocketLinkService.connStateCallBack.c(cVar);
         }
 
-        @Override // b.a.e.e.r.g
+        @Override // b.a.e.f.r.g
         public void f(k kVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || BdSocketLinkService.connStateCallBack == null) {
@@ -196,7 +196,7 @@ public class BdSocketLinkService extends BdBaseService {
             BdSocketLinkService.connStateCallBack.d(kVar);
         }
 
-        @Override // b.a.e.e.r.g
+        @Override // b.a.e.f.r.g
         public void onOpen(Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
@@ -383,7 +383,7 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    public static boolean sendMessage(b.a.e.e.r.c cVar) {
+    public static boolean sendMessage(b.a.e.f.r.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, cVar)) == null) {
@@ -496,7 +496,7 @@ public class BdSocketLinkService extends BdBaseService {
                 try {
                     startForeground(2147483646, new Notification());
                 } catch (Exception unused) {
-                    b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                    b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.b("loc", BdSocketLinkService.class.getName() + "-onCreate-startForeground");
                     BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
                 }

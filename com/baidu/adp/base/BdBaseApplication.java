@@ -10,8 +10,8 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.b;
 import b.a.e.a.h;
-import b.a.e.e.p.d;
-import b.a.e.g.c;
+import b.a.e.f.p.d;
+import b.a.e.h.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -53,7 +53,7 @@ public class BdBaseApplication extends Application {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdBaseApplication f34362a;
+        public final /* synthetic */ BdBaseApplication f35194a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdBaseApplication bdBaseApplication, Looper looper) {
@@ -73,14 +73,14 @@ public class BdBaseApplication extends Application {
                     return;
                 }
             }
-            this.f34362a = bdBaseApplication;
+            this.f35194a = bdBaseApplication;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f34362a.handleInitMessage(message);
+                this.f35194a.handleInitMessage(message);
             }
         }
     }
@@ -146,7 +146,7 @@ public class BdBaseApplication extends Application {
     private void initPlugin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            b.a.e.h.i.a.d().e();
+            b.a.e.i.i.a.d().e();
         }
     }
 
@@ -167,7 +167,7 @@ public class BdBaseApplication extends Application {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.attachBaseContext(context);
             NPSHookManager.init(this);
-            c.d().h(this);
+            c.e().g(this);
             TitanIniter.init(this);
             LoaderManager.getInstance().load();
         }

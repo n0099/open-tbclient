@@ -24,20 +24,20 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20974e;
+    public Context f22129e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b.a.q0.t.f.a> f20975f;
+    public List<b.a.q0.t.f.a> f22130f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20976g;
+    public int f22131g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20977h;
+    public int f22132h;
 
     /* renamed from: b.a.r0.m1.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class C1029a {
+    public static /* synthetic */ class C1091a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -48,13 +48,13 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HeadImageView f20978a;
+        public HeadImageView f22133a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f20979b;
+        public TextView f22134b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f20980c;
+        public View f22135c;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, C1029a c1029a) {
+        public /* synthetic */ b(a aVar, C1091a c1091a) {
             this(aVar);
         }
     }
@@ -83,10 +83,10 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f20981a;
+        public TextView f22136a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f20982b;
+        public View f22137b;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ c(a aVar, C1029a c1029a) {
+        public /* synthetic */ c(a aVar, C1091a c1091a) {
             this(aVar);
         }
     }
@@ -124,9 +124,9 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f20974e = context;
-        this.f20976g = R.color.CAM_X0105;
-        this.f20977h = R.color.CAM_X0108;
+        this.f22129e = context;
+        this.f22131g = R.color.CAM_X0105;
+        this.f22132h = R.color.CAM_X0108;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -136,11 +136,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<b.a.q0.t.f.a> list = this.f20975f;
+            List<b.a.q0.t.f.a> list = this.f22130f;
             if (list == null || i2 < 0 || i2 >= list.size()) {
                 return null;
             }
-            return this.f20975f.get(i2);
+            return this.f22130f.get(i2);
         }
         return (b.a.q0.t.f.a) invokeI.objValue;
     }
@@ -148,7 +148,7 @@ public class a extends BaseAdapter {
     public void b(List<b.a.q0.t.f.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f20975f = list;
+            this.f22130f = list;
             notifyDataSetChanged();
         }
     }
@@ -158,7 +158,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<b.a.q0.t.f.a> list = this.f20975f;
+            List<b.a.q0.t.f.a> list = this.f22130f;
             if (list == null) {
                 return 0;
             }
@@ -204,35 +204,35 @@ public class a extends BaseAdapter {
                 if (view != null && view.getTag() != null && (view.getTag() instanceof c)) {
                     cVar = (c) view.getTag();
                 } else {
-                    view = LayoutInflater.from(this.f20974e).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
+                    view = LayoutInflater.from(this.f22129e).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
                     cVar = new c(this, null);
-                    cVar.f20981a = (TextView) view.findViewById(R.id.addresslist_group_item_key);
-                    cVar.f20982b = view.findViewById(R.id.addresslist_group_item_divider);
+                    cVar.f22136a = (TextView) view.findViewById(R.id.addresslist_group_item_key);
+                    cVar.f22137b = view.findViewById(R.id.addresslist_group_item_divider);
                     view.setTag(cVar);
                 }
                 if (item.a() != null) {
-                    cVar.f20981a.setText(item.a());
+                    cVar.f22136a.setText(item.a());
                 }
-                SkinManager.setViewTextColor(cVar.f20981a, this.f20977h, 1);
-                SkinManager.setBackgroundColor(cVar.f20982b, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(cVar.f22136a, this.f22132h, 1);
+                SkinManager.setBackgroundColor(cVar.f22137b, R.color.CAM_X0204);
                 return view;
             } else if (getItemViewType(i2) == 1) {
                 if (view != null && view.getTag() != null && (view.getTag() instanceof b)) {
                     bVar = (b) view.getTag();
                 } else {
                     bVar = new b(this, null);
-                    view = LayoutInflater.from(this.f20974e).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
-                    bVar.f20978a = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                    bVar.f20979b = (TextView) view.findViewById(R.id.addresslist_child_item_name);
-                    bVar.f20980c = view.findViewById(R.id.addresslist_child_item_divider);
+                    view = LayoutInflater.from(this.f22129e).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
+                    bVar.f22133a = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                    bVar.f22134b = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                    bVar.f22135c = view.findViewById(R.id.addresslist_child_item_divider);
                     view.setTag(bVar);
                 }
                 if (item.f() != null) {
-                    bVar.f20979b.setText(item.f());
-                    bVar.f20978a.startLoad(item.h(), 12, false);
+                    bVar.f22134b.setText(item.f());
+                    bVar.f22133a.startLoad(item.h(), 12, false);
                 }
-                SkinManager.setViewTextColor(bVar.f20979b, this.f20976g, 1);
-                SkinManager.setBackgroundResource(bVar.f20980c, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(bVar.f22134b, this.f22131g, 1);
+                SkinManager.setBackgroundResource(bVar.f22135c, R.color.CAM_X0204);
                 SkinManager.setBackgroundResource(view, R.drawable.select_friend_item_bg);
                 return view;
             } else {

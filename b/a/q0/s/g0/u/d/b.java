@@ -19,7 +19,7 @@ public class b extends b.a.q0.s.g0.u.b<b.a.q0.s.g0.u.d.a, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f13092d;
+    public Context f13872d;
 
     /* loaded from: classes4.dex */
     public class a extends BdBaseViewPagerAdapter.a {
@@ -27,7 +27,7 @@ public class b extends b.a.q0.s.g0.u.b<b.a.q0.s.g0.u.d.a, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public TbImageView f13093h;
+        public TbImageView f13873h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, View view) {
@@ -49,7 +49,7 @@ public class b extends b.a.q0.s.g0.u.b<b.a.q0.s.g0.u.d.a, a> {
             }
             if (view instanceof TbImageView) {
                 TbImageView tbImageView = (TbImageView) view;
-                this.f13093h = tbImageView;
+                this.f13873h = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
@@ -74,7 +74,7 @@ public class b extends b.a.q0.s.g0.u.b<b.a.q0.s.g0.u.d.a, a> {
                 return;
             }
         }
-        this.f13092d = context;
+        this.f13872d = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -84,7 +84,7 @@ public class b extends b.a.q0.s.g0.u.b<b.a.q0.s.g0.u.d.a, a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            TbImageView tbImageView = new TbImageView(this.f13092d);
+            TbImageView tbImageView = new TbImageView(this.f13872d);
             tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             return new a(this, tbImageView);
         }
@@ -98,7 +98,7 @@ public class b extends b.a.q0.s.g0.u.b<b.a.q0.s.g0.u.d.a, a> {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, viewGroup, aVar, aVar2)) == null) {
-            aVar.f13093h.startLoad(aVar2.a(), 10, false);
+            aVar.f13873h.startLoad(aVar2.a(), 10, false);
             return null;
         }
         return (View) invokeLLL.objValue;

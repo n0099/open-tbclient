@@ -27,25 +27,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f59034a;
+    public Context f59956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f59035b;
+    public JSONObject f59957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f59036c;
+    public final byte[] f59958c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f59037d;
+    public long f59959d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59038e;
+    public String f59960e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f59039f;
+    public String[] f59961f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String[] f59040g;
+    public String[] f59962g;
 
     /* renamed from: com.baidu.wallet.lightapp.business.b$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -54,13 +54,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.wallet.lightapp.business.a.a f59041a;
+        public final /* synthetic */ com.baidu.wallet.lightapp.business.a.a f59963a;
 
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-                this.f59041a.destroyBean();
+                this.f59963a.destroyBean();
             }
         }
 
@@ -68,7 +68,7 @@ public class b {
         public void onBeanExecSuccess(int i2, Object obj, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-                this.f59041a.destroyBean();
+                this.f59963a.destroyBean();
             }
         }
     }
@@ -78,7 +78,7 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f59042a;
+        public static final b f59964a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -94,7 +94,7 @@ public class b {
                     return;
                 }
             }
-            f59042a = new b(null);
+            f59964a = new b(null);
         }
     }
 
@@ -105,25 +105,25 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59042a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59964a : (b) invokeV.objValue;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            synchronized (this.f59036c) {
+            synchronized (this.f59958c) {
                 String[] strArr = {Domains.BAIDU, Domains.BAIFUBAO, Domains.DU_XIAO_MAN, Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN_INT};
-                this.f59039f = strArr;
-                this.f59040g = new String[]{"com.android.fileexplorer", "com.android.browser", "com.android.chrome", "com.android.mms", "com.android.server.telecom", "com.android.camera", "com.miui.gallery", "com.android.fileexplorer", "com.android.contacts"};
-                this.f59037d = 1800000L;
-                this.f59038e = "";
+                this.f59961f = strArr;
+                this.f59962g = new String[]{"com.android.fileexplorer", "com.android.browser", "com.android.chrome", "com.android.mms", "com.android.server.telecom", "com.android.camera", "com.miui.gallery", "com.android.fileexplorer", "com.android.contacts"};
+                this.f59959d = 1800000L;
+                this.f59960e = "";
                 Arrays.sort(strArr);
-                Arrays.sort(this.f59040g);
+                Arrays.sort(this.f59962g);
                 JSONObject jSONObject = new JSONObject();
-                this.f59035b = jSONObject;
+                this.f59957b = jSONObject;
                 try {
-                    jSONObject.put("domains", this.f59039f);
-                    this.f59035b.put("packages", this.f59040g);
+                    jSONObject.put("domains", this.f59961f);
+                    this.f59957b.put("packages", this.f59962g);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -141,12 +141,12 @@ public class b {
             sb.append("\"");
             sb.append("domains");
             sb.append("\":[");
-            for (String str : this.f59039f) {
+            for (String str : this.f59961f) {
                 sb.append("\"");
                 sb.append(str);
                 sb.append("\",");
             }
-            if (this.f59039f.length > 0) {
+            if (this.f59961f.length > 0) {
                 sb.replace(sb.length() - 1, sb.length(), "],");
             } else {
                 sb.append("],");
@@ -154,12 +154,12 @@ public class b {
             sb.append("\"");
             sb.append("packages");
             sb.append("\":[");
-            for (String str2 : this.f59040g) {
+            for (String str2 : this.f59962g) {
                 sb.append("\"");
                 sb.append(str2);
                 sb.append("\",");
             }
-            if (this.f59040g.length > 0) {
+            if (this.f59962g.length > 0) {
                 sb.replace(sb.length() - 1, sb.length(), "],");
             } else {
                 sb.append("],");
@@ -168,13 +168,13 @@ public class b {
             sb.append("fingerprint");
             sb.append("\":");
             sb.append("\"");
-            sb.append(this.f59038e);
+            sb.append(this.f59960e);
             sb.append("\",");
             sb.append("\"");
             sb.append("interval");
             sb.append("\":");
             sb.append("\"");
-            sb.append(this.f59037d);
+            sb.append(this.f59959d);
             sb.append("\"}");
             return sb.toString();
         }
@@ -194,7 +194,7 @@ public class b {
                 return;
             }
         }
-        this.f59036c = new byte[0];
+        this.f59958c = new byte[0];
         b();
     }
 
@@ -202,10 +202,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, context)) == null) {
-            if (this.f59034a == null && context != null) {
-                this.f59034a = DxmApplicationContextImpl.getApplicationContext(context);
+            if (this.f59956a == null && context != null) {
+                this.f59956a = DxmApplicationContextImpl.getApplicationContext(context);
             }
-            return this.f59034a != null;
+            return this.f59956a != null;
         }
         return invokeL.booleanValue;
     }
@@ -213,31 +213,31 @@ public class b {
     public void a(Context context, LangBridgeCfg langBridgeCfg) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, langBridgeCfg) == null) && a(context) && langBridgeCfg.checkResponseValidity()) {
-            synchronized (this.f59036c) {
+            synchronized (this.f59958c) {
                 LangBridgeCfg.LbConfig lbConfig = langBridgeCfg.lbconfig;
-                if (this.f59038e.equals(lbConfig.fingerprint)) {
+                if (this.f59960e.equals(lbConfig.fingerprint)) {
                     return;
                 }
                 if (lbConfig.domains != null) {
                     String[] strArr = (String[]) Arrays.copyOf(lbConfig.domains, lbConfig.domains.length);
-                    this.f59039f = strArr;
+                    this.f59961f = strArr;
                     Arrays.sort(strArr);
                 } else {
-                    this.f59039f = new String[0];
+                    this.f59961f = new String[0];
                 }
                 if (lbConfig.packages != null) {
                     String[] strArr2 = (String[]) Arrays.copyOf(lbConfig.packages, lbConfig.packages.length);
-                    this.f59040g = strArr2;
+                    this.f59962g = strArr2;
                     Arrays.sort(strArr2);
                 } else {
-                    this.f59040g = new String[0];
+                    this.f59962g = new String[0];
                 }
-                this.f59038e = lbConfig.fingerprint;
+                this.f59960e = lbConfig.fingerprint;
                 if (0 <= lbConfig.interval) {
-                    this.f59037d = lbConfig.interval * 60000;
+                    this.f59959d = lbConfig.interval * 60000;
                 }
-                SharedPreferencesUtils.setParam(this.f59034a, "langbridge", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, c());
-                SharedPreferencesUtils.setParam(this.f59034a, "langbridge", "lbc_update_timestamp", Long.valueOf(System.currentTimeMillis()));
+                SharedPreferencesUtils.setParam(this.f59956a, "langbridge", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, c());
+                SharedPreferencesUtils.setParam(this.f59956a, "langbridge", "lbc_update_timestamp", Long.valueOf(System.currentTimeMillis()));
             }
         }
     }

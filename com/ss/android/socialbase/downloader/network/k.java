@@ -17,26 +17,26 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f69701a = "k";
+    public static final String f70621a = "k";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f69702b;
+    public final d f70622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f69703c;
+    public volatile boolean f70623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicReference<l> f69704d;
+    public final AtomicReference<l> f70624d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicReference<l> f69705e;
+    public AtomicReference<l> f70625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<b> f69706f;
+    public final ArrayList<b> f70626f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f69707g;
+    public int f70627g;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.k$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -44,7 +44,7 @@ public class k {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f69708a;
+        public static final /* synthetic */ int[] f70628a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,21 +61,21 @@ public class k {
                 }
             }
             int[] iArr = new int[l.values().length];
-            f69708a = iArr;
+            f70628a = iArr;
             try {
-                iArr[l.f69710a.ordinal()] = 1;
+                iArr[l.f70630a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f69708a[l.f69711b.ordinal()] = 2;
+                f70628a[l.f70631b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f69708a[l.f69712c.ordinal()] = 3;
+                f70628a[l.f70632c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f69708a[l.f69713d.ordinal()] = 4;
+                f70628a[l.f70633d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -86,7 +86,7 @@ public class k {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final k f69709a;
+        public static final k f70629a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -102,7 +102,7 @@ public class k {
                     return;
                 }
             }
-            f69709a = new k(null);
+            f70629a = new k(null);
         }
     }
 
@@ -133,18 +133,18 @@ public class k {
     public static k a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f69709a : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f70629a : (k) invokeV.objValue;
     }
 
     private boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (this.f69702b == null) {
+            if (this.f70622b == null) {
                 return false;
             }
             try {
-                int i2 = AnonymousClass1.f69708a[this.f69704d.get().ordinal()];
+                int i2 = AnonymousClass1.f70628a[this.f70624d.get().ordinal()];
                 double d2 = 2000.0d;
                 double d3 = 550.0d;
                 if (i2 == 1) {
@@ -160,7 +160,7 @@ public class k {
                     d2 = 3.4028234663852886E38d;
                     d3 = 2000.0d;
                 }
-                double a2 = this.f69702b.a();
+                double a2 = this.f70622b.a();
                 if (a2 > d2) {
                     if (a2 > d2 * 1.25d) {
                         return true;
@@ -180,9 +180,9 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             try {
-                int size = this.f69706f.size();
+                int size = this.f70626f.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.f69706f.get(i2).a(this.f69704d.get());
+                    this.f70626f.get(i2).a(this.f70624d.get());
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -195,10 +195,10 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f69702b == null) {
-                    return l.f69714e;
+                if (this.f70622b == null) {
+                    return l.f70634e;
                 }
-                return a(this.f69702b.a());
+                return a(this.f70622b.a());
             }
         }
         return (l) invokeV.objValue;
@@ -217,10 +217,10 @@ public class k {
                 return;
             }
         }
-        this.f69702b = new d(0.05d);
-        this.f69703c = false;
-        this.f69704d = new AtomicReference<>(l.f69714e);
-        this.f69706f = new ArrayList<>();
+        this.f70622b = new d(0.05d);
+        this.f70623c = false;
+        this.f70624d = new AtomicReference<>(l.f70634e);
+        this.f70626f = new ArrayList<>();
     }
 
     public synchronized void a(long j, long j2) {
@@ -233,27 +233,27 @@ public class k {
                     return;
                 }
                 try {
-                    this.f69702b.a(d2);
+                    this.f70622b.a(d2);
                     b2 = b();
                 } catch (Throwable unused) {
                 }
-                if (this.f69703c) {
-                    this.f69707g++;
-                    if (b2 != this.f69705e.get()) {
-                        this.f69703c = false;
-                        this.f69707g = 1;
+                if (this.f70623c) {
+                    this.f70627g++;
+                    if (b2 != this.f70625e.get()) {
+                        this.f70623c = false;
+                        this.f70627g = 1;
                     }
-                    if (this.f69707g >= 5.0d && c()) {
-                        this.f69703c = false;
-                        this.f69707g = 1;
-                        this.f69704d.set(this.f69705e.get());
+                    if (this.f70627g >= 5.0d && c()) {
+                        this.f70623c = false;
+                        this.f70627g = 1;
+                        this.f70624d.set(this.f70625e.get());
                         d();
                     }
                     return;
                 }
-                if (this.f69704d.get() != b2) {
-                    this.f69703c = true;
-                    this.f69705e = new AtomicReference<>(b2);
+                if (this.f70624d.get() != b2) {
+                    this.f70623c = true;
+                    this.f70625e = new AtomicReference<>(b2);
                 }
             }
         }
@@ -264,18 +264,18 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Double.valueOf(d2)})) == null) {
             if (d2 < 0.0d) {
-                return l.f69714e;
+                return l.f70634e;
             }
             if (d2 < 150.0d) {
-                return l.f69710a;
+                return l.f70630a;
             }
             if (d2 < 550.0d) {
-                return l.f69711b;
+                return l.f70631b;
             }
             if (d2 < 2000.0d) {
-                return l.f69712c;
+                return l.f70632c;
             }
-            return l.f69713d;
+            return l.f70633d;
         }
         return (l) invokeCommon.objValue;
     }

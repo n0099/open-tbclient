@@ -23,10 +23,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f66350a;
+        public boolean f67263a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f66351b;
+        public String f67264b;
 
         public a(String str) {
             JSONObject jSONObject;
@@ -44,13 +44,13 @@ public class f {
                     return;
                 }
             }
-            this.f66351b = "-";
+            this.f67264b = "-";
             try {
                 jSONObject = new JSONObject(str);
             } catch (Throwable th) {
                 th.printStackTrace();
-                this.f66350a = false;
-                this.f66351b = "数据解析失败";
+                this.f67263a = false;
+                this.f67264b = "数据解析失败";
                 jSONObject = null;
             }
             a(jSONObject);
@@ -61,14 +61,14 @@ public class f {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f66350a = jSONObject.optBoolean("isValid");
-            this.f66351b = jSONObject.toString();
+            this.f67263a = jSONObject.optBoolean("isValid");
+            this.f67264b = jSONObject.toString();
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66350a : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67263a : invokeV.booleanValue;
         }
     }
 
@@ -85,10 +85,10 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f66348a;
+                public final /* synthetic */ String f67261a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AdTemplate f66349b;
+                public final /* synthetic */ AdTemplate f67262b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -105,21 +105,21 @@ public class f {
                             return;
                         }
                     }
-                    this.f66348a = ae;
-                    this.f66349b = adTemplate;
+                    this.f67261a = ae;
+                    this.f67262b = adTemplate;
                 }
 
                 private void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(65537, this) == null) {
-                        com.kwad.sdk.core.report.d.b(this.f66349b, 0, "success");
+                        com.kwad.sdk.core.report.d.b(this.f67262b, 0, "success");
                     }
                 }
 
                 private void a(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65538, this, str) == null) {
-                        com.kwad.sdk.core.report.d.b(this.f66349b, 1, str);
+                        com.kwad.sdk.core.report.d.b(this.f67262b, 1, str);
                     }
                 }
 
@@ -129,18 +129,18 @@ public class f {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            com.kwad.sdk.core.network.c doGet = KsAdSDKImpl.get().getProxyForHttp().doGet(this.f66348a, null);
+                            com.kwad.sdk.core.network.c doGet = KsAdSDKImpl.get().getProxyForHttp().doGet(this.f67261a, null);
                             if (doGet == null) {
                                 str = "Network Error: url invalid";
-                            } else if (doGet.f64797a == 200) {
-                                a aVar = new a(doGet.f64798b);
+                            } else if (doGet.f65710a == 200) {
+                                a aVar = new a(doGet.f65711b);
                                 if (aVar.a()) {
                                     a();
                                     return;
                                 }
-                                str = aVar.f66351b;
+                                str = aVar.f67264b;
                             } else {
-                                str = "Network Error: " + doGet.f64798b;
+                                str = "Network Error: " + doGet.f65711b;
                             }
                             a(str);
                         } catch (Throwable th) {

@@ -24,10 +24,10 @@ public class AutoHideSoftInputDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f73215e;
+    public b f74136e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f73216f;
+    public Context f74137f;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -92,7 +92,7 @@ public class AutoHideSoftInputDialog extends Dialog {
                 return;
             }
         }
-        this.f73216f = context;
+        this.f74137f = context;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -103,7 +103,7 @@ public class AutoHideSoftInputDialog extends Dialog {
             if (currentFocus instanceof EditText) {
                 ((InputMethodManager) getContext().getSystemService("input_method")).hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
             }
-            if (n.f72366a.a(this.f73216f)) {
+            if (n.f73285a.a(this.f74137f)) {
                 super.dismiss();
             }
         }
@@ -115,8 +115,8 @@ public class AutoHideSoftInputDialog extends Dialog {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             RLog.info("AutoHideSoftInputDialog", "onCreate");
-            this.f73215e = new b(this, null);
-            LocalBroadcastManager.getInstance(getContext()).registerReceiver(this.f73215e, new IntentFilter("tv.athena.revenue.payui.close_all_pay_ui_action"));
+            this.f74136e = new b(this, null);
+            LocalBroadcastManager.getInstance(getContext()).registerReceiver(this.f74136e, new IntentFilter("tv.athena.revenue.payui.close_all_pay_ui_action"));
         }
     }
 
@@ -126,9 +126,9 @@ public class AutoHideSoftInputDialog extends Dialog {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onStop();
             RLog.info("AutoHideSoftInputDialog", MissionEvent.MESSAGE_STOP);
-            if (this.f73215e != null) {
-                LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(this.f73215e);
-                this.f73215e = null;
+            if (this.f74136e != null) {
+                LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(this.f74136e);
+                this.f74136e = null;
             }
         }
     }

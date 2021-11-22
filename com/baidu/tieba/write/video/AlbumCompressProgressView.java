@@ -18,19 +18,19 @@ public class AlbumCompressProgressView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55877e;
+    public int f56799e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55878f;
+    public int f56800f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55879g;
+    public int f56801g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f55880h;
+    public Paint f56802h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f55881i;
+    public Paint f56803i;
     public RectF j;
     public int k;
 
@@ -60,23 +60,23 @@ public class AlbumCompressProgressView extends View {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f55877e = getResources().getDimensionPixelSize(R.dimen.ds100);
-            this.f55878f = getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f55879g = getResources().getDimensionPixelSize(R.dimen.ds2);
+            this.f56799e = getResources().getDimensionPixelSize(R.dimen.ds100);
+            this.f56800f = getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f56801g = getResources().getDimensionPixelSize(R.dimen.ds2);
             Paint paint = new Paint();
-            this.f55880h = paint;
-            paint.setStrokeWidth(this.f55878f);
-            this.f55880h.setColor(getResources().getColor(R.color.CAM_X0201));
-            this.f55880h.setStyle(Paint.Style.STROKE);
-            this.f55880h.setAntiAlias(true);
+            this.f56802h = paint;
+            paint.setStrokeWidth(this.f56800f);
+            this.f56802h.setColor(getResources().getColor(R.color.CAM_X0201));
+            this.f56802h.setStyle(Paint.Style.STROKE);
+            this.f56802h.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f55881i = paint2;
-            paint2.setStrokeWidth(this.f55879g);
-            this.f55881i.setColor(getResources().getColor(R.color.CAM_X0101));
-            this.f55881i.setStyle(Paint.Style.STROKE);
-            this.f55881i.setAntiAlias(true);
-            int i2 = this.f55878f;
-            int i3 = this.f55877e;
+            this.f56803i = paint2;
+            paint2.setStrokeWidth(this.f56801g);
+            this.f56803i.setColor(getResources().getColor(R.color.CAM_X0101));
+            this.f56803i.setStyle(Paint.Style.STROKE);
+            this.f56803i.setAntiAlias(true);
+            int i2 = this.f56800f;
+            int i3 = this.f56799e;
             this.j = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
@@ -85,8 +85,8 @@ public class AlbumCompressProgressView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.j, 270.0f, 360.0f, false, this.f55881i);
-            canvas.drawArc(this.j, 270.0f, (this.k * 360) / 100, false, this.f55880h);
+            canvas.drawArc(this.j, 270.0f, 360.0f, false, this.f56803i);
+            canvas.drawArc(this.j, 270.0f, (this.k * 360) / 100, false, this.f56802h);
         }
     }
 

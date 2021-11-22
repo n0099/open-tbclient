@@ -36,7 +36,7 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = k.f6397a;
+        DEBUG = k.f6863a;
     }
 
     public NetworkBroadcastReceiver(CallbackHandler callbackHandler, String str) {

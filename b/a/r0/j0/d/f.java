@@ -22,16 +22,16 @@ public class f extends a implements NetModel.k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public DownloadManagerNetModel f18313f;
+    public DownloadManagerNetModel f19647f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.r0.j0.e.a f18314g;
+    public b.a.r0.j0.e.a f19648g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.j0.e.b f18315h;
+    public b.a.r0.j0.e.b f19649h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f18316i;
+    public d f19650i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(BaseFragment baseFragment, int i2) {
@@ -52,19 +52,19 @@ public class f extends a implements NetModel.k {
                 return;
             }
         }
-        this.f18314g = new b.a.r0.j0.e.a(1, i2);
-        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.f18314g);
-        this.f18313f = downloadManagerNetModel;
+        this.f19648g = new b.a.r0.j0.e.a(1, i2);
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.f19648g);
+        this.f19647f = downloadManagerNetModel;
         downloadManagerNetModel.Y(this);
-        this.f18313f.setUniqueId(baseFragment.getUniqueId());
+        this.f19647f.setUniqueId(baseFragment.getUniqueId());
     }
 
     @Override // b.a.r0.j0.d.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f18314g.c();
-            this.f18313f.loadData();
+            this.f19648g.c();
+            this.f19647f.loadData();
         }
     }
 
@@ -72,8 +72,8 @@ public class f extends a implements NetModel.k {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18314g.b();
-            this.f18313f.loadData();
+            this.f19648g.b();
+            this.f19647f.loadData();
         }
     }
 
@@ -81,7 +81,7 @@ public class f extends a implements NetModel.k {
     public void d(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f18316i = dVar;
+            this.f19650i = dVar;
         }
     }
 
@@ -90,7 +90,7 @@ public class f extends a implements NetModel.k {
         if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || i2 == 0) {
             return;
         }
-        this.f18316i.a(i2, str);
+        this.f19650i.a(i2, str);
     }
 
     public final boolean f(b.a.r0.j0.e.b bVar) {
@@ -100,14 +100,14 @@ public class f extends a implements NetModel.k {
             if (bVar == null) {
                 return false;
             }
-            if (this.f18314g.a() != 1) {
-                this.f18315h.a(bVar);
+            if (this.f19648g.a() != 1) {
+                this.f19649h.a(bVar);
             } else {
-                this.f18315h = bVar;
+                this.f19649h = bVar;
             }
-            d dVar = this.f18316i;
-            b.a.r0.j0.e.b bVar2 = this.f18315h;
-            dVar.b(bVar2.f18319e, bVar2.f18320f, bVar2.f18321g.intValue());
+            d dVar = this.f19650i;
+            b.a.r0.j0.e.b bVar2 = this.f19649h;
+            dVar.b(bVar2.f19653e, bVar2.f19654f, bVar2.f19655g.intValue());
             return true;
         }
         return invokeL.booleanValue;

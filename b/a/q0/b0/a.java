@@ -1,6 +1,6 @@
 package b.a.q0.b0;
 
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.q0.a.e;
 import com.baidu.tbadk.growth.ActivityChangeSchemeModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +13,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f11962a;
+    public static boolean f12715a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class a {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || f11962a || e.y().A() || !j.z()) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || f12715a || e.y().A() || !j.z()) {
             return;
         }
         ActivityChangeSchemeModel activityChangeSchemeModel = new ActivityChangeSchemeModel();

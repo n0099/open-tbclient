@@ -2,7 +2,7 @@ package b.a.r0.c0.a.c;
 
 import android.view.View;
 import android.widget.TextView;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -37,17 +37,17 @@ public class a extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
 
     /* renamed from: b.a.r0.c0.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC0762a implements View.OnClickListener {
+    public class View$OnClickListenerC0826a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f15106e;
+        public final /* synthetic */ tinfo f16544e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f15107f;
+        public final /* synthetic */ a f16545f;
 
-        public View$OnClickListenerC0762a(a aVar, tinfo tinfoVar) {
+        public View$OnClickListenerC0826a(a aVar, tinfo tinfoVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,18 +62,18 @@ public class a extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f15107f = aVar;
-            this.f15106e = tinfoVar;
+            this.f16545f = aVar;
+            this.f16544e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String str = this.f15106e.forum_name;
+                String str = this.f16544e.forum_name;
                 if (k.isForumName(str)) {
-                    TiebaStatic.eventStat(this.f15107f.getActivity(), "kantie_6", null, 1, new Object[0]);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15107f.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                    TiebaStatic.eventStat(this.f16545f.getActivity(), "kantie_6", null, 1, new Object[0]);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f16545f.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                 }
             }
         }
@@ -128,7 +128,7 @@ public class a extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
             } else {
                 this.m.setVisibility(0);
                 this.m.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-                this.m.setOnClickListener(new View$OnClickListenerC0762a(this, tinfoVar));
+                this.m.setOnClickListener(new View$OnClickListenerC0826a(this, tinfoVar));
             }
             Integer num = tinfoVar.zan_num;
             if (num != null) {
@@ -139,7 +139,7 @@ public class a extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
                 this.o.setText(String.valueOf(num2));
             }
             this.p.setVisibility(0);
-            b.a.r0.l3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            b.a.r0.m3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(String.valueOf(tinfoVar.forum_id))) {
                 SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
             } else {
@@ -148,12 +148,12 @@ public class a extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
         }
     }
 
-    @Override // b.a.r0.l3.u
+    @Override // b.a.r0.m3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2)) == null) {
-            b.a.q0.w0.a.a(tbPageContext, d());
+            b.a.q0.v0.a.a(tbPageContext, d());
             return true;
         }
         return invokeLI.booleanValue;

@@ -53,11 +53,11 @@ public class a extends b {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f29470h == 0) {
-                this.f29470h = this.f29467e.presentationTimeUs;
+            if (this.f30339h == 0) {
+                this.f30339h = this.f30336e.presentationTimeUs;
             }
-            MediaCodec.BufferInfo bufferInfo = this.f29467e;
-            long j = bufferInfo.presentationTimeUs - this.f29470h;
+            MediaCodec.BufferInfo bufferInfo = this.f30336e;
+            long j = bufferInfo.presentationTimeUs - this.f30339h;
             bufferInfo.presentationTimeUs = j;
             long j2 = this.k;
             if (j < j2) {
@@ -65,9 +65,9 @@ public class a extends b {
                 this.k = j3;
                 bufferInfo.presentationTimeUs = j3;
             }
-            MediaCodec.BufferInfo bufferInfo2 = this.f29467e;
+            MediaCodec.BufferInfo bufferInfo2 = this.f30336e;
             long j4 = bufferInfo2.presentationTimeUs;
-            long j5 = b.f29462i;
+            long j5 = b.f30331i;
             if (j4 > j5 + 500000) {
                 long j6 = this.k;
                 if (j5 > j6) {
@@ -76,10 +76,10 @@ public class a extends b {
                     bufferInfo2.presentationTimeUs = j6 + 5000;
                 }
             }
-            if (b.f29462i > this.f29467e.presentationTimeUs + 500000) {
+            if (b.f30331i > this.f30336e.presentationTimeUs + 500000) {
                 b.j = 1200;
             }
-            this.k = this.f29467e.presentationTimeUs;
+            this.k = this.f30336e.presentationTimeUs;
         }
     }
 
@@ -88,7 +88,7 @@ public class a extends b {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, eVar) == null) {
             boolean z = false;
             if (dVar != null && eVar != null) {
-                this.f29465c = eVar;
+                this.f30334c = eVar;
                 MediaFormat mediaFormat = new MediaFormat();
                 mediaFormat.setString("mime", dVar.c());
                 mediaFormat.setInteger("aac-profile", 2);
@@ -98,19 +98,19 @@ public class a extends b {
                 mediaFormat.setInteger("max-input-size", dVar.d());
                 try {
                     MediaCodec createEncoderByType = MediaCodec.createEncoderByType(dVar.c());
-                    this.f29466d = createEncoderByType;
+                    this.f30335d = createEncoderByType;
                     createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
                     if (!dVar.p()) {
-                        this.f29469g = true;
+                        this.f30338g = true;
                     } else {
-                        this.f29469g = false;
+                        this.f30338g = false;
                     }
                     z = true;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            c cVar = this.f29468f;
+            c cVar = this.f30337f;
             if (cVar != null) {
                 cVar.b(z);
             }

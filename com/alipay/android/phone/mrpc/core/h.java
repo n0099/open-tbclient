@@ -12,7 +12,7 @@ public final class h extends w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f33857a;
+    public Context f34691a;
 
     public h(Context context) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class h extends w {
                 return;
             }
         }
-        this.f33857a = context;
+        this.f34691a = context;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.w

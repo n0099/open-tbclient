@@ -8,10 +8,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.constraintlayout.motion.widget.Key;
 import b.a.p0.a.f;
 import b.a.p0.a.g;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,19 +29,19 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Function0<Unit> f44358e;
+    public Function0<Unit> f45166e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44359f;
+    public TextView f45167f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ObjectAnimator f44360g;
+    public ObjectAnimator f45168g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ObjectAnimator f44361h;
+    public ObjectAnimator f45169h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f44362i;
+    public Runnable f45170i;
 
     /* loaded from: classes8.dex */
     public static final class a implements Animator.AnimatorListener {
@@ -50,7 +49,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanLoadingTipsView f44363e;
+        public final /* synthetic */ SwanLoadingTipsView f45171e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(SwanLoadingTipsView swanLoadingTipsView) {
@@ -68,7 +67,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
                     return;
                 }
             }
-            this.f44363e = swanLoadingTipsView;
+            this.f45171e = swanLoadingTipsView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -82,7 +81,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                q0.Y(this.f44363e.f44362i, 2000L);
+                q0.b0(this.f45171e.f45170i, 2000L);
             }
         }
 
@@ -97,7 +96,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f44363e.setVisibility(0);
+                this.f45171e.setVisibility(0);
             }
         }
     }
@@ -108,7 +107,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanLoadingTipsView f44364e;
+        public final /* synthetic */ SwanLoadingTipsView f45172e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public b(SwanLoadingTipsView swanLoadingTipsView) {
@@ -126,7 +125,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
                     return;
                 }
             }
-            this.f44364e = swanLoadingTipsView;
+            this.f45172e = swanLoadingTipsView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -140,8 +139,8 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f44364e.setVisibility(8);
-                Function0<Unit> tipsAnimationFinishCallback = this.f44364e.getTipsAnimationFinishCallback();
+                this.f45172e.setVisibility(8);
+                Function0<Unit> tipsAnimationFinishCallback = this.f45172e.getTipsAnimationFinishCallback();
                 if (tipsAnimationFinishCallback != null) {
                     tipsAnimationFinishCallback.invoke();
                 }
@@ -169,7 +168,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanLoadingTipsView f44365e;
+        public final /* synthetic */ SwanLoadingTipsView f45173e;
 
         public c(SwanLoadingTipsView swanLoadingTipsView) {
             Interceptable interceptable = $ic;
@@ -186,14 +185,14 @@ public final class SwanLoadingTipsView extends RelativeLayout {
                     return;
                 }
             }
-            this.f44365e = swanLoadingTipsView;
+            this.f45173e = swanLoadingTipsView;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44365e.b();
+                this.f45173e.b();
             }
         }
     }
@@ -217,7 +216,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f44362i = new c(this);
+        this.f45170i = new c(this);
         a(context);
     }
 
@@ -225,33 +224,33 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View.inflate(context, g.aiapps_games_loading_tips_view, this);
-            this.f44359f = (TextView) findViewById(f.aiapps_games_loading_tips_message);
+            this.f45167f = (TextView) findViewById(f.aiapps_games_loading_tips_message);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ObjectAnimator objectAnimator = this.f44361h;
+            ObjectAnimator objectAnimator = this.f45169h;
             if (objectAnimator != null) {
                 if (objectAnimator != null) {
                     objectAnimator.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator2 = this.f44361h;
+                ObjectAnimator objectAnimator2 = this.f45169h;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
             }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, Key.ALPHA, 1.0f, 0.0f);
-            this.f44361h = ofFloat;
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f);
+            this.f45169h = ofFloat;
             if (ofFloat != null) {
                 ofFloat.setDuration(500L);
             }
-            ObjectAnimator objectAnimator3 = this.f44361h;
+            ObjectAnimator objectAnimator3 = this.f45169h;
             if (objectAnimator3 != null) {
                 objectAnimator3.addListener(new b(this));
             }
-            ObjectAnimator objectAnimator4 = this.f44361h;
+            ObjectAnimator objectAnimator4 = this.f45169h;
             if (objectAnimator4 != null) {
                 objectAnimator4.start();
             }
@@ -261,32 +260,32 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public final void doDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f44358e = null;
-            Runnable runnable = this.f44362i;
+            this.f45166e = null;
+            Runnable runnable = this.f45170i;
             if (runnable != null) {
-                q0.a0(runnable);
+                q0.d0(runnable);
             }
-            ObjectAnimator objectAnimator = this.f44360g;
+            ObjectAnimator objectAnimator = this.f45168g;
             if (objectAnimator != null) {
                 if (objectAnimator != null) {
                     objectAnimator.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator2 = this.f44360g;
+                ObjectAnimator objectAnimator2 = this.f45168g;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
-                this.f44360g = null;
+                this.f45168g = null;
             }
-            ObjectAnimator objectAnimator3 = this.f44361h;
+            ObjectAnimator objectAnimator3 = this.f45169h;
             if (objectAnimator3 != null) {
                 if (objectAnimator3 != null) {
                     objectAnimator3.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator4 = this.f44361h;
+                ObjectAnimator objectAnimator4 = this.f45169h;
                 if (objectAnimator4 != null) {
                     objectAnimator4.cancel();
                 }
-                this.f44361h = null;
+                this.f45169h = null;
             }
         }
     }
@@ -294,13 +293,13 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public final Function0<Unit> getTipsAnimationFinishCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44358e : (Function0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45166e : (Function0) invokeV.objValue;
     }
 
     public final void setTipsAnimationFinishCallback(Function0<Unit> function0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, function0) == null) {
-            this.f44358e = function0;
+            this.f45166e = function0;
         }
     }
 
@@ -310,35 +309,35 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             if (str == null || str.length() == 0) {
                 return;
             }
-            TextView textView = this.f44359f;
+            TextView textView = this.f45167f;
             if (textView != null) {
                 textView.setText(str);
             }
             setVisibility(8);
-            ObjectAnimator objectAnimator = this.f44360g;
+            ObjectAnimator objectAnimator = this.f45168g;
             if (objectAnimator != null) {
                 if (objectAnimator != null) {
                     objectAnimator.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator2 = this.f44360g;
+                ObjectAnimator objectAnimator2 = this.f45168g;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
             }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, Key.ALPHA, 0.0f, 1.0f);
-            this.f44360g = ofFloat;
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 1.0f);
+            this.f45168g = ofFloat;
             if (ofFloat != null) {
                 ofFloat.setDuration(500L);
             }
-            ObjectAnimator objectAnimator3 = this.f44360g;
+            ObjectAnimator objectAnimator3 = this.f45168g;
             if (objectAnimator3 != null) {
                 objectAnimator3.setStartDelay(1000L);
             }
-            ObjectAnimator objectAnimator4 = this.f44360g;
+            ObjectAnimator objectAnimator4 = this.f45168g;
             if (objectAnimator4 != null) {
                 objectAnimator4.addListener(new a(this));
             }
-            ObjectAnimator objectAnimator5 = this.f44360g;
+            ObjectAnimator objectAnimator5 = this.f45168g;
             if (objectAnimator5 != null) {
                 objectAnimator5.start();
             }
@@ -366,7 +365,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attrs, "attrs");
-        this.f44362i = new c(this);
+        this.f45170i = new c(this);
         a(context);
     }
 }

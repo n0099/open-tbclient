@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.c.g.a;
-import b.a.e.e.m.e;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
+import b.a.e.f.m.e;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
 import b.a.q0.s.e0.b;
 import b.a.q0.s.s.a;
 import b.a.q0.w.c;
@@ -446,7 +446,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
     public void createPayDebugLog(String str, int i2, String str2, int i3, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{str, Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("requestMethod", str);
             statsItem.b("eventType", "requestfail");
             statsItem.c("response_code", Integer.valueOf(i2));

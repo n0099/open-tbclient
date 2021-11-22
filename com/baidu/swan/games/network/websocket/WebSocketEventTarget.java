@@ -1,10 +1,10 @@
 package com.baidu.swan.games.network.websocket;
 
 import b.a.p0.a.k;
-import b.a.p0.h.y.h.e;
-import b.a.p0.h.y.h.f;
-import b.a.p0.h.y.h.h;
-import b.a.p0.h.y.h.i;
+import b.a.p0.j.z.h.e;
+import b.a.p0.j.z.h.f;
+import b.a.p0.j.z.h.h;
+import b.a.p0.j.z.h.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.JsArrayBuffer;
@@ -27,11 +27,11 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f44690f;
+    public static final boolean f45498f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SocketTaskState f44691e;
+    public SocketTaskState f45499e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
@@ -108,7 +108,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
                 return;
             }
         }
-        f44690f = k.f6397a;
+        f45498f = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -129,21 +129,21 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
                 return;
             }
         }
-        this.f44691e = SocketTaskState.IDLE;
+        this.f45499e = SocketTaskState.IDLE;
     }
 
     public void onClose(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.f44691e = SocketTaskState.CLOSE;
-            w(IntentConfig.CLOSE, new e(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
+            this.f45499e = SocketTaskState.CLOSE;
+            x(IntentConfig.CLOSE, new e(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
         }
     }
 
     public void onError(Throwable th, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.f44691e == SocketTaskState.IDLE) {
-            w("error", new f(th.getMessage()));
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.f45499e == SocketTaskState.IDLE) {
+            x("error", new f(th.getMessage()));
         }
     }
 
@@ -151,7 +151,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public void onMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            w("message", new h(str));
+            x("message", new h(str));
         }
     }
 
@@ -159,15 +159,15 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public void onOpen(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            this.f44691e = SocketTaskState.OPEN;
-            w("open", new i(new JSONObject(map)));
+            this.f45499e = SocketTaskState.OPEN;
+            x("open", new i(new JSONObject(map)));
         }
     }
 
-    public final void w(String str, Object obj) {
+    public final void x(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
-            if (f44690f) {
+            if (f45498f) {
                 String str2 = "dispatchEvent:" + str;
             }
             dispatchEvent(new JSEvent(str, obj));
@@ -181,7 +181,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
             int remaining = byteBuffer.remaining();
             byte[] bArr = new byte[remaining];
             byteBuffer.get(bArr);
-            w("message", new h(new JsArrayBuffer(bArr, remaining)));
+            x("message", new h(new JsArrayBuffer(bArr, remaining)));
         }
     }
 }

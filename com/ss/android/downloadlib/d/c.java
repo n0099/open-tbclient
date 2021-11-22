@@ -19,11 +19,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f68767b;
+    public static volatile c f69687b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SQLiteDatabase f68768a;
+    public SQLiteDatabase f69688a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class c {
             }
         }
         try {
-            this.f68768a = new b(j.getContext()).getWritableDatabase();
+            this.f69688a = new b(j.getContext()).getWritableDatabase();
         } catch (Throwable th) {
             com.ss.android.downloadlib.e.c.a().a(th, "ClickEventHelper");
         }
@@ -49,14 +49,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f68767b == null) {
+            if (f69687b == null) {
                 synchronized (c.class) {
-                    if (f68767b == null) {
-                        f68767b = new c();
+                    if (f69687b == null) {
+                        f69687b = new c();
                     }
                 }
             }
-            return f68767b;
+            return f69687b;
         }
         return (c) invokeV.objValue;
     }
@@ -76,7 +76,7 @@ public class c {
     private void c(long j, String str) {
         SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(65538, this, j, str) == null) || (sQLiteDatabase = this.f68768a) == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeJL(65538, this, j, str) == null) || (sQLiteDatabase = this.f69688a) == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -84,7 +84,7 @@ public class c {
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
-            this.f68768a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString});
+            this.f69688a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString});
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -95,7 +95,7 @@ public class c {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, str)) == null) {
-            SQLiteDatabase sQLiteDatabase = this.f68768a;
+            SQLiteDatabase sQLiteDatabase = this.f69688a;
             if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -106,7 +106,7 @@ public class c {
                     if (TextUtils.isEmpty(optString)) {
                         return false;
                     }
-                    cursor = this.f68768a.query("click_event", b.f68766a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString}, null, null, null, null);
+                    cursor = this.f69688a.query("click_event", b.f69686a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString}, null, null, null, null);
                     boolean z = cursor.getCount() > 0;
                     if (cursor != null) {
                         cursor.close();
@@ -133,7 +133,7 @@ public class c {
         SQLiteDatabase sQLiteDatabase;
         String optString;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) || (sQLiteDatabase = this.f68768a) == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) || (sQLiteDatabase = this.f69688a) == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -148,7 +148,7 @@ public class c {
         contentValues.put(LegoListActivityConfig.AD_ID, Long.valueOf(j));
         contentValues.put(IAdRequestParam.REQ_ID, optString);
         contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-        this.f68768a.insert("click_event", null, contentValues);
+        this.f69688a.insert("click_event", null, contentValues);
         c(j, str);
     }
 }

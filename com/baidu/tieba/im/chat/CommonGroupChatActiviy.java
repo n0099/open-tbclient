@@ -55,7 +55,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonGroupChatActiviy f50172a;
+        public final /* synthetic */ CommonGroupChatActiviy f51084a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CommonGroupChatActiviy commonGroupChatActiviy, int i2) {
@@ -75,7 +75,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                     return;
                 }
             }
-            this.f50172a = commonGroupChatActiviy;
+            this.f51084a = commonGroupChatActiviy;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +90,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 case 103101:
                 case 103110:
                 case 103112:
-                    this.f50172a.mListView.refresh();
+                    this.f51084a.mListView.refresh();
                     return;
                 case 103104:
                     if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
@@ -98,9 +98,9 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                         if (responseDismissGroupMessage.getError() != 0) {
                             return;
                         }
-                        MsglistModel msglistModel = this.f50172a.mListModel;
+                        MsglistModel msglistModel = this.f51084a.mListModel;
                         if ((msglistModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) msglistModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
-                            this.f50172a.finish();
+                            this.f51084a.finish();
                             return;
                         }
                         return;
@@ -118,7 +118,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonGroupChatActiviy f50173a;
+        public final /* synthetic */ CommonGroupChatActiviy f51085a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CommonGroupChatActiviy commonGroupChatActiviy, int i2) {
@@ -138,7 +138,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                     return;
                 }
             }
-            this.f50173a = commonGroupChatActiviy;
+            this.f51085a = commonGroupChatActiviy;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -151,7 +151,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             }
             switch (customResponsedMessage.getCmd()) {
                 case 2001109:
-                    this.f50173a.mListView.refresh();
+                    this.f51085a.mListView.refresh();
                     return;
                 case 2001126:
                 case 2001128:
@@ -167,18 +167,18 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                     if (TextUtils.isEmpty(cmd)) {
                         return;
                     }
-                    this.f50173a.mListView.refresh();
+                    this.f51085a.mListView.refresh();
                     if (cmd.equals("apply_join_success")) {
                         return;
                     }
                     if (cmd.equals("kick_out")) {
-                        this.f50173a.processKick(p);
+                        this.f51085a.processKick(p);
                         return;
                     } else if (cmd.equals("group_name_change")) {
-                        this.f50173a.processTitleChange(p);
+                        this.f51085a.processTitleChange(p);
                         return;
                     } else if (cmd.equals("dismiss_group")) {
-                        this.f50173a.processDismissGroup(p);
+                        this.f51085a.processDismissGroup(p);
                         return;
                     } else {
                         return;
@@ -315,7 +315,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0032, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, b.a.e.e.h.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, b.a.e.f.h.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -367,7 +367,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, b.a.e.e.h.b
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, b.a.e.f.h.b
     public void onItemViewLongClick(View view, int i2, int i3, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {

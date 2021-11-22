@@ -2,8 +2,8 @@ package com.baidu.tieba.quickWebView;
 
 import android.content.Context;
 import android.webkit.JsPromptResult;
-import b.a.e.e.m.e;
-import b.a.r0.l3.n0.d.c;
+import b.a.e.f.m.e;
+import b.a.r0.m3.n0.d.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
@@ -22,7 +22,7 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public b.a.r0.x2.a mProxy;
+    public b.a.r0.y2.a mProxy;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -30,10 +30,10 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ QuickWebViewBridgeData f53486e;
+        public final /* synthetic */ QuickWebViewBridgeData f54405e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ QuickWebViewBridge f53487f;
+        public final /* synthetic */ QuickWebViewBridge f54406f;
 
         public a(QuickWebViewBridge quickWebViewBridge, QuickWebViewBridgeData quickWebViewBridgeData) {
             Interceptable interceptable = $ic;
@@ -50,23 +50,23 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
                     return;
                 }
             }
-            this.f53487f = quickWebViewBridge;
-            this.f53486e = quickWebViewBridgeData;
+            this.f54406f = quickWebViewBridge;
+            this.f54405e = quickWebViewBridgeData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.r0.x2.a aVar = this.f53487f.mProxy;
-                QuickWebViewBridgeData quickWebViewBridgeData = this.f53486e;
+                b.a.r0.y2.a aVar = this.f54406f.mProxy;
+                QuickWebViewBridgeData quickWebViewBridgeData = this.f54405e;
                 aVar.j(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuickWebViewBridge(Context context, b.a.r0.x2.a aVar) {
+    public QuickWebViewBridge(Context context, b.a.r0.y2.a aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,7 +87,7 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         this.mProxy = aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, b.a.r0.l3.n0.b
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, b.a.r0.m3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

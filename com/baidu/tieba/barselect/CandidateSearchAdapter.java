@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearchItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f47261a;
+    public List<a> f48125a;
 
     public CandidateSearchAdapter() {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
                 return;
             }
         }
-        this.f47261a = new ArrayList();
+        this.f48125a = new ArrayList();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47261a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48125a.size() : invokeV.intValue;
     }
 
     public void setData(List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f47261a.clear();
-            this.f47261a.addAll(list);
+            this.f48125a.clear();
+            this.f48125a.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -58,10 +58,10 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(CandidateSearchItemHolder candidateSearchItemHolder, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, candidateSearchItemHolder, i2) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.f47261a)) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, candidateSearchItemHolder, i2) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.f48125a)) {
             return;
         }
-        candidateSearchItemHolder.bindData(this.f47261a.get(i2));
+        candidateSearchItemHolder.bindData(this.f48125a.get(i2));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

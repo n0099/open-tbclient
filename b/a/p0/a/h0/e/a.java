@@ -2,8 +2,8 @@ package b.a.p0.a.h0.e;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.c2.f.a0;
+import b.a.p0.a.f2.e;
+import b.a.p0.a.f2.f.z;
 import b.a.p0.a.g1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends a0 {
+public class a extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,12 +42,12 @@ public class a extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4160b) {
+            if (z.f5228b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
                 return false;
             }
@@ -56,16 +56,16 @@ public class a extends a0 {
         return invokeLLLL.booleanValue;
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLLL;
         boolean optBoolean;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            if (a0.f4160b) {
+            if (z.f5228b) {
                 String str2 = "handleSubAction subAction: " + str;
             }
-            if (!b.a.p0.a.e0.a.a() && !b.a.p0.a.e0.d.d() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
+            if (!b.a.p0.a.e0.a.a() && !b.a.p0.a.e0.d.f() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
                 return super.i(context, unitedSchemeEntity, callbackHandler, str, eVar);
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -119,37 +119,37 @@ public class a extends a0 {
                     if (optParamsAsJo != null && (optBoolean = optParamsAsJo.optBoolean("enableDebug")) != b.a.p0.a.e0.a.a()) {
                         b.a.p0.a.e0.a.c(context, optBoolean);
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        b.a.p0.a.e0.d.g("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
+                        b.a.p0.a.e0.d.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
                     }
                     return true;
                 case 1:
-                    f.T().p().P(true);
+                    f.U().p().R(true);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    b.a.p0.a.e0.d.g("ConsoleAction", "sConsole show");
+                    b.a.p0.a.e0.d.i("ConsoleAction", "sConsole show");
                     return true;
                 case 2:
-                    f.T().p().P(false);
+                    f.U().p().R(false);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    b.a.p0.a.e0.d.g("ConsoleAction", "sConsole hide");
+                    b.a.p0.a.e0.d.i("ConsoleAction", "sConsole hide");
                     return true;
                 case 3:
                     if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                        b.a.p0.a.e0.d.g("ConsoleAction", "send san inc data");
+                        b.a.p0.a.e0.d.i("ConsoleAction", "send san inc data");
                         b.d(optParamsAsJo.toString());
                     } else {
-                        b.a.p0.a.e0.d.b("ConsoleAction", "san inc data is null");
+                        b.a.p0.a.e0.d.c("ConsoleAction", "san inc data is null");
                     }
                     return true;
                 case 4:
                     if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                        b.a.p0.a.e0.d.g("ConsoleAction", "send san full data");
+                        b.a.p0.a.e0.d.i("ConsoleAction", "send san full data");
                         b.c(optParamsAsJo.toString());
                     } else {
-                        b.a.p0.a.e0.d.b("ConsoleAction", "san full data is null");
+                        b.a.p0.a.e0.d.c("ConsoleAction", "san full data is null");
                     }
                     return true;
                 case 5:
-                    b.a.p0.a.e0.d.g("ConsoleAction", "request san full data");
+                    b.a.p0.a.e0.d.i("ConsoleAction", "request san full data");
                     b.b();
                     return true;
                 case 6:

@@ -78,7 +78,7 @@ public final class BdSailorPlatform implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdSailorPlatform f36602a;
+        public final /* synthetic */ BdSailorPlatform f37431a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdSailorPlatform bdSailorPlatform, Looper looper) {
@@ -98,21 +98,21 @@ public final class BdSailorPlatform implements INoProGuard {
                     return;
                 }
             }
-            this.f36602a = bdSailorPlatform;
+            this.f37431a = bdSailorPlatform;
         }
 
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f36602a.mContext != null) {
-                BdSailorPlatform bdSailorPlatform = this.f36602a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f37431a.mContext != null) {
+                BdSailorPlatform bdSailorPlatform = this.f37431a;
                 if (bdSailorPlatform.isAppOnForeground(bdSailorPlatform.mContext)) {
                     return;
                 }
                 try {
                     Log.d(BdSailorPlatform.TAG, "do pause");
-                    this.f36602a.mWebkitTimerPaused = b.a.k.b.d.a.a().c();
-                    CookieSyncManager createInstance = CookieSyncManager.createInstance(this.f36602a.mContext);
+                    this.f37431a.mWebkitTimerPaused = b.a.k.b.d.a.a().c();
+                    CookieSyncManager createInstance = CookieSyncManager.createInstance(this.f37431a.mContext);
                     if (createInstance != null) {
                         createInstance.stopSync();
                     }
@@ -129,7 +129,7 @@ public final class BdSailorPlatform implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdSailorPlatform f36603a;
+        public final /* synthetic */ BdSailorPlatform f37432a;
 
         public b(BdSailorPlatform bdSailorPlatform) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public final class BdSailorPlatform implements INoProGuard {
                     return;
                 }
             }
-            this.f36603a = bdSailorPlatform;
+            this.f37432a = bdSailorPlatform;
         }
 
         public /* synthetic */ b(BdSailorPlatform bdSailorPlatform, byte b2) {
@@ -435,7 +435,7 @@ public final class BdSailorPlatform implements INoProGuard {
             b.a.k.b.d.a a2 = b.a.k.b.d.a.a();
             try {
                 a2.e();
-                a2.f3172b.clearCache(z);
+                a2.f3263b.clearCache(z);
             } catch (Exception e2) {
                 Log.printStackTrace(e2);
             }
@@ -571,13 +571,15 @@ public final class BdSailorPlatform implements INoProGuard {
         BdWebkitManager bdWebkitManager = this.mWebkitMgr;
         if (bdWebkitManager != null) {
             bdWebkitManager.initWebkit(str, z, cls);
+        } else {
+            WebKitFactory.getLoadErrorCode().trace(523);
         }
         long currentTimeMillis = System.currentTimeMillis();
         b.a.k.b.d.a a2 = b.a.k.b.d.a.a();
         Context appContext = getAppContext();
-        if (a2.f3171a == null) {
-            a2.f3171a = appContext.getApplicationContext();
-            Log.d(b.a.k.b.d.a.f3169d, "in BdWebViewSingleton, init");
+        if (a2.f3262a == null) {
+            a2.f3262a = appContext.getApplicationContext();
+            Log.d(b.a.k.b.d.a.f3260d, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         long currentTimeMillis2 = System.currentTimeMillis();

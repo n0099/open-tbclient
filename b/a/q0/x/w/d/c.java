@@ -11,10 +11,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f14251a = false;
+    public static boolean f15018a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f14252b = 50;
+    public static int f15019b = 50;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,13 +39,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (c.class) {
-                if (!f14251a && (identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android")) > 0) {
+                if (!f15018a && (identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android")) > 0) {
                     int dimensionPixelSize = context.getResources().getDimensionPixelSize(identifier);
-                    f14252b = dimensionPixelSize;
-                    f14251a = true;
+                    f15019b = dimensionPixelSize;
+                    f15018a = true;
                     String.format("Get status bar height %d", Integer.valueOf(dimensionPixelSize));
                 }
-                i2 = f14252b;
+                i2 = f15019b;
             }
             return i2;
         }

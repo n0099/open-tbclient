@@ -19,10 +19,10 @@ public class f implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.l1.h.c f20424e;
+    public b.a.r0.l1.h.c f21946e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20425f;
+    public int f21947f;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class f implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
     public final void b(b.a.r0.l1.h.c cVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, i2) == null) {
-            this.f20424e = cVar;
-            this.f20425f = i2;
+            this.f21946e = cVar;
+            this.f21947f = i2;
         }
     }
 
@@ -65,23 +65,23 @@ public class f implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customMessage)) == null) {
             if (customMessage != null && (customMessage instanceof LoadHistoryMessage)) {
-                if (this.f20424e == null) {
-                    return a(this.f20425f);
+                if (this.f21946e == null) {
+                    return a(this.f21947f);
                 }
                 LoadHistoryMessage.a data = customMessage.getData();
-                LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.f20425f);
-                LinkedList<ChatMessage> g2 = this.f20424e.g(data.f50485d, data.f50482a, data.f50483b, data.f50484c);
+                LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.f21947f);
+                LinkedList<ChatMessage> g2 = this.f21946e.g(data.f51397d, data.f51394a, data.f51395b, data.f51396c);
                 if (g2 == null) {
-                    return a(this.f20425f);
+                    return a(this.f21947f);
                 }
                 LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-                if (data.f50482a == null) {
-                    aVar.f50488c = true;
+                if (data.f51394a == null) {
+                    aVar.f51400c = true;
                 } else {
-                    aVar.f50488c = false;
+                    aVar.f51400c = false;
                 }
-                aVar.f50487b = g2;
-                aVar.f50486a = data.f50485d;
+                aVar.f51399b = g2;
+                aVar.f51398a = data.f51397d;
                 try {
                     loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
                 } catch (Exception e2) {
@@ -89,7 +89,7 @@ public class f implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
                 }
                 return loadHistoryResponsedMessage;
             }
-            return a(this.f20425f);
+            return a(this.f21947f);
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

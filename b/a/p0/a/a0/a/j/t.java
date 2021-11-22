@@ -34,7 +34,7 @@ public class t extends a {
             try {
                 canvas.restore();
             } catch (IllegalStateException e2) {
-                b.a.p0.a.e0.d.c("Canvas", "Underflow in restore - more restores than saves, please check", e2);
+                b.a.p0.a.e0.d.d("Canvas", "Underflow in restore - more restores than saves, please check", e2);
             }
         }
     }

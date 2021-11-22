@@ -7,12 +7,10 @@ import android.media.MediaMetadataRetriever;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
-import android.os.ParcelFileDescriptor;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.ImageClipActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +28,6 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.CloseableStaticBitmap;
 import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
-import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
@@ -131,25 +128,6 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
         return (Bitmap) invokeLII.objValue;
     }
 
-    @Nullable
-    public static Bitmap createThumbnailFromContentProvider(ContentResolver contentResolver, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, contentResolver, uri)) == null) {
-            if (Build.VERSION.SDK_INT >= 10) {
-                try {
-                    ParcelFileDescriptor openFileDescriptor = contentResolver.openFileDescriptor(uri, r.f40168a);
-                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                    mediaMetadataRetriever.setDataSource(openFileDescriptor.getFileDescriptor());
-                    return mediaMetadataRetriever.getFrameAtTime(-1L);
-                } catch (FileNotFoundException unused) {
-                }
-            }
-            return null;
-        }
-        return (Bitmap) invokeLL.objValue;
-    }
-
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
@@ -159,7 +137,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
         String str;
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, imageRequest)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, imageRequest)) == null) {
             Uri sourceUri = imageRequest.getSourceUri();
             if (UriUtil.isLocalFileUri(sourceUri)) {
                 return imageRequest.getSourceFile().getPath();
@@ -200,40 +178,39 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
     public void produceResults(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
-            ProducerListener2 producerListener = producerContext.getProducerListener();
-            ImageRequest imageRequest = producerContext.getImageRequest();
-            producerContext.putOriginExtra("local", "video");
-            StatefulProducerRunnable<CloseableReference<CloseableImage>> statefulProducerRunnable = new StatefulProducerRunnable<CloseableReference<CloseableImage>>(this, consumer, producerListener, producerContext, PRODUCER_NAME, producerListener, producerContext, imageRequest) { // from class: com.facebook.imagepipeline.producers.LocalVideoThumbnailProducer.1
+            ProducerListener listener = producerContext.getListener();
+            String id = producerContext.getId();
+            StatefulProducerRunnable<CloseableReference<CloseableImage>> statefulProducerRunnable = new StatefulProducerRunnable<CloseableReference<CloseableImage>>(this, consumer, listener, PRODUCER_NAME, id, listener, id, producerContext.getImageRequest()) { // from class: com.facebook.imagepipeline.producers.LocalVideoThumbnailProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LocalVideoThumbnailProducer this$0;
                 public final /* synthetic */ ImageRequest val$imageRequest;
-                public final /* synthetic */ ProducerListener2 val$listener;
-                public final /* synthetic */ ProducerContext val$producerContext;
+                public final /* synthetic */ ProducerListener val$listener;
+                public final /* synthetic */ String val$requestId;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
-                    super(consumer, producerListener, producerContext, r15);
+                    super(consumer, listener, r14, id);
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r3;
-                        Object[] objArr = {this, consumer, producerListener, producerContext, r15, producerListener, producerContext, imageRequest};
+                        Object[] objArr = {this, consumer, listener, r14, id, listener, id, r18};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
                             int i3 = i2 & 2;
                             Object[] objArr2 = newInitContext.callArgs;
-                            super((Consumer) objArr2[0], (ProducerListener2) objArr2[1], (ProducerContext) objArr2[2], (String) objArr2[3]);
+                            super((Consumer) objArr2[0], (ProducerListener) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$listener = producerListener;
-                    this.val$producerContext = producerContext;
-                    this.val$imageRequest = imageRequest;
+                    this.val$listener = listener;
+                    this.val$requestId = id;
+                    this.val$imageRequest = r18;
                 }
 
                 @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
@@ -241,8 +218,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, exc) == null) {
                         super.onFailure(exc);
-                        this.val$listener.onUltimateProducerReached(this.val$producerContext, LocalVideoThumbnailProducer.PRODUCER_NAME, false);
-                        this.val$producerContext.putOriginExtra("local");
+                        this.val$listener.onUltimateProducerReached(this.val$requestId, LocalVideoThumbnailProducer.PRODUCER_NAME, false);
                     }
                 }
 
@@ -271,20 +247,13 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                 @Nullable
                 public CloseableReference<CloseableImage> getResult() throws Exception {
                     InterceptResult invokeV;
+                    Bitmap baiduAppCreateVideoThumbnail;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
-                        try {
-                            this.this$0.getLocalFilePath(this.val$imageRequest);
-                        } catch (IllegalArgumentException unused) {
-                        }
-                        Bitmap baiduAppCreateVideoThumbnail = this.this$0.baiduAppCreateVideoThumbnail(this.val$imageRequest);
-                        if (baiduAppCreateVideoThumbnail == null) {
+                        if (this.this$0.getLocalFilePath(this.val$imageRequest) == null || (baiduAppCreateVideoThumbnail = this.this$0.baiduAppCreateVideoThumbnail(this.val$imageRequest)) == null) {
                             return null;
                         }
-                        CloseableStaticBitmap closeableStaticBitmap = new CloseableStaticBitmap(baiduAppCreateVideoThumbnail, SimpleBitmapReleaser.getInstance(), ImmutableQualityInfo.FULL_QUALITY, 0);
-                        this.val$producerContext.setExtra("image_format", "thumbnail");
-                        closeableStaticBitmap.setImageExtras(this.val$producerContext.getExtras());
-                        return CloseableReference.of(closeableStaticBitmap);
+                        return CloseableReference.of(new CloseableStaticBitmap(baiduAppCreateVideoThumbnail, SimpleBitmapReleaser.getInstance(), ImmutableQualityInfo.FULL_QUALITY, 0));
                     }
                     return (CloseableReference) invokeV.objValue;
                 }
@@ -295,8 +264,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048583, this, closeableReference) == null) {
                         super.onSuccess((AnonymousClass1) closeableReference);
-                        this.val$listener.onUltimateProducerReached(this.val$producerContext, LocalVideoThumbnailProducer.PRODUCER_NAME, closeableReference != null);
-                        this.val$producerContext.putOriginExtra("local");
+                        this.val$listener.onUltimateProducerReached(this.val$requestId, LocalVideoThumbnailProducer.PRODUCER_NAME, closeableReference != null);
                     }
                 }
             };

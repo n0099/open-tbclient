@@ -135,55 +135,55 @@ public final class WebKitFactory {
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 String retryInstallZeusPath = EngineManager.getInstance().getRetryInstallZeusPath();
                 if (TextUtils.isEmpty(retryInstallZeusPath)) {
-                    return;
-                }
-                if (!EngineManager.getInstance().checkRetryInstallZeus()) {
+                    WebKitFactory.getLoadErrorCode().addDownloadInfo(1019);
+                } else if (!EngineManager.getInstance().checkRetryInstallZeus()) {
                     EngineManager.getInstance().resetRetryInstallZeus();
-                    return;
-                }
-                Log.i(EngineManager.LOG_TAG, " checkRetryInstallZeus start ");
-                if (!retryInstallZeusPath.startsWith("file://")) {
-                    retryInstallZeusPath = "file://".concat(String.valueOf(retryInstallZeusPath));
-                }
-                WebKitFactory.installAsync(retryInstallZeusPath, new WebkitInstallListener(this) { // from class: com.baidu.webkit.sdk.WebKitFactory.DelayedInitTask.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ DelayedInitTask this$0;
+                    WebKitFactory.getLoadErrorCode().addDownloadInfo(1020);
+                } else {
+                    Log.i(EngineManager.LOG_TAG, " checkRetryInstallZeus start ");
+                    if (!retryInstallZeusPath.startsWith("file://")) {
+                        retryInstallZeusPath = "file://".concat(String.valueOf(retryInstallZeusPath));
+                    }
+                    WebKitFactory.installAsync(retryInstallZeusPath, new WebkitInstallListener(this) { // from class: com.baidu.webkit.sdk.WebKitFactory.DelayedInitTask.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ DelayedInitTask this$0;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+                        public void onInstallFinish(int i2, String str) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                                Log.i(EngineManager.LOG_TAG, " RetryInstallZeus onInstallFinish");
                             }
                         }
-                        this.this$0 = this;
-                    }
 
-                    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-                    public void onInstallFinish(int i2, String str) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                            Log.i(EngineManager.LOG_TAG, " RetryInstallZeus onInstallFinish");
+                        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+                        public void onInstallStart() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                                Log.i(EngineManager.LOG_TAG, " RetryInstallZeus onInstallStart");
+                            }
                         }
-                    }
-
-                    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-                    public void onInstallStart() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            Log.i(EngineManager.LOG_TAG, " RetryInstallZeus onInstallStart");
-                        }
-                    }
-                });
+                    });
+                }
             }
         }
 
@@ -1398,7 +1398,7 @@ public final class WebKitFactory {
         if (!(interceptable == null || interceptable.invokeI(65627, null, i2) == null) || i2 == sHttpCacheMbSize) {
             return;
         }
-        Log.i("maqian04-httpcache", " WebKitFactory setHttpCacheSize size is ".concat(String.valueOf(i2)));
+        Log.i("httpcache-size", " WebKitFactory setHttpCacheSize size is ".concat(String.valueOf(i2)));
         sHttpCacheMbSize = i2;
     }
 

@@ -19,7 +19,7 @@ public class j extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f58644a = 1;
+    public static int f59566a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,7 +63,7 @@ public class j extends com.baidu.wallet.lightapp.ability.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, iLightappInvokerCallback, str2) == null) {
             String ua = BussinessUtils.getUA(activity);
-            if (a(str, "base64") == f58644a) {
+            if (a(str, "base64") == f59566a) {
                 ua = Base64.encodeToString(ua.getBytes(), 2);
             }
             NativeAbilityUserAgentModel nativeAbilityUserAgentModel = new NativeAbilityUserAgentModel(0);

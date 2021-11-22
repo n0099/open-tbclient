@@ -24,13 +24,13 @@ public class f extends WebViewClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WebViewClient f13653a;
+    public WebViewClient f14444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public q f13654b;
+    public q f14445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashSet<String> f13655c;
+    public final HashSet<String> f14446c;
 
     public f(WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
@@ -47,22 +47,22 @@ public class f extends WebViewClient {
                 return;
             }
         }
-        this.f13654b = null;
-        this.f13655c = new HashSet<>(6);
-        this.f13653a = webViewClient;
+        this.f14445b = null;
+        this.f14446c = new HashSet<>(6);
+        this.f14444a = webViewClient;
     }
 
     public void a(q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) {
-            this.f13654b = qVar;
+            this.f14445b = qVar;
         }
     }
 
     public void b(WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webViewClient) == null) {
-            this.f13653a = webViewClient;
+            this.f14444a = webViewClient;
         }
     }
 
@@ -70,7 +70,7 @@ public class f extends WebViewClient {
     public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, webView, str, z) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.doUpdateVisitedHistory(webView, str, z);
             } else {
@@ -83,7 +83,7 @@ public class f extends WebViewClient {
     public void onFormResubmission(WebView webView, Message message, Message message2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, message, message2) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onFormResubmission(webView, message, message2);
             } else {
@@ -96,7 +96,7 @@ public class f extends WebViewClient {
     public void onLoadResource(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onLoadResource(webView, str);
             } else {
@@ -110,11 +110,11 @@ public class f extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, webView, str) == null) {
             e.a("page " + str + " load finished.");
-            if (!this.f13655c.contains(str)) {
-                this.f13654b.p(str);
+            if (!this.f14446c.contains(str)) {
+                this.f14445b.p(str);
             }
-            this.f13655c.clear();
-            WebViewClient webViewClient = this.f13653a;
+            this.f14446c.clear();
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onPageFinished(webView, str);
             } else {
@@ -127,7 +127,7 @@ public class f extends WebViewClient {
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, webView, str, bitmap) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onPageStarted(webView, str, bitmap);
             } else {
@@ -141,8 +141,8 @@ public class f extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048583, this, webView, i2, str, str2) == null) {
             e.a("Failed url " + str2 + " with description:" + str);
-            this.f13655c.add(str2);
-            WebViewClient webViewClient = this.f13653a;
+            this.f14446c.add(str2);
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onReceivedError(webView, i2, str, str2);
             } else {
@@ -155,7 +155,7 @@ public class f extends WebViewClient {
     public void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, httpAuthHandler, str, str2) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
             } else {
@@ -168,7 +168,7 @@ public class f extends WebViewClient {
     public void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048585, this, webView, str, str2, str3) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onReceivedLoginRequest(webView, str, str2, str3);
             } else {
@@ -181,7 +181,7 @@ public class f extends WebViewClient {
     public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, webView, sslErrorHandler, sslError) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onReceivedSslError(webView, sslErrorHandler, sslError);
             } else {
@@ -205,7 +205,7 @@ public class f extends WebViewClient {
     public void onScaleChanged(WebView webView, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onScaleChanged(webView, f2, f3);
             } else {
@@ -219,7 +219,7 @@ public class f extends WebViewClient {
     public void onTooManyRedirects(WebView webView, Message message, Message message2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, webView, message, message2) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onTooManyRedirects(webView, message, message2);
             } else {
@@ -232,7 +232,7 @@ public class f extends WebViewClient {
     public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, webView, keyEvent) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 webViewClient.onUnhandledKeyEvent(webView, keyEvent);
             } else {
@@ -246,7 +246,7 @@ public class f extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, str)) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 return webViewClient.shouldInterceptRequest(webView, str);
             }
@@ -260,7 +260,7 @@ public class f extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, webView, keyEvent)) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 return webViewClient.shouldOverrideKeyEvent(webView, keyEvent);
             }
@@ -274,7 +274,7 @@ public class f extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, str)) == null) {
-            WebViewClient webViewClient = this.f13653a;
+            WebViewClient webViewClient = this.f14444a;
             if (webViewClient != null) {
                 return webViewClient.shouldOverrideUrlLoading(webView, str);
             }

@@ -1,7 +1,7 @@
 package b.a.r0.m2.g;
 
 import android.view.View;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.u.o;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,22 +19,22 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f21178a;
+    public List<b.a.e.m.e.a> f22333a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f21179b;
+    public TbPageContext f22334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HTypeListView f21180c;
+    public HTypeListView f22335c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f21181d;
+    public c f22336d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f21182e;
+    public b f22337e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f21183f;
+    public a f22338f;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         Interceptable interceptable = $ic;
@@ -51,37 +51,37 @@ public class e {
                 return;
             }
         }
-        this.f21178a = new ArrayList();
-        this.f21179b = tbPageContext;
-        this.f21180c = hTypeListView;
+        this.f22333a = new ArrayList();
+        this.f22334b = tbPageContext;
+        this.f22335c = hTypeListView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21181d = new c(this.f21179b, o.f14162h);
-            this.f21182e = new b(this.f21179b, b.a.r0.m2.h.c.f21192f);
-            this.f21183f = new a(this.f21179b.getPageActivity(), b.a.r0.m2.d.f21161h);
-            this.f21178a.add(this.f21181d);
-            this.f21178a.add(this.f21182e);
-            this.f21178a.add(this.f21183f);
-            this.f21180c.addAdapters(this.f21178a);
+            this.f22336d = new c(this.f22334b, o.f14929h);
+            this.f22337e = new b(this.f22334b, b.a.r0.m2.h.c.f22347f);
+            this.f22338f = new a(this.f22334b.getPageActivity(), b.a.r0.m2.d.f22316h);
+            this.f22333a.add(this.f22336d);
+            this.f22333a.add(this.f22337e);
+            this.f22333a.add(this.f22338f);
+            this.f22335c.addAdapters(this.f22333a);
         }
     }
 
     public void b() {
         HTypeListView hTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (hTypeListView = this.f21180c) != null && (hTypeListView.getAdapter() instanceof TypeAdapter)) {
-            ((TypeAdapter) this.f21180c.getAdapter()).notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (hTypeListView = this.f22335c) != null && (hTypeListView.getAdapter() instanceof TypeAdapter)) {
+            ((TypeAdapter) this.f22335c.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void c(List<n> list) {
         HTypeListView hTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (hTypeListView = this.f21180c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (hTypeListView = this.f22335c) == null) {
             return;
         }
         hTypeListView.setData(list);
@@ -90,8 +90,8 @@ public class e {
     public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f21181d.i0(onClickListener);
-            this.f21182e.i0(onClickListener);
+            this.f22336d.i0(onClickListener);
+            this.f22337e.i0(onClickListener);
         }
     }
 }

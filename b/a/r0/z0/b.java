@@ -10,9 +10,9 @@ import android.widget.RelativeLayout;
 import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
-import b.a.r0.l3.j0.o;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
+import b.a.r0.m3.j0.o;
 import b.a.r0.y0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -51,7 +51,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.j f27827a;
+        public final /* synthetic */ a.j f29345a;
 
         public a(a.j jVar) {
             Interceptable interceptable = $ic;
@@ -68,14 +68,14 @@ public class b {
                     return;
                 }
             }
-            this.f27827a = jVar;
+            this.f29345a = jVar;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTFeedAd.VideoAdListener
         public void onProgressUpdate(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                this.f27827a.a(j, j2);
+                this.f29345a.a(j, j2);
             }
         }
 
@@ -124,11 +124,11 @@ public class b {
 
     /* renamed from: b.a.r0.z0.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C1359b {
+    public static /* synthetic */ class C1427b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f27828a;
+        public static final /* synthetic */ int[] f29346a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -145,17 +145,17 @@ public class b {
                 }
             }
             int[] iArr = new int[FunNativeAd.InteractionType.values().length];
-            f27828a = iArr;
+            f29346a = iArr;
             try {
                 iArr[FunNativeAd.InteractionType.TYPE_DOWNLOAD.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f27828a[FunNativeAd.InteractionType.TYPE_DIAL.ordinal()] = 2;
+                f29346a[FunNativeAd.InteractionType.TYPE_DIAL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f27828a[FunNativeAd.InteractionType.TYPE_BROWSE.ordinal()] = 3;
+                f29346a[FunNativeAd.InteractionType.TYPE_BROWSE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -233,7 +233,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, funNativeAd)) == null) {
-            int i2 = C1359b.f27828a[funNativeAd.getInteractionType().ordinal()];
+            int i2 = C1427b.f29346a[funNativeAd.getInteractionType().ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return i2 != 3 ? 1 : 4;
@@ -294,7 +294,7 @@ public class b {
             if (obj instanceof KsNativeAd) {
                 return ((KsNativeAd) obj).getActionDescription();
             }
-            int i3 = C1359b.f27828a[funNativeAd.getInteractionType().ordinal()];
+            int i3 = C1427b.f29346a[funNativeAd.getInteractionType().ordinal()];
             if (i3 == 1) {
                 i2 = R.string.ad_interaction_type_download;
             } else if (i3 != 2) {
@@ -327,7 +327,7 @@ public class b {
             if (obj instanceof KsNativeAd) {
                 return ((KsNativeAd) obj).getActionDescription();
             }
-            int i3 = C1359b.f27828a[funNativeAd.getInteractionType().ordinal()];
+            int i3 = C1427b.f29346a[funNativeAd.getInteractionType().ordinal()];
             if (i3 == 1) {
                 i2 = R.string.ad_interaction_type_download;
             } else if (i3 != 2) {

@@ -157,13 +157,13 @@ public class AlaAttentionManager {
                 super.onPostExecute((AttentionAsyncTask) str);
                 if (this.mNetwork != null) {
                     UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                    aVar.f45667a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
-                    aVar.f45668b = this.mNetwork.getErrorString();
-                    aVar.f45670d = this.isAttention;
-                    aVar.f45669c = this.toUid;
-                    aVar.f45672f = this.isGod;
+                    aVar.f46517a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
+                    aVar.f46518b = this.mNetwork.getErrorString();
+                    aVar.f46520d = this.isAttention;
+                    aVar.f46519c = this.toUid;
+                    aVar.f46522f = this.isGod;
                     aVar.b(str, this.showToastAfterAttentionSuc);
-                    aVar.f45673g = this.mNetwork.getNetContext().getResponse();
+                    aVar.f46523g = this.mNetwork.getNetContext().getResponse();
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
@@ -312,15 +312,15 @@ public class AlaAttentionManager {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, aVar, fVar, z)) == null) {
-            if (aVar != null && aVar.f45674h != null && aVar.f45673g != null && fVar != null && fVar.getPageActivity() != null) {
-                int i2 = aVar.f45673g.mServerErrorCode;
+            if (aVar != null && aVar.f46524h != null && aVar.f46523g != null && fVar != null && fVar.getPageActivity() != null) {
+                int i2 = aVar.f46523g.mServerErrorCode;
                 if (!(i2 == 3250001 || i2 == 3250002 || i2 == 3250003 || i2 == 3250004)) {
                     return false;
                 }
-                if (aVar.f45675i) {
+                if (aVar.f46525i) {
                     return true;
                 }
-                JSONObject optJSONObject = aVar.f45674h.optJSONObject("info");
+                JSONObject optJSONObject = aVar.f46524h.optJSONObject("info");
                 if (optJSONObject == null) {
                     return false;
                 }
@@ -329,7 +329,7 @@ public class AlaAttentionManager {
                 String optString3 = optJSONObject.optString("block_confirm");
                 String optString4 = optJSONObject.optString("block_cancel");
                 if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
-                    aVar.f45675i = true;
+                    aVar.f46525i = true;
                     a aVar2 = new a(fVar.getPageActivity());
                     aVar2.setAutoNight(z);
                     aVar2.setMessage(optString);
@@ -364,7 +364,7 @@ public class AlaAttentionManager {
                         public void onClick(a aVar3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) {
-                                b.a.q0.m.a.l(this.val$pageContext.getPageActivity(), this.val$dealurl);
+                                b.a.q0.m.a.m(this.val$pageContext.getPageActivity(), this.val$dealurl);
                                 aVar3.dismiss();
                                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                             }

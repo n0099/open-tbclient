@@ -165,13 +165,13 @@ public class LocationProvidersStatic {
                 return;
             }
         }
-        b.a.e.e.i.a.n().r(b.a.r0.u1.b.t());
+        b.a.e.f.i.a.n().r(b.a.r0.u1.b.t());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            b.a.e.e.i.a.n().r(b.a.r0.u1.a.j());
+            b.a.e.f.i.a.n().r(b.a.r0.u1.a.j());
         }
         MessageManager.getInstance().registerListener(new a(2010044));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016556, new b());

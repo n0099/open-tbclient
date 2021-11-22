@@ -24,11 +24,11 @@ public class a {
 
     /* renamed from: b.a.q0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0634a {
+    public static class C0668a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f11674a;
+        public static final a f12425a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +44,7 @@ public class a {
                     return;
                 }
             }
-            f11674a = new a();
+            f12425a = new a();
         }
     }
 
@@ -65,7 +65,7 @@ public class a {
     public static final a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0634a.f11674a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0668a.f12425a : (a) invokeV.objValue;
     }
 
     public synchronized long a(c cVar) {
@@ -207,7 +207,7 @@ public class a {
                     }
                 }
                 f2.setTransactionSuccessful();
-                b.a.e.e.p.m.a(rawQuery);
+                b.a.e.f.p.m.a(rawQuery);
                 f2.endTransaction();
             }
             return linkedList;

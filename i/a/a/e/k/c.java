@@ -14,7 +14,7 @@ import tv.athena.revenue.payui.view.IYYPayResultView;
 import tv.athena.revenue.payui.view.IYYPayWayView;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface c {
     void a(int i2, String str, PayCallBackBean payCallBackBean);
 

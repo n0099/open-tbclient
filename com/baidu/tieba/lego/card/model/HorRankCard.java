@@ -39,31 +39,31 @@ public class HorRankCard extends BaseCardInfo {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f51078a;
+        public int f51990a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f51079b;
+        public String f51991b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f51080c;
+        public String f51992c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f51081d;
+        public String f51993d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f51082e;
+        public String f51994e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f51083f;
+        public String f51995f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f51084g;
+        public boolean f51996g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f51085h;
+        public String f51997h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f51086i;
+        public String f51998i;
         public String j;
         public int k;
         public int l;
@@ -123,15 +123,15 @@ public class HorRankCard extends BaseCardInfo {
         for (int i4 = 0; i4 < length; i4++) {
             a aVar = new a();
             JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
-            aVar.f51078a = optJSONObject.optInt("rank");
-            aVar.f51079b = optJSONObject.optString("picUrl");
-            aVar.f51080c = optJSONObject.optString("picIcon");
-            aVar.f51081d = optJSONObject.optString("title");
-            aVar.f51082e = optJSONObject.optString("subTitle");
-            aVar.f51083f = optJSONObject.optString("postUrl");
-            aVar.f51084g = optJSONObject.optInt("isDone") == 1;
-            aVar.f51085h = optJSONObject.optString("btnText");
-            aVar.f51086i = optJSONObject.optString("btnDone");
+            aVar.f51990a = optJSONObject.optInt("rank");
+            aVar.f51991b = optJSONObject.optString("picUrl");
+            aVar.f51992c = optJSONObject.optString("picIcon");
+            aVar.f51993d = optJSONObject.optString("title");
+            aVar.f51994e = optJSONObject.optString("subTitle");
+            aVar.f51995f = optJSONObject.optString("postUrl");
+            aVar.f51996g = optJSONObject.optInt("isDone") == 1;
+            aVar.f51997h = optJSONObject.optString("btnText");
+            aVar.f51998i = optJSONObject.optString("btnDone");
             aVar.j = optJSONObject.optString("picScheme");
             aVar.k = b.b(optJSONObject.optString("bgColor", ""));
             aVar.l = b.b(optJSONObject.optString("bgColorNight", ""));
@@ -222,8 +222,8 @@ public class HorRankCard extends BaseCardInfo {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) {
             boolean z2 = false;
             for (a aVar : this.rankInfoList) {
-                if (!TextUtils.isEmpty(aVar.f51083f) && !TextUtils.isEmpty(aVar.f51085h) && !TextUtils.isEmpty(aVar.f51086i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f51083f))) {
-                    aVar.f51084g = z;
+                if (!TextUtils.isEmpty(aVar.f51995f) && !TextUtils.isEmpty(aVar.f51997h) && !TextUtils.isEmpty(aVar.f51998i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f51995f))) {
+                    aVar.f51996g = z;
                     z2 = true;
                 }
             }
@@ -239,8 +239,8 @@ public class HorRankCard extends BaseCardInfo {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, str, z)) == null) {
             boolean z2 = false;
             for (a aVar : this.rankInfoList) {
-                if (!TextUtils.isEmpty(aVar.f51083f) && !TextUtils.isEmpty(aVar.f51085h) && !TextUtils.isEmpty(aVar.f51086i) && TextUtils.equals(getTouidFromPostUrl(aVar.f51083f), str)) {
-                    aVar.f51084g = z;
+                if (!TextUtils.isEmpty(aVar.f51995f) && !TextUtils.isEmpty(aVar.f51997h) && !TextUtils.isEmpty(aVar.f51998i) && TextUtils.equals(getTouidFromPostUrl(aVar.f51995f), str)) {
+                    aVar.f51996g = z;
                     z2 = true;
                 }
             }

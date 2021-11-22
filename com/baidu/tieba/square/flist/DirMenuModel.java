@@ -1,8 +1,8 @@
 package com.baidu.tieba.square.flist;
 
 import b.a.e.a.f;
-import b.a.e.e.d.l;
-import b.a.r0.i3.j.d;
+import b.a.e.f.d.l;
+import b.a.r0.j3.j.d;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -22,19 +22,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f54027e;
+    public b f54947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f54028f;
+    public c f54948f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54029g;
+    public String f54949g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f54030h;
+    public String f54950h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f54031i;
+    public String f54951i;
     public boolean j;
     public boolean k;
 
@@ -69,15 +69,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         }
         this.j = false;
         this.k = false;
-        this.f54029g = str;
-        this.f54030h = str2;
-        this.f54031i = str3;
+        this.f54949g = str;
+        this.f54950h = str2;
+        this.f54951i = str3;
     }
 
     public void E(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f54028f = cVar;
+            this.f54948f = cVar;
         }
     }
 
@@ -86,7 +86,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.f54027e;
+            b bVar = this.f54947e;
             if (bVar != null) {
                 bVar.cancel();
                 return false;
@@ -102,7 +102,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             b bVar = new b(this, null);
-            this.f54027e = bVar;
+            this.f54947e = bVar;
             bVar.execute(new Object[0]);
             return true;
         }
@@ -110,18 +110,18 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends BdAsyncTask<Object, Integer, b.a.r0.i3.j.c> {
+    public class b extends BdAsyncTask<Object, Integer, b.a.r0.j3.j.c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f54032a;
+        public NetWork f54952a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b.a.r0.i3.j.c f54033b;
+        public b.a.r0.j3.j.c f54953b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ DirMenuModel f54034c;
+        public final /* synthetic */ DirMenuModel f54954c;
 
         public b(DirMenuModel dirMenuModel) {
             Interceptable interceptable = $ic;
@@ -138,15 +138,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                     return;
                 }
             }
-            this.f54034c = dirMenuModel;
-            this.f54032a = null;
-            this.f54033b = new b.a.r0.i3.j.c();
+            this.f54954c = dirMenuModel;
+            this.f54952a = null;
+            this.f54953b = new b.a.r0.j3.j.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public b.a.r0.i3.j.c doInBackground(Object... objArr) {
+        public b.a.r0.j3.j.c doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
@@ -155,54 +155,54 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 b.a.q0.s.r.a.f();
                 l<String> g2 = b.a.q0.s.r.a.g("tb.my_posts");
                 if (g2 != null) {
-                    str = g2.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.f54034c.f54029g + "_dir");
+                    str = g2.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.f54954c.f54949g + "_dir");
                 } else {
                     str = null;
                 }
                 if (str != null) {
-                    this.f54033b.e(str);
-                    this.f54034c.k = true;
+                    this.f54953b.e(str);
+                    this.f54954c.k = true;
                     publishProgress(new Integer[0]);
                 }
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/seconddir");
-                    this.f54032a = netWork;
-                    netWork.addPostData(ForumListActivity.KEY_MENU_NAME, this.f54034c.f54029g);
-                    this.f54032a.addPostData("menu_type", this.f54034c.f54030h);
-                    this.f54032a.addPostData(ForumListActivity.KEY_MENU_ID, this.f54034c.f54031i);
-                    postNetData = this.f54032a.postNetData();
+                    this.f54952a = netWork;
+                    netWork.addPostData(ForumListActivity.KEY_MENU_NAME, this.f54954c.f54949g);
+                    this.f54952a.addPostData("menu_type", this.f54954c.f54950h);
+                    this.f54952a.addPostData(ForumListActivity.KEY_MENU_ID, this.f54954c.f54951i);
+                    postNetData = this.f54952a.postNetData();
                 } catch (Exception e2) {
-                    this.f54033b.g(e2.getMessage());
+                    this.f54953b.g(e2.getMessage());
                     BdLog.detailException(e2);
                 }
                 if (postNetData == null) {
-                    return this.f54033b;
+                    return this.f54953b;
                 }
-                if (this.f54032a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.f54033b.e(postNetData);
-                    this.f54034c.j = true;
+                if (this.f54952a.getNetContext().getResponse().isRequestSuccess()) {
+                    this.f54953b.e(postNetData);
+                    this.f54954c.j = true;
                     if (g2 != null) {
-                        g2.e(TbadkCoreApplication.getCurrentAccount() + "_" + this.f54034c.f54029g + "_dir", postNetData, 86400000L);
+                        g2.e(TbadkCoreApplication.getCurrentAccount() + "_" + this.f54954c.f54949g + "_dir", postNetData, 86400000L);
                     }
                 } else {
-                    this.f54033b.g(this.f54032a.getErrorString());
-                    this.f54034c.j = false;
+                    this.f54953b.g(this.f54952a.getErrorString());
+                    this.f54954c.j = false;
                 }
-                return this.f54033b;
+                return this.f54953b;
             }
-            return (b.a.r0.i3.j.c) invokeL.objValue;
+            return (b.a.r0.j3.j.c) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(b.a.r0.i3.j.c cVar) {
+        public void onPostExecute(b.a.r0.j3.j.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                if (!this.f54034c.j) {
-                    this.f54034c.f54028f.a(false, -1, null, cVar.b(), this.f54034c.k);
+                if (!this.f54954c.j) {
+                    this.f54954c.f54948f.a(false, -1, null, cVar.b(), this.f54954c.k);
                 } else if (cVar.h() != null) {
-                    this.f54034c.f54028f.a(true, cVar.a(), cVar.h(), cVar.b(), this.f54034c.k);
+                    this.f54954c.f54948f.a(true, cVar.a(), cVar.h(), cVar.b(), this.f54954c.k);
                 }
             }
         }
@@ -212,10 +212,10 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f54032a;
+                NetWork netWork = this.f54952a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
-                    this.f54032a = null;
+                    this.f54952a = null;
                 }
             }
         }
@@ -227,8 +227,8 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, numArr) == null) {
                 super.onProgressUpdate(numArr);
-                if (this.f54033b != null) {
-                    this.f54034c.f54028f.a(true, this.f54033b.a(), this.f54033b.h(), this.f54033b.b(), this.f54034c.k);
+                if (this.f54953b != null) {
+                    this.f54954c.f54948f.a(true, this.f54953b.a(), this.f54953b.h(), this.f54953b.b(), this.f54954c.k);
                 }
             }
         }

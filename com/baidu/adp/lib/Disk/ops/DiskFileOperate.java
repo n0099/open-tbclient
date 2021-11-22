@@ -1,10 +1,9 @@
 package com.baidu.adp.lib.Disk.ops;
 
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.a.d;
-import b.a.e.e.a.e;
-import b.a.e.e.m.a;
+import b.a.e.f.a.d;
+import b.a.e.f.a.e;
+import b.a.e.f.m.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -78,7 +77,7 @@ public class DiskFileOperate {
             DELETE_FILES = new Action("DELETE_FILES", 6);
             INFO = new Action("INFO", 7);
             RENAME = new Action("RENAME", 8);
-            Action action = new Action(Key.CUSTOM, 9);
+            Action action = new Action("CUSTOM", 9);
             CUSTOM = action;
             $VALUES = new Action[]{READ, WRITE, WRITE_FORCE, APPEND, APPEND_MORE, DELETE, DELETE_FILES, INFO, RENAME, action};
         }

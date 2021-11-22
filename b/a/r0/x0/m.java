@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,18 +19,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.WindowToast;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f25978e;
+        public final /* synthetic */ b.a.q0.s.s.a f27506e;
 
         public a(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -48,37 +47,37 @@ public class m {
                     return;
                 }
             }
-            this.f25978e = aVar;
+            this.f27506e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25978e.dismiss();
+                this.f27506e.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f25979e;
+        public final /* synthetic */ b.a.q0.s.s.a f27507e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f25980f;
+        public final /* synthetic */ int f27508f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f25981g;
+        public final /* synthetic */ String f27509g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f25982h;
+        public final /* synthetic */ String f27510h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f25983i;
+        public final /* synthetic */ TbPageContext f27511i;
 
         public b(b.a.q0.s.s.a aVar, int i2, String str, String str2, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -95,32 +94,32 @@ public class m {
                     return;
                 }
             }
-            this.f25979e = aVar;
-            this.f25980f = i2;
-            this.f25981g = str;
-            this.f25982h = str2;
-            this.f25983i = tbPageContext;
+            this.f27507e = aVar;
+            this.f27508f = i2;
+            this.f27509g = str;
+            this.f27510h = str2;
+            this.f27511i = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25979e.dismiss();
-                if (this.f25980f == 1) {
-                    UrlManager.getInstance().dealOneLink(this.f25983i, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", this.f25981g, this.f25982h)});
+                this.f27507e.dismiss();
+                if (this.f27508f == 1) {
+                    UrlManager.getInstance().dealOneLink(this.f27511i, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", this.f27509g, this.f27510h)});
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f25984e;
+        public final /* synthetic */ b.a.q0.s.s.a f27512e;
 
         public c(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -137,14 +136,14 @@ public class m {
                     return;
                 }
             }
-            this.f25984e = aVar;
+            this.f27512e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25984e.dismiss();
+                this.f27512e.dismiss();
             }
         }
     }
@@ -175,22 +174,22 @@ public class m {
         aVar.setCanceledOnTouchOutside(false);
         aVar.setAutoNight(true);
         aVar.setCancelable(true);
-        int g2 = b.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds31);
+        int g2 = b.a.e.f.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds31);
         int i2 = R.color.CAM_X0201;
         SkinManager.setBackgroundShapeDrawable(inflate, g2, i2, i2);
         tbImageView.setRadius(g2);
         tbImageView.setConrers(3);
         tbImageView.setIsBitmapPic(true);
-        int g3 = b.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds44);
+        int g3 = b.a.e.f.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds44);
         if (UtilHelper.getRealScreenOrientation(tbPageContext.getPageActivity()) == 2) {
-            k = b.a.e.e.p.l.i(tbPageContext.getPageActivity());
+            k = b.a.e.f.p.l.i(tbPageContext.getPageActivity());
         } else {
-            k = b.a.e.e.p.l.k(tbPageContext.getPageActivity());
+            k = b.a.e.f.p.l.k(tbPageContext.getPageActivity());
         }
         int i3 = k - (g3 * 2);
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
         layoutParams.width = -1;
-        layoutParams.height = (i3 * CoolPraiseView.START_DELAY_TIME_MS) / 992;
+        layoutParams.height = (i3 * 560) / 992;
         tbImageView.setLayoutParams(layoutParams);
         SkinManager.setImageResource(tbImageView, R.drawable.backguard_mask_apity);
         SkinManager.setViewTextColor(textView, R.color.CAM_X0107);
@@ -220,16 +219,16 @@ public class m {
         aVar.setCanceledOnTouchOutside(true);
         aVar.setAutoNight(true);
         aVar.setCancelable(true);
-        int g2 = b.a.e.e.p.l.g(activity, R.dimen.tbds31);
+        int g2 = b.a.e.f.p.l.g(activity, R.dimen.tbds31);
         SkinManager.setBackgroundShapeDrawable(inflate, g2, R.color.CAM_X0201, R.color.CAM_X0101);
         tbImageView.setRadius(g2);
         tbImageView.setConrers(3);
         tbImageView.setIsBitmapPic(true);
-        int g3 = b.a.e.e.p.l.g(activity, R.dimen.tbds44);
+        int g3 = b.a.e.f.p.l.g(activity, R.dimen.tbds44);
         if (UtilHelper.getRealScreenOrientation(activity) == 2) {
-            k = b.a.e.e.p.l.i(activity);
+            k = b.a.e.f.p.l.i(activity);
         } else {
-            k = b.a.e.e.p.l.k(activity);
+            k = b.a.e.f.p.l.k(activity);
         }
         int i2 = k - (g3 * 2);
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();

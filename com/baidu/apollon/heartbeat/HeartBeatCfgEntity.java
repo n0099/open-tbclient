@@ -125,9 +125,9 @@ public class HeartBeatCfgEntity implements NoProguard, Serializable {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             String json = JsonUtils.toJson(this);
             if (!TextUtils.isEmpty(json)) {
-                FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + a.f35977b));
+                FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + a.f36806b));
             }
-            c.a(context, c.f36004b, Calendar.getInstance().getTimeInMillis() / 1000);
+            c.a(context, c.f36833b, Calendar.getInstance().getTimeInMillis() / 1000);
         }
     }
 

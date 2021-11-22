@@ -24,29 +24,29 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f29979c = "UnionIDHelper";
+    public static String f30848c = "UnionIDHelper";
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f29980d;
+    public static boolean f30849d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f29981e;
+    public static final String f30850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f29982f;
+    public static final String f30851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Object f29983g;
+    public static final Object f30852g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static e f29984h;
+    public static e f30853h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile b.a.y0.e.f.c f29985a;
+    public volatile b.a.y0.e.f.c f30854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f29986b;
+    public AtomicBoolean f30855b;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -54,13 +54,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f29987e;
+        public final /* synthetic */ Context f30856e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f29988f;
+        public final /* synthetic */ b f30857f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f29989g;
+        public final /* synthetic */ e f30858g;
 
         public a(e eVar, Context context, b bVar) {
             Interceptable interceptable = $ic;
@@ -77,43 +77,43 @@ public class e {
                     return;
                 }
             }
-            this.f29989g = eVar;
-            this.f29987e = context;
-            this.f29988f = bVar;
+            this.f30858g = eVar;
+            this.f30856e = context;
+            this.f30857f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (e.f29980d) {
-                    String unused = e.f29979c;
+                if (e.f30849d) {
+                    String unused = e.f30848c;
                 }
-                b.a.y0.e.f.a m = this.f29989g.m(this.f29987e);
-                if (e.f29980d) {
-                    String unused2 = e.f29979c;
+                b.a.y0.e.f.a m = this.f30858g.m(this.f30856e);
+                if (e.f30849d) {
+                    String unused2 = e.f30848c;
                     StringBuilder sb = new StringBuilder();
                     sb.append("asyncRequest, cachedBean == null ？");
                     sb.append(m == null);
                     sb.toString();
                 }
-                if (m == null || this.f29989g.q(m)) {
-                    if (e.f29980d) {
-                        String unused3 = e.f29979c;
+                if (m == null || this.f30858g.q(m)) {
+                    if (e.f30849d) {
+                        String unused3 = e.f30848c;
                     }
-                    this.f29989g.r();
-                    if (e.f29980d) {
-                        String unused4 = e.f29979c;
+                    this.f30858g.r();
+                    if (e.f30849d) {
+                        String unused4 = e.f30848c;
                     }
-                    this.f29989g.f29986b.set(this.f29989g.t(this.f29987e));
-                    if (e.f29980d) {
-                        String unused5 = e.f29979c;
+                    this.f30858g.f30855b.set(this.f30858g.t(this.f30856e));
+                    if (e.f30849d) {
+                        String unused5 = e.f30848c;
                     }
                 }
-                if (e.f29980d) {
-                    String unused6 = e.f29979c;
+                if (e.f30849d) {
+                    String unused6 = e.f30848c;
                 }
-                this.f29988f.obtainMessage(100, this.f29989g.f29985a).sendToTarget();
+                this.f30857f.obtainMessage(100, this.f30858g.f30854a).sendToTarget();
             }
         }
     }
@@ -124,7 +124,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b.a.y0.e.f.b f29990a;
+        public b.a.y0.e.f.b f30859a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(Looper looper, b.a.y0.e.f.b bVar) {
@@ -144,7 +144,7 @@ public class e {
                     return;
                 }
             }
-            this.f29990a = bVar;
+            this.f30859a = bVar;
         }
 
         @Override // android.os.Handler
@@ -156,14 +156,14 @@ public class e {
                     return;
                 }
                 b.a.y0.e.f.c cVar = (b.a.y0.e.f.c) message.obj;
-                if (e.f29980d) {
-                    String unused = e.f29979c;
+                if (e.f30849d) {
+                    String unused = e.f30848c;
                     StringBuilder sb = new StringBuilder();
                     sb.append("handleMessage ，what：");
                     sb.append(cVar == null ? "" : cVar.getOAID());
                     sb.toString();
                 }
-                b.a.y0.e.f.b bVar = this.f29990a;
+                b.a.y0.e.f.b bVar = this.f30859a;
                 if (bVar != null) {
                     bVar.a(cVar);
                 }
@@ -184,10 +184,10 @@ public class e {
                 return;
             }
         }
-        f29980d = b.a.y0.e.a.e();
-        f29981e = j(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
-        f29982f = j(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
-        f29983g = new Object();
+        f30849d = b.a.y0.e.a.e();
+        f30850e = j(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+        f30851f = j(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+        f30852g = new Object();
     }
 
     public e() {
@@ -204,7 +204,7 @@ public class e {
             }
         }
         new AtomicBoolean(false);
-        this.f29986b = new AtomicBoolean(false);
+        this.f30855b = new AtomicBoolean(false);
     }
 
     public static String j(byte[]... bArr) {
@@ -228,9 +228,9 @@ public class e {
                 return null;
             }
             try {
-                return new String(b.a.y0.e.h.a.a(f29981e, f29982f, b.a.y0.e.h.c.a(str.getBytes())));
+                return new String(b.a.y0.e.h.a.a(f30850e, f30851f, b.a.y0.e.h.c.a(str.getBytes())));
             } catch (Exception e2) {
-                if (f29980d) {
+                if (f30849d) {
                     String str2 = "getCacheObject ，decryptUnionID：" + e2.getMessage();
                     return "";
                 }
@@ -248,7 +248,7 @@ public class e {
                 return null;
             }
             try {
-                return b.a.y0.e.h.c.c(b.a.y0.e.h.a.b(f29981e, f29982f, str.getBytes()), "utf-8");
+                return b.a.y0.e.h.c.c(b.a.y0.e.h.a.b(f30850e, f30851f, str.getBytes()), "utf-8");
             } catch (UnsupportedEncodingException | Exception unused) {
                 return "";
             }
@@ -260,14 +260,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f29984h == null) {
+            if (f30853h == null) {
                 synchronized (e.class) {
-                    if (f29984h == null) {
-                        f29984h = new e();
+                    if (f30853h == null) {
+                        f30853h = new e();
                     }
                 }
             }
-            return f29984h;
+            return f30853h;
         }
         return (e) invokeV.objValue;
     }
@@ -282,16 +282,16 @@ public class e {
                         bVar2.obtainMessage(100, null).sendToTarget();
                         return;
                     }
-                    if (this.f29985a != null && this.f29986b.get()) {
-                        if (f29980d) {
-                            String str = "asyncRequest, mIUnionId.getOAID：" + this.f29985a.getOAID();
-                            String str2 = "asyncRequest, mIUnionId.isTrackLimited：" + this.f29985a.c();
-                            String str3 = "asyncRequest, mIUnionId.getStatusCode：" + this.f29985a.getStatusCode();
+                    if (this.f30854a != null && this.f30855b.get()) {
+                        if (f30849d) {
+                            String str = "asyncRequest, mIUnionId.getOAID：" + this.f30854a.getOAID();
+                            String str2 = "asyncRequest, mIUnionId.isTrackLimited：" + this.f30854a.c();
+                            String str3 = "asyncRequest, mIUnionId.getStatusCode：" + this.f30854a.getStatusCode();
                         }
-                        bVar2.obtainMessage(100, this.f29985a).sendToTarget();
+                        bVar2.obtainMessage(100, this.f30854a).sendToTarget();
                     } else {
-                        if (!this.f29986b.get()) {
-                            this.f29985a = new c(context).f29976a;
+                        if (!this.f30855b.get()) {
+                            this.f30854a = new c(context).f30845a;
                         }
                         new Thread(new a(this, context, bVar2)).start();
                     }
@@ -308,23 +308,23 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
             if (!file.exists()) {
-                boolean z = f29980d;
+                boolean z = f30849d;
                 return null;
             }
             File file2 = new File(file, ".bd_un_info.so");
             if (!file2.exists()) {
-                boolean z2 = f29980d;
+                boolean z2 = f30849d;
                 return null;
             }
-            String a2 = b.a.y0.e.h.e.a(file2, f29983g);
-            if (f29980d) {
+            String a2 = b.a.y0.e.h.e.a(file2, f30852g);
+            if (f30849d) {
                 String str = "getCacheObject ，content：" + a2;
             }
             if (TextUtils.isEmpty(a2)) {
                 return null;
             }
             String k = k(a2);
-            if (f29980d) {
+            if (f30849d) {
                 String str2 = "getCacheObject ，json：" + k;
             }
             try {
@@ -333,7 +333,7 @@ public class e {
                 s(aVar, jSONObject);
                 return aVar;
             } catch (Exception e2) {
-                if (f29980d) {
+                if (f30849d) {
                     String str3 = "getCacheObject , " + e2.getMessage();
                 }
                 return null;
@@ -358,11 +358,11 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            if (Math.abs(System.currentTimeMillis() - aVar.f29991a) > n()) {
-                boolean z = f29980d;
+            if (Math.abs(System.currentTimeMillis() - aVar.f30860a) > n()) {
+                boolean z = f30849d;
                 return true;
             }
-            boolean z2 = f29980d;
+            boolean z2 = f30849d;
             return false;
         }
         return invokeL.booleanValue;
@@ -371,9 +371,9 @@ public class e {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f29985a = this.f29985a.d();
-            if (f29980d) {
-                String str = "asyncRequest, requestFromManufacturer done :" + this.f29985a.getOAID();
+            this.f30854a = this.f30854a.d();
+            if (f30849d) {
+                String str = "asyncRequest, requestFromManufacturer done :" + this.f30854a.getOAID();
             }
         }
     }
@@ -384,17 +384,17 @@ public class e {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, aVar, jSONObject)) == null) {
             try {
                 long optLong = jSONObject.optLong(new String(b.a.y0.e.h.c.a("dGltZQ==".getBytes())));
-                aVar.f29991a = optLong;
-                if (f29980d) {
+                aVar.f30860a = optLong;
+                if (f30849d) {
                     String str = "tryParseCacheJsonObject ，time：" + optLong;
                     String str2 = "tryParseCacheJsonObject ，System.currentTimeMillis() - time：" + (System.currentTimeMillis() - optLong);
                 }
                 String str3 = new String(b.a.y0.e.h.c.a("dW5pb25JRG9iag==".getBytes()));
-                if (f29980d) {
+                if (f30849d) {
                     String str4 = "tryParseCacheJsonObject objKey：" + str3;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject(str3);
-                if (f29980d) {
+                if (f30849d) {
                     String str5 = "tryParseCacheJsonObject ，jsonObject：" + optJSONObject;
                 }
                 if (optJSONObject != null) {
@@ -410,20 +410,20 @@ public class e {
                     String optString = optJSONObject.optString(str9);
                     String optString2 = optJSONObject.optString(str10);
                     String optString3 = optJSONObject.optString(str11);
-                    this.f29985a.i(optBoolean);
-                    this.f29985a.e(optBoolean2);
-                    this.f29985a.a(optInt);
-                    this.f29985a.g(optString);
-                    this.f29985a.f(optString2);
-                    this.f29985a.b(optString3);
-                    aVar.f29992b = this.f29985a;
+                    this.f30854a.h(optBoolean);
+                    this.f30854a.e(optBoolean2);
+                    this.f30854a.a(optInt);
+                    this.f30854a.g(optString);
+                    this.f30854a.f(optString2);
+                    this.f30854a.b(optString3);
+                    aVar.f30861b = this.f30854a;
                     return true;
                 }
-                aVar.f29992b = null;
-                boolean z = f29980d;
+                aVar.f30861b = null;
+                boolean z = f30849d;
                 return false;
             } catch (Exception e2) {
-                if (f29980d) {
+                if (f30849d) {
                     String str12 = "tryParseCacheJsonObject ：" + e2.getMessage();
                 }
                 return false;
@@ -437,7 +437,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             try {
-                if (this.f29985a != null && !TextUtils.isEmpty(this.f29985a.getOAID())) {
+                if (this.f30854a != null && !TextUtils.isEmpty(this.f30854a.getOAID())) {
                     File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
                     if (!file.exists()) {
                         file.mkdirs();
@@ -457,15 +457,15 @@ public class e {
                     String str6 = new String(b.a.y0.e.h.c.a("b2FpZA==".getBytes()));
                     String str7 = new String(b.a.y0.e.h.c.a("YWFpZA==".getBytes()));
                     String str8 = new String(b.a.y0.e.h.c.a("dmFpZA==".getBytes()));
-                    optJSONObject.put(str3, this.f29985a.c());
-                    optJSONObject.put(str4, this.f29985a.h());
-                    optJSONObject.put(str5, this.f29985a.getStatusCode());
-                    optJSONObject.put(str6, this.f29985a.getOAID());
-                    optJSONObject.put(str7, this.f29985a.getAAID());
-                    optJSONObject.put(str8, this.f29985a.getVAID());
+                    optJSONObject.put(str3, this.f30854a.c());
+                    optJSONObject.put(str4, this.f30854a.isSupport());
+                    optJSONObject.put(str5, this.f30854a.getStatusCode());
+                    optJSONObject.put(str6, this.f30854a.getOAID());
+                    optJSONObject.put(str7, this.f30854a.getAAID());
+                    optJSONObject.put(str8, this.f30854a.getVAID());
                     jSONObject.put(str2, optJSONObject);
-                    b.a.y0.e.h.e.b(l(jSONObject.toString()), file2, false, f29983g);
-                    if (f29980d) {
+                    b.a.y0.e.h.e.b(l(jSONObject.toString()), file2, false, f30852g);
+                    if (f30849d) {
                         String str9 = "trySaveFiles, app: " + jSONObject.toString();
                         return true;
                     }
@@ -473,7 +473,7 @@ public class e {
                 }
                 return false;
             } catch (Exception e2) {
-                if (f29980d) {
+                if (f30849d) {
                     String str10 = "trySaveFiles, error " + e2.getMessage();
                 }
                 return false;

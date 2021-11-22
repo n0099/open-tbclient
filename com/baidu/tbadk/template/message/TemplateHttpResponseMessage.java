@@ -1,6 +1,6 @@
 package com.baidu.tbadk.template.message;
 
-import b.a.q0.b1.c.b;
+import b.a.q0.a1.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

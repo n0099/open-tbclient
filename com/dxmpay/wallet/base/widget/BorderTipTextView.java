@@ -16,19 +16,19 @@ public class BorderTipTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62357e;
+    public int f63258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62358f;
+    public int f63259f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f62359g;
+    public int f63260g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f62360h;
+    public int f63261h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ColorStateList f62361i;
+    public ColorStateList f63262i;
     public Drawable j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,11 +50,11 @@ public class BorderTipTextView extends TextView {
                 return;
             }
         }
-        this.f62357e = getPaddingLeft();
-        this.f62358f = getPaddingRight();
-        this.f62359g = getPaddingTop();
-        this.f62360h = getPaddingBottom();
-        this.f62361i = getTextColors();
+        this.f63258e = getPaddingLeft();
+        this.f63259f = getPaddingRight();
+        this.f63260g = getPaddingTop();
+        this.f63261h = getPaddingBottom();
+        this.f63262i = getTextColors();
         this.j = getBackground();
     }
 
@@ -69,9 +69,9 @@ public class BorderTipTextView extends TextView {
                 return;
             }
             setBackgroundDrawable(this.j);
-            setTextColor(this.f62361i);
+            setTextColor(this.f63262i);
             setText(charSequence);
-            setPadding(this.f62357e, this.f62359g, this.f62358f, this.f62360h);
+            setPadding(this.f63258e, this.f63260g, this.f63259f, this.f63261h);
         }
     }
 }

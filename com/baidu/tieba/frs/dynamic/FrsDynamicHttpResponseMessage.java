@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.dynamic;
 
-import b.a.r0.x0.w1.a;
+import b.a.r0.x0.x1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
@@ -55,7 +55,7 @@ public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessa
                 Integer num = error.errorno;
                 if (num != null) {
                     setError(num.intValue());
-                    this.responseData.f26500h = a2.error.errorno.intValue();
+                    this.responseData.f28096h = a2.error.errorno.intValue();
                 }
                 setErrorString(a2.error.usermsg);
             }

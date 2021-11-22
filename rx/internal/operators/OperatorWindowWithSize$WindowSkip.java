@@ -18,7 +18,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final j<? super d<T>> f72644i;
+    public final j<? super d<T>> f73563i;
     public final int j;
     public final int k;
     public final AtomicInteger l;
@@ -86,7 +86,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                 this.n = null;
                 dVar.onCompleted();
             }
-            this.f72644i.onCompleted();
+            this.f73563i.onCompleted();
         }
     }
 
@@ -99,7 +99,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                 this.n = null;
                 dVar.onError(th);
             }
-            this.f72644i.onError(th);
+            this.f73563i.onError(th);
         }
     }
 
@@ -113,7 +113,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                 this.l.getAndIncrement();
                 unicastSubject = UnicastSubject.F(this.j, this);
                 this.n = unicastSubject;
-                this.f72644i.onNext(unicastSubject);
+                this.f73563i.onNext(unicastSubject);
             }
             int i3 = i2 + 1;
             if (unicastSubject != null) {

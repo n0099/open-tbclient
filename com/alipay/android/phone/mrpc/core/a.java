@@ -11,22 +11,22 @@ public abstract class a implements v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Method f33828a;
+    public Method f34662a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f33829b;
+    public byte[] f34663b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33830c;
+    public String f34664c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f33831d;
+    public int f34665d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f33832e;
+    public String f34666e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f33833f;
+    public boolean f34667f;
 
     public a(Method method, int i2, String str, byte[] bArr, String str2, boolean z) {
         Interceptable interceptable = $ic;
@@ -43,11 +43,11 @@ public abstract class a implements v {
                 return;
             }
         }
-        this.f33828a = method;
-        this.f33831d = i2;
-        this.f33830c = str;
-        this.f33829b = bArr;
-        this.f33832e = str2;
-        this.f33833f = z;
+        this.f34662a = method;
+        this.f34665d = i2;
+        this.f34664c = str;
+        this.f34663b = bArr;
+        this.f34666e = str2;
+        this.f34667f = z;
     }
 }

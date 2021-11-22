@@ -1,16 +1,14 @@
 package b.a.p0.a.u.e.l;
 
 import androidx.annotation.NonNull;
-import b.a.p0.a.a2.e;
 import b.a.p0.a.u.c.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends d {
+public abstract class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,22 +32,10 @@ public class a extends d {
         }
     }
 
-    public b.a.p0.a.u.h.b q() {
+    @Override // b.a.p0.a.u.c.d
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e.P() == null) {
-                return new b.a.p0.a.u.h.b(1001, "null swan runtime");
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("isAllowed", b.a.p0.a.c1.a.a().a());
-                return new b.a.p0.a.u.h.b(0, "success", jSONObject);
-            } catch (Exception e2) {
-                b.a.p0.a.e0.d.c("ActionConfigApi", e2.getMessage(), e2);
-                return new b.a.p0.a.u.h.b(1001, e2.getMessage() + "");
-            }
-        }
-        return (b.a.p0.a.u.h.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Storage" : (String) invokeV.objValue;
     }
 }

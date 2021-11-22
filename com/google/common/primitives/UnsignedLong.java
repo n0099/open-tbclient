@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.n;
+import b.h.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.math.BigInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class UnsignedLong extends Number implements Comparable<UnsignedLong>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final UnsignedLong MAX_VALUE;

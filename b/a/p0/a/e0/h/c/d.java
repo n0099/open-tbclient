@@ -25,7 +25,7 @@ public class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final boolean f4763b;
+        public static final boolean f4744b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,7 +41,7 @@ public class d {
                     return;
                 }
             }
-            f4763b = k.f6397a;
+            f4744b = k.f6863a;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -73,9 +73,9 @@ public class d {
                 hashMap.put("Upgrade", "websocket");
                 hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
                 try {
-                    hashMap.put("Sec-WebSocket-Accept", b.a.p0.a.e0.h.d.a.g(this.f4762a.f4757a.get("sec-websocket-key")));
+                    hashMap.put("Sec-WebSocket-Accept", b.a.p0.a.e0.h.d.a.g(this.f4743a.f4738a.get("sec-websocket-key")));
                 } catch (NoSuchAlgorithmException unused) {
-                    boolean z = f4763b;
+                    boolean z = f4744b;
                 }
                 return hashMap;
             }
@@ -96,7 +96,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f4764b;
+        public String f4745b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(c.a aVar) {
@@ -123,10 +123,10 @@ public class d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f4764b == null) {
-                    this.f4764b = new b.a.p0.a.e0.h.b().toString();
+                if (this.f4745b == null) {
+                    this.f4745b = new b.a.p0.a.e0.h.b().toString();
                 }
-                return this.f4764b;
+                return this.f4745b;
             }
             return (String) invokeV.objValue;
         }
@@ -158,14 +158,14 @@ public class d {
         Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
-            if (aVar == null || (map = aVar.f4757a) == null || map.size() < 1) {
+            if (aVar == null || (map = aVar.f4738a) == null || map.size() < 1) {
                 return null;
             }
-            if (b.a.p0.a.e0.h.d.a.f(aVar.f4757a)) {
-                aVar.f4761e = true;
+            if (b.a.p0.a.e0.h.d.a.f(aVar.f4738a)) {
+                aVar.f4742e = true;
                 return new a(aVar);
             }
-            aVar.f4761e = false;
+            aVar.f4742e = false;
             return new b(aVar);
         }
         return (c.b) invokeL.objValue;

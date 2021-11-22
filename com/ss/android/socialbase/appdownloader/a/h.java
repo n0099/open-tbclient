@@ -38,8 +38,8 @@ public class h extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = new Intent(com.ss.android.socialbase.downloader.constants.e.f69178c + ".intent.action.OPEN_FILEMANAGER");
-            intent.putExtra("CurrentDir", this.f68899c);
+            Intent intent = new Intent(com.ss.android.socialbase.downloader.constants.e.f70098c + ".intent.action.OPEN_FILEMANAGER");
+            intent.putExtra("CurrentDir", this.f69819c);
             intent.putExtra("first_position", 1);
             intent.putExtra("CurrentMode", 1);
             intent.putExtra("com.iqoo.secure", true);

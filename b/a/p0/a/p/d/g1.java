@@ -1,7 +1,9 @@
 package b.a.p0.a.p.d;
-
-import android.content.Context;
 /* loaded from: classes.dex */
 public interface g1 {
-    void a(b.a.p0.a.l1.c cVar, Context context);
+    String[] a();
+
+    boolean b();
+
+    String c();
 }

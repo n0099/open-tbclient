@@ -22,19 +22,19 @@ public class e extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24507e;
+    public int f26024e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24508f;
+    public String f26025f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f24509g;
+    public String f26026g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d2 f24510h;
+    public d2 f26027h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f24511i;
+    public int f26028i;
     public boolean j;
     public boolean k;
     public boolean l;
@@ -78,10 +78,10 @@ public class e extends BaseCardInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d2Var)) == null) {
-            if (d2Var == null || d2Var.l1() == null) {
+            if (d2Var == null || d2Var.m1() == null) {
                 return -1L;
             }
-            return d2Var.l1().live_id;
+            return d2Var.m1().live_id;
         }
         return invokeL.longValue;
     }
@@ -89,10 +89,10 @@ public class e extends BaseCardInfo {
     public d2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24510h : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26027h : (d2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public class e extends BaseCardInfo {
             if (threadData == null) {
                 return null;
             }
-            StatisticItem param = new StatisticItem(str).param("obj_id", g(threadData)).param("obj_type", i()).param("obj_param1", threadData.Y0).param("obj_source", threadData.X0).param("obj_locate", this.f24511i).param("ab_tag", threadData.Z0).param(TiebaStatic.Params.OBJ_PARAM3, (threadData.l1() == null || StringUtils.isNull(threadData.l1().appId)) ? "" : threadData.l1().appId);
+            StatisticItem param = new StatisticItem(str).param("obj_id", g(threadData)).param("obj_type", i()).param("obj_param1", threadData.Y0).param("obj_source", threadData.X0).param("obj_locate", this.f26028i).param("ab_tag", threadData.Z0).param(TiebaStatic.Params.OBJ_PARAM3, (threadData.m1() == null || StringUtils.isNull(threadData.m1().appId)) ? "" : threadData.m1().appId);
             if (z) {
                 param.param(TiebaStatic.Params.OBJ_PARAM2, threadData.n0() > 0 ? "0" : "1");
             }
@@ -129,10 +129,10 @@ public class e extends BaseCardInfo {
     public void o(ThreadInfo threadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, threadInfo) == null) {
-            if (this.f24510h == null) {
-                this.f24510h = new d2();
+            if (this.f26027h == null) {
+                this.f26027h = new d2();
             }
-            this.f24510h.Y2(threadInfo);
+            this.f26027h.a3(threadInfo);
         }
     }
 }

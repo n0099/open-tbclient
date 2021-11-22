@@ -3,7 +3,7 @@ package b.a.r0.n2.c;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.r0.b0.c0;
+import b.a.r0.b0.d0;
 import b.a.r0.n2.e.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d extends b.a.e.l.e.a<h, CardViewHolder<b.a.r0.n2.g.g>> {
+public class d extends b.a.e.m.e.a<h, CardViewHolder<b.a.r0.n2.g.g>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
-    public c0<h> n;
+    public d0<h> n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -44,7 +44,7 @@ public class d extends b.a.e.l.e.a<h, CardViewHolder<b.a.r0.n2.g.g>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public CardViewHolder<b.a.r0.n2.g.g> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -58,7 +58,7 @@ public class d extends b.a.e.l.e.a<h, CardViewHolder<b.a.r0.n2.g.g>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, h hVar, CardViewHolder<b.a.r0.n2.g.g> cardViewHolder) {
         InterceptResult invokeCommon;
@@ -70,10 +70,10 @@ public class d extends b.a.e.l.e.a<h, CardViewHolder<b.a.r0.n2.g.g>> {
         return (View) invokeCommon.objValue;
     }
 
-    public void i0(c0<h> c0Var) {
+    public void i0(d0<h> d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c0Var) == null) {
-            this.n = c0Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, d0Var) == null) {
+            this.n = d0Var;
         }
     }
 }

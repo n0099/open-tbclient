@@ -2,8 +2,8 @@ package b.a.r0.r.c;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import b.a.r0.z2.e;
-import b.a.r0.z2.l0.d;
+import b.a.r0.a3.e;
+import b.a.r0.a3.l0.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel;
@@ -23,25 +23,25 @@ public class a implements AdAsyncRequestModel.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PlaceId f22937a;
+    public PlaceId f24469a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22938b;
+    public String f24470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f22939c;
+    public int f24471c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f22940d;
+    public boolean f24472d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdAsyncRequestModel f22941e;
+    public AdAsyncRequestModel f24473e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f22942f;
+    public long f24474f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final WeakReference<IAdBaseAsyncController.a> f22943g;
+    public final WeakReference<IAdBaseAsyncController.a> f24475g;
 
     public a(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
@@ -58,19 +58,19 @@ public class a implements AdAsyncRequestModel.b {
                 return;
             }
         }
-        this.f22940d = false;
-        this.f22942f = 0L;
-        this.f22937a = placeId;
-        this.f22938b = str;
-        this.f22943g = new WeakReference<>(aVar);
-        this.f22941e = new AdAsyncRequestModel(this, this.f22937a);
+        this.f24472d = false;
+        this.f24474f = 0L;
+        this.f24469a = placeId;
+        this.f24470b = str;
+        this.f24475g = new WeakReference<>(aVar);
+        this.f24473e = new AdAsyncRequestModel(this, this.f24469a);
     }
 
     @Override // com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel.b
     public final void a(boolean z, List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-            IAdBaseAsyncController.a aVar = this.f22943g.get();
+            IAdBaseAsyncController.a aVar = this.f24475g.get();
             if (!z || b.a.r0.q1.o.k.a.e(list)) {
                 if (aVar != null) {
                     aVar.b(null);
@@ -89,7 +89,7 @@ public class a implements AdAsyncRequestModel.b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f22941e.c();
+            this.f24473e.c();
         }
     }
 
@@ -101,24 +101,24 @@ public class a implements AdAsyncRequestModel.b {
 
     public void d(int i2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, map) == null) || System.currentTimeMillis() - this.f22942f < this.f22939c * e.f27935c) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, map) == null) || System.currentTimeMillis() - this.f24474f < this.f24471c * e.f15570c) {
             return;
         }
-        this.f22941e.d(map, i2);
-        this.f22942f = System.currentTimeMillis();
+        this.f24473e.d(map, i2);
+        this.f24474f = System.currentTimeMillis();
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f22939c = i2;
+            this.f24471c = i2;
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f22940d = z;
+            this.f24472d = z;
         }
     }
 
@@ -128,13 +128,13 @@ public class a implements AdAsyncRequestModel.b {
             Iterator<AdvertAppInfo> it = list.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                next.h4 = this.f22938b;
-                if (b.a.r0.z2.a.n(next) && this.f22940d) {
+                next.i4 = this.f24470b;
+                if (b.a.r0.a3.a.n(next) && this.f24472d) {
                     it.remove();
                 } else {
-                    int U4 = next.U4();
-                    if (U4 != 0) {
-                        d.i(next, 0, U4);
+                    int W4 = next.W4();
+                    if (W4 != 0) {
+                        d.i(next, 0, W4);
                         it.remove();
                     }
                 }

@@ -20,28 +20,28 @@ public class WalletBaseEmptyView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f57709a;
+    public ImageView f58631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f57710b;
+    public TextView f58632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f57711c;
+    public TextView f58633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f57712d;
+    public Button f58634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f57713e;
+    public View f58635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f57714f;
+    public View f58636f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EmptyBtnClickListener f57715g;
+    public EmptyBtnClickListener f58637g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f57716h;
+    public boolean f58638h;
 
     /* loaded from: classes10.dex */
     public interface EmptyBtnClickListener {
@@ -73,21 +73,21 @@ public class WalletBaseEmptyView extends LinearLayout {
     public void setRetryBtnVisiablity(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f57712d.setVisibility(i2);
+            this.f58634d.setVisibility(i2);
         }
     }
 
     public void setShowLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f57716h = z;
+            this.f58638h = z;
         }
     }
 
     public void setonEmptyListener(EmptyBtnClickListener emptyBtnClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, emptyBtnClickListener) == null) {
-            this.f57715g = emptyBtnClickListener;
+            this.f58637g = emptyBtnClickListener;
         }
     }
 
@@ -95,12 +95,12 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.f57713e.setVisibility(0);
-                this.f57714f.setVisibility(8);
+                this.f58635e.setVisibility(0);
+                this.f58636f.setVisibility(8);
                 return;
             }
-            this.f57713e.setVisibility(8);
-            this.f57714f.setVisibility(0);
+            this.f58635e.setVisibility(8);
+            this.f58636f.setVisibility(0);
         }
     }
 
@@ -108,10 +108,10 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, charSequence) == null) {
             showLoadingPage(false);
-            this.f57709a.setBackgroundResource(i2);
-            this.f57710b.setText(charSequence);
-            this.f57711c.setVisibility(4);
-            this.f57712d.setVisibility(8);
+            this.f58631a.setBackgroundResource(i2);
+            this.f58632b.setText(charSequence);
+            this.f58633c.setVisibility(4);
+            this.f58634d.setVisibility(8);
         }
     }
 
@@ -119,12 +119,12 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), charSequence, charSequence2, emptyBtnClickListener}) == null) {
             showLoadingPage(false);
-            this.f57709a.setBackgroundResource(i2);
-            this.f57710b.setText(charSequence);
-            this.f57711c.setVisibility(4);
-            this.f57712d.setVisibility(0);
-            this.f57712d.setText(charSequence2);
-            this.f57715g = emptyBtnClickListener;
+            this.f58631a.setBackgroundResource(i2);
+            this.f58632b.setText(charSequence);
+            this.f58633c.setVisibility(4);
+            this.f58634d.setVisibility(0);
+            this.f58634d.setText(charSequence2);
+            this.f58637g = emptyBtnClickListener;
         }
     }
 
@@ -132,11 +132,11 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048582, this, i2, charSequence, charSequence2) == null) {
             showLoadingPage(false);
-            this.f57709a.setBackgroundResource(i2);
-            this.f57710b.setText(charSequence);
-            this.f57711c.setVisibility(0);
-            this.f57711c.setText(charSequence2);
-            this.f57712d.setVisibility(8);
+            this.f58631a.setBackgroundResource(i2);
+            this.f58632b.setText(charSequence);
+            this.f58633c.setVisibility(0);
+            this.f58633c.setText(charSequence2);
+            this.f58634d.setVisibility(8);
         }
     }
 
@@ -144,13 +144,13 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), charSequence, charSequence2, charSequence3, emptyBtnClickListener}) == null) {
             showLoadingPage(false);
-            this.f57709a.setBackgroundResource(i2);
-            this.f57710b.setText(charSequence);
-            this.f57711c.setVisibility(0);
-            this.f57711c.setText(charSequence2);
-            this.f57712d.setVisibility(0);
-            this.f57712d.setText(charSequence3);
-            this.f57715g = emptyBtnClickListener;
+            this.f58631a.setBackgroundResource(i2);
+            this.f58632b.setText(charSequence);
+            this.f58633c.setVisibility(0);
+            this.f58633c.setText(charSequence2);
+            this.f58634d.setVisibility(0);
+            this.f58634d.setText(charSequence3);
+            this.f58637g = emptyBtnClickListener;
         }
     }
 
@@ -158,18 +158,18 @@ public class WalletBaseEmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             LayoutInflater.from(context).inflate(ResUtils.layout(context, "wallet_base_empty_layout"), this);
-            this.f57709a = (ImageView) findViewById(ResUtils.id(context, "empty_image"));
-            this.f57710b = (TextView) findViewById(ResUtils.id(context, "empty_tip_1"));
-            this.f57711c = (TextView) findViewById(ResUtils.id(context, "empty_tip_2"));
-            this.f57712d = (Button) findViewById(ResUtils.id(context, "reload_btn"));
-            this.f57713e = findViewById(ResUtils.id(context, "progress_layout"));
-            this.f57714f = findViewById(ResUtils.id(context, "reload_layout"));
-            this.f57712d.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.WalletBaseEmptyView.1
+            this.f58631a = (ImageView) findViewById(ResUtils.id(context, "empty_image"));
+            this.f58632b = (TextView) findViewById(ResUtils.id(context, "empty_tip_1"));
+            this.f58633c = (TextView) findViewById(ResUtils.id(context, "empty_tip_2"));
+            this.f58634d = (Button) findViewById(ResUtils.id(context, "reload_btn"));
+            this.f58635e = findViewById(ResUtils.id(context, "progress_layout"));
+            this.f58636f = findViewById(ResUtils.id(context, "reload_layout"));
+            this.f58634d.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.WalletBaseEmptyView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WalletBaseEmptyView f57717a;
+                public final /* synthetic */ WalletBaseEmptyView f58639a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -186,19 +186,19 @@ public class WalletBaseEmptyView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f57717a = this;
+                    this.f58639a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f57717a.f57715g == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f58639a.f58637g == null) {
                         return;
                     }
-                    if (this.f57717a.f57716h) {
-                        this.f57717a.showLoadingPage(true);
+                    if (this.f58639a.f58638h) {
+                        this.f58639a.showLoadingPage(true);
                     }
-                    this.f57717a.f57715g.onBtnClick();
+                    this.f58639a.f58637g.onBtnClick();
                 }
             });
         }

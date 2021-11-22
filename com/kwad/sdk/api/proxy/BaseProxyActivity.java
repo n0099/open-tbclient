@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -138,6 +139,7 @@ public abstract class BaseProxyActivity extends Activity {
             this.mDelegate.onPreCreate(bundle);
             super.onCreate(bundle);
             this.mDelegate.onCreate(bundle);
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

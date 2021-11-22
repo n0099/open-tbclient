@@ -1,7 +1,7 @@
 package b.a.q0.s.g0.u;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,25 +16,25 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<n> f13084a;
+    public List<n> f13864a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<n> f13085b;
+    public List<n> f13865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13086c;
+    public boolean f13866c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13087d;
+    public boolean f13867d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13088e;
+    public int f13868e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13089f;
+    public int f13869f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13090g;
+    public int f13870g;
 
     public c(List<n> list, boolean z, int i2) {
         Interceptable interceptable = $ic;
@@ -51,12 +51,12 @@ public class c {
                 return;
             }
         }
-        this.f13088e = 2;
-        this.f13089f = 2;
-        this.f13090g = 1;
-        this.f13084a = list;
-        this.f13087d = z;
-        this.f13089f = i2;
+        this.f13868e = 2;
+        this.f13869f = 2;
+        this.f13870g = 1;
+        this.f13864a = list;
+        this.f13867d = z;
+        this.f13869f = i2;
         j(list);
     }
 
@@ -64,12 +64,12 @@ public class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f13086c) {
-                int size = this.f13085b.size();
+            if (this.f13866c) {
+                int size = this.f13865b.size();
                 if (i2 == 0) {
-                    return (size - 1) - this.f13090g;
+                    return (size - 1) - this.f13870g;
                 }
-                int i3 = this.f13090g;
+                int i3 = this.f13870g;
                 return i2 == size - i3 ? i3 : i2;
             }
             return i2;
@@ -81,7 +81,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<n> list = this.f13084a;
+            List<n> list = this.f13864a;
             if (list == null) {
                 return 0;
             }
@@ -93,15 +93,15 @@ public class c {
     public int c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f13086c ? i2 - this.f13090g : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f13866c ? i2 - this.f13870g : i2 : invokeI.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f13086c) {
-                return this.f13090g;
+            if (this.f13866c) {
+                return this.f13870g;
             }
             return 0;
         }
@@ -111,7 +111,7 @@ public class c {
     public List<n> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13085b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13865b : (List) invokeV.objValue;
     }
 
     public final List<n> f() {
@@ -119,26 +119,26 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            List<n> list = this.f13084a;
+            List<n> list = this.f13864a;
             if (list != null) {
-                if (this.f13086c) {
-                    if (list.size() > this.f13089f && this.f13084a.size() >= this.f13090g) {
-                        arrayList.addAll(this.f13084a.subList(0, this.f13089f));
-                        List<n> list2 = this.f13084a;
-                        int i2 = this.f13089f;
-                        arrayList.addAll(0, list2.subList(i2 - this.f13090g, i2));
-                        arrayList.addAll(this.f13084a.subList(0, this.f13090g));
+                if (this.f13866c) {
+                    if (list.size() > this.f13869f && this.f13864a.size() >= this.f13870g) {
+                        arrayList.addAll(this.f13864a.subList(0, this.f13869f));
+                        List<n> list2 = this.f13864a;
+                        int i2 = this.f13869f;
+                        arrayList.addAll(0, list2.subList(i2 - this.f13870g, i2));
+                        arrayList.addAll(this.f13864a.subList(0, this.f13870g));
                     } else {
-                        arrayList.addAll(this.f13084a);
-                        List<n> list3 = this.f13084a;
-                        arrayList.addAll(0, list3.subList(list3.size() - this.f13090g, this.f13084a.size()));
-                        arrayList.addAll(this.f13084a.subList(0, this.f13090g));
+                        arrayList.addAll(this.f13864a);
+                        List<n> list3 = this.f13864a;
+                        arrayList.addAll(0, list3.subList(list3.size() - this.f13870g, this.f13864a.size()));
+                        arrayList.addAll(this.f13864a.subList(0, this.f13870g));
                     }
                 } else if (list != null && list.size() > 0) {
-                    int size = this.f13084a.size();
-                    int i3 = this.f13090g;
+                    int size = this.f13864a.size();
+                    int i3 = this.f13870g;
                     if (size >= i3) {
-                        arrayList.addAll(this.f13084a.subList(0, i3));
+                        arrayList.addAll(this.f13864a.subList(0, i3));
                     }
                 }
             }
@@ -150,38 +150,38 @@ public class c {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f13090g = i2;
-            j(this.f13084a);
+            this.f13870g = i2;
+            j(this.f13864a);
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f13089f = i2;
-            j(this.f13084a);
+            this.f13869f = i2;
+            j(this.f13864a);
         }
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f13088e = i2;
-            j(this.f13084a);
+            this.f13868e = i2;
+            j(this.f13864a);
         }
     }
 
     public void j(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            if (list != null && list.size() >= this.f13088e && list.size() <= this.f13089f) {
-                this.f13086c = true;
-            } else if (list.size() > this.f13089f && this.f13087d) {
-                this.f13086c = true;
+            if (list != null && list.size() >= this.f13868e && list.size() <= this.f13869f) {
+                this.f13866c = true;
+            } else if (list.size() > this.f13869f && this.f13867d) {
+                this.f13866c = true;
             } else {
-                this.f13086c = false;
+                this.f13866c = false;
             }
-            this.f13085b = f();
+            this.f13865b = f();
         }
     }
 }

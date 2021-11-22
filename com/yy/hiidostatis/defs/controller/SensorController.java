@@ -12,7 +12,6 @@ import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,7 +91,7 @@ public class SensorController implements SensorEventListener, SensorListener {
                 try {
                     Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
                     int intExtra = registerReceiver.getIntExtra("status", -1);
-                    int intExtra2 = registerReceiver.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, -1);
+                    int intExtra2 = registerReceiver.getIntExtra("level", -1);
                     int intExtra3 = registerReceiver.getIntExtra("plugged", -1);
                     BatteryInfo batteryInfo = new BatteryInfo();
                     batteryInfo.level = intExtra2;

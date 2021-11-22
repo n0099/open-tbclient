@@ -31,17 +31,17 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f21262c;
+    public static e f22758c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BdAsyncTaskParallel f21263d;
+    public static BdAsyncTaskParallel f22759d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b.a.q0.x.p.c> f21264a;
+    public ArrayList<b.a.q0.x.p.c> f22760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b.a.q0.x.p.a> f21265b;
+    public final List<b.a.q0.x.p.a> f22761b;
 
     /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
@@ -49,24 +49,24 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ArrayList<b.a.q0.x.p.c> f21266a;
+        public final ArrayList<b.a.q0.x.p.c> f22762a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final a.InterfaceC0714a f21267b;
+        public final a.InterfaceC0750a f22763b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f21268c;
+        public final /* synthetic */ e f22764c;
 
         /* renamed from: b.a.r0.n0.b.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1045a implements a.InterfaceC0714a {
+        public class C1109a implements a.InterfaceC0750a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f21269a;
+            public final /* synthetic */ a f22765a;
 
-            public C1045a(a aVar) {
+            public C1109a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,14 +81,14 @@ public class e {
                         return;
                     }
                 }
-                this.f21269a = aVar;
+                this.f22765a = aVar;
             }
 
-            @Override // b.a.q0.x.p.a.InterfaceC0714a
+            @Override // b.a.q0.x.p.a.InterfaceC0750a
             public void a(b.a.q0.x.p.c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                    this.f21269a.f21266a.add(cVar);
+                    this.f22765a.f22762a.add(cVar);
                 }
             }
         }
@@ -108,11 +108,11 @@ public class e {
                     return;
                 }
             }
-            this.f21268c = eVar;
-            this.f21266a = new ArrayList<>();
-            this.f21267b = new C1045a(this);
+            this.f22764c = eVar;
+            this.f22762a = new ArrayList<>();
+            this.f22763b = new C1109a(this);
             setPriority(4);
-            setParallel(e.f21263d);
+            setParallel(e.f22759d);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +122,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
                 super.onPostExecute(r5);
-                this.f21268c.f21264a = this.f21266a;
+                this.f22764c.f22760a = this.f22762a;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001117));
             }
         }
@@ -133,8 +133,8 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
-                for (int i2 = 0; i2 < this.f21268c.f21265b.size(); i2++) {
-                    ((b.a.q0.x.p.a) this.f21268c.f21265b.get(i2)).b(this.f21267b);
+                for (int i2 = 0; i2 < this.f22764c.f22761b.size(); i2++) {
+                    ((b.a.q0.x.p.a) this.f22764c.f22761b.get(i2)).b(this.f22763b);
                 }
                 return null;
             }
@@ -155,8 +155,8 @@ public class e {
                 return;
             }
         }
-        f21262c = new e();
-        f21263d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        f22758c = new e();
+        f22759d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
     }
 
     public e() {
@@ -172,17 +172,17 @@ public class e {
                 return;
             }
         }
-        this.f21264a = new ArrayList<>();
-        this.f21265b = new ArrayList();
+        this.f22760a = new ArrayList<>();
+        this.f22761b = new ArrayList();
     }
 
     public static e i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f21262c : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f22758c : (e) invokeV.objValue;
     }
 
-    public void d(String str, b.a.e.l.d.a aVar, boolean z) {
+    public void d(String str, b.a.e.m.d.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, str, aVar, z) == null) || aVar == null) {
             return;
@@ -223,7 +223,7 @@ public class e {
                 return null;
             }
             if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-                if (str.equals(b.a.q0.c0.d.f11983d)) {
+                if (str.equals(b.a.q0.c0.d.f12737d)) {
                     return null;
                 }
                 String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
@@ -279,14 +279,14 @@ public class e {
     public ArrayList<b.a.q0.x.p.c> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21264a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22760a : (ArrayList) invokeV.objValue;
     }
 
     public boolean j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            Iterator<b.a.q0.x.p.c> it = this.f21264a.iterator();
+            Iterator<b.a.q0.x.p.c> it = this.f22760a.iterator();
             while (it.hasNext()) {
                 if (it.next().m(str)) {
                     return true;
@@ -304,7 +304,7 @@ public class e {
             if (str == null || !j(str)) {
                 return false;
             }
-            Iterator<b.a.q0.x.p.c> it = this.f21264a.iterator();
+            Iterator<b.a.q0.x.p.c> it = this.f22760a.iterator();
             while (it.hasNext()) {
                 b.a.q0.x.p.c next = it.next();
                 if (next.m(str)) {
@@ -320,7 +320,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (!b.a.q0.c0.d.f11983d.equals(str) && str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+            if (!b.a.q0.c0.d.f12737d.equals(str) && str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
                 String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
                 String substring = replace.substring(0, replace.indexOf(","));
                 if (substring.contains("_") && !substring.contains("collect_")) {
@@ -335,19 +335,19 @@ public class e {
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? b.a.q0.c0.d.f11983d.equals(str) || str.startsWith(b.a.q0.c0.d.f11984e) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? b.a.q0.c0.d.f12737d.equals(str) || str.startsWith(b.a.q0.c0.d.f12738e) : invokeL.booleanValue;
     }
 
-    public b.a.e.l.d.a n(String str, String str2) {
+    public b.a.e.m.d.a n(String str, String str2) {
         InterceptResult invokeLL;
         Bitmap o;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) {
-            b.a.e.l.d.a m = b.a.q0.c0.c.k().m(str2);
+            b.a.e.m.d.a m = b.a.q0.c0.c.k().m(str2);
             if (m != null) {
                 return m;
             }
-            Iterator<b.a.q0.x.p.c> it = this.f21264a.iterator();
+            Iterator<b.a.q0.x.p.c> it = this.f22760a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -359,12 +359,12 @@ public class e {
                 }
             }
             if (m == null && str != null && (o = o(str, f(str2, false))) != null) {
-                m = new b.a.e.l.d.a(o, false, str2);
+                m = new b.a.e.m.d.a(o, false, str2);
             }
             d(str2, m, false);
             return m;
         }
-        return (b.a.e.l.d.a) invokeLL.objValue;
+        return (b.a.e.m.d.a) invokeLL.objValue;
     }
 
     public Bitmap o(String str, String str2) {
@@ -379,10 +379,10 @@ public class e {
     public void p(b.a.q0.x.p.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            synchronized (this.f21265b) {
-                if (!this.f21265b.contains(aVar)) {
-                    this.f21265b.add(aVar);
-                    Collections.sort(this.f21265b);
+            synchronized (this.f22761b) {
+                if (!this.f22761b.contains(aVar)) {
+                    this.f22761b.add(aVar);
+                    Collections.sort(this.f22761b);
                 }
             }
         }

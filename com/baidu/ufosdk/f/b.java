@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f56680a;
+    public final /* synthetic */ String f57602a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f56681b;
+    public final /* synthetic */ String f57603b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ n f56682c;
+    public final /* synthetic */ n f57604c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f56683d;
+    public final /* synthetic */ a f57605d;
 
     public b(a aVar, String str, String str2, n nVar) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public final class b implements Runnable {
                 return;
             }
         }
-        this.f56683d = aVar;
-        this.f56680a = str;
-        this.f56681b = str2;
-        this.f56682c = nVar;
+        this.f57605d = aVar;
+        this.f57602a = str;
+        this.f57603b = str2;
+        this.f57604c = nVar;
     }
 
     @Override // java.lang.Runnable
@@ -51,15 +51,15 @@ public final class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Bitmap a2 = a.a(this.f56680a);
+                Bitmap a2 = a.a(this.f57602a);
                 if (a2 == null) {
-                    this.f56682c.obtainMessage(0, null).sendToTarget();
+                    this.f57604c.obtainMessage(0, null).sendToTarget();
                     return;
                 }
-                hashMap = a.f56678b;
-                hashMap.put(this.f56681b, new SoftReference(a2));
-                f.a().a(a2, this.f56681b);
-                this.f56682c.obtainMessage(0, a2).sendToTarget();
+                hashMap = a.f57600b;
+                hashMap.put(this.f57603b, new SoftReference(a2));
+                f.a().a(a2, this.f57603b);
+                this.f57604c.obtainMessage(0, a2).sendToTarget();
             } catch (Exception e2) {
                 e2.printStackTrace();
             } catch (OutOfMemoryError e3) {

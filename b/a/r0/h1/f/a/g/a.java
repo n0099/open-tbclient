@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.g0.n.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -28,16 +28,16 @@ public class a implements TabLayout.OnTabSelectedListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TabLayout.OnTabSelectedListener f17226a;
+    public TabLayout.OnTabSelectedListener f18694a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f17227b;
+    public Context f18695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TabLayout f17228c;
+    public TabLayout f18696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f17229d;
+    public int f18697d;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -54,31 +54,31 @@ public class a implements TabLayout.OnTabSelectedListener {
                 return;
             }
         }
-        this.f17227b = context;
+        this.f18695b = context;
         b();
     }
 
     public TabLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17228c : (TabLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18696c : (TabLayout) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TabLayout tabLayout = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.default_tab_layout, (ViewGroup) null);
-            this.f17228c = tabLayout;
+            this.f18696c = tabLayout;
             tabLayout.setOnTabSelectedListener((TabLayout.OnTabSelectedListener) this);
-            this.f17228c.setTabGravity(2);
+            this.f18696c.setTabGravity(2);
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            for (int i3 = 0; i3 < this.f17228c.getTabCount(); i3++) {
-                TabLayout.Tab tabAt = this.f17228c.getTabAt(i3);
+            for (int i3 = 0; i3 < this.f18696c.getTabCount(); i3++) {
+                TabLayout.Tab tabAt = this.f18696c.getTabAt(i3);
                 if (tabAt != null) {
                     if (tabAt.isSelected()) {
                         f(tabAt);
@@ -96,14 +96,14 @@ public class a implements TabLayout.OnTabSelectedListener {
     public void d(TabLayout.OnTabSelectedListener onTabSelectedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onTabSelectedListener) == null) {
-            this.f17226a = onTabSelectedListener;
+            this.f18694a = onTabSelectedListener;
         }
     }
 
     public void e(FrsTabInfoData frsTabInfoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, frsTabInfoData) == null) {
-            h(this.f17229d, frsTabInfoData.tabList, this.f17228c);
+            h(this.f18697d, frsTabInfoData.tabList, this.f18696c);
         }
     }
 
@@ -132,7 +132,7 @@ public class a implements TabLayout.OnTabSelectedListener {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17227b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f18695b : (Context) invokeV.objValue;
     }
 
     public final void h(int i2, List<FrsTabItemData> list, TabLayout tabLayout) {
@@ -197,7 +197,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, tab) == null) {
             f(tab);
-            TabLayout.OnTabSelectedListener onTabSelectedListener = this.f17226a;
+            TabLayout.OnTabSelectedListener onTabSelectedListener = this.f18694a;
             if (onTabSelectedListener != null) {
                 onTabSelectedListener.onTabReselected(tab);
             }
@@ -209,10 +209,10 @@ public class a implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, tab) == null) {
             if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
-                this.f17229d = ((FrsTabItemData) tab.getTag()).tabId;
+                this.f18697d = ((FrsTabItemData) tab.getTag()).tabId;
             }
             f(tab);
-            TabLayout.OnTabSelectedListener onTabSelectedListener = this.f17226a;
+            TabLayout.OnTabSelectedListener onTabSelectedListener = this.f18694a;
             if (onTabSelectedListener != null) {
                 onTabSelectedListener.onTabSelected(tab);
             }
@@ -224,7 +224,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, tab) == null) {
             g(tab);
-            TabLayout.OnTabSelectedListener onTabSelectedListener = this.f17226a;
+            TabLayout.OnTabSelectedListener onTabSelectedListener = this.f18694a;
             if (onTabSelectedListener != null) {
                 onTabSelectedListener.onTabUnselected(tab);
             }

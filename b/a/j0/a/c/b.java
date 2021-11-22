@@ -18,7 +18,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3016a;
+    public Context f3109a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class b {
                 return;
             }
         }
-        this.f3016a = context;
+        this.f3109a = context;
     }
 
     public Bitmap a(String str, b.a.j0.a.e.a aVar) {
@@ -46,7 +46,7 @@ public class b {
             if (a2 != null && a2.exists() && a2.isFile()) {
                 return BitmapFactory.decodeFile(a2.getAbsolutePath());
             }
-            return MaterialLoader.k(this.f3016a).i(str, aVar);
+            return MaterialLoader.k(this.f3109a).i(str, aVar);
         }
         return (Bitmap) invokeLL.objValue;
     }
@@ -60,7 +60,7 @@ public class b {
                 if (a2 != null && a2.exists() && a2.isFile()) {
                     return a2.getAbsolutePath();
                 }
-                return MaterialLoader.k(this.f3016a).m(str, materialCacheType);
+                return MaterialLoader.k(this.f3109a).m(str, materialCacheType);
             } catch (Throwable unused) {
                 return null;
             }
@@ -71,7 +71,7 @@ public class b {
     public boolean c(String str, MaterialLoader.MaterialCacheType materialCacheType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, materialCacheType)) == null) ? MaterialLoader.k(this.f3016a).o(str, materialCacheType) || d(str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, materialCacheType)) == null) ? MaterialLoader.k(this.f3109a).o(str, materialCacheType) || d(str) : invokeLL.booleanValue;
     }
 
     public final boolean d(String str) {

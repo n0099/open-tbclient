@@ -13,13 +13,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f22997a;
+    public int f24529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f22998b;
+    public c f24530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22999c;
+    public String f24531c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class a {
                 return null;
             }
             a aVar = new a();
-            aVar.f22997a = jSONObject.optInt("download_state");
-            aVar.f22998b = c.b(jSONObject.optJSONObject("app_info"));
-            aVar.f22999c = jSONObject.optString("download_hint");
+            aVar.f24529a = jSONObject.optInt("download_state");
+            aVar.f24530b = c.b(jSONObject.optJSONObject("app_info"));
+            aVar.f24531c = jSONObject.optString("download_hint");
             return aVar;
         }
         return (a) invokeL.objValue;

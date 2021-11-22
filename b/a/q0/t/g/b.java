@@ -1,7 +1,7 @@
 package b.a.q0.t.g;
 
 import android.net.Uri;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +22,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0702b f14011a;
+    public InterfaceC0738b f14784a;
 
     /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
@@ -30,10 +30,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f14012a;
+        public final /* synthetic */ ShareItem f14785a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f14013b;
+        public final /* synthetic */ b f14786b;
 
         public a(b bVar, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public class b {
                     return;
                 }
             }
-            this.f14013b = bVar;
-            this.f14012a = shareItem;
+            this.f14786b = bVar;
+            this.f14785a = shareItem;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public class b {
                 NetWork netWork = new NetWork();
                 netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
                 if (shareItem.y == 4) {
-                    netWork.addPostData("forum_id", this.f14012a.J);
+                    netWork.addPostData("forum_id", this.f14785a.J);
                     netWork.addPostData("type", "2");
                 } else {
                     netWork.addPostData("thread_id", str2);
@@ -101,8 +101,8 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem) == null) {
                 super.onPostExecute(shareItem);
-                if (this.f14013b.f14011a != null) {
-                    this.f14013b.f14011a.a(shareItem);
+                if (this.f14786b.f14784a != null) {
+                    this.f14786b.f14784a.a(shareItem);
                 }
             }
         }
@@ -110,7 +110,7 @@ public class b {
 
     /* renamed from: b.a.q0.t.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0702b {
+    public interface InterfaceC0738b {
         void a(ShareItem shareItem);
     }
 
@@ -135,10 +135,10 @@ public class b {
         }
     }
 
-    public void c(InterfaceC0702b interfaceC0702b) {
+    public void c(InterfaceC0738b interfaceC0738b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0702b) == null) {
-            this.f14011a = interfaceC0702b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0738b) == null) {
+            this.f14784a = interfaceC0738b;
         }
     }
 }

@@ -85,7 +85,7 @@ public class LocalContentUriFetchProducer extends LocalFetchProducer {
                 query.moveToFirst();
                 String string = query.getString(query.getColumnIndex("_data"));
                 if (string != null) {
-                    return getEncodedImage(new FileInputStream(this.mContentResolver.openFileDescriptor(uri, r.f40168a).getFileDescriptor()), getLength(string));
+                    return getEncodedImage(new FileInputStream(string), getLength(string));
                 }
                 return null;
             } finally {
@@ -122,7 +122,7 @@ public class LocalContentUriFetchProducer extends LocalFetchProducer {
                 createInputStream = this.mContentResolver.openInputStream(sourceUri);
             } else if (sourceUri.toString().endsWith("/display_photo")) {
                 try {
-                    createInputStream = this.mContentResolver.openAssetFileDescriptor(sourceUri, r.f40168a).createInputStream();
+                    createInputStream = this.mContentResolver.openAssetFileDescriptor(sourceUri, r.f41000a).createInputStream();
                 } catch (IOException unused) {
                     throw new IOException("Contact photo does not exist: " + sourceUri);
                 }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.diskCache;
 
 import android.content.Intent;
 import android.os.IBinder;
-import b.a.e.e.a.d;
+import b.a.e.f.a.d;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +22,7 @@ public class ImagesInvalidService extends BdBaseService {
     public DiskFileOperate mDiskFileOperate;
 
     /* loaded from: classes8.dex */
-    public static class a extends DiskFileOperate implements b.a.e.e.a.a {
+    public static class a extends DiskFileOperate implements b.a.e.f.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,7 +57,7 @@ public class ImagesInvalidService extends BdBaseService {
             }
         }
 
-        @Override // b.a.e.e.a.a
+        @Override // b.a.e.f.a.a
         public boolean compare(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;

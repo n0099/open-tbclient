@@ -21,15 +21,15 @@ public class a implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f7189a;
+    public g f7605a;
 
     /* renamed from: b.a.p0.a.p.e.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0337a implements g {
+    public class C0349a implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0337a(a aVar) {
+        public C0349a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class a implements i {
                 return;
             }
         }
-        boolean z = k.f6397a;
+        boolean z = k.f6863a;
     }
 
     public a() {
@@ -83,7 +83,7 @@ public class a implements i {
                 return;
             }
         }
-        this.f7189a = new C0337a(this);
+        this.f7605a = new C0349a(this);
     }
 
     @Override // b.a.p0.a.p.e.i
@@ -97,6 +97,6 @@ public class a implements i {
     public g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7189a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7605a : (g) invokeV.objValue;
     }
 }

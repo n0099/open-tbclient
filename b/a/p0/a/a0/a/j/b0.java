@@ -14,7 +14,7 @@ public class b0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DashPathEffect f3803a;
+    public DashPathEffect f3897a;
 
     public b0() {
         Interceptable interceptable = $ic;
@@ -34,10 +34,10 @@ public class b0 extends a {
     public void a(b bVar, Canvas canvas) {
         DashPathEffect dashPathEffect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (dashPathEffect = this.f3803a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (dashPathEffect = this.f3897a) == null) {
             return;
         }
-        bVar.f3800g.setPathEffect(dashPathEffect);
+        bVar.f3894g.setPathEffect(dashPathEffect);
     }
 
     @Override // b.a.p0.a.a0.a.j.a
@@ -52,14 +52,14 @@ public class b0 extends a {
             } else {
                 fArr = new float[length];
                 for (int i2 = 0; i2 < length; i2++) {
-                    fArr[i2] = b.a.p0.a.v2.n0.g((float) optJSONArray.optDouble(i2));
+                    fArr[i2] = b.a.p0.a.z2.n0.g((float) optJSONArray.optDouble(i2));
                 }
             }
-            int g2 = jSONArray.length() > 1 ? b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1)) : 0;
+            int g2 = jSONArray.length() > 1 ? b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(1)) : 0;
             if (fArr == null || g2 < 0) {
                 return;
             }
-            this.f3803a = new DashPathEffect(fArr, g2);
+            this.f3897a = new DashPathEffect(fArr, g2);
         }
     }
 }

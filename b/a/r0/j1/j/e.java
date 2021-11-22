@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class e extends b.a.e.l.e.a<b.a.r0.j1.l.g, HotTopicIntervalItemHolder> {
+public class e extends b.a.e.m.e.a<b.a.r0.j1.l.g, HotTopicIntervalItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int m;
@@ -44,7 +44,7 @@ public class e extends b.a.e.l.e.a<b.a.r0.j1.l.g, HotTopicIntervalItemHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.j1.l.g gVar, HotTopicIntervalItemHolder hotTopicIntervalItemHolder) {
         j0(i2, view, viewGroup, gVar, hotTopicIntervalItemHolder);
         return view;
@@ -53,9 +53,9 @@ public class e extends b.a.e.l.e.a<b.a.r0.j1.l.g, HotTopicIntervalItemHolder> {
     public final void g0(HotTopicIntervalItemHolder hotTopicIntervalItemHolder, b.a.r0.j1.l.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hotTopicIntervalItemHolder, gVar) == null) {
-            if (hotTopicIntervalItemHolder != null && gVar != null && !StringUtils.isNull(gVar.f18453e)) {
+            if (hotTopicIntervalItemHolder != null && gVar != null && !StringUtils.isNull(gVar.f19787e)) {
                 hotTopicIntervalItemHolder.moduleTheme.setVisibility(0);
-                hotTopicIntervalItemHolder.moduleTheme.setText(gVar.f18453e);
+                hotTopicIntervalItemHolder.moduleTheme.setText(gVar.f19787e);
             } else if (hotTopicIntervalItemHolder != null) {
                 hotTopicIntervalItemHolder.moduleTheme.setVisibility(8);
             }
@@ -78,12 +78,12 @@ public class e extends b.a.e.l.e.a<b.a.r0.j1.l.g, HotTopicIntervalItemHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public HotTopicIntervalItemHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotTopicIntervalItemHolder(LayoutInflater.from(this.f2419e).inflate(b.a.r0.j1.f.hot_topic_interval, viewGroup, false)) : (HotTopicIntervalItemHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotTopicIntervalItemHolder(LayoutInflater.from(this.f2421e).inflate(b.a.r0.j1.f.hot_topic_interval, viewGroup, false)) : (HotTopicIntervalItemHolder) invokeL.objValue;
     }
 
     public View j0(int i2, View view, ViewGroup viewGroup, b.a.r0.j1.l.g gVar, HotTopicIntervalItemHolder hotTopicIntervalItemHolder) {

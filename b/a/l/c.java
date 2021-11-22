@@ -15,16 +15,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout.LayoutParams f3223e;
+    public RelativeLayout.LayoutParams f3314e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3224f;
+    public int f3315f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f3225g;
+    public View f3316g;
 
     /* renamed from: h  reason: collision with root package name */
-    public l0 f3226h;
+    public l0 f3317h;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -43,19 +43,19 @@ public class c {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3225g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3316g : (View) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3224f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3315f : invokeV.intValue;
     }
 
     public RelativeLayout.LayoutParams c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3223e : (RelativeLayout.LayoutParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3314e : (RelativeLayout.LayoutParams) invokeV.objValue;
     }
 
     public void d() {
@@ -73,28 +73,28 @@ public class c {
     public void f(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            this.f3225g = view;
+            this.f3316g = view;
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f3224f = i2;
+            this.f3315f = i2;
         }
     }
 
     public void h(RelativeLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, layoutParams) == null) {
-            this.f3223e = layoutParams;
+            this.f3314e = layoutParams;
         }
     }
 
     public void i(l0 l0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l0Var) == null) {
-            this.f3226h = l0Var;
+            this.f3317h = l0Var;
         }
     }
 }

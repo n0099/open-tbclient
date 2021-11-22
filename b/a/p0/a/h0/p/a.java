@@ -3,7 +3,7 @@ package b.a.p0.a.h0.p;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import b.a.p0.a.k;
-import b.a.p0.a.v1.c.f.c;
+import b.a.p0.a.y1.c.f.c;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,19 +15,19 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5709a;
+    public static final boolean f6018a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.h0.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0241a {
+    public static class C0253a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f5710a = -1;
+        public static int f6019a = -1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f5711b = -1;
+        public static int f6020b = -1;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -55,7 +55,7 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (a.f5709a) {
+                if (a.f6018a) {
                     String str = "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a();
                     String a2 = a();
                     char c2 = 65535;
@@ -78,14 +78,14 @@ public final class a {
                         return false;
                     }
                 }
-                if (f5710a < 0) {
-                    b.a.p0.a.c1.a.Z().getSwitch("swan_sub_pkg_launch_switch", 0);
-                    f5710a = 0;
+                if (f6019a < 0) {
+                    b.a.p0.a.c1.a.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
+                    f6019a = 0;
                 }
-                if (a.f5709a) {
-                    String str2 = "isOnAppLaunchEnable sLaunchABSwitcher : " + f5710a;
+                if (a.f6018a) {
+                    String str2 = "isOnAppLaunchEnable sLaunchABSwitcher : " + f6019a;
                 }
-                return f5710a == 1;
+                return f6019a == 1;
             }
             return invokeV.booleanValue;
         }
@@ -94,11 +94,11 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (f5711b == -1) {
-                    b.a.p0.a.c1.a.Z().getSwitch("swan_app_launch_optimize_v2", 0);
-                    f5711b = 0;
+                if (f6020b == -1) {
+                    b.a.p0.a.c1.a.g0().getSwitch("swan_app_launch_optimize_v2", 0);
+                    f6020b = 0;
                 }
-                return f5711b == 1;
+                return f6020b == 1;
             }
             return invokeV.booleanValue;
         }
@@ -117,25 +117,25 @@ public final class a {
                 return;
             }
         }
-        f5709a = k.f6397a;
+        f6018a = k.f6863a;
     }
 
     public static void b(c cVar, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, cVar, bundle) == null) {
-            boolean z = f5709a;
+            boolean z = f6018a;
             Bundle bundle2 = new Bundle();
             bundle2.putBundle("swan_app_on_launch_event", bundle);
-            b.a.p0.a.v1.c.c cVar2 = new b.a.p0.a.v1.c.c(122, bundle2);
-            if (!cVar.H() && C0241a.c()) {
-                cVar.T(cVar2.h());
+            b.a.p0.a.y1.c.c cVar2 = new b.a.p0.a.y1.c.c(122, bundle2);
+            if (!cVar.S() && C0253a.c()) {
+                cVar.e0(cVar2.h());
             } else {
-                b.a.p0.a.v1.c.a e2 = b.a.p0.a.v1.c.a.e();
-                cVar2.b(cVar.f8519f);
+                b.a.p0.a.y1.c.a e2 = b.a.p0.a.y1.c.a.e();
+                cVar2.b(cVar.f9497f);
                 cVar2.p(true);
                 e2.h(cVar2);
             }
-            boolean z2 = f5709a;
+            boolean z2 = f6018a;
         }
     }
 }

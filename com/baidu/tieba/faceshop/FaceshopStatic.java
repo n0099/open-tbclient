@@ -62,31 +62,31 @@ public class FaceshopStatic {
 
         /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC1714a implements Runnable {
+        public class RunnableC1752a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f47955e;
+            public final /* synthetic */ int f48819e;
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
-            public class RunnableC1715a implements Runnable {
+            public class RunnableC1753a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ StringBuilder f47956e;
+                public final /* synthetic */ StringBuilder f48820e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ RunnableC1714a f47957f;
+                public final /* synthetic */ RunnableC1752a f48821f;
 
-                public RunnableC1715a(RunnableC1714a runnableC1714a, StringBuilder sb) {
+                public RunnableC1753a(RunnableC1752a runnableC1752a, StringBuilder sb) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC1714a, sb};
+                        Object[] objArr = {runnableC1752a, sb};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -96,20 +96,20 @@ public class FaceshopStatic {
                             return;
                         }
                     }
-                    this.f47957f = runnableC1714a;
-                    this.f47956e = sb;
+                    this.f48821f = runnableC1752a;
+                    this.f48820e = sb;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(this.f47957f.f47955e, this.f47956e.toString()));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(this.f48821f.f48819e, this.f48820e.toString()));
                     }
                 }
             }
 
-            public RunnableC1714a(a aVar, int i2) {
+            public RunnableC1752a(a aVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class FaceshopStatic {
                         return;
                     }
                 }
-                this.f47955e = i2;
+                this.f48819e = i2;
             }
 
             @Override // java.lang.Runnable
@@ -142,7 +142,7 @@ public class FaceshopStatic {
                             }
                         }
                     }
-                    b.a.e.e.m.e.a().post(new RunnableC1715a(this, sb));
+                    b.a.e.f.m.e.a().post(new RunnableC1753a(this, sb));
                 }
             }
         }
@@ -172,50 +172,17 @@ public class FaceshopStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                b.a.r0.f2.a.b().a(new RunnableC1714a(this, ((Integer) customResponsedMessage.getData()).intValue()));
+                b.a.r0.f2.a.b().a(new RunnableC1752a(this, ((Integer) customResponsedMessage.getData()).intValue()));
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<IntentConfig> {
+    public static class b implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(FacePackageDetailActivity.class);
-                }
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class c implements UrlManager.UrlDealListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -248,50 +215,12 @@ public class FaceshopStatic {
     }
 
     /* loaded from: classes9.dex */
-    public static class d extends CustomMessageListener {
+    public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
-                List list = (List) customResponsedMessage.getData();
-                list.add(u.e());
-                list.add(q.f());
-                list.add(o.e());
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class e extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(int i2) {
+        public c(int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -321,17 +250,17 @@ public class FaceshopStatic {
                 t.s().g((String) customResponsedMessage.getData(), null);
             } else if (customResponsedMessage.getData() instanceof d.a) {
                 d.a aVar = (d.a) customResponsedMessage.getData();
-                t.s().g(aVar.f11986a, aVar.f11987b);
+                t.s().g(aVar.f12740a, aVar.f12741b);
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public static class f extends BroadcastReceiver {
+    public static class d extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public f() {
+        public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -348,19 +277,19 @@ public class FaceshopStatic {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(b.a.q0.c0.d.f11981b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(b.a.q0.c0.d.f12735b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
                 return;
             }
-            t.s().g(intent.getStringExtra(b.a.q0.c0.d.f11981b), intent.getStringExtra(b.a.q0.c0.d.f11982c));
+            t.s().g(intent.getStringExtra(b.a.q0.c0.d.f12735b), intent.getStringExtra(b.a.q0.c0.d.f12736c));
         }
     }
 
     /* loaded from: classes9.dex */
-    public static class g implements CustomMessageTask.CustomRunnable<Object> {
+    public static class e implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public g() {
+        public e() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -380,6 +309,72 @@ public class FaceshopStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 b.a.r0.f2.d.m().v();
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class f implements CustomMessageTask.CustomRunnable<IntentConfig> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    customMessage.getData().startActivity(FaceBuyWebViewActivity.class);
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class g implements CustomMessageTask.CustomRunnable<IntentConfig> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    customMessage.getData().startActivity(EmotionImageActivity.class);
+                }
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -411,7 +406,7 @@ public class FaceshopStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(FaceBuyWebViewActivity.class);
+                    customMessage.getData().startActivity(EmotionManageActivity.class);
                 }
                 return null;
             }
@@ -444,7 +439,7 @@ public class FaceshopStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(EmotionImageActivity.class);
+                    customMessage.getData().startActivity(FacePurchaseRecordsActivity.class);
                 }
                 return null;
             }
@@ -477,40 +472,7 @@ public class FaceshopStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(EmotionManageActivity.class);
-                }
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class k implements CustomMessageTask.CustomRunnable<IntentConfig> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public k() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(FacePurchaseRecordsActivity.class);
+                    customMessage.getData().startActivity(FacePackageDetailActivity.class);
                 }
                 return null;
             }
@@ -544,37 +506,40 @@ public class FaceshopStatic {
         TbadkCoreApplication.getInst().RegisterIntent(CommonEmotionManagerActivityConfig.class, CommonEmotionManagerActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NativeEmotionManagerActivityConfig.class, NativeEmotionManagerActivity.class);
         MessageManager.getInstance().registerListener(new a(2004612));
-        MessageManager.getInstance().registerListener(new d(2004602));
-        MessageManager.getInstance().registerListener(new e(2004610));
-        f fVar = new f();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(u.e());
+        arrayList.add(q.f());
+        arrayList.add(o.e());
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004602, arrayList));
+        MessageManager.getInstance().registerListener(new c(2004610));
+        d dVar = new d();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(b.a.q0.c0.d.f11980a);
-        TbadkCoreApplication.getInst().registerReceiver(fVar, intentFilter);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2004611, new g());
+        intentFilter.addAction(b.a.q0.c0.d.f12734a);
+        TbadkCoreApplication.getInst().registerReceiver(dVar, intentFilter);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2004611, new e());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2001141);
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004602, new ArrayList()));
-        if (b.a.e.e.p.j.H() && TbadkCoreApplication.getCurrentAccount() != null) {
+        if (b.a.e.f.p.j.H() && TbadkCoreApplication.getCurrentAccount() != null) {
             b.a.r0.f2.d.m().v();
         }
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2902013, new h());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2902013, new f());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2902011, new i());
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2902011, new g());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
-        CustomMessageTask customMessageTask4 = new CustomMessageTask(2902012, new j());
+        CustomMessageTask customMessageTask4 = new CustomMessageTask(2902012, new h());
         customMessageTask4.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask4);
-        CustomMessageTask customMessageTask5 = new CustomMessageTask(2902015, new k());
+        CustomMessageTask customMessageTask5 = new CustomMessageTask(2902015, new i());
         customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask5);
         TbadkCoreApplication.getInst().RegisterIntent(FacePackageDetailActivityConfig.class, FacePackageDetailActivity.class);
-        CustomMessageTask customMessageTask6 = new CustomMessageTask(2902014, new b());
+        CustomMessageTask customMessageTask6 = new CustomMessageTask(2902014, new j());
         customMessageTask6.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask6);
-        UrlManager.getInstance().addListener(new c());
+        UrlManager.getInstance().addListener(new b());
     }
 
     public FaceshopStatic() {

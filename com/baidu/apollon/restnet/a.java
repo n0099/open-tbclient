@@ -15,7 +15,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f36093a;
+    public b f36922a;
 
     /* renamed from: com.baidu.apollon.restnet.a$1  reason: invalid class name */
     /* loaded from: classes6.dex */
@@ -26,11 +26,11 @@ public class a {
 
     /* renamed from: com.baidu.apollon.restnet.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1577a {
+    public static class C1614a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f36094a;
+        public static final a f36923a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,10 +46,10 @@ public class a {
                     return;
                 }
             }
-            f36094a = new a(null);
+            f36923a = new a(null);
         }
 
-        public C1577a() {
+        public C1614a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +78,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1577a.f36094a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1614a.f36923a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -98,14 +98,14 @@ public class a {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f36093a = bVar;
+            this.f36922a = bVar;
         }
     }
 
     public void a(com.baidu.apollon.restnet.b bVar) {
         b bVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (bVar2 = this.f36093a) == null || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (bVar2 = this.f36922a) == null || bVar == null) {
             return;
         }
         bVar2.send(bVar);
@@ -114,7 +114,7 @@ public class a {
     public void a(JSONObject jSONObject) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || (bVar = this.f36093a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || (bVar = this.f36922a) == null) {
             return;
         }
         bVar.send(jSONObject);

@@ -3,7 +3,7 @@ package b.a.r0.h1.f.a.d;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.s;
+import b.a.e.m.e.s;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class a<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a<T, V> {
+public abstract class a<T, V extends TypeAdapter.ViewHolder> extends b.a.e.m.e.a<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean m;
@@ -48,18 +48,18 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a
         o(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
 
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public View Z(int i2, View view, ViewGroup viewGroup, T t, V v) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), view, viewGroup, t, v})) == null) ? view : (View) invokeCommon.objValue;
     }
 
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public void e0(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            this.f2423i = bdUniqueId;
+            this.f2425i = bdUniqueId;
         }
     }
 
@@ -107,9 +107,9 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f2419e = tbPageContext.getPageActivity();
+        this.f2421e = tbPageContext.getPageActivity();
         this.n = tbPageContext;
-        this.f2423i = bdUniqueId;
+        this.f2425i = bdUniqueId;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

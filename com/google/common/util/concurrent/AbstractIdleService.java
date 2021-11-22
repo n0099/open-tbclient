@@ -1,7 +1,7 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.r;
+import b.h.d.a.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +13,14 @@ import com.google.common.util.concurrent.Service;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public abstract class AbstractIdleService implements Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Service delegate;
     public final r<String> threadNameSupplier;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public final class DelegateService extends AbstractService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public abstract class AbstractIdleService implements Service {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public final class ThreadNameSupplier implements r<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,7 +163,7 @@ public abstract class AbstractIdleService implements Service {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.i.d.a.r
+        @Override // b.h.d.a.r
         public String get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

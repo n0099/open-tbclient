@@ -1,6 +1,6 @@
 package b.a.r0.h1.f.a.e;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.FrsTabInfoData;
@@ -15,7 +15,7 @@ public class b implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsTabInfoData f17213e;
+    public FrsTabInfoData f18681e;
 
     public b(FrsTabInfoData frsTabInfoData) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public class b implements n {
                 return;
             }
         }
-        this.f17213e = frsTabInfoData;
+        this.f18681e = frsTabInfoData;
     }
 
     public FrsTabInfoData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17213e : (FrsTabInfoData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18681e : (FrsTabInfoData) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a.f17212c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a.f18680c : (BdUniqueId) invokeV.objValue;
     }
 }

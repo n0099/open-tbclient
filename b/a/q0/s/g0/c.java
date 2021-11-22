@@ -22,28 +22,28 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f12958a;
+    public long f13738a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f12959b;
+    public Context f13739b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f12960c;
+    public View f13740c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f12961d;
+    public TextView f13741d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f12962e;
+    public ImageView f13742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Toast f12963f;
+    public Toast f13743f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f12964g;
+    public Handler f13744g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f12965h;
+    public Runnable f13745h;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -51,7 +51,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f12966e;
+        public final /* synthetic */ c f13746e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -68,16 +68,16 @@ public class c {
                     return;
                 }
             }
-            this.f12966e = cVar;
+            this.f13746e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12966e.f12963f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13746e.f13743f == null) {
                 return;
             }
-            this.f12966e.f12963f.cancel();
+            this.f13746e.f13743f.cancel();
         }
     }
 
@@ -94,73 +94,73 @@ public class c {
                 return;
             }
         }
-        this.f12958a = 3000L;
-        this.f12959b = null;
-        this.f12960c = null;
-        this.f12961d = null;
-        this.f12962e = null;
-        this.f12965h = new a(this);
-        this.f12959b = TbadkCoreApplication.getInst().getContext();
-        this.f12964g = new Handler();
+        this.f13738a = 3000L;
+        this.f13739b = null;
+        this.f13740c = null;
+        this.f13741d = null;
+        this.f13742e = null;
+        this.f13745h = new a(this);
+        this.f13739b = TbadkCoreApplication.getInst().getContext();
+        this.f13744g = new Handler();
     }
 
     public void b(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.f12959b).inflate(R.layout.image_toast_view, (ViewGroup) null);
-            this.f12960c = inflate;
-            this.f12961d = (TextView) inflate.findViewById(R.id.tip_text);
-            this.f12962e = (ImageView) this.f12960c.findViewById(R.id.tip_iamge);
-            this.f12960c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(b.a.e.e.p.l.g(this.f12959b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.f12961d, R.color.CAM_X0101);
-            this.f12961d.setText(charSequence);
-            this.f12962e.setImageResource(R.drawable.icon_toast_game_error);
-            e(this.f12960c);
+            View inflate = LayoutInflater.from(this.f13739b).inflate(R.layout.image_toast_view, (ViewGroup) null);
+            this.f13740c = inflate;
+            this.f13741d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.f13742e = (ImageView) this.f13740c.findViewById(R.id.tip_iamge);
+            this.f13740c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(b.a.e.f.p.l.g(this.f13739b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.f13741d, R.color.CAM_X0101);
+            this.f13741d.setText(charSequence);
+            this.f13742e.setImageResource(R.drawable.icon_toast_game_error);
+            e(this.f13740c);
         }
     }
 
     public void c(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.f12959b).inflate(R.layout.image_toast_view, (ViewGroup) null);
-            this.f12960c = inflate;
-            this.f12961d = (TextView) inflate.findViewById(R.id.tip_text);
-            this.f12962e = (ImageView) this.f12960c.findViewById(R.id.tip_iamge);
-            this.f12960c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(b.a.e.e.p.l.g(this.f12959b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.f12961d, R.color.CAM_X0101);
-            this.f12961d.setText(charSequence);
-            this.f12962e.setImageResource(R.drawable.icon_toast_game_ok);
-            e(this.f12960c);
+            View inflate = LayoutInflater.from(this.f13739b).inflate(R.layout.image_toast_view, (ViewGroup) null);
+            this.f13740c = inflate;
+            this.f13741d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.f13742e = (ImageView) this.f13740c.findViewById(R.id.tip_iamge);
+            this.f13740c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(b.a.e.f.p.l.g(this.f13739b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.f13741d, R.color.CAM_X0101);
+            this.f13741d.setText(charSequence);
+            this.f13742e.setImageResource(R.drawable.icon_toast_game_ok);
+            e(this.f13740c);
         }
     }
 
     public void d(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            View inflate = LayoutInflater.from(this.f12959b).inflate(R.layout.image_toast_view, (ViewGroup) null);
-            this.f12960c = inflate;
-            this.f12961d = (TextView) inflate.findViewById(R.id.tip_text);
-            this.f12962e = (ImageView) this.f12960c.findViewById(R.id.tip_iamge);
-            this.f12960c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(b.a.e.e.p.l.g(this.f12959b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.f12961d, R.color.CAM_X0101);
-            this.f12961d.setText(i3);
-            this.f12962e.setImageResource(i2);
-            e(this.f12960c);
+            View inflate = LayoutInflater.from(this.f13739b).inflate(R.layout.image_toast_view, (ViewGroup) null);
+            this.f13740c = inflate;
+            this.f13741d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.f13742e = (ImageView) this.f13740c.findViewById(R.id.tip_iamge);
+            this.f13740c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(b.a.e.f.p.l.g(this.f13739b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.f13741d, R.color.CAM_X0101);
+            this.f13741d.setText(i3);
+            this.f13742e.setImageResource(i2);
+            e(this.f13740c);
         }
     }
 
     public void e(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f12964g.removeCallbacks(this.f12965h);
-            if (this.f12963f == null) {
-                this.f12963f = new Toast(this.f12959b);
+            this.f13744g.removeCallbacks(this.f13745h);
+            if (this.f13743f == null) {
+                this.f13743f = new Toast(this.f13739b);
             }
-            this.f12964g.postDelayed(this.f12965h, this.f12958a);
-            this.f12963f.setView(view);
-            this.f12963f.setDuration(1);
-            this.f12963f.setGravity(17, 0, 0);
-            this.f12963f.show();
+            this.f13744g.postDelayed(this.f13745h, this.f13738a);
+            this.f13743f.setView(view);
+            this.f13743f.setDuration(1);
+            this.f13743f.setGravity(17, 0, 0);
+            this.f13743f.show();
         }
     }
 }

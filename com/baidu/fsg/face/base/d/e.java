@@ -7,6 +7,7 @@ import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Environment;
+import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -24,25 +24,25 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f37828a = 480;
+    public static final int f38658a = 480;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f37829b = 480;
+    public static final int f38659b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f37830c = 192;
+    public static final int f38660c = 192;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f37831d = 728;
+    public static final int f38661d = 728;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f37832e = 750;
+    public static final int f38662e = 750;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f37833f = 1335;
+    public static final int f38663f = 1335;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f37834g = "LivenessFaceUtil";
+    public static final String f38664g = "LivenessFaceUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
     public e() {
@@ -66,10 +66,10 @@ public class e {
             canvas.drawColor(0, PorterDuff.Mode.CLEAR);
             Paint paint = new Paint();
             paint.setStrokeWidth(4.0f);
-            paint.setColor(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
+            paint.setColor(-16711936);
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(3.0f);
-            paint.setColor(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
+            paint.setColor(-16711936);
             for (int i2 = 0; i2 < iArr.length / 2; i2++) {
                 int i3 = i2 << 1;
                 canvas.drawCircle(iArr[i3], iArr[i3 + 1], 2.0f, paint);
@@ -78,13 +78,13 @@ public class e {
             canvas.drawRect(a2, paint);
             Point point = new Point();
             point.set(a2.centerX(), a2.centerY());
-            paint.setColor(-65536);
+            paint.setColor(SupportMenu.CATEGORY_MASK);
             canvas.drawCircle(point.x, point.y, 5.0f, paint);
             bitmap.getWidth();
             bitmap.getHeight();
             Point point2 = new Point();
             point2.set(bitmap.getWidth() / 2, (bitmap.getHeight() * 728) / 1335);
-            paint.setColor(-65536);
+            paint.setColor(SupportMenu.CATEGORY_MASK);
             canvas.drawCircle(point2.x, point2.y, 5.0f, paint);
             int width = ((bitmap.getWidth() * 480) / 750) / 2;
             int i4 = point2.x;
@@ -100,7 +100,7 @@ public class e {
     public static boolean b(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bVar)) == null) ? (bVar == null || bVar.f37821a == null || bVar.f37822b == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bVar)) == null) ? (bVar == null || bVar.f38651a == null || bVar.f38652b == null) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean c(int[] iArr, b bVar) {
@@ -145,37 +145,37 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
             Rect rect = new Rect();
             if (b(bVar)) {
-                int i2 = bVar.f37821a.left;
-                Rect rect2 = bVar.f37822b;
+                int i2 = bVar.f38651a.left;
+                Rect rect2 = bVar.f38652b;
                 int i3 = rect2.left;
                 if (i2 - i3 < 0) {
                     rect.left = 0;
                 } else {
-                    rect.left = (int) (((i2 - i3) / rect2.width()) * bVar.f37824d);
+                    rect.left = (int) (((i2 - i3) / rect2.width()) * bVar.f38654d);
                 }
-                int i4 = bVar.f37821a.top;
-                Rect rect3 = bVar.f37822b;
+                int i4 = bVar.f38651a.top;
+                Rect rect3 = bVar.f38652b;
                 int i5 = rect3.top;
                 if (i4 > i5) {
                     rect.top = 0;
                 } else {
-                    rect.top = (int) (((i5 - i4) / rect3.height()) * bVar.f37823c);
+                    rect.top = (int) (((i5 - i4) / rect3.height()) * bVar.f38653c);
                 }
-                int i6 = bVar.f37821a.right;
-                Rect rect4 = bVar.f37822b;
+                int i6 = bVar.f38651a.right;
+                Rect rect4 = bVar.f38652b;
                 int i7 = rect4.right;
                 if (i6 > i7) {
-                    rect.right = bVar.f37824d;
+                    rect.right = bVar.f38654d;
                 } else {
-                    rect.right = bVar.f37824d - ((int) (((i7 - i6) / rect4.width()) * bVar.f37824d));
+                    rect.right = bVar.f38654d - ((int) (((i7 - i6) / rect4.width()) * bVar.f38654d));
                 }
-                int i8 = bVar.f37821a.bottom;
-                Rect rect5 = bVar.f37822b;
+                int i8 = bVar.f38651a.bottom;
+                Rect rect5 = bVar.f38652b;
                 int i9 = rect5.bottom;
                 if (i8 > i9) {
-                    rect.bottom = bVar.f37823c;
+                    rect.bottom = bVar.f38653c;
                 } else {
-                    rect.bottom = bVar.f37823c - ((int) (((i9 - i8) / rect5.height()) * bVar.f37823c));
+                    rect.bottom = bVar.f38653c - ((int) (((i9 - i8) / rect5.height()) * bVar.f38653c));
                 }
                 return rect;
             }

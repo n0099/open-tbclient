@@ -26,7 +26,7 @@ import b.a.p0.b.e;
 import b.a.p0.b.f;
 import b.a.p0.b.g;
 import b.a.p0.b.h;
-import b.a.p0.b.p.d.d;
+import b.a.p0.b.p.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
@@ -44,16 +44,16 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdBaseImageView f44414f;
+    public BdBaseImageView f45222f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44415g;
+    public TextView f45223g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44416h;
+    public TextView f45224h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CheckBox f44417i;
+    public CheckBox f45225i;
     public Button j;
     public TextView k;
     public TextView l;
@@ -64,7 +64,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppQuickLoginDialog f44418e;
+        public final /* synthetic */ SwanAppQuickLoginDialog f45226e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAppQuickLoginDialog swanAppQuickLoginDialog, Context context, int i2) {
@@ -85,15 +85,15 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
                     return;
                 }
             }
-            this.f44418e = swanAppQuickLoginDialog;
+            this.f45226e = swanAppQuickLoginDialog;
         }
 
         @Override // android.app.Dialog
         public void onBackPressed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44418e.setFinishActivity(true);
-                this.f44418e.finishDialog();
+                this.f45226e.setFinishActivity(true);
+                this.f45226e.finishDialog();
             }
         }
     }
@@ -104,7 +104,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppQuickLoginDialog f44419e;
+        public final /* synthetic */ SwanAppQuickLoginDialog f45227e;
 
         public b(SwanAppQuickLoginDialog swanAppQuickLoginDialog) {
             Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
                     return;
                 }
             }
-            this.f44419e = swanAppQuickLoginDialog;
+            this.f45227e = swanAppQuickLoginDialog;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -129,24 +129,24 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
                 if (z) {
-                    this.f44419e.j.setClickable(true);
-                    this.f44419e.j.setBackgroundResource(e.swan_reply_editor_publish_selector);
+                    this.f45227e.j.setClickable(true);
+                    this.f45227e.j.setBackgroundResource(e.swan_reply_editor_publish_selector);
                     return;
                 }
-                this.f44419e.j.setClickable(false);
-                b.a.p0.a.z1.b.f.e.f(this.f44419e.mActivity, h.swanapp_unchecked_auth_tip).G(true);
-                this.f44419e.j.setBackgroundResource(e.swanapp_reply_editor_publish_disabled);
+                this.f45227e.j.setClickable(false);
+                b.a.p0.a.c2.b.f.e.f(this.f45227e.mActivity, h.swanapp_unchecked_auth_tip).H(true);
+                this.f45227e.j.setBackgroundResource(e.swanapp_reply_editor_publish_disabled);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c implements b.a.p0.b.p.g.e {
+    public class c implements b.a.p0.b.p.d.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppQuickLoginDialog f44420a;
+        public final /* synthetic */ SwanAppQuickLoginDialog f45228a;
 
         public c(SwanAppQuickLoginDialog swanAppQuickLoginDialog) {
             Interceptable interceptable = $ic;
@@ -163,22 +163,22 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
                     return;
                 }
             }
-            this.f44420a = swanAppQuickLoginDialog;
+            this.f45228a = swanAppQuickLoginDialog;
         }
 
-        @Override // b.a.p0.b.p.g.e
+        @Override // b.a.p0.b.p.d.e
         public void onResult(int i2) {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f44420a.mDialogCallback.onLoginResult(i2);
+                this.f45228a.mDialogCallback.onLoginResult(i2);
                 if (i2 == 0) {
                     str = "succ_agree";
                 } else {
-                    this.f44420a.k();
+                    this.f45228a.k();
                     str = com.baidu.pass.biometrics.face.liveness.b.a.g0;
                 }
-                SwanAppQuickLoginDialog swanAppQuickLoginDialog = this.f44420a;
+                SwanAppQuickLoginDialog swanAppQuickLoginDialog = this.f45228a;
                 d.a(PrefetchEvent.STATE_CLICK, "quickLogin", str, swanAppQuickLoginDialog.mLaunchFrom, swanAppQuickLoginDialog.mAppId);
             }
         }
@@ -211,10 +211,10 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup) == null) {
             LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(g.swan_app_quick_login_dialog_layout, viewGroup, false);
             this.mRootView = linearLayout;
-            this.f44414f = (BdBaseImageView) linearLayout.findViewById(f.close);
-            this.f44415g = (TextView) this.mRootView.findViewById(f.title);
-            this.f44417i = (CheckBox) this.mRootView.findViewById(f.phonenum_autho_switch);
-            this.f44416h = (TextView) this.mRootView.findViewById(f.user_phone_number);
+            this.f45222f = (BdBaseImageView) linearLayout.findViewById(f.close);
+            this.f45223g = (TextView) this.mRootView.findViewById(f.title);
+            this.f45225i = (CheckBox) this.mRootView.findViewById(f.phonenum_autho_switch);
+            this.f45224h = (TextView) this.mRootView.findViewById(f.user_phone_number);
             this.j = (Button) this.mRootView.findViewById(f.user_quick_login);
             this.k = (TextView) this.mRootView.findViewById(f.user_login_with_other_phone);
             this.l = (TextView) this.mRootView.findViewById(f.user_service_agreement);
@@ -222,12 +222,12 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             m();
             QuickLoginInfo quickLoginInfo = this.mQuickLoginInfo;
             if (quickLoginInfo != null) {
-                this.f44416h.setText(quickLoginInfo.encryptPhoneNum);
+                this.f45224h.setText(quickLoginInfo.encryptPhoneNum);
             }
             this.k.setOnClickListener(this);
             this.j.setOnClickListener(this);
-            this.f44414f.setOnClickListener(this);
-            this.f44417i.setOnCheckedChangeListener(new b(this));
+            this.f45222f.setOnClickListener(this);
+            this.f45225i.setOnCheckedChangeListener(new b(this));
         }
     }
 
@@ -242,7 +242,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         beginTransaction.addToBackStack(null);
         beginTransaction.commit();
         setFinishActivity(false);
-        SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = (SwanAppPhoneLoginDialog) b.a.p0.b.p.d.e.a(this.mAuthTip, this.mIsNightMode, null, this.mLaunchFrom, this.mAppId);
+        SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = (SwanAppPhoneLoginDialog) b.a.p0.b.p.b.e.a(this.mAuthTip, this.mIsNightMode, null, this.mLaunchFrom, this.mAppId);
         swanAppPhoneLoginDialog.setActivity(getActivity());
         swanAppPhoneLoginDialog.setBackView(true);
         swanAppPhoneLoginDialog.setLoginStatusCallback((SwanAppLoginAndGetMobileDialog.b) this.mActivity);
@@ -254,14 +254,14 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (!SwanAppNetworkUtils.i(this.mActivity)) {
-                b.a.p0.a.z1.b.f.e.f(this.mActivity, h.swanapp_login_not_internet).G(true);
+                b.a.p0.a.c2.b.f.e.f(this.mActivity, h.swanapp_login_not_internet).H(true);
                 return;
             }
             QuickLoginInfo quickLoginInfo = this.mQuickLoginInfo;
             if (quickLoginInfo == null) {
                 return;
             }
-            b.a.p0.b.p.g.f.e(this.mActivity, quickLoginInfo.loginMode, new c(this));
+            b.a.p0.b.p.d.f.e(this.mActivity, quickLoginInfo.loginMode, new c(this));
         }
     }
 
@@ -269,7 +269,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             String string = getContext().getString(h.swanapp_phonenum_checkbox_tip);
-            CheckBox checkBox = this.f44417i;
+            CheckBox checkBox = this.f45225i;
             if (!TextUtils.isEmpty(this.mAuthTip)) {
                 string = String.format(getString(h.swanapp_auth_switch_tip), this.mAuthTip);
             }
@@ -288,7 +288,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
                 addClickableText(spannableStringBuilder, length, quickLoginInfo.agreeText, quickLoginInfo.serviceAgreement);
                 spannableStringBuilder.append((CharSequence) getString(h.swanapp_service_agreement_comma));
             }
-            addClickableText(spannableStringBuilder, spannableStringBuilder.length(), getString(h.swanapp_service_agreement_swan), b.a.p0.a.c1.a.n().D());
+            addClickableText(spannableStringBuilder, spannableStringBuilder.length(), getString(h.swanapp_service_agreement_swan), b.a.p0.a.c1.a.o().G());
             spannableStringBuilder.append((CharSequence) getString(h.swanapp_service_agreement_comma));
             addClickableText(spannableStringBuilder, spannableStringBuilder.length(), getString(h.swanapp_service_agreement_baidu), SwanAppPhoneLoginDialog.PASS_ACCOUNT_AGREE);
             spannableStringBuilder.append((CharSequence) getString(h.swanapp_service_agreement_register_tip));
@@ -334,11 +334,11 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             Resources resources = getContext().getResources();
-            this.f44414f.setImageDrawable(resources.getDrawable(e.swanapp_login_dialog_close));
-            this.f44415g.setTextColor(resources.getColor(this.mIsNightMode ? b.a.p0.b.c.aiapps_login_dialog_title_dark : b.a.p0.b.c.aiapps_login_dialog_title));
-            this.f44416h.setTextColor(resources.getColor(this.mIsNightMode ? b.a.p0.b.c.aiapps_login_dialog_title_dark : b.a.p0.b.c.swan_app_color_000000));
-            this.f44417i.setTextColor(resources.getColor(this.mIsNightMode ? b.a.p0.b.c.aiapps_login_dialog_title_dark : b.a.p0.b.c.aiapps_login_dialog_title));
-            this.f44417i.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(this.mIsNightMode ? e.aiapp_login_and_phonenum_autho_selector_dark : e.aiapp_login_and_phonenum_autho_selector), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.f45222f.setImageDrawable(resources.getDrawable(e.swanapp_login_dialog_close));
+            this.f45223g.setTextColor(resources.getColor(this.mIsNightMode ? b.a.p0.b.c.aiapps_login_dialog_title_dark : b.a.p0.b.c.aiapps_login_dialog_title));
+            this.f45224h.setTextColor(resources.getColor(this.mIsNightMode ? b.a.p0.b.c.aiapps_login_dialog_title_dark : b.a.p0.b.c.swan_app_color_000000));
+            this.f45225i.setTextColor(resources.getColor(this.mIsNightMode ? b.a.p0.b.c.aiapps_login_dialog_title_dark : b.a.p0.b.c.aiapps_login_dialog_title));
+            this.f45225i.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(this.mIsNightMode ? e.aiapp_login_and_phonenum_autho_selector_dark : e.aiapp_login_and_phonenum_autho_selector), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 }

@@ -7,14 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imageformat.ImageFormat;
-import com.facebook.imagepipeline.core.NativeCodeSetup;
 import com.facebook.imagepipeline.nativecode.NativeImageTranscoderFactory;
 import javax.annotation.Nullable;
 /* loaded from: classes11.dex */
 public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean mEnsureTranscoderLibraryLoaded;
     @Nullable
     public final Integer mImageTranscoderType;
     public final int mMaxBitmapSize;
@@ -22,12 +20,12 @@ public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     public final ImageTranscoderFactory mPrimaryImageTranscoderFactory;
     public final boolean mUseDownSamplingRatio;
 
-    public MultiImageTranscoderFactory(int i2, boolean z, @Nullable ImageTranscoderFactory imageTranscoderFactory, @Nullable Integer num, boolean z2) {
+    public MultiImageTranscoderFactory(int i2, boolean z, @Nullable ImageTranscoderFactory imageTranscoderFactory, @Nullable Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), imageTranscoderFactory, num, Boolean.valueOf(z2)};
+            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), imageTranscoderFactory, num};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -41,7 +39,6 @@ public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
         this.mUseDownSamplingRatio = z;
         this.mPrimaryImageTranscoderFactory = imageTranscoderFactory;
         this.mImageTranscoderType = num;
-        this.mEnsureTranscoderLibraryLoaded = z2;
     }
 
     @Nullable
@@ -83,7 +80,7 @@ public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     private ImageTranscoder getNativeImageTranscoder(ImageFormat imageFormat, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, this, imageFormat, z)) == null) ? NativeImageTranscoderFactory.getNativeImageTranscoderFactory(this.mMaxBitmapSize, this.mUseDownSamplingRatio, this.mEnsureTranscoderLibraryLoaded).createImageTranscoder(imageFormat, z) : (ImageTranscoder) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, this, imageFormat, z)) == null) ? NativeImageTranscoderFactory.getNativeImageTranscoderFactory(this.mMaxBitmapSize, this.mUseDownSamplingRatio).createImageTranscoder(imageFormat, z) : (ImageTranscoder) invokeLZ.objValue;
     }
 
     private ImageTranscoder getSimpleImageTranscoder(ImageFormat imageFormat, boolean z) {
@@ -101,7 +98,7 @@ public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
             if (customImageTranscoder == null) {
                 customImageTranscoder = getImageTranscoderWithType(imageFormat, z);
             }
-            if (customImageTranscoder == null && NativeCodeSetup.getUseNativeCode()) {
+            if (customImageTranscoder == null) {
                 customImageTranscoder = getNativeImageTranscoder(imageFormat, z);
             }
             return customImageTranscoder == null ? getSimpleImageTranscoder(imageFormat, z) : customImageTranscoder;

@@ -1,6 +1,6 @@
 package b.a.r0.p2.i.b;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import java.util.List;
 /* loaded from: classes5.dex */
 public interface a {

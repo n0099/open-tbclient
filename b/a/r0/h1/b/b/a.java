@@ -17,7 +17,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<d2> f16897a;
+    public final List<d2> f18364a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a {
                 return;
             }
         }
-        this.f16897a = new ArrayList();
+        this.f18364a = new ArrayList();
     }
 
     public c a(int i2, boolean z, b.a.r0.h1.b.a.a aVar) {
@@ -40,24 +40,24 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), aVar})) == null) {
             c cVar = new c();
-            cVar.f17566c = aVar.e();
-            cVar.f17568e = aVar.a();
-            cVar.f17569f = aVar.b();
+            cVar.f19035c = aVar.e();
+            cVar.f19037e = aVar.a();
+            cVar.f19038f = aVar.b();
             ArrayList<d2> d2 = aVar.d();
             if (z) {
                 if (!ListUtils.isEmpty(d2)) {
-                    this.f16897a.clear();
-                    this.f16897a.addAll(d2);
-                    cVar.f17567d = 1;
+                    this.f18364a.clear();
+                    this.f18364a.addAll(d2);
+                    cVar.f19036d = 1;
                 }
             } else if (!ListUtils.isEmpty(d2)) {
-                this.f16897a.addAll(d2);
-                cVar.f17567d = i2 + 1;
+                this.f18364a.addAll(d2);
+                cVar.f19036d = i2 + 1;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.f16897a);
+            arrayList.addAll(this.f18364a);
             b.a.r0.h1.j.a.c(true, arrayList, aVar.c());
-            cVar.f17564a = b.a.r0.h1.j.a.a(arrayList);
+            cVar.f19033a = b.a.r0.h1.j.a.a(arrayList);
             return cVar;
         }
         return (c) invokeCommon.objValue;
@@ -66,14 +66,14 @@ public class a {
     public List<d2> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16897a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18364a : (List) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<d2> list = this.f16897a;
+            List<d2> list = this.f18364a;
             if (list == null) {
                 return false;
             }

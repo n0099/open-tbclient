@@ -16,9 +16,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
-import b.a.e.e.p.l;
-import b.a.r0.x0.g2.a;
-import b.a.r0.x0.g2.d.d;
+import b.a.e.f.p.l;
+import b.a.r0.x0.h2.a;
+import b.a.r0.x0.h2.d.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -35,30 +35,30 @@ public class SpannableTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48658e;
+    public int f49522e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48659f;
+    public int f49523f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48660g;
+    public int f49524g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48661h;
+    public int f49525h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f48662i;
+    public int f49526i;
     public long j;
     public int k;
     public boolean l;
-    public a.InterfaceC1269a m;
+    public a.InterfaceC1342a m;
 
     /* loaded from: classes9.dex */
     public static class a extends LinkMovementMethod {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f48663a;
+        public static a f49527a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public a() {
@@ -79,10 +79,10 @@ public class SpannableTextView extends TextView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (f48663a == null) {
-                    f48663a = new a();
+                if (f49527a == null) {
+                    f49527a = new a();
                 }
-                return f48663a;
+                return f49527a;
             }
             return (a) invokeV.objValue;
         }
@@ -128,10 +128,10 @@ public class SpannableTextView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public d f48664e;
+        public d f49528e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SpannableTextView f48665f;
+        public final /* synthetic */ SpannableTextView f49529f;
 
         public b(SpannableTextView spannableTextView, d dVar) {
             Interceptable interceptable = $ic;
@@ -148,24 +148,24 @@ public class SpannableTextView extends TextView {
                     return;
                 }
             }
-            this.f48665f = spannableTextView;
-            this.f48664e = dVar;
+            this.f49529f = spannableTextView;
+            this.f49528e = dVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48665f.m == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49529f.m == null) {
                 return;
             }
-            this.f48665f.m.a(this.f48664e);
+            this.f49529f.m.a(this.f49528e);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                textPaint.setColor(this.f48665f.f48661h);
+                textPaint.setColor(this.f49529f.f49525h);
                 textPaint.setUnderlineText(false);
             }
         }
@@ -177,10 +177,10 @@ public class SpannableTextView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public d f48666e;
+        public d f49530e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SpannableTextView f48667f;
+        public final /* synthetic */ SpannableTextView f49531f;
 
         public c(SpannableTextView spannableTextView, d dVar) {
             Interceptable interceptable = $ic;
@@ -197,24 +197,24 @@ public class SpannableTextView extends TextView {
                     return;
                 }
             }
-            this.f48667f = spannableTextView;
-            this.f48666e = dVar;
+            this.f49531f = spannableTextView;
+            this.f49530e = dVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48667f.m == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49531f.m == null) {
                 return;
             }
-            this.f48667f.m.b(this.f48666e);
+            this.f49531f.m.b(this.f49530e);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                textPaint.setColor(this.f48667f.f48658e);
+                textPaint.setColor(this.f49531f.f49522e);
                 textPaint.setUnderlineText(false);
             }
         }
@@ -269,14 +269,14 @@ public class SpannableTextView extends TextView {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) {
-            String str3 = dVar.f25789h;
+            String str3 = dVar.f27385h;
             int length = str3 != null ? str3.length() : 0;
             if (dVar.k) {
-                str = dVar.f25789h + "  楼主: ";
+                str = dVar.f27385h + "  楼主: ";
             } else {
-                str = dVar.f25789h + ": ";
+                str = dVar.f27385h + ": ";
             }
-            String str4 = dVar.f25790i;
+            String str4 = dVar.f27386i;
             int length2 = str4 != null ? str4.length() : 0;
             int e2 = e(str + str4);
             int e3 = e("|" + dVar.j);
@@ -287,7 +287,7 @@ public class SpannableTextView extends TextView {
                 str2 = " " + dVar.j;
             }
             int length3 = str2 != null ? str2.length() : 0;
-            boolean equals = String.valueOf(this.j).equals(dVar.f25788g);
+            boolean equals = String.valueOf(this.j).equals(dVar.f27384g);
             String str5 = "|  删除";
             if (equals) {
                 int e4 = e(str + str4 + str2);
@@ -310,16 +310,16 @@ public class SpannableTextView extends TextView {
             spannableString.setSpan(new c(this, dVar), 0, i4, 17);
             if (dVar.k) {
                 int i5 = i4 + 4;
-                spannableString.setSpan(new ForegroundColorSpan(this.f48659f), i4, i5, 17);
+                spannableString.setSpan(new ForegroundColorSpan(this.f49523f), i4, i5, 17);
                 i4 = i5;
             }
             int i6 = i4 + 2 + length2;
             int i7 = length3 + i6;
-            spannableString.setSpan(new ForegroundColorSpan(this.f48660g), i6, i7, 17);
+            spannableString.setSpan(new ForegroundColorSpan(this.f49524g), i6, i7, 17);
             if (equals) {
                 int i8 = length4 + i7;
                 spannableString.setSpan(new b(this, dVar), i7, i8, 17);
-                spannableString.setSpan(new ForegroundColorSpan(this.f48662i), i8, i8 + 1, 17);
+                spannableString.setSpan(new ForegroundColorSpan(this.f49526i), i8, i8 + 1, 17);
             }
             return spannableString;
         }
@@ -329,7 +329,7 @@ public class SpannableTextView extends TextView {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.j = b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), -1L);
+            this.j = b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), -1L);
             this.k = (l.k(getContext()) - (getResources().getDimensionPixelSize(R.dimen.ds34) * 2)) - 20;
             onChangeSkinType();
         }
@@ -338,11 +338,11 @@ public class SpannableTextView extends TextView {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f48658e = SkinManager.getColor(R.color.CAM_X0304);
-            this.f48659f = SkinManager.getColor(R.color.CAM_X0302);
-            this.f48660g = SkinManager.getColor(R.color.CAM_X0109);
-            this.f48661h = SkinManager.getColor(R.color.CAM_X0304);
-            this.f48662i = SkinManager.getColor(R.color.CAM_X0201);
+            this.f49522e = SkinManager.getColor(R.color.CAM_X0304);
+            this.f49523f = SkinManager.getColor(R.color.CAM_X0302);
+            this.f49524g = SkinManager.getColor(R.color.CAM_X0109);
+            this.f49525h = SkinManager.getColor(R.color.CAM_X0304);
+            this.f49526i = SkinManager.getColor(R.color.CAM_X0201);
         }
     }
 
@@ -370,10 +370,10 @@ public class SpannableTextView extends TextView {
         return invokeV.booleanValue;
     }
 
-    public void setClickListener(a.InterfaceC1269a interfaceC1269a) {
+    public void setClickListener(a.InterfaceC1342a interfaceC1342a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC1269a) == null) {
-            this.m = interfaceC1269a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC1342a) == null) {
+            this.m = interfaceC1342a;
         }
     }
 

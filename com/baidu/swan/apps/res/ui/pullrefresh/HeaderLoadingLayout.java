@@ -29,7 +29,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f44021i;
+    public RelativeLayout f44819i;
     public ImageView j;
     public ProgressBar k;
     public TextView l;
@@ -62,7 +62,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f44021i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+            this.f44819i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
             this.j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
             this.l = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
             this.k = (ProgressBar) findViewById(f.pull_to_refresh_header_progressbar);
@@ -91,7 +91,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RelativeLayout relativeLayout = this.f44021i;
+            RelativeLayout relativeLayout = this.f44819i;
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }

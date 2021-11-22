@@ -23,13 +23,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IMPushPb.ActionType f28947e;
+        public final /* synthetic */ IMPushPb.ActionType f29816e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f28948f;
+        public final /* synthetic */ Context f29817f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f28949g;
+        public final /* synthetic */ Object f29818g;
 
         public a(IMPushPb.ActionType actionType, Context context, Object obj) {
             Interceptable interceptable = $ic;
@@ -46,21 +46,21 @@ public class e {
                     return;
                 }
             }
-            this.f28947e = actionType;
-            this.f28948f = context;
-            this.f28949g = obj;
+            this.f29816e = actionType;
+            this.f29817f = context;
+            this.f29818g = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = b.f28950a[this.f28947e.ordinal()];
+                int i2 = b.f29819a[this.f29816e.ordinal()];
                 if (i2 == 1) {
-                    f.f(this.f28948f, (Connection) this.f28949g);
+                    f.f(this.f29817f, (Connection) this.f29818g);
                 } else if (i2 != 2) {
                 } else {
-                    f.g(this.f28948f, (Request) this.f28949g);
+                    f.g(this.f29817f, (Request) this.f29818g);
                 }
             }
         }
@@ -71,7 +71,7 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f28950a;
+        public static final /* synthetic */ int[] f29819a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -88,13 +88,13 @@ public class e {
                 }
             }
             int[] iArr = new int[IMPushPb.ActionType.values().length];
-            f28950a = iArr;
+            f29819a = iArr;
             try {
                 iArr[IMPushPb.ActionType.CONNECTION.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f28950a[IMPushPb.ActionType.REQUEST.ordinal()] = 2;
+                f29819a[IMPushPb.ActionType.REQUEST.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -106,10 +106,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f28951a;
+        public Context f29820a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Request f28952b;
+        public Request f29821b;
 
         public c(Context context) {
             Interceptable interceptable = $ic;
@@ -127,8 +127,8 @@ public class e {
                 }
             }
             Request request = new Request();
-            this.f28952b = request;
-            this.f28951a = context;
+            this.f29821b = request;
+            this.f29820a = context;
             request.method = "";
             request.requestId = "";
             request.timestamp = -1L;
@@ -142,7 +142,7 @@ public class e {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                this.f28952b.aliasId = j;
+                this.f29821b.aliasId = j;
                 return this;
             }
             return (c) invokeJ.objValue;
@@ -151,7 +151,7 @@ public class e {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                e.b(this.f28951a, IMPushPb.ActionType.REQUEST, this.f28952b);
+                e.b(this.f29820a, IMPushPb.ActionType.REQUEST, this.f29821b);
             }
         }
 
@@ -159,7 +159,7 @@ public class e {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                this.f28952b.errorCode = j;
+                this.f29821b.errorCode = j;
                 return this;
             }
             return (c) invokeJ.objValue;
@@ -169,7 +169,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f28952b.ext = str;
+                this.f29821b.ext = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -179,7 +179,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f28952b.method = str;
+                this.f29821b.method = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -189,7 +189,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f28952b.requestId = str;
+                this.f29821b.requestId = str;
                 return this;
             }
             return (c) invokeL.objValue;

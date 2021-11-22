@@ -1,9 +1,9 @@
 package b.a.r0.z1;
 
 import android.text.TextUtils;
-import b.a.e.e.p.j;
-import b.a.e.e.p.k;
-import b.a.e.e.p.q;
+import b.a.e.f.p.j;
+import b.a.e.f.p.k;
+import b.a.e.f.p.q;
 import b.a.q0.s.l.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.util.DeviceId;
@@ -111,8 +111,8 @@ public class e {
                 arrayList.add(new BasicNameValuePair("clientip", b()));
                 arrayList.add(new BasicNameValuePair("cert_id", a2[0]));
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("bduss", bVar.f13137a);
-                jSONObject.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.f13138b);
+                jSONObject.put("bduss", bVar.f13917a);
+                jSONObject.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.f13918b);
                 jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
                 jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
                 arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new b.a.q0.s.l.d().b(a2[1], jSONObject.toString())));
@@ -130,8 +130,8 @@ public class e {
                 JSONObject jSONObject2 = new JSONObject(postNetData);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     a.b bVar2 = new a.b();
-                    bVar2.f13137a = jSONObject2.optString("bduss");
-                    bVar2.f13138b = jSONObject2.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
+                    bVar2.f13917a = jSONObject2.optString("bduss");
+                    bVar2.f13918b = jSONObject2.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
                     jSONObject2.optString("uname");
                     return bVar2;
                 }

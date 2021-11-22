@@ -32,28 +32,28 @@ public class j extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38132b;
+    public String f38962b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38133c;
+    public String f38963c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38134d;
+    public String f38964d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38135e;
+    public String f38965e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38136f;
+    public String f38966f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38137g;
+    public String f38967g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38138h;
+    public String f38968h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f38139i;
+    public String f38969i;
     public String j;
     public LivenessRecogDTO k;
 
@@ -75,25 +75,25 @@ public class j extends l {
                 return;
             }
         }
-        this.f38135e = "1";
+        this.f38965e = "1";
         String zid2 = RimGlobalUtils.getZid2();
-        this.f38134d = zid2;
+        this.f38964d = zid2;
         if (TextUtils.isEmpty(zid2)) {
-            this.f38133c = RimGlobalUtils.getZid(context.getApplicationContext());
+            this.f38963c = RimGlobalUtils.getZid(context.getApplicationContext());
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f38138h = str;
+            this.f38968h = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f38139i = str;
+            this.f38969i = str;
         }
     }
 
@@ -107,14 +107,14 @@ public class j extends l {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f38137g = str;
+            this.f38967g = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f38132b = str;
+            this.f38962b = str;
         }
     }
 
@@ -129,7 +129,7 @@ public class j extends l {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f38136f = str;
+            this.f38966f = str;
         }
     }
 
@@ -168,29 +168,29 @@ public class j extends l {
                 }
                 arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.k.serviceType));
                 arrayList.add(new RestNameValuePair("app", "android"));
-                arrayList.add(new RestNameValuePair("skey", this.f38138h));
-                arrayList.add(new RestNameValuePair("data", this.f38139i));
+                arrayList.add(new RestNameValuePair("skey", this.f38968h));
+                arrayList.add(new RestNameValuePair("data", this.f38969i));
                 arrayList.add(new RestNameValuePair("deviceId", this.j));
             }
             String randomString = RandomUtils.getRandomString(4096);
-            arrayList.add(new RestNameValuePair("imgdigests", this.f38132b));
+            arrayList.add(new RestNameValuePair("imgdigests", this.f38962b));
             try {
-                arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f38146a, randomString).getBytes("UTF-8"))));
+                arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f38976a, randomString).getBytes("UTF-8"))));
             } catch (UnsupportedEncodingException e3) {
                 e3.printStackTrace();
             }
             arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
-            if (!TextUtils.isEmpty(this.f38134d)) {
-                arrayList.add(new RestNameValuePair("zid2", this.f38134d));
-            } else if (!TextUtils.isEmpty(this.f38133c)) {
-                arrayList.add(new RestNameValuePair("zid", this.f38133c));
+            if (!TextUtils.isEmpty(this.f38964d)) {
+                arrayList.add(new RestNameValuePair("zid2", this.f38964d));
+            } else if (!TextUtils.isEmpty(this.f38963c)) {
+                arrayList.add(new RestNameValuePair("zid", this.f38963c));
             }
-            arrayList.add(new RestNameValuePair("last", this.f38135e));
-            if (!TextUtils.isEmpty(this.f38136f)) {
-                arrayList.add(new RestNameValuePair("callbackkey", this.f38136f));
+            arrayList.add(new RestNameValuePair("last", this.f38965e));
+            if (!TextUtils.isEmpty(this.f38966f)) {
+                arrayList.add(new RestNameValuePair("callbackkey", this.f38966f));
             }
-            if (!TextUtils.isEmpty(this.f38137g)) {
-                arrayList.add(new RestNameValuePair("need_confirm", this.f38137g));
+            if (!TextUtils.isEmpty(this.f38967g)) {
+                arrayList.add(new RestNameValuePair("need_confirm", this.f38967g));
             }
             return arrayList;
         }
@@ -244,7 +244,7 @@ public class j extends l {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f38135e = z ? "1" : "0";
+            this.f38965e = z ? "1" : "0";
         }
     }
 

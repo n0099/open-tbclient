@@ -15,17 +15,17 @@ public class e extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f24602g;
+    public static final BdUniqueId f26119g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f24603h;
+    public static final BdUniqueId f26120h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.w.f.a.a f24604e;
+    public b.a.r0.w.f.a.a f26121e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.w.f.a.a f24605f;
+    public b.a.r0.w.f.a.a f26122f;
 
     static {
         InterceptResult invokeClinit;
@@ -40,8 +40,8 @@ public class e extends BaseCardInfo {
                 return;
             }
         }
-        f24602g = BdUniqueId.gen();
-        f24603h = BdUniqueId.gen();
+        f26119g = BdUniqueId.gen();
+        f26120h = BdUniqueId.gen();
     }
 
     public e() {
@@ -58,7 +58,7 @@ public class e extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         SdkLiveInfoData sdkLiveInfoData;
@@ -66,11 +66,11 @@ public class e extends BaseCardInfo {
         SdkLiveInfoData.YYExt yYExt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b.a.r0.w.f.a.a aVar = this.f24604e;
-            if (aVar != null && (sdkLiveInfoData = aVar.f24495e) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
-                return f24603h;
+            b.a.r0.w.f.a.a aVar = this.f26121e;
+            if (aVar != null && (sdkLiveInfoData = aVar.f26012e) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
+                return f26120h;
             }
-            return f24602g;
+            return f26119g;
         }
         return (BdUniqueId) invokeV.objValue;
     }

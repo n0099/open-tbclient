@@ -17,14 +17,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f9170c;
+    public static volatile b f9595c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextWatcher f9171a;
+    public TextWatcher f9596a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanEditText f9172b;
+    public SwanEditText f9597b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class b {
                 return;
             }
         }
-        boolean z = k.f6397a;
+        boolean z = k.f6863a;
     }
 
     public b() {
@@ -60,14 +60,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9170c == null) {
+            if (f9595c == null) {
                 synchronized (b.class) {
-                    if (f9170c == null) {
-                        f9170c = new b();
+                    if (f9595c == null) {
+                        f9595c = new b();
                     }
                 }
             }
-            return f9170c;
+            return f9595c;
         }
         return (b) invokeV.objValue;
     }
@@ -77,7 +77,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             SwanEditText swanEditText = new SwanEditText(context);
-            this.f9172b = swanEditText;
+            this.f9597b = swanEditText;
             return swanEditText;
         }
         return (SwanEditText) invokeL.objValue;
@@ -86,26 +86,26 @@ public class b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f9172b = null;
+            this.f9597b = null;
         }
     }
 
     public SwanEditText c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9172b : (SwanEditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9597b : (SwanEditText) invokeV.objValue;
     }
 
     public TextWatcher e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9171a : (TextWatcher) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9596a : (TextWatcher) invokeV.objValue;
     }
 
     public void f(TextWatcher textWatcher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
-            this.f9171a = textWatcher;
+            this.f9596a = textWatcher;
         }
     }
 }

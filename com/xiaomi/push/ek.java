@@ -21,7 +21,7 @@ public class ek {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f70880a;
+    public static a f71800a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, hp> f325a;
@@ -181,7 +181,7 @@ public class ek {
                 }
             }
             hp hpVar2 = f325a.get(str.toLowerCase());
-            return hpVar2 != null ? hpVar2 : hp.f71121a;
+            return hpVar2 != null ? hpVar2 : hp.f72041a;
         }
         return (hp) invokeL.objValue;
     }
@@ -215,7 +215,7 @@ public class ek {
                 com.xiaomi.push.service.bn.a(context.getApplicationContext(), hjVar);
                 return;
             }
-            a aVar = f70880a;
+            a aVar = f71800a;
             if (aVar != null) {
                 aVar.uploader(context, hjVar);
             }
@@ -242,7 +242,7 @@ public class ek {
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, aVar) == null) {
-            f70880a = aVar;
+            f71800a = aVar;
         }
     }
 

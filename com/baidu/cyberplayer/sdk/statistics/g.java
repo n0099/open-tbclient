@@ -17,10 +17,10 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f37252a;
+    public c f38082a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<f> f37253b;
+    public List<f> f38083b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class g {
                 return;
             }
         }
-        this.f37252a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
-        this.f37253b = new ArrayList();
+        this.f38082a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
+        this.f38083b = new ArrayList();
     }
 
     public JSONObject a() throws JSONException {
@@ -44,16 +44,16 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            c cVar = this.f37252a;
+            c cVar = this.f38082a;
             if (cVar != null) {
                 cVar.a(jSONObject);
             }
-            if (this.f37253b != null) {
+            if (this.f38083b != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (int i2 = 0; i2 < this.f37253b.size(); i2++) {
+                for (int i2 = 0; i2 < this.f38083b.size(); i2++) {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("type", this.f37253b.get(i2).a());
-                    if (this.f37253b.get(i2).a(jSONObject2) != null) {
+                    jSONObject2.put("type", this.f38083b.get(i2).a());
+                    if (this.f38083b.get(i2).a(jSONObject2) != null) {
                         jSONArray.put(jSONObject2);
                     }
                 }
@@ -69,13 +69,13 @@ public class g {
     public void a(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, str2) == null) {
-            c cVar = this.f37252a;
+            c cVar = this.f38082a;
             if (cVar != null && i2 == 24322) {
                 cVar.a(new e(i2, str, str2));
-            } else if (this.f37253b != null) {
+            } else if (this.f38083b != null) {
                 e eVar = new e(i2, str, str2);
-                for (int i3 = 0; i3 < this.f37253b.size(); i3++) {
-                    f fVar = this.f37253b.get(i3);
+                for (int i3 = 0; i3 < this.f38083b.size(); i3++) {
+                    f fVar = this.f38083b.get(i3);
                     if (fVar.a() == i2) {
                         fVar.a(eVar);
                         return;
@@ -83,7 +83,7 @@ public class g {
                 }
                 f fVar2 = new f(i2);
                 fVar2.a(eVar);
-                this.f37253b.add(fVar2);
+                this.f38083b.add(fVar2);
             }
         }
     }
@@ -91,11 +91,11 @@ public class g {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c cVar = this.f37252a;
+            c cVar = this.f38082a;
             if (cVar != null) {
                 cVar.b();
             }
-            List<f> list = this.f37253b;
+            List<f> list = this.f38083b;
             if (list != null) {
                 list.clear();
             }

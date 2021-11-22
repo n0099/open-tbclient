@@ -16,28 +16,28 @@ public class f extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12826b;
+    public long f13576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f12827c;
+    public long f13577c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f12828d;
+    public long f13578d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12829e;
+    public int f13579e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f12830f;
+    public long f13580f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12831g;
+    public int f13581g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f12832h;
+    public b f13582h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Handler f12833i;
+    public final Handler f13583i;
 
     /* loaded from: classes4.dex */
     public class a extends Handler {
@@ -45,7 +45,7 @@ public class f extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f12834a;
+        public final /* synthetic */ f f13584a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, Looper looper) {
@@ -65,16 +65,16 @@ public class f extends g {
                     return;
                 }
             }
-            this.f12834a = fVar;
+            this.f13584a = fVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f12834a.f12832h = new b(this.f12834a);
-                this.f12834a.f12832h.setSelfExecute(true);
-                this.f12834a.f12832h.execute(new String[0]);
+                this.f13584a.f13582h = new b(this.f13584a);
+                this.f13584a.f13582h.setSelfExecute(true);
+                this.f13584a.f13582h.execute(new String[0]);
             }
         }
     }
@@ -85,7 +85,7 @@ public class f extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f12835a;
+        public final /* synthetic */ f f13585a;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class f extends g {
                     return;
                 }
             }
-            this.f12835a = fVar;
+            this.f13585a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -119,8 +119,8 @@ public class f extends g {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.f12835a.f12831g = k.d().a();
-                this.f12835a.e();
+                this.f13585a.f13581g = k.d().a();
+                this.f13585a.e();
                 return Boolean.TRUE;
             }
             return (Boolean) invokeL.objValue;
@@ -140,14 +140,14 @@ public class f extends g {
                 return;
             }
         }
-        this.f12832h = null;
-        this.f12833i = new a(this, Looper.getMainLooper());
+        this.f13582h = null;
+        this.f13583i = new a(this, Looper.getMainLooper());
     }
 
     public final void e() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVar = (i) k.d().e(this.f12836a)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVar = (i) k.d().e(this.f13586a)) == null) {
             return;
         }
         iVar.c(this);
@@ -156,7 +156,7 @@ public class f extends g {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f12833i.sendEmptyMessage(0);
+            this.f13583i.sendEmptyMessage(0);
         }
     }
 }

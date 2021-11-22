@@ -110,7 +110,7 @@ public class SelectImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
             try {
-                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+                int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
                 if (attributeInt != 3) {
                     if (attributeInt != 6) {
                         return attributeInt != 8 ? 0 : 270;

@@ -23,17 +23,17 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final AtomicInteger f66968a;
+        public static final AtomicInteger f67881a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f66969b;
+        public final String f67882b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ThreadGroup f66970c;
+        public final ThreadGroup f67883c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicInteger f66971d;
+        public final AtomicInteger f67884d;
 
         static {
             InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class b {
                     return;
                 }
             }
-            f66968a = new AtomicInteger(1);
+            f67881a = new AtomicInteger(1);
         }
 
         public a(String str) {
@@ -66,9 +66,9 @@ public class b {
                     return;
                 }
             }
-            this.f66971d = new AtomicInteger(1);
-            this.f66970c = Thread.currentThread().getThreadGroup();
-            this.f66969b = f.i(str);
+            this.f67884d = new AtomicInteger(1);
+            this.f67883c = Thread.currentThread().getThreadGroup();
+            this.f67882b = f.i(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -76,8 +76,8 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.f66970c;
-                Thread thread = new Thread(threadGroup, runnable, "ksad-" + this.f66969b + this.f66971d.getAndIncrement(), 0L);
+                ThreadGroup threadGroup = this.f67883c;
+                Thread thread = new Thread(threadGroup, runnable, "ksad-" + this.f67882b + this.f67884d.getAndIncrement(), 0L);
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }

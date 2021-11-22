@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f<ViewGroup, Object> extends b.a.e.l.e.a {
+public class f<ViewGroup, Object> extends b.a.e.m.e.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,8 +38,8 @@ public class f<ViewGroup, Object> extends b.a.e.l.e.a {
         }
     }
 
-    @Override // b.a.e.l.e.a
-    public View J(int i2, View view, ViewGroup viewGroup, Object obj) {
+    @Override // b.a.e.m.e.a
+    public View L(int i2, View view, ViewGroup viewGroup, Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), view, viewGroup, obj})) == null) {
@@ -48,7 +48,7 @@ public class f<ViewGroup, Object> extends b.a.e.l.e.a {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public TypeAdapter.ViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class f<ViewGroup, Object> extends b.a.e.l.e.a {
         return (TypeAdapter.ViewHolder) invokeL.objValue;
     }
 
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

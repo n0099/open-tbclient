@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberTask;
 
 import android.os.Bundle;
 import android.view.View;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.q0.s.s.a;
 import b.a.r0.y1.c.k.r;
 import b.a.r0.y1.e.a;
@@ -48,7 +48,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberTaskCenterActivity f51540a;
+        public final /* synthetic */ MemberTaskCenterActivity f52452a;
 
         public a(MemberTaskCenterActivity memberTaskCenterActivity) {
             Interceptable interceptable = $ic;
@@ -65,31 +65,31 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                     return;
                 }
             }
-            this.f51540a = memberTaskCenterActivity;
+            this.f52452a = memberTaskCenterActivity;
         }
 
         @Override // b.a.r0.y1.e.a.b
         public void a(int i2, String str, int i3, int i4, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) && i2 == 0 && this.f51540a.mView != null) {
-                this.f51540a.showGetScoresSuccessDialog(i4);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) && i2 == 0 && this.f52452a.mView != null) {
+                this.f52452a.showGetScoresSuccessDialog(i4);
                 r rVar = new r();
                 rVar.i(j);
-                if (this.f51540a.type == 1 && i3 == 2) {
-                    this.f51540a.mModel.l(this.f51540a.mModel.h() + i4);
+                if (this.f52452a.type == 1 && i3 == 2) {
+                    this.f52452a.mModel.l(this.f52452a.mModel.h() + i4);
                 }
-                if (this.f51540a.type == 2) {
+                if (this.f52452a.type == 2) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016498, Integer.valueOf(i4)));
                 }
                 if (i3 >= 1) {
                     i3 = 1;
                 }
                 rVar.h(i3);
-                this.f51540a.refreshDataWithScores(rVar, i4);
-                if (this.f51540a.type == 2) {
+                this.f52452a.refreshDataWithScores(rVar, i4);
+                if (this.f52452a.type == 2) {
                     TiebaStatic.log(new StatisticItem("c11744"));
                 }
-                if (this.f51540a.type == 1) {
+                if (this.f52452a.type == 1) {
                     TiebaStatic.log(new StatisticItem("c11745"));
                 }
             }
@@ -102,7 +102,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberTaskCenterActivity f51541a;
+        public final /* synthetic */ MemberTaskCenterActivity f52453a;
 
         public b(MemberTaskCenterActivity memberTaskCenterActivity) {
             Interceptable interceptable = $ic;
@@ -119,19 +119,19 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                     return;
                 }
             }
-            this.f51541a = memberTaskCenterActivity;
+            this.f52453a = memberTaskCenterActivity;
         }
 
         @Override // b.a.r0.y1.e.c.b
         public void a(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                this.f51541a.mView.b().setVisibility(8);
-                MemberTaskCenterActivity memberTaskCenterActivity = this.f51541a;
+                this.f52453a.mView.b().setVisibility(8);
+                MemberTaskCenterActivity memberTaskCenterActivity = this.f52453a;
                 memberTaskCenterActivity.hideLoadingView(memberTaskCenterActivity.mView.c());
-                MemberTaskCenterActivity memberTaskCenterActivity2 = this.f51541a;
+                MemberTaskCenterActivity memberTaskCenterActivity2 = this.f52453a;
                 memberTaskCenterActivity2.showNetRefreshView(memberTaskCenterActivity2.mView.c(), str, true);
-                this.f51541a.setNetRefreshViewEmotionDefMarginTop();
+                this.f52453a.setNetRefreshViewEmotionDefMarginTop();
             }
         }
 
@@ -139,16 +139,16 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public void b(List<ImgInfo> list, List<r> list2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, list2, Long.valueOf(j)}) == null) {
-                this.f51541a.mView.b().setVisibility(0);
-                MemberTaskCenterActivity memberTaskCenterActivity = this.f51541a;
+                this.f52453a.mView.b().setVisibility(0);
+                MemberTaskCenterActivity memberTaskCenterActivity = this.f52453a;
                 memberTaskCenterActivity.hideNetRefreshView(memberTaskCenterActivity.mView.c());
-                MemberTaskCenterActivity memberTaskCenterActivity2 = this.f51541a;
+                MemberTaskCenterActivity memberTaskCenterActivity2 = this.f52453a;
                 memberTaskCenterActivity2.hideLoadingView(memberTaskCenterActivity2.mView.c());
                 if (list != null && list.size() >= 1 && list.get(0) != null) {
-                    this.f51541a.jumpUrl = list.get(0).jump_url;
-                    this.f51541a.imageUrl = list.get(0).img_url;
+                    this.f52453a.jumpUrl = list.get(0).jump_url;
+                    this.f52453a.imageUrl = list.get(0).img_url;
                 }
-                this.f51541a.mView.e(this.f51541a.imageUrl, list2, j);
+                this.f52453a.mView.e(this.f52453a.imageUrl, list2, j);
             }
         }
     }
@@ -159,7 +159,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MemberTaskCenterActivity f51542e;
+        public final /* synthetic */ MemberTaskCenterActivity f52454e;
 
         public c(MemberTaskCenterActivity memberTaskCenterActivity) {
             Interceptable interceptable = $ic;
@@ -176,7 +176,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                     return;
                 }
             }
-            this.f51542e = memberTaskCenterActivity;
+            this.f52454e = memberTaskCenterActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -186,20 +186,20 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 return;
             }
             if (view.getId() == R.id.advert_image_view) {
-                MemberCenterStatic.a(this.f51542e.getPageContext(), new String[]{this.f51542e.jumpUrl});
-                this.f51542e.isFromH5 = true;
+                MemberCenterStatic.a(this.f52454e.getPageContext(), new String[]{this.f52454e.jumpUrl});
+                this.f52454e.isFromH5 = true;
                 TiebaStatic.log(new StatisticItem("c11747"));
             } else if (view.getId() == R.id.task_status && (view.getTag() instanceof r)) {
                 r rVar = (r) view.getTag();
                 if (!TbadkCoreApplication.isLogin()) {
-                    ViewHelper.skipToLoginActivity(this.f51542e.getPageContext().getPageActivity());
+                    ViewHelper.skipToLoginActivity(this.f52454e.getPageContext().getPageActivity());
                 } else if (rVar.getType() == 2) {
-                    this.f51542e.type = 2;
-                    this.f51542e.showDialog(rVar);
+                    this.f52454e.type = 2;
+                    this.f52454e.showDialog(rVar);
                 } else if (rVar.getType() == 1) {
-                    this.f51542e.type = 1;
-                    if (this.f51542e.mFinishMemberTaskModel != null) {
-                        this.f51542e.mFinishMemberTaskModel.f(rVar.c(), rVar.a());
+                    this.f52454e.type = 1;
+                    if (this.f52454e.mFinishMemberTaskModel != null) {
+                        this.f52454e.mFinishMemberTaskModel.f(rVar.c(), rVar.a());
                     }
                 }
             }
@@ -212,10 +212,10 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f51543e;
+        public final /* synthetic */ b.a.q0.s.s.a f52455e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MemberTaskCenterActivity f51544f;
+        public final /* synthetic */ MemberTaskCenterActivity f52456f;
 
         public d(MemberTaskCenterActivity memberTaskCenterActivity, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -232,16 +232,16 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                     return;
                 }
             }
-            this.f51544f = memberTaskCenterActivity;
-            this.f51543e = aVar;
+            this.f52456f = memberTaskCenterActivity;
+            this.f52455e = aVar;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f51543e.dismiss();
-                ViewHelper.skipToLoginActivity(this.f51544f.getPageContext().getPageActivity());
+                this.f52455e.dismiss();
+                ViewHelper.skipToLoginActivity(this.f52456f.getPageContext().getPageActivity());
             }
         }
     }
@@ -252,10 +252,10 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f51545e;
+        public final /* synthetic */ b.a.q0.s.s.a f52457e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MemberTaskCenterActivity f51546f;
+        public final /* synthetic */ MemberTaskCenterActivity f52458f;
 
         public e(MemberTaskCenterActivity memberTaskCenterActivity, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -272,15 +272,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                     return;
                 }
             }
-            this.f51546f = memberTaskCenterActivity;
-            this.f51545e = aVar;
+            this.f52458f = memberTaskCenterActivity;
+            this.f52457e = aVar;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f51545e.dismiss();
+                this.f52457e.dismiss();
             }
         }
     }
@@ -291,10 +291,10 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f51547e;
+        public final /* synthetic */ b.a.q0.s.s.a f52459e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MemberTaskCenterActivity f51548f;
+        public final /* synthetic */ MemberTaskCenterActivity f52460f;
 
         public f(MemberTaskCenterActivity memberTaskCenterActivity, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -311,16 +311,16 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                     return;
                 }
             }
-            this.f51548f = memberTaskCenterActivity;
-            this.f51547e = aVar;
+            this.f52460f = memberTaskCenterActivity;
+            this.f52459e = aVar;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f51547e.dismiss();
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f51548f.getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 0);
+                this.f52459e.dismiss();
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f52460f.getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 0);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MISSION_CENTER_NATIVE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
             }
@@ -333,10 +333,10 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f51549e;
+        public final /* synthetic */ b.a.q0.s.s.a f52461e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MemberTaskCenterActivity f51550f;
+        public final /* synthetic */ MemberTaskCenterActivity f52462f;
 
         public g(MemberTaskCenterActivity memberTaskCenterActivity, b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -353,15 +353,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                     return;
                 }
             }
-            this.f51550f = memberTaskCenterActivity;
-            this.f51549e = aVar;
+            this.f52462f = memberTaskCenterActivity;
+            this.f52461e = aVar;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f51549e.dismiss();
+                this.f52461e.dismiss();
             }
         }
     }

@@ -11,8 +11,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import b.a.e.a.f;
-import b.a.e.e.m.b;
-import b.a.e.e.m.g;
+import b.a.e.f.m.b;
+import b.a.e.f.m.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -27,19 +27,19 @@ public class CardDialog extends Dialog implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f44914e;
+    public Context f45762e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f44915f;
+    public f f45763f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f44916g;
+    public float f45764g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f44917h;
+    public ViewGroup f45765h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RoundRelativeLayout f44918i;
+    public RoundRelativeLayout f45766i;
     public View j;
     public ImageView k;
     public ImageView l;
@@ -64,15 +64,15 @@ public class CardDialog extends Dialog implements View.OnClickListener {
                 return;
             }
         }
-        this.f44916g = 0.33f;
-        this.f44915f = fVar;
-        this.f44914e = fVar.getPageActivity();
+        this.f45764g = 0.33f;
+        this.f45763f = fVar;
+        this.f45762e = fVar.getPageActivity();
     }
 
     public void dismissDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g.b(this, this.f44915f);
+            g.b(this, this.f45763f);
         }
     }
 
@@ -91,20 +91,20 @@ public class CardDialog extends Dialog implements View.OnClickListener {
             super.onCreate(bundle);
             requestWindowFeature(1);
             setContentView(R.layout.dialog_card_main);
-            Display defaultDisplay = ((WindowManager) this.f44914e.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) this.f45762e.getSystemService("window")).getDefaultDisplay();
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = defaultDisplay.getWidth();
             attributes.height = defaultDisplay.getHeight();
             getWindow().setAttributes(attributes);
             getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.f44916g);
+            getWindow().setDimAmount(this.f45764g);
             getWindow().setGravity(80);
             getWindow().setWindowAnimations(0);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
-            this.f44917h = (ViewGroup) findViewById(R.id.card_root_layout);
+            this.f45765h = (ViewGroup) findViewById(R.id.card_root_layout);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
-            this.f44918i = roundRelativeLayout;
+            this.f45766i = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(b.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
             ViewGroup.LayoutParams layoutParams = this.j.getLayoutParams();
             if (layoutParams != null) {
@@ -113,7 +113,7 @@ public class CardDialog extends Dialog implements View.OnClickListener {
             } else {
                 layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             }
-            this.f44918i.addView(this.j, layoutParams);
+            this.f45766i.addView(this.j, layoutParams);
             ImageView imageView = (ImageView) findViewById(R.id.img_bg);
             this.k = imageView;
             imageView.setImageDrawable(this.m);
@@ -141,9 +141,9 @@ public class CardDialog extends Dialog implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (isShowing()) {
-                g.b(this, this.f44915f);
+                g.b(this, this.f45763f);
             }
-            g.j(this, this.f44915f);
+            g.j(this, this.f45763f);
         }
     }
 }

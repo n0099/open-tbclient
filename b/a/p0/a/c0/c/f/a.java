@@ -13,9 +13,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import b.a.p0.a.v2.n0;
-import b.a.p0.a.v2.x;
 import b.a.p0.a.z0.f.b;
+import b.a.p0.a.z2.n0;
+import b.a.p0.a.z2.x;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.component.components.textarea.SwanEditText;
@@ -34,24 +34,24 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwanAppActivity f4077i;
+    public SwanAppActivity f4217i;
     public b.a.p0.a.h0.g.f j;
     public b.a.p0.a.z0.f.b k;
     public int l;
 
     /* renamed from: b.a.p0.a.c0.c.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0121a extends b.a.p0.a.t0.a {
+    public class C0129a extends b.a.p0.a.t0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f4078a;
+        public final /* synthetic */ SwanEditText f4218a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f4079b;
+        public final /* synthetic */ a f4219b;
 
-        public C0121a(a aVar, SwanEditText swanEditText) {
+        public C0129a(a aVar, SwanEditText swanEditText) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,18 +66,18 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                     return;
                 }
             }
-            this.f4079b = aVar;
-            this.f4078a = swanEditText;
+            this.f4219b = aVar;
+            this.f4218a = swanEditText;
         }
 
         @Override // b.a.p0.a.t0.a, b.a.p0.a.t0.b
         public void b() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f4079b.k == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f4219b.k == null) {
                 return;
             }
-            this.f4079b.k.dismiss();
-            this.f4079b.p0(this.f4078a);
+            this.f4219b.k.dismiss();
+            this.f4219b.p0(this.f4218a);
         }
 
         @Override // b.a.p0.a.t0.a, b.a.p0.a.t0.b
@@ -85,11 +85,11 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, keyEvent)) == null) {
-                if (i2 != 4 || this.f4079b.k == null) {
+                if (i2 != 4 || this.f4219b.k == null) {
                     return false;
                 }
-                this.f4079b.k.dismiss();
-                this.f4079b.p0(this.f4078a);
+                this.f4219b.k.dismiss();
+                this.f4219b.p0(this.f4218a);
                 return true;
             }
             return invokeIL.booleanValue;
@@ -102,16 +102,16 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f4080a;
+        public final /* synthetic */ SwanEditText f4220a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.c0.c.f.b f4081b;
+        public final /* synthetic */ b.a.p0.a.c0.c.f.b f4221b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.t0.a f4082c;
+        public final /* synthetic */ b.a.p0.a.t0.a f4222c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f4083d;
+        public final /* synthetic */ a f4223d;
 
         public b(a aVar, SwanEditText swanEditText, b.a.p0.a.c0.c.f.b bVar, b.a.p0.a.t0.a aVar2) {
             Interceptable interceptable = $ic;
@@ -128,19 +128,19 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                     return;
                 }
             }
-            this.f4083d = aVar;
-            this.f4080a = swanEditText;
-            this.f4081b = bVar;
-            this.f4082c = aVar2;
+            this.f4223d = aVar;
+            this.f4220a = swanEditText;
+            this.f4221b = bVar;
+            this.f4222c = aVar2;
         }
 
         @Override // b.a.p0.a.z0.f.b.d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = b.a.p0.a.c0.b.a.f4044h;
-                this.f4083d.y0(this.f4080a);
-                this.f4083d.f4077i.unregisterCallback(this.f4082c);
+                boolean unused = b.a.p0.a.c0.b.a.f4184h;
+                this.f4223d.y0(this.f4220a);
+                this.f4223d.f4217i.unregisterCallback(this.f4222c);
             }
         }
 
@@ -148,10 +148,10 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                boolean unused = b.a.p0.a.c0.b.a.f4044h;
-                a aVar = this.f4083d;
-                aVar.z0(aVar.f4077i, this.f4080a, this.f4081b, i2);
-                this.f4083d.f4077i.registerCallback(this.f4082c);
+                boolean unused = b.a.p0.a.c0.b.a.f4184h;
+                a aVar = this.f4223d;
+                aVar.z0(aVar.f4217i, this.f4220a, this.f4221b, i2);
+                this.f4223d.f4217i.registerCallback(this.f4222c);
             }
         }
     }
@@ -162,13 +162,13 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.c0.c.f.b f4084a;
+        public final /* synthetic */ b.a.p0.a.c0.c.f.b f4224a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f4085b;
+        public final /* synthetic */ SwanEditText f4225b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f4086c;
+        public final /* synthetic */ a f4226c;
 
         public c(a aVar, b.a.p0.a.c0.c.f.b bVar, SwanEditText swanEditText) {
             Interceptable interceptable = $ic;
@@ -185,9 +185,9 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                     return;
                 }
             }
-            this.f4086c = aVar;
-            this.f4084a = bVar;
-            this.f4085b = swanEditText;
+            this.f4226c = aVar;
+            this.f4224a = bVar;
+            this.f4225b = swanEditText;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -195,11 +195,11 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
-                b.a.p0.a.z0.c.d(b.a.p0.a.z0.b.d().c(), this.f4086c.l);
-                if (this.f4084a.P) {
+                b.a.p0.a.z0.c.d(b.a.p0.a.z0.b.d().c(), this.f4226c.l);
+                if (this.f4224a.Q) {
                     return true;
                 }
-                this.f4085b.clearFocus();
+                this.f4225b.clearFocus();
                 return false;
             }
             return invokeLIL.booleanValue;
@@ -212,7 +212,10 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f4087e;
+        public final /* synthetic */ SwanEditText f4227e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ a f4228f;
 
         public d(a aVar, SwanEditText swanEditText) {
             Interceptable interceptable = $ic;
@@ -229,7 +232,8 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                     return;
                 }
             }
-            this.f4087e = swanEditText;
+            this.f4228f = aVar;
+            this.f4227e = swanEditText;
         }
 
         @Override // android.text.TextWatcher
@@ -252,7 +256,7 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
             if (!(interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || i3 == i4) {
                 return;
             }
-            b.a.p0.a.z0.c.c(this.f4087e, i3 > i4 ? '\b' : charSequence.charAt((i2 + i4) - 1));
+            b.a.p0.a.z0.c.c((b.a.p0.a.c0.c.f.b) this.f4228f.n(), this.f4227e, i3 > i4 ? '\b' : charSequence.charAt((i2 + i4) - 1));
         }
     }
 
@@ -262,13 +266,13 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.c0.c.f.b f4088e;
+        public final /* synthetic */ b.a.p0.a.c0.c.f.b f4229e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f4089f;
+        public final /* synthetic */ SwanEditText f4230f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f4090g;
+        public final /* synthetic */ a f4231g;
 
         public e(a aVar, b.a.p0.a.c0.c.f.b bVar, SwanEditText swanEditText) {
             Interceptable interceptable = $ic;
@@ -285,50 +289,50 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                     return;
                 }
             }
-            this.f4090g = aVar;
-            this.f4088e = bVar;
-            this.f4089f = swanEditText;
+            this.f4231g = aVar;
+            this.f4229e = bVar;
+            this.f4230f = swanEditText;
         }
 
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                if (b.a.p0.a.c0.b.a.f4044h) {
+                if (b.a.p0.a.c0.b.a.f4184h) {
                     String str = "onFocusChange:" + z;
                 }
                 if (z) {
                     return;
                 }
-                b.a.p0.a.e0.d.g("Component-Input", "send blur callback");
-                if (!TextUtils.equals("text", this.f4088e.O) && this.f4090g.k != null) {
-                    this.f4090g.k.dismiss();
+                b.a.p0.a.e0.d.i("Component-Input", "send blur callback");
+                if (!TextUtils.equals("text", this.f4229e.P) && this.f4231g.k != null) {
+                    this.f4231g.k.dismiss();
                 }
-                b.a.p0.a.z0.c.b(this.f4089f, this.f4090g.l);
-                this.f4090g.p0(this.f4089f);
+                b.a.p0.a.z0.c.b(this.f4230f, this.f4231g.l);
+                this.f4231g.p0(this.f4230f);
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class f implements b.a.p0.a.p2.a {
+    public class f implements b.a.p0.a.t2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanEditText f4091a;
+        public final /* synthetic */ SwanEditText f4232a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f4092b;
+        public final /* synthetic */ SwanAppActivity f4233b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.c0.c.f.b f4093c;
+        public final /* synthetic */ b.a.p0.a.c0.c.f.b f4234c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ View f4094d;
+        public final /* synthetic */ View f4235d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f4095e;
+        public final /* synthetic */ a f4236e;
 
         public f(a aVar, SwanEditText swanEditText, SwanAppActivity swanAppActivity, b.a.p0.a.c0.c.f.b bVar, View view) {
             Interceptable interceptable = $ic;
@@ -345,31 +349,31 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                     return;
                 }
             }
-            this.f4095e = aVar;
-            this.f4091a = swanEditText;
-            this.f4092b = swanAppActivity;
-            this.f4093c = bVar;
-            this.f4094d = view;
+            this.f4236e = aVar;
+            this.f4232a = swanEditText;
+            this.f4233b = swanAppActivity;
+            this.f4234c = bVar;
+            this.f4235d = view;
         }
 
-        @Override // b.a.p0.a.p2.a
+        @Override // b.a.p0.a.t2.a
         public void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                this.f4095e.y0(this.f4091a);
-                b.a.p0.a.p2.c.i().k(this.f4094d);
+                this.f4236e.y0(this.f4232a);
+                b.a.p0.a.t2.c.i().k(this.f4235d);
             }
         }
 
-        @Override // b.a.p0.a.p2.a
+        @Override // b.a.p0.a.t2.a
         public void b(String str, int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) && this.f4091a.hasFocus()) {
-                this.f4095e.z0(this.f4092b, this.f4091a, this.f4093c, i2);
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) && this.f4232a.hasFocus()) {
+                this.f4236e.z0(this.f4233b, this.f4232a, this.f4234c, i2);
             }
         }
 
-        @Override // b.a.p0.a.p2.a
+        @Override // b.a.p0.a.t2.a
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -401,7 +405,7 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                 return;
             }
         }
-        this.f4077i = swanAppActivity;
+        this.f4217i = swanAppActivity;
         this.j = fVar;
         b.a.p0.a.z0.c.a(gVar);
     }
@@ -412,9 +416,9 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
             swanEditText.setOnEditorActionListener(new c(this, bVar, swanEditText));
             d dVar = new d(this, swanEditText);
             swanEditText.setOnFocusChangeListener(new e(this, bVar, swanEditText));
-            if (TextUtils.equals("text", bVar.O)) {
+            if (TextUtils.equals("text", bVar.P)) {
                 View decorView = swanAppActivity.getWindow().getDecorView();
-                b.a.p0.a.p2.c.i().l(decorView, bVar.f4056f, new f(this, swanEditText, swanAppActivity, bVar, decorView));
+                b.a.p0.a.t2.c.i().l(decorView, bVar.f4196f, new f(this, swanEditText, swanAppActivity, bVar, decorView));
             }
             b.a.p0.a.z0.b.d().f(dVar);
             swanEditText.addTextChangedListener(dVar);
@@ -429,7 +433,7 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                 method.setAccessible(true);
                 method.invoke(swanEditText, Boolean.FALSE);
             } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
-                if (b.a.p0.a.c0.b.a.f4044h) {
+                if (b.a.p0.a.c0.b.a.f4184h) {
                     e2.printStackTrace();
                 }
             }
@@ -439,9 +443,9 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
     public final void p0(@Nullable SwanEditText swanEditText) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, swanEditText) == null) {
-            SwanAppActivity activity = b.a.p0.a.g1.f.T().getActivity();
+            SwanAppActivity activity = b.a.p0.a.g1.f.U().getActivity();
             if (activity == null) {
-                b.a.p0.a.e0.d.l("Component-Input", "activity is null when close input");
+                b.a.p0.a.e0.d.o("Component-Input", "activity is null when close input");
                 return;
             }
             x.a(activity, activity.getWindow().getDecorView().getWindowToken());
@@ -449,11 +453,11 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                 return;
             }
             swanEditText.setOnFocusChangeListener(null);
-            b.a.p0.a.e0.d.g("Component-Input", "remove input");
+            b.a.p0.a.e0.d.i("Component-Input", "remove input");
             if (B().a()) {
-                b.a.p0.a.e0.d.g("Component-Input", "remove input success");
+                b.a.p0.a.e0.d.i("Component-Input", "remove input success");
             } else {
-                b.a.p0.a.e0.d.l("Component-Input", "remove input fail");
+                b.a.p0.a.e0.d.o("Component-Input", "remove input fail");
             }
             b.a.p0.a.z0.b.d().b();
         }
@@ -491,9 +495,9 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
             swanEditText.setText(bVar.x);
             int i2 = 1;
             swanEditText.setSingleLine(true);
-            swanEditText.setTag(bVar.f4059i);
-            if (!TextUtils.equals("text", bVar.O)) {
-                String str = bVar.O;
+            swanEditText.setTag(bVar.f4199i);
+            if (!TextUtils.equals("text", bVar.P)) {
+                String str = bVar.P;
                 char c2 = 65535;
                 int hashCode = str.hashCode();
                 if (hashCode != -1193508181) {
@@ -508,11 +512,11 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                 } else if (c2 != 1) {
                     i2 = 0;
                 }
-                this.k = new b.a.p0.a.z0.f.b(this.f4077i, swanEditText, i2, bVar.G);
-                this.k.e(new b(this, swanEditText, bVar, new C0121a(this, swanEditText)));
+                this.k = new b.a.p0.a.z0.f.b(this.f4217i, swanEditText, i2, bVar.H);
+                this.k.e(new b(this, swanEditText, bVar, new C0129a(this, swanEditText)));
                 this.k.f();
             }
-            if (bVar.M) {
+            if (bVar.N) {
                 swanEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         }
@@ -532,7 +536,7 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
             if (t) {
                 swanEditText.addTextChangedListener(b.a.p0.a.z0.b.d().e());
             } else {
-                A0(swanEditText, bVar, this.f4077i);
+                A0(swanEditText, bVar, this.f4217i);
             }
         }
     }
@@ -543,7 +547,7 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
     public void R(@NonNull SwanEditText swanEditText, @NonNull b.a.p0.a.c0.c.f.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, swanEditText, bVar) == null) {
-            boolean z = b.a.p0.a.c0.b.a.f4044h;
+            boolean z = b.a.p0.a.c0.b.a.f4184h;
             swanEditText.setPadding(0, -6, 0, 0);
         }
     }
@@ -554,13 +558,13 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
     public void U(@NonNull SwanEditText swanEditText, @NonNull b.a.p0.a.c0.c.f.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, swanEditText, bVar) == null) {
-            boolean z = b.a.p0.a.c0.b.a.f4044h;
+            boolean z = b.a.p0.a.c0.b.a.f4184h;
             if (t()) {
                 super.U(swanEditText, bVar);
                 try {
                     swanEditText.setSelection(bVar.x.length());
                 } catch (IndexOutOfBoundsException e2) {
-                    if (b.a.p0.a.c0.b.a.f4044h) {
+                    if (b.a.p0.a.c0.b.a.f4184h) {
                         e2.printStackTrace();
                     }
                     b.a.p0.a.c0.g.a.a("Component-Input", "value is invalid, out of max length");
@@ -579,8 +583,8 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
     public void W(@NonNull SwanEditText swanEditText, @NonNull b.a.p0.a.c0.c.f.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, swanEditText, bVar) == null) {
-            boolean z = b.a.p0.a.c0.b.a.f4044h;
-            String str = bVar.D;
+            boolean z = b.a.p0.a.c0.b.a.f4184h;
+            String str = bVar.E;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != -1178781136) {
@@ -616,8 +620,8 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
             swanEditText.setFocusable(true);
             swanEditText.setFocusableInTouchMode(true);
             swanEditText.requestFocus();
-            if (TextUtils.equals(((b.a.p0.a.c0.c.f.b) n()).O, "text")) {
-                InputMethodManager inputMethodManager = (InputMethodManager) this.f4077i.getSystemService("input_method");
+            if (TextUtils.equals(((b.a.p0.a.c0.c.f.b) n()).P, "text")) {
+                InputMethodManager inputMethodManager = (InputMethodManager) this.f4217i.getSystemService("input_method");
                 if (inputMethodManager != null) {
                     inputMethodManager.showSoftInput(swanEditText, 0);
                 }
@@ -642,14 +646,14 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
     public final void y0(@NonNull SwanEditText swanEditText) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, swanEditText) == null) {
-            if (b.a.p0.a.c0.b.a.f4044h) {
+            if (b.a.p0.a.c0.b.a.f4184h) {
                 String str = "scrollBackWhenKeyboardHide, mKeyboardHeight：" + this.l;
             }
             if (this.l != 0) {
                 this.l = 0;
                 swanEditText.clearFocus();
-                if (this.j.e3().getScrollY() > 0) {
-                    this.j.e3().setScrollY(0);
+                if (this.j.u3().getScrollY() > 0) {
+                    this.j.u3().setScrollY(0);
                 }
             }
         }
@@ -667,8 +671,8 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048600, this, swanAppActivity, swanEditText, bVar, i2) == null) {
-            b.a.p0.a.p.e.c h2 = b.a.p0.a.g1.f.T().h();
-            if (b.a.p0.a.c0.b.a.f4044h) {
+            b.a.p0.a.p.e.c h2 = b.a.p0.a.g1.f.U().h();
+            if (b.a.p0.a.c0.b.a.f4184h) {
                 String str = "scrollUpWhenKeyboardShow, mKeyboardHeight：" + this.l + "，keyboardHeight : " + i2;
             }
             if (this.l == i2 || h2 == null) {
@@ -676,22 +680,22 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
             }
             this.l = i2;
             b.a.p0.a.z0.c.f(swanEditText, i2);
-            if (bVar.Q) {
+            if (bVar.R) {
                 if (bVar.l == null) {
-                    bVar.l = new b.a.p0.a.l1.e.a.a();
+                    bVar.l = new b.a.p0.a.m1.e.a.a();
                 }
                 int webViewScrollY = h2.getWebViewScrollY();
                 int height = swanEditText.getHeight();
                 if (height == 0) {
                     height = bVar.l.c();
                 }
-                int height2 = ((this.j.e3().getHeight() - bVar.l.f()) - height) + webViewScrollY + n0.k(swanAppActivity);
-                int i4 = bVar.H;
+                int height2 = ((this.j.u3().getHeight() - bVar.l.f()) - height) + webViewScrollY + n0.k(swanAppActivity);
+                int i4 = bVar.I;
                 if (i4 > height2) {
                     i4 = height2;
                 }
                 int i5 = height2 - i2;
-                int scrollY = this.j.e3().getScrollY();
+                int scrollY = this.j.u3().getScrollY();
                 if (i5 < 0) {
                     i3 = i4 - i5;
                 } else {
@@ -700,7 +704,7 @@ public final class a extends b.a.p0.a.c0.a.a.a<SwanEditText, b.a.p0.a.c0.c.f.b> 
                     }
                     i3 = scrollY;
                 }
-                this.j.e3().setScrollY(i3);
+                this.j.u3().setScrollY(i3);
             }
         }
     }

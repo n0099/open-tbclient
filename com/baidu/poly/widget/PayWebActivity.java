@@ -19,9 +19,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e0.f;
 import b.a.e0.g;
+import b.a.e0.h;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.lbspay.view.PayChannelController;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,14 +34,16 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 /* loaded from: classes7.dex */
 public class PayWebActivity extends Activity {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String LAUNCH_PAYMENT_DATA = "launch_payment_data";
+    public static final String LOAD_URL = "load_url";
+    public static final String URL_CLOSE_WINDOW = "cashier://closewindow";
+    public static final String URL_WEIXIN = "weixin://";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f42085i;
-    public boolean j;
-    public String k;
-    public Bundle l;
+    public ImageView ivBack;
+    public boolean jumpedWX;
+    public String loadUrl;
+    public Bundle mBundle;
     public WebView webView;
 
     /* loaded from: classes7.dex */
@@ -48,7 +52,7 @@ public class PayWebActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f42086e;
+        public final /* synthetic */ PayWebActivity f42987e;
 
         public a(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -65,15 +69,15 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f42086e = payWebActivity;
+            this.f42987e = payWebActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42086e.setResult(0);
-                this.f42086e.finish();
+                this.f42987e.setResult(0);
+                this.f42987e.finish();
             }
         }
     }
@@ -92,55 +96,23 @@ public class PayWebActivity extends Activity {
         }
     }
 
-    private void V() {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        this.k = intent.getStringExtra("load_url");
-        this.l = intent.getBundleExtra("launch_payment_data");
-    }
-
-    @SuppressLint({"SetJavaScriptEnabled"})
-    private void W() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            ImageView imageView = (ImageView) findViewById(f.iv_pay_back);
-            this.f42085i = imageView;
-            imageView.setOnClickListener(new a(this));
-            WebView webView = (WebView) findViewById(f.webView);
-            this.webView = webView;
-            webView.setVerticalScrollBarEnabled(false);
-            this.webView.setHorizontalScrollBarEnabled(false);
-            this.webView.getSettings().setJavaScriptEnabled(true);
-            if (Build.VERSION.SDK_INT >= 19) {
-                WebView.setWebContentsDebuggingEnabled(true);
-            }
-            this.webView.setWebViewClient(new b(this));
-            if (TextUtils.isEmpty(this.k)) {
-                return;
-            }
-            this.webView.loadUrl(this.k);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean m(String str) {
+    public boolean handleRedirectUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return true;
             }
-            if (str.startsWith("cashier://closewindow")) {
+            if (str.startsWith(URL_CLOSE_WINDOW)) {
+                b.a.e0.p.b.g(119102, "3", PayChannelController.WXPAY_PAYCHANNEL, "-105", "调起微信H5支付失败");
                 setResult(0);
                 finish();
                 return true;
             } else if (URLUtil.isNetworkUrl(str)) {
                 return false;
             } else {
-                this.j = str.contains("weixin://");
+                this.jumpedWX = str.contains(URL_WEIXIN);
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.setData(Uri.parse(str));
                 startActivity(intent);
@@ -150,10 +122,41 @@ public class PayWebActivity extends Activity {
         return invokeL.booleanValue;
     }
 
+    private void initLoadUrl() {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        this.loadUrl = intent.getStringExtra(LOAD_URL);
+        this.mBundle = intent.getBundleExtra(LAUNCH_PAYMENT_DATA);
+    }
+
+    @SuppressLint({"SetJavaScriptEnabled"})
+    private void initView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            ImageView imageView = (ImageView) findViewById(g.iv_pay_back);
+            this.ivBack = imageView;
+            imageView.setOnClickListener(new a(this));
+            WebView webView = (WebView) findViewById(g.webView);
+            this.webView = webView;
+            webView.setVerticalScrollBarEnabled(false);
+            this.webView.setHorizontalScrollBarEnabled(false);
+            this.webView.getSettings().setJavaScriptEnabled(true);
+            this.webView.setWebViewClient(new b(this));
+            if (TextUtils.isEmpty(this.loadUrl)) {
+                return;
+            }
+            this.webView.loadUrl(this.loadUrl);
+        }
+    }
+
     @Override // android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b.a.e0.p.b.g(119103, "4", PayChannelController.WXPAY_PAYCHANNEL, "-106", "取消微信H5支付");
             setResult(0);
             finish();
             super.onBackPressed();
@@ -165,10 +168,11 @@ public class PayWebActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(g.activity_pay_web);
-            this.j = false;
-            V();
-            W();
+            setContentView(h.activity_pay_web);
+            this.jumpedWX = false;
+            initLoadUrl();
+            initView();
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -193,9 +197,9 @@ public class PayWebActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
-            if (this.j) {
+            if (this.jumpedWX) {
                 Intent intent = new Intent();
-                intent.putExtras(this.l);
+                intent.putExtras(this.mBundle);
                 setResult(-1, intent);
                 finish();
             }
@@ -208,7 +212,7 @@ public class PayWebActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f42087a;
+        public final /* synthetic */ PayWebActivity f42988a;
 
         public b(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -225,7 +229,7 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f42087a = payWebActivity;
+            this.f42988a = payWebActivity;
         }
 
         @Override // android.webkit.WebViewClient
@@ -248,7 +252,11 @@ public class PayWebActivity extends Activity {
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, sslErrorHandler, sslError) == null) {
-                sslErrorHandler.proceed();
+                if (webView != null) {
+                    sslErrorHandler.proceed();
+                } else {
+                    sslErrorHandler.cancel();
+                }
             }
         }
 
@@ -262,7 +270,7 @@ public class PayWebActivity extends Activity {
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                 }
-                return this.f42087a.m(str);
+                return this.f42988a.handleRedirectUrl(str);
             }
             return invokeLL.booleanValue;
         }
@@ -279,7 +287,7 @@ public class PayWebActivity extends Activity {
                     } catch (UnsupportedEncodingException e2) {
                         e2.printStackTrace();
                     }
-                    return this.f42087a.m(uri);
+                    return this.f42988a.handleRedirectUrl(uri);
                 }
                 return true;
             }

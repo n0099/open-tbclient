@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.api.a;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,10 +29,10 @@ public final class a implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f61581a;
+    public static final a f62480a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f61582b;
+    public static final Pattern f62481b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,8 +48,8 @@ public final class a implements HostnameVerifier {
                 return;
             }
         }
-        f61581a = new a();
-        f61582b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f62480a = new a();
+        f62481b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public a() {
@@ -135,7 +136,7 @@ public final class a implements HostnameVerifier {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? f61582b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? f62481b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static List<String> a(X509Certificate x509Certificate, int i2) {
@@ -175,7 +176,7 @@ public final class a implements HostnameVerifier {
                     str2 = str2 + '.';
                 }
                 String lowerCase = str2.toLowerCase(Locale.US);
-                if (!lowerCase.contains("*")) {
+                if (!lowerCase.contains(ProxyConfig.MATCH_ALL_SCHEMES)) {
                     return str.equals(lowerCase);
                 }
                 if (!lowerCase.startsWith(CertificatePinner.Pin.WILDCARD) || lowerCase.indexOf(42, 1) != -1 || str.length() < lowerCase.length() || CertificatePinner.Pin.WILDCARD.equals(lowerCase)) {

@@ -63,7 +63,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailActivity f51725a;
+        public final /* synthetic */ HotTopicDetailActivity f52638a;
 
         public a(HotTopicDetailActivity hotTopicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -80,18 +80,18 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                     return;
                 }
             }
-            this.f51725a = hotTopicDetailActivity;
+            this.f52638a = hotTopicDetailActivity;
         }
 
         @Override // b.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.y) instanceof String)) {
-                String str = (String) hashMap.get(g.y);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.z) instanceof String)) {
+                String str = (String) hashMap.get(g.z);
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f51725a.topicIdLong = b.a.e.e.m.b.g(str, -1L);
+                this.f52638a.topicIdLong = b.a.e.f.m.b.g(str, -1L);
             }
         }
     }
@@ -177,7 +177,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                         substring = decode.substring(i2);
                     }
                     if (!StringUtils.isNull(substring)) {
-                        this.topicIdLong = b.a.e.e.m.b.g(substring, -1L);
+                        this.topicIdLong = b.a.e.f.m.b.g(substring, -1L);
                     }
                 }
             } else {
@@ -193,16 +193,16 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), dVar, Boolean.valueOf(z)}) == null) {
             int curFeedType = this.mView.curFeedType();
             if (dVar != null) {
-                curFeedType = dVar.a4;
+                curFeedType = dVar.b4;
             }
             this.mView.hideFeedLoading(curFeedType);
-            if (i2 == 0 && dVar != null && !ListUtils.isEmpty(dVar.b4)) {
+            if (i2 == 0 && dVar != null && !ListUtils.isEmpty(dVar.c4)) {
                 b.a.r0.e2.b bVar = this.mView;
-                if (!z && bVar.curFeedData(curFeedType).Y3 != null) {
+                if (!z && bVar.curFeedData(curFeedType).Z3 != null) {
                     r1 = false;
                 }
                 bVar.showFeedView(dVar, r1, curFeedType);
-            } else if (this.mView.curFeedData(curFeedType).Y3 == null) {
+            } else if (this.mView.curFeedData(curFeedType).Z3 == null) {
                 this.mView.showFeedEmpty(i2 != 0, curFeedType);
             }
         }
@@ -211,12 +211,12 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     private void resetTopicId(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, str2) == null) {
-            if ((TextUtils.isEmpty(str) || b.a.e.e.m.b.g(str, 0L) <= 0) && TextUtils.isEmpty(str2)) {
+            if ((TextUtils.isEmpty(str) || b.a.e.f.m.b.g(str, 0L) <= 0) && TextUtils.isEmpty(str2)) {
                 return;
             }
             this.topicId = str;
             this.topicName = str2;
-            this.mModel.L(b.a.e.e.m.b.g(str, 0L), str2);
+            this.mModel.L(b.a.e.f.m.b.g(str, 0L), str2);
         }
     }
 
@@ -271,11 +271,11 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             d curFeedData = this.mView.curFeedData(i2);
-            b1 b1Var = curFeedData.Y3;
+            b1 b1Var = curFeedData.Z3;
             if (b1Var == null) {
                 refreshFeedData(i2);
             } else if (b1Var.b() != 0) {
-                this.mModel.y(i2, curFeedData.Y3, curFeedData.Z3);
+                this.mModel.y(i2, curFeedData.Z3, curFeedData.a4);
             }
         }
     }
@@ -292,7 +292,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             this.mView.stopPullRefresh();
             if (i2 == 0 && eVar != null) {
                 if (eVar.h() != null) {
-                    resetTopicId(eVar.h().f18447e, eVar.h().f18448f);
+                    resetTopicId(eVar.h().f19781e, eVar.h().f19782f);
                 }
                 if (eVar.h() != null && eVar.h().s) {
                     this.mView.showHasDeleteEmpty(true);
@@ -373,7 +373,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            if ((TextUtils.isEmpty(this.topicId) || b.a.e.e.m.b.g(this.topicId, 0L) <= 0) && TextUtils.isEmpty(this.topicName)) {
+            if ((TextUtils.isEmpty(this.topicId) || b.a.e.f.m.b.g(this.topicId, 0L) <= 0) && TextUtils.isEmpty(this.topicName)) {
                 finish();
                 return;
             }
@@ -434,7 +434,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
             boolean x = this.mModel.x(i2);
-            if (this.mView.curFeedData(i2).Y3 == null) {
+            if (this.mView.curFeedData(i2).Z3 == null) {
                 if (x) {
                     this.mView.showFeedLoading(i2);
                     this.mView.hideFeedEmpty(i2);
@@ -489,6 +489,6 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (!TextUtils.isEmpty(this.topicName)) {
             str = str + "&topic_name=" + URLEncoder.encode(this.topicName);
         }
-        this.hotTopicShareModel.e(h2.f18447e, h2.f18448f, str, h2.k, h2.j, true);
+        this.hotTopicShareModel.e(h2.f19781e, h2.f19782f, str, h2.k, h2.j, true);
     }
 }

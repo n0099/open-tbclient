@@ -31,10 +31,10 @@ public class b extends d {
                 return;
             }
         }
-        this.f29996d = "";
-        this.f29994b = false;
-        this.f29995c = false;
-        this.f29999g = -100;
+        this.f30865d = "";
+        this.f30863b = false;
+        this.f30864c = false;
+        this.f30868g = -100;
     }
 
     @Override // b.a.y0.e.f.c
@@ -42,13 +42,13 @@ public class b extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            j();
+            i();
             return this;
         }
         return (b.a.y0.e.f.c) invokeV.objValue;
     }
 
-    public b.a.y0.e.f.c j() {
+    public b.a.y0.e.f.c i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (b.a.y0.e.f.c) invokeV.objValue;

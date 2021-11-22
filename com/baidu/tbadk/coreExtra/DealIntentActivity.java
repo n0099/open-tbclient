@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 import b.a.e.a.a;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,6 +56,7 @@ public class DealIntentActivity extends Activity {
                 startService(intent);
             }
             finish();
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

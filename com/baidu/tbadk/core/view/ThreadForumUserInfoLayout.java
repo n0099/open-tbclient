@@ -37,19 +37,19 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f45424e;
+    public TbImageView f46274e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f45425f;
+    public TextView f46275f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f45426g;
+    public TextView f46276g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ForumLikeBotton f45427h;
+    public ForumLikeBotton f46277h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.q0.s.g0.o.c.a f45428i;
+    public b.a.q0.s.g0.o.c.a f46278i;
     public d2 j;
     public View.OnClickListener k;
     public int l;
@@ -61,7 +61,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadForumUserInfoLayout f45429e;
+        public final /* synthetic */ ThreadForumUserInfoLayout f46279e;
 
         public a(ThreadForumUserInfoLayout threadForumUserInfoLayout) {
             Interceptable interceptable = $ic;
@@ -78,18 +78,18 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f45429e = threadForumUserInfoLayout;
+            this.f46279e = threadForumUserInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45429e.j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46279e.j == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f45429e.getContext()).createNormalCfg(this.f45429e.j.Y() != null ? this.f45429e.j.Y().getForumName() : this.f45429e.j.Z(), m.g())));
-            if (this.f45429e.k != null) {
-                this.f45429e.k.onClick(view);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f46279e.getContext()).createNormalCfg(this.f46279e.j.Y() != null ? this.f46279e.j.Y().getForumName() : this.f46279e.j.Z(), m.g())));
+            if (this.f46279e.k != null) {
+                this.f46279e.k.onClick(view);
             }
         }
     }
@@ -119,14 +119,14 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.thread_forum_user_info_layout, (ViewGroup) this, true);
-            this.f45424e = (TbImageView) inflate.findViewById(R.id.forum_avatar);
+            this.f46274e = (TbImageView) inflate.findViewById(R.id.forum_avatar);
             TextView textView = (TextView) inflate.findViewById(R.id.forum_name);
-            this.f45425f = textView;
+            this.f46275f = textView;
             textView.setOnClickListener(this.m);
-            this.f45426g = (TextView) inflate.findViewById(R.id.user_name_and_reply_time);
-            this.f45427h = (ForumLikeBotton) inflate.findViewById(R.id.like_button);
+            this.f46276g = (TextView) inflate.findViewById(R.id.user_name_and_reply_time);
+            this.f46277h = (ForumLikeBotton) inflate.findViewById(R.id.like_button);
             if (context instanceof TbPageContextSupport) {
-                this.f45428i = new b.a.q0.s.g0.o.c.a(((TbPageContextSupport) context).getPageContext(), this.f45427h);
+                this.f46278i = new b.a.q0.s.g0.o.c.a(((TbPageContextSupport) context).getPageContext(), this.f46277h);
             }
             setGravity(16);
             d();
@@ -136,48 +136,48 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     public final void d() {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbImageView = this.f45424e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbImageView = this.f46274e) == null) {
             return;
         }
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.f45424e.setOnClickListener(this.m);
+        this.f46274e.setOnClickListener(this.m);
     }
 
     public final void e(z1 z1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z1Var) == null) {
             if (z1Var != null && !StringUtils.isNull(z1Var.b())) {
-                this.f45424e.setVisibility(0);
-                this.f45424e.startLoad(z1Var.b(), 10, false);
-                this.f45424e.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
+                this.f46274e.setVisibility(0);
+                this.f46274e.startLoad(z1Var.b(), 10, false);
+                this.f46274e.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
                 return;
             }
-            this.f45424e.setVisibility(4);
+            this.f46274e.setVisibility(4);
         }
     }
 
     public TextView getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45425f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46275f : (TextView) invokeV.objValue;
     }
 
     public TbImageView getHeaderImg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f45424e : (TbImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46274e : (TbImageView) invokeV.objValue;
     }
 
     public ForumLikeBotton getLikeButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f45427h : (ForumLikeBotton) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f46277h : (ForumLikeBotton) invokeV.objValue;
     }
 
     public TextView getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f45426g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f46276g : (TextView) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
@@ -186,8 +186,8 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
             return;
         }
         this.l = i2;
-        SkinManager.setViewTextColor(this.f45425f, R.color.CAM_X0106);
-        SkinManager.setViewTextColor(this.f45426g, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f46275f, R.color.CAM_X0106);
+        SkinManager.setViewTextColor(this.f46276g, R.color.CAM_X0109);
     }
 
     public String processUserName(String str) {
@@ -218,7 +218,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     public void setLikeButtonAfterClickListener(View.OnClickListener onClickListener) {
         b.a.q0.s.g0.o.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) || (aVar = this.f45428i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) || (aVar = this.f46278i) == null) {
             return;
         }
         aVar.e(onClickListener);
@@ -227,11 +227,11 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bdUniqueId) == null) {
-            TbImageView tbImageView = this.f45424e;
+            TbImageView tbImageView = this.f46274e;
             if (tbImageView != null) {
                 tbImageView.setPageId(bdUniqueId);
             }
-            b.a.q0.s.g0.o.c.a aVar = this.f45428i;
+            b.a.q0.s.g0.o.c.a aVar = this.f46278i;
             if (aVar != null) {
                 aVar.g(bdUniqueId);
             }
@@ -242,11 +242,11 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, z1Var) == null) {
             if (z1Var != null && !StringUtils.isNull(z1Var.getForumName())) {
-                this.f45425f.setText(StringHelper.cutChineseAndEnglishWithSuffix(z1Var.getForumName(), 14, "...") + getResources().getString(R.string.forum));
-                this.f45425f.setVisibility(0);
+                this.f46275f.setText(StringHelper.cutChineseAndEnglishWithSuffix(z1Var.getForumName(), 14, "...") + getResources().getString(R.string.forum));
+                this.f46275f.setVisibility(0);
                 return;
             }
-            this.f45425f.setVisibility(4);
+            this.f46275f.setVisibility(4);
         }
     }
 
@@ -255,11 +255,11 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048590, this, z1Var) == null) {
             int i2 = 8;
             if (z1Var == null) {
-                this.f45427h.setVisibility(8);
+                this.f46277h.setVisibility(8);
                 return;
             }
-            this.f45428i.f(z1Var);
-            this.f45427h.setVisibility((!z1Var.getIsLike() || z1Var.d()) ? 0 : 0);
+            this.f46278i.f(z1Var);
+            this.f46277h.setVisibility((!z1Var.getIsLike() || z1Var.d()) ? 0 : 0);
         }
     }
 
@@ -268,8 +268,8 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048591, this, d2Var) == null) || d2Var == null || StringUtils.isNull(this.j.J().getName_show())) {
             return;
         }
-        this.f45426g.setText(getContext().getString(R.string.user_name_and_publish, processUserName(this.j.J().getName_show())));
-        this.f45426g.setVisibility(0);
+        this.f46276g.setText(getContext().getString(R.string.user_name_and_publish, processUserName(this.j.J().getName_show())));
+        this.f46276g.setVisibility(0);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

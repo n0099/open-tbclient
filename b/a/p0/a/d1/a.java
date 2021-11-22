@@ -1,5 +1,6 @@
 package b.a.p0.a.d1;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import b.a.p0.a.k;
@@ -38,9 +39,10 @@ public class a {
                 return;
             }
         }
-        DEBUG = k.f6397a;
+        DEBUG = k.f6863a;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public a(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, b.a.p0.a.h0.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

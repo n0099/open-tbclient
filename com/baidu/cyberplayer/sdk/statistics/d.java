@@ -29,13 +29,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37243a;
+    public String f38073a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37244b;
+    public String f38074b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37245c;
+    public String f38075c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class d {
                 return;
             }
         }
-        this.f37243a = null;
-        this.f37244b = null;
-        this.f37245c = null;
-        this.f37245c = "video_session";
+        this.f38073a = null;
+        this.f38074b = null;
+        this.f38075c = null;
+        this.f38075c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -72,10 +72,10 @@ public class d {
                 return;
             }
         }
-        this.f37243a = null;
-        this.f37244b = null;
-        this.f37245c = null;
-        this.f37245c = str;
+        this.f38073a = null;
+        this.f38074b = null;
+        this.f38075c = null;
+        this.f38075c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -229,15 +229,15 @@ public class d {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f37243a) || TextUtils.isEmpty(this.f37244b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f38073a) || TextUtils.isEmpty(this.f38074b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f37243a;
+            String str = this.f38073a;
             if (b(str)) {
-                String str2 = this.f37244b;
+                String str2 = this.f38074b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -260,20 +260,20 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersionInternal = CyberVersion.getCoreVersionInternal();
-        this.f37243a = b2 + File.separator + this.f37245c + "_" + coreVersionInternal + ".bak";
-        this.f37244b = b2 + File.separator + this.f37245c + "_log_" + coreVersionInternal + ".tmp";
+        this.f38073a = b2 + File.separator + this.f38075c + "_" + coreVersionInternal + ".bak";
+        this.f38074b = b2 + File.separator + this.f38075c + "_log_" + coreVersionInternal + ".tmp";
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f37243a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f38073a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
             try {
-                a(this.f37243a, bArr, Part.CRLF);
+                a(this.f38073a, bArr, Part.CRLF);
             } catch (AssertionError unused) {
                 CyberLog.e("DpStatFileWriter", "write data to file fail");
             }
@@ -292,7 +292,7 @@ public class d {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f37245c.equals("live_show_session") ? 24 : 1);
+                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f38075c.equals("live_show_session") ? 24 : 1);
                 if (TextUtils.isEmpty(a2)) {
                     z = true;
                 } else {

@@ -2,6 +2,7 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -455,7 +456,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
             if (uInt16 == 65496) {
                 return ImageHeaderParser.ImageType.JPEG;
             }
-            int uInt162 = ((uInt16 << 16) & (-65536)) | (reader.getUInt16() & 65535);
+            int uInt162 = ((uInt16 << 16) & SupportMenu.CATEGORY_MASK) | (reader.getUInt16() & 65535);
             if (uInt162 == -1991225785) {
                 reader.skip(21L);
                 return reader.getByte() >= 3 ? ImageHeaderParser.ImageType.PNG_A : ImageHeaderParser.ImageType.PNG;
@@ -466,10 +467,10 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                     return ImageHeaderParser.ImageType.UNKNOWN;
                 }
                 reader.skip(4L);
-                if ((((reader.getUInt16() << 16) & (-65536)) | (reader.getUInt16() & 65535)) != 1464156752) {
+                if ((((reader.getUInt16() << 16) & SupportMenu.CATEGORY_MASK) | (reader.getUInt16() & 65535)) != 1464156752) {
                     return ImageHeaderParser.ImageType.UNKNOWN;
                 }
-                int uInt163 = ((reader.getUInt16() << 16) & (-65536)) | (reader.getUInt16() & 65535);
+                int uInt163 = ((reader.getUInt16() << 16) & SupportMenu.CATEGORY_MASK) | (reader.getUInt16() & 65535);
                 if ((uInt163 & (-256)) != 1448097792) {
                     return ImageHeaderParser.ImageType.UNKNOWN;
                 }

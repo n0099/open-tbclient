@@ -12,14 +12,12 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.motion.utils.Easing;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import b.a.p0.a.c0.a.d.b;
 import b.a.p0.a.e0.d;
-import b.a.p0.a.v2.n0;
-import b.a.p0.a.v2.w;
+import b.a.p0.a.z2.n0;
+import b.a.p0.a.z2.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,20 +36,20 @@ public abstract class a<V extends View, M extends b> extends b.a.p0.a.c0.b.a<V, 
 
     /* renamed from: b.a.p0.a.c0.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0118a implements ValueAnimator.AnimatorUpdateListener {
+    public class C0126a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppComponentContainerView f4041e;
+        public final /* synthetic */ SwanAppComponentContainerView f4181e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f4042f;
+        public final /* synthetic */ boolean f4182f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f4043g;
+        public final /* synthetic */ b f4183g;
 
-        public C0118a(a aVar, SwanAppComponentContainerView swanAppComponentContainerView, boolean z, b bVar) {
+        public C0126a(a aVar, SwanAppComponentContainerView swanAppComponentContainerView, boolean z, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,26 +64,26 @@ public abstract class a<V extends View, M extends b> extends b.a.p0.a.c0.b.a<V, 
                     return;
                 }
             }
-            this.f4041e = swanAppComponentContainerView;
-            this.f4042f = z;
-            this.f4043g = bVar;
+            this.f4181e = swanAppComponentContainerView;
+            this.f4182f = z;
+            this.f4183g = bVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                ViewGroup.LayoutParams layoutParams = this.f4041e.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.f4181e.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    if (this.f4042f) {
+                    if (this.f4182f) {
                         marginLayoutParams.leftMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                     } else {
                         marginLayoutParams.topMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                     }
-                    this.f4043g.l.m(marginLayoutParams.leftMargin);
-                    this.f4043g.l.n(marginLayoutParams.topMargin);
-                    this.f4041e.setLayoutParams(marginLayoutParams);
+                    this.f4183g.l.m(marginLayoutParams.leftMargin);
+                    this.f4183g.l.n(marginLayoutParams.topMargin);
+                    this.f4181e.setLayoutParams(marginLayoutParams);
                 }
             }
         }
@@ -121,7 +119,7 @@ public abstract class a<V extends View, M extends b> extends b.a.p0.a.c0.b.a<V, 
                 float b2 = w.b(bVar.n, "opacity", 1.0f);
                 float b3 = w.b(bVar2.n, "opacity", b2);
                 if (b2 != b3) {
-                    return ObjectAnimator.ofFloat(swanAppComponentContainerView, Key.ALPHA, b2, b3);
+                    return ObjectAnimator.ofFloat(swanAppComponentContainerView, "alpha", b2, b3);
                 }
             }
             return null;
@@ -159,16 +157,16 @@ public abstract class a<V extends View, M extends b> extends b.a.p0.a.c0.b.a<V, 
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{swanAppComponentContainerView, bVar, bVar2, Boolean.valueOf(z)})) == null) {
-            b.a.p0.a.l1.e.a.a aVar = bVar.l;
+            b.a.p0.a.m1.e.a.a aVar = bVar.l;
             if (aVar == null || bVar2.l == null) {
                 return null;
             }
             int e2 = z ? aVar.e() : aVar.f();
-            b.a.p0.a.l1.e.a.a aVar2 = bVar2.l;
+            b.a.p0.a.m1.e.a.a aVar2 = bVar2.l;
             int e3 = z ? aVar2.e() : aVar2.f();
             if (e2 != e3) {
                 ValueAnimator ofInt = ValueAnimator.ofInt(e2, e3);
-                ofInt.addUpdateListener(new C0118a(this, swanAppComponentContainerView, z, bVar2));
+                ofInt.addUpdateListener(new C0126a(this, swanAppComponentContainerView, z, bVar2));
                 return ofInt;
             }
             return null;
@@ -216,7 +214,7 @@ public abstract class a<V extends View, M extends b> extends b.a.p0.a.c0.b.a<V, 
                     c2 = 65535;
                     break;
                 case -1102672091:
-                    if (str.equals(Easing.LINEAR_NAME)) {
+                    if (str.equals("linear")) {
                         c2 = 0;
                         break;
                     }
@@ -323,13 +321,13 @@ public abstract class a<V extends View, M extends b> extends b.a.p0.a.c0.b.a<V, 
         if (!(interceptable == null || interceptable.invokeLL(1048587, this, view, m) == null) || m.n == null) {
             return;
         }
-        boolean z = b.a.p0.a.c0.b.a.f4044h;
+        boolean z = b.a.p0.a.c0.b.a.f4184h;
         if (J()) {
-            boolean z2 = b.a.p0.a.c0.b.a.f4044h;
+            boolean z2 = b.a.p0.a.c0.b.a.f4184h;
             if (L()) {
                 return;
             }
-            d.l("Component-View", "performAlphaUpdateAnimation fail");
+            d.o("Component-View", "performAlphaUpdateAnimation fail");
             return;
         }
         float f2 = m.t;
@@ -337,7 +335,7 @@ public abstract class a<V extends View, M extends b> extends b.a.p0.a.c0.b.a<V, 
             view.setAlpha(f2);
             return;
         }
-        d.l("Component-View", "alpha invalid: " + m.t);
+        d.o("Component-View", "alpha invalid: " + m.t);
     }
 
     public void Q(@NonNull V v, @NonNull M m) {
@@ -345,7 +343,7 @@ public abstract class a<V extends View, M extends b> extends b.a.p0.a.c0.b.a<V, 
         if (!(interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) || m.n == null) {
             return;
         }
-        boolean z = b.a.p0.a.c0.b.a.f4044h;
+        boolean z = b.a.p0.a.c0.b.a.f4184h;
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(m.o);
         gradientDrawable.setCornerRadius(m.r);
@@ -358,7 +356,7 @@ public abstract class a<V extends View, M extends b> extends b.a.p0.a.c0.b.a<V, 
         if (!(interceptable == null || interceptable.invokeLL(1048589, this, v, m) == null) || m.n == null) {
             return;
         }
-        boolean z = b.a.p0.a.c0.b.a.f4044h;
+        boolean z = b.a.p0.a.c0.b.a.f4184h;
         JSONArray jSONArray = m.s;
         if (jSONArray == null) {
             return;
@@ -367,6 +365,6 @@ public abstract class a<V extends View, M extends b> extends b.a.p0.a.c0.b.a<V, 
             v.setPadding(n0.g((float) jSONArray.optDouble(3, 0.0d)), n0.g((float) jSONArray.optDouble(0, 0.0d)), n0.g((float) jSONArray.optDouble(1, 0.0d)), n0.g((float) jSONArray.optDouble(2, 0.0d)));
             return;
         }
-        d.b("Component-View", "invalid padding array length: " + jSONArray.length());
+        d.c("Component-View", "invalid padding array length: " + jSONArray.length());
     }
 }

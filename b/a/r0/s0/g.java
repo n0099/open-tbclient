@@ -31,7 +31,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f23292a;
+    public static g f24623a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class g {
                 return;
             }
         }
-        f23292a = new g();
+        f24623a = new g();
     }
 
     public g() {
@@ -67,7 +67,7 @@ public class g {
     public static g k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f23292a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f24623a : (g) invokeV.objValue;
     }
 
     public boolean a(CollectEmotionData collectEmotionData) {
@@ -317,7 +317,7 @@ public class g {
                         mainDBDatabaseManager.i(th, "EmotionsDBManager.getEmotionGroup");
                         return null;
                     } finally {
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                     }
                 }
             } catch (Throwable th2) {

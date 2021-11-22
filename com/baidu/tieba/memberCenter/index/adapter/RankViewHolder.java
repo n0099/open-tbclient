@@ -15,7 +15,7 @@ public class RankViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f51523a;
+    public h f52435a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RankViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -35,16 +35,16 @@ public class RankViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51523a = new h(view, baseFragmentActivity);
+        this.f52435a = new h(view, baseFragmentActivity);
     }
 
     public void fillView(p pVar) {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) || pVar == null || (hVar = this.f51523a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) || pVar == null || (hVar = this.f52435a) == null) {
             return;
         }
         hVar.c(pVar);
-        this.f51523a.f();
+        this.f52435a.f();
     }
 }

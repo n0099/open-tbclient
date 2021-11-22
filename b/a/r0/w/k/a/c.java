@@ -3,8 +3,8 @@ package b.a.r0.w.k.a;
 import android.view.View;
 import android.view.ViewGroup;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.a0;
-import b.a.r0.b0.c0;
+import b.a.r0.b0.b0;
+import b.a.r0.b0.d0;
 import b.a.r0.x0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c extends k<d2, FrsPageAlaEmptyLiveViewHolder> implements a0 {
+public class c extends k<d2, FrsPageAlaEmptyLiveViewHolder> implements b0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b.a.r0.w.k.e.b x;
     public String y;
-    public c0<d2> z;
+    public d0<d2> z;
 
     /* loaded from: classes5.dex */
-    public class a extends c0<d2> {
+    public class a extends d0<d2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,14 +47,14 @@ public class c extends k<d2, FrsPageAlaEmptyLiveViewHolder> implements a0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
         public void a(View view, d2 d2Var) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) || view == null || d2Var == null) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001607, Integer.valueOf(d2Var.o1())));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001607, Integer.valueOf(d2Var.p1())));
         }
     }
 
@@ -80,7 +80,7 @@ public class c extends k<d2, FrsPageAlaEmptyLiveViewHolder> implements a0 {
         this.z = new a(this);
     }
 
-    @Override // b.a.r0.b0.a0
+    @Override // b.a.r0.b0.b0
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -88,7 +88,7 @@ public class c extends k<d2, FrsPageAlaEmptyLiveViewHolder> implements a0 {
         }
     }
 
-    @Override // b.a.r0.x0.k, b.a.r0.b0.z
+    @Override // b.a.r0.x0.k, b.a.r0.b0.a0
     public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, bdUniqueId) == null) {
@@ -96,7 +96,7 @@ public class c extends k<d2, FrsPageAlaEmptyLiveViewHolder> implements a0 {
         }
     }
 
-    @Override // b.a.r0.b0.a0
+    @Override // b.a.r0.b0.b0
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
@@ -104,7 +104,7 @@ public class c extends k<d2, FrsPageAlaEmptyLiveViewHolder> implements a0 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: t0 */
     public FrsPageAlaEmptyLiveViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -116,7 +116,7 @@ public class c extends k<d2, FrsPageAlaEmptyLiveViewHolder> implements a0 {
             }
             b.a.r0.w.k.e.b bVar = new b.a.r0.w.k.e.b(tbPageContext);
             this.x = bVar;
-            bVar.s(this.f2423i);
+            bVar.s(this.f2425i);
             this.x.a(this.y);
             return new FrsPageAlaEmptyLiveViewHolder(this.x);
         }
@@ -124,7 +124,7 @@ public class c extends k<d2, FrsPageAlaEmptyLiveViewHolder> implements a0 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     /* renamed from: u0 */
     public View Z(int i2, View view, ViewGroup viewGroup, d2 d2Var, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
         InterceptResult invokeCommon;
@@ -134,7 +134,7 @@ public class c extends k<d2, FrsPageAlaEmptyLiveViewHolder> implements a0 {
             frsPageAlaEmptyLiveViewHolder.mView.a(this.y);
             frsPageAlaEmptyLiveViewHolder.mView.l(this.z);
             if (d2Var != null) {
-                d2Var.O4();
+                d2Var.Q4();
             }
             return frsPageAlaEmptyLiveViewHolder.getView();
         }

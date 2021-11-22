@@ -1,6 +1,6 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import b.a.q0.s.q.i1;
 import b.a.q0.s.r.a;
 import com.baidu.adp.BdUniqueId;

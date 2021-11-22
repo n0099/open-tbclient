@@ -20,13 +20,13 @@ public class fa {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f70930a;
+    public static long f71850a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final byte[] f364a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f70931b;
+    public static String f71851b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -57,8 +57,8 @@ public class fa {
                 return;
             }
         }
-        f70931b = gn.a(5) + "-";
-        f70930a = 0L;
+        f71851b = gn.a(5) + "-";
+        f71850a = 0L;
         f364a = new byte[0];
     }
 
@@ -170,9 +170,9 @@ public class fa {
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             synchronized (fa.class) {
                 StringBuilder sb2 = new StringBuilder();
-                sb2.append(f70931b);
-                long j = f70930a;
-                f70930a = 1 + j;
+                sb2.append(f71851b);
+                long j = f71850a;
+                f71850a = 1 + j;
                 sb2.append(Long.toString(j));
                 sb = sb2.toString();
             }

@@ -1,6 +1,8 @@
 package b.a.r0.x0;
 
-import androidx.collection.LongSparseArray;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g0 f25750b;
+    public static g0 f27327b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LongSparseArray<LinkedList<String>> f25751a;
+    public final SparseArray<String> f27328a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +34,7 @@ public class g0 {
                 return;
             }
         }
-        f25750b = new g0();
+        f27327b = new g0();
     }
 
     public g0() {
@@ -49,21 +50,31 @@ public class g0 {
                 return;
             }
         }
-        this.f25751a = new LongSparseArray<>();
+        this.f27328a = new SparseArray<>();
     }
 
     public static g0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f25750b : (g0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27327b : (g0) invokeV.objValue;
     }
 
-    public void b(long j) {
-        LinkedList<String> linkedList;
+    public boolean b(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || (linkedList = this.f25751a.get(j)) == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            if (i2 > 100) {
+                i2 = 100;
+            }
+            return !TextUtils.isEmpty(this.f27328a.get(i2));
         }
-        linkedList.clear();
+        return invokeI.booleanValue;
+    }
+
+    public void c(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f27328a.put(i2, "1");
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.xiaomi.push;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +74,7 @@ public class bm {
             while (i3 < length) {
                 int i4 = i3 + 1;
                 if (i4 % i2 == 0) {
-                    sb.append("*");
+                    sb.append(ProxyConfig.MATCH_ALL_SCHEMES);
                 } else {
                     sb.append(str.charAt(i3));
                 }

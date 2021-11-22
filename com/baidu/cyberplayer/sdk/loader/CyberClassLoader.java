@@ -28,10 +28,10 @@ public class CyberClassLoader extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f37135a;
+    public static Class f37965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f37136b;
+    public static Class f37966b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -177,9 +177,9 @@ public class CyberClassLoader extends BaseDexClassLoader {
     public static void a() throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            if (f37135a == null || f37136b == null) {
+            if (f37965a == null || f37966b == null) {
                 Class<?> cls = Class.forName("dalvik.system.DexPathList");
-                f37135a = cls;
+                f37965a = cls;
                 Class<?>[] declaredClasses = cls.getDeclaredClasses();
                 int length = declaredClasses.length;
                 int i2 = 0;
@@ -189,12 +189,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
                     }
                     Class<?> cls2 = declaredClasses[i2];
                     if (cls2.getSimpleName().equals("Element")) {
-                        f37136b = cls2;
+                        f37966b = cls2;
                         break;
                     }
                     i2++;
                 }
-                if (f37136b == null) {
+                if (f37966b == null) {
                     throw new AndroidRuntimeException("DexPathList$Element not found!");
                 }
             }
@@ -249,7 +249,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 a();
                 String replace = new File(str).getName().replace(".so", ".dex");
                 DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + replace, 0);
-                Constructor<?> constructor = f37136b.getConstructors()[0];
+                Constructor<?> constructor = f37966b.getConstructors()[0];
                 int length = constructor.getParameterTypes().length;
                 if (length == 4) {
                     newInstance = constructor.newInstance(new File(str), Boolean.FALSE, null, loadDex);
@@ -258,12 +258,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 } else {
                     newInstance = constructor.newInstance(new File(str), null, loadDex);
                 }
-                Object newInstance2 = Array.newInstance(f37136b, 1);
+                Object newInstance2 = Array.newInstance(f37966b, 1);
                 Array.set(newInstance2, 0, newInstance);
                 Object a2 = a(BaseDexClassLoader.class, this, "pathList");
-                a(f37135a, a2, "dexElements", newInstance2);
+                a(f37965a, a2, "dexElements", newInstance2);
                 if (Build.VERSION.SDK_INT >= 19) {
-                    a(f37135a, a2, "dexElementsSuppressedExceptions", (Object) null);
+                    a(f37965a, a2, "dexElementsSuppressedExceptions", (Object) null);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

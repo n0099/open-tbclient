@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class g extends t0 {
+public class g extends u0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f19263c;
+    public TextView f20807c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(BaseFragmentActivity baseFragmentActivity, View view) {
@@ -38,15 +38,15 @@ public class g extends t0 {
                 return;
             }
         }
-        this.f19263c = null;
+        this.f20807c = null;
     }
 
-    @Override // b.a.r0.k2.u.f.t0
+    @Override // b.a.r0.k2.u.f.u0
     public void c(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            TextView textView = (TextView) this.f19486b.findViewById(b.a.r0.k2.i.icon_push);
-            this.f19263c = textView;
+            TextView textView = (TextView) this.f21060b.findViewById(b.a.r0.k2.i.icon_push);
+            this.f20807c = textView;
             textView.setVisibility(8);
         }
     }
@@ -54,7 +54,7 @@ public class g extends t0 {
     public TextView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19263c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20807c : (TextView) invokeV.objValue;
     }
 
     public void f(d2 d2Var) {
@@ -73,20 +73,20 @@ public class g extends t0 {
     public void g(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.f19263c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.f20807c) == null) {
             return;
         }
         if (z) {
             textView.setText(b.a.r0.k2.l.push);
-            SkinManager.setViewTextColor(this.f19263c, b.a.r0.k2.h.push_text_selector);
-            SkinManager.setBackgroundResource(this.f19263c, b.a.r0.k2.h.push_bg_selector);
-            this.f19263c.setClickable(true);
+            SkinManager.setViewTextColor(this.f20807c, b.a.r0.k2.h.push_text_selector);
+            SkinManager.setBackgroundResource(this.f20807c, b.a.r0.k2.h.push_bg_selector);
+            this.f20807c.setClickable(true);
         } else {
             textView.setText(b.a.r0.k2.l.already_push);
-            SkinManager.setBackgroundResource(this.f19263c, b.a.r0.k2.h.label_bg_gray80);
-            SkinManager.setViewTextColor(this.f19263c, b.a.r0.k2.f.CAM_X0109);
-            this.f19263c.setClickable(false);
+            SkinManager.setBackgroundResource(this.f20807c, b.a.r0.k2.h.label_bg_gray80);
+            SkinManager.setViewTextColor(this.f20807c, b.a.r0.k2.f.CAM_X0109);
+            this.f20807c.setClickable(false);
         }
-        this.f19263c.setVisibility(0);
+        this.f20807c.setVisibility(0);
     }
 }

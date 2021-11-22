@@ -64,7 +64,7 @@ public class a0 extends h {
     public final boolean r(b.a.q0.s.q.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().E2() || aVar.getThreadData().q1() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().G2() || aVar.getThreadData().r1() == null) ? false : true : invokeL.booleanValue;
     }
 
     public final boolean s(b.a.q0.s.q.a aVar) {

@@ -2,7 +2,7 @@ package b.a.p0.a.x0.a;
 
 import android.util.Base64;
 import b.a.p0.a.k;
-import b.a.p0.t.d;
+import b.a.p0.w.d;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,10 +25,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8932a;
+    public static final boolean f9276a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f8933b;
+    public static final byte[] f9277b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,8 +44,8 @@ public class b {
                 return;
             }
         }
-        f8932a = k.f6397a;
-        f8933b = new byte[]{31, -117};
+        f9276a = k.f6863a;
+        f9277b = new byte[]{31, -117};
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -56,7 +56,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, file)) == null) {
             if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
-                byte[] bArr2 = f8933b;
+                byte[] bArr2 = f9277b;
                 bArr[0] = bArr2[0];
                 bArr[1] = bArr2[1];
                 try {
@@ -73,15 +73,15 @@ public class b {
                             }
                             sb.append(readLine);
                         }
-                        if (f8932a) {
+                        if (f9276a) {
                             String str = "first char:" + sb.charAt(0);
                         }
                         String string = new JSONObject(sb.toString()).getString(b.a.p0.a.x0.a.d.a.l);
-                        boolean z = f8932a;
+                        boolean z = f9276a;
                         byte[] doFinal = b(2).doFinal(Base64.decode(string, 0));
                         File file2 = new File(file, b.a.p0.a.x0.a.d.a.l);
                         new FileOutputStream(file2).write(doFinal);
-                        if (f8932a) {
+                        if (f9276a) {
                             file2.getAbsolutePath();
                         }
                         bufferedReader.close();
@@ -92,7 +92,7 @@ public class b {
                     } finally {
                     }
                 } catch (Exception e2) {
-                    if (f8932a) {
+                    if (f9276a) {
                         e2.printStackTrace();
                     }
                 }
@@ -121,9 +121,9 @@ public class b {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.reset();
                 messageDigest.update(bArr);
-                return d.S(messageDigest.digest(), "", false);
+                return d.T(messageDigest.digest(), "", false);
             } catch (NoSuchAlgorithmException e2) {
-                if (f8932a) {
+                if (f9276a) {
                     e2.printStackTrace();
                     return null;
                 }

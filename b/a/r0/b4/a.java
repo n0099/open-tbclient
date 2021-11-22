@@ -1,162 +1,407 @@
 package b.a.r0.b4;
 
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import b.a.e.a.f;
+import b.a.e.f.l.d;
+import b.a.e.f.p.k;
+import b.a.q0.s.s.a;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int abc_fade_in = 2130771968;
-    public static final int abc_fade_out = 2130771969;
-    public static final int abc_grow_fade_in_from_bottom = 2130771970;
-    public static final int abc_popup_enter = 2130771971;
-    public static final int abc_popup_exit = 2130771972;
-    public static final int abc_shrink_fade_out_from_bottom = 2130771973;
-    public static final int abc_slide_in_bottom = 2130771974;
-    public static final int abc_slide_in_top = 2130771975;
-    public static final int abc_slide_out_bottom = 2130771976;
-    public static final int abc_slide_out_top = 2130771977;
-    public static final int abc_tooltip_enter = 2130771978;
-    public static final int abc_tooltip_exit = 2130771979;
-    public static final int activity_close_from_top = 2130771981;
-    public static final int activity_open_from_bottom = 2130771982;
-    public static final int alpha_in = 2130772015;
-    public static final int alpha_out = 2130772016;
-    public static final int anim_alpha_0_to_1_duration_200_accelerate = 2130772012;
-    public static final int anim_alpha_0_to_1_duration_300 = 2130772019;
-    public static final int anim_alpha_1_to_0_duration_200 = 2130772021;
-    public static final int anim_alpha_1_to_0_duration_2000_accelerate = 2130772022;
-    public static final int anim_alpha_1_to_0_duration_300 = 2130772023;
-    public static final int anim_alpha_1_to_0_duration_500_accelerate = 2130772024;
-    public static final int anim_interpolator = 2130772025;
-    public static final int bavigationbar_slide_in = 2130772028;
-    public static final int bavigationbar_slide_out = 2130772030;
-    public static final int big_image_anim = 2130772032;
-    public static final int bomb_pop_enter_anim = 2130772035;
-    public static final int bottom_fold_down = 2130772036;
-    public static final int bottom_fold_up = 2130772037;
-    public static final int btn_checkbox_to_checked_box_inner_merged_animation = 2130772043;
-    public static final int btn_checkbox_to_checked_box_outer_merged_animation = 2130772044;
-    public static final int btn_checkbox_to_checked_icon_null_animation = 2130772045;
-    public static final int btn_checkbox_to_unchecked_box_inner_merged_animation = 2130772046;
-    public static final int btn_checkbox_to_unchecked_check_path_merged_animation = 2130772047;
-    public static final int btn_checkbox_to_unchecked_icon_null_animation = 2130772048;
-    public static final int btn_radio_to_off_mtrl_dot_group_animation = 2130772049;
-    public static final int btn_radio_to_off_mtrl_ring_outer_animation = 2130772050;
-    public static final int btn_radio_to_off_mtrl_ring_outer_path_animation = 2130772051;
-    public static final int btn_radio_to_on_mtrl_dot_group_animation = 2130772052;
-    public static final int btn_radio_to_on_mtrl_ring_outer_animation = 2130772053;
-    public static final int btn_radio_to_on_mtrl_ring_outer_path_animation = 2130772054;
-    public static final int center_head_rotate = 2130772057;
-    public static final int cubic_interpolator_enter = 2130772062;
-    public static final int design_bottom_sheet_slide_in = 2130772063;
-    public static final int design_bottom_sheet_slide_out = 2130772064;
-    public static final int design_snackbar_in = 2130772065;
-    public static final int design_snackbar_out = 2130772066;
-    public static final int dialog_ani_b2t_enter = 2130772067;
-    public static final int dialog_ani_b2t_exit = 2130772068;
-    public static final int dialog_ani_l2r_enter = 2130772069;
-    public static final int dialog_ani_l2r_exit = 2130772070;
-    public static final int dialog_ani_r2l_enter = 2130772071;
-    public static final int dialog_ani_r2l_exit = 2130772072;
-    public static final int dialog_ani_t2b_enter = 2130772073;
-    public static final int dialog_ani_t2b_exit = 2130772074;
-    public static final int down = 2130772075;
-    public static final int fade_in = 2130772107;
-    public static final int fade_out = 2130772108;
-    public static final int fade_out_video_cover = 2130772109;
-    public static final int fragment_close_enter = 2130772112;
-    public static final int fragment_close_exit = 2130772113;
-    public static final int fragment_fade_enter = 2130772114;
-    public static final int fragment_fade_exit = 2130772115;
-    public static final int fragment_fast_out_extra_slow_in = 2130772116;
-    public static final int fragment_open_enter = 2130772117;
-    public static final int fragment_open_exit = 2130772118;
-    public static final int hold = 2130772133;
-    public static final int home_write_in = 2130772134;
-    public static final int home_write_out = 2130772135;
-    public static final int im_voice_btn_play_anim = 2130772136;
-    public static final int im_voice_btn_play_anim_r = 2130772137;
-    public static final int in_from_bottom = 2130772138;
-    public static final int in_from_right = 2130772139;
-    public static final int in_from_top = 2130772140;
-    public static final int left = 2130772142;
-    public static final int mcn_video_ad_close_anim = 2130772147;
-    public static final int mcn_video_ad_open_anim = 2130772148;
-    public static final int mtrl_bottom_sheet_slide_in = 2130772149;
-    public static final int mtrl_bottom_sheet_slide_out = 2130772150;
-    public static final int mtrl_card_lowers_interpolator = 2130772151;
-    public static final int normal_dialog_enter = 2130772154;
-    public static final int normal_dialog_exit = 2130772155;
-    public static final int out_to_bottom = 2130772161;
-    public static final int out_to_left = 2130772162;
-    public static final int out_to_right = 2130772163;
-    public static final int out_to_top = 2130772164;
-    public static final int pass_liveness_tip_warning = 2130772167;
-    public static final int pickerview_dialog_scale_in = 2130772206;
-    public static final int pickerview_dialog_scale_out = 2130772207;
-    public static final int pickerview_slide_in_bottom = 2130772208;
-    public static final int pickerview_slide_out_bottom = 2130772209;
-    public static final int pop_enter_anim = 2130772210;
-    public static final int pop_exit_anim = 2130772211;
-    public static final int pop_window_close = 2130772212;
-    public static final int pop_window_open = 2130772214;
-    public static final int praise_animation_scale3 = 2130772220;
-    public static final int pull_up_refresh_in = 2130772222;
-    public static final int pull_up_refresh_out = 2130772223;
-    public static final int push_right_in = 2130772224;
-    public static final int push_right_out = 2130772225;
-    public static final int push_top_in = 2130772226;
-    public static final int push_top_out = 2130772227;
-    public static final int push_up_in = 2130772228;
-    public static final int push_up_out = 2130772229;
-    public static final int rotate_anim = 2130772239;
-    public static final int rotate_collapse = 2130772240;
-    public static final int rotate_expand = 2130772241;
-    public static final int sapi_sdk_anim_activity_push_bottom_in = 2130772251;
-    public static final int sapi_sdk_anim_activity_push_bottom_out = 2130772252;
-    public static final int sapi_sdk_anim_activity_stay = 2130772253;
-    public static final int sapi_sdk_anim_push_bottom_in = 2130772254;
-    public static final int sapi_sdk_anim_push_bottom_out = 2130772255;
-    public static final int sapi_sdk_common_dialog_fragment_in = 2130772256;
-    public static final int sapi_sdk_common_dialog_fragment_out = 2130772257;
-    public static final int sapi_sdk_hold = 2130772258;
-    public static final int sapi_sdk_push_bottom_in = 2130772259;
-    public static final int sapi_sdk_push_bottom_out = 2130772260;
-    public static final int sapi_sdk_slide_left_in = 2130772261;
-    public static final int sapi_sdk_slide_left_out = 2130772262;
-    public static final int sapi_sdk_slide_right_in = 2130772263;
-    public static final int sapi_sdk_slide_right_out = 2130772264;
-    public static final int sapi_sdk_speech_dialog_enter = 2130772265;
-    public static final int sapi_sdk_speech_dialog_exit = 2130772266;
-    public static final int sapi_sdk_sweep_light_trans = 2130772267;
-    public static final int scale_rb2lt_in = 2130772268;
-    public static final int scale_rb2lt_out = 2130772269;
-    public static final int scale_rt2lb_in = 2130772270;
-    public static final int scale_rt2lb_out = 2130772271;
-    public static final int scale_zoom_in_and_out_anim = 2130772272;
-    public static final int share_dialog_enter = 2130772273;
-    public static final int share_dialog_exit = 2130772274;
-    public static final int slide_down = 2130772277;
-    public static final int slide_right_in = 2130772288;
-    public static final int slide_up = 2130772289;
-    public static final int svfade_in_center = 2130772294;
-    public static final int svfade_out_center = 2130772295;
-    public static final int svslide_in_bottom = 2130772296;
-    public static final int svslide_in_top = 2130772297;
-    public static final int svslide_out_bottom = 2130772298;
-    public static final int svslide_out_top = 2130772299;
-    public static final int ubs_test_in_anim = 2130772312;
-    public static final int ubs_test_out_anim = 2130772313;
-    public static final int user_info_center_head_rotate = 2130772320;
-    public static final int video_title_fade_out = 2130772322;
-    public static final int voice_btn_play_anim = 2130772323;
-    public static final int voice_btn_play_anim_1 = 2130772324;
-    public static final int wallet_base_dismiss_dialog_anim = 2130772327;
-    public static final int wallet_base_show_dialog_anim = 2130772333;
-    public static final int wallet_base_slide_from_left = 2130772335;
-    public static final int wallet_base_slide_from_right = 2130772336;
-    public static final int wallet_base_slide_to_left = 2130772337;
-    public static final int wallet_base_slide_to_right = 2130772338;
-    public static final int write_tab_bg_anim = 2130772347;
+public class a extends b.a.q0.s.s.a implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ViewGroup f16505e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f16506f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f16507g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ViewGroup f16508h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TbCheckBox f16509i;
+    public TextView j;
+    public Button k;
+    public Button l;
+    public ImageView m;
+    public String n;
+    public String o;
+    public String p;
+    public a.e q;
+    public String r;
+    public a.e s;
+    public String t;
+    public CompoundButton.OnCheckedChangeListener u;
+    public boolean v;
+    public TbCheckBox.b w;
+    public final b.a.e.f.l.c<b.a.e.m.d.a> x;
+
+    /* renamed from: b.a.r0.b4.a$a  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public class C0822a implements TbCheckBox.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f16510a;
+
+        public C0822a(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16510a = aVar;
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.b
+        public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbCheckBox, Boolean.valueOf(z), obj}) == null) || this.f16510a.u == null) {
+                return;
+            }
+            this.f16510a.u.onCheckedChanged(null, z);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends b.a.e.f.l.c<b.a.e.m.d.a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f16511a;
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16511a = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
+                super.onLoaded((b) aVar, str, i2);
+                if (aVar == null || !aVar.w()) {
+                    this.f16511a.f16506f.setImageResource(R.drawable.frs_luhan_moren_background);
+                    return;
+                }
+                this.f16511a.f16506f.setBackgroundResource(0);
+                this.f16511a.f16506f.setImageDrawable(null);
+                aVar.h(this.f16511a.f16506f);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements TbCheckBox.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f16512e;
+
+        public c(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f16512e = false;
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+        public boolean isChecked() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16512e : invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+        public void setChecked(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.f16512e = z;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(Activity activity) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.v = false;
+        this.w = new C0822a(this);
+        this.x = new b(this);
+        c();
+        setContentViewSize(1);
+        setCanceledOnTouchOutside(false);
+        setCancelable(false);
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.easter_egg_dialog, (ViewGroup) null);
+            this.f16505e = viewGroup;
+            this.f16506f = (ImageView) viewGroup.findViewById(R.id.dialog_bg);
+            this.f16507g = (TextView) this.f16505e.findViewById(R.id.message);
+            Button button = (Button) this.f16505e.findViewById(R.id.negative_btn);
+            this.l = button;
+            button.setOnClickListener(this);
+            Button button2 = (Button) this.f16505e.findViewById(R.id.positive_btn);
+            this.k = button2;
+            button2.setOnClickListener(this);
+            ImageView imageView = (ImageView) this.f16505e.findViewById(R.id.close);
+            this.m = imageView;
+            imageView.setOnClickListener(this);
+            this.f16508h = (ViewGroup) this.f16505e.findViewById(R.id.checkbox_container);
+            this.j = (TextView) this.f16505e.findViewById(R.id.checkbox_text);
+            TbCheckBox tbCheckBox = (TbCheckBox) this.f16505e.findViewById(R.id.checkbox);
+            this.f16509i = tbCheckBox;
+            tbCheckBox.setBackgroundDrawableId(R.drawable.icon_frs_luhan_selct, R.drawable.icon_frs_luhan_selctguand);
+            this.f16509i.setStatedChangedListener(this.w);
+            this.f16509i.setTagData(new c(this));
+            this.f16508h.setClickable(true);
+            this.f16508h.setOnClickListener(this);
+            setContentView(this.f16505e);
+        }
+    }
+
+    @Override // b.a.q0.s.s.a
+    public b.a.q0.s.s.a create(f<?> fVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar)) == null) {
+            if (this.v) {
+                return this;
+            }
+            this.v = true;
+            super.create(fVar);
+            if (!k.isEmpty(this.o)) {
+                this.f16507g.setText(this.o);
+            }
+            if (!k.isEmpty(this.t)) {
+                this.j.setText(this.t);
+            } else {
+                this.f16508h.setVisibility(4);
+            }
+            if (!k.isEmpty(this.r)) {
+                this.l.setText(this.r);
+            }
+            if (!k.isEmpty(this.p)) {
+                this.k.setText(this.p);
+            }
+            if (!TextUtils.isEmpty(this.n)) {
+                d.h().m(this.n, 10, this.x, fVar.getUniqueId());
+            } else {
+                this.f16506f.setImageResource(R.drawable.frs_luhan_moren_background);
+            }
+            getRealView().setBackgroundDrawable(null);
+            return this;
+        }
+        return (b.a.q0.s.s.a) invokeL.objValue;
+    }
+
+    public a d(@StringRes int i2, CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, onCheckedChangeListener)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.t = activity.getResources().getString(i2);
+                this.u = onCheckedChangeListener;
+            }
+            return this;
+        }
+        return (a) invokeIL.objValue;
+    }
+
+    public a e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.n = str;
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public a f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.o = str;
+            return this;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public a g(@StringRes int i2, a.e eVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, eVar)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.r = activity.getResources().getString(i2);
+                this.s = eVar;
+            }
+            return this;
+        }
+        return (a) invokeIL.objValue;
+    }
+
+    public a h(int i2, a.e eVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, eVar)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.p = activity.getResources().getString(i2);
+                this.q = eVar;
+            }
+            return this;
+        }
+        return (a) invokeIL.objValue;
+    }
+
+    public a i(String str, a.e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, eVar)) == null) {
+            this.p = str;
+            this.q = eVar;
+            return this;
+        }
+        return (a) invokeLL.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || view == null) {
+            return;
+        }
+        int id = view.getId();
+        if (id == R.id.positive_btn) {
+            a.e eVar = this.q;
+            if (eVar != null) {
+                eVar.onClick(this);
+            }
+        } else if (id == R.id.negative_btn) {
+            a.e eVar2 = this.s;
+            if (eVar2 != null) {
+                eVar2.onClick(this);
+            }
+        } else if (id == R.id.close) {
+            dismiss();
+        } else if (id == R.id.checkbox_container) {
+            TbCheckBox tbCheckBox = this.f16509i;
+            tbCheckBox.setChecked(!tbCheckBox.isChecked());
+        }
+    }
+
+    @Override // b.a.q0.s.s.a
+    public /* bridge */ /* synthetic */ b.a.q0.s.s.a setMessage(String str) {
+        f(str);
+        return this;
+    }
+
+    @Override // b.a.q0.s.s.a
+    public /* bridge */ /* synthetic */ b.a.q0.s.s.a setNegativeButton(@StringRes int i2, a.e eVar) {
+        g(i2, eVar);
+        return this;
+    }
+
+    @Override // b.a.q0.s.s.a
+    public /* bridge */ /* synthetic */ b.a.q0.s.s.a setPositiveButton(int i2, a.e eVar) {
+        h(i2, eVar);
+        return this;
+    }
+
+    @Override // b.a.q0.s.s.a
+    public b.a.q0.s.s.a setNegativeButton(String str, a.e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, eVar)) == null) {
+            this.r = str;
+            this.s = eVar;
+            return this;
+        }
+        return (b.a.q0.s.s.a) invokeLL.objValue;
+    }
+
+    @Override // b.a.q0.s.s.a
+    public /* bridge */ /* synthetic */ b.a.q0.s.s.a setPositiveButton(String str, a.e eVar) {
+        i(str, eVar);
+        return this;
+    }
 }

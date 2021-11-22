@@ -19,65 +19,65 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f14928a;
+    public long f16420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f14929b;
+    public long f16421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f14930c;
+    public b f16422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f14931d;
+    public c f16423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<C0753a> f14932e;
+    public ArrayList<C0818a> f16424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f14933f;
+    public long f16425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public k0 f14934g;
+    public k0 f16426g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14935h;
+    public int f16427h;
 
     /* renamed from: b.a.r0.b1.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0753a {
+    public static class C0818a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f14936a;
+        public long f16428a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f14937b;
+        public String f16429b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f14938c;
+        public String f16430c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f14939d;
+        public String f16431d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f14940e;
+        public long f16432e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f14941f;
+        public long f16433f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f14942g;
+        public long f16434g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f14943h;
+        public int f16435h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f14944i;
+        public String f16436i;
         public int j;
         public String k;
 
-        public C0753a() {
+        public C0818a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,13 +98,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f14945a;
+        public int f16437a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f14946b;
+        public int f16438b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f14947c;
+        public int f16439c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -127,10 +127,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f14948a;
+        public String f16440a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f14949b;
+        public String f16441b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -161,34 +161,34 @@ public class a {
         }
     }
 
-    public ArrayList<C0753a> a() {
+    public ArrayList<C0818a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14932e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16424e : (ArrayList) invokeV.objValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14928a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16420a : invokeV.longValue;
     }
 
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14930c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16422c : (b) invokeV.objValue;
     }
 
     public c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14931d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16423d : (c) invokeV.objValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14929b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16421b : invokeV.longValue;
     }
 
     public void f(DataRes dataRes) {
@@ -196,96 +196,96 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f14928a = dataRes.total_num.intValue();
-        this.f14929b = dataRes.money.intValue();
+        this.f16420a = dataRes.total_num.intValue();
+        this.f16421b = dataRes.money.intValue();
         dataRes.scene_id.intValue();
-        this.f14933f = dataRes.blue_diamond.intValue();
+        this.f16425f = dataRes.blue_diamond.intValue();
         if (dataRes.blue_diamond_txt != null) {
             k0 k0Var = new k0();
-            this.f14934g = k0Var;
+            this.f16426g = k0Var;
             String str = dataRes.blue_diamond_txt.txt;
             if (str != null) {
-                k0Var.f13380a = str;
+                k0Var.f14160a = str;
             }
             String str2 = dataRes.blue_diamond_txt.url;
             if (str2 != null) {
-                this.f14934g.f13381b = str2;
+                this.f16426g.f14161b = str2;
             }
         }
         if (dataRes.page != null) {
             b bVar = new b();
-            this.f14930c = bVar;
-            bVar.f14945a = dataRes.page.cur_page.intValue();
-            this.f14930c.f14946b = dataRes.page.has_more.intValue();
-            this.f14930c.f14947c = dataRes.page.total.intValue();
+            this.f16422c = bVar;
+            bVar.f16437a = dataRes.page.cur_page.intValue();
+            this.f16422c.f16438b = dataRes.page.has_more.intValue();
+            this.f16422c.f16439c = dataRes.page.total.intValue();
         }
         if (dataRes.money_txt != null) {
             c cVar = new c();
-            this.f14931d = cVar;
+            this.f16423d = cVar;
             presentMoneyTxt presentmoneytxt = dataRes.money_txt;
-            cVar.f14948a = presentmoneytxt.txt;
-            cVar.f14949b = presentmoneytxt.url;
+            cVar.f16440a = presentmoneytxt.txt;
+            cVar.f16441b = presentmoneytxt.url;
         }
         List<PresentMyList> list = dataRes.gift_list;
         if (list != null && list.size() > 0) {
-            this.f14932e = new ArrayList<>();
+            this.f16424e = new ArrayList<>();
             for (int i2 = 0; i2 < dataRes.gift_list.size(); i2++) {
                 PresentMyList presentMyList = dataRes.gift_list.get(i2);
                 if (presentMyList != null) {
-                    C0753a c0753a = new C0753a();
-                    c0753a.j = i2 + 1;
-                    c0753a.f14936a = presentMyList.pay_userid.longValue();
-                    c0753a.f14937b = presentMyList.pay_username;
-                    c0753a.f14938c = presentMyList.portrait;
+                    C0818a c0818a = new C0818a();
+                    c0818a.j = i2 + 1;
+                    c0818a.f16428a = presentMyList.pay_userid.longValue();
+                    c0818a.f16429b = presentMyList.pay_username;
+                    c0818a.f16430c = presentMyList.portrait;
                     presentMyList.gift_id.intValue();
                     String str3 = presentMyList.gift_name;
                     String str4 = presentMyList.play_url;
-                    c0753a.f14939d = presentMyList.thumbnail_url;
-                    c0753a.f14940e = presentMyList.create_time.intValue();
-                    c0753a.f14941f = presentMyList.num.intValue();
-                    c0753a.f14943h = presentMyList.currency_unit.intValue();
-                    c0753a.f14944i = presentMyList.currency_type;
-                    c0753a.f14942g = presentMyList.present_scores.longValue();
-                    c0753a.k = presentMyList.name_show;
-                    this.f14932e.add(c0753a);
+                    c0818a.f16431d = presentMyList.thumbnail_url;
+                    c0818a.f16432e = presentMyList.create_time.intValue();
+                    c0818a.f16433f = presentMyList.num.intValue();
+                    c0818a.f16435h = presentMyList.currency_unit.intValue();
+                    c0818a.f16436i = presentMyList.currency_type;
+                    c0818a.f16434g = presentMyList.present_scores.longValue();
+                    c0818a.k = presentMyList.name_show;
+                    this.f16424e.add(c0818a);
                 }
             }
         }
-        this.f14935h = dataRes.currency.intValue();
+        this.f16427h = dataRes.currency.intValue();
     }
 
-    public void g(ArrayList<C0753a> arrayList) {
+    public void g(ArrayList<C0818a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.f14932e = arrayList;
+            this.f16424e = arrayList;
         }
     }
 
     public void h(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.f14928a = j;
+            this.f16420a = j;
         }
     }
 
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f14930c = bVar;
+            this.f16422c = bVar;
         }
     }
 
     public void j(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.f14931d = cVar;
+            this.f16423d = cVar;
         }
     }
 
     public void k(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.f14929b = j;
+            this.f16421b = j;
         }
     }
 }

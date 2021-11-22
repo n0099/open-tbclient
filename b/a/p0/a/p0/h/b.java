@@ -8,9 +8,10 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.e0.d;
 import b.a.p0.a.k;
-import b.a.p0.a.k2.g.h;
+import b.a.p0.a.o2.g.h;
 import b.a.p0.a.p0.g.c.a;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.g1.c;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,11 +29,11 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7290c;
+    public static final boolean f7715c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public CopyOnWriteArrayList<b.a.p0.a.v2.e1.b<Exception>> f7291b;
+    public CopyOnWriteArrayList<c<Exception>> f7716b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -40,7 +41,7 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f7292e;
+        public final /* synthetic */ b f7717e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -57,20 +58,20 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
                     return;
                 }
             }
-            this.f7292e = bVar;
+            this.f7717e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.h("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
-                b.a.p0.a.p0.h.a b2 = b.a.p0.a.p0.h.a.b(this.f7292e.f7205a);
+                d.k("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
+                b.a.p0.a.p0.h.a b2 = b.a.p0.a.p0.h.a.b(this.f7717e.f7620a);
                 b.a.p0.a.p0.g.a aVar = new b.a.p0.a.p0.g.a();
-                aVar.f7280a = b2.f7288a;
-                aVar.f7281b = b2.f7289b;
-                aVar.f7282c = this.f7292e.f7205a.a();
-                b bVar = this.f7292e;
+                aVar.f7705a = b2.f7713a;
+                aVar.f7706b = b2.f7714b;
+                aVar.f7707c = this.f7717e.f7620a.a();
+                b bVar = this.f7717e;
                 bVar.l(bVar.g(aVar));
             }
         }
@@ -78,22 +79,22 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
 
     /* renamed from: b.a.p0.a.p0.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0344b implements Runnable {
+    public class RunnableC0356b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.v2.e1.b f7293e;
+        public final /* synthetic */ c f7718e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Exception f7294f;
+        public final /* synthetic */ Exception f7719f;
 
-        public RunnableC0344b(b bVar, b.a.p0.a.v2.e1.b bVar2, Exception exc) {
+        public RunnableC0356b(b bVar, c cVar, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, bVar2, exc};
+                Object[] objArr = {bVar, cVar, exc};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -103,15 +104,15 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
                     return;
                 }
             }
-            this.f7293e = bVar2;
-            this.f7294f = exc;
+            this.f7718e = cVar;
+            this.f7719f = exc;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7293e.onCallback(this.f7294f);
+                this.f7718e.onCallback(this.f7719f);
             }
         }
     }
@@ -129,7 +130,7 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
                 return;
             }
         }
-        f7290c = k.f6397a;
+        f7715c = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,7 +151,7 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
                 return;
             }
         }
-        this.f7291b = new CopyOnWriteArrayList<>();
+        this.f7716b = new CopyOnWriteArrayList<>();
     }
 
     @Override // b.a.p0.a.p0.d.a
@@ -173,21 +174,21 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            boolean z = f7290c;
-            if (TextUtils.isEmpty(aVar.f7282c)) {
-                boolean z2 = f7290c;
+            boolean z = f7715c;
+            if (TextUtils.isEmpty(aVar.f7707c)) {
+                boolean z2 = f7715c;
                 return new IllegalStateException("ExtCore-PresetControl doUpdate: failed by updateInfo.coreFilePath is empty");
             }
-            long j = aVar.f7281b;
-            if (b.a.p0.t.d.U(aVar.f7282c, b(j).getPath())) {
+            long j = aVar.f7706b;
+            if (b.a.p0.w.d.V(aVar.f7707c, b(j).getPath())) {
                 b.a.p0.a.p0.j.a.b(a(), j);
                 n(j);
-                o(aVar.f7280a);
-                b.a.p0.a.p0.j.a.i(this.f7205a.c(), false);
+                o(aVar.f7705a);
+                b.a.p0.a.p0.j.a.i(this.f7620a.c(), false);
                 return null;
             }
-            Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + aVar.f7282c);
-            if (f7290c) {
+            Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + aVar.f7707c);
+            if (f7715c) {
                 String str = "doUpdate preset unzip failed: " + Log.getStackTraceString(exc);
             }
             return exc;
@@ -214,13 +215,13 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h.a().getLong(this.f7205a.b(), 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h.a().getLong(this.f7620a.b(), 0L) : invokeV.longValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h.a().getString(this.f7205a.e(), "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h.a().getString(this.f7620a.e(), "") : (String) invokeV.objValue;
     }
 
     public boolean k() {
@@ -228,16 +229,16 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (!h().isAvailable()) {
-                boolean z = f7290c;
+                boolean z = f7715c;
                 return true;
-            } else if (!b.a.p0.a.p0.j.a.h(this.f7205a.c())) {
-                boolean z2 = f7290c;
+            } else if (!b.a.p0.a.p0.j.a.h(this.f7620a.c())) {
+                boolean z2 = f7715c;
                 return false;
             } else {
-                b.a.p0.a.p0.h.a b2 = b.a.p0.a.p0.h.a.b(this.f7205a);
+                b.a.p0.a.p0.h.a b2 = b.a.p0.a.p0.h.a.b(this.f7620a);
                 long i2 = i();
-                long j = b2.f7289b;
-                if (f7290c) {
+                long j = b2.f7714b;
+                if (f7715c) {
                     String str = "isNeedUpdate curVer: " + i2 + " newVer: " + j;
                 }
                 return i2 < j;
@@ -249,51 +250,51 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
     public final void l(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
-            Iterator<b.a.p0.a.v2.e1.b<Exception>> it = this.f7291b.iterator();
+            Iterator<c<Exception>> it = this.f7716b.iterator();
             while (it.hasNext()) {
                 m(it.next(), exc);
             }
-            this.f7291b.clear();
+            this.f7716b.clear();
         }
     }
 
-    public final void m(@Nullable b.a.p0.a.v2.e1.b<Exception> bVar, Exception exc) {
+    public final void m(@Nullable c<Exception> cVar, Exception exc) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar, exc) == null) || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar, exc) == null) || cVar == null) {
             return;
         }
-        q0.b0(new RunnableC0344b(this, bVar, exc));
+        q0.e0(new RunnableC0356b(this, cVar, exc));
     }
 
     public void n(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            h.a().putLong(this.f7205a.b(), j);
+            h.a().putLong(this.f7620a.b(), j);
         }
     }
 
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            h.a().putString(this.f7205a.e(), str);
+            h.a().putString(this.f7620a.e(), str);
         }
     }
 
     @SuppressLint({"SwanNewThread"})
-    public void p(@Nullable b.a.p0.a.v2.e1.b<Exception> bVar) {
+    public void p(@Nullable c<Exception> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            d.h("ExtCore-PresetControl", "tryUpdateAsync: start");
+        if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
+            d.k("ExtCore-PresetControl", "tryUpdateAsync: start");
             if (!k()) {
-                d.h("ExtCore-PresetControl", "tryUpdateAsync: isNeedUpdate = false");
-                m(bVar, null);
+                d.k("ExtCore-PresetControl", "tryUpdateAsync: isNeedUpdate = false");
+                m(cVar, null);
                 return;
             }
-            if (this.f7291b.isEmpty()) {
+            if (this.f7716b.isEmpty()) {
                 new Thread(new a(this), "updateExtensionCoreAsync").start();
             }
-            if (bVar != null) {
-                this.f7291b.add(bVar);
+            if (cVar != null) {
+                this.f7716b.add(cVar);
             }
         }
     }
@@ -301,11 +302,11 @@ public abstract class b<T extends b.a.p0.a.p0.g.c.a> extends b.a.p0.a.p0.d.a<T> 
     public void q() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && k()) {
-            b.a.p0.a.p0.h.a b2 = b.a.p0.a.p0.h.a.b(this.f7205a);
+            b.a.p0.a.p0.h.a b2 = b.a.p0.a.p0.h.a.b(this.f7620a);
             b.a.p0.a.p0.g.a aVar = new b.a.p0.a.p0.g.a();
-            aVar.f7280a = b2.f7288a;
-            aVar.f7281b = b2.f7289b;
-            aVar.f7282c = this.f7205a.a();
+            aVar.f7705a = b2.f7713a;
+            aVar.f7706b = b2.f7714b;
+            aVar.f7707c = this.f7620a.a();
             l(g(aVar));
         }
     }

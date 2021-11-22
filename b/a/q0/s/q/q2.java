@@ -16,10 +16,10 @@ public class q2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13424a;
+    public String f14204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13425b;
+    public String f14205b;
 
     public q2() {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class q2 {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13424a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14204a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13425b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14205b : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -55,10 +55,10 @@ public class q2 {
         try {
             jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
             jSONObject.optLong("end_time");
-            this.f13424a = jSONObject.optString("activity_banner");
+            this.f14204a = jSONObject.optString("activity_banner");
             jSONObject.optString("activity_url");
             jSONObject.optString("activity_desc");
-            this.f13425b = jSONObject.optString("activity_button");
+            this.f14205b = jSONObject.optString("activity_button");
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -77,9 +77,9 @@ public class q2 {
         if (l2 != null) {
             l2.longValue();
         }
-        this.f13424a = yulePostActivity.activity_banner;
+        this.f14204a = yulePostActivity.activity_banner;
         String str = yulePostActivity.activity_url;
         String str2 = yulePostActivity.activity_desc;
-        this.f13425b = yulePostActivity.activity_button;
+        this.f14205b = yulePostActivity.activity_button;
     }
 }

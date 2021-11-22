@@ -24,13 +24,13 @@ public class InnerAdapter<T> extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Class<?>> f57811a;
+    public List<Class<?>> f58733a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f57812b;
+    public Context f58734b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaseListAdapter<T> f57813c;
+    public BaseListAdapter<T> f58735c;
 
     public InnerAdapter(Context context, BaseListAdapter<T> baseListAdapter) {
         Interceptable interceptable = $ic;
@@ -47,15 +47,15 @@ public class InnerAdapter<T> extends BaseAdapter {
                 return;
             }
         }
-        this.f57811a = new ArrayList();
-        this.f57812b = context;
-        this.f57813c = baseListAdapter;
+        this.f58733a = new ArrayList();
+        this.f58734b = context;
+        this.f58735c = baseListAdapter;
     }
 
     private void a(int i2, T t, BaseListAdapter.BaseViewHolder baseViewHolder, BaseListAdapter<T> baseListAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), t, baseViewHolder, baseListAdapter}) == null) {
-            baseViewHolder.setView(t, i2, this.f57812b, baseListAdapter);
+            baseViewHolder.setView(t, i2, this.f58734b, baseListAdapter);
         }
     }
 
@@ -63,10 +63,10 @@ public class InnerAdapter<T> extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (BindLayoutMapping.getLayoutId(getViewBundles().get(this.f57813c.useItemTrueType() ? this.f57813c.getItemTrueType(i2) : this.f57813c.getItemViewType(i2))).equals("NOT_USE_XML")) {
+            if (BindLayoutMapping.getLayoutId(getViewBundles().get(this.f58735c.useItemTrueType() ? this.f58735c.getItemTrueType(i2) : this.f58735c.getItemViewType(i2))).equals("NOT_USE_XML")) {
                 return -1;
             }
-            return ResUtils.layout(this.f57812b, BindLayoutMapping.getLayoutId(getViewBundles().get(this.f57813c.useItemTrueType() ? this.f57813c.getItemTrueType(i2) : this.f57813c.getItemViewType(i2))));
+            return ResUtils.layout(this.f58734b, BindLayoutMapping.getLayoutId(getViewBundles().get(this.f58735c.useItemTrueType() ? this.f58735c.getItemTrueType(i2) : this.f58735c.getItemViewType(i2))));
         }
         return invokeI.intValue;
     }
@@ -115,7 +115,7 @@ public class InnerAdapter<T> extends BaseAdapter {
                 baseViewHolder = (BaseListAdapter.BaseViewHolder) view.getTag();
             }
             if (view != null && view.getTag() != null) {
-                a(i2, this.f57813c.getItem(i2), baseViewHolder, this.f57813c);
+                a(i2, this.f58735c.getItem(i2), baseViewHolder, this.f58735c);
                 return view;
             }
             throw new NullPointerException(" creatview fails");
@@ -126,7 +126,7 @@ public class InnerAdapter<T> extends BaseAdapter {
     public List<Class<?>> getViewBundles() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? a(this.f57811a) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? a(this.f58733a) : (List) invokeV.objValue;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -149,7 +149,7 @@ public class InnerAdapter<T> extends BaseAdapter {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, list)) == null) {
-            return (BaseListAdapter.BaseViewHolder) a(list.get(this.f57813c.useItemTrueType() ? this.f57813c.getItemTrueType(i2) : this.f57813c.getItemViewType(i2)));
+            return (BaseListAdapter.BaseViewHolder) a(list.get(this.f58735c.useItemTrueType() ? this.f58735c.getItemTrueType(i2) : this.f58735c.getItemViewType(i2)));
         }
         return (BaseListAdapter.BaseViewHolder) invokeIL.objValue;
     }
@@ -162,9 +162,9 @@ public class InnerAdapter<T> extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, this, i2, baseViewHolder)) == null) {
             if (getBindItemViewResId(i2) == -1) {
-                inflate = baseViewHolder.createView(this.f57812b);
+                inflate = baseViewHolder.createView(this.f58734b);
             } else {
-                inflate = View.inflate(this.f57812b, getBindItemViewResId(i2), null);
+                inflate = View.inflate(this.f58734b, getBindItemViewResId(i2), null);
                 ViewMappingUtil.mapView(baseViewHolder, inflate);
             }
             handleViewHolder(baseViewHolder, new Object[0]);
@@ -195,7 +195,7 @@ public class InnerAdapter<T> extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, list)) == null) {
             if (list.size() <= 0) {
-                this.f57813c.onBindViewHolder(list);
+                this.f58735c.onBindViewHolder(list);
             }
             return list;
         }

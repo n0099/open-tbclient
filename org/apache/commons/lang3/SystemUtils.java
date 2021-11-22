@@ -2,6 +2,7 @@ package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -350,8 +351,8 @@ public class SystemUtils {
             if (StringUtils.isEmpty(str)) {
                 return false;
             }
-            String[] split = str2.split("\\.");
-            String[] split2 = str.split("\\.");
+            String[] split = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split2 = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             for (int i2 = 0; i2 < Math.min(split.length, split2.length); i2++) {
                 if (!split[i2].equals(split2[i2])) {
                     return false;

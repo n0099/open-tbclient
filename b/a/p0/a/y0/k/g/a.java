@@ -11,7 +11,7 @@ public interface a extends d {
 
     /* renamed from: b.a.p0.a.y0.k.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0467a {
+    public interface InterfaceC0482a {
         void a(int i2);
 
         void b(int i2);
@@ -49,7 +49,7 @@ public interface a extends d {
 
     boolean P();
 
-    InterfaceC0467a Q();
+    InterfaceC0482a Q();
 
     void T(Map map);
 
@@ -83,13 +83,15 @@ public interface a extends d {
 
     int getVideoWidth();
 
-    void h0(@NonNull InterfaceC0467a interfaceC0467a);
+    void h0(@NonNull InterfaceC0482a interfaceC0482a);
 
     boolean isPlaying();
 
+    boolean j0();
+
     void l(boolean z);
 
-    void m0();
+    void n0();
 
     void pause();
 

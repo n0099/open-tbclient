@@ -1,5 +1,10 @@
 package b.a.p0.a.m1;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface a {
-    void a(b.a.p0.a.m1.h.c cVar);
+    void a(JSONObject jSONObject) throws JSONException;
+
+    boolean isValid();
 }

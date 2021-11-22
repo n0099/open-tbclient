@@ -17,10 +17,10 @@ public class a implements d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5401a;
+    public static final boolean f5682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f5402b;
+    public static final Set<String> f5683b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,13 +36,13 @@ public class a implements d {
                 return;
             }
         }
-        f5401a = k.f6397a;
+        f5682a = k.f6863a;
         HashSet hashSet = new HashSet();
-        f5402b = hashSet;
+        f5683b = hashSet;
         hashSet.add("https");
-        f5402b.add("http");
-        f5402b.add("sms");
-        f5402b.add("tel");
+        f5683b.add("http");
+        f5683b.add("sms");
+        f5683b.add("tel");
     }
 
     public a() {
@@ -82,8 +82,8 @@ public class a implements d {
             if (str == null || (parse = Uri.parse(str)) == null) {
                 return true;
             }
-            boolean contains = f5402b.contains(parse.getScheme());
-            if (f5401a) {
+            boolean contains = f5683b.contains(parse.getScheme());
+            if (f5682a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(contains ? "legal schemes : " : "illegal schemes : ");
                 sb.append(parse.getScheme());

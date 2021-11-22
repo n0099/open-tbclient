@@ -17,7 +17,7 @@ public class dp extends dq {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70804a;
+    public String f71724a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dp(Context context, int i2, String str) {
@@ -38,17 +38,17 @@ public class dp extends dq {
                 return;
             }
         }
-        this.f70804a = str;
+        this.f71724a = str;
     }
 
     private String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (TextUtils.isEmpty(this.f70804a)) {
+            if (TextUtils.isEmpty(this.f71724a)) {
                 return null;
             }
-            String b2 = bj.b(this.f70804a);
+            String b2 = bj.b(this.f71724a);
             if (TextUtils.isEmpty(b2)) {
                 return null;
             }

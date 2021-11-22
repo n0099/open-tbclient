@@ -2,10 +2,10 @@ package b.a.p0.a.w;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.c2.f.a0;
 import b.a.p0.a.e0.d;
-import b.a.p0.a.v2.w;
+import b.a.p0.a.f2.e;
+import b.a.p0.a.f2.f.z;
+import b.a.p0.a.z2.w;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b extends a0 {
+public class b extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8698c;
+    public String f9176c;
 
     /* loaded from: classes.dex */
     public class a implements b.a.p0.a.w.a {
@@ -31,10 +31,10 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8699a;
+        public final /* synthetic */ CallbackHandler f9177a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f8700b;
+        public final /* synthetic */ b f9178b;
 
         public a(b bVar, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f8700b = bVar;
-            this.f8699a = callbackHandler;
+            this.f9178b = bVar;
+            this.f9177a = callbackHandler;
         }
 
         @Override // b.a.p0.a.w.a
@@ -71,14 +71,14 @@ public class b extends a0 {
                     jSONObject.put("scanType", str2);
                     jSONObject.put("charSet", str3);
                     jSONObject.put("result", str);
-                    d.g("scanCode", jSONObject.toString());
-                    this.f8699a.handleSchemeDispatchCallback(this.f8700b.f8698c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                    d.i("scanCode", jSONObject.toString());
+                    this.f9177a.handleSchemeDispatchCallback(this.f9178b.f9176c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
                 } catch (JSONException e2) {
-                    if (a0.f4160b) {
+                    if (z.f5228b) {
                         e2.printStackTrace();
                     }
-                    d.g("scanCode", "scanCode exec fail");
-                    this.f8699a.handleSchemeDispatchCallback(this.f8700b.f8698c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    d.i("scanCode", "scanCode exec fail");
+                    this.f9177a.handleSchemeDispatchCallback(this.f9178b.f9176c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 }
             }
         }
@@ -105,28 +105,28 @@ public class b extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (eVar == null) {
-                d.g("scanCode", "swanApp is null");
+                d.i("scanCode", "swanApp is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
                 return false;
-            } else if (eVar.c0()) {
-                boolean z = a0.f4160b;
+            } else if (eVar.m0()) {
+                boolean z = z.f5228b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
                 String optString = w.d(unitedSchemeEntity.getParam("params")).optString("cb");
-                this.f8698c = optString;
+                this.f9176c = optString;
                 if (TextUtils.isEmpty(optString)) {
-                    d.g("scanCode", "cb is empty");
+                    d.i("scanCode", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                b.a.p0.a.c1.a.V().a(eVar.x(), new a(this, callbackHandler));
+                b.a.p0.a.c1.a.b0().a(eVar.x(), new a(this, callbackHandler));
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }

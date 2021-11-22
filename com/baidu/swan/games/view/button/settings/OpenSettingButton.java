@@ -2,10 +2,10 @@ package com.baidu.swan.games.view.button.settings;
 
 import android.content.Context;
 import android.view.View;
+import b.a.p0.a.c2.b.f.e;
 import b.a.p0.a.g1.f;
 import b.a.p0.a.h;
 import b.a.p0.a.h0.g.g;
-import b.a.p0.a.z1.b.f.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
@@ -50,13 +50,13 @@ public class OpenSettingButton extends ApiButton {
     public void startSettingFragment() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g U = f.T().U();
-            if (U == null) {
-                e.f(AppRuntime.getAppContext(), h.aiapps_open_fragment_failed_toast).F();
+            g V = f.U().V();
+            if (V == null) {
+                e.f(AppRuntime.getAppContext(), h.aiapps_open_fragment_failed_toast).G();
                 return;
             }
-            g.b i2 = U.i("navigateTo");
-            i2.n(g.f5280g, g.f5282i);
+            g.b i2 = V.i("navigateTo");
+            i2.n(g.f5478g, g.f5480i);
             i2.k("authority", null).a();
         }
     }

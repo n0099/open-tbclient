@@ -27,7 +27,7 @@ public abstract class a implements Runnable {
             }
         }
         this.mName = "searchbox task: " + n();
-        this.Y = d.N();
+        this.Y = d.L();
     }
 
     public abstract void m();

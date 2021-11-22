@@ -20,16 +20,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<String> f6848a;
+    public final Set<String> f7177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, a<Boolean>> f6849b;
+    public final Map<String, a<Boolean>> f7178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, a<b>> f6850c;
+    public final Map<String, a<b>> f7179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a<Exception> f6851d;
+    public a<Exception> f7180d;
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -37,7 +37,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Set<b.a.p0.a.v2.e1.b<T>> f6852a;
+        public Set<b.a.p0.a.z2.g1.c<T>> f7181a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,14 +52,14 @@ public class d {
                     return;
                 }
             }
-            this.f6852a = new HashSet();
+            this.f7181a = new HashSet();
         }
 
         public void a(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                for (b.a.p0.a.v2.e1.b<T> bVar : this.f6852a) {
-                    bVar.onCallback(t);
+                for (b.a.p0.a.z2.g1.c<T> cVar : this.f7181a) {
+                    cVar.onCallback(t);
                 }
             }
         }
@@ -67,16 +67,16 @@ public class d {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f6852a.clear();
+                this.f7181a.clear();
             }
         }
 
-        public void c(b.a.p0.a.v2.e1.b<T> bVar) {
+        public void c(b.a.p0.a.z2.g1.c<T> cVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || bVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || cVar == null) {
                 return;
             }
-            this.f6852a.add(bVar);
+            this.f7181a.add(cVar);
         }
     }
 
@@ -86,10 +86,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f6853a;
+        public final long f7182a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f6854b;
+        public final long f7183b;
 
         public b(long j, long j2) {
             Interceptable interceptable = $ic;
@@ -106,15 +106,15 @@ public class d {
                     return;
                 }
             }
-            this.f6853a = j;
-            this.f6854b = j2;
+            this.f7182a = j;
+            this.f7183b = j2;
             int i4 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6854b > 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7183b > 0 : invokeV.booleanValue;
         }
     }
 
@@ -131,7 +131,7 @@ public class d {
                 return;
             }
         }
-        boolean z = k.f6397a;
+        boolean z = k.f6863a;
     }
 
     public d() {
@@ -147,10 +147,10 @@ public class d {
                 return;
             }
         }
-        this.f6848a = new HashSet();
-        this.f6849b = new HashMap();
-        this.f6850c = new HashMap();
-        this.f6851d = new a<>();
+        this.f7177a = new HashSet();
+        this.f7178b = new HashMap();
+        this.f7179c = new HashMap();
+        this.f7180d = new a<>();
     }
 
     public static <T> a<T> i(Map<String, a<T>> map, String str) {
@@ -171,21 +171,21 @@ public class d {
     public HashSet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HashSet<>(this.f6848a) : (HashSet) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HashSet<>(this.f7177a) : (HashSet) invokeV.objValue;
     }
 
     public void b(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            this.f6851d.a(exc);
-            this.f6851d.b();
+            this.f7180d.a(exc);
+            this.f7180d.b();
         }
     }
 
     public void c(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            a i2 = i(this.f6849b, str);
+            a i2 = i(this.f7178b, str);
             i2.a(Boolean.valueOf(z));
             i2.b();
         }
@@ -195,16 +195,16 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
             if (bVar == null || bVar.a()) {
-                i(this.f6850c, str).a(bVar);
+                i(this.f7179c, str).a(bVar);
             }
         }
     }
 
-    public d e(b.a.p0.a.v2.e1.b<Exception> bVar) {
+    public d e(b.a.p0.a.z2.g1.c<Exception> cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-            this.f6851d.c(bVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
+            this.f7180d.c(cVar);
             return this;
         }
         return (d) invokeL.objValue;
@@ -214,28 +214,28 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-            this.f6848a.addAll(Arrays.asList(strArr));
+            this.f7177a.addAll(Arrays.asList(strArr));
             return this;
         }
         return (d) invokeL.objValue;
     }
 
-    public final <T> d g(Map<String, a<T>> map, String str, b.a.p0.a.v2.e1.b<T> bVar) {
+    public final <T> d g(Map<String, a<T>> map, String str, b.a.p0.a.z2.g1.c<T> cVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, map, str, bVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, map, str, cVar)) == null) {
             f(str);
-            i(map, str).c(bVar);
+            i(map, str).c(cVar);
             return this;
         }
         return (d) invokeLLL.objValue;
     }
 
-    public d h(String str, b.a.p0.a.v2.e1.b<Boolean> bVar) {
+    public d h(String str, b.a.p0.a.z2.g1.c<Boolean> cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, bVar)) == null) {
-            g(this.f6849b, str, bVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, cVar)) == null) {
+            g(this.f7178b, str, cVar);
             return this;
         }
         return (d) invokeLL.objValue;

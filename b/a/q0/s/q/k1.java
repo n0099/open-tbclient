@@ -17,13 +17,13 @@ public class k1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PrivatePopInfo f13382a;
+    public PrivatePopInfo f14162a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PrivateForumInfo f13383b;
+    public PrivateForumInfo f14163b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f13384c;
+    public Integer f14164c;
 
     public k1() {
         Interceptable interceptable = $ic;
@@ -38,27 +38,27 @@ public class k1 {
                 return;
             }
         }
-        this.f13382a = null;
-        this.f13383b = null;
-        this.f13384c = null;
+        this.f14162a = null;
+        this.f14163b = null;
+        this.f14164c = null;
     }
 
     public PrivateForumInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13383b : (PrivateForumInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14163b : (PrivateForumInfo) invokeV.objValue;
     }
 
     public Integer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13384c : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14164c : (Integer) invokeV.objValue;
     }
 
     public PrivatePopInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13382a : (PrivatePopInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14162a : (PrivatePopInfo) invokeV.objValue;
     }
 
     public void d(PrivateForumTotalInfo privateForumTotalInfo) {
@@ -68,9 +68,9 @@ public class k1 {
         }
         try {
             PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
-            this.f13383b = privateForumTotalInfo.private_forum_info;
-            this.f13384c = privateForumTotalInfo.private_forum_taskpercent;
-            this.f13382a = privateForumTotalInfo.private_forum_popinfo;
+            this.f14163b = privateForumTotalInfo.private_forum_info;
+            this.f14164c = privateForumTotalInfo.private_forum_taskpercent;
+            this.f14162a = privateForumTotalInfo.private_forum_popinfo;
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

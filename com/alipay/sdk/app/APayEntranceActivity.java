@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,26 +20,26 @@ public class APayEntranceActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33967c = "ap_order_info";
+    public static final String f34801c = "ap_order_info";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33968d = "ap_target_packagename";
+    public static final String f34802d = "ap_target_packagename";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f33969e = "ap_session";
+    public static final String f34803e = "ap_session";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33970f = "ap_local_info";
+    public static final String f34804f = "ap_local_info";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f33971g;
+    public static final ConcurrentHashMap<String, a> f34805g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f33972a;
+    public String f34806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33973b;
+    public String f34807b;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -58,7 +59,7 @@ public class APayEntranceActivity extends Activity {
                 return;
             }
         }
-        f33971g = new ConcurrentHashMap<>();
+        f34805g = new ConcurrentHashMap<>();
     }
 
     public APayEntranceActivity() {
@@ -79,12 +80,12 @@ public class APayEntranceActivity extends Activity {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a remove = f33971g.remove(this.f33973b);
-            if (TextUtils.isEmpty(this.f33972a)) {
-                this.f33972a = b.a();
+            a remove = f34805g.remove(this.f34807b);
+            if (TextUtils.isEmpty(this.f34806a)) {
+                this.f34806a = b.a();
             }
             if (remove != null) {
-                remove.a(this.f33972a);
+                remove.a(this.f34806a);
             }
             try {
                 super.finish();
@@ -101,12 +102,12 @@ public class APayEntranceActivity extends Activity {
             if (i2 == 1000) {
                 try {
                     if (intent != null) {
-                        this.f33972a = intent.getStringExtra("result");
+                        this.f34806a = intent.getStringExtra("result");
                     } else {
-                        this.f33972a = b.a();
+                        this.f34806a = b.a();
                     }
                 } catch (Throwable unused) {
-                    this.f33972a = b.a();
+                    this.f34806a = b.a();
                 }
                 finish();
             }
@@ -122,12 +123,13 @@ public class APayEntranceActivity extends Activity {
                 Bundle extras = getIntent().getExtras();
                 if (extras == null) {
                     finish();
+                    LogUtil.logActivity(this, "onCreate");
                     return;
                 }
-                String string = extras.getString(f33967c);
-                String string2 = extras.getString(f33968d);
-                this.f33973b = extras.getString(f33969e);
-                String string3 = extras.getString(f33970f, StringUtil.EMPTY_ARRAY);
+                String string = extras.getString(f34801c);
+                String string2 = extras.getString(f34802d);
+                this.f34807b = extras.getString(f34803e);
+                String string3 = extras.getString(f34804f, StringUtil.EMPTY_ARRAY);
                 Intent intent = new Intent();
                 intent.putExtra("order_info", string);
                 intent.putExtra("localInfo", string3);
@@ -137,8 +139,10 @@ public class APayEntranceActivity extends Activity {
                 } catch (Throwable unused) {
                     finish();
                 }
+                LogUtil.logActivity(this, "onCreate");
             } catch (Throwable unused2) {
                 finish();
+                LogUtil.logActivity(this, "onCreate");
             }
         }
     }

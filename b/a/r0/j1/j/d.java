@@ -1,6 +1,6 @@
 package b.a.r0.j1.j;
 
-import b.a.r0.b0.e0.l;
+import b.a.r0.b0.f0.l;
 import b.a.r0.j1.l.m;
 import b.a.r0.j1.l.n;
 import com.baidu.adp.widget.ListView.BdTypeListView;
@@ -21,31 +21,31 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeListView f18340a;
+    public BdTypeListView f19674a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f18341b;
+    public i f19675b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f18342c;
+    public g f19676c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelateCardForumAdapter f18343d;
+    public RelateCardForumAdapter f19677d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f18344e;
+    public e f19678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f18345f;
+    public f f19679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HomePageVideoThreadAdapter f18346g;
+    public HomePageVideoThreadAdapter f19680g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f18347h;
+    public h f19681h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f18348i;
+    public List<b.a.e.m.e.a> f19682i;
 
     public d(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -62,51 +62,51 @@ public class d {
                 return;
             }
         }
-        this.f18348i = new ArrayList();
+        this.f19682i = new ArrayList();
         a(hotTopicActivity, bdTypeListView);
     }
 
     public final void a(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hotTopicActivity, bdTypeListView) == null) {
-            this.f18344e = new e(hotTopicActivity, b.a.r0.j1.l.g.f18452f);
-            this.f18341b = new i(hotTopicActivity, m.p);
-            this.f18342c = new g(hotTopicActivity, b.a.r0.j1.l.i.p);
-            this.f18343d = new RelateCardForumAdapter(hotTopicActivity, n.f18477g);
+            this.f19678e = new e(hotTopicActivity, b.a.r0.j1.l.g.f19786f);
+            this.f19675b = new i(hotTopicActivity, m.p);
+            this.f19676c = new g(hotTopicActivity, b.a.r0.j1.l.i.p);
+            this.f19677d = new RelateCardForumAdapter(hotTopicActivity, n.f19811g);
             TbPageContext<HotTopicActivity> pageContext = hotTopicActivity.getPageContext();
-            this.f18345f = new f(pageContext, b.a.r0.b0.e0.k.s0);
-            this.f18346g = new HomePageVideoThreadAdapter(pageContext, l.X);
-            this.f18347h = new h(pageContext, b.a.r0.b0.e0.k.v0);
-            this.f18348i.add(this.f18341b);
-            this.f18348i.add(this.f18342c);
-            this.f18348i.add(this.f18343d);
-            this.f18348i.add(this.f18344e);
-            this.f18348i.add(this.f18345f);
-            this.f18348i.add(this.f18346g);
-            this.f18348i.add(this.f18347h);
-            this.f18340a = bdTypeListView;
-            bdTypeListView.addAdapters(this.f18348i);
+            this.f19679f = new f(pageContext, b.a.r0.b0.f0.k.u0);
+            this.f19680g = new HomePageVideoThreadAdapter(pageContext, l.Z);
+            this.f19681h = new h(pageContext, b.a.r0.b0.f0.k.x0);
+            this.f19682i.add(this.f19675b);
+            this.f19682i.add(this.f19676c);
+            this.f19682i.add(this.f19677d);
+            this.f19682i.add(this.f19678e);
+            this.f19682i.add(this.f19679f);
+            this.f19682i.add(this.f19680g);
+            this.f19682i.add(this.f19681h);
+            this.f19674a = bdTypeListView;
+            bdTypeListView.addAdapters(this.f19682i);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f18340a.getAdapter2() instanceof b.a.e.l.e.e)) {
-            this.f18340a.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f19674a.getAdapter2() instanceof b.a.e.m.e.e)) {
+            this.f19674a.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void c(boolean z) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (fVar = this.f18345f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (fVar = this.f19679f) == null) {
             return;
         }
         fVar.setFromCDN(z);
     }
 
     public void d(b.a.r0.j1.l.e eVar) {
-        ArrayList<b.a.e.l.e.n> arrayList;
+        ArrayList<b.a.e.m.e.n> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
             if (eVar.i() != null) {
@@ -114,7 +114,7 @@ public class d {
             } else {
                 arrayList = new ArrayList<>();
             }
-            BdTypeListView bdTypeListView = this.f18340a;
+            BdTypeListView bdTypeListView = this.f19674a;
             if (bdTypeListView != null) {
                 bdTypeListView.setData(arrayList);
             }

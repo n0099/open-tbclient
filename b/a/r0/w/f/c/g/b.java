@@ -1,6 +1,6 @@
 package b.a.r0.w.f.c.g;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.r0.w.f.c.e.e;
 import b.a.r0.w.f.c.e.f;
 import b.a.r0.w.f.c.e.g;
@@ -24,31 +24,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f24690a;
+    public boolean f26207a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f24691b;
+    public g f26208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.r0.w.f.c.e.a f24692c;
+    public b.a.r0.w.f.c.e.a f26209c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a.r0.w.f.c.e.d f24693d;
+    public b.a.r0.w.f.c.e.d f26210d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f24694e;
+    public j f26211e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f24695f;
+    public List<n> f26212f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f24696g;
+    public List<n> f26213g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<SdkLiveInfoData> f24697h;
+    public List<SdkLiveInfoData> f26214h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<n> f24698i;
+    public List<n> f26215i;
 
     public b(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         Interceptable interceptable = $ic;
@@ -65,13 +65,13 @@ public class b {
                 return;
             }
         }
-        this.f24690a = false;
-        this.f24691b = alaTabLiveResponsedMessage.stageLiveInfo;
-        this.f24692c = alaTabLiveResponsedMessage.hotLiveInfo;
-        this.f24693d = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
-        this.f24694e = alaTabLiveResponsedMessage.tabAllLiveInfo;
-        this.f24697h = new ArrayList();
-        this.f24698i = new ArrayList();
+        this.f26207a = false;
+        this.f26208b = alaTabLiveResponsedMessage.stageLiveInfo;
+        this.f26209c = alaTabLiveResponsedMessage.hotLiveInfo;
+        this.f26210d = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
+        this.f26211e = alaTabLiveResponsedMessage.tabAllLiveInfo;
+        this.f26214h = new ArrayList();
+        this.f26215i = new ArrayList();
         e();
     }
 
@@ -83,7 +83,7 @@ public class b {
                 return false;
             }
             boolean g2 = g(jVar);
-            this.f24690a = jVar.f24615a;
+            this.f26207a = jVar.f26132a;
             return g2;
         }
         return invokeL.booleanValue;
@@ -92,23 +92,23 @@ public class b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24691b = null;
-            this.f24692c = null;
-            this.f24693d = null;
-            this.f24690a = false;
-            List<n> list = this.f24695f;
+            this.f26208b = null;
+            this.f26209c = null;
+            this.f26210d = null;
+            this.f26207a = false;
+            List<n> list = this.f26212f;
             if (list != null) {
                 list.clear();
             }
-            List<n> list2 = this.f24696g;
+            List<n> list2 = this.f26213g;
             if (list2 != null) {
                 list2.clear();
             }
-            List<SdkLiveInfoData> list3 = this.f24697h;
+            List<SdkLiveInfoData> list3 = this.f26214h;
             if (list3 != null) {
                 list3.clear();
             }
-            List<n> list4 = this.f24698i;
+            List<n> list4 = this.f26215i;
             if (list4 != null) {
                 list4.clear();
             }
@@ -124,14 +124,14 @@ public class b {
             for (int i2 = 0; i2 < size; i2 += 2) {
                 e eVar = new e();
                 b.a.r0.w.f.a.a aVar = new b.a.r0.w.f.a.a();
-                aVar.f24495e = list.get(i2);
+                aVar.f26012e = list.get(i2);
                 aVar.j = true;
-                eVar.f24604e = aVar;
+                eVar.f26121e = aVar;
                 int i3 = i2 + 1;
                 if (i3 < size) {
                     b.a.r0.w.f.a.a aVar2 = new b.a.r0.w.f.a.a();
-                    aVar2.f24495e = list.get(i3);
-                    eVar.f24605f = aVar2;
+                    aVar2.f26012e = list.get(i3);
+                    eVar.f26122f = aVar2;
                     aVar2.k = true;
                 } else {
                     aVar.j = false;
@@ -149,11 +149,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.f24696g)) {
-                arrayList.addAll(this.f24696g);
+            if (!ListUtils.isEmpty(this.f26213g)) {
+                arrayList.addAll(this.f26213g);
             }
-            if (!ListUtils.isEmpty(this.f24698i)) {
-                arrayList.addAll(this.f24698i);
+            if (!ListUtils.isEmpty(this.f26215i)) {
+                arrayList.addAll(this.f26215i);
             }
             return arrayList;
         }
@@ -163,27 +163,27 @@ public class b {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f24695f = new ArrayList();
-            g gVar = this.f24691b;
+            this.f26212f = new ArrayList();
+            g gVar = this.f26208b;
             if (gVar != null && gVar.a()) {
                 f fVar = new f();
-                fVar.f24607e = this.f24691b;
-                this.f24695f.add(fVar);
+                fVar.f26124e = this.f26208b;
+                this.f26212f.add(fVar);
             }
-            if (this.f24692c != null) {
+            if (this.f26209c != null) {
                 ArrayList<n> f2 = f();
                 if (!ListUtils.isEmpty(f2)) {
-                    this.f24695f.addAll(f2);
+                    this.f26212f.addAll(f2);
                 }
             }
-            b.a.r0.w.f.c.e.d dVar = this.f24693d;
-            if (dVar != null && !ListUtils.isEmpty(dVar.f24601a)) {
+            b.a.r0.w.f.c.e.d dVar = this.f26210d;
+            if (dVar != null && !ListUtils.isEmpty(dVar.f26118a)) {
                 b.a.r0.w.f.c.e.c cVar = new b.a.r0.w.f.c.e.c();
-                cVar.f24600e = this.f24693d;
-                this.f24695f.add(cVar);
+                cVar.f26117e = this.f26210d;
+                this.f26212f.add(cVar);
             }
-            this.f24696g = new ArrayList(this.f24695f);
-            a(this.f24694e);
+            this.f26213g = new ArrayList(this.f26212f);
+            a(this.f26211e);
         }
     }
 
@@ -191,7 +191,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<SdkLiveInfoData> arrayList = this.f24692c.f24595a;
+            ArrayList<SdkLiveInfoData> arrayList = this.f26209c.f26112a;
             if (arrayList == null || arrayList.size() < 2) {
                 return null;
             }
@@ -216,7 +216,7 @@ public class b {
             if (jVar == null) {
                 return false;
             }
-            ArrayList<SdkLiveInfoData> arrayList = jVar.f24616b;
+            ArrayList<SdkLiveInfoData> arrayList = jVar.f26133b;
             if (ListUtils.isEmpty(arrayList)) {
                 return false;
             }
@@ -231,9 +231,9 @@ public class b {
             if (ListUtils.isEmpty(arrayList2)) {
                 return false;
             }
-            this.f24697h.addAll(arrayList2);
-            ArrayList<n> c2 = c(this.f24697h);
-            this.f24698i = c2;
+            this.f26214h.addAll(arrayList2);
+            ArrayList<n> c2 = c(this.f26214h);
+            this.f26215i = c2;
             return !ListUtils.isEmpty(c2);
         }
         return invokeL.booleanValue;
@@ -242,6 +242,6 @@ public class b {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24690a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26207a : invokeV.booleanValue;
     }
 }

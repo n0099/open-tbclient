@@ -30,13 +30,13 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(65537, null, iVar) == null) || iVar == null) {
             return;
         }
-        if (iVar.f13796b != 0) {
-            b.a.q0.s.e0.b.j().x("app_entrance_nologin", iVar.f13796b + "");
+        if (iVar.f14564b != 0) {
+            b.a.q0.s.e0.b.j().x("app_entrance_nologin", iVar.f14564b + "");
         }
-        if (iVar.f13795a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
+        if (iVar.f14563a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        b.a.q0.s.e0.b.j().x("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), iVar.f13795a + "");
+        b.a.q0.s.e0.b.j().x("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), iVar.f14563a + "");
     }
 
     public int a() {
@@ -50,7 +50,7 @@ public class b {
                 b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
                 p = j.p("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            int e2 = b.a.e.e.m.b.e(p, 0);
+            int e2 = b.a.e.f.m.b.e(p, 0);
             return (e2 != 1 && e2 == 2) ? 1 : 2;
         }
         return invokeV.intValue;

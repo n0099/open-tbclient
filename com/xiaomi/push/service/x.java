@@ -19,7 +19,7 @@ public final class x extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f71532a;
+    public final /* synthetic */ ib f72452a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ie f987a;
@@ -46,7 +46,7 @@ public final class x extends XMPushService.i {
             }
         }
         this.f987a = ieVar;
-        this.f71532a = ibVar;
+        this.f72452a = ibVar;
         this.f988a = xMPushService;
     }
 
@@ -70,7 +70,7 @@ public final class x extends XMPushService.i {
                 hwVar.e(this.f987a.c());
                 hwVar.a(0L);
                 hwVar.d("success clear push message.");
-                y.a(this.f988a, y.b(this.f71532a.b(), this.f71532a.m454a(), hwVar, hf.f71078i));
+                y.a(this.f988a, y.b(this.f72452a.b(), this.f72452a.m454a(), hwVar, hf.f71998i));
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e2);
                 this.f988a.a(10, e2);

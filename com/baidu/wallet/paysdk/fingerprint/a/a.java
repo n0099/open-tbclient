@@ -33,18 +33,18 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RouterCallback f59729a;
+    public RouterCallback f60651a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f59730b;
+    public Context f60652b;
 
     /* renamed from: com.baidu.wallet.paysdk.fingerprint.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C1815a {
+    public static class C1856a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f59733a;
+        public static a f60655a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,7 +60,7 @@ public class a {
                     return;
                 }
             }
-            f59733a = new a();
+            f60655a = new a();
         }
     }
 
@@ -68,9 +68,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            if (WalletFingerprint.getInstance(this.f59730b).isDevicesSupport()) {
-                if (WalletFingerprint.getInstance(this.f59730b).hasEnrollFingerprint()) {
-                    return !WalletFingerprint.getInstance(this.f59730b).hasOTPToken() ? 3003 : 0;
+            if (WalletFingerprint.getInstance(this.f60652b).isDevicesSupport()) {
+                if (WalletFingerprint.getInstance(this.f60652b).hasEnrollFingerprint()) {
+                    return !WalletFingerprint.getInstance(this.f60652b).hasOTPToken() ? 3003 : 0;
                 }
                 return 2111;
             }
@@ -82,8 +82,8 @@ public class a {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f59729a = null;
-            this.f59730b = null;
+            this.f60651a = null;
+            this.f60652b = null;
         }
     }
 
@@ -104,25 +104,25 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1815a.f59733a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1856a.f60655a : (a) invokeV.objValue;
     }
 
     public void a(Context context, String str, RouterCallback routerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, routerCallback) == null) {
             if (context != null && routerCallback != null) {
-                this.f59729a = routerCallback;
-                this.f59730b = context;
+                this.f60651a = routerCallback;
+                this.f60652b = context;
                 WalletLoginHelper.getInstance().setOpenBdussErrorCodeShowFlag(false);
                 WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(context, new ILoginBackListener(this, str) { // from class: com.baidu.wallet.paysdk.fingerprint.a.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f59731a;
+                    public final /* synthetic */ String f60653a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f59732b;
+                    public final /* synthetic */ a f60654b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -139,15 +139,15 @@ public class a {
                                 return;
                             }
                         }
-                        this.f59732b = this;
-                        this.f59731a = str;
+                        this.f60654b = this;
+                        this.f60653a = str;
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
                     public void onFail(int i2, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                            this.f59732b.a(5003, str2);
+                            this.f60654b.a(5003, str2);
                         }
                     }
 
@@ -155,7 +155,7 @@ public class a {
                     public void onSuccess(int i2, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                            this.f59732b.a(this.f59731a);
+                            this.f60654b.a(this.f60653a);
                         }
                     }
                 }));
@@ -211,11 +211,11 @@ public class a {
     private void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(65539, this, i2, i3, str) == null) {
-            Intent intent = new Intent(this.f59730b, DxmCheckFingerprintActivity.class);
+            Intent intent = new Intent(this.f60652b, DxmCheckFingerprintActivity.class);
             intent.putExtra("showSwitchPwd", i2);
             intent.putExtra("checkTimes", i3);
             intent.putExtra("session_id", str);
-            this.f59730b.startActivity(intent);
+            this.f60652b.startActivity(intent);
         }
     }
 
@@ -223,7 +223,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
             StatisticManager.onEventWithValues(StatServiceEvent.PAY_SERVICE_RESULT, StatHelper.collectData(EnterWalletDxmPayServiceAction.CHECK_BIOMETRICS, i2 + "", str));
-            if (this.f59729a != null) {
+            if (this.f60651a != null) {
                 HashMap hashMap = new HashMap();
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -236,7 +236,7 @@ public class a {
                 String assembleResult = EnterDxmPayServiceAction.assembleResult(hashMap, true);
                 HashMap hashMap2 = new HashMap();
                 hashMap2.put("result", assembleResult);
-                this.f59729a.onResult(0, hashMap2);
+                this.f60651a.onResult(0, hashMap2);
                 c();
             }
         }

@@ -45,7 +45,7 @@ public class a extends b.a.p0.a.y0.a<b.a.p0.a.y0.g.h.b> {
             d(bVar, str, "" + command.obj, true);
             Object obj = command.obj;
             if (obj instanceof Boolean) {
-                bVar.l0(((Boolean) obj).booleanValue());
+                bVar.m0(((Boolean) obj).booleanValue());
             }
         }
     }

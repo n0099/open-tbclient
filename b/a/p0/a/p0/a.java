@@ -5,9 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.e0.d;
 import b.a.p0.a.k;
-import b.a.p0.a.p0.f.c;
-import b.a.p0.a.v1.b.f;
-import b.a.p0.a.v2.h;
+import b.a.p0.a.y1.b.e;
+import b.a.p0.a.y1.b.g;
+import b.a.p0.a.z2.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -26,22 +26,22 @@ public class a extends b.a.p0.a.p0.d.b<b.a.p0.a.p0.h.c.a, b.a.p0.a.p0.i.b.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7199d;
+    public static final boolean f7614d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f7200e;
+    public static volatile a f7615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f7201f;
+    public static boolean f7616f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.p0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0338a extends ProviderDelegation {
+    public static class C0350a extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0338a() {
+        public C0350a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,8 +125,8 @@ public class a extends b.a.p0.a.p0.d.b<b.a.p0.a.p0.h.c.a, b.a.p0.a.p0.i.b.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
                 Bundle bundle2 = new Bundle();
-                bundle2.putBoolean("swan_preset_extension", a.f7201f);
-                d.h("ExtCore-AppsManager", "is extension file exists : " + a.n());
+                bundle2.putBoolean("swan_preset_extension", a.f7616f);
+                d.k("ExtCore-AppsManager", "is extension file exists : " + a.f7616f);
                 return bundle2;
             }
             return (Bundle) invokeL.objValue;
@@ -146,14 +146,13 @@ public class a extends b.a.p0.a.p0.d.b<b.a.p0.a.p0.h.c.a, b.a.p0.a.p0.i.b.a> {
                 return;
             }
         }
-        f7199d = k.f6397a;
-        b.a.p0.a.c1.a.Z().getSwitch("swan_preset_extension", true);
-        f7201f = true;
+        f7614d = k.f6863a;
+        f7616f = m();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a() {
-        super(m(), new b.a.p0.a.p0.i.b.a());
+        super(l(), new b.a.p0.a.p0.i.b.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,54 +169,54 @@ public class a extends b.a.p0.a.p0.d.b<b.a.p0.a.p0.h.c.a, b.a.p0.a.p0.i.b.a> {
         }
     }
 
-    public static boolean k() {
+    public static boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                d.h("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f7201f);
-                return f7201f;
+                d.k("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f7616f);
+                return f7616f;
             }
-            f b2 = b.a.p0.a.v1.b.d.b(b.class, null);
+            g c2 = e.c(b.class, null);
             boolean z = true;
-            if (b2.a() && !b2.f8485a.getBoolean("swan_preset_extension", true)) {
+            if (c2.a() && !c2.f9464a.getBoolean("swan_preset_extension", true)) {
                 z = false;
             }
-            d.h("ExtCore-AppsManager", "swanProcess mPresetExtension: " + z);
+            d.k("ExtCore-AppsManager", "swanProcess mPresetExtension: " + z);
             return z;
         }
         return invokeV.booleanValue;
     }
 
-    public static a l() {
+    public static a k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f7200e == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f7615e == null) {
                 synchronized (a.class) {
-                    if (f7200e == null) {
-                        f7200e = new a();
+                    if (f7615e == null) {
+                        f7615e = new a();
                     }
                 }
             }
-            return f7200e;
+            return f7615e;
         }
         return (a) invokeV.objValue;
     }
 
-    public static b.a.p0.a.p0.h.c.a m() {
+    public static b.a.p0.a.p0.h.c.a l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? k() ? new b.a.p0.a.p0.h.c.a() : new b.a.p0.a.p0.h.c.b() : (b.a.p0.a.p0.h.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? j() ? new b.a.p0.a.p0.h.c.a() : new b.a.p0.a.p0.h.c.b() : (b.a.p0.a.p0.h.c.a) invokeV.objValue;
     }
 
-    public static boolean n() {
+    public static boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             b.a.p0.a.p0.g.b.a aVar = new b.a.p0.a.p0.g.b.a();
             boolean z = h.a(AppRuntime.getAppContext(), aVar.d()) && h.a(AppRuntime.getAppContext(), aVar.a());
-            d.h("ExtCore-AppsManager", "preset extension isFileExists : " + z);
+            d.k("ExtCore-AppsManager", "preset extension isFileExists : " + z);
             return z;
         }
         return invokeV.booleanValue;
@@ -229,7 +228,7 @@ public class a extends b.a.p0.a.p0.d.b<b.a.p0.a.p0.h.c.a, b.a.p0.a.p0.i.b.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 != 1) {
-                return c.b().getPath();
+                return b.a.p0.a.p0.f.d.b().getPath();
             }
             return null;
         }
@@ -246,14 +245,14 @@ public class a extends b.a.p0.a.p0.d.b<b.a.p0.a.p0.h.c.a, b.a.p0.a.p0.i.b.a> {
             if (ProcessUtils.isMainProcess()) {
                 extensionCore = d();
             } else {
-                Bundle bundle = b.a.p0.a.v1.b.d.b(C0338a.class, null).f8485a;
+                Bundle bundle = e.c(C0350a.class, null).f9464a;
                 bundle.setClassLoader(ExtensionCore.class.getClassLoader());
                 extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-                if (f7199d) {
+                if (f7614d) {
                     String str = "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore;
                 }
             }
-            return (extensionCore == null || !b.a.p0.a.u1.a.a.W() || extensionCore.extensionCoreVersionCode >= 4294967297L) ? extensionCore : b.a.p0.a.u1.a.a.a(extensionCore);
+            return (extensionCore == null || !b.a.p0.a.x1.a.a.Y() || extensionCore.extensionCoreVersionCode >= 4294967297L) ? extensionCore : b.a.p0.a.x1.a.a.a(extensionCore);
         }
         return (ExtensionCore) invokeV.objValue;
     }

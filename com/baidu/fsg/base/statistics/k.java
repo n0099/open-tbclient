@@ -26,31 +26,31 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37521a = "k";
+    public static final String f38351a = "k";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37522b = "cu";
+    public static final String f38352b = "cu";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37523c = "cu2";
+    public static final String f38353c = "cu2";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f37524d = "ua";
+    public static final String f38354d = "ua";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f37525e = "op";
+    public static final String f38355e = "op";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f37526f = "bs";
+    public static final String f38356f = "bs";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f37527g = "bk";
+    public static final String f38357g = "bk";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f37528h = "lc";
+    public static final String f38358h = "lc";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f37529i = "sd";
+    public static final String f38359i = "sd";
     public transient /* synthetic */ FieldHolder $fh;
     public Pattern j;
 
@@ -59,7 +59,7 @@ public class k {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static k f37530a;
+        public static k f38360a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -75,7 +75,7 @@ public class k {
                     return;
                 }
             }
-            f37530a = new k(null);
+            f38360a = new k(null);
         }
 
         public a() {
@@ -131,7 +131,7 @@ public class k {
     public static k c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f37530a : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f38360a : (k) invokeV.objValue;
     }
 
     private String c(Context context) {
@@ -218,13 +218,13 @@ public class k {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("ua", h(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f37522b, e(RimStatisticsUtil.getAppContext()));
-                jSONObject.put(f37523c, f(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f38352b, e(RimStatisticsUtil.getAppContext()));
+                jSONObject.put(f38353c, f(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("op", g(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("bs", c(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f37527g, d(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f38357g, d(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("sd", b(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f37528h, a(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f38358h, a(RimStatisticsUtil.getAppContext()));
             } catch (JSONException unused) {
             }
             return jSONObject.toString();
@@ -252,7 +252,7 @@ public class k {
             try {
                 return new JSONObject().toString();
             } catch (Throwable th) {
-                LogUtil.d(f37521a, th.toString());
+                LogUtil.d(f38351a, th.toString());
                 return null;
             }
         }

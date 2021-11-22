@@ -55,10 +55,13 @@ public final class k {
     public static final int lottie_video_guide = 2131820608;
     public static final int lottie_video_guide_left = 2131820609;
     public static final int lottie_video_guide_up = 2131820610;
-    public static final int pb_lottie_agree = 2131820613;
-    public static final int pb_lottie_disagree = 2131820614;
-    public static final int release_date = 2131820615;
-    public static final int shake_tone = 2131820630;
-    public static final int tnconfig = 2131820632;
+    public static final int lottie_voice_room_voicing_icon = 2131820611;
+    public static final int lottie_voice_room_voicing_icon_1 = 2131820612;
+    public static final int lottie_voice_room_voicing_icon_2 = 2131820613;
+    public static final int pb_lottie_agree = 2131820616;
+    public static final int pb_lottie_disagree = 2131820617;
+    public static final int release_date = 2131820618;
+    public static final int shake_tone = 2131820633;
+    public static final int tnconfig = 2131820635;
     public transient /* synthetic */ FieldHolder $fh;
 }

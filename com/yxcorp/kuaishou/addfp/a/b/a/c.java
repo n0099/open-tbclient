@@ -3,6 +3,7 @@ package com.yxcorp.kuaishou.addfp.a.b.a;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
+import com.asus.msa.SupplementaryDID.IDidAidlInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +19,7 @@ public abstract class c extends Binder implements b {
             if (iBinder == null) {
                 return null;
             }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(IDidAidlInterface.Stub.DESCRIPTOR);
             return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new d(iBinder) : (b) queryLocalInterface;
         }
         return (b) invokeL.objValue;

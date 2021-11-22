@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
-import b.a.p0.a.c2.f.p0.g;
+import b.a.p0.a.f2.f.o0.g;
 import b.a.p0.a.u.c.d;
+import b.a.p0.q.i.h;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,14 +28,14 @@ public class a extends b.a.p0.a.u.c.d {
 
     /* renamed from: b.a.p0.a.u.e.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0380a implements d.b {
+    public class C0413a implements d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f8027a;
+        public final /* synthetic */ a f8521a;
 
-        public C0380a(a aVar) {
+        public C0413a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,20 +50,20 @@ public class a extends b.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8027a = aVar;
+            this.f8521a = aVar;
         }
 
-        @Override // b.a.p0.a.u.c.d.b
-        public b.a.p0.a.u.h.b a(b.a.p0.a.a2.e eVar, JSONObject jSONObject, @Nullable String str) {
+        @Override // b.a.p0.a.u.c.d.a
+        public b.a.p0.a.u.h.b a(b.a.p0.a.d2.e eVar, JSONObject jSONObject, @Nullable String str) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, eVar, jSONObject, str)) == null) {
                 String optString = jSONObject.optString("root");
                 if (!TextUtils.isEmpty(optString)) {
-                    this.f8027a.w(eVar, optString, str);
+                    this.f8521a.D(eVar, optString, str);
                     return new b.a.p0.a.u.h.b(0);
                 }
-                b.a.p0.a.e0.d.b("Api-LoadSubPackage", "subPackage root is null");
+                b.a.p0.a.e0.d.c("PreLoadSubPackageApi", "subPackage root is null");
                 return new b.a.p0.a.u.h.b(202);
             }
             return (b.a.p0.a.u.h.b) invokeLLL.objValue;
@@ -71,12 +71,12 @@ public class a extends b.a.p0.a.u.c.d {
     }
 
     /* loaded from: classes.dex */
-    public class b implements d.b {
+    public class b implements d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f8028a;
+        public final /* synthetic */ a f8522a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -93,17 +93,17 @@ public class a extends b.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8028a = aVar;
+            this.f8522a = aVar;
         }
 
-        @Override // b.a.p0.a.u.c.d.b
-        public b.a.p0.a.u.h.b a(b.a.p0.a.a2.e eVar, JSONObject jSONObject, @Nullable String str) {
+        @Override // b.a.p0.a.u.c.d.a
+        public b.a.p0.a.u.h.b a(b.a.p0.a.d2.e eVar, JSONObject jSONObject, @Nullable String str) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, eVar, jSONObject, str)) == null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("roots");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.f8028a.u(eVar, str, optJSONArray);
+                    this.f8522a.B(eVar, str, optJSONArray);
                     return new b.a.p0.a.u.h.b(0);
                 }
                 return new b.a.p0.a.u.h.b(202);
@@ -118,33 +118,33 @@ public class a extends b.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.a2.e f8029e;
+        public final /* synthetic */ b.a.p0.a.d2.e f8523e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8030f;
+        public final /* synthetic */ String f8524f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f8031g;
+        public final /* synthetic */ JSONArray f8525g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f8032h;
+        public final /* synthetic */ a f8526h;
 
         /* renamed from: b.a.p0.a.u.e.b.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0381a implements g.d {
+        public class C0414a implements g.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CountDownLatch f8033a;
+            public final /* synthetic */ CountDownLatch f8527a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ List f8034b;
+            public final /* synthetic */ List f8528b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f8035c;
+            public final /* synthetic */ String f8529c;
 
-            public C0381a(c cVar, CountDownLatch countDownLatch, List list, String str) {
+            public C0414a(c cVar, CountDownLatch countDownLatch, List list, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,31 +159,31 @@ public class a extends b.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8033a = countDownLatch;
-                this.f8034b = list;
-                this.f8035c = str;
+                this.f8527a = countDownLatch;
+                this.f8528b = list;
+                this.f8529c = str;
             }
 
-            @Override // b.a.p0.a.c2.f.p0.g.d
+            @Override // b.a.p0.a.f2.f.o0.g.e
             public void a(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    this.f8033a.countDown();
-                    this.f8034b.add(this.f8035c);
+                    this.f8527a.countDown();
+                    this.f8528b.add(this.f8529c);
                 }
             }
 
-            @Override // b.a.p0.a.c2.f.p0.g.d
-            public void b(int i2) {
+            @Override // b.a.p0.a.f2.f.o0.g.e
+            public void b(int i2, b.a.p0.a.u2.a aVar) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                    this.f8033a.countDown();
-                    b.a.p0.a.e0.d.l("Api-LoadSubPackage", "downloadSubPackage fail, code=" + i2);
+                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
+                    this.f8527a.countDown();
+                    b.a.p0.a.e0.d.o("PreLoadSubPackageApi", "downloadSubPackage fail, code=" + i2);
                 }
             }
         }
 
-        public c(a aVar, b.a.p0.a.a2.e eVar, String str, JSONArray jSONArray) {
+        public c(a aVar, b.a.p0.a.d2.e eVar, String str, JSONArray jSONArray) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,30 +198,30 @@ public class a extends b.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8032h = aVar;
-            this.f8029e = eVar;
-            this.f8030f = str;
-            this.f8031g = jSONArray;
+            this.f8526h = aVar;
+            this.f8523e = eVar;
+            this.f8524f = str;
+            this.f8525g = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String Y = this.f8029e.Y();
-                if (!TextUtils.isDigitsOnly(Y)) {
-                    a aVar = this.f8032h;
-                    String str = this.f8030f;
-                    aVar.d(str, new b.a.p0.a.u.h.b(202, "current version error:" + Y));
+                String j0 = this.f8523e.j0();
+                if (!TextUtils.isDigitsOnly(j0)) {
+                    a aVar = this.f8526h;
+                    String str = this.f8524f;
+                    aVar.d(str, new b.a.p0.a.u.h.b(202, "current version error:" + j0));
                     return;
                 }
-                List<b.a.p0.n.h.g> j = b.a.p0.n.g.a.h().j(this.f8029e.f3961f, Integer.parseInt(Y));
+                List<h> k = b.a.p0.q.g.a.i().k(this.f8523e.f4474f, Integer.parseInt(j0));
                 ArraySet<String> arraySet = new ArraySet();
                 List synchronizedList = Collections.synchronizedList(new ArrayList());
-                for (int i2 = 0; i2 < this.f8031g.length(); i2++) {
-                    String optString = this.f8031g.optString(i2);
+                for (int i2 = 0; i2 < this.f8525g.length(); i2++) {
+                    String optString = this.f8525g.optString(i2);
                     if (!TextUtils.isEmpty(optString)) {
-                        if (a.x(optString, j) && this.f8029e.j0(optString)) {
+                        if (a.E(optString, k) && this.f8523e.t0(optString)) {
                             synchronizedList.add(optString);
                         } else {
                             arraySet.add(optString);
@@ -231,31 +231,28 @@ public class a extends b.a.p0.a.u.c.d {
                 if (!arraySet.isEmpty()) {
                     CountDownLatch countDownLatch = new CountDownLatch(arraySet.size());
                     for (String str2 : arraySet) {
-                        String F = this.f8029e.F(str2);
-                        if (TextUtils.isEmpty(F)) {
+                        String Q = this.f8523e.Q(str2);
+                        if (TextUtils.isEmpty(Q)) {
                             countDownLatch.countDown();
                         } else {
-                            b.a.p0.a.a2.e eVar = this.f8029e;
-                            g.k(eVar.f3961f, eVar.Y(), "1", str2, F, null, new C0381a(this, countDownLatch, synchronizedList, str2));
+                            b.a.p0.a.d2.e eVar = this.f8523e;
+                            g.l(eVar.f4474f, eVar.j0(), "1", str2, Q, null, new C0414a(this, countDownLatch, synchronizedList, str2));
                         }
                     }
                     try {
                         countDownLatch.await(1L, TimeUnit.MINUTES);
                     } catch (InterruptedException e2) {
-                        b.a.p0.a.e0.d.c("Api-LoadSubPackage", "loadSubPackages", e2);
+                        b.a.p0.a.e0.d.d("PreLoadSubPackageApi", "loadSubPackages", e2);
                     }
                 }
                 JSONObject jSONObject = new JSONObject();
-                for (int i3 = 0; i3 < this.f8031g.length(); i3++) {
+                for (int i3 = 0; i3 < this.f8525g.length(); i3++) {
                     try {
-                        jSONObject.put(this.f8031g.optString(i3), synchronizedList.contains(this.f8031g.optString(i3)) ? 0 : 1001);
-                    } catch (Exception e3) {
-                        if (b.a.p0.a.u.c.d.f8000c) {
-                            e3.printStackTrace();
-                        }
+                        jSONObject.put(this.f8525g.optString(i3), synchronizedList.contains(this.f8525g.optString(i3)) ? 0 : 1001);
+                    } catch (Exception unused) {
                     }
                 }
-                this.f8032h.d(this.f8030f, new b.a.p0.a.u.h.b(0, jSONObject));
+                this.f8526h.d(this.f8524f, new b.a.p0.a.u.h.b(0, jSONObject));
             }
         }
     }
@@ -266,18 +263,18 @@ public class a extends b.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.a2.e f8036e;
+        public final /* synthetic */ b.a.p0.a.d2.e f8530e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8037f;
+        public final /* synthetic */ String f8531f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8038g;
+        public final /* synthetic */ String f8532g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f8039h;
+        public final /* synthetic */ a f8533h;
 
-        public d(a aVar, b.a.p0.a.a2.e eVar, String str, String str2) {
+        public d(a aVar, b.a.p0.a.d2.e eVar, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -292,42 +289,42 @@ public class a extends b.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8039h = aVar;
-            this.f8036e = eVar;
-            this.f8037f = str;
-            this.f8038g = str2;
+            this.f8533h = aVar;
+            this.f8530e = eVar;
+            this.f8531f = str;
+            this.f8532g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f8036e.k0(this.f8037f) && this.f8036e.j0(this.f8037f)) {
-                    b.a.p0.a.e0.d.g("Api-LoadSubPackage", "subPackage have existed");
-                    this.f8039h.d(this.f8038g, new b.a.p0.a.u.h.b(1001, "subPackage have existed"));
+                if (this.f8530e.u0(this.f8531f) && this.f8530e.t0(this.f8531f)) {
+                    b.a.p0.a.e0.d.i("PreLoadSubPackageApi", "subPackage have existed");
+                    this.f8533h.d(this.f8532g, new b.a.p0.a.u.h.b(1001, "subPackage have existed"));
                     return;
                 }
-                String F = this.f8036e.F(this.f8037f);
-                if (!TextUtils.isEmpty(F)) {
-                    this.f8039h.v(this.f8036e, this.f8037f, F, this.f8038g);
+                String Q = this.f8530e.Q(this.f8531f);
+                if (!TextUtils.isEmpty(Q)) {
+                    this.f8533h.C(this.f8530e, this.f8531f, Q, this.f8532g);
                     return;
                 }
-                b.a.p0.a.e0.d.g("Api-LoadSubPackage", "subPackage cannot find aps key");
-                this.f8039h.d(this.f8038g, new b.a.p0.a.u.h.b(202));
+                b.a.p0.a.e0.d.i("PreLoadSubPackageApi", "subPackage cannot find aps key");
+                this.f8533h.d(this.f8532g, new b.a.p0.a.u.h.b(202));
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class e implements g.d {
+    public class e implements g.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f8040a;
+        public final /* synthetic */ String f8534a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f8041b;
+        public final /* synthetic */ a f8535b;
 
         public e(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -344,25 +341,25 @@ public class a extends b.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8041b = aVar;
-            this.f8040a = str;
+            this.f8535b = aVar;
+            this.f8534a = str;
         }
 
-        @Override // b.a.p0.a.c2.f.p0.g.d
+        @Override // b.a.p0.a.f2.f.o0.g.e
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                b.a.p0.a.e0.d.g("Api-LoadSubPackage", "preload subPackage success");
-                this.f8041b.d(this.f8040a, new b.a.p0.a.u.h.b(0, "preload subPackage success"));
+                b.a.p0.a.e0.d.i("PreLoadSubPackageApi", "preload subPackage success");
+                this.f8535b.d(this.f8534a, new b.a.p0.a.u.h.b(0, "preload subPackage success"));
             }
         }
 
-        @Override // b.a.p0.a.c2.f.p0.g.d
-        public void b(int i2) {
+        @Override // b.a.p0.a.f2.f.o0.g.e
+        public void b(int i2, b.a.p0.a.u2.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                b.a.p0.a.e0.d.b("Api-LoadSubPackage", "preload subPackage failed");
-                this.f8041b.d(this.f8040a, new b.a.p0.a.u.h.b(202, "No SubPackage"));
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
+                b.a.p0.a.e0.d.c("PreLoadSubPackageApi", "preload subPackage failed");
+                this.f8535b.d(this.f8534a, new b.a.p0.a.u.h.b(202, "No SubPackage"));
             }
         }
     }
@@ -387,13 +384,13 @@ public class a extends b.a.p0.a.u.c.d {
         }
     }
 
-    public static boolean x(@Nullable String str, @Nullable List<b.a.p0.n.h.g> list) {
+    public static boolean E(@Nullable String str, @Nullable List<h> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, list)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
             if (str != null && list != null && !list.isEmpty()) {
-                for (b.a.p0.n.h.g gVar : list) {
-                    if (gVar != null && TextUtils.equals(gVar.p, str)) {
+                for (h hVar : list) {
+                    if (hVar != null && TextUtils.equals(hVar.p, str)) {
                         return true;
                     }
                 }
@@ -403,40 +400,58 @@ public class a extends b.a.p0.a.u.c.d {
         return invokeLL.booleanValue;
     }
 
-    public final void u(b.a.p0.a.a2.e eVar, @Nullable String str, @NonNull JSONArray jSONArray) {
+    public final void B(b.a.p0.a.d2.e eVar, @Nullable String str, @NonNull JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, eVar, str, jSONArray) == null) {
-            ExecutorUtilsExt.postOnElastic(new c(this, eVar, str, jSONArray), "Api-LoadSubPackage", 2);
+            ExecutorUtilsExt.postOnElastic(new c(this, eVar, str, jSONArray), "PreLoadSubPackageApi", 2);
         }
     }
 
-    public final void v(b.a.p0.a.a2.e eVar, String str, String str2, @Nullable String str3) {
+    public final void C(b.a.p0.a.d2.e eVar, String str, String str2, @Nullable String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, str, str2, str3) == null) {
-            g.k(eVar.f3961f, eVar.Y(), "1", str, str2, null, new e(this, str3));
+            g.l(eVar.f4474f, eVar.j0(), "1", str, str2, null, new e(this, str3));
         }
     }
 
-    public final void w(b.a.p0.a.a2.e eVar, String str, @Nullable String str2) {
+    public final void D(b.a.p0.a.d2.e eVar, String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, str, str2) == null) {
             ExecutorUtilsExt.postOnElastic(new d(this, eVar, str, str2), "doLoadSubPackageAsync", 2);
         }
     }
 
-    public b.a.p0.a.u.h.b y(String str) {
+    public b.a.p0.a.u.h.b F(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            boolean z = b.a.p0.a.u.c.d.f8000c;
-            return i(str, true, new C0380a(this));
+            q("#loadSubPackage", false);
+            return l(str, true, new C0413a(this));
         }
         return (b.a.p0.a.u.h.b) invokeL.objValue;
     }
 
-    public b.a.p0.a.u.h.b z(String str) {
+    public b.a.p0.a.u.h.b G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? i(str, true, new b(this)) : (b.a.p0.a.u.h.b) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            q("#loadSubPackages", false);
+            return l(str, true, new b(this));
+        }
+        return (b.a.p0.a.u.h.b) invokeL.objValue;
+    }
+
+    @Override // b.a.p0.a.u.c.d
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "Basic" : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.a.u.c.d
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "PreLoadSubPackageApi" : (String) invokeV.objValue;
     }
 }

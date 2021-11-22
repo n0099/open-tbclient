@@ -21,13 +21,13 @@ public class HomeInformationLayout extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeLayoutOneTipView f58339a;
+    public HomeLayoutOneTipView f59261a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f58340b;
+    public LinearLayout f59262b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f58341c;
+    public List<BaseItemView> f59263c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomeInformationLayout(Context context) {
@@ -47,14 +47,14 @@ public class HomeInformationLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f58341c = new ArrayList();
+        this.f59263c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58341c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59263c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -62,8 +62,8 @@ public class HomeInformationLayout extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_information_layout"), this);
-            this.f58339a = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "home_information_layout_title"));
-            this.f58340b = (LinearLayout) findViewById(ResUtils.id(getContext(), "home_information_layout_content"));
+            this.f59261a = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "home_information_layout_title"));
+            this.f59262b = (LinearLayout) findViewById(ResUtils.id(getContext(), "home_information_layout_content"));
         }
     }
 
@@ -86,16 +86,16 @@ public class HomeInformationLayout extends BaseItemLayout {
             HomeCfgResponse.ConfigData configData = this.mConfigData;
             HomeCfgResponse.DataItem[] dataItemArr = configData.list;
             if (!TextUtils.isEmpty(configData.getGroup_name())) {
-                this.f58339a.setData(this.mConfigData, getWalletInterface());
+                this.f59261a.setData(this.mConfigData, getWalletInterface());
             } else {
-                this.f58339a.setVisibility(8);
+                this.f59261a.setVisibility(8);
             }
             HomeInformationItemView homeInformationItemView = null;
             for (HomeCfgResponse.DataItem dataItem : dataItemArr) {
                 homeInformationItemView = new HomeInformationItemView(getContext());
                 homeInformationItemView.setData(dataItem, getWalletInterface());
-                this.f58340b.addView(homeInformationItemView);
-                this.f58341c.add(homeInformationItemView);
+                this.f59262b.addView(homeInformationItemView);
+                this.f59263c.add(homeInformationItemView);
             }
             if (homeInformationItemView != null) {
                 homeInformationItemView.setLineVisibility(false);
@@ -122,6 +122,6 @@ public class HomeInformationLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f58341c = new ArrayList();
+        this.f59263c = new ArrayList();
     }
 }

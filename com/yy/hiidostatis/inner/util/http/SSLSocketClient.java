@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.inner.util.http;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -158,7 +159,7 @@ public class SSLSocketClient {
                     str2 = str2 + '.';
                 }
                 String lowerCase = str2.toLowerCase(Locale.US);
-                if (!lowerCase.contains("*")) {
+                if (!lowerCase.contains(ProxyConfig.MATCH_ALL_SCHEMES)) {
                     return str.equals(lowerCase);
                 }
                 if (!lowerCase.startsWith(CertificatePinner.Pin.WILDCARD) || lowerCase.indexOf(42, 1) != -1 || str.length() < lowerCase.length() || CertificatePinner.Pin.WILDCARD.equals(lowerCase)) {

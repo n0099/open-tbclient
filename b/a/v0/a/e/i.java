@@ -35,23 +35,23 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29116a;
+    public static String f29985a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f29117b;
+    public static String f29986b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f29118c;
+    public static String f29987c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(f29118c)) {
+            if (TextUtils.isEmpty(f29987c)) {
                 k(b.a.v0.a.c.h().getContext());
             }
-            return f29118c;
+            return f29987c;
         }
         return (String) invokeV.objValue;
     }
@@ -265,9 +265,9 @@ public final class i {
         if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-            f29116a = String.valueOf(displayMetrics.widthPixels);
-            f29117b = String.valueOf(displayMetrics.heightPixels);
-            f29118c = String.valueOf(displayMetrics.density);
+            f29985a = String.valueOf(displayMetrics.widthPixels);
+            f29986b = String.valueOf(displayMetrics.heightPixels);
+            f29987c = String.valueOf(displayMetrics.density);
         }
     }
 
@@ -289,10 +289,10 @@ public final class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (TextUtils.isEmpty(f29116a)) {
+            if (TextUtils.isEmpty(f29985a)) {
                 k(b.a.v0.a.c.h().getContext());
             }
-            return f29116a;
+            return f29985a;
         }
         return (String) invokeV.objValue;
     }
@@ -301,10 +301,10 @@ public final class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (TextUtils.isEmpty(f29117b)) {
+            if (TextUtils.isEmpty(f29986b)) {
                 k(b.a.v0.a.c.h().getContext());
             }
-            return f29117b;
+            return f29986b;
         }
         return (String) invokeV.objValue;
     }

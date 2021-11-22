@@ -23,17 +23,17 @@ public final class l implements k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f61402a;
+    public static final long f62301a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FileDescriptor f61403b;
+    public final FileDescriptor f62302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f61404c;
+    public final long f62303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f61405d;
+    public final long f62304d;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public final class l implements k {
                 return;
             }
         }
-        f61402a = Os.sysconf(OsConstants._SC_PAGESIZE);
+        f62301a = Os.sysconf(OsConstants._SC_PAGESIZE);
     }
 
     public l(FileDescriptor fileDescriptor, long j, long j2) {
@@ -66,16 +66,16 @@ public final class l implements k {
                 return;
             }
         }
-        this.f61403b = fileDescriptor;
-        this.f61404c = j;
-        this.f61405d = j2;
+        this.f62302b = fileDescriptor;
+        this.f62303c = j;
+        this.f62304d = j2;
     }
 
     @Override // com.bytedance.pangle.f.k
     public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61405d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62304d : invokeV.longValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:101:0x00cd A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -95,8 +95,8 @@ public final class l implements k {
         if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jVar, Long.valueOf(j), Integer.valueOf(i2)}) != null) {
             return;
         }
-        long j2 = this.f61404c + j;
-        long j3 = f61402a;
+        long j2 = this.f62303c + j;
+        long j3 = f62301a;
         long j4 = (j2 / j3) * j3;
         int i3 = (int) (j2 - j4);
         long j5 = i2 + i3;
@@ -113,12 +113,12 @@ public final class l implements k {
                             } catch (Exception e3) {
                                 e3.printStackTrace();
                             }
-                            mmap = Os.mmap(0L, j5, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f61403b, j4);
+                            mmap = Os.mmap(0L, j5, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f62302b, j4);
                             if (!(Build.VERSION.SDK_INT < 24 && Build.VERSION.SDK_INT <= 28)) {
                                 try {
                                     Constructor a2 = com.bytedance.pangle.a.a.a.a(Class.forName("java.nio.DirectByteBuffer"), Integer.TYPE, Long.TYPE, FileDescriptor.class, Runnable.class, Boolean.TYPE);
                                     if (a2 != null && a2.isAccessible()) {
-                                        byteBuffer = (ByteBuffer) a2.newInstance(Integer.valueOf(i2), Long.valueOf(i3 + mmap), this.f61403b, null, Boolean.TRUE);
+                                        byteBuffer = (ByteBuffer) a2.newInstance(Integer.valueOf(i2), Long.valueOf(i3 + mmap), this.f62302b, null, Boolean.TRUE);
                                     }
                                 } catch (ClassNotFoundException e4) {
                                     e4.printStackTrace();
@@ -177,7 +177,7 @@ public final class l implements k {
                         throw new IOException("Failed to mmap " + j5 + " bytes", e);
                     }
                     intValue = 0;
-                    mmap = Os.mmap(0L, j5, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f61403b, j4);
+                    mmap = Os.mmap(0L, j5, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f62302b, j4);
                 } catch (Throwable th) {
                     th = th;
                     if (0 != 0) {

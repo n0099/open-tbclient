@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel;
 
-import b.g.a0.a.e;
+import b.f.a0.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

@@ -3,7 +3,7 @@ package i.a.a.e.l;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
 import tv.athena.revenue.payui.model.PayFlowType;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface b {
     GetBannerConfigReqParams a();
 

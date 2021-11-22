@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import b.a.l.v0.a;
+import b.a.l.w0.a;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -48,10 +48,10 @@ public class i extends b.a.l.a<b.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f3233e;
+        public final /* synthetic */ ViewGroup.LayoutParams f3324e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f3234f;
+        public final /* synthetic */ i f3325f;
 
         public a(i iVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -68,17 +68,17 @@ public class i extends b.a.l.a<b.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3234f = iVar;
-            this.f3233e = layoutParams;
+            this.f3325f = iVar;
+            this.f3324e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3233e.width = this.f3234f.j.getWidth();
-                this.f3233e.height = (this.f3234f.j.getWidth() / 16) * 9;
-                this.f3234f.m.setLayoutParams(this.f3233e);
+                this.f3324e.width = this.f3325f.j.getWidth();
+                this.f3324e.height = (this.f3325f.j.getWidth() / 16) * 9;
+                this.f3325f.m.setLayoutParams(this.f3324e);
             }
         }
     }
@@ -89,7 +89,7 @@ public class i extends b.a.l.a<b.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f3235a;
+        public final /* synthetic */ i f3326a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -106,19 +106,19 @@ public class i extends b.a.l.a<b.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3235a = iVar;
+            this.f3326a = iVar;
         }
 
-        @Override // b.a.l.v0.a.b
-        public boolean a(a.C0090a c0090a) {
+        @Override // b.a.l.w0.a.b
+        public boolean a(a.C0092a c0092a) {
             InterceptResult invokeL;
             RoundCornerFrameLayout roundCornerFrameLayout;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0090a)) == null) {
-                if (c0090a.b() != 7 || (roundCornerFrameLayout = this.f3235a.m) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0092a)) == null) {
+                if (c0092a.b() != 7 || (roundCornerFrameLayout = this.f3326a.m) == null) {
                     return false;
                 }
-                roundCornerFrameLayout.onRootPressed(((Boolean) c0090a.c()).booleanValue());
+                roundCornerFrameLayout.onRootPressed(((Boolean) c0092a.c()).booleanValue());
                 return false;
             }
             return invokeL.booleanValue;
@@ -138,8 +138,8 @@ public class i extends b.a.l.a<b.a.q0.s.q.a> {
                 return;
             }
         }
-        r = (b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2;
-        int k = b.a.e.e.p.l.k(TbadkCoreApplication.getInst());
+        r = (b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2;
+        int k = b.a.e.f.p.l.k(TbadkCoreApplication.getInst());
         s = k;
         int i2 = k - r;
         t = i2;
@@ -176,11 +176,11 @@ public class i extends b.a.l.a<b.a.q0.s.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.j == null) {
-                View inflate = LayoutInflater.from(this.f3216f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+                View inflate = LayoutInflater.from(this.f3307f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
                 this.j = inflate;
                 this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
                 this.m = (RoundCornerFrameLayout) this.j.findViewById(R.id.frame_video);
-                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f3216f);
+                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f3307f);
                 this.n = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
                 this.m.addView(this.n);
@@ -220,9 +220,9 @@ public class i extends b.a.l.a<b.a.q0.s.q.a> {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            int k = b.a.e.e.p.l.k(TbadkCoreApplication.getInst());
+            int k = b.a.e.f.p.l.k(TbadkCoreApplication.getInst());
             if (k != this.o) {
-                int k2 = b.a.e.e.p.l.k(TbadkCoreApplication.getInst());
+                int k2 = b.a.e.f.p.l.k(TbadkCoreApplication.getInst());
                 s = k2;
                 int i2 = k2 - r;
                 t = i2;
@@ -231,7 +231,7 @@ public class i extends b.a.l.a<b.a.q0.s.q.a> {
                 this.o = k;
             }
             this.l = aVar;
-            if (aVar == null || aVar.getThreadData() == null || this.l.getThreadData().q1() == null) {
+            if (aVar == null || aVar.getThreadData() == null || this.l.getThreadData().r1() == null) {
                 return;
             }
             this.n.setData(aVar.getThreadData());
@@ -239,11 +239,11 @@ public class i extends b.a.l.a<b.a.q0.s.q.a> {
             int i3 = layoutParams.width;
             int i4 = layoutParams.height;
             boolean z2 = false;
-            if (this.l.getThreadData().q1().is_vertical.intValue() == 1) {
+            if (this.l.getThreadData().r1().is_vertical.intValue() == 1) {
                 int i5 = (u / 9) * 16;
                 int i6 = v;
-                int intValue = this.l.getThreadData().q1().video_width.intValue();
-                int intValue2 = this.l.getThreadData().q1().video_height.intValue();
+                int intValue = this.l.getThreadData().r1().video_width.intValue();
+                int intValue2 = this.l.getThreadData().r1().video_height.intValue();
                 int i7 = u;
                 layoutParams.width = i7;
                 boolean z3 = i3 != i7;
@@ -266,13 +266,13 @@ public class i extends b.a.l.a<b.a.q0.s.q.a> {
                 z = (i4 == i10 && i3 == i9) ? false : true;
             }
             if (z) {
-                if (this.l.getThreadData().q1().is_vertical.intValue() == 1) {
+                if (this.l.getThreadData().r1().is_vertical.intValue() == 1) {
                     this.m.setLayoutParams(layoutParams);
                 } else {
                     this.m.post(new a(this, layoutParams));
                 }
             }
-            if (!this.l.getThreadData().O1() && this.l.getThreadData().getType() != d2.Q3) {
+            if (!this.l.getThreadData().Q1() && this.l.getThreadData().getType() != d2.R3) {
                 this.k.setMaxLines(2);
                 ThreadCardUtils.setTitle(this.k, this.l.getThreadData(), 0, this.p);
             } else {

@@ -13,19 +13,19 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f70621a;
+    public static final e f71541a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ e[] f92a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f70622b;
+    public static final e f71542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e f70623c;
+    public static final e f71543c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final e f70624d;
+    public static final e f71544d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -44,12 +44,12 @@ public final class e {
                 return;
             }
         }
-        f70621a = new e("ASSEMBLE_PUSH_HUAWEI", 0, 1);
-        f70622b = new e("ASSEMBLE_PUSH_FCM", 1, 2);
-        f70623c = new e("ASSEMBLE_PUSH_COS", 2, 3);
+        f71541a = new e("ASSEMBLE_PUSH_HUAWEI", 0, 1);
+        f71542b = new e("ASSEMBLE_PUSH_FCM", 1, 2);
+        f71543c = new e("ASSEMBLE_PUSH_COS", 2, 3);
         e eVar = new e("ASSEMBLE_PUSH_FTOS", 3, 4);
-        f70624d = eVar;
-        f92a = new e[]{f70621a, f70622b, f70623c, eVar};
+        f71544d = eVar;
+        f92a = new e[]{f71541a, f71542b, f71543c, eVar};
     }
 
     public e(String str, int i2, int i3) {

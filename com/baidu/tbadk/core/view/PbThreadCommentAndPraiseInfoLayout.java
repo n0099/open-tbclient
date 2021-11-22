@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.f;
 import b.a.q0.s.u.c;
@@ -66,12 +66,12 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     public void doPraiseClick(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || this.mData == null || TextUtils.isEmpty(str) || !str.equals(this.mData.s1())) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || this.mData == null || TextUtils.isEmpty(str) || !str.equals(this.mData.t1())) {
             return;
         }
         f fVar = new f();
-        fVar.f13300b = 4;
-        fVar.f13302d = 2;
+        fVar.f14080b = 4;
+        fVar.f14082d = 2;
         fVar.j = str2;
         this.mAgreeView.setStatisticData(fVar);
         this.mAgreeView.onAgreeClick();
@@ -111,7 +111,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             d2 d2Var = this.mData;
-            return (d2Var == null || !d2Var.E2() || this.mData.q1() == null) ? false : true;
+            return (d2Var == null || !d2Var.G2() || this.mData.r1() == null) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -163,8 +163,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             SkinManager.setViewTextColor(this.z, R.drawable.selector_comment_and_prise_item_text_color);
             d2 d2Var = this.mData;
             if (d2Var != null) {
-                MaskView.maskNovelViewGroup(this.B, d2Var.p2());
-                MaskView.maskNovelViewGroup(this.A, this.mData.p2());
+                MaskView.maskNovelViewGroup(this.B, d2Var.r2());
+                MaskView.maskNovelViewGroup(this.A, this.mData.r2());
             }
         }
     }
@@ -214,16 +214,16 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, d2Var) == null) {
             if (d2Var != null) {
-                this.mAgreeView.setDisagreeShow(d2Var.D2());
+                this.mAgreeView.setDisagreeShow(d2Var.F2());
             }
-            if (d2Var != null && d2Var.F2()) {
+            if (d2Var != null && d2Var.H2()) {
                 this.mAgreeView.setDisagreeShow(true);
             }
             if (d2Var != null) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mAgreeView.getLayoutParams();
-                if (d2Var.F2()) {
+                if (d2Var.H2()) {
                     layoutParams.weight = 0.2f;
-                } else if (d2Var.D2()) {
+                } else if (d2Var.F2()) {
                     layoutParams.weight = 0.25f;
                 } else {
                     layoutParams.weight = 0.5f;
@@ -281,7 +281,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, d2Var) == null) {
             super.updateReplyNum(d2Var);
-            if (d2Var == null || this.mCommentGrabSofa == null || !d2Var.F2()) {
+            if (d2Var == null || this.mCommentGrabSofa == null || !d2Var.H2()) {
                 return;
             }
             if (d2Var.U0() == 0) {

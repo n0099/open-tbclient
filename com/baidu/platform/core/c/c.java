@@ -34,25 +34,25 @@ public class c extends com.baidu.platform.base.e {
     private void a(PoiIndoorOption poiIndoorOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, poiIndoorOption) == null) {
-            this.f42041a.a("qt", "indoor_s");
-            this.f42041a.a("x", "0");
-            this.f42041a.a("y", "0");
-            this.f42041a.a("from", "android_map_sdk");
+            this.f42889a.a("qt", "indoor_s");
+            this.f42889a.a("x", "0");
+            this.f42889a.a("y", "0");
+            this.f42889a.a("from", "android_map_sdk");
             String str = poiIndoorOption.bid;
             if (str != null && !str.equals("")) {
-                this.f42041a.a("bid", str);
+                this.f42889a.a("bid", str);
             }
             String str2 = poiIndoorOption.wd;
             if (str2 != null && !str2.equals("")) {
-                this.f42041a.a(ActVideoSetting.WIFI_DISPLAY, str2);
+                this.f42889a.a(ActVideoSetting.WIFI_DISPLAY, str2);
             }
             String str3 = poiIndoorOption.floor;
             if (str3 != null && !str3.equals("")) {
-                this.f42041a.a("floor", str3);
+                this.f42889a.a("floor", str3);
             }
-            com.baidu.platform.util.a aVar = this.f42041a;
+            com.baidu.platform.util.a aVar = this.f42889a;
             aVar.a(ProgressInfo.JSON_KEY_CURRENT, poiIndoorOption.currentPage + "");
-            com.baidu.platform.util.a aVar2 = this.f42041a;
+            com.baidu.platform.util.a aVar2 = this.f42889a;
             aVar2.a("pageSize", poiIndoorOption.pageSize + "");
         }
     }

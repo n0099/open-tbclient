@@ -3,9 +3,9 @@ package b.a.p0.b.p.a;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import b.a.p0.a.c2.f.a0;
-import b.a.p0.a.e2.c.i;
-import b.a.p0.a.e2.c.j.b;
+import b.a.p0.a.f2.f.z;
+import b.a.p0.a.h2.c.i;
+import b.a.p0.a.h2.c.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -18,29 +18,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d extends a0 {
+public class d extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a implements b.a.p0.a.v2.e1.b<i<b.e>> {
+    public class a implements b.a.p0.a.z2.g1.c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9412e;
+        public final /* synthetic */ CallbackHandler f9997e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9413f;
+        public final /* synthetic */ String f9998f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f9414g;
+        public final /* synthetic */ Context f9999g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f9415h;
+        public final /* synthetic */ boolean f10000h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ d f9416i;
+        public final /* synthetic */ d f10001i;
 
         public a(d dVar, CallbackHandler callbackHandler, String str, Context context, boolean z) {
             Interceptable interceptable = $ic;
@@ -57,38 +57,38 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f9416i = dVar;
-            this.f9412e = callbackHandler;
-            this.f9413f = str;
-            this.f9414g = context;
-            this.f9415h = z;
+            this.f10001i = dVar;
+            this.f9997e = callbackHandler;
+            this.f9998f = str;
+            this.f9999g = context;
+            this.f10000h = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                if (b.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f9416i.k((Activity) this.f9414g, this.f9415h, this.f9412e, this.f9413f);
+                if (b.a.p0.a.h2.c.d.h(iVar)) {
+                    this.f10001i.k((Activity) this.f9999g, this.f10000h, this.f9997e, this.f9998f);
                 } else {
-                    b.a.p0.a.e2.c.d.p(iVar, this.f9412e, this.f9413f);
+                    b.a.p0.a.h2.c.d.q(iVar, this.f9997e, this.f9998f);
                 }
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class b implements b.a.p0.a.v2.e1.b<b.a.p0.a.e2.d.a> {
+    public class b implements b.a.p0.a.z2.g1.c<b.a.p0.a.h2.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9417e;
+        public final /* synthetic */ CallbackHandler f10002e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9418f;
+        public final /* synthetic */ String f10003f;
 
         public b(d dVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -105,28 +105,28 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f9417e = callbackHandler;
-            this.f9418f = str;
+            this.f10002e = callbackHandler;
+            this.f10003f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: a */
-        public void onCallback(b.a.p0.a.e2.d.a aVar) {
+        public void onCallback(b.a.p0.a.h2.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                b.a.p0.a.e0.d.g("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                if (!aVar.F()) {
-                    b.a.p0.a.e2.c.d.m(aVar, this.f9417e, this.f9418f);
+                b.a.p0.a.e0.d.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
+                if (!aVar.E()) {
+                    b.a.p0.a.h2.c.d.n(aVar, this.f10002e, this.f10003f);
                 } else {
-                    this.f9417e.handleSchemeDispatchCallback(this.f9418f, UnitedSchemeUtility.wrapCallbackParams(aVar.f4981g, 0).toString());
+                    this.f10002e.handleSchemeDispatchCallback(this.f10003f, UnitedSchemeUtility.wrapCallbackParams(aVar.f6459g, 0).toString());
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(b.a.p0.a.c2.e eVar) {
+    public d(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/getRealNameInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -146,8 +146,8 @@ public class d extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
@@ -168,8 +168,8 @@ public class d extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                boolean i2 = b.a.p0.a.e2.c.d.i(optParamsAsJo);
-                eVar.S().h(context, "ppcert", i2, new a(this, callbackHandler, optString, context, i2));
+                boolean j = b.a.p0.a.h2.c.d.j(optParamsAsJo);
+                eVar.d0().h(context, "ppcert", j, new a(this, callbackHandler, optString, context, j));
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
@@ -180,7 +180,7 @@ public class d extends a0 {
     public final void k(Activity activity, boolean z, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, Boolean.valueOf(z), callbackHandler, str}) == null) {
-            b.a.p0.a.e2.d.a.C(activity, "ppcert", null, z, "GetRealNameInfo", new b(this, callbackHandler, str));
+            b.a.p0.a.h2.d.a.B(activity, "ppcert", null, z, "GetRealNameInfo", new b(this, callbackHandler, str));
         }
     }
 }

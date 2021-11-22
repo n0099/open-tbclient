@@ -20,20 +20,20 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f65145d;
+    public static final Pattern f66058d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f65146e;
+    public static final Pattern f66059e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65147a;
+    public final String f66060a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f65148b;
+    public final long f66061b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f65149c;
+    public final boolean f66062c;
 
     static {
         InterceptResult invokeClinit;
@@ -48,8 +48,8 @@ public class d {
                 return;
             }
         }
-        f65145d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
-        f65146e = Pattern.compile("GET /(.*) HTTP");
+        f66058d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
+        f66059e = Pattern.compile("GET /(.*) HTTP");
     }
 
     public d(String str) {
@@ -69,16 +69,16 @@ public class d {
         }
         j.a(str);
         long a2 = a(str);
-        this.f65148b = Math.max(0L, a2);
-        this.f65149c = a2 >= 0;
-        this.f65147a = b(str);
+        this.f66061b = Math.max(0L, a2);
+        this.f66062c = a2 >= 0;
+        this.f66060a = b(str);
     }
 
     private long a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            Matcher matcher = f65145d.matcher(str);
+            Matcher matcher = f66058d.matcher(str);
             if (matcher.find()) {
                 return Long.parseLong(matcher.group(1));
             }
@@ -109,7 +109,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-            Matcher matcher = f65146e.matcher(str);
+            Matcher matcher = f66059e.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }
@@ -122,7 +122,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GetRequest{rangeOffset=" + this.f65148b + ", partial=" + this.f65149c + ", uri='" + this.f65147a + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "GetRequest{rangeOffset=" + this.f66061b + ", partial=" + this.f66062c + ", uri='" + this.f66060a + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

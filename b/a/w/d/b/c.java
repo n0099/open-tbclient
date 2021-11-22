@@ -7,9 +7,9 @@ import androidx.fragment.app.FragmentActivity;
 public interface c extends a, d {
     void a(String str);
 
-    void b();
+    void f();
 
-    View d(FragmentActivity fragmentActivity, Fragment fragment, String str);
+    View i(FragmentActivity fragmentActivity, Fragment fragment, String str);
 
     void onUserVisibleHint(boolean z);
 }

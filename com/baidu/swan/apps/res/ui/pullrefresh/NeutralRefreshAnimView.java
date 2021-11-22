@@ -15,8 +15,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.n0;
-import b.a.p0.a.v2.q;
+import b.a.p0.a.z2.n0;
+import b.a.p0.a.z2.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -36,19 +36,19 @@ public class NeutralRefreshAnimView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f44036e;
+    public float f44834e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44037f;
+    public int f44835f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44038g;
+    public int f44836g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f44039h;
+    public Bitmap f44837h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Canvas f44040i;
+    public Canvas f44838i;
     public Paint j;
     public Paint k;
     public PointF l;
@@ -69,13 +69,13 @@ public class NeutralRefreshAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f44041e;
+        public final /* synthetic */ int f44839e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f44042f;
+        public final /* synthetic */ int f44840f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ NeutralRefreshAnimView f44043g;
+        public final /* synthetic */ NeutralRefreshAnimView f44841g;
 
         public a(NeutralRefreshAnimView neutralRefreshAnimView, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -92,17 +92,17 @@ public class NeutralRefreshAnimView extends View {
                     return;
                 }
             }
-            this.f44043g = neutralRefreshAnimView;
-            this.f44041e = i2;
-            this.f44042f = i3;
+            this.f44841g = neutralRefreshAnimView;
+            this.f44839e = i2;
+            this.f44840f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44043g.f44039h = Bitmap.createBitmap(this.f44041e, this.f44042f, Bitmap.Config.ARGB_8888);
-                this.f44043g.f44040i = new Canvas(this.f44043g.f44039h);
+                this.f44841g.f44837h = Bitmap.createBitmap(this.f44839e, this.f44840f, Bitmap.Config.ARGB_8888);
+                this.f44841g.f44838i = new Canvas(this.f44841g.f44837h);
             }
         }
     }
@@ -113,7 +113,7 @@ public class NeutralRefreshAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NeutralRefreshAnimView f44044e;
+        public final /* synthetic */ NeutralRefreshAnimView f44842e;
 
         public b(NeutralRefreshAnimView neutralRefreshAnimView) {
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class NeutralRefreshAnimView extends View {
                     return;
                 }
             }
-            this.f44044e = neutralRefreshAnimView;
+            this.f44842e = neutralRefreshAnimView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -138,11 +138,11 @@ public class NeutralRefreshAnimView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                this.f44044e.q = NeutralRefreshAnimView.A * floatValue;
+                this.f44842e.q = NeutralRefreshAnimView.A * floatValue;
                 if (NeutralRefreshAnimView.w) {
-                    String str = "mRightBallXPosi=" + this.f44044e.q + ",anim value=" + floatValue;
+                    String str = "mRightBallXPosi=" + this.f44842e.q + ",anim value=" + floatValue;
                 }
-                this.f44044e.postInvalidate();
+                this.f44842e.postInvalidate();
             }
         }
     }
@@ -153,7 +153,7 @@ public class NeutralRefreshAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NeutralRefreshAnimView f44045e;
+        public final /* synthetic */ NeutralRefreshAnimView f44843e;
 
         public c(NeutralRefreshAnimView neutralRefreshAnimView) {
             Interceptable interceptable = $ic;
@@ -170,7 +170,7 @@ public class NeutralRefreshAnimView extends View {
                     return;
                 }
             }
-            this.f44045e = neutralRefreshAnimView;
+            this.f44843e = neutralRefreshAnimView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -178,11 +178,11 @@ public class NeutralRefreshAnimView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                this.f44045e.r = NeutralRefreshAnimView.A * floatValue;
+                this.f44843e.r = NeutralRefreshAnimView.A * floatValue;
                 if (NeutralRefreshAnimView.w) {
-                    String str = "mLeftBallXPosi=" + this.f44045e.r + ",anim value=" + floatValue;
+                    String str = "mLeftBallXPosi=" + this.f44843e.r + ",anim value=" + floatValue;
                 }
-                this.f44045e.postInvalidate();
+                this.f44843e.postInvalidate();
             }
         }
     }
@@ -193,7 +193,7 @@ public class NeutralRefreshAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NeutralRefreshAnimView f44046e;
+        public final /* synthetic */ NeutralRefreshAnimView f44844e;
 
         public d(NeutralRefreshAnimView neutralRefreshAnimView) {
             Interceptable interceptable = $ic;
@@ -210,7 +210,7 @@ public class NeutralRefreshAnimView extends View {
                     return;
                 }
             }
-            this.f44046e = neutralRefreshAnimView;
+            this.f44844e = neutralRefreshAnimView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -224,8 +224,8 @@ public class NeutralRefreshAnimView extends View {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f44046e.n(4);
-                this.f44046e.postInvalidate();
+                this.f44844e.n(4);
+                this.f44844e.postInvalidate();
             }
         }
 
@@ -250,7 +250,7 @@ public class NeutralRefreshAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NeutralRefreshAnimView f44047e;
+        public final /* synthetic */ NeutralRefreshAnimView f44845e;
 
         public e(NeutralRefreshAnimView neutralRefreshAnimView) {
             Interceptable interceptable = $ic;
@@ -267,18 +267,18 @@ public class NeutralRefreshAnimView extends View {
                     return;
                 }
             }
-            this.f44047e = neutralRefreshAnimView;
+            this.f44845e = neutralRefreshAnimView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f44047e.u = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                this.f44845e.u = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 if (NeutralRefreshAnimView.w) {
-                    String str = "Complete anim: mAlpha=" + this.f44047e.u;
+                    String str = "Complete anim: mAlpha=" + this.f44845e.u;
                 }
-                this.f44047e.postInvalidate();
+                this.f44845e.postInvalidate();
             }
         }
     }
@@ -289,7 +289,7 @@ public class NeutralRefreshAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NeutralRefreshAnimView f44048e;
+        public final /* synthetic */ NeutralRefreshAnimView f44846e;
 
         public f(NeutralRefreshAnimView neutralRefreshAnimView) {
             Interceptable interceptable = $ic;
@@ -306,18 +306,18 @@ public class NeutralRefreshAnimView extends View {
                     return;
                 }
             }
-            this.f44048e = neutralRefreshAnimView;
+            this.f44846e = neutralRefreshAnimView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f44048e.v = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                this.f44846e.v = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 if (NeutralRefreshAnimView.w) {
-                    String str = "Complete anim: mAlpha=" + this.f44048e.u;
+                    String str = "Complete anim: mAlpha=" + this.f44846e.u;
                 }
-                this.f44048e.postInvalidate();
+                this.f44846e.postInvalidate();
             }
         }
     }
@@ -335,7 +335,7 @@ public class NeutralRefreshAnimView extends View {
                 return;
             }
         }
-        w = k.f6397a;
+        w = k.f6863a;
         x = n0.g(3.5f);
         y = Color.parseColor("#000000");
         int g2 = n0.g(18.0f);
@@ -414,10 +414,10 @@ public class NeutralRefreshAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f44037f = getMeasuredWidth();
+            this.f44835f = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            this.f44038g = measuredHeight;
-            this.l.set(this.f44037f >> 1, measuredHeight >> 1);
+            this.f44836g = measuredHeight;
+            this.l.set(this.f44835f >> 1, measuredHeight >> 1);
         }
     }
 
@@ -448,7 +448,7 @@ public class NeutralRefreshAnimView extends View {
             if (i2 <= 0 || i3 <= 0) {
                 return;
             }
-            q.i(new a(this, i2, i3), "CreateBitmapOnSizeChanged");
+            q.j(new a(this, i2, i3), "CreateBitmapOnSizeChanged");
         }
     }
 
@@ -466,19 +466,19 @@ public class NeutralRefreshAnimView extends View {
     public final void q(Canvas canvas) {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) || (bitmap = this.f44039h) == null || this.f44040i == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) || (bitmap = this.f44837h) == null || this.f44838i == null) {
             return;
         }
         bitmap.eraseColor(0);
         this.k.setAlpha(77);
-        Canvas canvas2 = this.f44040i;
+        Canvas canvas2 = this.f44838i;
         PointF pointF = this.l;
         canvas2.drawCircle(pointF.x + this.q, pointF.y, x, this.k);
         this.j.setAlpha(26);
-        Canvas canvas3 = this.f44040i;
+        Canvas canvas3 = this.f44838i;
         PointF pointF2 = this.l;
         canvas3.drawCircle(pointF2.x + this.r, pointF2.y, x, this.j);
-        canvas.drawBitmap(this.f44039h, 0.0f, 0.0f, (Paint) null);
+        canvas.drawBitmap(this.f44837h, 0.0f, 0.0f, (Paint) null);
         boolean z2 = w;
     }
 
@@ -486,25 +486,25 @@ public class NeutralRefreshAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             boolean z2 = w;
-            Bitmap bitmap = this.f44039h;
-            if (bitmap == null || this.f44040i == null) {
+            Bitmap bitmap = this.f44837h;
+            if (bitmap == null || this.f44838i == null) {
                 return;
             }
             bitmap.eraseColor(0);
-            float f2 = this.f44036e;
+            float f2 = this.f44834e;
             if (f2 == 0.0f) {
                 this.k.setAlpha(0);
-                Canvas canvas2 = this.f44040i;
+                Canvas canvas2 = this.f44838i;
                 PointF pointF = this.l;
                 canvas2.drawCircle(pointF.x, pointF.y, x, this.k);
-                canvas.drawBitmap(this.f44039h, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(this.f44837h, 0.0f, 0.0f, (Paint) null);
             } else if (f2 <= 0.5f) {
                 int i2 = (int) (f2 * 77.0f);
                 this.k.setAlpha(i2);
-                Canvas canvas3 = this.f44040i;
+                Canvas canvas3 = this.f44838i;
                 PointF pointF2 = this.l;
                 canvas3.drawCircle(pointF2.x, pointF2.y, x, this.k);
-                canvas.drawBitmap(this.f44039h, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(this.f44837h, 0.0f, 0.0f, (Paint) null);
                 if (w) {
                     String str = "first level,alpha=" + i2;
                 }
@@ -512,32 +512,32 @@ public class NeutralRefreshAnimView extends View {
                 if (f2 == 1.0f) {
                     this.j.setAlpha(26);
                     this.k.setAlpha(77);
-                    Canvas canvas4 = this.f44040i;
+                    Canvas canvas4 = this.f44838i;
                     PointF pointF3 = this.l;
                     canvas4.drawCircle(pointF3.x + A, pointF3.y, x, this.k);
-                    Canvas canvas5 = this.f44040i;
+                    Canvas canvas5 = this.f44838i;
                     PointF pointF4 = this.l;
                     canvas5.drawCircle(pointF4.x - A, pointF4.y, x, this.j);
-                    canvas.drawBitmap(this.f44039h, 0.0f, 0.0f, (Paint) null);
+                    canvas.drawBitmap(this.f44837h, 0.0f, 0.0f, (Paint) null);
                     if (w) {
-                        String str2 = "third level,mAnimPercent=" + this.f44036e;
+                        String str2 = "third level,mAnimPercent=" + this.f44834e;
                     }
                 }
             } else {
                 int o = o((int) (f2 * 77.0f));
                 this.k.setAlpha(o);
-                float f3 = (this.f44036e - 0.5f) * 2.0f;
+                float f3 = (this.f44834e - 0.5f) * 2.0f;
                 int o2 = o((int) (26.0f * f3));
                 this.j.setAlpha(o2);
-                Canvas canvas6 = this.f44040i;
+                Canvas canvas6 = this.f44838i;
                 PointF pointF5 = this.l;
                 canvas6.drawCircle(pointF5.x + (A * f3), pointF5.y, x, this.k);
-                Canvas canvas7 = this.f44040i;
+                Canvas canvas7 = this.f44838i;
                 PointF pointF6 = this.l;
                 canvas7.drawCircle(pointF6.x - (A * f3), pointF6.y, x, this.j);
-                canvas.drawBitmap(this.f44039h, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(this.f44837h, 0.0f, 0.0f, (Paint) null);
                 if (w) {
-                    String str3 = "second level,mAnimPercent=" + this.f44036e;
+                    String str3 = "second level,mAnimPercent=" + this.f44834e;
                     String str4 = "second level,rightBallAlpha=" + o;
                     String str5 = "second level,leftBallAlpha=" + o2;
                     String str6 = "second level,fraction=" + f3;
@@ -577,7 +577,7 @@ public class NeutralRefreshAnimView extends View {
             if (f2 > 1.0f) {
                 f2 = 1.0f;
             }
-            this.f44036e = f2;
+            this.f44834e = f2;
             n(1);
             postInvalidate();
             if (w) {
@@ -616,8 +616,8 @@ public class NeutralRefreshAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, canvas) == null) {
             boolean z2 = w;
-            Bitmap bitmap = this.f44039h;
-            if (bitmap == null || this.f44040i == null) {
+            Bitmap bitmap = this.f44837h;
+            if (bitmap == null || this.f44838i == null) {
                 return;
             }
             bitmap.eraseColor(0);
@@ -626,14 +626,14 @@ public class NeutralRefreshAnimView extends View {
             this.v = o;
             this.k.setAlpha(o);
             this.j.setAlpha(this.u);
-            Canvas canvas2 = this.f44040i;
+            Canvas canvas2 = this.f44838i;
             PointF pointF = this.l;
             canvas2.drawCircle(pointF.x + this.q, pointF.y, x, this.k);
             this.j.setAlpha(this.u);
-            Canvas canvas3 = this.f44040i;
+            Canvas canvas3 = this.f44838i;
             PointF pointF2 = this.l;
             canvas3.drawCircle(pointF2.x + this.r, pointF2.y, x, this.j);
-            canvas.drawBitmap(this.f44039h, 0.0f, 0.0f, (Paint) null);
+            canvas.drawBitmap(this.f44837h, 0.0f, 0.0f, (Paint) null);
             if (w) {
                 String str = "Complete:mAlpha=" + this.u;
                 String str2 = "Complete:mRightBallXPosi=" + this.q;

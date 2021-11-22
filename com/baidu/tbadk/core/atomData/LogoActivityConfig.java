@@ -37,7 +37,7 @@ public class LogoActivityConfig extends IntentConfig {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LogoActivityConfig(Context context, Intent intent) {
-        super(context);
+        super(context, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,8 @@ public class LogoActivityConfig extends IntentConfig {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -68,7 +69,7 @@ public class LogoActivityConfig extends IntentConfig {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LogoActivityConfig(Context context, boolean z) {
-        super(context);
+        super(context, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +79,8 @@ public class LogoActivityConfig extends IntentConfig {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

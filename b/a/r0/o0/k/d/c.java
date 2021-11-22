@@ -2,7 +2,7 @@ package b.a.r0.o0.k.d;
 
 import android.view.View;
 import android.widget.TextView;
-import b.a.r0.b0.c0;
+import b.a.r0.b0.d0;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -78,7 +78,7 @@ public class c extends b.a.r0.b0.b<b.a.r0.o0.k.c.d> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        c0<b.a.r0.o0.k.c.d> f2;
+        d0<b.a.r0.o0.k.c.d> f2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || view != this.q || (f2 = f()) == null || this.r.o() >= this.r.i().size()) {
             return;

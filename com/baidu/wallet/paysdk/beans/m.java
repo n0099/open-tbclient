@@ -22,7 +22,7 @@ public class m extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f59598a;
+    public BindFastRequest f60520a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> m(Context context) {
@@ -42,13 +42,13 @@ public class m extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
                 return;
             }
         }
-        this.f59598a = null;
+        this.f60520a = null;
     }
 
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) {
-            this.f59598a = bindFastRequest;
+            this.f60520a = bindFastRequest;
         }
     }
 
@@ -65,10 +65,10 @@ public class m extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f59598a != null) {
+            if (this.f60520a != null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f59598a.getmBankCard())));
-                arrayList.add(new RestNameValuePair("account_bank_code", this.f59598a.getSubBankCode()));
+                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f60520a.getmBankCard())));
+                arrayList.add(new RestNameValuePair("account_bank_code", this.f60520a.getSubBankCode()));
                 arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
                 return arrayList;
             }
@@ -81,7 +81,10 @@ public class m extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_SENDSMS : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 522;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean

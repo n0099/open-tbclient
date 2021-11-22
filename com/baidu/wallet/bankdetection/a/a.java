@@ -26,13 +26,13 @@ public class a extends BaseBean<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f57289a;
+    public String f58211a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f57290b;
+    public byte[] f58212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f57291c;
+    public byte[] f58213c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, String str, byte[] bArr, byte[] bArr2) {
@@ -52,9 +52,9 @@ public class a extends BaseBean<String> {
                 return;
             }
         }
-        this.f57289a = str;
-        this.f57290b = bArr;
-        this.f57291c = bArr2;
+        this.f58211a = str;
+        this.f58212b = bArr;
+        this.f58213c = bArr2;
     }
 
     private String a(byte[] bArr, String str) {
@@ -87,14 +87,14 @@ public class a extends BaseBean<String> {
             ArrayList arrayList = new ArrayList();
             String a2 = a(516);
             arrayList.add(new RestNameValuePair("ik", SecurePay.getInstance().encryptProxy(a2)));
-            if (!TextUtils.isEmpty(this.f57289a)) {
-                arrayList.add(new RestNameValuePair(AdvanceSetting.CLEAR_NOTIFICATION, SecurePay.getInstance().encryptProxy(this.f57289a)));
+            if (!TextUtils.isEmpty(this.f58211a)) {
+                arrayList.add(new RestNameValuePair(AdvanceSetting.CLEAR_NOTIFICATION, SecurePay.getInstance().encryptProxy(this.f58211a)));
             }
-            byte[] bArr = this.f57290b;
+            byte[] bArr = this.f58212b;
             if (bArr != null && bArr.length > 0) {
                 arrayList.add(new RestNameValuePair("cni", a(bArr, a2)));
             }
-            byte[] bArr2 = this.f57291c;
+            byte[] bArr2 = this.f58213c;
             if (bArr2 != null && bArr2.length > 0) {
                 arrayList.add(new RestNameValuePair("ci", a(bArr2, a2)));
             }

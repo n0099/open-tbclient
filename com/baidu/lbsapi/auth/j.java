@@ -12,22 +12,22 @@ public class j implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f38590a;
+    public final /* synthetic */ int f39422a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f38591b;
+    public final /* synthetic */ boolean f39423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f38592c;
+    public final /* synthetic */ String f39424c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f38593d;
+    public final /* synthetic */ String f39425d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Hashtable f38594e;
+    public final /* synthetic */ Hashtable f39426e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f38595f;
+    public final /* synthetic */ LBSAuthManager f39427f;
 
     public j(LBSAuthManager lBSAuthManager, int i2, boolean z, String str, String str2, Hashtable hashtable) {
         Interceptable interceptable = $ic;
@@ -44,12 +44,12 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f38595f = lBSAuthManager;
-        this.f38590a = i2;
-        this.f38591b = z;
-        this.f38592c = str;
-        this.f38593d = str2;
-        this.f38594e = hashtable;
+        this.f39427f = lBSAuthManager;
+        this.f39422a = i2;
+        this.f39423b = z;
+        this.f39424c = str;
+        this.f39425d = str2;
+        this.f39426e = hashtable;
     }
 
     @Override // java.lang.Runnable
@@ -63,41 +63,41 @@ public class j implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("status = ");
-            sb.append(this.f38590a);
+            sb.append(this.f39422a);
             sb.append("; forced = ");
-            sb.append(this.f38591b);
+            sb.append(this.f39423b);
             sb.append("checkAK = ");
-            b2 = this.f38595f.b(this.f38592c);
+            b2 = this.f39427f.b(this.f39424c);
             sb.append(b2);
             a.a(sb.toString());
-            int i2 = this.f38590a;
-            if (i2 != 601 && !this.f38591b && i2 != -1) {
-                b3 = this.f38595f.b(this.f38592c);
+            int i2 = this.f39422a;
+            if (i2 != 601 && !this.f39423b && i2 != -1) {
+                b3 = this.f39427f.b(this.f39424c);
                 if (!b3) {
-                    if (602 == this.f38590a) {
+                    if (602 == this.f39422a) {
                         a.a("authenticate wait ");
-                        mVar = LBSAuthManager.f38566d;
+                        mVar = LBSAuthManager.f39398d;
                         if (mVar != null) {
-                            mVar2 = LBSAuthManager.f38566d;
+                            mVar2 = LBSAuthManager.f39398d;
                             mVar2.b();
                         }
                     } else {
                         a.a("authenticate else");
                     }
-                    this.f38595f.a((String) null, this.f38592c);
+                    this.f39427f.a((String) null, this.f39424c);
                     return;
                 }
             }
             a.a("authenticate sendAuthRequest");
-            context = LBSAuthManager.f38565a;
+            context = LBSAuthManager.f39397a;
             String[] b4 = b.b(context);
             a.a("authStrings.length:" + b4.length);
             if (b4 == null || b4.length <= 1) {
-                this.f38595f.a(this.f38591b, this.f38593d, this.f38594e, this.f38592c);
+                this.f39427f.a(this.f39423b, this.f39425d, this.f39426e, this.f39424c);
                 return;
             }
             a.a("more sha1 auth");
-            this.f38595f.a(this.f38591b, this.f38593d, this.f38594e, b4, this.f38592c);
+            this.f39427f.a(this.f39423b, this.f39425d, this.f39426e, b4, this.f39424c);
         }
     }
 }

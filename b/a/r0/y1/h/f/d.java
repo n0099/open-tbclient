@@ -59,7 +59,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            Matcher matcher = Pattern.compile(TbFaceManager.f45946d).matcher(str);
+            Matcher matcher = Pattern.compile(TbFaceManager.f46796d).matcher(str);
             while (matcher.find()) {
                 if (TbFaceManager.e().g(matcher.group()) <= 0) {
                     return false;

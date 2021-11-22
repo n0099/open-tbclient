@@ -15,30 +15,30 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f67465a;
+    public static c f68378a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f67466b;
+    public static BroadcastReceiver f68379b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static AtomicBoolean f67467c = new AtomicBoolean(false);
+    public static AtomicBoolean f68380c = new AtomicBoolean(false);
 
     public static b a(Context context) {
         return new b.a().a(context).a();
     }
 
     public static c a(Context context, com.meizu.cloud.pushsdk.b.c.a aVar, f fVar) {
-        if (f67465a == null) {
+        if (f68378a == null) {
             synchronized (a.class) {
-                if (f67465a == null) {
-                    f67465a = a(b(context, aVar, fVar), (b) null, context);
+                if (f68378a == null) {
+                    f68378a = a(b(context, aVar, fVar), (b) null, context);
                 }
-                if (f67467c.compareAndSet(false, true)) {
-                    a(context, f67465a);
+                if (f68380c.compareAndSet(false, true)) {
+                    a(context, f68378a);
                 }
             }
         }
-        return f67465a;
+        return f68378a;
     }
 
     public static c a(Context context, f fVar) {
@@ -46,18 +46,18 @@ public class a {
     }
 
     public static c a(Context context, boolean z) {
-        if (f67465a == null) {
+        if (f68378a == null) {
             synchronized (a.class) {
-                if (f67465a == null) {
-                    f67465a = a(b(context, null, null), (b) null, context);
+                if (f68378a == null) {
+                    f68378a = a(b(context, null, null), (b) null, context);
                 }
             }
         }
-        b.l.a.a.a.d("PushAndroidTracker", "can upload subject " + z);
+        b.j.a.a.a.d("PushAndroidTracker", "can upload subject " + z);
         if (z) {
-            f67465a.a(a(context));
+            f68378a.a(a(context));
         }
-        return f67465a;
+        return f68378a;
     }
 
     public static c a(com.meizu.cloud.pushsdk.c.b.c cVar, b bVar, Context context) {
@@ -68,7 +68,7 @@ public class a {
         if (MzSystemUtils.isInternational() || MzSystemUtils.isIndiaLocal()) {
             return "push-statics.in.meizu.com";
         }
-        b.l.a.a.a.b("QuickTracker", "current statics domain is push-statics.meizu.com");
+        b.j.a.a.a.b("QuickTracker", "current statics domain is push-statics.meizu.com");
         return "push-statics.meizu.com";
     }
 
@@ -83,7 +83,7 @@ public class a {
                 }
             }
         };
-        f67466b = broadcastReceiver;
+        f68379b = broadcastReceiver;
         context.registerReceiver(broadcastReceiver, intentFilter);
     }
 

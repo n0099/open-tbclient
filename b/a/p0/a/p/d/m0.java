@@ -3,15 +3,7 @@ package b.a.p0.a.p.d;
 public interface m0 {
     void a();
 
-    void b(int i2);
+    void b();
 
-    void e(String str, String str2);
-
-    void e(String str, String str2, Throwable th);
-
-    void flush(boolean z);
-
-    void i(String str, String str2);
-
-    void w(String str, String str2);
+    void c();
 }

@@ -7,29 +7,36 @@ import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface a0 {
+    @Nullable
     String A();
 
-    long B();
+    String B();
 
-    HttpRequest C(Context context, Map<String, String> map);
+    String C();
 
     String D();
 
-    String E();
+    long E();
 
-    String F();
+    HttpRequest F(Context context, Map<String, String> map);
 
-    boolean G();
+    String G();
 
     String H();
 
     String I();
 
-    HttpRequest J(Context context, Map<String, String> map);
+    boolean J();
 
-    boolean K();
+    String K();
 
     String L();
+
+    HttpRequest M(Context context, Map<String, String> map);
+
+    boolean N();
+
+    String O();
 
     HttpRequest a(Context context, Map<String, String> map);
 
@@ -65,24 +72,23 @@ public interface a0 {
 
     String p();
 
-    int q();
+    String q();
 
-    HttpRequest r(Context context, Map<String, String> map);
+    int r();
 
     HttpRequest s(Context context, Map<String, String> map);
 
     String t();
 
-    String u();
+    HttpRequest u(Context context, Map<String, String> map);
 
-    void v(Message message, b.a.p0.a.i1.c.a aVar);
+    String v();
 
     String w();
 
-    String x(Context context);
+    void x(Message message, b.a.p0.a.j1.c.a aVar);
 
-    @Nullable
     String y();
 
-    String z();
+    String z(Context context);
 }

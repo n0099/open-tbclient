@@ -33,11 +33,11 @@ public class a extends m {
                 return;
             }
         }
-        this.f14211d = R.drawable.icon_pure_post_expression24;
-        this.f14212e = R.drawable.icon_pure_post_expression24_selection;
-        this.f14213f = R.drawable.icon_pure_post_expression64_big;
-        this.f14214g = false;
-        this.f14215h = true;
+        this.f14978d = R.drawable.icon_pure_post_expression24;
+        this.f14979e = R.drawable.icon_pure_post_expression24_selection;
+        this.f14980f = R.drawable.icon_pure_post_expression64_big;
+        this.f14981g = false;
+        this.f14982h = true;
         EmotionTabHost emotionTabHost = new EmotionTabHost(context);
         emotionTabHost.setShowBigEmotion(z);
         this.k = emotionTabHost;
@@ -73,11 +73,11 @@ public class a extends m {
                 return;
             }
         }
-        this.f14211d = R.drawable.icon_pure_post_expression24;
-        this.f14212e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f14213f = R.drawable.icon_pure_post_expression64_big;
-        this.f14214g = false;
-        this.f14215h = true;
+        this.f14978d = R.drawable.icon_pure_post_expression24;
+        this.f14979e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f14980f = R.drawable.icon_pure_post_expression64_big;
+        this.f14981g = false;
+        this.f14982h = true;
         this.k = new EmotionTabHost(context);
         this.m = true;
         this.l = 6;

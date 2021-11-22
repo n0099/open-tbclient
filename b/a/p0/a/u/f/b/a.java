@@ -14,7 +14,7 @@ public abstract class a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BasePendingOperation> f8407a;
+    public List<BasePendingOperation> f8939a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,20 +29,20 @@ public abstract class a implements b {
                 return;
             }
         }
-        this.f8407a = new ArrayList();
+        this.f8939a = new ArrayList();
     }
 
     public void b(BasePendingOperation basePendingOperation) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
-            this.f8407a.add(basePendingOperation);
+            this.f8939a.add(basePendingOperation);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f8407a.clear();
+            this.f8939a.clear();
         }
     }
 }

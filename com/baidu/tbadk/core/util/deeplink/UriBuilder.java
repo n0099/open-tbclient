@@ -1,0 +1,407 @@
+package com.baidu.tbadk.core.util.deeplink;
+
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.Set;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class UriBuilder {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int FROM_DEFAULT = 0;
+    public static final String PARAMS = "params";
+    public static final String TAG = "SchemeBuilder";
+    public transient /* synthetic */ FieldHolder $fh;
+    public int mEnterAnim;
+    public int mExitAnim;
+    public Bundle mExtra;
+    public int mFlags;
+    public boolean mFromWebView;
+    public String mHost;
+    public boolean mIsValidated;
+    public Bundle mParams;
+    public String mPath;
+    public int mRequestCode;
+    public String mScheme;
+    public int mSchemeFrom;
+    public Object mTransObj;
+    public Uri mUri;
+    public Object mUriTransObj;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(539861635, "Lcom/baidu/tbadk/core/util/deeplink/UriBuilder;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(539861635, "Lcom/baidu/tbadk/core/util/deeplink/UriBuilder;");
+        }
+    }
+
+    public UriBuilder(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mRequestCode = -1;
+        this.mFlags = -1;
+        this.mEnterAnim = -1;
+        this.mExitAnim = -1;
+        this.mFromWebView = false;
+        this.mIsValidated = false;
+        this.mSchemeFrom = FROM_DEFAULT;
+        uri(uri);
+    }
+
+    private boolean parseUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            try {
+                this.mScheme = this.mUri.getScheme();
+                this.mHost = this.mUri.getHost();
+                String path = this.mUri.getPath();
+                this.mPath = path;
+                if (!TextUtils.isEmpty(path) && this.mPath.endsWith("/")) {
+                    this.mPath = this.mPath.substring(0, this.mPath.length() - 1);
+                }
+                Set<String> queryParameterNames = this.mUri.getQueryParameterNames();
+                if (queryParameterNames == null || queryParameterNames.isEmpty()) {
+                    return true;
+                }
+                if (this.mExtra == null) {
+                    this.mExtra = new Bundle();
+                }
+                if (this.mParams == null) {
+                    this.mParams = new Bundle();
+                }
+                for (String str : queryParameterNames) {
+                    String queryParameter = this.mUri.getQueryParameter(str);
+                    this.mExtra.putString(str, queryParameter);
+                    if (TextUtils.equals(str, "params") && !TextUtils.isEmpty(queryParameter)) {
+                        try {
+                            JSONObject jSONObject = new JSONObject(queryParameter);
+                            Iterator<String> keys = jSONObject.keys();
+                            while (keys.hasNext()) {
+                                String next = keys.next();
+                                String optString = jSONObject.optString(next, "");
+                                this.mExtra.putString(next, optString);
+                                this.mParams.putString(next, optString);
+                            }
+                        } catch (Exception e2) {
+                            if (BdLog.isDebugMode()) {
+                                BdLog.e("builder parseUri e = " + e2.toString());
+                            }
+                        }
+                    }
+                }
+                return true;
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    BdLog.e("builder parseUri te = " + th.toString());
+                }
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public UriBuilder extra(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = this.mExtra;
+            if (bundle2 == null) {
+                this.mExtra = bundle;
+            } else if (bundle != null) {
+                bundle2.putAll(bundle);
+            }
+            return this;
+        }
+        return (UriBuilder) invokeL.objValue;
+    }
+
+    public UriBuilder flags(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            this.mFlags = i2;
+            return this;
+        }
+        return (UriBuilder) invokeI.objValue;
+    }
+
+    public UriBuilder fromWebView(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.mFromWebView = z;
+            return this;
+        }
+        return (UriBuilder) invokeZ.objValue;
+    }
+
+    public int getEnterAnim() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mEnterAnim : invokeV.intValue;
+    }
+
+    public int getExitAnim() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mExitAnim : invokeV.intValue;
+    }
+
+    public Bundle getExtra() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.mExtra == null) {
+                this.mExtra = new Bundle();
+            }
+            return this.mExtra;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public String getExtraValue(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            Bundle bundle = this.mExtra;
+            return bundle == null ? str2 : bundle.getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public int getFlags() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mFlags : invokeV.intValue;
+    }
+
+    public String getHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mHost : (String) invokeV.objValue;
+    }
+
+    public Bundle getParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mParams : (Bundle) invokeV.objValue;
+    }
+
+    public String getPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mPath : (String) invokeV.objValue;
+    }
+
+    public int getRequestCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRequestCode : invokeV.intValue;
+    }
+
+    public String getScheme() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mScheme : (String) invokeV.objValue;
+    }
+
+    public int getSchemeFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mSchemeFrom : invokeV.intValue;
+    }
+
+    public Object getTransObj() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mTransObj : invokeV.objValue;
+    }
+
+    public Uri getUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mUri : (Uri) invokeV.objValue;
+    }
+
+    public Object getUriTransObj() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mUriTransObj : invokeV.objValue;
+    }
+
+    public boolean isFromWebView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mFromWebView : invokeV.booleanValue;
+    }
+
+    public boolean isValidated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mIsValidated : invokeV.booleanValue;
+    }
+
+    public UriBuilder requestCode(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
+            this.mRequestCode = i2;
+            return this;
+        }
+        return (UriBuilder) invokeI.objValue;
+    }
+
+    public UriBuilder schemeFrom(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
+            this.mSchemeFrom = i2;
+            return this;
+        }
+        return (UriBuilder) invokeI.objValue;
+    }
+
+    public void setTransObj(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, obj) == null) {
+            this.mTransObj = obj;
+        }
+    }
+
+    public UriBuilder transitionAnim(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048599, this, i2, i3)) == null) {
+            this.mEnterAnim = i2;
+            this.mExitAnim = i3;
+            return this;
+        }
+        return (UriBuilder) invokeII.objValue;
+    }
+
+    public UriBuilder uri(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+            Uri uri = null;
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    uri = Uri.parse(str);
+                }
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    BdLog.e("builder uri e = " + th.toString());
+                }
+            }
+            return uri(uri);
+        }
+        return (UriBuilder) invokeL.objValue;
+    }
+
+    public String getExtraValue(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? getExtraValue(str, null) : (String) invokeL.objValue;
+    }
+
+    public UriBuilder uri(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, uri)) == null) {
+            this.mUri = uri;
+            if (uri != null) {
+                if (BdLog.isDebugMode()) {
+                    BdLog.i("builder uri = " + uri);
+                }
+                this.mIsValidated = parseUri();
+            } else if (BdLog.isDebugMode()) {
+                BdLog.i("builder uri = null");
+            }
+            return this;
+        }
+        return (UriBuilder) invokeL.objValue;
+    }
+
+    public UriBuilder(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mRequestCode = -1;
+        this.mFlags = -1;
+        this.mEnterAnim = -1;
+        this.mExitAnim = -1;
+        this.mFromWebView = false;
+        this.mIsValidated = false;
+        this.mSchemeFrom = FROM_DEFAULT;
+        uri(str);
+    }
+
+    public UriBuilder(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, obj};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mRequestCode = -1;
+        this.mFlags = -1;
+        this.mEnterAnim = -1;
+        this.mExitAnim = -1;
+        this.mFromWebView = false;
+        this.mIsValidated = false;
+        this.mSchemeFrom = FROM_DEFAULT;
+        this.mUriTransObj = obj;
+        uri(str);
+    }
+}

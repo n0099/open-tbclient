@@ -11,10 +11,10 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13317a;
+    public String f14097a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13318b;
+    public String f14098b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class g {
             return;
         }
         jSONObject.optInt("label_id");
-        this.f13317a = jSONObject.optString("label_name");
-        this.f13318b = jSONObject.optString("label_rgb");
+        this.f14097a = jSONObject.optString("label_name");
+        this.f14098b = jSONObject.optString("label_rgb");
     }
 }

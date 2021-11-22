@@ -16,13 +16,13 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.ss.android.downloadlib.addownload.a.c f68674a;
+    public static com.ss.android.downloadlib.addownload.a.c f69594a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static com.ss.android.downloadlib.addownload.a.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f68674a : (com.ss.android.downloadlib.addownload.a.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f69594a : (com.ss.android.downloadlib.addownload.a.c) invokeV.objValue;
     }
 
     public static boolean a(int i2) {
@@ -34,7 +34,7 @@ public class l {
     public static void a(com.ss.android.downloadlib.addownload.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, cVar) == null) {
-            f68674a = cVar;
+            f69594a = cVar;
         }
     }
 
@@ -64,13 +64,13 @@ public class l {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ int f68675a;
+                        public final /* synthetic */ int f69595a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ com.ss.android.downloadad.api.a.b f68676b;
+                        public final /* synthetic */ com.ss.android.downloadad.api.a.b f69596b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ com.ss.android.downloadlib.addownload.d.c f68677c;
+                        public final /* synthetic */ com.ss.android.downloadlib.addownload.d.c f69597c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -87,9 +87,9 @@ public class l {
                                     return;
                                 }
                             }
-                            this.f68675a = id;
-                            this.f68676b = bVar;
-                            this.f68677c = cVar;
+                            this.f69595a = id;
+                            this.f69596b = bVar;
+                            this.f69597c = cVar;
                         }
 
                         @Override // com.ss.android.downloadlib.addownload.a.c
@@ -97,13 +97,13 @@ public class l {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 l.a((com.ss.android.downloadlib.addownload.a.c) null);
-                                DownloadInfo downloadInfo2 = Downloader.getInstance(j.getContext()).getDownloadInfo(this.f68675a);
+                                DownloadInfo downloadInfo2 = Downloader.getInstance(j.getContext()).getDownloadInfo(this.f69595a);
                                 if (downloadInfo2 != null) {
                                     downloadInfo2.startPauseReserveOnWifi();
                                     r.a().a(downloadInfo2);
-                                    com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_confirm", this.f68676b);
+                                    com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_confirm", this.f69596b);
                                 }
-                                this.f68677c.a(this.f68676b);
+                                this.f69597c.a(this.f69596b);
                             }
                         }
 
@@ -112,12 +112,12 @@ public class l {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                                 l.a((com.ss.android.downloadlib.addownload.a.c) null);
-                                DownloadInfo downloadInfo2 = Downloader.getInstance(j.getContext()).getDownloadInfo(this.f68675a);
+                                DownloadInfo downloadInfo2 = Downloader.getInstance(j.getContext()).getDownloadInfo(this.f69595a);
                                 if (downloadInfo2 != null) {
                                     downloadInfo2.stopPauseReserveOnWifi();
                                 }
-                                com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_cancel", this.f68676b);
-                                this.f68677c.a(this.f68676b);
+                                com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_cancel", this.f69596b);
+                                this.f69597c.a(this.f69596b);
                             }
                         }
                     });

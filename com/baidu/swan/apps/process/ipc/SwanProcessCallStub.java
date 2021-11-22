@@ -7,8 +7,9 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.annotation.WorkerThread;
-import b.a.p0.a.v1.b.d;
+import b.a.p0.a.y1.b.e;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.IAsyncProcessCallback;
 import com.baidu.swan.apps.IProcessBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,15 +41,22 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
     }
 
     @Override // com.baidu.swan.apps.IProcessBridge
+    public void callMainProcessAsync(String str, int i2, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, iAsyncProcessCallback) == null) {
+        }
+    }
+
+    @Override // com.baidu.swan.apps.IProcessBridge
     @WorkerThread
     public Bundle callMainProcessSync(String str, Bundle bundle) throws RemoteException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return d.d(str, bundle);
+            return e.e(str, bundle);
         }
         return (Bundle) invokeLL.objValue;
     }
@@ -57,7 +65,7 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
     @WorkerThread
     public void send(Message message) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message == null || this.mHandler == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) || message == null || this.mHandler == null) {
             return;
         }
         message.sendingUid = Binder.getCallingUid();

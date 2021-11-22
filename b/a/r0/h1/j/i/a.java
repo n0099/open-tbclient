@@ -9,8 +9,8 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import b.a.e.a.f;
-import b.a.e.e.m.g;
-import b.a.r0.l3.n0.c;
+import b.a.e.f.m.g;
+import b.a.r0.m3.n0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,10 +23,10 @@ public class a extends WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f17570a;
+    public f f19039a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f17571b;
+    public c f19040b;
 
     public a(f fVar) {
         Interceptable interceptable = $ic;
@@ -43,13 +43,13 @@ public class a extends WebChromeClient {
                 return;
             }
         }
-        this.f17570a = fVar;
+        this.f19039a = fVar;
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f17571b = cVar;
+            this.f19040b = cVar;
         }
     }
 
@@ -58,7 +58,7 @@ public class a extends WebChromeClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f17570a.getPageActivity());
+            FrameLayout frameLayout = new FrameLayout(this.f19039a.getPageActivity());
             frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             return frameLayout;
         }
@@ -79,7 +79,7 @@ public class a extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            f fVar = this.f17570a;
+            f fVar = this.f19039a;
             if (fVar == null || !g.f(fVar)) {
                 return true;
             }
@@ -93,7 +93,7 @@ public class a extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            f fVar = this.f17570a;
+            f fVar = this.f19039a;
             if (fVar == null || !g.f(fVar)) {
                 return true;
             }
@@ -107,7 +107,7 @@ public class a extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            f fVar = this.f17570a;
+            f fVar = this.f19039a;
             if (fVar == null || !g.f(fVar)) {
                 return true;
             }
@@ -122,8 +122,8 @@ public class a extends WebChromeClient {
         f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            c cVar = this.f17571b;
-            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (fVar = this.f17570a) != null && g.f(fVar)) {
+            c cVar = this.f19040b;
+            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (fVar = this.f19039a) != null && g.f(fVar)) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
             return true;

@@ -17,14 +17,14 @@ public class b extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f24820g;
+    public static final BdUniqueId f26337g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24821e;
+    public String f26338e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24822f;
+    public String f26339f;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class b extends BaseCardInfo {
                 return;
             }
         }
-        f24820g = BdUniqueId.gen();
+        f26337g = BdUniqueId.gen();
     }
 
     public b() {
@@ -61,18 +61,18 @@ public class b extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f24821e = jSONObject.optString("url");
-        this.f24822f = jSONObject.optString("pic");
+        this.f26338e = jSONObject.optString("url");
+        this.f26339f = jSONObject.optString("pic");
         jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
         jSONObject.optLong("end_time", 0L);
         jSONObject.optString("name");
         jSONObject.optInt("id");
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f24820g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f26337g : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -30,9 +30,9 @@ public class k extends m {
                 return;
             }
         }
-        this.f14211d = R.drawable.icon_pure_post_more24_svg;
-        this.f14212e = R.drawable.icon_mask_post_more24_selection_svg;
-        this.f14214g = true;
+        this.f14978d = R.drawable.icon_pure_post_more24_svg;
+        this.f14979e = R.drawable.icon_mask_post_more24_selection_svg;
+        this.f14981g = true;
         this.n = new int[]{32};
     }
 }

@@ -106,7 +106,9 @@ public class TiffUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{inputStream, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (i2 >= 10 && StreamProcessor.readPackedInt(inputStream, 2, z) == 3 && StreamProcessor.readPackedInt(inputStream, 4, z) == 1) {
-                return StreamProcessor.readPackedInt(inputStream, 2, z);
+                int readPackedInt = StreamProcessor.readPackedInt(inputStream, 2, z);
+                StreamProcessor.readPackedInt(inputStream, 2, z);
+                return readPackedInt;
             }
             return 0;
         }

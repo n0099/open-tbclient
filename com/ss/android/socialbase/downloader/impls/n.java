@@ -25,17 +25,17 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f69569e;
+    public static final String f70489e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.downloader.i f69570f;
+    public com.ss.android.socialbase.downloader.downloader.i f70490f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.downloader.n f69571g;
+    public com.ss.android.socialbase.downloader.downloader.n f70491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f69572h;
+    public int f70492h;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
                 return;
             }
         }
-        f69569e = n.class.getSimpleName();
+        f70489e = n.class.getSimpleName();
     }
 
     public n() {
@@ -66,7 +66,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
                 return;
             }
         }
-        this.f69572h = -1;
+        this.f70492h = -1;
     }
 
     private void g() {
@@ -74,9 +74,9 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             try {
-                synchronized (this.f69247a) {
-                    clone = this.f69247a.clone();
-                    this.f69247a.clear();
+                synchronized (this.f70167a) {
+                    clone = this.f70167a.clone();
+                    this.f70167a.clear();
                 }
                 if (clone == null || clone.size() <= 0 || com.ss.android.socialbase.downloader.downloader.c.C() == null) {
                     return;
@@ -86,7 +86,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
                     if (list != null) {
                         for (DownloadTask downloadTask : list) {
                             try {
-                                this.f69570f.a(com.ss.android.socialbase.downloader.i.g.a(downloadTask));
+                                this.f70490f.a(com.ss.android.socialbase.downloader.i.g.a(downloadTask));
                             } catch (RemoteException e2) {
                                 e2.printStackTrace();
                             }
@@ -94,7 +94,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
                     }
                 }
             } catch (Throwable th) {
-                com.ss.android.socialbase.downloader.c.a.a(f69569e, "resumePendingTaskForIndependent failed", th);
+                com.ss.android.socialbase.downloader.c.a.a(f70489e, "resumePendingTaskForIndependent failed", th);
             }
         }
     }
@@ -107,7 +107,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
             if (intent != null && intent.getBooleanExtra("fix_downloader_db_sigbus", false)) {
                 com.ss.android.socialbase.downloader.g.a.a("fix_sigbus_downloader_db", true);
             }
-            com.ss.android.socialbase.downloader.c.a.b(f69569e, "onBind IndependentDownloadBinder");
+            com.ss.android.socialbase.downloader.c.a.b(f70489e, "onBind IndependentDownloadBinder");
             return new m();
         }
         return (IBinder) invokeL.objValue;
@@ -119,19 +119,19 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
         if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadTask) == null) || downloadTask == null) {
             return;
         }
-        String str = f69569e;
+        String str = f70489e;
         StringBuilder sb = new StringBuilder();
         sb.append("tryDownload aidlService == null:");
-        sb.append(this.f69570f == null);
+        sb.append(this.f70490f == null);
         com.ss.android.socialbase.downloader.c.a.b(str, sb.toString());
-        if (this.f69570f == null) {
+        if (this.f70490f == null) {
             a(downloadTask);
             startService(com.ss.android.socialbase.downloader.downloader.c.N(), this);
             return;
         }
         g();
         try {
-            this.f69570f.a(com.ss.android.socialbase.downloader.i.g.a(downloadTask));
+            this.f70490f.a(com.ss.android.socialbase.downloader.i.g.a(downloadTask));
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -154,8 +154,8 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     public void onBindingDied(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, componentName) == null) {
-            this.f69570f = null;
-            com.ss.android.socialbase.downloader.downloader.n nVar = this.f69571g;
+            this.f70490f = null;
+            com.ss.android.socialbase.downloader.downloader.n nVar = this.f70491g;
             if (nVar != null) {
                 nVar.h();
             }
@@ -166,32 +166,32 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, componentName, iBinder) == null) {
-            com.ss.android.socialbase.downloader.c.a.b(f69569e, "onServiceConnected ");
-            this.f69570f = i.a.a(iBinder);
-            com.ss.android.socialbase.downloader.downloader.n nVar = this.f69571g;
+            com.ss.android.socialbase.downloader.c.a.b(f70489e, "onServiceConnected ");
+            this.f70490f = i.a.a(iBinder);
+            com.ss.android.socialbase.downloader.downloader.n nVar = this.f70491g;
             if (nVar != null) {
                 nVar.a(iBinder);
             }
-            String str = f69569e;
+            String str = f70489e;
             StringBuilder sb = new StringBuilder();
             sb.append("onServiceConnected aidlService!=null");
-            sb.append(this.f69570f != null);
+            sb.append(this.f70490f != null);
             sb.append(" pendingTasks.size:");
-            sb.append(this.f69247a.size());
+            sb.append(this.f70167a.size());
             com.ss.android.socialbase.downloader.c.a.b(str, sb.toString());
-            if (this.f69570f != null) {
+            if (this.f70490f != null) {
                 com.ss.android.socialbase.downloader.downloader.d.a().b();
-                this.f69248b = true;
-                this.f69250d = false;
-                int i2 = this.f69572h;
+                this.f70168b = true;
+                this.f70170d = false;
+                int i2 = this.f70492h;
                 if (i2 != -1) {
                     try {
-                        this.f69570f.l(i2);
+                        this.f70490f.l(i2);
                     } catch (RemoteException e2) {
                         e2.printStackTrace();
                     }
                 }
-                if (this.f69570f != null) {
+                if (this.f70490f != null) {
                     g();
                 }
             }
@@ -202,10 +202,10 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, componentName) == null) {
-            com.ss.android.socialbase.downloader.c.a.b(f69569e, "onServiceDisconnected ");
-            this.f69570f = null;
-            this.f69248b = false;
-            com.ss.android.socialbase.downloader.downloader.n nVar = this.f69571g;
+            com.ss.android.socialbase.downloader.c.a.b(f70489e, "onServiceDisconnected ");
+            this.f70490f = null;
+            this.f70168b = false;
+            com.ss.android.socialbase.downloader.downloader.n nVar = this.f70491g;
             if (nVar != null) {
                 nVar.h();
             }
@@ -217,7 +217,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, context, serviceConnection) == null) {
             try {
-                com.ss.android.socialbase.downloader.c.a.b(f69569e, "bindService");
+                com.ss.android.socialbase.downloader.c.a.b(f70489e, "bindService");
                 Intent intent = new Intent(context, IndependentProcessDownloadService.class);
                 if (com.ss.android.socialbase.downloader.i.f.a()) {
                     intent.putExtra("fix_downloader_db_sigbus", com.ss.android.socialbase.downloader.g.a.c().a("fix_sigbus_downloader_db"));
@@ -236,8 +236,8 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     public void stopService(Context context, ServiceConnection serviceConnection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, serviceConnection) == null) {
-            com.ss.android.socialbase.downloader.c.a.b(f69569e, "stopService");
-            this.f69248b = false;
+            com.ss.android.socialbase.downloader.c.a.b(f70489e, "stopService");
+            this.f70168b = false;
             Intent intent = new Intent(context, IndependentProcessDownloadService.class);
             if (serviceConnection != null) {
                 context.unbindService(serviceConnection);
@@ -250,7 +250,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     public void a(com.ss.android.socialbase.downloader.downloader.n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nVar) == null) {
-            this.f69571g = nVar;
+            this.f70491g = nVar;
         }
     }
 
@@ -258,9 +258,9 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            com.ss.android.socialbase.downloader.downloader.i iVar = this.f69570f;
+            com.ss.android.socialbase.downloader.downloader.i iVar = this.f70490f;
             if (iVar == null) {
-                this.f69572h = i2;
+                this.f70492h = i2;
                 return;
             }
             try {
@@ -274,7 +274,7 @@ public class n extends com.ss.android.socialbase.downloader.downloader.a impleme
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.o
     public void startService() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f69570f == null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f70490f == null) {
             startService(com.ss.android.socialbase.downloader.downloader.c.N(), this);
         }
     }

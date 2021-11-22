@@ -15,15 +15,16 @@ import b.a.e.a.b;
 import b.a.e.a.f;
 import b.a.e.a.g;
 import b.a.e.a.i;
-import b.a.e.e.l.d;
-import b.a.e.e.p.l;
-import b.a.e.f.a.h;
-import b.a.e.l.e.q;
+import b.a.e.f.l.d;
+import b.a.e.f.p.l;
+import b.a.e.g.a.h;
+import b.a.e.m.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +46,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseActivity f34361e;
+        public final /* synthetic */ BdBaseActivity f35193e;
 
         public a(BdBaseActivity bdBaseActivity) {
             Interceptable interceptable = $ic;
@@ -62,14 +63,14 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
                     return;
                 }
             }
-            this.f34361e = bdBaseActivity;
+            this.f35193e = bdBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseActivity bdBaseActivity = this.f34361e;
+                BdBaseActivity bdBaseActivity = this.f35193e;
                 bdBaseActivity.onPreLoad(bdBaseActivity.onGetPreLoadListView());
             }
         }
@@ -177,6 +178,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
             b.g().o(getPageContext().getPageActivity());
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

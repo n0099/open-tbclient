@@ -1,8 +1,9 @@
 package b.a.p0.a.u.g;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import b.a.p0.a.k;
-import b.a.p0.a.r1.h;
+import b.a.p0.a.u1.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
@@ -20,11 +21,11 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f8420b;
+    public static final boolean f8952b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, b.a.p0.a.r1.k.a> f8421a;
+    public Map<String, b.a.p0.a.u1.k.a> f8953a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +40,7 @@ public class b implements a {
                 return;
             }
         }
-        f8420b = k.f6397a;
+        f8952b = k.f6863a;
     }
 
     public b() {
@@ -55,50 +56,51 @@ public class b implements a {
                 return;
             }
         }
-        this.f8421a = new ConcurrentHashMap();
+        this.f8953a = new ConcurrentHashMap();
     }
 
     @Override // b.a.p0.a.u.g.a
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f8421a.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f8953a.containsKey(str)) {
             return;
         }
-        if (f8420b) {
+        if (f8952b) {
             String str2 = "markStart: " + str;
         }
-        b.a.p0.a.r1.k.a aVar = new b.a.p0.a.r1.k.a();
-        this.f8421a.put(str, aVar);
+        b.a.p0.a.u1.k.a aVar = new b.a.p0.a.u1.k.a();
+        this.f8953a.put(str, aVar);
         aVar.i(System.currentTimeMillis());
         aVar.f(str);
     }
 
     @Override // b.a.p0.a.u.g.a
+    @SuppressLint({"BDThrowableCheck"})
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            b.a.p0.a.r1.k.a aVar = this.f8421a.get(str);
+            b.a.p0.a.u1.k.a aVar = this.f8953a.get(str);
             if (aVar == null) {
-                if (f8420b) {
+                if (f8952b) {
                     throw new RuntimeException(str + " markEnd before markStart");
                 }
             } else if (aVar.d() > 0) {
             } else {
                 aVar.h(System.currentTimeMillis());
-                if (f8420b) {
+                if (f8952b) {
                     String str2 = str + " first called cost " + aVar.c();
                 }
                 if (TextUtils.equals(str, "request")) {
-                    if (f8420b) {
+                    if (f8952b) {
                         String str3 = "record first request api called " + aVar.toString();
                     }
                     HybridUbcFlow p = h.p("startup");
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
                     ubcFlowEvent.h(aVar.e());
-                    p.C(ubcFlowEvent);
+                    p.F(ubcFlowEvent);
                     UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
                     ubcFlowEvent2.h(aVar.d());
-                    p.C(ubcFlowEvent2);
+                    p.F(ubcFlowEvent2);
                 }
             }
         }

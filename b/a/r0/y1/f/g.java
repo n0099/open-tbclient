@@ -23,31 +23,31 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27593a;
+    public Context f29096a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f27594b;
+    public TbPageContext f29097b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f27595c;
+    public NavigationBar f29098c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f27596d;
+    public NoNetworkView f29099d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f27597e;
+    public TbImageView f29100e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f27598f;
+    public TextView f29101f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f27599g;
+    public TextView f29102g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f27600h;
+    public TextView f29103h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f27601i;
+    public TextView f29104i;
     public TextView j;
     public TextView k;
     public int l;
@@ -58,7 +58,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f27602e;
+        public final /* synthetic */ g f29105e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -75,14 +75,14 @@ public class g {
                     return;
                 }
             }
-            this.f27602e = gVar;
+            this.f29105e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f27602e.f27594b, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                UrlManager.getInstance().dealOneLink(this.f29105e.f29097b, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
             }
         }
     }
@@ -103,20 +103,20 @@ public class g {
             }
         }
         this.l = 3;
-        this.f27593a = tbPageContext.getPageActivity();
-        this.f27594b = tbPageContext;
+        this.f29096a = tbPageContext.getPageActivity();
+        this.f29097b = tbPageContext;
         tbPageContext.getPageActivity().setContentView(R.layout.member_pay_result_layout);
         NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.navigation_bar);
-        this.f27595c = navigationBar;
+        this.f29098c = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f27595c.showBottomLine();
-        this.f27596d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.no_network_view);
-        this.f27595c.onChangeSkinType(tbPageContext, TbadkApplication.getInst().getSkinType());
-        this.f27597e = (TbImageView) tbPageContext.getPageActivity().findViewById(R.id.success_img);
-        this.f27598f = (TextView) tbPageContext.getPageActivity().findViewById(R.id.success_text);
-        this.f27599g = (TextView) tbPageContext.getPageActivity().findViewById(R.id.pay_content);
-        this.f27601i = (TextView) tbPageContext.getPageActivity().findViewById(R.id.super_member);
-        this.f27600h = (TextView) tbPageContext.getPageActivity().findViewById(R.id.tip_content);
+        this.f29098c.showBottomLine();
+        this.f29099d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.no_network_view);
+        this.f29098c.onChangeSkinType(tbPageContext, TbadkApplication.getInst().getSkinType());
+        this.f29100e = (TbImageView) tbPageContext.getPageActivity().findViewById(R.id.success_img);
+        this.f29101f = (TextView) tbPageContext.getPageActivity().findViewById(R.id.success_text);
+        this.f29102g = (TextView) tbPageContext.getPageActivity().findViewById(R.id.pay_content);
+        this.f29104i = (TextView) tbPageContext.getPageActivity().findViewById(R.id.super_member);
+        this.f29103h = (TextView) tbPageContext.getPageActivity().findViewById(R.id.tip_content);
         TextView textView = (TextView) tbPageContext.getPageActivity().findViewById(R.id.open_card_box_view);
         this.j = textView;
         textView.setOnClickListener(new a(this));
@@ -126,21 +126,21 @@ public class g {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f27599g.setText(String.format(this.f27593a.getString(R.string.pay_member_content), str));
+            this.f29102g.setText(String.format(this.f29096a.getString(R.string.pay_member_content), str));
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k = this.f27595c.setCenterTextTitle(this.f27593a.getString(R.string.card_box_nav_title));
-            this.f27596d.onChangeSkinType(this.f27594b, TbadkApplication.getInst().getSkinType());
+            this.k = this.f29098c.setCenterTextTitle(this.f29096a.getString(R.string.card_box_nav_title));
+            this.f29099d.onChangeSkinType(this.f29097b, TbadkApplication.getInst().getSkinType());
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
-            SkinManager.setImageResource(this.f27597e, R.drawable.icon_send_ok);
-            SkinManager.setViewTextColor(this.f27598f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f27599g, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f27601i, R.color.CAM_X0305);
-            SkinManager.setViewTextColor(this.f27600h, R.color.CAM_X0108);
+            SkinManager.setImageResource(this.f29100e, R.drawable.icon_send_ok);
+            SkinManager.setViewTextColor(this.f29101f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f29102g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f29104i, R.color.CAM_X0305);
+            SkinManager.setViewTextColor(this.f29103h, R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0111);
             SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_orange);
         }
@@ -150,14 +150,14 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             if (this.l != i2) {
-                this.f27595c.onChangeSkinType(this.f27594b, i2);
-                this.f27596d.onChangeSkinType(this.f27594b, i2);
+                this.f29098c.onChangeSkinType(this.f29097b, i2);
+                this.f29099d.onChangeSkinType(this.f29097b, i2);
                 SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
-                SkinManager.setImageResource(this.f27597e, R.drawable.icon_send_ok);
-                SkinManager.setViewTextColor(this.f27598f, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f27599g, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f27601i, R.color.CAM_X0305);
-                SkinManager.setViewTextColor(this.f27600h, R.color.CAM_X0108);
+                SkinManager.setImageResource(this.f29100e, R.drawable.icon_send_ok);
+                SkinManager.setViewTextColor(this.f29101f, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f29102g, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f29104i, R.color.CAM_X0305);
+                SkinManager.setViewTextColor(this.f29103h, R.color.CAM_X0108);
                 SkinManager.setViewTextColor(this.j, R.color.CAM_X0111);
                 SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_orange);
             }

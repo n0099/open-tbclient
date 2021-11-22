@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.e.l.e.n;
+import b.a.e.f.p.l;
+import b.a.e.m.e.n;
 import b.a.q0.s.s.i;
 import b.a.q0.u.o;
 import com.baidu.adp.BdUniqueId;
@@ -52,16 +52,16 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f22245f;
+    public TbPageContext f23722f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final WriteImagesInfo f22246g;
+    public final WriteImagesInfo f23723g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f22247h;
+    public boolean f23724h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.p2.e.a f22248i;
+    public b.a.r0.p2.e.a f23725i;
     public PersonChangeData j;
     public PermissionJudgePolicy k;
     public HttpMessageListener l;
@@ -75,10 +75,10 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f22249e;
+        public final /* synthetic */ PopupDialog f23726e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f22250f;
+        public final /* synthetic */ i f23727f;
 
         public a(i iVar, PopupDialog popupDialog) {
             Interceptable interceptable = $ic;
@@ -95,22 +95,22 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22250f = iVar;
-            this.f22249e = popupDialog;
+            this.f23727f = iVar;
+            this.f23726e = popupDialog;
         }
 
         @Override // b.a.q0.s.s.i.e
         public void onItemClick(b.a.q0.s.s.i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                this.f22250f.f22247h = false;
+                this.f23727f.f23724h = false;
                 if (i2 == 0) {
-                    this.f22250f.t();
+                    this.f23727f.t();
                 } else if (i2 == 1) {
-                    this.f22250f.v();
+                    this.f23727f.v();
                 }
-                if (this.f22249e.isShowing()) {
-                    this.f22249e.dismiss();
+                if (this.f23726e.isShowing()) {
+                    this.f23726e.dismiss();
                 }
             }
         }
@@ -122,19 +122,19 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f22251e;
+        public final /* synthetic */ o f23728e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f22252f;
+        public final /* synthetic */ List f23729f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f22253g;
+        public final /* synthetic */ int f23730g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f22254h;
+        public final /* synthetic */ PopupDialog f23731h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ i f22255i;
+        public final /* synthetic */ i f23732i;
 
         public b(i iVar, o oVar, List list, int i2, PopupDialog popupDialog) {
             Interceptable interceptable = $ic;
@@ -151,48 +151,48 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22255i = iVar;
-            this.f22251e = oVar;
-            this.f22252f = list;
-            this.f22253g = i2;
-            this.f22254h = popupDialog;
+            this.f23732i = iVar;
+            this.f23728e = oVar;
+            this.f23729f = list;
+            this.f23730g = i2;
+            this.f23731h = popupDialog;
         }
 
         @Override // b.a.q0.s.s.i.e
         public void onItemClick(b.a.q0.s.s.i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                this.f22255i.f22247h = true;
+                this.f23732i.f23724h = true;
                 if (i2 == 0) {
-                    this.f22255i.w(this.f22251e, this.f22252f, this.f22253g);
+                    this.f23732i.w(this.f23728e, this.f23729f, this.f23730g);
                 } else if (i2 == 1) {
-                    i iVar2 = this.f22255i;
-                    if (iVar2.f22214e && iVar2.f22248i != null && this.f22255i.f22248i.j() != null && !this.f22255i.f22248i.j().canModifyAvatar()) {
-                        if (!StringUtils.isNull(this.f22255i.f22248i.j().getCantModifyAvatarDesc())) {
-                            l.J(TbadkCoreApplication.getInst(), this.f22255i.f22248i.j().getCantModifyAvatarDesc());
+                    i iVar2 = this.f23732i;
+                    if (iVar2.f23691e && iVar2.f23725i != null && this.f23732i.f23725i.j() != null && !this.f23732i.f23725i.j().canModifyAvatar()) {
+                        if (!StringUtils.isNull(this.f23732i.f23725i.j().getCantModifyAvatarDesc())) {
+                            l.J(TbadkCoreApplication.getInst(), this.f23732i.f23725i.j().getCantModifyAvatarDesc());
                         } else {
                             l.I(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
                         }
                     } else {
-                        this.f22255i.t();
+                        this.f23732i.t();
                     }
                 } else if (i2 == 2) {
-                    i iVar3 = this.f22255i;
-                    if (iVar3.f22214e && iVar3.f22248i != null && this.f22255i.f22248i.j() != null && !this.f22255i.f22248i.j().canModifyAvatar()) {
-                        if (!StringUtils.isNull(this.f22255i.f22248i.j().getCantModifyAvatarDesc())) {
-                            l.J(TbadkCoreApplication.getInst(), this.f22255i.f22248i.j().getCantModifyAvatarDesc());
+                    i iVar3 = this.f23732i;
+                    if (iVar3.f23691e && iVar3.f23725i != null && this.f23732i.f23725i.j() != null && !this.f23732i.f23725i.j().canModifyAvatar()) {
+                        if (!StringUtils.isNull(this.f23732i.f23725i.j().getCantModifyAvatarDesc())) {
+                            l.J(TbadkCoreApplication.getInst(), this.f23732i.f23725i.j().getCantModifyAvatarDesc());
                         } else {
                             l.I(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
                         }
                     } else {
-                        this.f22255i.v();
+                        this.f23732i.v();
                     }
                 } else if (i2 == 3) {
                     TiebaStatic.log(new StatisticItem("c11616").param("obj_type", 1));
-                    this.f22255i.u();
+                    this.f23732i.u();
                 }
-                if (this.f22254h.isShowing()) {
-                    this.f22254h.dismiss();
+                if (this.f23731h.isShowing()) {
+                    this.f23731h.dismiss();
                 }
             }
         }
@@ -204,19 +204,19 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f22256e;
+        public final /* synthetic */ o f23733e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f22257f;
+        public final /* synthetic */ List f23734f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f22258g;
+        public final /* synthetic */ int f23735g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f22259h;
+        public final /* synthetic */ PopupDialog f23736h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ i f22260i;
+        public final /* synthetic */ i f23737i;
 
         public c(i iVar, o oVar, List list, int i2, PopupDialog popupDialog) {
             Interceptable interceptable = $ic;
@@ -233,11 +233,11 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22260i = iVar;
-            this.f22256e = oVar;
-            this.f22257f = list;
-            this.f22258g = i2;
-            this.f22259h = popupDialog;
+            this.f23737i = iVar;
+            this.f23733e = oVar;
+            this.f23734f = list;
+            this.f23735g = i2;
+            this.f23736h = popupDialog;
         }
 
         @Override // b.a.q0.s.s.i.e
@@ -245,14 +245,14 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
                 if (i2 == 0) {
-                    this.f22260i.w(this.f22256e, this.f22257f, this.f22258g);
+                    this.f23737i.w(this.f23733e, this.f23734f, this.f23735g);
                 } else if (i2 == 1) {
-                    j.d(this.f22256e, this.f22260i.f22245f.getUniqueId());
+                    j.d(this.f23733e, this.f23737i.f23722f.getUniqueId());
                 } else if (i2 == 2) {
-                    j.b(this.f22256e, this.f22257f);
+                    j.b(this.f23733e, this.f23734f);
                 }
-                if (this.f22259h.isShowing()) {
-                    this.f22259h.dismiss();
+                if (this.f23736h.isShowing()) {
+                    this.f23736h.dismiss();
                 }
             }
         }
@@ -264,7 +264,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f22261a;
+        public final /* synthetic */ i f23738a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(i iVar, int i2) {
@@ -284,7 +284,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22261a = iVar;
+            this.f23738a = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -292,7 +292,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof ChangePortraitResponse) && ((ChangePortraitResponse) httpResponsedMessage).getErrCode() == 0) {
-                this.f22261a.z();
+                this.f23738a.z();
             }
         }
     }
@@ -303,7 +303,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f22262a;
+        public final /* synthetic */ i f23739a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(i iVar, int i2) {
@@ -323,7 +323,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22262a = iVar;
+            this.f23739a = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -333,9 +333,9 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof SetUserPicsResponse)) {
                 SetUserPicsResponse setUserPicsResponse = (SetUserPicsResponse) httpResponsedMessage;
                 if (setUserPicsResponse.getErrCode() != 0) {
-                    this.f22262a.f22245f.showToast(setUserPicsResponse.getErrorString());
+                    this.f23739a.f23722f.showToast(setUserPicsResponse.getErrorString());
                 } else {
-                    this.f22262a.z();
+                    this.f23739a.z();
                 }
             }
         }
@@ -377,7 +377,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f22263a;
+        public final /* synthetic */ i f23740a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(i iVar, int i2) {
@@ -397,7 +397,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22263a = iVar;
+            this.f23740a = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -405,7 +405,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PersonChangeData)) {
-                this.f22263a.x((PersonChangeData) customResponsedMessage.getData());
+                this.f23740a.x((PersonChangeData) customResponsedMessage.getData());
             }
         }
     }
@@ -428,37 +428,37 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
                 return;
             }
         }
-        this.f22246g = new WriteImagesInfo(1);
-        this.f22247h = true;
+        this.f23723g = new WriteImagesInfo(1);
+        this.f23724h = true;
         this.l = new d(this, CmdConfigHttp.CMD_CHANGE_PORTRAIT);
         this.m = new e(this, CmdConfigHttp.CMD_SET_USER_PICS);
         this.n = new f(this);
         g gVar = new g(this, 2001380);
         this.o = gVar;
-        this.f22245f = tbPageContext;
+        this.f23722f = tbPageContext;
         gVar.setTag(bdUniqueId);
         this.m.setTag(bdUniqueId);
         this.l.setTag(bdUniqueId);
-        this.f22245f.registerListener(this.o);
-        this.f22245f.registerListener(this.m);
-        this.f22245f.registerListener(this.l);
+        this.f23722f.registerListener(this.o);
+        this.f23722f.registerListener(this.m);
+        this.f23722f.registerListener(this.l);
     }
 
     public void A(b.a.r0.p2.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f22248i = aVar;
+            this.f23725i = aVar;
         }
     }
 
     public final void B() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.f22245f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.f23722f) == null) {
             return;
         }
-        String[] strArr = {tbPageContext.getString(R.string.choose_local_photo), this.f22245f.getString(R.string.change_system_photo)};
-        PopupDialog popupDialog = new PopupDialog(this.f22245f);
+        String[] strArr = {tbPageContext.getString(R.string.choose_local_photo), this.f23722f.getString(R.string.change_system_photo)};
+        PopupDialog popupDialog = new PopupDialog(this.f23722f);
         popupDialog.setDefaultContentView(null, strArr, new a(this, popupDialog));
         popupDialog.showDialog();
     }
@@ -466,20 +466,20 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
     public final void D(o oVar, List<n> list, int i2) {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, oVar, list, i2) == null) || (tbPageContext = this.f22245f) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, oVar, list, i2) == null) || (tbPageContext = this.f23722f) == null) {
             return;
         }
-        String[] strArr = {tbPageContext.getString(R.string.hd_photo), this.f22245f.getString(R.string.change_photo), this.f22245f.getString(R.string.change_system_photo), this.f22245f.getString(R.string.check_headpendant)};
-        PopupDialog popupDialog = new PopupDialog(this.f22245f);
+        String[] strArr = {tbPageContext.getString(R.string.hd_photo), this.f23722f.getString(R.string.change_photo), this.f23722f.getString(R.string.change_system_photo), this.f23722f.getString(R.string.check_headpendant)};
+        PopupDialog popupDialog = new PopupDialog(this.f23722f);
         popupDialog.setDefaultContentView(null, strArr, new b(this, oVar, list, i2, popupDialog));
         popupDialog.showDialog();
     }
 
-    public final void I(o oVar, List<n> list, int i2) {
+    public final void K(o oVar, List<n> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, oVar, list, i2) == null) {
-            String[] strArr = {this.f22245f.getString(R.string.look_big_photo), this.f22245f.getString(R.string.set_as_portrait_photo), this.f22245f.getString(R.string.delete)};
-            PopupDialog popupDialog = new PopupDialog(this.f22245f);
+            String[] strArr = {this.f23722f.getString(R.string.look_big_photo), this.f23722f.getString(R.string.set_as_portrait_photo), this.f23722f.getString(R.string.delete)};
+            PopupDialog popupDialog = new PopupDialog(this.f23722f);
             popupDialog.setDefaultContentView(null, strArr, new c(this, oVar, list, i2, popupDialog));
             popupDialog.showDialog();
         }
@@ -488,10 +488,10 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
     public void o() {
         b.a.r0.p2.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f22248i) == null || aVar.j() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f23725i) == null || aVar.j() == null) {
             return;
         }
-        b.a.q0.c0.c.k().g(this.f22248i.j().getPortrait());
+        b.a.q0.c0.c.k().g(this.f23725i.j().getPortrait());
     }
 
     @Override // android.view.View.OnClickListener
@@ -519,19 +519,19 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, intent) == null) || intent == null || (stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) == null) {
             return;
         }
-        this.f22246g.parseJson(stringExtra);
-        this.f22246g.updateQuality();
-        if (!ListUtils.isEmpty(this.f22246g.getChosedFiles())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(this.f22245f.getPageActivity(), 12002, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, this.f22246g.getChosedFiles().get(0).getFilePath(), 1.0f, this.f22247h)));
+        this.f23723g.parseJson(stringExtra);
+        this.f23723g.updateQuality();
+        if (!ListUtils.isEmpty(this.f23723g.getChosedFiles())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(this.f23722f.getPageActivity(), 12002, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, this.f23723g.getChosedFiles().get(0).getFilePath(), 1.0f, this.f23724h)));
         }
-        this.f22246g.clear();
+        this.f23723g.clear();
     }
 
     public List<n> q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            b.a.r0.p2.e.a aVar = this.f22248i;
+            b.a.r0.p2.e.a aVar = this.f23725i;
             if (aVar == null) {
                 return null;
             }
@@ -559,13 +559,13 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
             }
             return;
         }
-        b.a.r0.p2.e.a aVar = this.f22248i;
+        b.a.r0.p2.e.a aVar = this.f23725i;
         if (aVar != null) {
-            this.f22214e = aVar.m();
+            this.f23691e = aVar.m();
         }
         if (!l.D()) {
-            this.f22245f.showToast(R.string.neterror);
-        } else if (!this.f22214e) {
+            this.f23722f.showToast(R.string.neterror);
+        } else if (!this.f23691e) {
             if (nVar instanceof o) {
                 w((o) nVar, list, i2);
             }
@@ -576,7 +576,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
             if (oVar.e()) {
                 D(oVar, list, i2);
             } else {
-                I(oVar, list, i2);
+                K(oVar, list, i2);
             }
         }
     }
@@ -584,7 +584,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
     public void t() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (tbPageContext = this.f22245f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (tbPageContext = this.f23722f) == null) {
             return;
         }
         Activity pageActivity = tbPageContext.getPageActivity();
@@ -596,7 +596,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         if (this.k.startRequestPermission(pageActivity)) {
             return;
         }
-        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f22245f.getPageActivity(), this.f22246g.toJsonString(), true);
+        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f23722f.getPageActivity(), this.f23723g.toJsonString(), true);
         albumActivityConfig.setRequestCode(12002);
         albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
         albumActivityConfig.setResourceType(2);
@@ -605,23 +605,23 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
 
     public void u() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f22245f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f23722f == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.f22245f.getPageActivity())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.f23722f.getPageActivity())));
     }
 
     public void v() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f22245f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f23722f == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.f22245f.getPageActivity(), 12014, this.f22247h)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.f23722f.getPageActivity(), 12014, this.f23724h)));
     }
 
     public final void w(o oVar, List<n> list, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048589, this, oVar, list, i2) == null) || this.f22245f == null || oVar == null || list == null || StringUtils.isNull(oVar.a())) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048589, this, oVar, list, i2) == null) || this.f23722f == null || oVar == null || list == null || StringUtils.isNull(oVar.a())) {
             return;
         }
         ArrayList<String> arrayList = new ArrayList<>();
@@ -629,7 +629,7 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
             if (nVar instanceof o) {
                 o oVar2 = (o) nVar;
                 if (oVar2.e() && !oVar2.a().startsWith("http")) {
-                    arrayList.add(j.c(this.f22245f, oVar2.a()));
+                    arrayList.add(j.c(this.f23722f, oVar2.a()));
                 } else {
                     arrayList.add(oVar2.a());
                 }
@@ -644,15 +644,15 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
         bVar.J(str);
         bVar.F(true);
         bVar.I(false);
-        ImageViewerConfig v = bVar.v(this.f22245f.getPageActivity());
+        ImageViewerConfig v = bVar.v(this.f23722f.getPageActivity());
         v.getIntent().putExtra("from", "portrait");
-        this.f22245f.sendMessage(new CustomMessage(2010000, v));
+        this.f23722f.sendMessage(new CustomMessage(2010000, v));
     }
 
     public final void x(PersonChangeData personChangeData) {
         b.a.r0.p2.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, personChangeData) == null) || personChangeData == null || (aVar = this.f22248i) == null || aVar.j() == null || !this.f22248i.m() || !personChangeData.getPhotoChanged()) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, personChangeData) == null) || personChangeData == null || (aVar = this.f23725i) == null || aVar.j() == null || !this.f23725i.m() || !personChangeData.getPhotoChanged()) {
             return;
         }
         if (this.j == null) {
@@ -665,14 +665,14 @@ public class i extends b.a.r0.p2.d.e implements View.OnClickListener {
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            b.a.e.e.m.e.a().removeCallbacks(this.n);
+            b.a.e.f.m.e.a().removeCallbacks(this.n);
         }
     }
 
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            b.a.e.e.m.e.a().postDelayed(this.n, 300L);
+            b.a.e.f.m.e.a().postDelayed(this.n, 300L);
         }
     }
 }

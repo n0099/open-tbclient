@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.q.b2;
 import b.a.r0.k2.r.f;
 import b.a.r0.k2.s.c;
@@ -50,11 +50,11 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
 
     /* renamed from: b.a.r0.l2.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1019a implements View.OnClickListener {
+    public class View$OnClickListenerC1087a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public View$OnClickListenerC1019a(a aVar) {
+        public View$OnClickListenerC1087a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
         h0(pbFragment);
     }
 
-    @Override // b.a.r0.k2.u.f.n, b.a.e.l.e.a
+    @Override // b.a.r0.k2.u.f.n, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         m0(i2, view, viewGroup, (PostData) obj, (PbInterviewLiveNormalItemViewHolder) viewHolder);
         return view;
@@ -161,7 +161,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
             super.h0(bVar);
             if (bVar != null) {
                 this.B = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30);
-                this.C = l.k(this.f2419e) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60);
+                this.C = l.k(this.f2421e) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60);
             }
         }
     }
@@ -175,7 +175,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
                 pbInterviewLiveNormalItemViewHolder.richText.setOnClickListener(null);
             }
             pbInterviewLiveNormalItemViewHolder.richText.setTextViewCheckSelection(false);
-            pbInterviewLiveNormalItemViewHolder.richText.setTextViewOnClickListener(new View$OnClickListenerC1019a(this));
+            pbInterviewLiveNormalItemViewHolder.richText.setTextViewOnClickListener(new View$OnClickListenerC1087a(this));
         }
     }
 
@@ -191,7 +191,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     }
 
     public final void k0(PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder, PostData postData) {
-        b2 j1;
+        b2 k1;
         String str;
         String str2;
         long j;
@@ -199,7 +199,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
         if (!(interceptable == null || interceptable.invokeLL(1048585, this, pbInterviewLiveNormalItemViewHolder, postData) == null) || pbInterviewLiveNormalItemViewHolder == null || postData == null) {
             return;
         }
-        j0(pbInterviewLiveNormalItemViewHolder.richText, (int) this.f2419e.getResources().getDimension(R.dimen.ds30));
+        j0(pbInterviewLiveNormalItemViewHolder.richText, (int) this.f2421e.getResources().getDimension(R.dimen.ds30));
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.richText.getLayoutParams();
         layoutParams.bottomMargin = 0;
         layoutParams.topMargin = 0;
@@ -220,7 +220,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
                 str2 = null;
                 j = 0;
             }
-            pbInterviewLiveNormalItemViewHolder.giftListView.fillGiftData(postData.F(), str, str2, j, b.a.e.e.m.b.g(this.v.O().f0(), 0L), b.a.e.e.m.b.g(postData.G(), 0L));
+            pbInterviewLiveNormalItemViewHolder.giftListView.fillGiftData(postData.F(), str, str2, j, b.a.e.f.m.b.g(this.v.O().f0(), 0L), b.a.e.f.m.b.g(postData.G(), 0L));
             pbInterviewLiveNormalItemViewHolder.giftListView.onChangeSkinType();
             if (this.w) {
                 PraiseData L0 = this.v.O().L0();
@@ -244,7 +244,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
             pbInterviewLiveNormalItemViewHolder.praiseView.setVisibility(0);
             pbInterviewLiveNormalItemViewHolder.praiseToLine.setVisibility(0);
             pbInterviewLiveNormalItemViewHolder.praiseBottomLine.setVisibility(0);
-            j0(pbInterviewLiveNormalItemViewHolder.richText, (int) this.f2419e.getResources().getDimension(R.dimen.ds30));
+            j0(pbInterviewLiveNormalItemViewHolder.richText, (int) this.f2421e.getResources().getDimension(R.dimen.ds30));
         } else {
             pbInterviewLiveNormalItemViewHolder.giftListView.setVisibility(8);
         }
@@ -264,10 +264,10 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
         } else {
             pbInterviewLiveNormalItemViewHolder.richText.setText(M, false);
         }
-        if (this.v.O().j1() != null) {
-            pbInterviewLiveNormalItemViewHolder.mPostImage.startLoad(this.v.O().j1().i(), this.q ? 17 : 18, false);
-            int k = l.k(this.f2419e);
-            float h2 = j1.h() / j1.j();
+        if (this.v.O().k1() != null) {
+            pbInterviewLiveNormalItemViewHolder.mPostImage.startLoad(this.v.O().k1().i(), this.q ? 17 : 18, false);
+            int k = l.k(this.f2421e);
+            float h2 = k1.h() / k1.j();
             int i2 = (int) (h2 > 1.0f ? k * 1.0f : h2 < 0.2f ? k * 0.2f : k * h2);
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.mPostImage.getLayoutParams();
             layoutParams2.height = i2;
@@ -280,12 +280,12 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: l0 */
     public PbInterviewLiveNormalItemViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) ? new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.f2419e).inflate(R.layout.pb_interview_normal_item, viewGroup, false), this.u, this.t, this.s, false) : (PbInterviewLiveNormalItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) ? new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.f2421e).inflate(R.layout.pb_interview_normal_item, viewGroup, false), this.u, this.t, this.s, false) : (PbInterviewLiveNormalItemViewHolder) invokeL.objValue;
     }
 
     @Override // b.a.r0.k2.u.c.a
@@ -326,7 +326,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
             if (bVar == null || bVar.getPbActivity() == null) {
                 return;
             }
-            pbInterviewLiveNormalItemViewHolder.richText.setOnEmotionClickListener(this.m.getPbActivity().mEvent.f19145e);
+            pbInterviewLiveNormalItemViewHolder.richText.setOnEmotionClickListener(this.m.getPbActivity().mEvent.f20712e);
         }
     }
 

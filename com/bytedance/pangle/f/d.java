@@ -55,16 +55,16 @@ public final class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
                 try {
-                    c.C1844c a2 = c.a(str);
-                    Signature[] a3 = a(new Certificate[][]{a2.f61388a});
+                    c.C1883c a2 = c.a(str);
+                    Signature[] a3 = a(new Certificate[][]{a2.f62287a});
                     Signature[] signatureArr = null;
-                    if (a2.f61389b != null) {
-                        int size = a2.f61389b.f61386a.size();
+                    if (a2.f62288b != null) {
+                        int size = a2.f62288b.f62285a.size();
                         signatureArr = new Signature[size];
-                        iArr = new int[a2.f61389b.f61387b.size()];
+                        iArr = new int[a2.f62288b.f62286b.size()];
                         for (int i2 = 0; i2 < size; i2++) {
-                            signatureArr[i2] = new Signature(a2.f61389b.f61386a.get(i2).getEncoded());
-                            iArr[i2] = a2.f61389b.f61387b.get(i2).intValue();
+                            signatureArr[i2] = new Signature(a2.f62288b.f62285a.get(i2).getEncoded());
+                            iArr[i2] = a2.f62288b.f62286b.get(i2).intValue();
                         }
                     } else {
                         iArr = null;
@@ -76,7 +76,7 @@ public final class d {
                     throw new q(4, "Failed to collect certificates from " + str + " using APK Signature Scheme v2", e2);
                 }
             } catch (n unused2) {
-                return new o(a(b.a(str).f61384a));
+                return new o(a(b.a(str).f62283a));
             } catch (Exception e3) {
                 throw new q(4, "Failed to collect certificates from " + str + " using APK Signature Scheme v3", e3);
             }

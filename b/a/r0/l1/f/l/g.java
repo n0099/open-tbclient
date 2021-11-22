@@ -23,7 +23,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f20101a;
+    public static g f21623a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -76,10 +76,10 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (g.class) {
-                if (f20101a == null) {
-                    f20101a = new g();
+                if (f21623a == null) {
+                    f21623a = new g();
                 }
-                gVar = f20101a;
+                gVar = f21623a;
             }
             return gVar;
         }

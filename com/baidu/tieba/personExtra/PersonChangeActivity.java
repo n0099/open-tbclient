@@ -25,7 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.m0;
+import b.a.q0.c1.m0;
 import b.a.q0.s.s.a;
 import b.a.q0.s.s.b;
 import b.a.q0.s.s.i;
@@ -137,7 +137,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public PermissionJudgePolicy mPermissionJudgement;
     public ScrollView mPersonChangeScroll;
     public View mPersonNicknameLayout;
-    public b.a.e.l.d.a mPhoto;
+    public b.a.e.m.d.a mPhoto;
     public ImageView mPhotoCameraView;
     public HeadImageView mPhotoView;
     public View mRootView;
@@ -159,7 +159,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53096e;
+        public final /* synthetic */ PersonChangeActivity f54013e;
 
         public a(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -176,7 +176,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53096e = personChangeActivity;
+            this.f54013e = personChangeActivity;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -184,8 +184,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f53096e.clickSaveEvents();
-                this.f53096e.saveProfile();
+                this.f54013e.clickSaveEvents();
+                this.f54013e.saveProfile();
             }
         }
     }
@@ -196,7 +196,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53097e;
+        public final /* synthetic */ PersonChangeActivity f54014e;
 
         public b(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -213,7 +213,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53097e = personChangeActivity;
+            this.f54014e = personChangeActivity;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -221,17 +221,17 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                if (this.f53097e.mModel.w().getPhotoChanged()) {
+                if (this.f54014e.mModel.w().getPhotoChanged()) {
                     Intent intent = new Intent();
-                    if (!this.f53097e.isFromPersonInfo.booleanValue()) {
-                        intent.putExtra("data", this.f53097e.mModel.w());
+                    if (!this.f54014e.isFromPersonInfo.booleanValue()) {
+                        intent.putExtra("data", this.f54014e.mModel.w());
                     } else {
-                        intent.putExtra("person_change_data", this.f53097e.mModel.w());
+                        intent.putExtra("person_change_data", this.f54014e.mModel.w());
                     }
-                    this.f53097e.setResult(-1, intent);
-                    this.f53097e.sendUpdateMessage();
+                    this.f54014e.setResult(-1, intent);
+                    this.f54014e.sendUpdateMessage();
                 }
-                this.f53097e.finish();
+                this.f54014e.finish();
             }
         }
     }
@@ -242,7 +242,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53098e;
+        public final /* synthetic */ PersonChangeActivity f54015e;
 
         public c(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -259,14 +259,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53098e = personChangeActivity;
+            this.f54015e = personChangeActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53098e.mPersonChangeScroll.scrollTo(0, 0);
+                this.f54015e.mPersonChangeScroll.scrollTo(0, 0);
             }
         }
     }
@@ -277,7 +277,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53099a;
+        public final /* synthetic */ PersonChangeActivity f54016a;
 
         public d(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -294,7 +294,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53099a = personChangeActivity;
+            this.f54016a = personChangeActivity;
         }
 
         @Override // b.a.q0.s.s.b.c
@@ -302,12 +302,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, view) == null) {
                 if (i2 == 0) {
-                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f53099a.getPageContext().getPageActivity(), this.f53099a.mWriteImagesInfo.toJsonString(), true);
+                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f54016a.getPageContext().getPageActivity(), this.f54016a.mWriteImagesInfo.toJsonString(), true);
                     albumActivityConfig.setRequestCode(12002);
                     albumActivityConfig.setResourceType(2);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
                 } else if (i2 == 1) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.f53099a.getPageContext().getPageActivity(), 12014)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.f54016a.getPageContext().getPageActivity(), 12014)));
                 }
                 bVar.e();
             }
@@ -320,13 +320,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f53100e;
+        public final /* synthetic */ String f54017e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f53101f;
+        public final /* synthetic */ String f54018f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53102g;
+        public final /* synthetic */ PersonChangeActivity f54019g;
 
         public e(PersonChangeActivity personChangeActivity, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -343,33 +343,33 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53102g = personChangeActivity;
-            this.f53100e = str;
-            this.f53101f = str2;
+            this.f54019g = personChangeActivity;
+            this.f54017e = str;
+            this.f54018f = str2;
         }
 
         @Override // b.a.q0.s.s.i.e
         public void onItemClick(b.a.q0.s.s.i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                if (this.f53102g.mSexDialog != null && this.f53102g.mSexDialog.isShowing()) {
-                    this.f53102g.mSexDialog.dismiss();
+                if (this.f54019g.mSexDialog != null && this.f54019g.mSexDialog.isShowing()) {
+                    this.f54019g.mSexDialog.dismiss();
                 }
                 if (view instanceof TextView) {
                     TextView textView = (TextView) view;
-                    if (this.f53100e.equals(textView.getText().toString())) {
-                        this.f53102g.mSex = 1;
-                        this.f53102g.mSexShow.setText(this.f53100e);
-                    } else if (this.f53101f.equals(textView.getText().toString())) {
-                        this.f53102g.mSex = 2;
-                        this.f53102g.mSexShow.setText(this.f53101f);
+                    if (this.f54017e.equals(textView.getText().toString())) {
+                        this.f54019g.mSex = 1;
+                        this.f54019g.mSexShow.setText(this.f54017e);
+                    } else if (this.f54018f.equals(textView.getText().toString())) {
+                        this.f54019g.mSex = 2;
+                        this.f54019g.mSexShow.setText(this.f54018f);
                     }
-                    if (this.f53102g.mSex != this.f53102g.mModel.w().getSex()) {
-                        this.f53102g.isUpdate = true;
+                    if (this.f54019g.mSex != this.f54019g.mModel.w().getSex()) {
+                        this.f54019g.isUpdate = true;
                         if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-                            SkinManager.setViewTextColor(this.f53102g.mSave, R.color.navi_op_text, 1);
+                            SkinManager.setViewTextColor(this.f54019g.mSave, R.color.navi_op_text, 1);
                         } else {
-                            SkinManager.setViewTextColor(this.f53102g.mSave, R.color.CAM_X0302, 1);
+                            SkinManager.setViewTextColor(this.f54019g.mSave, R.color.CAM_X0302, 1);
                         }
                     }
                 }
@@ -383,7 +383,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53103e;
+        public final /* synthetic */ PersonChangeActivity f54020e;
 
         public f(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -400,32 +400,32 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53103e = personChangeActivity;
+            this.f54020e = personChangeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f53103e.mModel.w().getSex() != this.f53103e.mSex) {
-                    this.f53103e.isEdited = true;
+                if (this.f54020e.mModel.w().getSex() != this.f54020e.mSex) {
+                    this.f54020e.isEdited = true;
                 }
-                this.f53103e.saveTempNickName();
-                if (this.f53103e.isEdited || this.f53103e.isUpdateNickName) {
-                    this.f53103e.mConfirmDialog.show();
+                this.f54020e.saveTempNickName();
+                if (this.f54020e.isEdited || this.f54020e.isUpdateNickName) {
+                    this.f54020e.mConfirmDialog.show();
                     return;
                 }
-                if (this.f53103e.mModel != null && this.f53103e.mModel.w().getPhotoChanged()) {
+                if (this.f54020e.mModel != null && this.f54020e.mModel.w().getPhotoChanged()) {
                     Intent intent = new Intent();
-                    if (this.f53103e.isFromPersonInfo.booleanValue()) {
-                        intent.putExtra("person_change_data", this.f53103e.mModel.w());
+                    if (this.f54020e.isFromPersonInfo.booleanValue()) {
+                        intent.putExtra("person_change_data", this.f54020e.mModel.w());
                     } else {
-                        intent.putExtra("data", this.f53103e.mModel.w());
+                        intent.putExtra("data", this.f54020e.mModel.w());
                     }
-                    this.f53103e.sendUpdateMessage();
-                    this.f53103e.setResult(-1, intent);
+                    this.f54020e.sendUpdateMessage();
+                    this.f54020e.setResult(-1, intent);
                 }
-                this.f53103e.finish();
+                this.f54020e.finish();
             }
         }
     }
@@ -466,7 +466,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53104a;
+        public final /* synthetic */ PersonChangeActivity f54021a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(PersonChangeActivity personChangeActivity, int i2) {
@@ -486,7 +486,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53104a = personChangeActivity;
+            this.f54021a = personChangeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -502,8 +502,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.f53104a.mHasModifyNickName = true;
-                this.f53104a.mTempNickName = str;
+                this.f54021a.mHasModifyNickName = true;
+                this.f54021a.mTempNickName = str;
             }
         }
     }
@@ -514,7 +514,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53105a;
+        public final /* synthetic */ PersonChangeActivity f54022a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(PersonChangeActivity personChangeActivity, int i2) {
@@ -534,7 +534,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53105a = personChangeActivity;
+            this.f54022a = personChangeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -543,11 +543,11 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PersonChangeData)) {
                 PersonChangeData personChangeData = (PersonChangeData) customResponsedMessage.getData();
-                if (this.f53105a.mModel == null || this.f53105a.mModel.w() == null || personChangeData == null) {
+                if (this.f54022a.mModel == null || this.f54022a.mModel.w() == null || personChangeData == null) {
                     return;
                 }
-                this.f53105a.mModel.w().setNickNameLeftDays(personChangeData.getNickNameLeftDays());
-                this.f53105a.mModel.w().setMem(personChangeData.getMen());
+                this.f54022a.mModel.w().setNickNameLeftDays(personChangeData.getNickNameLeftDays());
+                this.f54022a.mModel.w().setMem(personChangeData.getMen());
             }
         }
     }
@@ -558,7 +558,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53106e;
+        public final /* synthetic */ PersonChangeActivity f54023e;
 
         public j(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -575,14 +575,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53106e = personChangeActivity;
+            this.f54023e = personChangeActivity;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f53106e.getPageContext().getPageActivity(), null, b.a.r0.k2.c.a(), true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f54023e.getPageContext().getPageActivity(), null, b.a.r0.k2.c.a(), true)));
                 aVar.dismiss();
             }
         }
@@ -594,7 +594,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53107e;
+        public final /* synthetic */ PersonChangeActivity f54024e;
 
         public k(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -611,7 +611,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53107e = personChangeActivity;
+            this.f54024e = personChangeActivity;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -629,7 +629,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53108a;
+        public final /* synthetic */ PersonChangeActivity f54025a;
 
         public l(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -646,7 +646,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53108a = personChangeActivity;
+            this.f54025a = personChangeActivity;
         }
 
         @Override // b.a.q0.t.i.b.e
@@ -655,7 +655,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) || accountData == null) {
                 return;
             }
-            this.f53108a.resetUserName(accountData.getAccount());
+            this.f54025a.resetUserName(accountData.getAccount());
         }
     }
 
@@ -665,7 +665,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53109e;
+        public final /* synthetic */ PersonChangeActivity f54026e;
 
         public m(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -682,18 +682,18 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53109e = personChangeActivity;
+            this.f54026e = personChangeActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53109e.mPersonChangeScroll.fullScroll(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
-                this.f53109e.mEdit.setFocusableInTouchMode(true);
-                this.f53109e.mEdit.requestFocus();
-                PersonChangeActivity personChangeActivity = this.f53109e;
-                personChangeActivity.ShowSoftKeyPad(personChangeActivity.mInputManager, this.f53109e.mEdit);
+                this.f54026e.mPersonChangeScroll.fullScroll(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
+                this.f54026e.mEdit.setFocusableInTouchMode(true);
+                this.f54026e.mEdit.requestFocus();
+                PersonChangeActivity personChangeActivity = this.f54026e;
+                personChangeActivity.ShowSoftKeyPad(personChangeActivity.mInputManager, this.f54026e.mEdit);
             }
         }
     }
@@ -704,7 +704,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53110e;
+        public final /* synthetic */ PersonChangeActivity f54027e;
 
         public n(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -721,16 +721,16 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53110e = personChangeActivity;
+            this.f54027e = personChangeActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f53110e.destroyWaitingDialog();
-                if (this.f53110e.mModifyTask != null) {
-                    this.f53110e.mModifyTask.cancel();
+                this.f54027e.destroyWaitingDialog();
+                if (this.f54027e.mModifyTask != null) {
+                    this.f54027e.mModifyTask.cancel();
                 }
             }
         }
@@ -742,7 +742,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53111e;
+        public final /* synthetic */ PersonChangeActivity f54028e;
 
         public o(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -759,7 +759,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53111e = personChangeActivity;
+            this.f54028e = personChangeActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -768,7 +768,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) || z) {
                 return;
             }
-            this.f53111e.mNickNameShow.setFocusableInTouchMode(false);
+            this.f54028e.mNickNameShow.setFocusableInTouchMode(false);
         }
     }
 
@@ -778,7 +778,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53112a;
+        public final /* synthetic */ PersonChangeActivity f54029a;
 
         public p(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -795,7 +795,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53112a = personChangeActivity;
+            this.f54029a = personChangeActivity;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -804,8 +804,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 6) {
-                    this.f53112a.mNickNameShow.setFocusableInTouchMode(false);
-                    this.f53112a.mNickNameShow.setCursorVisible(false);
+                    this.f54029a.mNickNameShow.setFocusableInTouchMode(false);
+                    this.f54029a.mNickNameShow.setCursorVisible(false);
                 }
                 return false;
             }
@@ -819,7 +819,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53113e;
+        public final /* synthetic */ PersonChangeActivity f54030e;
 
         public q(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -836,7 +836,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53113e = personChangeActivity;
+            this.f54030e = personChangeActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -845,7 +845,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) || z) {
                 return;
             }
-            this.f53113e.mEdit.setFocusableInTouchMode(false);
+            this.f54030e.mEdit.setFocusableInTouchMode(false);
         }
     }
 
@@ -855,7 +855,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53114e;
+        public final /* synthetic */ PersonChangeActivity f54031e;
 
         public r(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -872,20 +872,20 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53114e = personChangeActivity;
+            this.f54031e = personChangeActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable.toString().replaceAll("\\s*", "").equals(this.f53114e.mModel.w().getIntro())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable.toString().replaceAll("\\s*", "").equals(this.f54031e.mModel.w().getIntro())) {
                 return;
             }
-            this.f53114e.isUpdate = true;
+            this.f54031e.isUpdate = true;
             if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-                SkinManager.setViewTextColor(this.f53114e.mSave, R.color.navi_op_text, 1);
+                SkinManager.setViewTextColor(this.f54031e.mSave, R.color.navi_op_text, 1);
             } else {
-                SkinManager.setViewTextColor(this.f53114e.mSave, R.color.CAM_X0302, 1);
+                SkinManager.setViewTextColor(this.f54031e.mSave, R.color.CAM_X0302, 1);
             }
         }
 
@@ -900,26 +900,26 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                Editable text = this.f53114e.mEdit.getText();
+                Editable text = this.f54031e.mEdit.getText();
                 String replaceAll = text.toString().replaceAll("\\s*", "");
                 int length = replaceAll.length();
-                this.f53114e.mIntroTextTipNum.setText(String.valueOf(length));
-                this.f53114e.mIntroTextTip.setVisibility(0);
-                this.f53114e.showIntroTextTip();
+                this.f54031e.mIntroTextTipNum.setText(String.valueOf(length));
+                this.f54031e.mIntroTextTip.setVisibility(0);
+                this.f54031e.showIntroTextTip();
                 if (length > 500) {
-                    this.f53114e.showTopToast(R.string.over_limit_tip, false);
-                    if (this.f53114e.mEdit.getSelectionStart() - 1 < 0 || this.f53114e.mEdit.getSelectionStart() - 1 > this.f53114e.mEdit.getSelectionEnd()) {
-                        this.f53114e.mEdit.setText(replaceAll.substring(0, 500));
+                    this.f54031e.showTopToast(R.string.over_limit_tip, false);
+                    if (this.f54031e.mEdit.getSelectionStart() - 1 < 0 || this.f54031e.mEdit.getSelectionStart() - 1 > this.f54031e.mEdit.getSelectionEnd()) {
+                        this.f54031e.mEdit.setText(replaceAll.substring(0, 500));
                     } else {
-                        text.delete(this.f53114e.mEdit.getSelectionStart() - 1, this.f53114e.mEdit.getSelectionEnd());
-                        this.f53114e.mEdit.setText(charSequence);
+                        text.delete(this.f54031e.mEdit.getSelectionStart() - 1, this.f54031e.mEdit.getSelectionEnd());
+                        this.f54031e.mEdit.setText(charSequence);
                     }
                     int selectionEnd = Selection.getSelectionEnd(text);
                     int length2 = text.length();
                     if (selectionEnd > length2) {
                         selectionEnd = length2;
                     }
-                    Selection.setSelection(this.f53114e.mEdit.getText(), selectionEnd);
+                    Selection.setSelection(this.f54031e.mEdit.getText(), selectionEnd);
                 }
             }
         }
@@ -931,7 +931,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53115a;
+        public final /* synthetic */ PersonChangeActivity f54032a;
 
         public s(PersonChangeActivity personChangeActivity) {
             Interceptable interceptable = $ic;
@@ -948,7 +948,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53115a = personChangeActivity;
+            this.f54032a = personChangeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -964,8 +964,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f53115a.mImageTask = null;
-                this.f53115a.mImageProgressBar.setVisibility(8);
+                this.f54032a.mImageTask = null;
+                this.f54032a.mImageProgressBar.setVisibility(8);
                 super.cancel(true);
             }
         }
@@ -982,9 +982,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f53115a.mImageProgressBar.setVisibility(0);
-                this.f53115a.mPhotoView.setImageDrawable(null);
-                this.f53115a.mPhoto = null;
+                this.f54032a.mImageProgressBar.setVisibility(0);
+                this.f54032a.mPhotoView.setImageDrawable(null);
+                this.f54032a.mPhoto = null;
                 super.onPreExecute();
             }
         }
@@ -999,12 +999,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bitmap) == null) {
                 super.onPostExecute((s) bitmap);
-                this.f53115a.mImageTask = null;
-                this.f53115a.mImageProgressBar.setVisibility(8);
+                this.f54032a.mImageTask = null;
+                this.f54032a.mImageProgressBar.setVisibility(8);
                 if (bitmap != null) {
-                    this.f53115a.mPhoto = new b.a.e.l.d.a(bitmap, false, (String) null);
-                    this.f53115a.mPhoto.h(this.f53115a.mPhotoView);
-                    b.a.q0.c0.c.k().c(this.f53115a.mModel.w().getPortrait(), this.f53115a.mPhoto, true);
+                    this.f54032a.mPhoto = new b.a.e.m.d.a(bitmap, false, (String) null);
+                    this.f54032a.mPhoto.h(this.f54032a.mPhotoView);
+                    b.a.q0.c0.c.k().c(this.f54032a.mModel.w().getPortrait(), this.f54032a.mPhoto, true);
                 }
             }
         }
@@ -1016,13 +1016,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f53116a;
+        public NetWork f54033a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PersonChangeModel f53117b;
+        public PersonChangeModel f54034b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PersonChangeActivity f53118c;
+        public final /* synthetic */ PersonChangeActivity f54035c;
 
         public t(PersonChangeActivity personChangeActivity, PersonChangeModel personChangeModel) {
             Interceptable interceptable = $ic;
@@ -1039,18 +1039,18 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     return;
                 }
             }
-            this.f53118c = personChangeActivity;
-            this.f53116a = null;
-            this.f53117b = null;
-            this.f53117b = personChangeModel;
+            this.f54035c = personChangeActivity;
+            this.f54033a = null;
+            this.f54034b = null;
+            this.f54034b = personChangeModel;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53118c.mModifyTask = null;
-                NetWork netWork = this.f53116a;
+                this.f54035c.mModifyTask = null;
+                NetWork netWork = this.f54033a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
@@ -1062,8 +1062,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                PersonChangeActivity personChangeActivity = this.f53118c;
-                personChangeActivity.showLoadingDialog(personChangeActivity.getPageContext().getString(R.string.saving), this.f53118c.mDialogCancelListener);
+                PersonChangeActivity personChangeActivity = this.f54035c;
+                personChangeActivity.showLoadingDialog(personChangeActivity.getPageContext().getString(R.string.saving), this.f54035c.mDialogCancelListener);
                 super.onPreExecute();
             }
         }
@@ -1074,28 +1074,28 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                if (this.f53117b == null) {
+                if (this.f54034b == null) {
                     return null;
                 }
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_MODIFY);
-                this.f53116a = netWork;
-                netWork.addPostData("sex", String.valueOf(this.f53117b.w().getSex()));
-                this.f53116a.addPostData("intro", this.f53117b.w().getIntro());
-                this.f53116a.addPostData("birthday_time", String.valueOf(this.f53117b.w().getBirthdayTime()));
-                this.f53116a.addPostData("birthday_show_status", String.valueOf(this.f53117b.w().getBirthdayShowStatus()));
-                if (b.a.q0.b.d.E()) {
-                    this.f53116a.addPostData("need_keep_nickname_flag", "0");
-                    this.f53116a.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
-                    this.f53116a.addPostData("is_business_account", this.f53117b.w().getIsBusinessAccount());
-                    if (!TextUtils.isEmpty(this.f53117b.w().getTempNickName())) {
-                        this.f53116a.addPostData("nick_name", this.f53117b.w().getTempNickName());
+                this.f54033a = netWork;
+                netWork.addPostData("sex", String.valueOf(this.f54034b.w().getSex()));
+                this.f54033a.addPostData("intro", this.f54034b.w().getIntro());
+                this.f54033a.addPostData("birthday_time", String.valueOf(this.f54034b.w().getBirthdayTime()));
+                this.f54033a.addPostData("birthday_show_status", String.valueOf(this.f54034b.w().getBirthdayShowStatus()));
+                if (b.a.q0.b.d.H()) {
+                    this.f54033a.addPostData("need_keep_nickname_flag", "0");
+                    this.f54033a.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+                    this.f54033a.addPostData("is_business_account", this.f54034b.w().getIsBusinessAccount());
+                    if (!TextUtils.isEmpty(this.f54034b.w().getTempNickName())) {
+                        this.f54033a.addPostData("nick_name", this.f54034b.w().getTempNickName());
                     }
                 } else {
-                    this.f53116a.addPostData("need_keep_nickname_flag", "1");
+                    this.f54033a.addPostData("need_keep_nickname_flag", "1");
                 }
-                this.f53116a.postMultiNetData();
-                if (this.f53116a.getNetContext().getResponse().isRequestSuccess()) {
-                    b.a.r0.l3.p0.a.j();
+                this.f54033a.postMultiNetData();
+                if (this.f54033a.getNetContext().getResponse().isRequestSuccess()) {
+                    b.a.r0.m3.p0.a.j();
                 }
                 return null;
             }
@@ -1107,15 +1107,15 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f53118c.mModifyTask = null;
-                this.f53118c.closeLoadingDialog();
-                NetWork netWork = this.f53116a;
+                this.f54035c.mModifyTask = null;
+                this.f54035c.closeLoadingDialog();
+                NetWork netWork = this.f54033a;
                 if (netWork != null) {
                     if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                        this.f53118c.setDataAndFinish();
+                        this.f54035c.setDataAndFinish();
                         PersonChangeActivity.showSuccessToast();
                     } else {
-                        this.f53118c.showTopToast(this.f53116a.getErrorString(), false);
+                        this.f54035c.showTopToast(this.f54033a.getErrorString(), false);
                     }
                 }
                 super.onPostExecute((t) str);
@@ -1227,7 +1227,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             editText.setHintTextColor(SkinManager.getColor(R.color.CAM_X0108));
             this.mNickNameShow.setOnClickListener(this);
             this.mNickNameShow.setText(this.mModel.w().getNameShow());
-            if (b.a.q0.b.d.E()) {
+            if (b.a.q0.b.d.H()) {
                 this.mNickNameShow.setOnFocusChangeListener(new o(this));
                 this.mNickNameShow.setOnEditorActionListener(new p(this));
             } else {
@@ -1283,7 +1283,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.mEdit = editText2;
             editText2.setHint(getResources().getString(R.string.person_default_sign, "o(〃'▽'〃)o"));
             this.mEdit.setHintTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            if (!b.a.e.e.p.k.isEmpty(this.mModel.w().getIntro())) {
+            if (!b.a.e.f.p.k.isEmpty(this.mModel.w().getIntro())) {
                 this.mEdit.setText(this.mModel.w().getIntro());
                 TextView textView2 = this.mIntroTextTipNum;
                 textView2.setText(this.mModel.w().getIntro().length() + "");
@@ -1356,7 +1356,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     private void clickChangeNickName() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65577, this) == null) {
-            if (b.a.q0.b.d.E()) {
+            if (b.a.q0.b.d.H()) {
                 b.a.q0.s.e0.b.j().t("key_has_show_nick_name_red_icon_tip", true);
                 setNicknameMore();
                 this.mNickNameShow.setFocusableInTouchMode(true);
@@ -1488,9 +1488,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             return;
         }
         hideEditor();
-        if (b.a.q0.b.d.E() && !checkTempNickName()) {
+        if (b.a.q0.b.d.H() && !checkTempNickName()) {
             showTopToast(R.string.person_nick_name_toast, false);
-        } else if (!b.a.e.e.p.j.z()) {
+        } else if (!b.a.e.f.p.j.z()) {
             showTopToast(R.string.neterror, false);
         } else {
             this.mModel.w().setIntro(this.mEdit.getText().toString().replaceAll("\\s*", ""));
@@ -1562,7 +1562,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65592, this) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mNickNameMore.getLayoutParams();
-            if (b.a.q0.b.d.E()) {
+            if (b.a.q0.b.d.H()) {
                 layoutParams.width = UtilHelper.getDimenPixelSize(R.dimen.tbds21);
                 layoutParams.height = UtilHelper.getDimenPixelSize(R.dimen.tbds21);
                 this.mNickNameMore.setImageResource(R.drawable.ic_red_circle);
@@ -1662,7 +1662,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public static void showSuccessToast() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65598, null) == null) {
-            b.a.e.e.m.e.a().postDelayed(new g(), 200L);
+            b.a.e.f.m.e.a().postDelayed(new g(), 200L);
         }
     }
 
@@ -1822,7 +1822,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                         } else if (view != this.mClientNumberMain || this.mClientidShow == null || this.mUserNameShow == null) {
                             return;
                         } else {
-                            b.a.e.e.p.a.a(String.format(getResources().getString(R.string.to_share_tieba_id), TbadkCoreApplication.getCurrentAccountNameShow(), this.mClientidShow.getText().toString()));
+                            b.a.e.f.p.a.a(String.format(getResources().getString(R.string.to_share_tieba_id), TbadkCoreApplication.getCurrentAccountNameShow(), this.mClientidShow.getText().toString()));
                             new BdTopToast(this, 3000).setIcon(true).setContent(getResources().getString(R.string.copy_success)).show((ViewGroup) this.mRootView);
                             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COPY_CLIENT_NUMBER_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", this.mClientidShow.getText().toString()).param("obj_locate", 2));
                             return;
@@ -1849,12 +1849,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
             }
             PersonChangeModel personChangeModel2 = this.mModel;
-            if (personChangeModel2 != null && (personChangeData = personChangeModel2.f53119e) != null && !personChangeData.canModifyAvatar()) {
-                if (!StringUtils.isNull(this.mModel.f53119e.getCantModifyAvatarDesc())) {
-                    b.a.e.e.p.l.J(TbadkCoreApplication.getInst(), this.mModel.f53119e.getCantModifyAvatarDesc());
+            if (personChangeModel2 != null && (personChangeData = personChangeModel2.f54036e) != null && !personChangeData.canModifyAvatar()) {
+                if (!StringUtils.isNull(this.mModel.f54036e.getCantModifyAvatarDesc())) {
+                    b.a.e.f.p.l.J(TbadkCoreApplication.getInst(), this.mModel.f54036e.getCantModifyAvatarDesc());
                     return;
                 } else {
-                    b.a.e.e.p.l.I(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
+                    b.a.e.f.p.l.I(TbadkCoreApplication.getInst(), R.string.person_cant_edit_avatar_default_tip);
                     return;
                 }
             }

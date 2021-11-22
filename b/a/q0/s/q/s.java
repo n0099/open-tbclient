@@ -20,25 +20,25 @@ public class s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13437a;
+    public boolean f14217a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13438b;
+    public int f14218b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13439c;
+    public int f14219c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13440d;
+    public int f14220d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13441e;
+    public int f14221e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13442f;
+    public int f14222f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13443g;
+    public int f14223g;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -53,51 +53,51 @@ public class s {
                 return;
             }
         }
-        this.f13441e = 25;
-        this.f13442f = 25;
-        this.f13443g = 10;
+        this.f14221e = 25;
+        this.f14222f = 25;
+        this.f14223g = 10;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13440d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14220d : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13442f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14222f : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13438b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14218b : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13443g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14223g : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13441e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14221e : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13439c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14219c : invokeV.intValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13437a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14217a : invokeV.booleanValue;
     }
 
     public void h(String str) {
@@ -109,7 +109,7 @@ public class s {
                 }
                 i(new JSONObject(str));
             } catch (Exception e2) {
-                this.f13437a = false;
+                this.f14217a = false;
                 BdLog.e(e2.getMessage());
             }
         }
@@ -122,30 +122,30 @@ public class s {
         }
         try {
             if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1) {
-                this.f13437a = true;
+                this.f14217a = true;
             } else {
-                this.f13437a = false;
+                this.f14217a = false;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
             if (optJSONObject != null) {
-                this.f13440d = optJSONObject.optInt("num");
+                this.f14220d = optJSONObject.optInt("num");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
             if (optJSONObject2 != null) {
-                this.f13439c = optJSONObject2.optInt("time");
-                this.f13438b = optJSONObject2.optInt("num");
+                this.f14219c = optJSONObject2.optInt("time");
+                this.f14218b = optJSONObject2.optInt("num");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
             if (optJSONObject3 != null) {
-                this.f13441e = optJSONObject3.optInt("succ");
-                this.f13442f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                this.f13443g = optJSONObject3.optInt("slow");
+                this.f14221e = optJSONObject3.optInt("succ");
+                this.f14222f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                this.f14223g = optJSONObject3.optInt("slow");
             }
-            if (this.f13439c <= 0 || this.f13438b <= 0 || this.f13440d <= 0) {
-                this.f13437a = false;
+            if (this.f14219c <= 0 || this.f14218b <= 0 || this.f14220d <= 0) {
+                this.f14217a = false;
             }
         } catch (Exception e2) {
-            this.f13437a = false;
+            this.f14217a = false;
             BdLog.e(e2.getMessage());
         }
     }
@@ -153,14 +153,14 @@ public class s {
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (this.f13437a != z) {
-                b.a.e.e.n.a logItem = ImageLogger.getLogItem();
+            if (this.f14217a != z) {
+                b.a.e.f.n.a logItem = ImageLogger.getLogItem();
                 logItem.b("act", "fallback");
                 logItem.b("result", z ? "1" : "0");
                 logItem.b("type", SetImageWatermarkTypeReqMsg.SWITCH);
                 BdStatisticsManager.getInstance().debug("img", logItem);
             }
-            this.f13437a = z;
+            this.f14217a = z;
         }
     }
 }

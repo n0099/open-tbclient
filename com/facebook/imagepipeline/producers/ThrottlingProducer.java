@@ -174,7 +174,7 @@ public class ThrottlingProducer<T> implements Producer<T> {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
-            producerContext.getProducerListener().onProducerStart(producerContext, PRODUCER_NAME);
+            producerContext.getListener().onProducerStart(producerContext.getId(), PRODUCER_NAME);
             synchronized (this) {
                 z = true;
                 if (this.mNumCurrentRequests >= this.mMaxSimultaneousRequests) {
@@ -194,7 +194,7 @@ public class ThrottlingProducer<T> implements Producer<T> {
     public void produceResultsInternal(Consumer<T> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext) == null) {
-            producerContext.getProducerListener().onProducerFinishWithSuccess(producerContext, PRODUCER_NAME, null);
+            producerContext.getListener().onProducerFinishWithSuccess(producerContext.getId(), PRODUCER_NAME, null);
             this.mInputProducer.produceResults(new ThrottlerConsumer(this, consumer, null), producerContext);
         }
     }

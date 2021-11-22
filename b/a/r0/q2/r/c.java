@@ -3,8 +3,8 @@ package b.a.r0.q2.r;
 import android.content.Context;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -53,7 +53,7 @@ public class c extends d {
     public void A0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            r0(this.f22910i);
+            r0(this.f24431i);
         }
     }
 
@@ -70,7 +70,7 @@ public class c extends d {
     @Override // b.a.r0.q2.r.d
     public void R() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.q == this.f22909h) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.q == this.f24430h) {
             A0();
         }
     }
@@ -79,7 +79,7 @@ public class c extends d {
     public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f22910i = 32;
+            this.f24431i = 32;
         }
     }
 

@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class VoteViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public VoteCandidateCard f47276a;
+    public VoteCandidateCard f48140a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteViewHolder(View view) {
@@ -35,14 +35,14 @@ public class VoteViewHolder extends RecyclerView.ViewHolder {
             }
         }
         if (view instanceof VoteCandidateCard) {
-            this.f47276a = (VoteCandidateCard) view;
+            this.f48140a = (VoteCandidateCard) view;
         }
     }
 
     public void setData(int i2, f fVar) {
         VoteCandidateCard voteCandidateCard;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, fVar) == null) || (voteCandidateCard = this.f47276a) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, fVar) == null) || (voteCandidateCard = this.f48140a) == null) {
             return;
         }
         voteCandidateCard.setData(i2, fVar);

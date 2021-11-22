@@ -3,13 +3,14 @@ package b.a.r0.k2.y.f;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import b.a.r0.k2.r.k;
-import b.a.r0.k2.r.m;
-import b.a.r0.k2.r.w;
+import b.a.r0.k2.r.l;
+import b.a.r0.k2.r.n;
+import b.a.r0.k2.r.x;
 import b.a.r0.k2.u.f.a0;
-import b.a.r0.k2.u.f.h0;
-import b.a.r0.k2.u.f.l;
-import b.a.r0.k2.u.f.l0;
-import b.a.r0.k2.u.f.y0;
+import b.a.r0.k2.u.f.b0;
+import b.a.r0.k2.u.f.i0;
+import b.a.r0.k2.u.f.m0;
+import b.a.r0.k2.u.f.z0;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
@@ -26,12 +27,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h0 m;
+    public i0 m;
     public a0 n;
-    public y0 o;
-    public PbReplyLoadMoreAdapter p;
-    public j q;
-    public i r;
+    public b0 o;
+    public z0 p;
+    public PbReplyLoadMoreAdapter q;
+    public j r;
+    public i s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(DetailInfoAndReplyFragment detailInfoAndReplyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -52,88 +54,98 @@ public class b extends a {
                 return;
             }
         }
-        F();
+        G();
     }
 
     @Override // b.a.r0.k2.y.f.a
-    public void A(b.a.r0.k2.r.f fVar) {
+    public void A(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.o.k0(onClickListener);
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
-    public void B(b.a.r0.k2.s.c cVar) {
+    public void B(b.a.r0.k2.r.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            super.B(cVar);
-            this.o.X0(cVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
-    public void C(b.a.r0.k2.r.f fVar) {
+    public void C(b.a.r0.k2.s.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            this.q.w0(fVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            super.C(cVar);
+            this.p.X0(cVar);
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
-    public void D(String str) {
+    public void D(b.a.r0.k2.r.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.q.q(str);
-        }
-    }
-
-    public final void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.q = new j(this.f19760b.getVideoPbFragment(), PostData.x0);
-            this.n = new a0(this.f19760b.getVideoPbFragment(), k.f18776g, this.f19760b.getUniqueId());
-            this.m = new h0(this.f19760b.getVideoPbFragment(), m.M0);
-            y0 y0Var = new y0(this.f19760b.getVideoPbFragment(), PostData.y0);
-            this.o = y0Var;
-            y0Var.Y0(this.f19760b.getVideoPbFragment());
-            this.o.U0(this.f19760b.getVideoPbFragment().getFromVideoPageType());
-            this.p = new PbReplyLoadMoreAdapter(this.f19760b.getVideoPbFragment(), PostData.E0);
-            this.r = new i(this.f19760b.getContext(), w.f18824f, this.f19760b.getVideoPbFragment());
-            this.f19763e.add(this.q);
-            this.f19763e.add(this.r);
-            this.f19763e.add(this.m);
-            this.f19763e.add(this.n);
-            this.f19763e.add(this.o);
-            this.f19763e.add(this.p);
-            this.f19761c.addAdapters(this.f19763e);
+        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
+            this.r.w0(fVar);
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
-    public l0 e() {
-        InterceptResult invokeV;
+    public void E(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.r.q(str);
         }
-        return (l0) invokeV.objValue;
+    }
+
+    public final void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.r = new j(this.f21297b.getVideoPbFragment(), PostData.x0);
+            this.n = new a0(this.f21297b.getVideoPbFragment(), k.f20312g, this.f21297b.getUniqueId());
+            this.o = new b0(this.f21297b.getVideoPbFragment(), l.f20315e);
+            this.m = new i0(this.f21297b.getVideoPbFragment(), n.M0);
+            z0 z0Var = new z0(this.f21297b.getVideoPbFragment(), PostData.y0);
+            this.p = z0Var;
+            z0Var.Y0(this.f21297b.getVideoPbFragment());
+            this.p.U0(this.f21297b.getVideoPbFragment().getFromVideoPageType());
+            this.q = new PbReplyLoadMoreAdapter(this.f21297b.getVideoPbFragment(), PostData.E0);
+            this.s = new i(this.f21297b.getContext(), x.f20361f, this.f21297b.getVideoPbFragment());
+            this.f21300e.add(this.r);
+            this.f21300e.add(this.s);
+            this.f21300e.add(this.m);
+            this.f21300e.add(this.n);
+            this.f21300e.add(this.o);
+            this.f21300e.add(this.p);
+            this.f21300e.add(this.q);
+            this.f21298c.addAdapters(this.f21300e);
+        }
     }
 
     @Override // b.a.r0.k2.y.f.a
-    public l f() {
+    public m0 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return null;
         }
-        return (l) invokeV.objValue;
+        return (m0) invokeV.objValue;
+    }
+
+    @Override // b.a.r0.k2.y.f.a
+    public b.a.r0.k2.u.f.l f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (b.a.r0.k2.u.f.l) invokeV.objValue;
     }
 
     @Override // b.a.r0.k2.y.f.a
     public PbFirstFloorCommentAndPraiseAdapter g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return null;
         }
         return (PbFirstFloorCommentAndPraiseAdapter) invokeV.objValue;
@@ -143,17 +155,17 @@ public class b extends a {
     public void k() {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (bdTypeRecyclerView = this.f19761c) == null || bdTypeRecyclerView.getAdapter() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (bdTypeRecyclerView = this.f21298c) == null || bdTypeRecyclerView.getAdapter() == null) {
             return;
         }
-        this.f19761c.getListAdapter().notifyDataSetChanged();
+        this.f21298c.getListAdapter().notifyDataSetChanged();
     }
 
     @Override // b.a.r0.k2.y.f.a
     public void l() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (jVar = this.q) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (jVar = this.r) == null) {
             return;
         }
         jVar.O();
@@ -162,70 +174,70 @@ public class b extends a {
     @Override // b.a.r0.k2.y.f.a
     public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
     public void o(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
     public void p(b.a.r0.k2.r.f fVar, boolean z, String str, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{fVar, Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
-            this.o.t(fVar);
-            this.o.setFromCDN(z);
-            this.o.q(str);
-            this.o.c(z2);
-            this.o.W0(0.5f);
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{fVar, Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
+            this.p.t(fVar);
+            this.p.setFromCDN(z);
+            this.p.q(str);
+            this.p.c(z2);
+            this.p.W0(0.5f);
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
     public void u(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, onClickListener) == null) {
             super.u(onClickListener);
-            this.o.m(onClickListener);
+            this.p.m(onClickListener);
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
     public void v(TbRichTextView.z zVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, zVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, zVar) == null) {
             super.v(zVar);
-            this.o.p(zVar);
+            this.p.p(zVar);
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
     public void w(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, onLongClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, onLongClickListener) == null) {
             super.w(onLongClickListener);
-            this.o.d(onLongClickListener);
+            this.p.d(onLongClickListener);
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
     public void y(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
             super.y(onClickListener);
-            this.o.e(onClickListener);
-            this.p.k0(onClickListener);
+            this.p.e(onClickListener);
+            this.q.k0(onClickListener);
         }
     }
 
     @Override // b.a.r0.k2.y.f.a
     public void z(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) {
             this.n.k0(onClickListener);
         }
     }

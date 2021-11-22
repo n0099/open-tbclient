@@ -16,7 +16,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5405a;
+    public static final boolean f5686a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class b {
                 return;
             }
         }
-        f5405a = k.f6397a;
+        f5686a = k.f6863a;
     }
 
     public b(b.a.p0.a.h0.f.a aVar) {
@@ -56,14 +56,14 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (f5405a) {
+            if (f5686a) {
                 String str3 = "slave id: " + str + " data: " + str2;
             }
             int i2 = 0;
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 i2 = 202;
             } else {
-                b.a.p0.a.g1.f.T().y(new b.a.p0.a.o0.d.d(str, str2), false);
+                b.a.p0.a.g1.f.U().y(new b.a.p0.a.o0.d.e(str, str2), false);
             }
             return UnitedSchemeUtility.wrapCallbackParams(i2).toString();
         }

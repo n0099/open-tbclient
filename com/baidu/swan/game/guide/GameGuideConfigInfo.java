@@ -3,7 +3,7 @@ package com.baidu.swan.game.guide;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import b.a.p0.a.k;
-import b.a.p0.f.j.o.a;
+import b.a.p0.h.j.o.a;
 import com.airbnb.lottie.LottieComposition;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -339,7 +339,7 @@ public class GameGuideConfigInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                boolean z = k.f6397a;
+                boolean z = k.f6863a;
                 return null;
             }
             GameGuideConfigInfo gameGuideConfigInfo = new GameGuideConfigInfo();
@@ -359,7 +359,7 @@ public class GameGuideConfigInfo implements Serializable {
             }
             gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
             if (optInt == 0) {
-                boolean z2 = k.f6397a;
+                boolean z2 = k.f6863a;
                 return gameGuideConfigInfo;
             }
             gameGuideConfigInfo.perCoinNum = jSONObject.optInt(KEY_PER_COIN_NUM, 0);

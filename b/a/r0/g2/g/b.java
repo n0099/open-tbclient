@@ -1,7 +1,7 @@
 package b.a.r0.g2.g;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.r0.g2.c.f;
 import b.a.r0.g2.c.g;
 import com.baidu.adp.BdUniqueId;
@@ -41,31 +41,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16793a;
+    public int f18307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f16794b;
+    public final BdUniqueId f18308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Gson f16795c;
+    public Gson f18309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f16796d;
+    public d f18310d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f16797e;
+    public c f18311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b.a.r0.g2.c.b> f16798f;
+    public List<b.a.r0.g2.c.b> f18312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16799g;
+    public boolean f18313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.e.c.g.a f16800h;
+    public b.a.e.c.g.a f18314h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HttpMessageListener f16801i;
+    public HttpMessageListener f18315i;
 
     /* loaded from: classes4.dex */
     public class a extends b.a.e.c.g.a {
@@ -73,7 +73,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f16802a;
+        public final /* synthetic */ b f18316a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2, int i3) {
@@ -94,18 +94,18 @@ public class b {
                     return;
                 }
             }
-            this.f16802a = bVar;
+            this.f18316a = bVar;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f16802a.f16799g = false;
+                this.f18316a.f18313g = false;
                 if (responsedMessage == null) {
                     return;
                 }
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.f16802a.f16794b) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.f18316a.f18308b) {
                     b.a.r0.g2.c.c cVar = null;
                     if (responsedMessage instanceof InterestedForumHttpResMsg) {
                         cVar = ((InterestedForumHttpResMsg) responsedMessage).getPageData();
@@ -113,17 +113,17 @@ public class b {
                         cVar = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
                     }
                     if (responsedMessage.getError() != 0) {
-                        if (this.f16802a.f16796d != null) {
-                            this.f16802a.f16796d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                        if (this.f18316a.f18310d != null) {
+                            this.f18316a.f18310d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                         }
-                    } else if (cVar == null || ListUtils.isEmpty(cVar.f16774a)) {
-                        if (this.f16802a.f16796d != null) {
-                            this.f16802a.f16796d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    } else if (cVar == null || ListUtils.isEmpty(cVar.f18288a)) {
+                        if (this.f18316a.f18310d != null) {
+                            this.f18316a.f18310d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                         }
-                    } else if (cVar == null || this.f16802a.f16796d == null) {
+                    } else if (cVar == null || this.f18316a.f18310d == null) {
                     } else {
-                        b.c(this.f16802a);
-                        this.f16802a.f16796d.c(cVar);
+                        b.c(this.f18316a);
+                        this.f18316a.f18310d.c(cVar);
                     }
                 }
             }
@@ -132,15 +132,15 @@ public class b {
 
     /* renamed from: b.a.r0.g2.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0868b extends HttpMessageListener {
+    public class C0935b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f16803a;
+        public final /* synthetic */ b f18317a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0868b(b bVar, int i2) {
+        public C0935b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -157,7 +157,7 @@ public class b {
                     return;
                 }
             }
-            this.f16803a = bVar;
+            this.f18317a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -167,17 +167,17 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
-            if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.f16803a.f16794b) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
+            if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.f18317a.f18308b) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
                 InterestCommitHttpResMsg interestCommitHttpResMsg = (InterestCommitHttpResMsg) httpResponsedMessage;
                 if (interestCommitHttpResMsg.hasError() || interestCommitHttpResMsg.getErrno() != 0) {
-                    if (this.f16803a.f16796d != null) {
-                        this.f16803a.f16796d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (this.f18317a.f18310d != null) {
+                        this.f18317a.f18310d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                if (this.f16803a.f16797e != null) {
-                    this.f16803a.f16797e.b();
+                if (this.f18317a.f18311e != null) {
+                    this.f18317a.f18311e.b();
                 }
                 b.a.q0.s.e0.b.j().w("key_select_interest_flag", System.currentTimeMillis());
             }
@@ -211,22 +211,22 @@ public class b {
                 return;
             }
         }
-        this.f16795c = new Gson();
-        this.f16799g = false;
-        this.f16800h = new a(this, CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654);
-        this.f16801i = new C0868b(this, CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
-        this.f16794b = bdUniqueId;
-        this.f16800h.setTag(bdUniqueId);
-        this.f16801i.setTag(this.f16794b);
-        MessageManager.getInstance().registerListener(this.f16800h);
-        MessageManager.getInstance().registerListener(this.f16801i);
+        this.f18309c = new Gson();
+        this.f18313g = false;
+        this.f18314h = new a(this, CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654);
+        this.f18315i = new C0935b(this, CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
+        this.f18308b = bdUniqueId;
+        this.f18314h.setTag(bdUniqueId);
+        this.f18315i.setTag(this.f18308b);
+        MessageManager.getInstance().registerListener(this.f18314h);
+        MessageManager.getInstance().registerListener(this.f18315i);
         o();
         n();
     }
 
     public static /* synthetic */ int c(b bVar) {
-        int i2 = bVar.f16793a;
-        bVar.f16793a = i2 + 1;
+        int i2 = bVar.f18307a;
+        bVar.f18307a = i2 + 1;
         return i2;
     }
 
@@ -254,7 +254,7 @@ public class b {
             }
             httpMessage.addParam("interestList", str);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.setTag(this.f16794b);
+            httpMessage.setTag(this.f18308b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -269,7 +269,7 @@ public class b {
             }
             httpMessage.addParam("interestList", encode);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.setTag(this.f16794b);
+            httpMessage.setTag(this.f18308b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -284,7 +284,7 @@ public class b {
             }
             httpMessage.addParam("interestList", encode);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.setTag(this.f16794b);
+            httpMessage.setTag(this.f18308b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -294,14 +294,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HashMap hashMap = new HashMap();
-            if (!ListUtils.isEmpty(this.f16798f)) {
-                for (b.a.r0.g2.c.b bVar : this.f16798f) {
+            if (!ListUtils.isEmpty(this.f18312f)) {
+                for (b.a.r0.g2.c.b bVar : this.f18312f) {
                     if (bVar != null) {
                         hashMap.put(bVar.f(), new HashMap());
                     }
                 }
             }
-            return this.f16795c.toJson(hashMap);
+            return this.f18309c.toJson(hashMap);
         }
         return (String) invokeV.objValue;
     }
@@ -328,22 +328,22 @@ public class b {
             HashMap hashMap = new HashMap();
             for (b.a.r0.g2.c.a aVar : list) {
                 HashMap hashMap2 = new HashMap();
-                for (g gVar : aVar.f16762a) {
-                    if (gVar.f16788b) {
-                        RecommendForumInfo recommendForumInfo = gVar.f16787a;
+                for (g gVar : aVar.f18276a) {
+                    if (gVar.f18302b) {
+                        RecommendForumInfo recommendForumInfo = gVar.f18301a;
                         hashMap2.put(recommendForumInfo.forum_id, recommendForumInfo.forum_name);
                     }
                 }
-                hashMap.put(aVar.f16764c, hashMap2);
+                hashMap.put(aVar.f18278c, hashMap2);
             }
-            if (!ListUtils.isEmpty(this.f16798f)) {
-                for (b.a.r0.g2.c.b bVar : this.f16798f) {
+            if (!ListUtils.isEmpty(this.f18312f)) {
+                for (b.a.r0.g2.c.b bVar : this.f18312f) {
                     if (bVar != null && !hashMap.containsKey(bVar.f())) {
                         hashMap.put(bVar.f(), new HashMap());
                     }
                 }
             }
-            return this.f16795c.toJson(hashMap);
+            return this.f18309c.toJson(hashMap);
         }
         return (String) invokeL.objValue;
     }
@@ -372,14 +372,14 @@ public class b {
             if (!StringUtils.isNull(str)) {
                 hashMap.put(str, hashMap2);
             }
-            if (!ListUtils.isEmpty(this.f16798f)) {
-                for (b.a.r0.g2.c.b bVar : this.f16798f) {
+            if (!ListUtils.isEmpty(this.f18312f)) {
+                for (b.a.r0.g2.c.b bVar : this.f18312f) {
                     if (bVar != null && !hashMap.containsKey(bVar.f())) {
                         hashMap.put(bVar.f(), new HashMap());
                     }
                 }
             }
-            return this.f16795c.toJson(hashMap);
+            return this.f18309c.toJson(hashMap);
         }
         return (String) invokeL.objValue;
     }
@@ -388,14 +388,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
-            List<b.a.r0.g2.c.b> list = this.f16798f;
+            List<b.a.r0.g2.c.b> list = this.f18312f;
             if (list == null) {
                 interestedForumReqMsg.classidList = i(null);
             } else {
-                interestedForumReqMsg.classidList = i(list.subList((this.f16793a - 1) * 3, Math.min(list.size(), this.f16793a * 3)));
+                interestedForumReqMsg.classidList = i(list.subList((this.f18307a - 1) * 3, Math.min(list.size(), this.f18307a * 3)));
             }
-            interestedForumReqMsg.setTag(this.f16794b);
-            this.f16799g = true;
+            interestedForumReqMsg.setTag(this.f18308b);
+            this.f18313g = true;
             MessageManager.getInstance().sendMessage(interestedForumReqMsg);
         }
     }
@@ -403,13 +403,13 @@ public class b {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.f16793a - 1) * 3 < this.f16798f.size() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.f18307a - 1) * 3 < this.f18312f.size() : invokeV.booleanValue;
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, b.a.r0.l3.f0.a.a(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, b.a.r0.m3.f0.a.a(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setResponsedClass(InterestedForumHttpResMsg.class);
             tbHttpMessageTask.setPriority(4);
@@ -420,7 +420,7 @@ public class b {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            b.a.q0.z0.b bVar = new b.a.q0.z0.b(309654);
+            b.a.q0.y0.b bVar = new b.a.q0.y0.b(309654);
             bVar.setResponsedClass(InterestedForumSocketResMsg.class);
             bVar.g(true);
             bVar.setPriority(4);
@@ -431,22 +431,22 @@ public class b {
     public void q(List<b.a.r0.g2.c.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f16798f = list;
-            this.f16793a = 1;
+            this.f18312f = list;
+            this.f18307a = 1;
         }
     }
 
     public void r(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.f16797e = cVar;
+            this.f18311e = cVar;
         }
     }
 
     public void s(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
-            this.f16796d = dVar;
+            this.f18310d = dVar;
         }
     }
 }

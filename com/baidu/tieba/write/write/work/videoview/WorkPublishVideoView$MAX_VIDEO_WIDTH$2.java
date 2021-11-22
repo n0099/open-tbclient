@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.write.work.videoview;
 
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\b\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class WorkPublishVideoView$MAX_VIDEO_WIDTH$2 extends Lambda implements Function0<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,8 +47,8 @@ public final class WorkPublishVideoView$MAX_VIDEO_WIDTH$2 extends Lambda impleme
     }
 
     /* JADX DEBUG: Return type fixed from 'int' to match base method */
-    /* JADX WARN: Type inference failed for: r0v5, types: [java.lang.Integer, int] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Integer, int] */
+    /* JADX WARN: Type inference failed for: r0v5, types: [int, java.lang.Integer] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [int, java.lang.Integer] */
     @Override // kotlin.jvm.functions.Function0
     public final Integer invoke() {
         InterceptResult invokeV;

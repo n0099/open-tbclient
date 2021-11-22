@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b extends b.a.e.l.e.a<b.a.r0.p2.e.c, CardViewHolder<b.a.r0.p2.j.a>> {
+public class b extends b.a.e.m.e.a<b.a.r0.p2.e.c, CardViewHolder<b.a.r0.p2.j.a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
-    public b.a.e.e.k.b<PersonCommonForumItemView> n;
+    public b.a.e.f.k.b<PersonCommonForumItemView> n;
 
     /* loaded from: classes5.dex */
-    public class a implements b.a.e.e.k.c<PersonCommonForumItemView> {
+    public class a implements b.a.e.f.k.c<PersonCommonForumItemView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f22154a;
+        public final /* synthetic */ b f23631a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -44,12 +44,12 @@ public class b extends b.a.e.l.e.a<b.a.r0.p2.e.c, CardViewHolder<b.a.r0.p2.j.a>>
                     return;
                 }
             }
-            this.f22154a = bVar;
+            this.f23631a = bVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
             PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
             e(personCommonForumItemView2);
@@ -58,7 +58,7 @@ public class b extends b.a.e.l.e.a<b.a.r0.p2.e.c, CardViewHolder<b.a.r0.p2.j.a>>
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
             PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
             h(personCommonForumItemView2);
@@ -72,7 +72,7 @@ public class b extends b.a.e.l.e.a<b.a.r0.p2.e.c, CardViewHolder<b.a.r0.p2.j.a>>
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: f */
         public void b(PersonCommonForumItemView personCommonForumItemView) {
             Interceptable interceptable = $ic;
@@ -83,12 +83,12 @@ public class b extends b.a.e.l.e.a<b.a.r0.p2.e.c, CardViewHolder<b.a.r0.p2.j.a>>
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: g */
         public PersonCommonForumItemView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.f22154a.f2419e) : (PersonCommonForumItemView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.f23631a.f2421e) : (PersonCommonForumItemView) invokeV.objValue;
         }
 
         public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
@@ -100,7 +100,7 @@ public class b extends b.a.e.l.e.a<b.a.r0.p2.e.c, CardViewHolder<b.a.r0.p2.j.a>>
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.p2.e.c.f22282f);
+        super(tbPageContext.getPageActivity(), b.a.r0.p2.e.c.f23759f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,12 +117,12 @@ public class b extends b.a.e.l.e.a<b.a.r0.p2.e.c, CardViewHolder<b.a.r0.p2.j.a>>
                 return;
             }
         }
-        this.n = new b.a.e.e.k.b<>(new a(this), 12, 0);
+        this.n = new b.a.e.f.k.b<>(new a(this), 12, 0);
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public CardViewHolder<b.a.r0.p2.j.a> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -136,7 +136,7 @@ public class b extends b.a.e.l.e.a<b.a.r0.p2.e.c, CardViewHolder<b.a.r0.p2.j.a>>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.p2.e.c cVar, CardViewHolder<b.a.r0.p2.j.a> cardViewHolder) {
         InterceptResult invokeCommon;

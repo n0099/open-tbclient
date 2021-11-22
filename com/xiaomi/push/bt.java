@@ -13,7 +13,7 @@ public class bt {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bt f70724a;
+    public static volatile bt f71644a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -41,14 +41,14 @@ public class bt {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f70724a == null) {
+            if (f71644a == null) {
                 synchronized (bt.class) {
-                    if (f70724a == null) {
-                        f70724a = new bt(context);
+                    if (f71644a == null) {
+                        f71644a = new bt(context);
                     }
                 }
             }
-            return f70724a;
+            return f71644a;
         }
         return (bt) invokeL.objValue;
     }

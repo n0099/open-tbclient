@@ -3,7 +3,7 @@ package b.a.r0.h1.j.g;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.s;
+import b.a.e.m.e.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class o extends b.a.e.l.e.a<SpecialColumnListData, AdapterViewHolder<SpecialTopicLayout>> implements b.a.r0.h1.j.d {
+public class o extends b.a.e.m.e.a<SpecialColumnListData, AdapterViewHolder<SpecialTopicLayout>> implements b.a.r0.h1.j.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
@@ -45,7 +45,7 @@ public class o extends b.a.e.l.e.a<SpecialColumnListData, AdapterViewHolder<Spec
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public AdapterViewHolder<SpecialTopicLayout> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -59,7 +59,7 @@ public class o extends b.a.e.l.e.a<SpecialColumnListData, AdapterViewHolder<Spec
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, SpecialColumnListData specialColumnListData, AdapterViewHolder<SpecialTopicLayout> adapterViewHolder) {
         InterceptResult invokeCommon;

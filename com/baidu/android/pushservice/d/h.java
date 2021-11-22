@@ -13,7 +13,7 @@ public class h extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35259d;
+    public String f36088d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(i iVar, Context context, String str) {
@@ -34,7 +34,7 @@ public class h extends c {
                 return;
             }
         }
-        this.f35259d = str;
+        this.f36088d = str;
     }
 
     @Override // com.baidu.android.pushservice.d.a
@@ -43,7 +43,7 @@ public class h extends c {
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
             super.b(hashMap);
             hashMap.put("method", "deltags");
-            hashMap.put(CommandMessage.TYPE_TAGS, this.f35259d);
+            hashMap.put(CommandMessage.TYPE_TAGS, this.f36088d);
         }
     }
 }

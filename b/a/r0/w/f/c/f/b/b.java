@@ -19,19 +19,19 @@ public class b extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24633e;
+    public String f26150e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24634f;
+    public String f26151f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f24635g;
+    public String f26152g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f24636h;
+    public String f26153h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f24637i;
+    public String f26154i;
     public String j;
 
     static {
@@ -69,16 +69,16 @@ public class b extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f24633e = jSONObject.optString("user_id");
-        this.f24634f = jSONObject.optString("user_name");
-        this.f24635g = jSONObject.optString("user_nickname");
-        this.f24636h = jSONObject.optString("portrait");
-        this.f24637i = jSONObject.optString("user_brief");
+        this.f26150e = jSONObject.optString("user_id");
+        this.f26151f = jSONObject.optString("user_name");
+        this.f26152g = jSONObject.optString("user_nickname");
+        this.f26153h = jSONObject.optString("portrait");
+        this.f26154i = jSONObject.optString("user_brief");
         jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
         this.j = jSONObject.optString("remark");
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

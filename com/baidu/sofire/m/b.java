@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f43119a;
+    public a f44065a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f43120b;
+    public Context f44066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.sofire.k.c f43121c;
+    public com.baidu.sofire.k.c f44067c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServiceConnection f43122d;
+    public ServiceConnection f44068d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43123e;
+    public String f44069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43124f;
+    public String f44070f;
 
     public b(Context context, com.baidu.sofire.k.c cVar) {
         Interceptable interceptable = $ic;
@@ -50,12 +50,12 @@ public final class b {
                 return;
             }
         }
-        this.f43119a = null;
-        this.f43123e = null;
-        this.f43124f = null;
-        this.f43122d = new d(this);
-        this.f43120b = context;
-        this.f43121c = cVar;
+        this.f44065a = null;
+        this.f44069e = null;
+        this.f44070f = null;
+        this.f44068d = new d(this);
+        this.f44066b = context;
+        this.f44067c = cVar;
     }
 
     public final String a(String str) {
@@ -66,12 +66,12 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String str3 = null;
             try {
-                if (TextUtils.isEmpty(this.f43123e)) {
-                    this.f43123e = this.f43120b.getPackageName();
+                if (TextUtils.isEmpty(this.f44069e)) {
+                    this.f44069e = this.f44066b.getPackageName();
                 }
-                if (TextUtils.isEmpty(this.f43124f)) {
+                if (TextUtils.isEmpty(this.f44070f)) {
                     try {
-                        signatureArr = this.f43120b.getPackageManager().getPackageInfo(this.f43123e, 64).signatures;
+                        signatureArr = this.f44066b.getPackageManager().getPackageInfo(this.f44069e, 64).signatures;
                     } catch (PackageManager.NameNotFoundException unused) {
                         signatureArr = null;
                     }
@@ -87,9 +87,9 @@ public final class b {
                             e2.printStackTrace();
                         }
                     }
-                    this.f43124f = str3;
+                    this.f44070f = str3;
                 }
-                str2 = this.f43119a.a(this.f43123e, this.f43124f, str);
+                str2 = this.f44065a.a(this.f44069e, this.f44070f, str);
             } catch (Throwable th) {
                 th.printStackTrace();
                 str2 = str3;

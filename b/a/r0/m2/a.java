@@ -17,7 +17,7 @@ public class a {
 
     /* renamed from: b.a.r0.m2.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class C1039a {
+    public static /* synthetic */ class C1101a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -28,10 +28,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f21159a;
+        public String f22314a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f21160b;
+        public c f22315b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class a {
         public ImageUploadResult doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? new b.a.q0.d0.f("user_pics").l(FileHelper.getFileDireciory(this.f21159a), false) : (ImageUploadResult) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? new b.a.q0.d0.f("user_pics").l(FileHelper.getFileDireciory(this.f22314a), false) : (ImageUploadResult) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,7 +64,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUploadResult) == null) {
                 super.onPostExecute(imageUploadResult);
-                if (this.f21160b != null) {
+                if (this.f22315b != null) {
                     int i2 = 0;
                     if (imageUploadResult != null) {
                         i2 = imageUploadResult.error_code;
@@ -72,12 +72,12 @@ public class a {
                     } else {
                         str = "";
                     }
-                    this.f21160b.a(i2, str, imageUploadResult);
+                    this.f22315b.a(i2, str, imageUploadResult);
                 }
             }
         }
 
-        public /* synthetic */ b(C1039a c1039a) {
+        public /* synthetic */ b(C1101a c1101a) {
             this();
         }
     }
@@ -107,8 +107,8 @@ public class a {
             return;
         }
         b bVar = new b(null);
-        bVar.f21159a = str;
-        bVar.f21160b = cVar;
+        bVar.f22314a = str;
+        bVar.f22315b = cVar;
         bVar.execute("");
     }
 }

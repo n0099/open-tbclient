@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d extends b.a.e.l.e.a<e, CardViewHolder<b.a.r0.o0.k.d.d>> {
+public class d extends b.a.e.m.e.a<e, CardViewHolder<b.a.r0.o0.k.d.d>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), e.f21745f);
+        super(tbPageContext.getPageActivity(), e.f23244f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,21 +43,21 @@ public class d extends b.a.e.l.e.a<e, CardViewHolder<b.a.r0.o0.k.d.d>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public CardViewHolder<b.a.r0.o0.k.d.d> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             b.a.r0.o0.k.d.d dVar = new b.a.r0.o0.k.d.d(this.m);
-            dVar.m(this.f2423i);
+            dVar.m(this.f2425i);
             return new CardViewHolder<>(dVar);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, e eVar, CardViewHolder<b.a.r0.o0.k.d.d> cardViewHolder) {
         InterceptResult invokeCommon;

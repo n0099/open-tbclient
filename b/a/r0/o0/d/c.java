@@ -10,16 +10,16 @@ public class c implements b.a.q0.k0.d.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f21561a;
+    public boolean f23060a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f21562b;
+    public boolean f23061b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21563c;
+    public int f23062c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f21564d;
+    public int f23063d;
 
     public c() {
         Interceptable interceptable = $ic;

@@ -26,7 +26,7 @@ public class e extends d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f35757a;
+        public static final /* synthetic */ int[] f36586a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,9 +43,9 @@ public class e extends d {
                 }
             }
             int[] iArr = new int[com.baidu.android.pushservice.a.c.a().length];
-            f35757a = iArr;
+            f36586a = iArr;
             try {
-                iArr[com.baidu.android.pushservice.a.c.f34972a.ordinal()] = 1;
+                iArr[com.baidu.android.pushservice.a.c.f35801a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
         }
@@ -105,40 +105,40 @@ public class e extends d {
             int a2 = kVar.a();
             byte[] i3 = kVar.i();
             String d2 = kVar.d();
-            PublicMsg a3 = j.a(this.f35756a, f2, c2, bArr);
+            PublicMsg a3 = j.a(this.f36585a, f2, c2, bArr);
             if (a3 == null || TextUtils.isEmpty(a3.mDescription)) {
-                m.a("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.f35756a);
+                m.a("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.f36585a);
                 i2 = 2;
             } else {
-                com.baidu.android.pushservice.a.d a4 = com.baidu.android.pushservice.a.d.a(this.f35756a, c2);
-                if (TextUtils.isEmpty(d2) || !m.b(this.f35756a, d2)) {
-                    if (a4.a() == com.baidu.android.pushservice.a.c.f34972a) {
-                        d2 = a4.f34975a.b();
+                com.baidu.android.pushservice.a.d a4 = com.baidu.android.pushservice.a.d.a(this.f36585a, c2);
+                if (TextUtils.isEmpty(d2) || !m.b(this.f36585a, d2)) {
+                    if (a4.a() == com.baidu.android.pushservice.a.c.f35801a) {
+                        d2 = a4.f35804a.b();
                     }
-                    m.a(this.f35756a, a3);
+                    m.a(this.f36585a, a3);
                     i2 = 1;
-                    if (AnonymousClass1.f35757a[a4.a().ordinal()] == 1) {
-                        m.a("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.f35756a);
+                    if (AnonymousClass1.f36586a[a4.a().ordinal()] == 1) {
+                        m.a("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.f36585a);
                         i2 = 7;
                     } else {
-                        PackageManager packageManager = this.f35756a.getPackageManager();
+                        PackageManager packageManager = this.f36585a.getPackageManager();
                         try {
                             ApplicationInfo applicationInfo = packageManager.getApplicationInfo(a3.mPkgName, 128);
                             if (TextUtils.isEmpty(a3.mTitle)) {
                                 a3.mTitle = packageManager.getApplicationLabel(applicationInfo).toString();
                             }
-                            f.a(this.f35756a, a3, f2, c2, g2, i3, bArr, a2);
-                            m.a(f2 + " is showing Notification!", this.f35756a);
+                            f.a(this.f36585a, a3, f2, c2, g2, i3, bArr, a2);
+                            m.a(f2 + " is showing Notification!", this.f36585a);
                         } catch (PackageManager.NameNotFoundException e2) {
-                            new b.c(this.f35756a).a(Log.getStackTraceString(e2)).a();
+                            new b.c(this.f36585a).a(Log.getStackTraceString(e2)).a();
                             i2 = 8;
                         }
                     }
                 }
                 a3.mPkgName = d2;
-                m.a(this.f35756a, a3);
+                m.a(this.f36585a, a3);
                 i2 = 1;
-                if (AnonymousClass1.f35757a[a4.a().ordinal()] == 1) {
+                if (AnonymousClass1.f36586a[a4.a().ordinal()] == 1) {
                 }
             }
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

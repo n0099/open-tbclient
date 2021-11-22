@@ -15,7 +15,7 @@ public class i extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(b.a.p0.a.c2.e eVar) {
+    public i(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/canvas/update");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -27,7 +27,7 @@ public class i extends a {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((b.a.p0.a.c2.e) objArr2[0], (String) objArr2[1]);
+                super((b.a.p0.a.f2.e) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,35 +35,35 @@ public class i extends a {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             b.a.p0.a.a0.b.a k = k(unitedSchemeEntity);
             if (k == null) {
                 unitedSchemeEntity.result = l(201);
-                b.a.p0.a.e0.d.b("SwanAppCanvas", "update action parse model is null");
+                b.a.p0.a.e0.d.c("SwanAppCanvas", "update action parse model is null");
                 return false;
             }
-            String str = k.f4056f;
-            b.a.p0.a.l1.e.a.a aVar = k.l;
+            String str = k.f4196f;
+            b.a.p0.a.m1.e.a.a aVar = k.l;
             if (!TextUtils.isEmpty(str) && aVar != null && aVar.i()) {
                 b.a.p0.a.c0.c.d.a aVar2 = (b.a.p0.a.c0.c.d.a) b.a.p0.a.c0.d.a.a(k);
                 if (aVar2 == null) {
-                    b.a.p0.a.e0.d.b("SwanAppCanvas", "update canvas fail: fina a null component");
+                    b.a.p0.a.e0.d.c("SwanAppCanvas", "update canvas fail: fina a null component");
                     unitedSchemeEntity.result = l(1001);
                     return false;
                 }
                 b.a.p0.a.c0.b.c update = aVar2.update((b.a.p0.a.c0.c.d.a) k);
                 boolean a2 = update.a();
                 if (!a2) {
-                    b.a.p0.a.e0.d.b("SwanAppCanvas", "update canvas fail: " + update.f4061b);
+                    b.a.p0.a.e0.d.c("SwanAppCanvas", "update canvas fail: " + update.f4201b);
                 }
                 j(unitedSchemeEntity, callbackHandler, a2);
                 return a2;
             }
-            b.a.p0.a.e0.d.b("SwanAppCanvas", "some params invalid");
+            b.a.p0.a.e0.d.c("SwanAppCanvas", "some params invalid");
             unitedSchemeEntity.result = l(202);
             return false;
         }

@@ -2,20 +2,29 @@ package com.baidu.tieba.pluginCenter;
 
 import android.os.Bundle;
 import android.view.View;
-import b.a.e.g.c;
-import b.a.q0.k0.f.a;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import b.a.e.h.c;
 import b.a.q0.k0.f.b;
+import b.a.r0.s2.d;
+import b.a.r0.s2.e;
+import b.a.r0.s2.f;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.pass.ecommerce.common.view.ToastUtil;
+import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
@@ -25,9 +34,52 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, b.a.q0.k0.d.b, a<Object, b.a.q0.k0.d.b>> mPluginCenterAdapter;
+    public b<Object, b.a.q0.k0.d.b, b.a.q0.k0.f.a<Object, b.a.q0.k0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
+    @NonNull
+    public final List<TbSettingTextTipView> tipViewList;
+    @NonNull
+    public final List<String> whiteList;
+
+    /* loaded from: classes9.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BundleInfo f54248e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ NpsPluginCenterActivity f54249f;
+
+        public a(NpsPluginCenterActivity npsPluginCenterActivity, BundleInfo bundleInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {npsPluginCenterActivity, bundleInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f54249f = npsPluginCenterActivity;
+            this.f54248e = bundleInfo;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                ToastUtil.show(this.f54248e.getPackageName());
+            }
+        }
+    }
 
     public NpsPluginCenterActivity() {
         Interceptable interceptable = $ic;
@@ -39,8 +91,11 @@ public class NpsPluginCenterActivity extends BaseActivity {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.tipViewList = new ArrayList();
+        this.whiteList = new ArrayList();
     }
 
     private void initNavigationBar() {
@@ -49,11 +104,45 @@ public class NpsPluginCenterActivity extends BaseActivity {
             if (getIntent() != null) {
                 this.mFromType = getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(d.view_navigation_bar);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.plugin_center));
+            navigationBar.setCenterTextTitle(getString(f.plugin_center));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
+    }
+
+    private void initScrollContent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) findViewById(d.scroll_content);
+            this.whiteList.add("com.baidu.searchbox.bjhlivenps");
+            this.whiteList.add(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);
+            this.whiteList.add("com.baidu.searchbox.yylive.extlib");
+            for (BundleInfo bundleInfo : c.e().c()) {
+                if (this.whiteList.contains(bundleInfo.getPackageName())) {
+                    TbSettingTextTipView makeTipView = makeTipView();
+                    makeTipView.setText(bundleInfo.getName());
+                    makeTipView.setTip(String.valueOf(bundleInfo.getVersionCode()));
+                    this.tipViewList.add(makeTipView);
+                    linearLayout.addView(makeTipView);
+                    if (TbadkCoreApplication.getInst().isDebugMode()) {
+                        makeTipView.setOnClickListener(new a(this, bundleInfo));
+                    }
+                }
+            }
+        }
+    }
+
+    @NonNull
+    private TbSettingTextTipView makeTipView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            TbSettingTextTipView tbSettingTextTipView = new TbSettingTextTipView(this);
+            tbSettingTextTipView.hideArrow();
+            return tbSettingTextTipView;
+        }
+        return (TbSettingTextTipView) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -61,11 +150,15 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
+            SkinManager.setBackgroundColor(this.mRootView, b.a.r0.s2.a.CAM_X0204);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
             getLayoutMode().j(findViewById(16908290));
             NoDataView noDataView = this.mNoDataView;
             if (noDataView != null) {
                 noDataView.onChangeSkinType(getPageContext(), i2);
+            }
+            for (TbSettingTextTipView tbSettingTextTipView : this.tipViewList) {
+                tbSettingTextTipView.onChangeSkinType(i2);
             }
         }
     }
@@ -75,21 +168,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.nps_plugin_center_activity);
+            setContentView(e.nps_plugin_center_activity);
             initNavigationBar();
-            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) findViewById(R.id.tieba_live_text);
-            this.livePlugin = tbSettingTextTipView;
-            tbSettingTextTipView.hideArrow();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onResume();
-            this.livePlugin.setTip(c.d().e());
-            SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0204);
+            initScrollContent();
         }
     }
 }

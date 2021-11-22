@@ -110,6 +110,7 @@ public class CommonStatisticKey {
     public static final String KEY_LOCATION_PERMISSION_SHOW = "c14099";
     public static final String KEY_LOGIN_DIALOG_INVOKE = "c14059";
     public static final String KEY_LOGIN_DIALOG_SUCCESS = "c14060";
+    public static final String KEY_MINE_PAGE_LOGIN_DIALOG_SUCCESS = "c14468";
     public static final String KEY_NEW_SCHEME_PULL_UP = "c13321";
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT = "c14439";
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT_CLICK = "c14438";
@@ -122,6 +123,7 @@ public class CommonStatisticKey {
     public static final String KEY_POST_THREAD_AT_USE_CONDITION = "c14380";
     public static final String KEY_PUSH_PERMISSIION_DIALOG_SHOW = "c13674";
     public static final String KEY_PUSH_PERMISSION_DIALOG_click = "c13673";
+    public static final String KEY_RD_USE = "c14470";
     public static final String KEY_RECOMMEND_GAMECENTER = "c14119";
     public static final String KEY_RECOMMEND_TIP_ITEM_CLICK = "c12049";
     public static final String KEY_RED_PACKET_POP_WINDOW_SHOW = "c13083";

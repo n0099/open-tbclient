@@ -2,7 +2,7 @@ package b.a.q0.a.d0;
 
 import android.app.Activity;
 import android.text.TextUtils;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.j0.h;
 import b.a.q0.s.s.g;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -27,10 +27,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f11736a;
+    public a f12487a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f11737b;
+    public g f12488b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,11 +49,11 @@ public class b {
     public void a() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f11737b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f12488b) == null) {
             return;
         }
         gVar.f();
-        this.f11737b = null;
+        this.f12488b = null;
     }
 
     public final void b(String str) {
@@ -84,56 +84,56 @@ public class b {
     public void d(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f11736a = aVar;
+            this.f12487a = aVar;
         }
     }
 
     public void e() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f11736a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f12487a) == null) {
             return;
         }
-        int i2 = aVar.f11729c;
+        int i2 = aVar.f12480c;
         if (i2 == a.y) {
-            g h2 = g.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.f11736a);
+            g h2 = g.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.f12487a);
             h2.j();
-            this.f11737b = h2;
+            this.f12488b = h2;
         } else if (i2 == a.z) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             b.a.q0.s.o.b bVar = new b.a.q0.s.o.b(currentActivity);
-            bVar.d(currentActivity, this.f11736a);
+            bVar.d(currentActivity, this.f12487a);
             bVar.i();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             b.a.q0.s.o.a b2 = b.a.q0.s.o.a.b();
             b.a.q0.s.o.a b3 = b.a.q0.s.o.a.b();
-            b3.i("business_count_hint" + currentAccount + this.f11736a.f11727a, b2.c("business_count_hint" + currentAccount + this.f11736a.f11727a) - 1);
+            b3.i("business_count_hint" + currentAccount + this.f12487a.f12478a, b2.c("business_count_hint" + currentAccount + this.f12487a.f12478a) - 1);
         } else if (i2 == a.A) {
-            int i3 = aVar.f11730d;
+            int i3 = aVar.f12481d;
             if (i3 == a.D) {
-                if (UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.f11736a.l) || k.isEmpty(this.f11736a.k)) {
+                if (UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.f12487a.l) || k.isEmpty(this.f12487a.k)) {
                     return;
                 }
-                b(this.f11736a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                b(this.f12487a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
             } else if (i3 != a.E || k.isEmpty(aVar.k)) {
             } else {
-                b(this.f11736a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                b(this.f12487a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
             }
-        } else if (i2 != a.B || TextUtils.isEmpty(aVar.f11731e)) {
+        } else if (i2 != a.B || TextUtils.isEmpty(aVar.f12482e)) {
         } else {
             CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
-            a aVar2 = this.f11736a;
-            completeTaskToastData.activityId = aVar2.f11727a;
-            completeTaskToastData.missionId = aVar2.f11728b;
-            completeTaskToastData.duration = aVar2.f11735i;
-            completeTaskToastData.message = aVar2.f11731e;
+            a aVar2 = this.f12487a;
+            completeTaskToastData.activityId = aVar2.f12478a;
+            completeTaskToastData.missionId = aVar2.f12479b;
+            completeTaskToastData.duration = aVar2.f12486i;
+            completeTaskToastData.message = aVar2.f12482e;
             completeTaskToastData.url = aVar2.k;
             completeTaskToastData.pageId = b.a.q0.a.d.y().x();
             CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
             competeTaskEvent.taskToastData = completeTaskToastData;
             h.i(competeTaskEvent);
-            a aVar3 = this.f11736a;
-            c.c(aVar3.f11727a, aVar3.f11728b);
+            a aVar3 = this.f12487a;
+            c.c(aVar3.f12478a, aVar3.f12479b);
         }
     }
 }

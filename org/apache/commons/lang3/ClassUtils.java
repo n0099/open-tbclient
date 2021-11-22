@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -151,7 +150,7 @@ public class ClassUtils {
         hashMap3.put("boolean", "Z");
         hashMap3.put(ShaderParams.VALUE_TYPE_FLOAT, "F");
         hashMap3.put("long", "J");
-        hashMap3.put("short", ExifInterface.LATITUDE_SOUTH);
+        hashMap3.put("short", "S");
         hashMap3.put("byte", "B");
         hashMap3.put("double", "D");
         hashMap3.put("char", "C");

@@ -1,57 +1,50 @@
 package b.a.p0.b.p.c;
 
+import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.c2.f.a0;
-import b.a.p0.a.e0.d;
-import b.a.p0.a.e2.c.i;
-import b.a.p0.a.e2.c.j.b;
-import b.a.p0.a.v2.o0;
-import b.a.p0.a.v2.q0;
-import b.a.p0.a.v2.w;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.view.InputDeviceCompat;
+import b.a.p0.a.k;
+import b.a.p0.b.h;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.core.Domains;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Arrays;
 /* loaded from: classes.dex */
-public class b extends a0 {
+public class b {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f10046a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String[] f10047b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a implements b.a.p0.a.v2.e1.b<i<b.e>> {
+    public static class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9459e;
+        public final /* synthetic */ InterfaceC0520b f10048e;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9460f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f9461g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f9462h;
-
-        public a(b bVar, Context context, CallbackHandler callbackHandler, String str) {
+        public a(InterfaceC0520b interfaceC0520b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, context, callbackHandler, str};
+                Object[] objArr = {interfaceC0520b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -61,111 +54,123 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f9462h = bVar;
-            this.f9459e = context;
-            this.f9460f = callbackHandler;
-            this.f9461g = str;
+            this.f10048e = interfaceC0520b;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
-        /* renamed from: a */
-        public void onCallback(i<b.e> iVar) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i2) {
+            InterfaceC0520b interfaceC0520b;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f9462h.l(iVar, this.f9459e, this.f9460f, this.f9461g);
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC0520b = this.f10048e) == null) {
+                return;
             }
+            interfaceC0520b.onResult(i2 == -1);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(e eVar) {
-        super(eVar, "/swanAPI/getCommonSysInfo");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* renamed from: b.a.p0.b.p.c.b$b  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public interface InterfaceC0520b {
+        void onResult(boolean z);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(84283353, "Lb/a/p0/b/p/c/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(84283353, "Lb/a/p0/b/p/c/b;");
                 return;
             }
         }
+        f10046a = k.f6863a;
+        f10047b = new String[]{"BLA-AL00", "R7Plus"};
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
-        InterceptResult invokeLLLL;
+    public static DialogInterface.OnClickListener a(InterfaceC0520b interfaceC0520b) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (eVar == null) {
-                d.g("GetSysInfo", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, interfaceC0520b)) == null) ? new a(interfaceC0520b) : (DialogInterface.OnClickListener) invokeL.objValue;
+    }
+
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return NotificationManagerCompat.from(context).areNotificationsEnabled();
             }
-            String optString = w.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                d.g("GetSysInfo", "cb is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            eVar.S().g(context, "mapp_i_get_common_sys_info", new a(this, context, callbackHandler, optString));
-            d.g("GetSysInfo", "callback success");
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void k(Context context, String str, CallbackHandler callbackHandler) {
+    public static void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, callbackHandler) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            String i2 = b.a.p0.a.c1.a.a0().i(appContext);
-            String r = q0.r();
-            String D = b.a.p0.b.l.a.D(context);
-            String h2 = b.a.p0.a.c1.a.a0().h(appContext);
-            String cookie = b.a.p0.a.c1.a.p().a().getCookie(Domains.BAIDU);
-            String l = o0.l(cookie, "BAIDUID");
-            String l2 = o0.l(cookie, "H_WISE_SIDS");
-            String a2 = b.a.p0.u.b.b(AppRuntime.getAppContext()).a();
-            if (a0.f4160b) {
-                String str2 = "cuid = " + i2 + ", imei = " + r + ", zid = " + D + ", uid = " + h2 + ", baiDuId = " + l + ", sid = " + l2;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("cuid", i2);
-                jSONObject.put("imei", r);
-                jSONObject.put("zid", D);
-                jSONObject.put("uid", h2);
-                jSONObject.put("baidu_id", l);
-                jSONObject.put("sid", l2);
-                jSONObject.put("uuid", a2);
-                d.g("GetSysInfo", "fetch commonSysInfo success");
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            } catch (JSONException e2) {
-                if (a0.f4160b) {
-                    e2.printStackTrace();
-                }
-                d.b("GetSysInfo", "generate data occur exception");
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            }
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            String packageName = context.getPackageName();
+            Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
+            intent.setData(Uri.fromParts("package", packageName, null));
+            intent.setFlags(268435456);
+            context.startActivity(intent);
         }
     }
 
-    public final void l(i<b.e> iVar, Context context, CallbackHandler callbackHandler, String str) {
+    public static void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, iVar, context, callbackHandler, str) == null) {
-            if (!b.a.p0.a.e2.c.d.h(iVar)) {
-                b.a.p0.a.e2.c.d.p(iVar, callbackHandler, str);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            if (!Arrays.asList(f10047b).contains(Build.MODEL)) {
+                Intent intent = new Intent();
+                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+                int i2 = Build.VERSION.SDK_INT;
+                if (i2 >= 26) {
+                    intent.putExtra("android.provider.extra.APP_PACKAGE", context.getPackageName());
+                    intent.setFlags(268435456);
+                } else if (i2 >= 21) {
+                    intent.putExtra("app_package", context.getPackageName());
+                    intent.putExtra("app_uid", context.getApplicationInfo().uid);
+                }
+                try {
+                    context.startActivity(intent);
+                    return;
+                } catch (Exception e2) {
+                    if (f10046a) {
+                        String str = "openNotificationSettingPages() Exception:" + e2;
+                    }
+                    c(context);
+                    return;
+                }
+            }
+            c(context);
+        }
+    }
+
+    public static void e(Context context, InterfaceC0520b interfaceC0520b) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, interfaceC0520b) == null) {
+            if (!(context instanceof Activity)) {
+                if (f10046a) {
+                    throw new IllegalArgumentException("context must be activity.");
+                }
+            } else if (interfaceC0520b == null) {
             } else {
-                k(context, str, callbackHandler);
+                DialogInterface.OnClickListener a2 = a(interfaceC0520b);
+                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(context);
+                aVar.n(new b.a.p0.a.a3.h.a());
+                SwanAppAlertDialog c2 = aVar.c();
+                aVar.U(h.swan_app_guide_notify_title);
+                aVar.x(context.getString(h.swan_app_guide_notify_msg));
+                aVar.y();
+                aVar.J(b.a.p0.a.c1.a.M().a());
+                aVar.O(h.swan_app_guide_positive_btn, a2);
+                aVar.B(h.swan_app_guide_negative_btn, a2);
+                aVar.a();
+                c2.setCancelable(false);
+                c2.show();
             }
         }
     }

@@ -1,124 +1,67 @@
 package b.a.r0.c4;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h implements View.OnTouchListener {
-    public static /* synthetic */ Interceptable $ic;
+public final class h {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int ad_left_slide_guide_lottie = 2131820544;
+    public static final int ad_refresh_load = 2131820545;
+    public static final int ala_live1 = 2131820550;
+    public static final int ala_live2 = 2131820551;
+    public static final int ala_play = 2131820552;
+    public static final int bottom_bar_bg = 2131820553;
+    public static final int card_live_header_bg = 2131820557;
+    public static final int frs_ad_shark = 2131820560;
+    public static final int hconfig = 2131820561;
+    public static final int icon_refresh1 = 2131820562;
+    public static final int icon_refresh2 = 2131820563;
+    public static final int icon_refresh3 = 2131820564;
+    public static final int imageviewer_drag = 2131820565;
+    public static final int lotti_video_loading = 2131820567;
+    public static final int lottie_agree = 2131820568;
+    public static final int lottie_agree_big_photo = 2131820569;
+    public static final int lottie_agree_day = 2131820570;
+    public static final int lottie_agree_imageviewer = 2131820571;
+    public static final int lottie_agree_night = 2131820572;
+    public static final int lottie_ala_live = 2131820573;
+    public static final int lottie_card_agree = 2131820578;
+    public static final int lottie_common_pull_refresh = 2131820579;
+    public static final int lottie_common_pull_refresh_1 = 2131820580;
+    public static final int lottie_common_pull_refresh_2 = 2131820581;
+    public static final int lottie_detail_agree_night = 2131820582;
+    public static final int lottie_disagree = 2131820583;
+    public static final int lottie_disagree_imageviewer = 2131820584;
+    public static final int lottie_frs_refresh = 2131820585;
+    public static final int lottie_full_screen_refresh = 2131820586;
+    public static final int lottie_full_screen_refresh_1 = 2131820587;
+    public static final int lottie_full_screen_refresh_2 = 2131820588;
+    public static final int lottie_photo = 2131820589;
+    public static final int lottie_pull_refresh = 2131820590;
+    public static final int lottie_push_permission_dialog_animation = 2131820591;
+    public static final int lottie_push_permission_dialog_animation_1 = 2131820592;
+    public static final int lottie_redpack_run = 2131820593;
+    public static final int lottie_tab_category = 2131820597;
+    public static final int lottie_tab_forum = 2131820598;
+    public static final int lottie_tab_home = 2131820599;
+    public static final int lottie_tab_live = 2131820600;
+    public static final int lottie_tab_msg = 2131820601;
+    public static final int lottie_tab_my = 2131820602;
+    public static final int lottie_tab_video_channel = 2131820603;
+    public static final int lottie_use_home_refresh_n = 2131820604;
+    public static final int lottie_use_publish_n = 2131820605;
+    public static final int lottie_use_refresh_home_n = 2131820606;
+    public static final int lottie_use_refresh_n = 2131820607;
+    public static final int lottie_video_guide = 2131820608;
+    public static final int lottie_video_guide_left = 2131820609;
+    public static final int lottie_video_guide_up = 2131820610;
+    public static final int lottie_voice_room_voicing_icon = 2131820611;
+    public static final int lottie_voice_room_voicing_icon_1 = 2131820612;
+    public static final int lottie_voice_room_voicing_icon_2 = 2131820613;
+    public static final int pb_lottie_agree = 2131820616;
+    public static final int pb_lottie_disagree = 2131820617;
+    public static final int release_date = 2131820618;
+    public static final int shake_tone = 2131820633;
+    public static final int tnconfig = 2131820635;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final Spannable f15406e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public b.a.q0.f1.n.f f15407f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f15408g;
-
-    public h(Spannable spannable) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {spannable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f15407f = null;
-        this.f15408g = 0;
-        this.f15406e = spannable;
-    }
-
-    public void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f15408g = i2;
-        }
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        b.a.q0.f1.n.f fVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (view instanceof TextView) {
-                TextView textView = (TextView) view;
-                if (action == 3 && (fVar = this.f15407f) != null) {
-                    fVar.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                    view.invalidate();
-                    this.f15407f = null;
-                    return false;
-                }
-                if (action == 1 || action == 0) {
-                    int x = (int) motionEvent.getX();
-                    int y = (int) motionEvent.getY();
-                    Layout layout = textView.getLayout();
-                    if (layout == null) {
-                        return false;
-                    }
-                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
-                    Spannable spannable = this.f15406e;
-                    if (spannable == null) {
-                        return false;
-                    }
-                    b.a.q0.f1.n.f[] fVarArr = (b.a.q0.f1.n.f[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, b.a.q0.f1.n.f.class);
-                    if (fVarArr != null && fVarArr.length != 0 && fVarArr[0] != null) {
-                        if (action == 1) {
-                            fVarArr[0].g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                            fVarArr[0].onClick(textView);
-                            view.invalidate();
-                        } else {
-                            b.a.q0.f1.n.f fVar2 = fVarArr[0];
-                            this.f15407f = fVar2;
-                            if (fVar2.e()) {
-                                int i2 = this.f15408g;
-                                if (i2 != 0) {
-                                    fVarArr[0].g(SkinManager.getColor(i2));
-                                } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                                    fVarArr[0].g(SkinManager.getColor(R.color.CAM_X0204));
-                                } else {
-                                    fVarArr[0].g(SkinManager.getColor(R.color.cp_bg_line_z));
-                                }
-                            }
-                            Spannable spannable2 = this.f15406e;
-                            Selection.setSelection(spannable2, spannable2.getSpanStart(fVarArr[0]), this.f15406e.getSpanEnd(fVarArr[0]));
-                            view.invalidate();
-                        }
-                        return true;
-                    }
-                    b.a.q0.f1.n.f fVar3 = this.f15407f;
-                    if (fVar3 != null) {
-                        fVar3.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                        view.invalidate();
-                    }
-                    Selection.removeSelection(this.f15406e);
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
 }

@@ -23,13 +23,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f14900e;
+    public Context f16392e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<j0> f14901f;
+    public List<j0> f16393f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14902g;
+    public int f16394g;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -39,26 +39,26 @@ public class b extends BaseAdapter {
 
     /* renamed from: b.a.r0.b1.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0752b {
+    public static class C0817b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f14903a;
+        public TbImageView f16395a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f14904b;
+        public TbImageView f16396b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f14905c;
+        public View f16397c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f14906d;
+        public TextView f16398d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f14907e;
+        public TextView f16399e;
 
-        public C0752b() {
+        public C0817b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public class b extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ C0752b(a aVar) {
+        public /* synthetic */ C0817b(a aVar) {
             this();
         }
     }
@@ -92,8 +92,8 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f14902g = -1;
-        this.f14900e = context;
+        this.f16394g = -1;
+        this.f16392e = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,7 +106,7 @@ public class b extends BaseAdapter {
             if (i2 < 0 || i2 >= getCount()) {
                 return null;
             }
-            return this.f14901f.get(i2);
+            return this.f16393f.get(i2);
         }
         return (j0) invokeI.objValue;
     }
@@ -114,13 +114,13 @@ public class b extends BaseAdapter {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14902g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16394g : invokeV.intValue;
     }
 
     public void c(List<j0> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f14901f = list;
+            this.f16393f = list;
             notifyDataSetChanged();
         }
     }
@@ -128,7 +128,7 @@ public class b extends BaseAdapter {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f14902g = i2;
+            this.f16394g = i2;
         }
     }
 
@@ -137,7 +137,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<j0> list = this.f14901f;
+            List<j0> list = this.f16393f;
             if (list == null) {
                 return 0;
             }
@@ -156,46 +156,46 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C0752b c0752b;
+        C0817b c0817b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             if (view != null && view.getTag() != null) {
-                c0752b = (C0752b) view.getTag();
+                c0817b = (C0817b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f14900e).inflate(R.layout.gift_list_item, (ViewGroup) null);
-                c0752b = new C0752b(null);
+                view = LayoutInflater.from(this.f16392e).inflate(R.layout.gift_list_item, (ViewGroup) null);
+                c0817b = new C0817b(null);
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.image);
-                c0752b.f14903a = tbImageView;
+                c0817b.f16395a = tbImageView;
                 tbImageView.setDefaultBgResource(R.drawable.transparent_bg);
                 TbImageView tbImageView2 = (TbImageView) view.findViewById(R.id.mark_icon_iamge);
-                c0752b.f14904b = tbImageView2;
+                c0817b.f16396b = tbImageView2;
                 tbImageView2.setDefaultBgResource(R.drawable.transparent_bg);
-                c0752b.f14904b.setDefaultResource(R.drawable.transparent_bg);
-                c0752b.f14905c = view.findViewById(R.id.mask);
-                c0752b.f14906d = (TextView) view.findViewById(R.id.name);
-                c0752b.f14907e = (TextView) view.findViewById(R.id.price);
-                view.setTag(c0752b);
+                c0817b.f16396b.setDefaultResource(R.drawable.transparent_bg);
+                c0817b.f16397c = view.findViewById(R.id.mask);
+                c0817b.f16398d = (TextView) view.findViewById(R.id.name);
+                c0817b.f16399e = (TextView) view.findViewById(R.id.price);
+                view.setTag(c0817b);
             }
-            SkinManager.setViewTextColor(c0752b.f14906d, R.color.CAM_X0105, 1);
-            if (i2 == this.f14902g) {
-                SkinManager.setBackgroundResource(c0752b.f14905c, R.drawable.chx_box_gift_s);
+            SkinManager.setViewTextColor(c0817b.f16398d, R.color.CAM_X0105, 1);
+            if (i2 == this.f16394g) {
+                SkinManager.setBackgroundResource(c0817b.f16397c, R.drawable.chx_box_gift_s);
             } else {
-                c0752b.f14905c.setBackgroundResource(R.color.common_color_10022);
+                c0817b.f16397c.setBackgroundResource(R.color.common_color_10022);
             }
             j0 item = getItem(i2);
             if (item != null) {
-                c0752b.f14906d.setText(item.f13359b);
-                c0752b.f14903a.startLoad(item.f13361d, 10, false);
-                c0752b.f14904b.startLoad(item.f13364g, 10, false);
-                int i3 = item.f13363f;
+                c0817b.f16398d.setText(item.f14139b);
+                c0817b.f16395a.startLoad(item.f14141d, 10, false);
+                c0817b.f16396b.startLoad(item.f14144g, 10, false);
+                int i3 = item.f14143f;
                 if (i3 == 5) {
-                    c0752b.f14907e.setVisibility(8);
+                    c0817b.f16399e.setVisibility(8);
                 } else if (i3 == 3) {
-                    c0752b.f14907e.setVisibility(0);
-                    c0752b.f14907e.setText(g.b(item.a(), false, item.s));
+                    c0817b.f16399e.setVisibility(0);
+                    c0817b.f16399e.setText(g.b(item.a(), false, item.s));
                 } else {
-                    c0752b.f14907e.setVisibility(0);
-                    c0752b.f14907e.setText(g.b(item.b(), false, item.s));
+                    c0817b.f16399e.setVisibility(0);
+                    c0817b.f16399e.setText(g.b(item.b(), false, item.s));
                 }
             }
             return view;

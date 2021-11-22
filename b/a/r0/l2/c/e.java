@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.f;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,31 +33,31 @@ public class e extends b.a.e.a.d<PraiseListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f20506a;
+    public c f22028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PraiseListActivity f20507b;
+    public PraiseListActivity f22029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f20508c;
+    public View f22030c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f20509d;
+    public NavigationBar f22031d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f20510e;
+    public View f22032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f20511f;
+    public NoDataView f22033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f20512g;
+    public View f22034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20513h;
+    public TextView f22035h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdListView f20514i;
+    public BdListView f22036i;
     public View j;
     public TextView k;
     public TextView l;
@@ -82,45 +82,45 @@ public class e extends b.a.e.a.d<PraiseListActivity> {
                 return;
             }
         }
-        this.f20506a = null;
-        this.f20507b = null;
-        this.f20508c = null;
-        this.f20509d = null;
-        this.f20510e = null;
-        this.f20511f = null;
-        this.f20512g = null;
-        this.f20513h = null;
-        this.f20514i = null;
+        this.f22028a = null;
+        this.f22029b = null;
+        this.f22030c = null;
+        this.f22031d = null;
+        this.f22032e = null;
+        this.f22033f = null;
+        this.f22034g = null;
+        this.f22035h = null;
+        this.f22036i = null;
         this.j = null;
         this.k = null;
         this.l = null;
         this.m = null;
         this.n = null;
-        this.f20507b = praiseListActivity;
+        this.f22029b = praiseListActivity;
         praiseListActivity.setContentView(R.layout.zan_list_activity);
-        this.f20508c = praiseListActivity.findViewById(R.id.zan_list_page_parent);
-        this.f20509d = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
-        this.f20510e = praiseListActivity.findViewById(R.id.zan_list_page_frame);
-        this.f20511f = NoDataViewFactory.a(this.f20507b.getPageContext().getContext(), this.f20508c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f20507b.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.praise_list_no_data), null);
-        this.f20514i = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
-        TextView textView = new TextView(this.f20507b.getActivity());
+        this.f22030c = praiseListActivity.findViewById(R.id.zan_list_page_parent);
+        this.f22031d = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
+        this.f22032e = praiseListActivity.findViewById(R.id.zan_list_page_frame);
+        this.f22033f = NoDataViewFactory.a(this.f22029b.getPageContext().getContext(), this.f22030c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f22029b.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.praise_list_no_data), null);
+        this.f22036i = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
+        TextView textView = new TextView(this.f22029b.getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.f20514i.addHeaderView(textView, 0);
+        this.f22036i.addHeaderView(textView, 0);
         this.m = (ProgressBar) praiseListActivity.findViewById(R.id.zan_list_page_progress);
         c cVar = new c(praiseListActivity);
-        this.f20506a = cVar;
-        this.f20514i.setAdapter((ListAdapter) cVar);
-        this.f20514i.setOnScrollListener(this.f20506a);
-        this.f20509d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f20509d.setTitleText("");
+        this.f22028a = cVar;
+        this.f22036i.setAdapter((ListAdapter) cVar);
+        this.f22036i.setOnScrollListener(this.f22028a);
+        this.f22031d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f22031d.setTitleText("");
         View inflate = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_head, (ViewGroup) null);
-        this.f20512g = inflate;
+        this.f22034g = inflate;
         inflate.setOnClickListener(praiseListActivity);
-        TextView textView2 = (TextView) this.f20512g.findViewById(R.id.zan_list_head_text);
-        this.f20513h = textView2;
+        TextView textView2 = (TextView) this.f22034g.findViewById(R.id.zan_list_head_text);
+        this.f22035h = textView2;
         textView2.setText(str);
-        this.f20512g.setVisibility(8);
-        this.f20514i.addHeaderView(this.f20512g);
+        this.f22034g.setVisibility(8);
+        this.f22036i.addHeaderView(this.f22034g);
         View inflate2 = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_foot, (ViewGroup) null);
         this.j = inflate2;
         this.k = (TextView) inflate2.findViewById(R.id.zan_list_foot_text_continue);
@@ -128,8 +128,8 @@ public class e extends b.a.e.a.d<PraiseListActivity> {
         this.n = (ProgressBar) this.j.findViewById(R.id.zan_list_foot_progress);
         this.j.setVisibility(8);
         this.k.setOnClickListener(praiseListActivity);
-        this.f20514i.addFooterView(this.j);
-        this.f20514i.setOnItemClickListener(praiseListActivity);
+        this.f22036i.addFooterView(this.j);
+        this.f22036i.setOnItemClickListener(praiseListActivity);
     }
 
     public void c(b.a.q0.s.c cVar, int i2) {
@@ -138,14 +138,14 @@ public class e extends b.a.e.a.d<PraiseListActivity> {
             return;
         }
         cVar.k(i2 == 1);
-        cVar.j(this.f20508c);
-        cVar.j(this.f20512g);
+        cVar.j(this.f22030c);
+        cVar.j(this.f22034g);
         cVar.j(this.j);
-        this.f20509d.onChangeSkinType(this.f20507b.getPageContext(), i2);
+        this.f22031d.onChangeSkinType(this.f22029b.getPageContext(), i2);
         SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
-        NoDataView noDataView = this.f20511f;
+        NoDataView noDataView = this.f22033f;
         if (noDataView != null) {
-            noDataView.onChangeSkinType(this.f20507b.getPageContext(), i2);
+            noDataView.onChangeSkinType(this.f22029b.getPageContext(), i2);
         }
     }
 
@@ -158,7 +158,7 @@ public class e extends b.a.e.a.d<PraiseListActivity> {
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20512g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22034g : (View) invokeV.objValue;
     }
 
     public boolean f() {
@@ -170,7 +170,7 @@ public class e extends b.a.e.a.d<PraiseListActivity> {
     public void g() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f20506a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f22028a) == null) {
             return;
         }
         cVar.notifyDataSetChanged();
@@ -181,14 +181,14 @@ public class e extends b.a.e.a.d<PraiseListActivity> {
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i2) == null) {
             this.m.setVisibility(8);
             this.n.setVisibility(8);
-            this.f20510e.setVisibility(8);
-            this.f20511f.setVisibility(0);
+            this.f22032e.setVisibility(8);
+            this.f22033f.setVisibility(0);
             if (!StringUtils.isNull(str)) {
-                this.f20511f.setTextOption(NoDataViewFactory.e.c(str));
+                this.f22033f.setTextOption(NoDataViewFactory.e.c(str));
             } else if (1 == i2) {
-                this.f20511f.setTextOption(NoDataViewFactory.e.a(R.string.graffiti_list_no_data));
+                this.f22033f.setTextOption(NoDataViewFactory.e.a(R.string.graffiti_list_no_data));
             } else {
-                this.f20511f.setTextOption(NoDataViewFactory.e.a(R.string.praise_list_no_data));
+                this.f22033f.setTextOption(NoDataViewFactory.e.a(R.string.praise_list_no_data));
             }
         }
     }
@@ -219,23 +219,23 @@ public class e extends b.a.e.a.d<PraiseListActivity> {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             this.m.setVisibility(8);
             this.n.setVisibility(8);
-            this.f20512g.setVisibility(0);
+            this.f22034g.setVisibility(0);
             if (i2 > 0) {
-                PraiseListActivity praiseListActivity = this.f20507b;
+                PraiseListActivity praiseListActivity = this.f22029b;
                 if (praiseListActivity.pageType != 1) {
                     format2 = String.format(praiseListActivity.getResources().getString(R.string.praise_list_title_count), StringHelper.numFormatOverWan(i2));
                 } else {
                     format2 = String.format(praiseListActivity.getResources().getString(R.string.graffiti_list_title_count), StringHelper.numFormatOverWan(i2));
                 }
-                this.f20509d.setTitleText(format2);
+                this.f22031d.setTitleText(format2);
             } else {
-                this.f20509d.setTitleText("");
+                this.f22031d.setTitleText("");
             }
             if (list != null && list.size() >= 1) {
-                this.f20510e.setVisibility(0);
-                this.f20511f.setVisibility(8);
-                this.f20506a.c(list);
-                this.f20506a.notifyDataSetChanged();
+                this.f22032e.setVisibility(0);
+                this.f22033f.setVisibility(8);
+                this.f22028a.c(list);
+                this.f22028a.notifyDataSetChanged();
                 switch (i3) {
                     case 1001:
                         this.j.setVisibility(0);
@@ -250,7 +250,7 @@ public class e extends b.a.e.a.d<PraiseListActivity> {
                         SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
                         this.k.setVisibility(8);
                         this.l.setVisibility(0);
-                        PraiseListActivity praiseListActivity2 = this.f20507b;
+                        PraiseListActivity praiseListActivity2 = this.f22029b;
                         if (praiseListActivity2.pageType != 1) {
                             format = String.format(praiseListActivity2.getResources().getString(R.string.praise_item_more), StringHelper.numFormatOverWan(i2));
                         } else {
@@ -263,7 +263,7 @@ public class e extends b.a.e.a.d<PraiseListActivity> {
                         return;
                 }
             }
-            h(null, this.f20507b.pageType);
+            h(null, this.f22029b.pageType);
         }
     }
 }

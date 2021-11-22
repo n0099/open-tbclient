@@ -14,7 +14,7 @@ public class f implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f39205a;
+    public final /* synthetic */ e f40037a;
 
     public f(e eVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class f implements Runnable {
                 return;
             }
         }
-        this.f39205a = eVar;
+        this.f40037a = eVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:114:0x0118 A[EDGE_INSN: B:114:0x0118->B:83:0x0118 ?: BREAK  , SYNTHETIC] */
@@ -50,22 +50,22 @@ public class f implements Runnable {
         InputStream inputStream2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39205a.f39203h = k.e();
-            this.f39205a.b();
-            this.f39205a.a();
-            int i2 = this.f39205a.f39204i;
+            this.f40037a.f40035h = k.e();
+            this.f40037a.b();
+            this.f40037a.a();
+            int i2 = this.f40037a.f40036i;
             InputStream inputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f39205a.f39203h).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f40037a.f40035h).openConnection();
                     try {
                         httpURLConnection2.setRequestMethod("GET");
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f39164b);
-                        httpURLConnection2.setReadTimeout(a.f39164b);
+                        httpURLConnection2.setConnectTimeout(a.f39996b);
+                        httpURLConnection2.setReadTimeout(a.f39996b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         if (k.ax != null) {
@@ -86,15 +86,15 @@ public class f implements Runnable {
                                     }
                                     inputStream2.close();
                                     byteArrayOutputStream.close();
-                                    this.f39205a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    this.f39205a.a(true);
+                                    this.f40037a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                    this.f40037a.a(true);
                                     httpURLConnection2.disconnect();
                                     z = true;
                                 } catch (Exception unused) {
                                     inputStream = inputStream2;
                                     httpURLConnection = httpURLConnection2;
                                     try {
-                                        String str = a.f39163a;
+                                        String str = a.f39995a;
                                         if (httpURLConnection != null) {
                                             httpURLConnection.disconnect();
                                         }
@@ -204,7 +204,7 @@ public class f implements Runnable {
                 return;
             }
             e.p++;
-            e eVar = this.f39205a;
+            e eVar = this.f40037a;
             eVar.j = null;
             eVar.a(false);
         }

@@ -34,12 +34,12 @@ public class a extends m {
             }
         }
         int i5 = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f14211d = i5;
-        this.f14212e = i5;
-        this.f14213f = R.drawable.icon_pure_post_more_tail64;
+        this.f14978d = i5;
+        this.f14979e = i5;
+        this.f14980f = R.drawable.icon_pure_post_more_tail64;
         this.p = R.drawable.icon_pure_pic_vip64;
-        this.f14214g = false;
-        this.f14215h = true;
+        this.f14981g = false;
+        this.f14982h = true;
         this.k = new TailToolController(context);
         this.m = true;
         this.l = 6;

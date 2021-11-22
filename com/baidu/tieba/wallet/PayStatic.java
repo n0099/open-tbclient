@@ -68,9 +68,9 @@ public class PayStatic {
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), activity, str, iAlipayProxyCallback}) == null) {
                     try {
                         a aVar = new a();
-                        aVar.f12203a = activity;
-                        aVar.f12204b = str;
-                        aVar.f12205c = false;
+                        aVar.f12946a = activity;
+                        aVar.f12947b = str;
+                        aVar.f12948c = false;
                         iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
                     } catch (Exception e2) {
                         iAlipayProxyCallback.onFail(e2.getMessage());

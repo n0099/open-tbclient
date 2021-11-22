@@ -24,10 +24,10 @@ public class b extends b.a.p0.a.a0.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f3783a;
+        public final /* synthetic */ String f3877a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f3784b;
+        public final /* synthetic */ CallbackHandler f3878b;
 
         public a(b bVar, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -44,23 +44,23 @@ public class b extends b.a.p0.a.a0.a.a {
                     return;
                 }
             }
-            this.f3783a = str;
-            this.f3784b = callbackHandler;
+            this.f3877a = str;
+            this.f3878b = callbackHandler;
         }
 
         @Override // com.baidu.swan.apps.canvas.view.CanvasView.c
         public void a() {
             String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (str = this.f3783a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (str = this.f3877a) == null) {
                 return;
             }
-            this.f3784b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
+            this.f3878b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(b.a.p0.a.c2.e eVar) {
+    public b(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/canvas/drawCanvas");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,7 +72,7 @@ public class b extends b.a.p0.a.a0.a.a {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((b.a.p0.a.c2.e) objArr2[0], (String) objArr2[1]);
+                super((b.a.p0.a.f2.e) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,14 +80,14 @@ public class b extends b.a.p0.a.a0.a.a {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             b.a.p0.a.a0.b.b m = m(unitedSchemeEntity);
             if (m == null) {
-                b.a.p0.a.e0.d.b("SwanAppCanvas", "draw model is null");
+                b.a.p0.a.e0.d.c("SwanAppCanvas", "draw model is null");
                 unitedSchemeEntity.result = l(201);
                 return false;
             }
@@ -97,16 +97,16 @@ public class b extends b.a.p0.a.a0.a.a {
                 return false;
             }
             String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(m.f4056f)) {
+            if (TextUtils.isEmpty(m.f4196f)) {
                 b.a.p0.a.c0.g.a.a("SwanAppAction", "canvasId is empty ");
                 unitedSchemeEntity.result = l(201);
                 return false;
             }
-            if (TextUtils.isEmpty(m.f4057g)) {
+            if (TextUtils.isEmpty(m.f4197g)) {
                 b.a.p0.a.c0.g.a.a("SwanAppAction", "drawCanvas slaveId is empty");
-                b.a.p0.a.h0.g.f H = b.a.p0.a.g1.f.T().H();
+                b.a.p0.a.h0.g.f H = b.a.p0.a.g1.f.U().H();
                 if (H != null) {
-                    m.f4057g = H.a3();
+                    m.f4197g = H.q3();
                 }
             }
             b.a.p0.a.c0.c.d.a aVar = (b.a.p0.a.c0.c.d.a) b.a.p0.a.c0.d.a.a(m);

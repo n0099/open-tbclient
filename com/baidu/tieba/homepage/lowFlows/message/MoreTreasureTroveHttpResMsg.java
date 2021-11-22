@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.lowFlows.message;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.r0.h1.g.e.a;
 import b.a.r0.h1.g.h.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;

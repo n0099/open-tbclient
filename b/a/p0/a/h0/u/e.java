@@ -15,14 +15,14 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5819b;
+    public static final boolean f6155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f5820c;
+    public static final boolean f6156c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5821a;
+    public String f6157a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,9 +37,9 @@ public final class e {
                 return;
             }
         }
-        f5819b = k.f6397a;
-        b.a.p0.a.c1.a.Z().getSwitch("swan_slave_ready", false);
-        f5820c = false;
+        f6155b = k.f6863a;
+        b.a.p0.a.c1.a.g0().getSwitch("swan_slave_ready", false);
+        f6156c = false;
     }
 
     public e() {
@@ -56,28 +56,28 @@ public final class e {
         }
     }
 
-    public static b.a.p0.a.o0.d.b a(e eVar) {
+    public static b.a.p0.a.o0.d.c a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
-            if (f5819b) {
+            if (f6155b) {
                 String str = "createSlaveReadyMessage:" + eVar;
             }
             TreeMap treeMap = new TreeMap();
-            treeMap.put("slaveId", eVar.f5821a);
-            return new b.a.p0.a.o0.d.b("SlaveReady", treeMap);
+            treeMap.put("slaveId", eVar.f6157a);
+            return new b.a.p0.a.o0.d.c("SlaveReady", treeMap);
         }
-        return (b.a.p0.a.o0.d.b) invokeL.objValue;
+        return (b.a.p0.a.o0.d.c) invokeL.objValue;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f5819b) {
-                String str = "isSlaveReadyABSwitchOn:" + f5820c;
+            if (f6155b) {
+                String str = "isSlaveReadyABSwitchOn:" + f6156c;
             }
-            return f5820c;
+            return f6156c;
         }
         return invokeV.booleanValue;
     }
@@ -86,7 +86,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SlaveReadyEvent{slaveId='" + this.f5821a + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SlaveReadyEvent{slaveId='" + this.f6157a + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

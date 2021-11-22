@@ -19,13 +19,13 @@ public final class j implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ UnvarnishedMessage f70310a;
+    public final /* synthetic */ UnvarnishedMessage f71230a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback f70311b;
+    public final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback f71231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f70312c;
+    public final /* synthetic */ LocalAliasTagsManager f71232c;
 
     public j(LocalAliasTagsManager localAliasTagsManager, UnvarnishedMessage unvarnishedMessage, LocalAliasTagsManager.LocalMessageCallback localMessageCallback) {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public final class j implements Runnable {
                 return;
             }
         }
-        this.f70312c = localAliasTagsManager;
-        this.f70310a = unvarnishedMessage;
-        this.f70311b = localMessageCallback;
+        this.f71232c = localAliasTagsManager;
+        this.f71230a = unvarnishedMessage;
+        this.f71231b = localMessageCallback;
     }
 
     @Override // java.lang.Runnable
@@ -54,11 +54,11 @@ public final class j implements Runnable {
         ISubscribeAppTagManager iSubscribeAppTagManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int targetType = this.f70310a.getTargetType();
-            String tragetContent = this.f70310a.getTragetContent();
+            int targetType = this.f71230a.getTargetType();
+            String tragetContent = this.f71230a.getTragetContent();
             if (!TextUtils.isEmpty(tragetContent) && targetType != 0) {
                 if (targetType == 3) {
-                    iSubscribeAppAliasManager = this.f70312c.mSubscribeAppAliasManager;
+                    iSubscribeAppAliasManager = this.f71232c.mSubscribeAppAliasManager;
                     SubscribeAppInfo subscribeAppInfo = iSubscribeAppAliasManager.getSubscribeAppInfo();
                     if (subscribeAppInfo == null || subscribeAppInfo.getTargetStatus() != 1 || !subscribeAppInfo.getName().equals(tragetContent)) {
                         p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, tragetContent);
@@ -66,7 +66,7 @@ public final class j implements Runnable {
                         return;
                     }
                 } else if (targetType == 4) {
-                    iSubscribeAppTagManager = this.f70312c.mSubscribeAppTagManager;
+                    iSubscribeAppTagManager = this.f71232c.mSubscribeAppTagManager;
                     List<String> subscribeTags = iSubscribeAppTagManager.getSubscribeTags();
                     if (subscribeTags == null || !subscribeTags.contains(tragetContent)) {
                         ArrayList<String> arrayList = new ArrayList<>();
@@ -77,7 +77,7 @@ public final class j implements Runnable {
                     }
                 }
             }
-            handler = this.f70312c.mHandler;
+            handler = this.f71232c.mHandler;
             handler.post(new k(this));
         }
     }

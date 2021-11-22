@@ -21,13 +21,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Uri f15608a;
+    public Uri f16723a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15609b;
+    public String f16724b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f15610c;
+    public Bundle f16725c;
 
     static {
         InterceptResult invokeClinit;
@@ -66,10 +66,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f15610c == null) {
-                this.f15610c = new Bundle();
+            if (this.f16725c == null) {
+                this.f16725c = new Bundle();
             }
-            return this.f15610c;
+            return this.f16725c;
         }
         return (Bundle) invokeV.objValue;
     }
@@ -84,7 +84,7 @@ public class e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            Bundle bundle = this.f15610c;
+            Bundle bundle = this.f16725c;
             return bundle == null ? str2 : bundle.getString(str, str2);
         }
         return (String) invokeLL.objValue;
@@ -93,7 +93,7 @@ public class e {
     public Uri d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15608a : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16723a : (Uri) invokeV.objValue;
     }
 
     public final boolean e() {
@@ -101,30 +101,30 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                this.f15608a.getScheme();
-                this.f15608a.getHost();
-                String path = this.f15608a.getPath();
-                this.f15609b = path;
-                if (!TextUtils.isEmpty(path) && this.f15609b.endsWith("/")) {
-                    this.f15609b = this.f15609b.substring(0, this.f15609b.length() - 1);
+                this.f16723a.getScheme();
+                this.f16723a.getHost();
+                String path = this.f16723a.getPath();
+                this.f16724b = path;
+                if (!TextUtils.isEmpty(path) && this.f16724b.endsWith("/")) {
+                    this.f16724b = this.f16724b.substring(0, this.f16724b.length() - 1);
                 }
-                Set<String> queryParameterNames = this.f15608a.getQueryParameterNames();
+                Set<String> queryParameterNames = this.f16723a.getQueryParameterNames();
                 if (queryParameterNames == null || queryParameterNames.isEmpty()) {
                     return true;
                 }
-                if (this.f15610c == null) {
-                    this.f15610c = new Bundle();
+                if (this.f16725c == null) {
+                    this.f16725c = new Bundle();
                 }
                 for (String str : queryParameterNames) {
-                    String queryParameter = this.f15608a.getQueryParameter(str);
-                    this.f15610c.putString(str, queryParameter);
+                    String queryParameter = this.f16723a.getQueryParameter(str);
+                    this.f16725c.putString(str, queryParameter);
                     if (TextUtils.equals(str, "params") && !TextUtils.isEmpty(queryParameter)) {
                         try {
                             JSONObject jSONObject = new JSONObject(queryParameter);
                             Iterator<String> keys = jSONObject.keys();
                             while (keys.hasNext()) {
                                 String next = keys.next();
-                                this.f15610c.putString(next, jSONObject.optString(next, ""));
+                                this.f16725c.putString(next, jSONObject.optString(next, ""));
                             }
                         } catch (Exception e2) {
                             if (BdLog.isDebugMode()) {
@@ -148,7 +148,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
-            this.f15608a = uri;
+            this.f16723a = uri;
             if (uri != null) {
                 if (BdLog.isDebugMode()) {
                     BdLog.i("builder uri = " + uri);

@@ -25,10 +25,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f3643a;
+    public static volatile c f3733a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SSLSocketFactory f3644b;
+    public static SSLSocketFactory f3734b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public X509TrustManager f3645a;
+        public X509TrustManager f3735a;
 
         public a(c cVar, X509TrustManager x509TrustManager) {
             Interceptable interceptable = $ic;
@@ -54,15 +54,15 @@ public class c {
                     return;
                 }
             }
-            this.f3645a = null;
-            this.f3645a = x509TrustManager;
+            this.f3735a = null;
+            this.f3735a = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
-                this.f3645a.checkClientTrusted(x509CertificateArr, str);
+                this.f3735a.checkClientTrusted(x509CertificateArr, str);
             }
         }
 
@@ -72,7 +72,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
                 try {
-                    this.f3645a.checkServerTrusted(x509CertificateArr, str);
+                    this.f3735a.checkServerTrusted(x509CertificateArr, str);
                 } catch (Throwable th) {
                     b.a.n0.l.c.d(th);
                     if ((th instanceof CertificateExpiredException) || (th instanceof CertificateNotYetValidException)) {
@@ -90,7 +90,7 @@ public class c {
         public X509Certificate[] getAcceptedIssuers() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3645a.getAcceptedIssuers() : (X509Certificate[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3735a.getAcceptedIssuers() : (X509Certificate[]) invokeV.objValue;
         }
     }
 
@@ -114,12 +114,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, httpsURLConnection) == null) {
             try {
-                if (f3643a == null) {
+                if (f3733a == null) {
                     synchronized (c.class) {
-                        f3643a = new c();
+                        f3733a = new c();
                     }
                 }
-                f3643a.c(httpsURLConnection);
+                f3733a.c(httpsURLConnection);
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
             }
@@ -131,7 +131,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (f3644b != null) {
+                if (f3734b != null) {
                     return;
                 }
                 SSLContext sSLContext = SSLContext.getInstance("TLS");
@@ -140,7 +140,7 @@ public class c {
                 TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
                 if (trustManagers.length >= 1 && (trustManagers[0] instanceof X509TrustManager)) {
                     sSLContext.init(null, new TrustManager[]{new a(this, (X509TrustManager) trustManagers[0])}, new SecureRandom());
-                    f3644b = sSLContext.getSocketFactory();
+                    f3734b = sSLContext.getSocketFactory();
                     return;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -159,11 +159,11 @@ public class c {
             return;
         }
         try {
-            if (f3644b == null) {
+            if (f3734b == null) {
                 return;
             }
             httpsURLConnection.setHostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-            httpsURLConnection.setSSLSocketFactory(f3644b);
+            httpsURLConnection.setSSLSocketFactory(f3734b);
         } catch (Throwable th) {
             b.a.n0.l.c.d(th);
         }

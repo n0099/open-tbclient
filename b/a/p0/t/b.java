@@ -1,30 +1,11 @@
 package b.a.p0.t;
 
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import java.io.File;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface b extends SharedPreferences, SharedPreferences.Editor {
-    Set<String> a();
-
-    boolean b();
-
-    @NonNull
-    File c();
-
-    long d();
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    Map<String, ?> getAll();
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+public final class b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int switch_thread = 2131304251;
+    public static final int trace_info = 2131305052;
+    public transient /* synthetic */ FieldHolder $fh;
 }

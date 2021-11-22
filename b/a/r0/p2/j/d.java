@@ -57,14 +57,14 @@ public class d extends b.a.r0.b0.b<b.a.r0.p2.e.e> {
     @Override // b.a.r0.b0.b
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f14736e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f16223e == i2) {
             return;
         }
-        this.f14736e = i2;
+        this.f16223e = i2;
         SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
-        if (this.q.f22290e == null) {
+        if (this.q.f23767e == null) {
             SkinManager.setImageResource(this.n, R.drawable.icon_shen_mine);
         }
     }
@@ -78,12 +78,12 @@ public class d extends b.a.r0.b0.b<b.a.r0.p2.e.e> {
             return;
         }
         this.q = eVar;
-        String str = eVar.f22290e;
+        String str = eVar.f23767e;
         if (str != null) {
             this.n.startLoad(str, 10, false);
         }
-        this.o.setText(eVar.f22291f);
-        this.p.setText(eVar.f22292g);
+        this.o.setText(eVar.f23768f);
+        this.p.setText(eVar.f23769g);
     }
 
     @Override // android.view.View.OnClickListener

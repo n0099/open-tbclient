@@ -26,20 +26,20 @@ public class g extends c<UnRegisterStatus> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public void a(UnRegisterStatus unRegisterStatus) {
-        PlatformMessageSender.a(this.f67698e, !TextUtils.isEmpty(this.f67701h) ? this.f67701h : this.f67698e.getPackageName(), unRegisterStatus);
+        PlatformMessageSender.a(this.f68611e, !TextUtils.isEmpty(this.f68614h) ? this.f68614h : this.f68611e.getPackageName(), unRegisterStatus);
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        return (TextUtils.isEmpty(this.f67699f) || TextUtils.isEmpty(this.f67700g)) ? false : true;
+        return (TextUtils.isEmpty(this.f68612f) || TextUtils.isEmpty(this.f68613g)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra("app_id", this.f67699f);
-        intent.putExtra("app_key", this.f67700g);
-        intent.putExtra("strategy_package_name", this.f67698e.getPackageName());
+        intent.putExtra("app_id", this.f68612f);
+        intent.putExtra("app_key", this.f68613g);
+        intent.putExtra("strategy_package_name", this.f68611e.getPackageName());
         intent.putExtra("strategy_type", g());
         return intent;
     }
@@ -56,8 +56,8 @@ public class g extends c<UnRegisterStatus> {
         String str;
         UnRegisterStatus unRegisterStatus = new UnRegisterStatus();
         unRegisterStatus.setCode(LightappConstants.ERRCODE_NOT_ALLOWED_BACKGROUND);
-        if (!TextUtils.isEmpty(this.f67699f)) {
-            str = TextUtils.isEmpty(this.f67700g) ? "appKey not empty" : "appKey not empty";
+        if (!TextUtils.isEmpty(this.f68612f)) {
+            str = TextUtils.isEmpty(this.f68613g) ? "appKey not empty" : "appKey not empty";
             return unRegisterStatus;
         }
         str = "appId not empty";
@@ -70,27 +70,27 @@ public class g extends c<UnRegisterStatus> {
     /* renamed from: i */
     public UnRegisterStatus e() {
         UnRegisterStatus unRegisterStatus = new UnRegisterStatus();
-        if (TextUtils.isEmpty(com.meizu.cloud.pushsdk.util.b.a(this.f67698e, this.f67701h))) {
+        if (TextUtils.isEmpty(com.meizu.cloud.pushsdk.util.b.a(this.f68611e, this.f68614h))) {
             unRegisterStatus.setCode(BasicPushStatus.SUCCESS_CODE);
             unRegisterStatus.setMessage("already unRegister PushId,dont unRegister frequently");
             unRegisterStatus.setIsUnRegisterSuccess(true);
         } else {
-            this.f67702i = o();
-            com.meizu.cloud.pushsdk.b.a.c b2 = this.j.b(this.f67699f, this.f67700g, this.f67702i);
+            this.f68615i = o();
+            com.meizu.cloud.pushsdk.b.a.c b2 = this.j.b(this.f68612f, this.f68613g, this.f68615i);
             if (b2.b()) {
                 unRegisterStatus = new UnRegisterStatus((String) b2.a());
-                b.l.a.a.a.b("Strategy", "network unRegisterStatus " + unRegisterStatus);
+                b.j.a.a.a.b("Strategy", "network unRegisterStatus " + unRegisterStatus);
                 if (BasicPushStatus.SUCCESS_CODE.equals(unRegisterStatus.getCode())) {
-                    com.meizu.cloud.pushsdk.util.b.g(this.f67698e, "", this.f67701h);
+                    com.meizu.cloud.pushsdk.util.b.g(this.f68611e, "", this.f68614h);
                 }
             } else {
                 com.meizu.cloud.pushsdk.b.b.a c2 = b2.c();
                 if (c2.a() != null) {
-                    b.l.a.a.a.b("Strategy", "status code=" + c2.b() + " data=" + c2.a());
+                    b.j.a.a.a.b("Strategy", "status code=" + c2.b() + " data=" + c2.a());
                 }
                 unRegisterStatus.setCode(String.valueOf(c2.b()));
                 unRegisterStatus.setMessage(c2.c());
-                b.l.a.a.a.b("Strategy", "unRegisterStatus " + unRegisterStatus);
+                b.j.a.a.a.b("Strategy", "unRegisterStatus " + unRegisterStatus);
             }
         }
         return unRegisterStatus;

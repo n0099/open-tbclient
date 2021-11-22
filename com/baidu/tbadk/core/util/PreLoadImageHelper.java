@@ -1,14 +1,14 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
-import b.a.e.e.l.d;
-import b.a.e.e.p.j;
-import b.a.e.l.c.c;
-import b.a.e.l.e.a;
-import b.a.e.l.e.n;
-import b.a.e.l.e.o;
-import b.a.e.l.e.q;
-import b.a.e.l.e.r;
+import b.a.e.f.l.d;
+import b.a.e.f.p.j;
+import b.a.e.m.c.c;
+import b.a.e.m.e.a;
+import b.a.e.m.e.n;
+import b.a.e.m.e.o;
+import b.a.e.m.e.q;
+import b.a.e.m.e.r;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdRecyclerAdapter;
@@ -44,7 +44,7 @@ public class PreLoadImageHelper {
 
     public static void addPreloadSuggestSize(o oVar, Object obj, PreLoadImageInfo preLoadImageInfo) {
         a<n, TypeAdapter.ViewHolder> adapterByData;
-        c I;
+        c K;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65537, null, oVar, obj, preLoadImageInfo) == null) || oVar == null || obj == null || preLoadImageInfo == null) {
             return;
@@ -59,11 +59,11 @@ public class PreLoadImageHelper {
                     rVar = (r) bdRecyclerAdapter.getWrappedAdapter();
                 }
             }
-            if (rVar == null || !(obj instanceof n) || (adapterByData = rVar.getAdapterByData((n) obj)) == null || (I = adapterByData.I(preLoadImageInfo.preloadType)) == null || I.b() <= 0 || I.a() <= 0) {
+            if (rVar == null || !(obj instanceof n) || (adapterByData = rVar.getAdapterByData((n) obj)) == null || (K = adapterByData.K(preLoadImageInfo.preloadType)) == null || K.b() <= 0 || K.a() <= 0) {
                 return;
             }
-            preLoadImageInfo.width = I.b();
-            preLoadImageInfo.height = I.a();
+            preLoadImageInfo.width = K.b();
+            preLoadImageInfo.height = K.a();
         }
     }
 

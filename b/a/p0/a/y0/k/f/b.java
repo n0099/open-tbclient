@@ -3,10 +3,9 @@ package b.a.p0.a.y0.k.f;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.y0.k.f.c.c;
 import b.a.p0.a.y0.k.f.c.d;
 import b.a.p0.a.y0.k.f.c.e;
-import b.a.p0.a.y0.k.f.c.f;
+import b.a.p0.a.z2.g1.c;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,14 +20,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f9081a;
+    public static final d f9428a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f9082b;
+    public static volatile d f9429b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class a implements b.a.p0.a.v2.e1.b<HybridUbcFlow> {
+    public static class a implements c<HybridUbcFlow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,12 +46,12 @@ public class b {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: a */
         public void onCallback(HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
-                b.b().b(TextUtils.equals(hybridUbcFlow.k().optString("type"), "3") || hybridUbcFlow.n("na_first_meaningful_paint"), hybridUbcFlow);
+                b.b().b(TextUtils.equals(hybridUbcFlow.m().optString("type"), "3") || hybridUbcFlow.p("na_first_meaningful_paint"), hybridUbcFlow);
             }
         }
     }
@@ -70,9 +69,9 @@ public class b {
                 return;
             }
         }
-        f fVar = new f();
-        f9081a = fVar;
-        f9082b = fVar;
+        e eVar = new e();
+        f9428a = eVar;
+        f9429b = eVar;
     }
 
     public static void a() {
@@ -83,10 +82,10 @@ public class b {
     }
 
     @NonNull
-    public static e b() {
+    public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9082b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9429b : (d) invokeV.objValue;
     }
 
     public static void c(int i2) {
@@ -100,37 +99,25 @@ public class b {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            e b2 = b();
-            if (b2 != null && (b2 instanceof b.a.p0.a.y0.k.f.c.b)) {
-                ((b.a.p0.a.y0.k.f.c.b) b2).f(str);
-            } else {
-                g(new b.a.p0.a.y0.k.f.c.b(str));
-            }
-        }
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
             if (TextUtils.equals(str, "3")) {
-                g(new d(str));
+                f(new b.a.p0.a.y0.k.f.c.c(str));
             } else {
-                g(new c(str));
+                f(new b.a.p0.a.y0.k.f.c.b(str));
             }
         }
     }
 
-    public static void f() {
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            g(f9081a);
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+            f(f9428a);
         }
     }
 
-    public static void g(@NonNull e eVar) {
+    public static void f(@NonNull d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, eVar) == null) {
-            f9082b = eVar;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, dVar) == null) {
+            f9429b = dVar;
         }
     }
 }

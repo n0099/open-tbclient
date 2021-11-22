@@ -16,19 +16,19 @@ public class c extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24502e;
+    public String f26019e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24503f;
+    public String f26020f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f24504g;
+    public int f26021g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24505h;
+    public int f26022h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f24506i;
+    public String f26023i;
     public String j;
 
     static {
@@ -61,7 +61,7 @@ public class c extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

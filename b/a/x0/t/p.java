@@ -18,22 +18,22 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RenderScript f29930a;
+    public RenderScript f30799a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScriptIntrinsicYuvToRGB f29931b;
+    public ScriptIntrinsicYuvToRGB f30800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Type.Builder f29932c;
+    public Type.Builder f30801c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Type.Builder f29933d;
+    public Type.Builder f30802d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Allocation f29934e;
+    public Allocation f30803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Allocation f29935f;
+    public Allocation f30804f;
 
     public p(Context context) {
         Interceptable interceptable = $ic;
@@ -51,29 +51,29 @@ public class p {
             }
         }
         RenderScript create = RenderScript.create(context);
-        this.f29930a = create;
-        this.f29931b = ScriptIntrinsicYuvToRGB.create(create, Element.U8_4(create));
+        this.f30799a = create;
+        this.f30800b = ScriptIntrinsicYuvToRGB.create(create, Element.U8_4(create));
     }
 
     public Bitmap a(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            if (this.f29932c == null) {
-                RenderScript renderScript = this.f29930a;
+            if (this.f30801c == null) {
+                RenderScript renderScript = this.f30799a;
                 Type.Builder x = new Type.Builder(renderScript, Element.U8(renderScript)).setX(bArr.length);
-                this.f29932c = x;
-                this.f29934e = Allocation.createTyped(this.f29930a, x.create(), 1);
-                RenderScript renderScript2 = this.f29930a;
+                this.f30801c = x;
+                this.f30803e = Allocation.createTyped(this.f30799a, x.create(), 1);
+                RenderScript renderScript2 = this.f30799a;
                 Type.Builder y = new Type.Builder(renderScript2, Element.RGBA_8888(renderScript2)).setX(i2).setY(i3);
-                this.f29933d = y;
-                this.f29935f = Allocation.createTyped(this.f29930a, y.create(), 1);
+                this.f30802d = y;
+                this.f30804f = Allocation.createTyped(this.f30799a, y.create(), 1);
             }
-            this.f29934e.copyFrom(bArr);
-            this.f29931b.setInput(this.f29934e);
-            this.f29931b.forEach(this.f29935f);
+            this.f30803e.copyFrom(bArr);
+            this.f30800b.setInput(this.f30803e);
+            this.f30800b.forEach(this.f30804f);
             Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
-            this.f29935f.copyTo(createBitmap);
+            this.f30804f.copyTo(createBitmap);
             return createBitmap;
         }
         return (Bitmap) invokeLII.objValue;

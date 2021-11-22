@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import androidx.webkit.ProxyConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,16 +17,16 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f61357a;
+    public static final boolean f62256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f61358b;
+    public static a f62257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f61359c;
+    public static String f62258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f61360d;
+    public static int f62259d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -61,10 +62,10 @@ public final class i {
                 return;
             }
         }
-        f61357a = Build.VERSION.SDK_INT > 19;
-        f61359c = "";
-        f61360d = -1;
-        f61358b = new a();
+        f62256a = Build.VERSION.SDK_INT > 19;
+        f62258c = "";
+        f62259d = -1;
+        f62257b = new a();
     }
 
     public static String a(Context context) {
@@ -73,17 +74,17 @@ public final class i {
         DisplayMetrics displayMetrics2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (TextUtils.isEmpty(f61359c) && context != null) {
+            if (TextUtils.isEmpty(f62258c) && context != null) {
                 int i2 = 0;
                 int i3 = (context == null || (displayMetrics = context.getResources().getDisplayMetrics()) == null) ? 0 : displayMetrics.widthPixels;
                 if (context != null && (displayMetrics2 = context.getResources().getDisplayMetrics()) != null) {
                     i2 = displayMetrics2.heightPixels;
                 }
                 if (i3 > 0 && i2 > 0) {
-                    f61359c = i3 + "*" + i2;
+                    f62258c = i3 + ProxyConfig.MATCH_ALL_SCHEMES + i2;
                 }
             }
-            return f61359c;
+            return f62258c;
         }
         return (String) invokeL.objValue;
     }
@@ -92,10 +93,10 @@ public final class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f61360d == -1 && context != null) {
-                f61360d = context.getApplicationContext().getResources().getDisplayMetrics().densityDpi;
+            if (f62259d == -1 && context != null) {
+                f62259d = context.getApplicationContext().getResources().getDisplayMetrics().densityDpi;
             }
-            return f61360d;
+            return f62259d;
         }
         return invokeL.intValue;
     }

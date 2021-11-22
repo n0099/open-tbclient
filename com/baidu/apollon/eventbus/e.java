@@ -13,7 +13,7 @@ public final class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedList<d> f35956a;
+    public final LinkedList<d> f36785a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class e {
                 return;
             }
         }
-        this.f35956a = new LinkedList<>();
+        this.f36785a = new LinkedList<>();
     }
 
     public synchronized void a(d dVar) {
@@ -36,7 +36,7 @@ public final class e {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             synchronized (this) {
                 if (dVar != null) {
-                    this.f35956a.offer(dVar);
+                    this.f36785a.offer(dVar);
                     notifyAll();
                 } else {
                     throw new NullPointerException("null cannot be enqueued");
@@ -51,7 +51,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                poll = this.f35956a.poll();
+                poll = this.f36785a.poll();
             }
             return poll;
         }

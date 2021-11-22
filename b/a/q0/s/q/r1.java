@@ -20,10 +20,10 @@ public class r1 extends x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13435h;
+    public String f14215h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13436i;
+    public int f14216i;
     public String j;
     public ArrayList<q1> k;
 
@@ -77,11 +77,11 @@ public class r1 extends x {
         return (d2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x.f13475f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x.f14257f : (BdUniqueId) invokeV.objValue;
     }
 
     public ArrayList<q1> k() {

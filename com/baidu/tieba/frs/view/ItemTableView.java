@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import b.a.e.e.p.l;
-import b.a.r0.x0.c1;
+import b.a.e.f.p.l;
+import b.a.r0.x0.d1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,19 +25,19 @@ public class ItemTableView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ItemTableRowView f49171e;
+    public ItemTableRowView f50035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ItemTableRowView f49172f;
+    public ItemTableRowView f50036f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemTableRowView f49173g;
+    public ItemTableRowView f50037g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ItemTableRowView f49174h;
+    public ItemTableRowView f50038h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ItemTableRowView f49175i;
+    public ItemTableRowView f50039i;
     public SparseArray<ItemTableRowView> j;
 
     static {
@@ -53,7 +53,7 @@ public class ItemTableView extends LinearLayout {
                 return;
             }
         }
-        k = l.g(TbadkCoreApplication.getInst().getContext(), c1.tbds5);
+        k = l.g(TbadkCoreApplication.getInst().getContext(), d1.tbds5);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -81,18 +81,18 @@ public class ItemTableView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            this.f49175i = b(context, 0, 0);
-            this.f49174h = b(context, 1, k);
-            this.f49173g = b(context, 2, k);
-            this.f49172f = b(context, 3, k);
-            this.f49171e = b(context, 4, k);
+            this.f50039i = b(context, 0, 0);
+            this.f50038h = b(context, 1, k);
+            this.f50037g = b(context, 2, k);
+            this.f50036f = b(context, 3, k);
+            this.f50035e = b(context, 4, k);
             SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
             this.j = sparseArray;
-            sparseArray.put(5, this.f49175i);
-            this.j.put(4, this.f49174h);
-            this.j.put(3, this.f49173g);
-            this.j.put(2, this.f49172f);
-            this.j.put(1, this.f49171e);
+            sparseArray.put(5, this.f50039i);
+            this.j.put(4, this.f50038h);
+            this.j.put(3, this.f50037g);
+            this.j.put(2, this.f50036f);
+            this.j.put(1, this.f50035e);
         }
     }
 
@@ -113,22 +113,22 @@ public class ItemTableView extends LinearLayout {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f49171e.clear();
-            this.f49172f.clear();
-            this.f49173g.clear();
-            this.f49174h.clear();
-            this.f49175i.clear();
+            this.f50035e.clear();
+            this.f50036f.clear();
+            this.f50037g.clear();
+            this.f50038h.clear();
+            this.f50039i.clear();
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f49171e.onChangeSkinType();
-            this.f49172f.onChangeSkinType();
-            this.f49173g.onChangeSkinType();
-            this.f49174h.onChangeSkinType();
-            this.f49175i.onChangeSkinType();
+            this.f50035e.onChangeSkinType();
+            this.f50036f.onChangeSkinType();
+            this.f50037g.onChangeSkinType();
+            this.f50038h.onChangeSkinType();
+            this.f50039i.onChangeSkinType();
         }
     }
 

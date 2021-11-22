@@ -20,12 +20,12 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f24762a;
+    public static a f26279a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.r0.w.f.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class C1209a {
+    public static /* synthetic */ class C1277a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -35,7 +35,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f24763a;
+        public static final a f26280a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,11 +51,11 @@ public class a {
                     return;
                 }
             }
-            f24763a = new a(null);
+            f26280a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C1209a c1209a) {
+    public /* synthetic */ a(C1277a c1277a) {
         this();
     }
 
@@ -63,10 +63,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f24762a == null) {
-                f24762a = b.f24763a;
+            if (f26279a == null) {
+                f26279a = b.f26280a;
             }
-            return f24762a;
+            return f26279a;
         }
         return (a) invokeV.objValue;
     }
@@ -74,7 +74,7 @@ public class a {
     public String b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 == 1 ? "night" : i2 == 4 ? SkinManager.SKIN_TYPE_STR_DARK : "day" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : i2 == 4 ? SkinManager.SKIN_TYPE_STR_DARK : "day" : (String) invokeI.objValue;
     }
 
     public void c(Context context) {

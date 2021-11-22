@@ -25,32 +25,32 @@ public class DataCore {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static JSONObject f40834a;
+    public static JSONObject f41666a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DataCore f40835b;
+    public static DataCore f41667b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONArray f40836c;
+    public JSONArray f41668c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f40837d;
+    public JSONArray f41669d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONArray f40838e;
+    public JSONArray f41670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f40839f;
+    public boolean f41671f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f40840g;
+    public volatile int f41672g;
 
     /* renamed from: h  reason: collision with root package name */
-    public StatService.WearListener f40841h;
+    public StatService.WearListener f41673h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONObject f40842i;
+    public JSONObject f41674i;
     public Object j;
 
     static {
@@ -66,8 +66,8 @@ public class DataCore {
                 return;
             }
         }
-        f40834a = new JSONObject();
-        f40835b = new DataCore();
+        f41666a = new JSONObject();
+        f41667b = new DataCore();
     }
 
     public DataCore() {
@@ -83,11 +83,11 @@ public class DataCore {
                 return;
             }
         }
-        this.f40836c = new JSONArray();
-        this.f40837d = new JSONArray();
-        this.f40838e = new JSONArray();
-        this.f40839f = false;
-        this.f40840g = 0;
+        this.f41668c = new JSONArray();
+        this.f41669d = new JSONArray();
+        this.f41670e = new JSONArray();
+        this.f41671f = false;
+        this.f41672g = 0;
         this.j = new Object();
     }
 
@@ -100,7 +100,7 @@ public class DataCore {
     private boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) ? (str.getBytes().length + BDStatCore.instance().getSessionSize()) + this.f40840g > 184320 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) ? (str.getBytes().length + BDStatCore.instance().getSessionSize()) + this.f41672g > 184320 : invokeL.booleanValue;
     }
 
     private void b(Context context, JSONObject jSONObject, JSONObject jSONObject2) {
@@ -122,15 +122,15 @@ public class DataCore {
     public static DataCore instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f40835b : (DataCore) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f41667b : (DataCore) invokeV.objValue;
     }
 
     public void clearCache(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             a(false);
-            synchronized (f40834a) {
-                f40834a = new JSONObject();
+            synchronized (f41666a) {
+                f41666a = new JSONObject();
             }
             installHeader(context);
             a(context);
@@ -144,7 +144,7 @@ public class DataCore {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             HeadObject headObject = CooperService.instance().getHeadObject();
-            if (TextUtils.isEmpty(headObject.f40866e)) {
+            if (TextUtils.isEmpty(headObject.f41698e)) {
                 headObject.installHeader(context, jSONObject2);
             } else {
                 headObject.updateHeader(context, jSONObject2);
@@ -175,14 +175,14 @@ public class DataCore {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                synchronized (this.f40836c) {
-                    jSONObject.put("pr", new JSONArray(this.f40836c.toString()));
+                synchronized (this.f41668c) {
+                    jSONObject.put("pr", new JSONArray(this.f41668c.toString()));
                 }
-                synchronized (this.f40837d) {
-                    jSONObject.put("ev", new JSONArray(this.f40837d.toString()));
+                synchronized (this.f41669d) {
+                    jSONObject.put("ev", new JSONArray(this.f41669d.toString()));
                 }
-                synchronized (f40834a) {
-                    jSONObject.put("he", new JSONObject(f40834a.toString()));
+                synchronized (f41666a) {
+                    jSONObject.put("he", new JSONObject(f41666a.toString()));
                 }
             } catch (Exception unused) {
             }
@@ -196,11 +196,11 @@ public class DataCore {
                 a(true);
                 return;
             }
-            this.f40840g = length;
+            this.f41672g = length;
             String u = bw.u(context);
             bo.a(context, u + Config.STAT_CACHE_FILE_NAME, jSONObject2, false);
-            synchronized (this.f40838e) {
-                bo.a(context, Config.LAST_AP_INFO_FILE_NAME, this.f40838e.toString(), false);
+            synchronized (this.f41670e) {
+                bo.a(context, Config.LAST_AP_INFO_FILE_NAME, this.f41670e.toString(), false);
             }
         }
     }
@@ -208,13 +208,13 @@ public class DataCore {
     public int getCacheFileSzie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40840g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41672g : invokeV.intValue;
     }
 
     public JSONObject getLogData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40842i : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41674i : (JSONObject) invokeV.objValue;
     }
 
     public void init(Context context) {
@@ -229,8 +229,8 @@ public class DataCore {
     public void installHeader(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            synchronized (f40834a) {
-                CooperService.instance().getHeadObject().installHeader(context, f40834a);
+            synchronized (f41666a) {
+                CooperService.instance().getHeadObject().installHeader(context, f41666a);
             }
         }
     }
@@ -299,10 +299,10 @@ public class DataCore {
             try {
                 JSONObject jSONObject4 = jSONObject.getJSONObject("he");
                 if (jSONObject4 != null) {
-                    synchronized (f40834a) {
-                        f40834a = jSONObject4;
+                    synchronized (f41666a) {
+                        f41666a = jSONObject4;
                         if (TextUtils.isEmpty(bq.a().s(context))) {
-                            String string = f40834a.getString("dd");
+                            String string = f41666a.getString("dd");
                             if (!TextUtils.isEmpty(string)) {
                                 bq.a().k(context, string);
                             }
@@ -331,8 +331,8 @@ public class DataCore {
                 if (!TextUtils.isEmpty(g2)) {
                     jSONArray.put(g2);
                 }
-                synchronized (this.f40838e) {
-                    this.f40838e = jSONArray;
+                synchronized (this.f41670e) {
+                    this.f41670e = jSONArray;
                 }
             } catch (JSONException unused) {
             }
@@ -348,8 +348,8 @@ public class DataCore {
             bc.c().b("[WARNING] data to put exceed limit, ignored");
             return;
         }
-        synchronized (this.f40837d) {
-            EventAnalysis.doEventMerge(this.f40837d, jSONObject);
+        synchronized (this.f41669d) {
+            EventAnalysis.doEventMerge(this.f41669d, jSONObject);
         }
     }
 
@@ -390,9 +390,9 @@ public class DataCore {
             bc.c().b("[WARNING] data to put exceed limit, ignored");
             return;
         }
-        synchronized (this.f40836c) {
+        synchronized (this.f41668c) {
             try {
-                this.f40836c.put(this.f40836c.length(), jSONObject);
+                this.f41668c.put(this.f41668c.length(), jSONObject);
             } catch (JSONException unused) {
             }
         }
@@ -403,43 +403,43 @@ public class DataCore {
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Boolean.valueOf(z3), jSONObject}) == null) {
             HeadObject headObject = CooperService.instance().getHeadObject();
             if (headObject != null) {
-                synchronized (f40834a) {
-                    if (TextUtils.isEmpty(headObject.f40866e)) {
-                        headObject.installHeader(context, f40834a);
+                synchronized (f41666a) {
+                    if (TextUtils.isEmpty(headObject.f41698e)) {
+                        headObject.installHeader(context, f41666a);
                     } else {
-                        headObject.updateHeader(context, f40834a);
+                        headObject.updateHeader(context, f41666a);
                     }
                 }
-                if (TextUtils.isEmpty(headObject.f40866e)) {
+                if (TextUtils.isEmpty(headObject.f41698e)) {
                     bc.c().c("[WARNING] 无法找到有效APP Key, 请参考文档配置");
                     return;
                 }
             }
             JSONObject jSONObject2 = new JSONObject();
-            synchronized (f40834a) {
+            synchronized (f41666a) {
                 try {
-                    f40834a.put("t", System.currentTimeMillis());
-                    f40834a.put("sq", z ? 0 : 1);
-                    f40834a.put("ss", j);
-                    synchronized (this.f40838e) {
-                        f40834a.put("wl2", this.f40838e);
+                    f41666a.put("t", System.currentTimeMillis());
+                    f41666a.put("sq", z ? 0 : 1);
+                    f41666a.put("ss", j);
+                    synchronized (this.f41670e) {
+                        f41666a.put("wl2", this.f41670e);
                     }
-                    f40834a.put("sign", CooperService.instance().getUUID());
-                    b(context, f40834a, jSONObject);
-                    jSONObject2.put("he", f40834a);
-                    synchronized (this.f40836c) {
+                    f41666a.put("sign", CooperService.instance().getUUID());
+                    b(context, f41666a, jSONObject);
+                    jSONObject2.put("he", f41666a);
+                    synchronized (this.f41668c) {
                         try {
-                            jSONObject2.put("pr", this.f40836c);
-                            synchronized (this.f40837d) {
+                            jSONObject2.put("pr", this.f41668c);
+                            synchronized (this.f41669d) {
                                 try {
-                                    jSONObject2.put("ev", this.f40837d);
+                                    jSONObject2.put("ev", this.f41669d);
                                     try {
                                         jSONObject2.put("ex", new JSONArray());
                                         a(context, jSONObject2, z2);
                                         b(jSONObject2);
                                         a(context, jSONObject2);
                                         a(context, jSONObject2.toString(), z, z3);
-                                        this.f40842i = jSONObject2;
+                                        this.f41674i = jSONObject2;
                                         clearCache(context);
                                     } catch (JSONException unused) {
                                     }
@@ -458,14 +458,14 @@ public class DataCore {
     private void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65547, this, z) == null) {
-            this.f40839f = z;
+            this.f41671f = z;
         }
     }
 
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? this.f40839f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? this.f41671f : invokeV.booleanValue;
     }
 
     private void a(Context context, JSONObject jSONObject, boolean z) {
@@ -507,8 +507,8 @@ public class DataCore {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x001e  */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0024  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x001f  */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0025  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -532,7 +532,7 @@ public class DataCore {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(8:7|(3:8|9|10)|(5:14|15|16|(2:(5:22|23|(2:27|28)|29|20)|32)|34)|36|15|16|(3:18|(1:20)|32)|34) */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x003b A[Catch: Exception -> 0x005a, TRY_LEAVE, TryCatch #0 {Exception -> 0x005a, blocks: (B:15:0x0027, B:17:0x002f, B:19:0x0035, B:21:0x003b), top: B:35:0x0027 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x003d A[Catch: Exception -> 0x005c, TRY_LEAVE, TryCatch #0 {Exception -> 0x005c, blocks: (B:15:0x0029, B:17:0x0031, B:19:0x0037, B:21:0x003d), top: B:35:0x0029 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -577,8 +577,8 @@ public class DataCore {
         return invokeL.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:62:0x013d  */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0133 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x013f  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0135 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -736,7 +736,7 @@ public class DataCore {
     private void a(Context context, String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            StatService.WearListener wearListener = this.f40841h;
+            StatService.WearListener wearListener = this.f41673h;
             if (wearListener != null && wearListener.onSendLogData(str)) {
                 bc c2 = bc.c();
                 c2.a("Log has been passed to app level, log: " + str);
@@ -758,14 +758,14 @@ public class DataCore {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
-            synchronized (this.f40837d) {
-                this.f40837d = new JSONArray();
+            synchronized (this.f41669d) {
+                this.f41669d = new JSONArray();
             }
-            synchronized (this.f40836c) {
-                this.f40836c = new JSONArray();
+            synchronized (this.f41668c) {
+                this.f41668c = new JSONArray();
             }
-            synchronized (this.f40838e) {
-                this.f40838e = new JSONArray();
+            synchronized (this.f41670e) {
+                this.f41670e = new JSONArray();
             }
             flush(context);
         }

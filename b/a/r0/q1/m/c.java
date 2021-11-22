@@ -44,10 +44,10 @@ public class c implements b.a.q0.c.e {
             return;
         }
         UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-        aVar.f45667a = fVar.f11969a;
-        aVar.f45668b = fVar.f11971c;
-        aVar.f45670d = true;
-        aVar.f45669c = hashMap.get("touid") == null ? "" : hashMap.get("touid");
+        aVar.f46517a = fVar.f12723a;
+        aVar.f46518b = fVar.f12725c;
+        aVar.f46520d = true;
+        aVar.f46519c = hashMap.get("touid") == null ? "" : hashMap.get("touid");
         MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
     }
 }

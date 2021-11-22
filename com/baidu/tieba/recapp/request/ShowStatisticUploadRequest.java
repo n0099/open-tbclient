@@ -2,7 +2,7 @@ package com.baidu.tieba.recapp.request;
 
 import android.os.Build;
 import b.a.q0.t.c.d;
-import b.a.r0.l3.l0.a;
+import b.a.r0.m3.l0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -125,8 +125,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("tid", cVar.f20679a);
-                            jSONObject.put("locate", cVar.f20681c);
+                            jSONObject.put("tid", cVar.f22529a);
+                            jSONObject.put("locate", cVar.f22531c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);
@@ -150,9 +150,9 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("pid", cVar.f20680b);
+                            jSONObject.put("pid", cVar.f22530b);
                             jSONObject.put("tid", str4);
-                            jSONObject.put("locate", cVar.f20681c);
+                            jSONObject.put("locate", cVar.f22531c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import b.a.r0.j1.l.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i extends b.a.e.l.e.a<m, QualityThreadItemHolder> {
+public class i extends b.a.e.m.e.a<m, QualityThreadItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int m;
@@ -42,7 +42,7 @@ public class i extends b.a.e.l.e.a<m, QualityThreadItemHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f18354e;
+        public final /* synthetic */ i f19688e;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -59,15 +59,15 @@ public class i extends b.a.e.l.e.a<m, QualityThreadItemHolder> {
                     return;
                 }
             }
-            this.f18354e = iVar;
+            this.f19688e = iVar;
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && nVar != null && (nVar instanceof m)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                this.f18354e.i0((m) nVar);
+                this.f19688e.i0((m) nVar);
             }
         }
     }
@@ -78,13 +78,13 @@ public class i extends b.a.e.l.e.a<m, QualityThreadItemHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f18355e;
+        public String f19689e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18356f;
+        public String f19690f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f18357g;
+        public final /* synthetic */ i f19691g;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -101,24 +101,24 @@ public class i extends b.a.e.l.e.a<m, QualityThreadItemHolder> {
                     return;
                 }
             }
-            this.f18357g = iVar;
+            this.f19691g = iVar;
         }
 
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                this.f18355e = str;
-                this.f18356f = str2;
+                this.f19689e = str;
+                this.f19690f = str2;
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && b.a.e.e.p.k.isForumName(this.f18355e)) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && b.a.e.f.p.k.isForumName(this.f19689e)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18357g.f2419e).createNormalCfg(this.f18355e, FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                TiebaStatic.log(new StatisticItem("c10523").param("fid", this.f18356f));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f19691g.f2421e).createNormalCfg(this.f19689e, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                TiebaStatic.log(new StatisticItem("c10523").param("fid", this.f19690f));
             }
         }
 
@@ -152,7 +152,7 @@ public class i extends b.a.e.l.e.a<m, QualityThreadItemHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, m mVar, QualityThreadItemHolder qualityThreadItemHolder) {
         m0(i2, view, viewGroup, mVar, qualityThreadItemHolder);
         return view;
@@ -163,7 +163,7 @@ public class i extends b.a.e.l.e.a<m, QualityThreadItemHolder> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) || mVar == null || mVar.a()) {
             return;
         }
-        String valueOf = String.valueOf(mVar.f18474g);
+        String valueOf = String.valueOf(mVar.f19808g);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.n.getActivity()).createNormalCfg(valueOf, String.valueOf(mVar.n), "hot_topic")));
         TiebaStatic.log(new StatisticItem("c10522").param("tid", valueOf).param("obj_id", this.n.getHotTopicId()));
     }
@@ -178,7 +178,7 @@ public class i extends b.a.e.l.e.a<m, QualityThreadItemHolder> {
             qualityThreadItemHolder.moduleTheme.setVisibility(0);
             qualityThreadItemHolder.contentDividerLine.setVisibility(8);
             qualityThreadItemHolder.threadView.setVisibility(8);
-            qualityThreadItemHolder.moduleTheme.setText(mVar.f18473f.trim());
+            qualityThreadItemHolder.moduleTheme.setText(mVar.f19807f.trim());
             SkinManager.setBackgroundColor(qualityThreadItemHolder.getView(), b.a.r0.j1.b.CAM_X0201);
             return;
         }
@@ -187,11 +187,11 @@ public class i extends b.a.e.l.e.a<m, QualityThreadItemHolder> {
         qualityThreadItemHolder.contentDividerLine.setVisibility(0);
         qualityThreadItemHolder.threadView.setVisibility(0);
         qualityThreadItemHolder.threadImg.startLoad(mVar.o, 10, false);
-        qualityThreadItemHolder.titleView.setText(mVar.f18475h.trim());
+        qualityThreadItemHolder.titleView.setText(mVar.f19809h.trim());
         qualityThreadItemHolder.descView.setText(mVar.j.trim());
         qualityThreadItemHolder.frsNameView.setText(TbadkCoreApplication.getInst().getString(b.a.r0.j1.h.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.l, 7, false)}));
         qualityThreadItemHolder.zanTextView.setText(StringHelper.numberUniformFormat(mVar.k));
-        qualityThreadItemHolder.replyTextView.setText(StringHelper.numFormatOver10000(mVar.f18476i));
+        qualityThreadItemHolder.replyTextView.setText(StringHelper.numFormatOver10000(mVar.f19810i));
         n0(qualityThreadItemHolder, mVar);
     }
 
@@ -218,12 +218,12 @@ public class i extends b.a.e.l.e.a<m, QualityThreadItemHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: l0 */
     public QualityThreadItemHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) ? new QualityThreadItemHolder(LayoutInflater.from(this.f2419e).inflate(b.a.r0.j1.f.hot_topic_quality_item, viewGroup, false)) : (QualityThreadItemHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) ? new QualityThreadItemHolder(LayoutInflater.from(this.f2421e).inflate(b.a.r0.j1.f.hot_topic_quality_item, viewGroup, false)) : (QualityThreadItemHolder) invokeL.objValue;
     }
 
     public View m0(int i2, View view, ViewGroup viewGroup, m mVar, QualityThreadItemHolder qualityThreadItemHolder) {

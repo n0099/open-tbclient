@@ -33,7 +33,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BawuTeamInfoActivity f48162a;
+        public final /* synthetic */ BawuTeamInfoActivity f49026a;
 
         public a(BawuTeamInfoActivity bawuTeamInfoActivity) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                     return;
                 }
             }
-            this.f48162a = bawuTeamInfoActivity;
+            this.f49026a = bawuTeamInfoActivity;
         }
 
         @Override // b.a.r0.v0.a.e.c
@@ -59,22 +59,22 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, lVar, Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
                 if (!z) {
                     if (arrayList != null && arrayList.size() > 0) {
-                        BawuTeamInfoActivity bawuTeamInfoActivity = this.f48162a;
+                        BawuTeamInfoActivity bawuTeamInfoActivity = this.f49026a;
                         bawuTeamInfoActivity.hideLoadingView(bawuTeamInfoActivity.mView.d());
-                        this.f48162a.mView.k(arrayList, lVar, false);
+                        this.f49026a.mView.k(arrayList, lVar, false);
                     }
-                    this.f48162a.mModel.i(this.f48162a.forumId);
+                    this.f49026a.mModel.i(this.f49026a.forumId);
                     return;
                 }
-                BawuTeamInfoActivity bawuTeamInfoActivity2 = this.f48162a;
+                BawuTeamInfoActivity bawuTeamInfoActivity2 = this.f49026a;
                 bawuTeamInfoActivity2.hideLoadingView(bawuTeamInfoActivity2.mView.d());
                 if (i2 == 0) {
-                    this.f48162a.mView.k(arrayList, lVar, true);
+                    this.f49026a.mView.k(arrayList, lVar, true);
                     return;
                 }
-                this.f48162a.showToast(str);
-                if (this.f48162a.mView.e()) {
-                    this.f48162a.mView.j();
+                this.f49026a.showToast(str);
+                if (this.f49026a.mView.e()) {
+                    this.f49026a.mView.j();
                 }
             }
         }
@@ -86,7 +86,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BawuTeamInfoActivity f48163e;
+        public final /* synthetic */ BawuTeamInfoActivity f49027e;
 
         public b(BawuTeamInfoActivity bawuTeamInfoActivity) {
             Interceptable interceptable = $ic;
@@ -103,14 +103,14 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                     return;
                 }
             }
-            this.f48163e = bawuTeamInfoActivity;
+            this.f49027e = bawuTeamInfoActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f48163e.refreshData();
+                this.f49027e.refreshData();
             }
         }
     }
@@ -211,9 +211,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b.a.r0.l3.f0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-            b.a.r0.l3.f0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
-            b.a.r0.l3.f0.a.b(2003005, f.class);
+            b.a.r0.m3.f0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+            b.a.r0.m3.f0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
+            b.a.r0.m3.f0.a.b(2003005, f.class);
         }
     }
 }

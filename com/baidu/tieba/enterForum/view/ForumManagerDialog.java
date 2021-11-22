@@ -2,8 +2,8 @@ package com.baidu.tieba.enterForum.view;
 
 import android.content.Context;
 import android.view.View;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
 import b.a.q0.k0.c.b;
 import b.a.q0.s.s.i;
 import b.a.r0.o0.d.f;
@@ -37,7 +37,7 @@ public class ForumManagerDialog extends PopupDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumManagerDialog f47784e;
+        public final /* synthetic */ ForumManagerDialog f48648e;
 
         public a(ForumManagerDialog forumManagerDialog) {
             Interceptable interceptable = $ic;
@@ -54,20 +54,20 @@ public class ForumManagerDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f47784e = forumManagerDialog;
+            this.f48648e = forumManagerDialog;
         }
 
         @Override // b.a.q0.s.s.i.e
         public void onItemClick(i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                this.f47784e.dismiss();
+                this.f48648e.dismiss();
                 if (!j.z()) {
-                    l.L(this.f47784e.o, R.string.network_not_available);
+                    l.L(this.f48648e.o, R.string.network_not_available);
                 } else if (i2 == 2) {
-                    this.f47784e.p.dispatchMvcEvent(new b(4, this.f47784e.r, null, null));
+                    this.f48648e.p.dispatchMvcEvent(new b(4, this.f48648e.r, null, null));
                 } else if (i2 == 1) {
-                    this.f47784e.p.dispatchMvcEvent(new b(13, this.f47784e.r, null, null));
+                    this.f48648e.p.dispatchMvcEvent(new b(13, this.f48648e.r, null, null));
                 }
             }
         }

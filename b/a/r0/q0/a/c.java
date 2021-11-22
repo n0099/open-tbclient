@@ -17,19 +17,19 @@ public class c implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.r0.q0.a.e.a f22487a;
+    public b.a.r0.q0.a.e.a f24008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f22488b;
+    public boolean f24009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f22489c;
+    public boolean f24010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f22490d;
+    public b f24011d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22491e;
+    public boolean f24012e;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -46,10 +46,10 @@ public class c implements e {
                 return;
             }
         }
-        this.f22489c = false;
-        this.f22491e = false;
-        this.f22487a = new b.a.r0.q0.a.e.a();
-        this.f22491e = z;
+        this.f24010c = false;
+        this.f24012e = false;
+        this.f24008a = new b.a.r0.q0.a.e.a();
+        this.f24012e = z;
     }
 
     @Override // b.a.r0.q0.a.f.e
@@ -61,9 +61,9 @@ public class c implements e {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || aVar == null) {
             return;
         }
-        if (this.f22488b) {
-            File file = new File(aVar.f22510a);
-            Bitmap decodeFile = BitmapFactory.decodeFile(aVar.f22510a);
+        if (this.f24009b) {
+            File file = new File(aVar.f24031a);
+            Bitmap decodeFile = BitmapFactory.decodeFile(aVar.f24031a);
             if (file.exists() && decodeFile != null) {
                 float height = decodeFile.getHeight();
                 float width = decodeFile.getWidth();
@@ -81,45 +81,45 @@ public class c implements e {
                     width = f8;
                     f2 = 0.0f;
                 }
-                aVar.f22510a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f6, (int) f2, (int) width, (int) height), 95);
+                aVar.f24031a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f6, (int) f2, (int) width, (int) height), 95);
             }
         }
         if ("default".equals(str)) {
-            if (this.f22489c || (bVar2 = this.f22490d) == null) {
+            if (this.f24010c || (bVar2 = this.f24011d) == null) {
                 return;
             }
-            bVar2.onCoverPathCallBack(aVar.f22510a);
-        } else if (!"manual".equals(str) || (bVar = this.f22490d) == null) {
+            bVar2.onCoverPathCallBack(aVar.f24031a);
+        } else if (!"manual".equals(str) || (bVar = this.f24011d) == null) {
         } else {
-            bVar.onCoverPathCallBack(aVar.f22510a);
+            bVar.onCoverPathCallBack(aVar.f24031a);
         }
     }
 
     public void b(b.a.r0.q0.a.g.b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, str) == null) {
-            this.f22487a.a(str, this.f22491e).a(bVar, this);
+            this.f24008a.a(str, this.f24012e).a(bVar, this);
         }
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f22489c = z;
+            this.f24010c = z;
         }
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f22488b = z;
+            this.f24009b = z;
         }
     }
 
     public void e(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f22490d = bVar;
+            this.f24011d = bVar;
         }
     }
 

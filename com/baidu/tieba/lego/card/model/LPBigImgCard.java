@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.q1.o.i.a;
 import b.a.r0.q1.o.k.b;
 import b.a.r0.q1.o.k.d;
@@ -166,6 +166,6 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
             return;
         }
         int k = l.k(TbadkCoreApplication.getInst());
-        b.a.e.e.l.d.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
+        b.a.e.f.l.d.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
     }
 }

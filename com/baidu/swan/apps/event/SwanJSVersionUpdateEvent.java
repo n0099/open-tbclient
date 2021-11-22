@@ -3,7 +3,7 @@ package com.baidu.swan.apps.event;
 import androidx.annotation.Keep;
 import b.a.p0.a.c1.a;
 import b.a.p0.a.k;
-import b.a.p0.a.m2.b;
+import b.a.p0.a.q2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -37,7 +37,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = k.f6397a;
+        DEBUG = k.f6863a;
     }
 
     public SwanJSVersionUpdateEvent() {
@@ -70,7 +70,7 @@ public class SwanJSVersionUpdateEvent {
             if (swanJSVersionUpdateEvent.mVersionName == null) {
                 return;
             }
-            a.I().a(swanJSVersionUpdateEvent);
+            a.N().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
                 String str = "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX;
             }

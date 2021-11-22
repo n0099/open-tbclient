@@ -31,10 +31,10 @@ public class s extends b.a.q0.x.p.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f23380e;
+    public ArrayList<String> f24711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Set<String> f23381f;
+    public Set<String> f24712f;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class s extends b.a.q0.x.p.c {
                 return;
             }
         }
-        this.f23380e = new ArrayList<>();
-        this.f23381f = new HashSet();
+        this.f24711e = new ArrayList<>();
+        this.f24712f = new HashSet();
         v();
     }
 
@@ -59,10 +59,10 @@ public class s extends b.a.q0.x.p.c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 >= this.f23380e.size()) {
+            if (i2 >= this.f24711e.size()) {
                 return null;
             }
-            return this.f23380e.get(i2);
+            return this.f24711e.get(i2);
         }
         return (String) invokeI.objValue;
     }
@@ -72,20 +72,20 @@ public class s extends b.a.q0.x.p.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.f23380e;
+            ArrayList<String> arrayList = this.f24711e;
             if (arrayList == null || arrayList.size() == 0) {
                 return 1;
             }
-            return this.f23380e.size();
+            return this.f24711e.size();
         }
         return invokeV.intValue;
     }
 
     @Override // b.a.q0.x.p.c
-    public b.a.e.l.d.a e() {
+    public b.a.e.m.d.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.d() : (b.a.e.l.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.d() : (b.a.e.m.d.a) invokeV.objValue;
     }
 
     @Override // b.a.q0.x.p.c
@@ -143,18 +143,18 @@ public class s extends b.a.q0.x.p.c {
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f23381f.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f24712f.contains(str) : invokeL.booleanValue;
     }
 
     @Override // b.a.q0.x.p.c
-    public b.a.e.l.d.a n(String str) {
+    public b.a.e.m.d.a n(String str) {
         InterceptResult invokeL;
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048586, this, str)) != null) {
-            return (b.a.e.l.d.a) invokeL.objValue;
+            return (b.a.e.m.d.a) invokeL.objValue;
         }
         File file = new File(t(str).getAbsolutePath().replace("_s.jpg", "_b.gif"));
         if (!file.exists()) {
@@ -182,23 +182,23 @@ public class s extends b.a.q0.x.p.c {
                             byteArrayOutputStream.write(bArr, 0, read);
                         } else {
                             byte[] byteArray = byteArrayOutputStream.toByteArray();
-                            b.a.e.l.d.a aVar = new b.a.e.l.d.a(NSGif.f(byteArray, 0, byteArray.length));
-                            b.a.e.e.m.a.c(fileInputStream);
-                            b.a.e.e.m.a.d(byteArrayOutputStream);
+                            b.a.e.m.d.a aVar = new b.a.e.m.d.a(NSGif.f(byteArray, 0, byteArray.length));
+                            b.a.e.f.m.a.c(fileInputStream);
+                            b.a.e.f.m.a.d(byteArrayOutputStream);
                             return aVar;
                         }
                     }
                 } catch (Exception e3) {
                     e = e3;
                     e.printStackTrace();
-                    b.a.e.e.m.a.c(fileInputStream);
-                    b.a.e.e.m.a.d(byteArrayOutputStream);
+                    b.a.e.f.m.a.c(fileInputStream);
+                    b.a.e.f.m.a.d(byteArrayOutputStream);
                     return null;
                 }
             } catch (Throwable th3) {
                 th = th3;
-                b.a.e.e.m.a.c(fileInputStream);
-                b.a.e.e.m.a.d(byteArrayOutputStream);
+                b.a.e.f.m.a.c(fileInputStream);
+                b.a.e.f.m.a.d(byteArrayOutputStream);
                 throw th;
             }
         } catch (Exception e4) {
@@ -207,27 +207,27 @@ public class s extends b.a.q0.x.p.c {
         } catch (Throwable th4) {
             th = th4;
             byteArrayOutputStream = null;
-            b.a.e.e.m.a.c(fileInputStream);
-            b.a.e.e.m.a.d(byteArrayOutputStream);
+            b.a.e.f.m.a.c(fileInputStream);
+            b.a.e.f.m.a.d(byteArrayOutputStream);
             throw th;
         }
     }
 
     @Override // b.a.q0.x.p.c
-    public b.a.e.l.d.a o(String str) {
+    public b.a.e.m.d.a o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (b.a.q0.c0.d.f11983d.equals(str)) {
-                return new b.a.e.l.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
+            if (b.a.q0.c0.d.f12737d.equals(str)) {
+                return new b.a.e.m.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
             }
             Bitmap image = FileHelper.getImage(t(str).getAbsolutePath());
             if (image == null) {
                 return null;
             }
-            return new b.a.e.l.d.a(image, false, str);
+            return new b.a.e.m.d.a(image, false, str);
         }
-        return (b.a.e.l.d.a) invokeL.objValue;
+        return (b.a.e.m.d.a) invokeL.objValue;
     }
 
     public File t(String str) {
@@ -251,8 +251,8 @@ public class s extends b.a.q0.x.p.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (this.f23380e != null && !TextUtils.isEmpty(str)) {
-                Iterator<String> it = this.f23380e.iterator();
+            if (this.f24711e != null && !TextUtils.isEmpty(str)) {
+                Iterator<String> it = this.f24711e.iterator();
                 while (it.hasNext()) {
                     if (it.next().contains(str)) {
                         return true;
@@ -269,7 +269,7 @@ public class s extends b.a.q0.x.p.c {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             s(2);
             p(4);
-            b.a.e.l.d.a aVar = new b.a.e.l.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_bar_collection), false);
+            b.a.e.m.d.a aVar = new b.a.e.m.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_bar_collection), false);
             super.r(aVar);
             super.q(aVar);
             w();
@@ -280,11 +280,11 @@ public class s extends b.a.q0.x.p.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             List<CollectEmotionData> n = g.k().n(TbadkCoreApplication.getCurrentAccountForEmotion());
-            this.f23380e.clear();
-            this.f23381f.clear();
+            this.f24711e.clear();
+            this.f24712f.clear();
             for (CollectEmotionData collectEmotionData : n) {
-                this.f23380e.add(collectEmotionData.sharpText);
-                this.f23381f.add(collectEmotionData.sharpText);
+                this.f24711e.add(collectEmotionData.sharpText);
+                this.f24712f.add(collectEmotionData.sharpText);
             }
         }
     }

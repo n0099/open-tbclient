@@ -13,7 +13,7 @@ public final class AppleWaveBox extends AbstractContainerBox {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AppleWaveBox() {
-        super("wave");
+        super(TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

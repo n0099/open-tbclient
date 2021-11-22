@@ -17,13 +17,13 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f27457a;
+    public ArrayList<String> f28960a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.r0.y1.c.j.i f27458b;
+    public b.a.r0.y1.c.j.i f28961b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedHashMap<String, c> f27459c;
+    public LinkedHashMap<String, c> f28962c;
 
     public m(DataRes dataRes) {
         Interceptable interceptable = $ic;
@@ -54,17 +54,17 @@ public class m {
         new p(dataRes.rank, dataRes.user);
         new g(dataRes.daily_list);
         b.a.r0.y1.c.j.i iVar = new b.a.r0.y1.c.j.i();
-        this.f27458b = iVar;
+        this.f28961b = iVar;
         iVar.l(dataRes);
         List<VipBasicList> list = dataRes.basic_list;
         if (list != null && list.size() > 0) {
-            this.f27459c = new LinkedHashMap<>();
+            this.f28962c = new LinkedHashMap<>();
             for (VipBasicList vipBasicList : dataRes.basic_list) {
                 List<VipSpecialItem> list2 = vipBasicList.item;
                 if (list2 != null && list2.size() > 0) {
                     c cVar = new c(vipBasicList);
-                    if (cVar.f27405g != 3 || cVar.d().size() >= 2) {
-                        this.f27459c.put(cVar.f27407i, cVar);
+                    if (cVar.f28908g != 3 || cVar.d().size() >= 2) {
+                        this.f28962c.put(cVar.f28910i, cVar);
                     }
                 }
             }
@@ -73,10 +73,10 @@ public class m {
         if (list3 == null || list3.size() <= 0) {
             return;
         }
-        this.f27457a = new ArrayList<>();
+        this.f28960a = new ArrayList<>();
         for (String str3 : dataRes.card_order) {
             if (!StringUtils.isNull(str3)) {
-                this.f27457a.add(str3);
+                this.f28960a.add(str3);
             }
         }
     }

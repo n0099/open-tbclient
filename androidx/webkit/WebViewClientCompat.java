@@ -10,6 +10,7 @@ import android.webkit.WebViewClient;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
+import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.internal.SafeBrowsingResponseImpl;
 import androidx.webkit.internal.WebResourceErrorImpl;
@@ -33,7 +34,7 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface SafeBrowsingThreat {
     }
@@ -69,7 +70,7 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
     }
 
     @Override // org.chromium.support_lib_boundary.FeatureFlagHolderBoundaryInterface
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public final String[] getSupportedFeatures() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,6 +78,7 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
     }
 
     @Override // android.webkit.WebViewClient, org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
+    @UiThread
     public void onPageCommitVisible(@NonNull WebView webView, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
@@ -85,7 +87,7 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
 
     @Override // org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
     @RequiresApi(21)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public final void onReceivedError(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, @NonNull InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, webResourceRequest, invocationHandler) == null) {
@@ -94,6 +96,7 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
     }
 
     @Override // android.webkit.WebViewClient, org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
+    @UiThread
     public void onReceivedHttpError(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, @NonNull WebResourceResponse webResourceResponse) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, webView, webResourceRequest, webResourceResponse) == null) {
@@ -101,7 +104,7 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
     }
 
     @Override // org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i2, @NonNull InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, webResourceRequest, i2, invocationHandler) == null) {
@@ -111,6 +114,7 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
 
     @Override // android.webkit.WebViewClient, org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
     @RequiresApi(21)
+    @UiThread
     public boolean shouldOverrideUrlLoading(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -125,7 +129,6 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
 
     @Override // android.webkit.WebViewClient
     @RequiresApi(23)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public final void onReceivedError(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, @NonNull WebResourceError webResourceError) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) || Build.VERSION.SDK_INT < 23) {
@@ -136,7 +139,6 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
 
     @Override // android.webkit.WebViewClient
     @RequiresApi(27)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i2, @NonNull SafeBrowsingResponse safeBrowsingResponse) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048582, this, webView, webResourceRequest, i2, safeBrowsingResponse) == null) {
@@ -144,6 +146,7 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
         }
     }
 
+    @UiThread
     public void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i2, @NonNull SafeBrowsingResponseCompat safeBrowsingResponseCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048583, this, webView, webResourceRequest, i2, safeBrowsingResponseCompat) == null) {
@@ -156,6 +159,7 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
     }
 
     @RequiresApi(21)
+    @UiThread
     public void onReceivedError(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, @NonNull WebResourceErrorCompat webResourceErrorCompat) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceErrorCompat) == null) && Build.VERSION.SDK_INT >= 21 && WebViewFeature.isFeatureSupported("WEB_RESOURCE_ERROR_GET_CODE") && WebViewFeature.isFeatureSupported("WEB_RESOURCE_ERROR_GET_DESCRIPTION") && webResourceRequest.isForMainFrame()) {

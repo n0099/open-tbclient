@@ -15,10 +15,10 @@ public class r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13426a;
+    public String f14206a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13427b;
+    public long f14207b;
 
     public r() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class r {
             return;
         }
         try {
-            this.f13426a = jSONObject.optString("book_id", "0");
-            this.f13427b = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+            this.f14206a = jSONObject.optString("book_id", "0");
+            this.f14207b = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
             jSONObject.optInt("book_type", 0);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
@@ -53,8 +53,8 @@ public class r {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bookThread) == null) || bookThread == null) {
             return;
         }
-        this.f13426a = bookThread.book_id;
-        this.f13427b = bookThread.chapter_id.longValue();
+        this.f14206a = bookThread.book_id;
+        this.f14207b = bookThread.chapter_id.longValue();
         bookThread.book_type.intValue();
     }
 }

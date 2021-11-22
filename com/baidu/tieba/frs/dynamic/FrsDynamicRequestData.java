@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.dynamic;
 
-import b.a.q0.d1.z;
+import b.a.q0.c1.z;
 import b.a.q0.k0.b.d;
 import b.a.q0.k0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
@@ -20,7 +20,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f48448common;
+    public CommonReq f49312common;
     public long forumId;
     public long lastThreadId;
     public int qType;

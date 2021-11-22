@@ -2,6 +2,7 @@ package b.a.p0.c.a;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import b.a.p0.c.a.i.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.bdtls.AES;
 import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
@@ -15,7 +16,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f9549a;
+    public static volatile e f10129a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public e() {
@@ -68,14 +69,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f9549a == null) {
+            if (f10129a == null) {
                 synchronized (e.class) {
-                    if (f9549a == null) {
-                        f9549a = new e();
+                    if (f10129a == null) {
+                        f10129a = new e();
                     }
                 }
             }
-            return f9549a;
+            return f10129a;
         }
         return (e) invokeV.objValue;
     }
@@ -86,30 +87,30 @@ public class e {
         return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new byte[]{(byte) ((i2 >> 24) & 255), (byte) ((i2 >> 16) & 255), (byte) ((i2 >> 8) & 255), (byte) (i2 & 255)} : (byte[]) invokeI.objValue;
     }
 
-    public byte[] b(b.a.p0.c.a.i.g gVar, String str) {
+    public byte[] b(h hVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gVar, str)) == null) {
-            if (gVar == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, hVar, str)) == null) {
+            if (hVar == null) {
                 return null;
             }
             try {
-                b.a.p0.c.a.i.e a2 = b.a.p0.c.a.i.e.j.a();
+                b.a.p0.c.a.i.f a2 = b.a.p0.c.a.i.f.j.a();
                 a2.r((byte) 23);
-                byte[] i2 = gVar.i();
+                byte[] i2 = hVar.i();
                 if (i2 != null && i2.length > 0 && i2.length <= 32767) {
                     a2.q((short) i2.length);
                     a2.o(i2);
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    byte[] aesEncrypt = AES.aesEncrypt(str, gVar.c());
+                    byte[] aesEncrypt = AES.aesEncrypt(str, hVar.c());
                     a2.k(aesEncrypt.length);
                     a2.j(aesEncrypt);
                 }
-                a2.l(b.a.p0.n.j.j.b.c().b().longValue());
+                a2.l(b.a.p0.q.k.j.b.e().d().longValue());
                 return b.a.p0.c.a.j.b.b(a2);
             } catch (Exception e2) {
-                if (a.f9542a) {
+                if (a.f10122a) {
                     e2.printStackTrace();
                     String str2 = "exception=" + e2.getMessage();
                     return null;
@@ -120,77 +121,77 @@ public class e {
         return (byte[]) invokeLL.objValue;
     }
 
-    public b.a.p0.c.a.i.f c(b.a.p0.c.a.i.g gVar, byte[] bArr) {
+    public b.a.p0.c.a.i.g c(h hVar, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, bArr)) == null) {
-            b.a.p0.c.a.i.f fVar = new b.a.p0.c.a.i.f();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar, bArr)) == null) {
+            b.a.p0.c.a.i.g gVar = new b.a.p0.c.a.i.g();
             try {
-                b.a.p0.c.a.i.e a2 = b.a.p0.c.a.j.b.a(bArr);
+                b.a.p0.c.a.i.f a2 = b.a.p0.c.a.j.b.a(bArr);
                 byte i2 = a2.i();
                 if (i2 == 21) {
                     Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(a2.f());
                     if (parseFrom != null) {
                         String str = new String(parseFrom.getDescription().toByteArray());
-                        if (a.f9542a) {
+                        if (a.f10122a) {
                             String str2 = "bdtls ubc application alert : " + str;
                         }
-                        f.b(gVar, parseFrom);
+                        f.b(hVar, parseFrom);
                         if (1 == parseFrom.getLevel()) {
-                            fVar.d(-2);
+                            gVar.d(-2);
                         } else if (TextUtils.equals(str, "down grade")) {
-                            fVar.d(2);
+                            gVar.d(2);
                         } else {
-                            fVar.d(-1);
+                            gVar.d(-1);
                         }
-                        if (a.f9542a) {
+                        if (a.f10122a) {
                             if (parseFrom.getDescription() != null) {
-                                if (a.f9542a) {
+                                if (a.f10122a) {
                                     String str3 = "BdtlsPostRequest response alert message=" + str;
                                 }
                             } else {
-                                boolean z = a.f9542a;
+                                boolean z = a.f10122a;
                             }
                         }
                     } else {
-                        fVar.d(-1);
+                        gVar.d(-1);
                     }
                 } else if (i2 == 23) {
-                    fVar.c(new String(AES.aesDecrypt(a2.a(), gVar.c())));
-                    fVar.d(1);
+                    gVar.c(new String(AES.aesDecrypt(a2.a(), hVar.c())));
+                    gVar.d(1);
                 }
             } catch (Exception e2) {
-                if (a.f9542a) {
+                if (a.f10122a) {
                     e2.printStackTrace();
                     String str4 = "exception=" + e2.getMessage();
                 }
-                fVar.d(-1);
+                gVar.d(-1);
             }
-            return fVar;
+            return gVar;
         }
-        return (b.a.p0.c.a.i.f) invokeLL.objValue;
+        return (b.a.p0.c.a.i.g) invokeLL.objValue;
     }
 
-    public byte[] e(b.a.p0.c.a.i.g gVar) {
+    public byte[] e(h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar)) == null) {
-            if (gVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar)) == null) {
+            if (hVar == null) {
                 return null;
             }
             try {
-                byte[] b2 = b.a.p0.c.a.j.a.b(gVar, new b.a.p0.c.a.i.d());
+                byte[] b2 = b.a.p0.c.a.j.a.b(hVar, new b.a.p0.c.a.i.e());
                 if (b2 == null) {
                     return null;
                 }
-                b.a.p0.c.a.i.e a2 = b.a.p0.c.a.i.e.j.a();
+                b.a.p0.c.a.i.f a2 = b.a.p0.c.a.i.f.j.a();
                 a2.r((byte) 22);
                 a2.q((short) b2.length);
-                a2.l(b.a.p0.n.j.j.b.c().b().longValue());
+                a2.l(b.a.p0.q.k.j.b.e().d().longValue());
                 a2.o(b2);
                 return b.a.p0.c.a.j.b.b(a2);
             } catch (Exception e2) {
-                if (a.f9542a) {
+                if (a.f10122a) {
                     e2.printStackTrace();
                     String str = "exception=" + e2.getMessage();
                 }

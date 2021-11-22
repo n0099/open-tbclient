@@ -67,10 +67,10 @@ public class FetchState {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mLastIntermediateResultTimeMs : invokeV.longValue;
     }
 
-    public ProducerListener2 getListener() {
+    public ProducerListener getListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContext.getProducerListener() : (ProducerListener2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContext.getListener() : (ProducerListener) invokeV.objValue;
     }
 
     public String getLogTag() {

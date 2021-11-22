@@ -52,31 +52,31 @@ public final class FunAdConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f62714a;
+        public Context f63614a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f62715b;
+        public String f63615b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f62716c;
+        public String f63616c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f62717d;
+        public boolean f63617d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f62718e;
+        public int f63618e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f62719f;
+        public boolean f63619f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f62720g;
+        public boolean f63620g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f62721h;
+        public boolean f63621h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f62722i;
+        public boolean f63622i;
         public boolean j;
         public TTCustomController k;
         public KsCustomController l;
@@ -101,12 +101,12 @@ public final class FunAdConfig {
                     return;
                 }
             }
-            this.f62717d = false;
-            this.f62718e = -1;
-            this.f62719f = false;
-            this.f62720g = false;
-            this.f62721h = false;
-            this.f62722i = true;
+            this.f63617d = false;
+            this.f63618e = -1;
+            this.f63619f = false;
+            this.f63620g = false;
+            this.f63621h = false;
+            this.f63622i = true;
             this.j = false;
             this.k = null;
             this.l = null;
@@ -114,7 +114,7 @@ public final class FunAdConfig {
             this.o = true;
             this.p = true;
             this.q = true;
-            this.f62714a = context.getApplicationContext();
+            this.f63614a = context.getApplicationContext();
         }
 
         public FunAdConfig build() {
@@ -137,7 +137,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f62716c = str;
+                this.f63616c = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -147,7 +147,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f62715b = str;
+                this.f63615b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -207,7 +207,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.f62721h = z;
+                this.f63621h = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -227,7 +227,7 @@ public final class FunAdConfig {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                this.f62718e = i2;
+                this.f63618e = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -237,7 +237,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-                this.f62722i = z;
+                this.f63622i = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -247,7 +247,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
-                this.f62717d = z;
+                this.f63617d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -267,7 +267,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-                this.f62720g = z;
+                this.f63620g = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -277,7 +277,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
-                this.f62719f = z;
+                this.f63619f = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -299,15 +299,15 @@ public final class FunAdConfig {
                 return;
             }
         }
-        this.appContext = builder.f62714a;
-        this.appName = builder.f62715b;
-        this.appId = builder.f62716c;
-        this.isUseTextureView = builder.f62717d;
-        this.titleBarTheme = builder.f62718e;
-        this.isVideoSoundEnable = builder.f62719f;
-        this.isVideoDataFlowAutoStart = builder.f62720g;
-        this.logEnabled = builder.f62721h;
-        this.isUseCloudAdConfiguration = builder.f62722i;
+        this.appContext = builder.f63614a;
+        this.appName = builder.f63615b;
+        this.appId = builder.f63616c;
+        this.isUseTextureView = builder.f63617d;
+        this.titleBarTheme = builder.f63618e;
+        this.isVideoSoundEnable = builder.f63619f;
+        this.isVideoDataFlowAutoStart = builder.f63620g;
+        this.logEnabled = builder.f63621h;
+        this.isUseCloudAdConfiguration = builder.f63622i;
         this.isFilterDeepLinkAd = builder.j;
         this.userId = builder.m;
         this.forbiddenPlatforms = Collections.unmodifiableSet(builder.n);

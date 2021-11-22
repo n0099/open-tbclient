@@ -13,26 +13,26 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f28823f;
+    public static final boolean f29692f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f28824g;
+    public static String f29693g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f28825a;
+    public final String f29694a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f28826b;
+    public final int f29695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f28827c;
+    public final int f29696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f28828d;
+    public long f29697d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28829e;
+    public int f29698e;
 
     static {
         InterceptResult invokeClinit;
@@ -47,8 +47,8 @@ public class l {
                 return;
             }
         }
-        f28823f = k.f28821a & true;
-        f28824g = "ControlData";
+        f29692f = k.f29690a & true;
+        f29693g = "ControlData";
     }
 
     public l(String str, int i2, int i3) {
@@ -66,32 +66,32 @@ public class l {
                 return;
             }
         }
-        this.f28825a = str;
-        this.f28826b = i2;
-        this.f28827c = i3;
+        this.f29694a = str;
+        this.f29695b = i2;
+        this.f29696c = i3;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f28826b != 0 && this.f28827c != 0) {
+            if (this.f29695b != 0 && this.f29696c != 0) {
                 Long valueOf = Long.valueOf(System.currentTimeMillis());
-                if (f28823f) {
-                    String str = "id " + this.f28825a + " mLimitUnit " + this.f28826b + " mLimitCnt " + this.f28827c + "mCount =  " + this.f28829e + " duration " + ((valueOf.longValue() - this.f28828d) / 1000);
+                if (f29692f) {
+                    String str = "id " + this.f29694a + " mLimitUnit " + this.f29695b + " mLimitCnt " + this.f29696c + "mCount =  " + this.f29698e + " duration " + ((valueOf.longValue() - this.f29697d) / 1000);
                 }
-                if (this.f28828d != 0 && (valueOf.longValue() - this.f28828d) / 1000 <= this.f28826b && this.f28829e >= this.f28827c) {
-                    boolean z = f28823f;
+                if (this.f29697d != 0 && (valueOf.longValue() - this.f29697d) / 1000 <= this.f29695b && this.f29698e >= this.f29696c) {
+                    boolean z = f29692f;
                     return true;
                 }
-                if (this.f28828d == 0) {
-                    this.f28828d = valueOf.longValue();
-                } else if ((valueOf.longValue() - this.f28828d) / 1000 > this.f28826b) {
-                    this.f28828d = valueOf.longValue();
-                    this.f28829e = 0;
-                    boolean z2 = f28823f;
+                if (this.f29697d == 0) {
+                    this.f29697d = valueOf.longValue();
+                } else if ((valueOf.longValue() - this.f29697d) / 1000 > this.f29695b) {
+                    this.f29697d = valueOf.longValue();
+                    this.f29698e = 0;
+                    boolean z2 = f29692f;
                 }
-                this.f28829e++;
+                this.f29698e++;
             }
             return false;
         }
@@ -102,8 +102,8 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.f28829e;
-            return i2 != 0 && i2 == this.f28827c;
+            int i2 = this.f29698e;
+            return i2 != 0 && i2 == this.f29696c;
         }
         return invokeV.booleanValue;
     }

@@ -3,7 +3,7 @@ package b.a.r0.w.f.c.f.a;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.r0.b0.c0;
+import b.a.r0.b0.d0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -19,20 +19,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d extends b.a.e.l.e.a<b.a.r0.w.f.c.f.b.a, LiveTabConcernNotificationViewHolder> {
+public class d extends b.a.e.m.e.a<b.a.r0.w.f.c.f.b.a, LiveTabConcernNotificationViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
     public boolean n;
-    public c0<b.a.r0.w.f.c.f.b.a> o;
+    public d0<b.a.r0.w.f.c.f.b.a> o;
 
     /* loaded from: classes5.dex */
-    public class a extends c0<b.a.r0.w.f.c.f.b.a> {
+    public class a extends d0<b.a.r0.w.f.c.f.b.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f24630b;
+        public final /* synthetic */ d f26147b;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -49,24 +49,24 @@ public class d extends b.a.e.l.e.a<b.a.r0.w.f.c.f.b.a, LiveTabConcernNotificatio
                     return;
                 }
             }
-            this.f24630b = dVar;
+            this.f26147b = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
         public void a(View view, b.a.r0.w.f.c.f.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, aVar) == null) {
                 if (view.getId() == R.id.id_tab_live_sub_notification_close_btn) {
-                    if (this.f24630b.n) {
+                    if (this.f26147b.n) {
                         return;
                     }
-                    this.f24630b.n = true;
+                    this.f26147b.n = true;
                     AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
                 } else if (view.getId() == R.id.id_tab_live_sub_notification_close_go_to_open) {
-                    b.a.r0.w.f.c.f.c.a.b(this.f24630b.m);
+                    b.a.r0.w.f.c.f.c.a.b(this.f26147b.m);
                 }
             }
         }
@@ -74,7 +74,7 @@ public class d extends b.a.e.l.e.a<b.a.r0.w.f.c.f.b.a, LiveTabConcernNotificatio
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.w.f.c.f.b.a.f24632e);
+        super(tbPageContext.getPageActivity(), b.a.r0.w.f.c.f.b.a.f26149e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,7 +97,7 @@ public class d extends b.a.e.l.e.a<b.a.r0.w.f.c.f.b.a, LiveTabConcernNotificatio
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public LiveTabConcernNotificationViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -111,7 +111,7 @@ public class d extends b.a.e.l.e.a<b.a.r0.w.f.c.f.b.a, LiveTabConcernNotificatio
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: k0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.w.f.c.f.b.a aVar, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
         InterceptResult invokeCommon;

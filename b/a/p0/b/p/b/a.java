@@ -1,58 +1,96 @@
 package b.a.p0.b.p.b;
 
-import android.text.TextUtils;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.c2.f.a0;
-import b.a.p0.a.e0.d;
-import b.a.p0.a.n1.i;
-import b.a.p0.a.v2.o0;
-import b.a.p0.a.v2.q;
+import b.a.p0.a.g1.f;
+import b.a.p0.a.k;
+import b.a.p0.b.h;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
+import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import okhttp3.HttpUrl;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends i {
+public class a {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final boolean f10036b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Bundle f10037a;
 
     /* renamed from: b.a.p0.b.p.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0493a implements Runnable {
+    public class C0518a implements b.a.p0.b.p.d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f9451e;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ ViewGroup f10038a;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f9452f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ b.a.p0.a.m.a f10039b;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9453g;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ a f10040c;
 
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f9454h;
+        /* renamed from: b.a.p0.b.p.b.a$a$a  reason: collision with other inner class name */
+        /* loaded from: classes.dex */
+        public class RunnableC0519a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f9455i;
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ C0518a f10041e;
 
-        public RunnableC0493a(a aVar, e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+            public RunnableC0519a(C0518a c0518a) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {c0518a};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f10041e = c0518a;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    b.a.p0.a.c2.b.d.a.d(this.f10041e.f10038a);
+                }
+            }
+        }
+
+        public C0518a(a aVar, ViewGroup viewGroup, b.a.p0.a.m.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, eVar, unitedSchemeEntity, callbackHandler, str};
+                Object[] objArr = {aVar, viewGroup, aVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -62,113 +100,156 @@ public class a extends i {
                     return;
                 }
             }
-            this.f9455i = aVar;
-            this.f9451e = eVar;
-            this.f9452f = unitedSchemeEntity;
-            this.f9453g = callbackHandler;
-            this.f9454h = str;
+            this.f10040c = aVar;
+            this.f10038a = viewGroup;
+            this.f10039b = aVar2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // b.a.p0.b.p.d.c
+        public void a(QuickLoginInfo quickLoginInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9455i.C(this.f9451e, this.f9452f, this.f9453g, this.f9454h);
+            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
+                ViewGroup viewGroup = this.f10038a;
+                if (viewGroup != null) {
+                    viewGroup.post(new RunnableC0519a(this));
+                }
+                if (this.f10040c.i(quickLoginInfo)) {
+                    this.f10040c.f10037a.putParcelable("quick_login_info", quickLoginInfo);
+                }
+                String T = b.a.p0.a.d2.d.J().r().V().T();
+                String appId = b.a.p0.a.d2.d.J().getAppId();
+                this.f10040c.f10037a.putString("app_name", b.a.p0.a.d2.d.J().r().Y());
+                this.f10040c.f10037a.putString("appid", appId);
+                this.f10040c.f10037a.putString("launch_from", T);
+                if (a.f10036b) {
+                    String str = "onQueryResult: mParams: " + this.f10040c.f10037a.toString();
+                }
+                d.a("show", "login", null, T, appId);
+                this.f10040c.f(this.f10039b);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(b.a.p0.a.c2.e eVar) {
-        super(eVar, "/swanAPI/adRequest");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((b.a.p0.a.c2.e) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes.dex */
+    public class b implements DelegateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ b.a.p0.a.m.a f10042a;
+
+        public b(a aVar, b.a.p0.a.m.a aVar2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, aVar2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10042a = aVar2;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
+                if (delegateResult.isOk()) {
+                    this.f10042a.onResult(delegateResult.mResult.getInt("loginStatusCode"));
+                    return;
+                }
+                this.f10042a.onResult(-2);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(84253531, "Lb/a/p0/b/p/b/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(84253531, "Lb/a/p0/b/p/b/a;");
                 return;
             }
         }
+        f10036b = k.f6863a;
     }
 
-    @Override // b.a.p0.a.n1.i
-    public boolean A(@NonNull e eVar, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        InterceptResult invokeLLLL;
+    public a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, eVar, unitedSchemeEntity, callbackHandler, str)) == null) {
-            q.i(new RunnableC0493a(this, eVar, unitedSchemeEntity, callbackHandler, str), "execRequest");
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void C(@NonNull e eVar, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) {
-            JSONObject a2 = a0.a(unitedSchemeEntity, "params");
-            String optString = a2.optString("cb");
-            try {
-                String optString2 = a2.optString("url");
-                D(a2, optString2, o0.q(optString2));
-                unitedSchemeEntity.putParams("params", a2.toString());
-                if (super.A(eVar, unitedSchemeEntity, callbackHandler, str)) {
-                    return;
-                }
-                d.b("AdRequest", "request fail");
-                callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            } catch (JSONException unused) {
-                callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f10037a = new Bundle();
     }
 
-    public final void D(JSONObject jSONObject, String str, boolean z) throws JSONException {
-        HttpUrl parse;
-        JSONObject optJSONObject;
-        String str2;
-        String l;
+    public final void e(b.a.p0.a.m.a aVar) {
+        SwanAppActivity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, z) == null) || jSONObject == null || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null || (optJSONObject = jSONObject.optJSONObject("extParams")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (activity = f.U().getActivity()) == null) {
             return;
         }
-        if (z) {
-            str2 = o();
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("header");
-            if (optJSONObject2 == null) {
-                optJSONObject2 = new JSONObject();
-            }
-            j(optJSONObject2, str2);
-            jSONObject.put("header", optJSONObject2);
-        } else {
-            str2 = "";
-        }
-        if (a0.f4160b) {
-            String str3 = "appendUrlQueryAndHeader: isBaiduDomain=" + z + ", cookie=" + str2;
-        }
-        HttpUrl.Builder newBuilder = parse.newBuilder();
-        Iterator<String> keys = optJSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            String optString = optJSONObject.optString(next);
-            if (TextUtils.equals(optString, "cuid")) {
-                l = b.a.p0.a.c1.a.a0().i(b.a.p0.a.c1.a.b());
+        Intent intent = new Intent(activity, LoginAndGetMobileActivity.class);
+        intent.putExtras(this.f10037a);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(b.a.p0.b.b.login_get_mobile_act_enter, 0);
+        c.c(aVar);
+    }
+
+    public final void f(b.a.p0.a.m.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                e(aVar);
             } else {
-                l = (TextUtils.equals(optString, "baiduid") && z) ? o0.l(str2, "BAIDUID") : "";
+                g(aVar);
             }
-            if (TextUtils.isEmpty(l)) {
-                l = "";
-            }
-            d.g("AdRequest", "key=" + next + ", value=" + l);
-            newBuilder.addQueryParameter(next, l);
         }
-        jSONObject.put("url", newBuilder.build().toString());
+    }
+
+    public final void g(b.a.p0.a.m.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            DelegateUtils.callOnMainWithActivity(f.U().getActivity(), PluginDelegateActivity.class, b.a.p0.b.p.b.b.class, this.f10037a, new b(this, aVar));
+        }
+    }
+
+    public void h(b.a.p0.a.m.a aVar) {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            SwanAppActivity x = b.a.p0.a.d2.d.J().x();
+            if (x == null || x.isFinishing()) {
+                viewGroup = null;
+            } else {
+                viewGroup = (ViewGroup) x.findViewById(16908290);
+                b.a.p0.a.c2.b.d.a.h(x, viewGroup, x.getResources().getString(h.swanapp_login_loading));
+            }
+            b.a.p0.b.p.d.f.b(new C0518a(this, viewGroup, aVar));
+        }
+    }
+
+    public final boolean i(QuickLoginInfo quickLoginInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, quickLoginInfo)) == null) ? quickLoginInfo != null && quickLoginInfo.supportQuickLogin : invokeL.booleanValue;
     }
 }

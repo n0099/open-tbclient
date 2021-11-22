@@ -49,7 +49,7 @@ public class h extends b.a.r0.b0.b<b.a.r0.w.f.c.f.b.c> {
         this.p.addView(this.m.e());
         this.p.addView(this.n.e());
         this.p.addView(this.o.e());
-        k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+        k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // b.a.r0.b0.b
@@ -78,9 +78,9 @@ public class h extends b.a.r0.b0.b<b.a.r0.w.f.c.f.b.c> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) || cVar == null) {
             return;
         }
-        this.m.f(cVar.f24639e);
-        this.n.f(cVar.f24640f);
-        this.o.f(cVar.f24641g);
+        this.m.f(cVar.f26156e);
+        this.n.f(cVar.f26157f);
+        this.o.f(cVar.f26158g);
     }
 
     @Override // android.view.View.OnClickListener

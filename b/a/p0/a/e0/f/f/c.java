@@ -3,7 +3,7 @@ package b.a.p0.a.e0.f.f;
 import android.net.Uri;
 import android.text.TextUtils;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,29 +21,29 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f4679h;
+    public static final boolean f4649h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4680a;
+    public String f4650a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4681b;
+    public String f4651b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4682c;
+    public String f4652c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4683d;
+    public String f4653d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4684e;
+    public String f4654e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f4685f;
+    public String f4655f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONArray f4686g;
+    public JSONArray f4656g;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public class c {
                 return;
             }
         }
-        f4679h = k.f6397a;
+        f4649h = k.f6863a;
     }
 
     public c() {
@@ -81,16 +81,16 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             c cVar = new c();
             try {
-                cVar.f4680a = jSONObject.getString("appKey");
-                cVar.f4681b = jSONObject.getString("appUrl") + "?swanJsVersion=" + b.a.p0.a.m2.b.h(0) + "&appVersion=" + q0.D();
-                cVar.f4682c = jSONObject.getString("wsUrl");
-                cVar.f4683d = jSONObject.optString("notInHistory", "1");
-                cVar.f4684e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
-                cVar.f4685f = jSONObject.optString("slavePreload");
-                cVar.f4686g = jSONObject.optJSONArray("hosts");
+                cVar.f4650a = jSONObject.getString("appKey");
+                cVar.f4651b = jSONObject.getString("appUrl") + "?swanJsVersion=" + b.a.p0.a.q2.b.h(0) + "&appVersion=" + q0.D();
+                cVar.f4652c = jSONObject.getString("wsUrl");
+                cVar.f4653d = jSONObject.optString("notInHistory", "1");
+                cVar.f4654e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
+                cVar.f4655f = jSONObject.optString("slavePreload");
+                cVar.f4656g = jSONObject.optJSONArray("hosts");
                 return cVar;
             } catch (JSONException unused) {
-                boolean z = f4679h;
+                boolean z = f4649h;
                 return null;
             }
         }
@@ -100,16 +100,16 @@ public class c {
     public String a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? b(i2, this.f4681b) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? b(i2, this.f4651b) : (String) invokeI.objValue;
     }
 
     public final String b(int i2, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
-            if (this.f4686g != null && !TextUtils.isEmpty(str) && i2 >= 0 && i2 < this.f4686g.length()) {
+            if (this.f4656g != null && !TextUtils.isEmpty(str) && i2 >= 0 && i2 < this.f4656g.length()) {
                 Uri parse = Uri.parse(str);
-                String optString = this.f4686g.optString(i2);
+                String optString = this.f4656g.optString(i2);
                 if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
                     return str.replace(parse.getHost(), optString);
                 }
@@ -122,12 +122,12 @@ public class c {
     public String c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? b(i2, this.f4682c) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? b(i2, this.f4652c) : (String) invokeI.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TextUtils.isEmpty(this.f4680a) || TextUtils.isEmpty(this.f4681b) || TextUtils.isEmpty(this.f4682c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TextUtils.isEmpty(this.f4650a) || TextUtils.isEmpty(this.f4651b) || TextUtils.isEmpty(this.f4652c) : invokeV.booleanValue;
     }
 }

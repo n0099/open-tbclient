@@ -15,29 +15,29 @@ public class d implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f69668a;
+    public final Object f70588a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<com.ss.android.socialbase.downloader.model.c> f69669b;
+    public final List<com.ss.android.socialbase.downloader.model.c> f70589b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f69670c;
+    public i f70590c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f69671d;
+    public boolean f70591d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f69672e;
+    public long f70592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f69673f;
+    public InputStream f70593f;
 
     @Override // com.ss.android.socialbase.downloader.network.i
     public InputStream a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            InputStream inputStream = this.f69673f;
+            InputStream inputStream = this.f70593f;
             if (inputStream != null) {
                 return inputStream;
             }
@@ -57,7 +57,7 @@ public class d implements i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            i iVar = this.f69670c;
+            i iVar = this.f70590c;
             if (iVar != null) {
                 return iVar.b();
             }
@@ -70,7 +70,7 @@ public class d implements i {
     public void c() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iVar = this.f69670c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iVar = this.f70590c) == null) {
             return;
         }
         iVar.c();
@@ -80,7 +80,7 @@ public class d implements i {
     public void d() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (iVar = this.f69670c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (iVar = this.f70590c) == null) {
             return;
         }
         iVar.d();
@@ -89,9 +89,9 @@ public class d implements i {
     public void e() throws InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this.f69668a) {
-                if (this.f69671d && this.f69670c == null) {
-                    this.f69668a.wait();
+            synchronized (this.f70588a) {
+                if (this.f70591d && this.f70590c == null) {
+                    this.f70588a.wait();
                 }
             }
         }
@@ -100,7 +100,7 @@ public class d implements i {
     public List<com.ss.android.socialbase.downloader.model.c> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f69669b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f70589b : (List) invokeV.objValue;
     }
 
     public boolean g() {
@@ -108,8 +108,8 @@ public class d implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             try {
-                if (this.f69670c != null) {
-                    return a(this.f69670c.b());
+                if (this.f70590c != null) {
+                    return a(this.f70590c.b());
                 }
                 return false;
             } catch (IOException e2) {
@@ -123,7 +123,7 @@ public class d implements i {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? System.currentTimeMillis() - this.f69672e < b.f69653a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? System.currentTimeMillis() - this.f70592e < b.f70573a : invokeV.booleanValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.network.g
@@ -131,7 +131,7 @@ public class d implements i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            i iVar = this.f69670c;
+            i iVar = this.f70590c;
             if (iVar != null) {
                 return iVar.a(str);
             }

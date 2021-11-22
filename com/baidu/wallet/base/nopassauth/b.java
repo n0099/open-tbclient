@@ -5,10 +5,10 @@ import android.content.Context;
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f57393a = 0;
+    public static final int f58315a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f57394b = 1;
+    public static final int f58316b = 1;
 
     int a();
 

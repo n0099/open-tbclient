@@ -72,11 +72,11 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f f41575b;
+    public static final f f42407b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f41576a;
+    public HashMap<String, String> f42408a;
 
     static {
         InterceptResult invokeClinit;
@@ -91,7 +91,7 @@ public class f {
                 return;
             }
         }
-        f41575b = new f();
+        f42407b = new f();
     }
 
     public f() {
@@ -107,19 +107,19 @@ public class f {
                 return;
             }
         }
-        this.f41576a = new HashMap<>();
+        this.f42408a = new HashMap<>();
         b();
     }
 
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f41575b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f42407b : (f) invokeV.objValue;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && Build.VERSION.SDK_INT >= 14 && this.f41576a.size() == 0) {
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && Build.VERSION.SDK_INT >= 14 && this.f42408a.size() == 0) {
             try {
                 a(AutoCompleteTextView.class.getSimpleName(), "A0");
             } catch (Throwable th) {
@@ -407,15 +407,15 @@ public class f {
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) || TextUtils.isEmpty(str) || this.f41576a.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) || TextUtils.isEmpty(str) || this.f42408a.containsKey(str)) {
             return;
         }
-        this.f41576a.put(str, str2.toUpperCase(Locale.ENGLISH));
+        this.f42408a.put(str, str2.toUpperCase(Locale.ENGLISH));
     }
 
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f41576a.get(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f42408a.get(str) : (String) invokeL.objValue;
     }
 }

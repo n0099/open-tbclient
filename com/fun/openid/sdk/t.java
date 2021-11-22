@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.zui.deviceidservice.IDeviceidInterface;
 /* loaded from: classes11.dex */
 public interface t extends IInterface {
 
@@ -18,19 +19,19 @@ public interface t extends IInterface {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int f62922a = 0;
+        public static final /* synthetic */ int f63822a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.fun.openid.sdk.t$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C1864a implements t {
+        public static class C1904a implements t {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f62923a;
+            public IBinder f63823a;
 
-            public C1864a(IBinder iBinder) {
+            public C1904a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +46,7 @@ public interface t extends IInterface {
                         return;
                     }
                 }
-                this.f62923a = iBinder;
+                this.f63823a = iBinder;
             }
 
             @Override // com.fun.openid.sdk.t
@@ -56,8 +57,8 @@ public interface t extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                        this.f62923a.transact(3, obtain, obtain2, 0);
+                        obtain.writeInterfaceToken(IDeviceidInterface.Stub.DESCRIPTOR);
+                        this.f63823a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -72,7 +73,7 @@ public interface t extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62923a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63823a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.fun.openid.sdk.t
@@ -83,8 +84,8 @@ public interface t extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                        this.f62923a.transact(1, obtain, obtain2, 0);
+                        obtain.writeInterfaceToken(IDeviceidInterface.Stub.DESCRIPTOR);
+                        this.f63823a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {

@@ -13,31 +13,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f35123a;
+    public long f35952a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f35124b;
+    public long f35953b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35125c;
+    public String f35954c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35126d;
+    public String f35955d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35127e;
+    public String f35956e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35128f;
+    public String f35957f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35129g;
+    public String f35958g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35130h;
+    public String f35959h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35131i;
+    public String f35960i;
     public String j;
 
     public b() {
@@ -53,15 +53,15 @@ public class b {
                 return;
             }
         }
-        this.f35123a = 0L;
-        this.f35124b = 0L;
-        this.f35125c = "";
-        this.f35126d = "";
-        this.f35127e = "";
-        this.f35128f = "";
-        this.f35129g = "";
-        this.f35130h = "";
-        this.f35131i = "";
+        this.f35952a = 0L;
+        this.f35953b = 0L;
+        this.f35954c = "";
+        this.f35955d = "";
+        this.f35956e = "";
+        this.f35957f = "";
+        this.f35958g = "";
+        this.f35959h = "";
+        this.f35960i = "";
         this.j = "";
     }
 
@@ -70,21 +70,21 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            long j = this.f35123a;
+            long j = this.f35952a;
             if (j > -1) {
                 jSONObject.put("push_priority", j);
             }
-            long j2 = this.f35124b;
+            long j2 = this.f35953b;
             if (j2 > -1) {
                 jSONObject.put("push_version", j2);
             }
-            jSONObject.put("push_channelid", this.f35125c);
-            jSONObject.put("push_newchannelid", this.f35126d);
-            jSONObject.put("push_curpkgname", this.f35127e);
-            jSONObject.put("push_webappbindinfo", this.f35128f);
-            jSONObject.put("push_lightappbindinfo", this.f35129g);
-            jSONObject.put("push_sdkclientbindinfo", this.f35130h);
-            jSONObject.put("push_clientsbindinfo", this.f35131i);
+            jSONObject.put("push_channelid", this.f35954c);
+            jSONObject.put("push_newchannelid", this.f35955d);
+            jSONObject.put("push_curpkgname", this.f35956e);
+            jSONObject.put("push_webappbindinfo", this.f35957f);
+            jSONObject.put("push_lightappbindinfo", this.f35958g);
+            jSONObject.put("push_sdkclientbindinfo", this.f35959h);
+            jSONObject.put("push_clientsbindinfo", this.f35960i);
             jSONObject.put("push_selfbindinfo", this.j);
             return jSONObject;
         }

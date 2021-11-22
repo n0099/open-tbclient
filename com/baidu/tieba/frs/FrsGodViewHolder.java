@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.widget.TextView;
-import b.a.r0.x0.e1;
+import b.a.r0.x0.f1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,9 +37,9 @@ public class FrsGodViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.skinType = 3;
-        this.mReplyTime = (TextView) getView().findViewById(e1.frs_god_lv_reply_time);
-        this.mPraiseNum = (TextView) getView().findViewById(e1.frs_god_praise_num);
-        this.mReplyNum = (TextView) getView().findViewById(e1.frs_god_reply_num);
-        this.locationAddress = (TextView) getView().findViewById(e1.frs_god_item_location_address);
+        this.mReplyTime = (TextView) getView().findViewById(f1.frs_god_lv_reply_time);
+        this.mPraiseNum = (TextView) getView().findViewById(f1.frs_god_praise_num);
+        this.mReplyNum = (TextView) getView().findViewById(f1.frs_god_reply_num);
+        this.locationAddress = (TextView) getView().findViewById(f1.frs_god_item_location_address);
     }
 }

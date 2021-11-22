@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.ScaleAnimation;
-import b.a.r0.l3.x;
+import b.a.r0.m3.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -49,7 +49,7 @@ public class g extends b.a.r0.x0.k<h, FrsMemberHeaderViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f24274e;
+        public final /* synthetic */ g f25737e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class g extends b.a.r0.x0.k<h, FrsMemberHeaderViewHolder> {
                     return;
                 }
             }
-            this.f24274e = gVar;
+            this.f25737e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -75,21 +75,21 @@ public class g extends b.a.r0.x0.k<h, FrsMemberHeaderViewHolder> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Object tag = view.getTag();
                 if (tag instanceof Integer) {
-                    b.a.e.l.e.n z = this.f24274e.z(((Integer) tag).intValue());
+                    b.a.e.m.e.n z = this.f25737e.z(((Integer) tag).intValue());
                     if (z instanceof h) {
                         h hVar = (h) z;
                         if (view.getId() == R.id.like_btn) {
-                            if (ViewHelper.checkUpIsLogin(this.f24274e.o.getPageActivity())) {
-                                if (!b.a.e.e.p.j.z()) {
-                                    this.f24274e.o.showToast(R.string.neterror);
+                            if (ViewHelper.checkUpIsLogin(this.f25737e.o.getPageActivity())) {
+                                if (!b.a.e.f.p.j.z()) {
+                                    this.f25737e.o.showToast(R.string.neterror);
                                     return;
                                 }
                                 String a2 = hVar.a();
-                                this.f24274e.x.L(hVar.d(), a2);
+                                this.f25737e.x.L(hVar.d(), a2);
                             }
                         } else if (view.getId() == R.id.user_level_name) {
                             String a3 = hVar.a();
-                            this.f24274e.o.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.f24274e.f2419e, hVar.d(), a3)));
+                            this.f25737e.o.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.f25737e.f2421e, hVar.d(), a3)));
                         }
                     }
                 }
@@ -103,7 +103,7 @@ public class g extends b.a.r0.x0.k<h, FrsMemberHeaderViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f24275a;
+        public final /* synthetic */ g f25738a;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -120,19 +120,19 @@ public class g extends b.a.r0.x0.k<h, FrsMemberHeaderViewHolder> {
                     return;
                 }
             }
-            this.f24275a = gVar;
+            this.f25738a = gVar;
         }
 
         @Override // b.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!(obj instanceof x) || this.f24275a.x.getErrorCode() != 0) {
-                    if (AntiHelper.m(this.f24275a.x.getErrorCode(), this.f24275a.x.getErrorString())) {
-                        AntiHelper.u(this.f24275a.o.getPageActivity(), this.f24275a.x.getErrorString());
+                if (!(obj instanceof x) || this.f25738a.x.getErrorCode() != 0) {
+                    if (AntiHelper.m(this.f25738a.x.getErrorCode(), this.f25738a.x.getErrorString())) {
+                        AntiHelper.u(this.f25738a.o.getPageActivity(), this.f25738a.x.getErrorString());
                         return;
                     } else {
-                        this.f24275a.o.showToast(this.f24275a.x.getErrorString());
+                        this.f25738a.o.showToast(this.f25738a.x.getErrorString());
                         return;
                     }
                 }
@@ -185,7 +185,7 @@ public class g extends b.a.r0.x0.k<h, FrsMemberHeaderViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: C0 */
     public FrsMemberHeaderViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -194,7 +194,7 @@ public class g extends b.a.r0.x0.k<h, FrsMemberHeaderViewHolder> {
             if (this.x == null) {
                 B0();
             }
-            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.f2419e).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.A);
+            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.f2421e).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.A);
         }
         return (FrsMemberHeaderViewHolder) invokeL.objValue;
     }
@@ -278,7 +278,7 @@ public class g extends b.a.r0.x0.k<h, FrsMemberHeaderViewHolder> {
                     ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, i3, 1.0f, 1.0f);
                     scaleAnimation.setFillAfter(true);
                     scaleAnimation.setDuration(1000L);
-                    b.a.r0.l3.a.b((TbPageContextSupport) this.o.getPageActivity(), frsMemberHeaderViewHolder.mLevelTopImage, scaleAnimation, null);
+                    b.a.r0.m3.a.b((TbPageContextSupport) this.o.getPageActivity(), frsMemberHeaderViewHolder.mLevelTopImage, scaleAnimation, null);
                 }
             }
             return view;
@@ -286,7 +286,7 @@ public class g extends b.a.r0.x0.k<h, FrsMemberHeaderViewHolder> {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         D0(i2, view, viewGroup, (h) obj, (FrsMemberHeaderViewHolder) viewHolder);
         return view;

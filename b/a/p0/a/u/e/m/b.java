@@ -1,78 +1,220 @@
 package b.a.p0.a.u.e.m;
 
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.SavedStateHandle;
-import b.a.p0.a.a1.e;
-import b.a.p0.a.k2.h.c;
-import b.a.p0.a.k2.h.d;
-import b.a.p0.a.v2.q;
-import b.a.p0.t.j;
+import b.a.p0.a.d2.e;
+import b.a.p0.a.h2.c.d;
+import b.a.p0.a.h2.c.i;
+import b.a.p0.a.h2.c.j.b;
+import b.a.p0.a.z2.o0;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends b.a.p0.a.u.e.m.a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static volatile b.a.p0.t.b f8333d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static long f8334e;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: f  reason: collision with root package name */
+    public int f8836f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f8837g;
+
     /* loaded from: classes.dex */
-    public static class a implements Runnable {
+    public class a implements SubscribeHelper.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ b f8838a;
+
+        public a(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.f8838a = bVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
+        public void a(int i2, @NonNull String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long unused = b.f8334e = b.f8333d.d();
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, jSONObject) == null) {
+                this.f8838a.f8836f = i2;
+                this.f8838a.f8837g = str;
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-229868235, "Lb/a/p0/a/u/e/m/b;")) == null) {
-            return;
+    /* renamed from: b.a.p0.a.u.e.m.b$b  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public class C0437b implements b.a.p0.a.z2.g1.c<i<b.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f8839e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ String f8840f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ String f8841g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ SubscribeHelper f8842h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ b f8843i;
+
+        /* renamed from: b.a.p0.a.u.e.m.b$b$a */
+        /* loaded from: classes.dex */
+        public class a implements SubscribeHelper.k {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ C0437b f8844a;
+
+            public a(C0437b c0437b) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {c0437b};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f8844a = c0437b;
+            }
+
+            @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
+            public void a(int i2, @NonNull String str, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, jSONObject) == null) {
+                    if (jSONObject == null) {
+                        C0437b c0437b = this.f8844a;
+                        c0437b.f8843i.d(c0437b.f8841g, new b.a.p0.a.u.h.b(i2, str));
+                        return;
+                    }
+                    JSONObject jSONObject2 = new JSONObject();
+                    C0437b c0437b2 = this.f8844a;
+                    c0437b2.f8843i.D(jSONObject, jSONObject2, c0437b2.f8842h);
+                    C0437b c0437b3 = this.f8844a;
+                    c0437b3.f8843i.d(c0437b3.f8841g, new b.a.p0.a.u.h.b(i2, str, jSONObject2));
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        public C0437b(b bVar, e eVar, String str, String str2, SubscribeHelper subscribeHelper) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, eVar, str, str2, subscribeHelper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f8843i = bVar;
+            this.f8839e = eVar;
+            this.f8840f = str;
+            this.f8841g = str2;
+            this.f8842h = subscribeHelper;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-229868235, "Lb/a/p0/a/u/e/m/b;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.c
+        /* renamed from: a */
+        public void onCallback(i<b.e> iVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
+                if (!d.h(iVar)) {
+                    this.f8843i.C(this.f8839e, this.f8840f, this.f8841g, this.f8842h);
+                } else {
+                    this.f8842h.o(this.f8840f, new a(this));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c implements SubscribeHelper.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f8845a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ SubscribeHelper f8846b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ b f8847c;
+
+        public c(b bVar, String str, SubscribeHelper subscribeHelper) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, str, subscribeHelper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f8847c = bVar;
+            this.f8845a = str;
+            this.f8846b = subscribeHelper;
+        }
+
+        @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
+        public void a(int i2, @NonNull String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, jSONObject) == null) {
+                if (jSONObject == null) {
+                    this.f8847c.d(this.f8845a, new b.a.p0.a.u.h.b(i2, str));
+                    return;
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                this.f8847c.D(jSONObject, jSONObject2, this.f8846b);
+                this.f8847c.d(this.f8845a, new b.a.p0.a.u.h.b(i2, str, jSONObject2));
+            }
         }
     }
 
@@ -84,160 +226,101 @@ public class b extends b.a.p0.a.u.e.m.a {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((b.a.p0.a.u.c.b) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        synchronized (b.class) {
-            if (f8333d == null) {
-                K();
+    }
+
+    public final void B(e eVar, String str, String str2, SubscribeHelper subscribeHelper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, eVar, str, str2, subscribeHelper) == null) {
+            eVar.d0().g(getContext(), "mapp_request_subscribe_message", new C0437b(this, eVar, str, str2, subscribeHelper));
+        }
+    }
+
+    public final void C(e eVar, String str, String str2, SubscribeHelper subscribeHelper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, str, str2, subscribeHelper) == null) {
+            if (TextUtils.equals(q0.n().f(), o0.g(eVar.V().e0())) && TextUtils.equals("1", eVar.V().i0())) {
+                subscribeHelper.o(str, new c(this, str2, subscribeHelper));
+            } else {
+                d(str2, new b.a.p0.a.u.h.b(500107, "不符合使用条件"));
             }
         }
     }
 
-    public static synchronized void K() {
+    public final void D(JSONObject jSONObject, JSONObject jSONObject2, SubscribeHelper subscribeHelper) {
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (b.class) {
-                if (f8333d == null) {
-                    try {
-                        f8333d = new c("swan_js_global_storage", 2, e.g().getAbsolutePath());
-                    } catch (NoClassDefFoundError | UnsatisfiedLinkError unused) {
-                        f8333d = new j("swan_js_global_storage");
-                        d.i(1, "swan_js_global_storage");
-                    }
-                    L();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, jSONObject2, subscribeHelper) == null) {
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null || (optJSONArray = optJSONObject.optJSONArray("list")) == null) {
+                    return;
                 }
+                int length = optJSONArray.length();
+                for (int i2 = 0; i2 < length; i2++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
+                    if (optJSONObject2 != null && (optJSONArray2 = optJSONObject2.optJSONArray("sub_info")) != null) {
+                        int length2 = optJSONArray2.length();
+                        for (int i3 = 0; i3 < length2; i3++) {
+                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
+                            if (optJSONObject3 != null) {
+                                jSONObject2.put(optJSONObject3.optString("template_id"), optJSONObject3.optString("formid"));
+                            }
+                        }
+                    }
+                }
+            } catch (JSONException e2) {
+                p("#parseDate put json data error", e2, false);
             }
         }
     }
 
-    public static void L() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || f8333d == null) {
-            return;
-        }
-        q.e().execute(new a());
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public b.a.p0.a.u.h.b C(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? super.C(str) : (b.a.p0.a.u.h.b) invokeL.objValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public b.a.p0.a.u.h.b D(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? super.D(str) : (b.a.p0.a.u.h.b) invokeL.objValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
     public b.a.p0.a.u.h.b E(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? super.E(str) : (b.a.p0.a.u.h.b) invokeL.objValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public b.a.p0.a.u.h.b F(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? super.F(str) : (b.a.p0.a.u.h.b) invokeL.objValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            L();
-        }
-    }
-
-    public b.a.p0.a.u.h.b J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? v() : (b.a.p0.a.u.h.b) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public b.a.p0.a.u.h.b q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? super.q() : (b.a.p0.a.u.h.b) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public b.a.p0.a.u.h.b r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? super.r() : (b.a.p0.a.u.h.b) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public b.a.p0.a.u.h.b s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? super.s(str) : (b.a.p0.a.u.h.b) invokeL.objValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public b.a.p0.t.b u(@NonNull b.a.p0.a.a2.e eVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, eVar)) == null) ? f8333d : (b.a.p0.t.b) invokeL.objValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public b.a.p0.a.u.h.b v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f8333d.a()));
-                jSONObject.put("currentSize", f8334e / 1024);
-                jSONObject.put("limitSize", 10240);
-                return new b.a.p0.a.u.h.b(0, jSONObject);
-            } catch (JSONException e2) {
-                if (b.a.p0.a.u.c.d.f8000c) {
-                    e2.printStackTrace();
-                }
-                return new b.a.p0.a.u.h.b(202, "JSONException");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#requestSubscribeFormId params=" + str, false);
+            e a0 = e.a0();
+            if (a0 == null) {
+                return new b.a.p0.a.u.h.b(202, "swan app is null");
             }
+            String N = a0.N();
+            if (TextUtils.isEmpty(N)) {
+                return new b.a.p0.a.u.h.b(202, "appKey is empty");
+            }
+            Pair<b.a.p0.a.u.h.b, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (((b.a.p0.a.u.h.b) s.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    return new b.a.p0.a.u.h.b(202, "cb is invalid");
+                }
+                SubscribeHelper subscribeHelper = new SubscribeHelper();
+                if (!subscribeHelper.n(getContext(), a0, N, jSONObject, SubscribeHelper.invokeSubscribeFrom.REQUEST_SUBSCRIBE_FORM_ID_API, new a(this))) {
+                    return new b.a.p0.a.u.h.b(this.f8836f, this.f8837g);
+                }
+                B(a0, N, optString, subscribeHelper);
+                return b.a.p0.a.u.h.b.f();
+            }
+            return new b.a.p0.a.u.h.b(202);
         }
-        return (b.a.p0.a.u.h.b) invokeV.objValue;
+        return (b.a.p0.a.u.h.b) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.u.e.m.a
-    public b.a.p0.a.u.h.b w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? super.w(str) : (b.a.p0.a.u.h.b) invokeL.objValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public boolean x() {
+    @Override // b.a.p0.a.u.c.d
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.u.e.m.a
-    public boolean y(@Nullable b.a.p0.a.a2.e eVar, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, eVar, str, str2)) == null) ? (f8334e - ((long) f8333d.getString(str, "").length())) + ((long) str2.length()) > 10485760 : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "RequestSubscribeFormIdApi" : (String) invokeV.objValue;
     }
 }

@@ -3,7 +3,7 @@ package b.a.q0.t.e;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,16 +32,16 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f13954a;
+        public NetWork f14727a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f13955b;
+        public final String f14728b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f13956c;
+        public final String f14729c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f13957d;
+        public final String f14730d;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -58,10 +58,10 @@ public class c {
                     return;
                 }
             }
-            this.f13954a = null;
-            this.f13955b = str;
-            this.f13956c = str2;
-            this.f13957d = str3;
+            this.f14727a = null;
+            this.f14728b = str;
+            this.f14729c = str2;
+            this.f14730d = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,15 +72,15 @@ public class c {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 Boolean bool = Boolean.FALSE;
                 try {
-                    NetWork netWork = new NetWork(this.f13955b);
-                    this.f13954a = netWork;
-                    bool = Boolean.valueOf(netWork.downloadFile(this.f13956c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                    NetWork netWork = new NetWork(this.f14728b);
+                    this.f14727a = netWork;
+                    bool = Boolean.valueOf(netWork.downloadFile(this.f14729c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                     if (bool != null && bool.booleanValue()) {
-                        if (!StringUtils.isNull(FileHelper.renameTo(null, this.f13956c + ".tmp", null, this.f13956c)) && !TextUtils.isEmpty(this.f13955b) && !this.f13955b.equals(this.f13957d)) {
-                            FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.f13957d));
+                        if (!StringUtils.isNull(FileHelper.renameTo(null, this.f14729c + ".tmp", null, this.f14729c)) && !TextUtils.isEmpty(this.f14728b) && !this.f14728b.equals(this.f14730d)) {
+                            FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.f14730d));
                         }
                     } else {
-                        FileHelper.DelFile(this.f13956c + ".tmp");
+                        FileHelper.DelFile(this.f14729c + ".tmp");
                     }
                 } catch (Exception unused) {
                 }

@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import b.i.d.c.o1;
+import b.h.d.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class ImmutableMapValues<K, V> extends ImmutableCollection<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ImmutableMap<K, V> map;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class SerializedForm<V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -47,16 +47,16 @@ public final class ImmutableMapValues<K, V> extends ImmutableCollection<V> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public class a extends o1<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final o1<Map.Entry<K, V>> f63349e;
+        public final o1<Map.Entry<K, V>> f64249e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ImmutableMapValues f63350f;
+        public final /* synthetic */ ImmutableMapValues f64250f;
 
         public a(ImmutableMapValues immutableMapValues) {
             Interceptable interceptable = $ic;
@@ -73,22 +73,22 @@ public final class ImmutableMapValues<K, V> extends ImmutableCollection<V> {
                     return;
                 }
             }
-            this.f63350f = immutableMapValues;
-            this.f63349e = this.f63350f.map.entrySet().iterator();
+            this.f64250f = immutableMapValues;
+            this.f64249e = this.f64250f.map.entrySet().iterator();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63349e.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64249e.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public V next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63349e.next().getValue() : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64249e.next().getValue() : (V) invokeV.objValue;
         }
     }
 

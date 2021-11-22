@@ -3,9 +3,9 @@ package b.a.p0.a.c0.c.b;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.c2.f.a0;
 import b.a.p0.a.e0.d;
+import b.a.p0.a.f2.e;
+import b.a.p0.a.f2.f.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b extends b.a.p0.a.c2.f.b {
+public class b extends b.a.p0.a.f2.f.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +43,7 @@ public class b extends b.a.p0.a.c2.f.b {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.b
+    @Override // b.a.p0.a.f2.f.b
     @NonNull
     public String j() {
         InterceptResult invokeV;
@@ -51,16 +51,16 @@ public class b extends b.a.p0.a.c2.f.b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/button" : (String) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.c2.f.b
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.b
+    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = a0.f4160b;
+            boolean z = z.f5228b;
             c q = q(unitedSchemeEntity);
             if (q == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                d.b("Component-Action-Button", "model is null");
+                d.c("Component-Action-Button", "model is null");
                 return false;
             }
             b.a.p0.a.c0.b.c insert = new a(context, q).insert();
@@ -68,29 +68,29 @@ public class b extends b.a.p0.a.c2.f.b {
             if (a2) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.f4061b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.f4201b);
             }
             return a2;
         }
         return invokeLLLLL.booleanValue;
     }
 
-    @Override // b.a.p0.a.c2.f.b
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.b
+    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = a0.f4160b;
+            boolean z = z.f5228b;
             c q = q(unitedSchemeEntity);
             if (q == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                d.b("Component-Action-Button", "model is null");
+                d.c("Component-Action-Button", "model is null");
                 return false;
             }
             a aVar = (a) b.a.p0.a.c0.d.a.a(q);
             if (aVar == null) {
-                String str2 = "can't find button component:#" + q.f4056f;
-                d.b("Component-Action-Button", str2);
+                String str2 = "can't find button component:#" + q.f4196f;
+                d.c("Component-Action-Button", str2);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
                 return false;
             }
@@ -99,29 +99,29 @@ public class b extends b.a.p0.a.c2.f.b {
             if (a2) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.f4061b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.f4201b);
             }
             return a2;
         }
         return invokeLLLLL.booleanValue;
     }
 
-    @Override // b.a.p0.a.c2.f.b
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.b
+    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = a0.f4160b;
+            boolean z = z.f5228b;
             c q = q(unitedSchemeEntity);
             if (q == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                d.b("Component-Action-Button", "model is null");
+                d.c("Component-Action-Button", "model is null");
                 return false;
             }
             a aVar = (a) b.a.p0.a.c0.d.a.a(q);
             if (aVar == null) {
-                String str2 = "can't find button component:#" + q.f4056f;
-                d.b("Component-Action-Button", str2);
+                String str2 = "can't find button component:#" + q.f4196f;
+                d.c("Component-Action-Button", str2);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
                 return false;
             }
@@ -130,7 +130,7 @@ public class b extends b.a.p0.a.c2.f.b {
             if (a2) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.f4061b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.f4201b);
             }
             return a2;
         }
@@ -148,7 +148,7 @@ public class b extends b.a.p0.a.c2.f.b {
             JSONObject k = k(unitedSchemeEntity);
             if (k == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                d.b("Component-Action-Button", "params is null");
+                d.c("Component-Action-Button", "params is null");
                 return null;
             }
             c cVar = new c();
@@ -156,7 +156,7 @@ public class b extends b.a.p0.a.c2.f.b {
                 cVar.a(k);
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                d.c("Component-Action-Button", "model parse exception:", e2);
+                d.d("Component-Action-Button", "model parse exception:", e2);
             }
             return cVar;
         }

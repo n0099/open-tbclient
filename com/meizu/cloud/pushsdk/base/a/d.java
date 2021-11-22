@@ -3,8 +3,8 @@ package com.meizu.cloud.pushsdk.base.a;
 public class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f67426a;
+    public boolean f68339a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f67427b;
+    public T f68340b;
 }

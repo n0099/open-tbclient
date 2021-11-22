@@ -17,12 +17,11 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
-import b.a.r0.q3.a;
+import b.a.r0.r3.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
-import com.baidu.tbadk.switchs.FlutterFragmentFixonAppearSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -385,7 +384,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "onDestroyView()");
+            Log.d("FlutterActivityAndFragmentDelegate", "onDestroyView()");
             this.mSyncer.onDestroy();
             ensureAlive();
             this.flutterView.release();
@@ -448,22 +447,23 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "onPause()");
-            if (FlutterCrabReportEnableSwitch.isOn()) {
-                a aVar = a.getInstance();
-                aVar.setFlutterPath("onPause1" + getContainerUrl());
-            }
-            ensureAlive();
-            this.mSyncer.onDisappear();
-            this.flutterEngine.getLifecycleChannel().appIsInactive();
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || FlutterBoost.instance().isCoverWithTransparentActivity) {
+            return;
         }
+        Log.d("FlutterActivityAndFragmentDelegate", "onPause()");
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a aVar = a.getInstance();
+            aVar.setFlutterPath("onPause1" + getContainerUrl());
+        }
+        ensureAlive();
+        this.mSyncer.onDisappear();
+        this.flutterEngine.getLifecycleChannel().appIsInactive();
     }
 
     public void onPostResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "onPostResume()");
+            Log.d("FlutterActivityAndFragmentDelegate", "onPostResume()");
             ensureAlive();
         }
     }
@@ -484,33 +484,31 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            if (FlutterCrabReportEnableSwitch.isOn()) {
-                a aVar = a.getInstance();
-                aVar.setFlutterPath("onResume1" + getContainerUrl());
-            }
-            a.getInstance().setLastFlutterPage(getContainerUrl());
-            if (this.mSyncer == null && FlutterFragmentFixonAppearSwitch.getIsOn()) {
-                onCreateView(null, null, null);
-            }
-            this.mSyncer.onAppear();
-            Log.v("FlutterActivityAndFragmentDelegate", "onResume()");
-            ensureAlive();
-            this.flutterEngine.getLifecycleChannel().appIsResumed();
-            int i2 = ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE;
-            if (i2 == 0 || i2 != this.host.hashCode()) {
-                this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
-                this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), this.host.getLifecycle());
-                ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = this.host.hashCode();
-            }
-            XPlatformPlugin xPlatformPlugin = this.platformPlugin;
-            if (xPlatformPlugin != null) {
-                xPlatformPlugin.attachToActivity(this.host.getActivity());
-            }
-            if (FlutterCrabReportEnableSwitch.isOn()) {
-                a aVar2 = a.getInstance();
-                aVar2.setFlutterPath("onResume2" + getContainerUrl());
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || FlutterBoost.instance().isCoverWithTransparentActivity) {
+            return;
+        }
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a aVar = a.getInstance();
+            aVar.setFlutterPath("onResume1" + getContainerUrl());
+        }
+        a.getInstance().setLastFlutterPage(getContainerUrl());
+        this.mSyncer.onAppear();
+        Log.d("FlutterActivityAndFragmentDelegate", "onResume()");
+        ensureAlive();
+        this.flutterEngine.getLifecycleChannel().appIsResumed();
+        int i2 = ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE;
+        if (i2 == 0 || i2 != this.host.hashCode()) {
+            this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
+            this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), this.host.getLifecycle());
+            ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = this.host.hashCode();
+        }
+        XPlatformPlugin xPlatformPlugin = this.platformPlugin;
+        if (xPlatformPlugin != null) {
+            xPlatformPlugin.attachToActivity(this.host.getActivity());
+        }
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a aVar2 = a.getInstance();
+            aVar2.setFlutterPath("onResume2" + getContainerUrl());
         }
     }
 
@@ -525,7 +523,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "onStop()");
+            Log.d("FlutterActivityAndFragmentDelegate", "onStop()");
             ensureAlive();
         }
     }

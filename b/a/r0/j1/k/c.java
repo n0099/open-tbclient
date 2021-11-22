@@ -23,16 +23,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<HotTopicDetailActivity> f18409a;
+    public TbPageContext<HotTopicDetailActivity> f19743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f18410b;
+    public View f19744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18411c;
+    public String f19745c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18412d;
+    public String f19746d;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -40,7 +40,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18413e;
+        public final /* synthetic */ c f19747e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -57,15 +57,15 @@ public class c {
                     return;
                 }
             }
-            this.f18413e = cVar;
+            this.f19747e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.r0.e2.c.g(this.f18413e.f18409a, "c14391");
-                this.f18413e.c();
+                b.a.r0.e2.c.g(this.f19747e.f19743a, "c14391");
+                this.f19747e.c();
             }
         }
     }
@@ -85,37 +85,37 @@ public class c {
                 return;
             }
         }
-        this.f18409a = tbPageContext;
-        this.f18410b = view;
+        this.f19743a = tbPageContext;
+        this.f19744b = view;
         if (view instanceof TextView) {
             HotTopicDetailView.setWriteViewStyle((TextView) view, SkinManager.getColor(b.a.r0.j1.b.CAM_X0302));
         }
-        this.f18410b.setOnClickListener(new a(this));
+        this.f19744b.setOnClickListener(new a(this));
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || WriteActivityConfig.isAsyncWriting() || this.f18411c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || WriteActivityConfig.isAsyncWriting() || this.f19745c == null) {
             return;
         }
-        String format = StringUtils.isNull(this.f18412d) ? null : String.format(TbadkCoreApplication.getInst().getString(h.hot_topic_detail_write_name), this.f18412d);
-        WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f18409a.getPageActivity());
+        String format = StringUtils.isNull(this.f19746d) ? null : String.format(TbadkCoreApplication.getInst().getString(h.hot_topic_detail_write_name), this.f19746d);
+        WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f19743a.getPageActivity());
         newInstance.setIntentAction(IntentAction.ActivityForResult);
         newInstance.setRequestCode(25065);
-        newInstance.setType(9).setForumId("0").setTopicId(String.valueOf(this.f18411c)).setFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL).setCallFrom("1").setTitle(format).send();
+        newInstance.setType(9).setForumId("0").setTopicId(String.valueOf(this.f19745c)).setFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL).setCallFrom("1").setTitle(format).send();
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f18412d = str;
+            this.f19746d = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f18411c = str;
+            this.f19745c = str;
         }
     }
 }

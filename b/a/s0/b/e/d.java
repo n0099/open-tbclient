@@ -35,31 +35,31 @@ public class d extends HttpURLConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TurbonetEngine f28649a;
+    public final TurbonetEngine f29518a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f28650b;
+    public final g f29519b;
 
     /* renamed from: c  reason: collision with root package name */
-    public UrlRequest f28651c;
+    public UrlRequest f29520c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Pair<String, String>> f28652d;
+    public final List<Pair<String, String>> f29521d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f28653e;
+    public e f29522e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f28654f;
+    public f f29523f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UrlResponseInfo f28655g;
+    public UrlResponseInfo f29524g;
 
     /* renamed from: h  reason: collision with root package name */
-    public UrlRequestException f28656h;
+    public UrlRequestException f29525h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f28657i;
+    public boolean f29526i;
     public boolean j;
     public List<Map.Entry<String, String>> k;
     public Map<String, List<String>> l;
@@ -78,7 +78,7 @@ public class d extends HttpURLConnection {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f28658a;
+        public final /* synthetic */ d f29527a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -95,14 +95,14 @@ public class d extends HttpURLConnection {
                     return;
                 }
             }
-            this.f28658a = dVar;
+            this.f29527a = dVar;
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, urlRequest, urlResponseInfo) == null) {
-                this.f28658a.f28655g = urlResponseInfo;
+                this.f29527a.f29524g = urlResponseInfo;
                 g(new IOException("stream closed"));
             }
         }
@@ -112,10 +112,10 @@ public class d extends HttpURLConnection {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlRequest, urlResponseInfo, urlRequestException) == null) {
                 if (urlRequestException != null) {
-                    b.a.s0.a.a.c("cr_CronetHttpURLConn", "****** onFailed, url is: %s, error is: %s", this.f28658a.getURL().toString(), urlRequestException);
-                    this.f28658a.f28655g = urlResponseInfo;
-                    this.f28658a.f28656h = urlRequestException;
-                    g(this.f28658a.f28656h);
+                    b.a.s0.a.a.c("cr_CronetHttpURLConn", "****** onFailed, url is: %s, error is: %s", this.f29527a.getURL().toString(), urlRequestException);
+                    this.f29527a.f29524g = urlResponseInfo;
+                    this.f29527a.f29525h = urlRequestException;
+                    g(this.f29527a.f29525h);
                     return;
                 }
                 throw new IllegalStateException("Exception cannot be null in onFailed.");
@@ -126,8 +126,8 @@ public class d extends HttpURLConnection {
         public void c(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, urlRequest, urlResponseInfo, byteBuffer) == null) {
-                this.f28658a.f28655g = urlResponseInfo;
-                this.f28658a.f28650b.quit();
+                this.f29527a.f29524g = urlResponseInfo;
+                this.f29527a.f29519b.quit();
             }
         }
 
@@ -135,21 +135,21 @@ public class d extends HttpURLConnection {
         public void d(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, urlRequest, urlResponseInfo, str) == null) {
-                this.f28658a.f28657i = true;
+                this.f29527a.f29526i = true;
                 try {
                     URL url = new URL(str);
-                    boolean equals = url.getProtocol().equals(((HttpURLConnection) this.f28658a).url.getProtocol());
-                    if (((HttpURLConnection) this.f28658a).instanceFollowRedirects) {
-                        ((HttpURLConnection) this.f28658a).url = url;
+                    boolean equals = url.getProtocol().equals(((HttpURLConnection) this.f29527a).url.getProtocol());
+                    if (((HttpURLConnection) this.f29527a).instanceFollowRedirects) {
+                        ((HttpURLConnection) this.f29527a).url = url;
                     }
-                    if (((HttpURLConnection) this.f28658a).instanceFollowRedirects && (equals || this.f28658a.o)) {
-                        this.f28658a.f28651c.d();
+                    if (((HttpURLConnection) this.f29527a).instanceFollowRedirects && (equals || this.f29527a.o)) {
+                        this.f29527a.f29520c.d();
                         return;
                     }
                 } catch (MalformedURLException unused) {
                 }
-                this.f28658a.f28655g = urlResponseInfo;
-                this.f28658a.f28651c.cancel();
+                this.f29527a.f29524g = urlResponseInfo;
+                this.f29527a.f29520c.cancel();
                 g(null);
             }
         }
@@ -158,8 +158,8 @@ public class d extends HttpURLConnection {
         public void e(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, urlRequest, urlResponseInfo) == null) {
-                this.f28658a.f28655g = urlResponseInfo;
-                this.f28658a.f28650b.quit();
+                this.f29527a.f29524g = urlResponseInfo;
+                this.f29527a.f29519b.quit();
             }
         }
 
@@ -168,7 +168,7 @@ public class d extends HttpURLConnection {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, urlRequest, urlResponseInfo) == null) {
                 b.a.s0.a.a.h("cr_CronetHttpURLConn", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
-                this.f28658a.f28655g = urlResponseInfo;
+                this.f29527a.f29524g = urlResponseInfo;
                 g(null);
             }
         }
@@ -176,14 +176,14 @@ public class d extends HttpURLConnection {
         public final void g(IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
-                if (this.f28658a.f28653e != null) {
-                    this.f28658a.f28653e.d(iOException);
+                if (this.f29527a.f29522e != null) {
+                    this.f29527a.f29522e.d(iOException);
                 }
-                if (this.f28658a.f28654f != null) {
-                    this.f28658a.f28654f.h(iOException);
+                if (this.f29527a.f29523f != null) {
+                    this.f29527a.f29523f.h(iOException);
                 }
-                this.f28658a.j = true;
-                this.f28658a.f28650b.quit();
+                this.f29527a.j = true;
+                this.f29527a.f29519b.quit();
             }
         }
     }
@@ -206,16 +206,16 @@ public class d extends HttpURLConnection {
                 return;
             }
         }
-        this.f28657i = false;
+        this.f29526i = false;
         this.j = false;
         this.o = false;
         this.r = 0;
         this.s = false;
         this.t = false;
-        this.f28649a = turbonetEngine;
-        this.f28650b = new g(getURL().toString());
-        this.f28653e = new e(this);
-        this.f28652d = new ArrayList();
+        this.f29518a = turbonetEngine;
+        this.f29519b = new g(getURL().toString());
+        this.f29522e = new e(this);
+        this.f29521d = new ArrayList();
     }
 
     public final void A(String str, String str2, boolean z) {
@@ -225,12 +225,12 @@ public class d extends HttpURLConnection {
                 int q = q(str);
                 if (q >= 0) {
                     if (z) {
-                        this.f28652d.remove(q);
+                        this.f29521d.remove(q);
                     } else {
                         throw new UnsupportedOperationException("Cannot add multiple headers of the same key, " + str + ". crbug.com/432719.");
                     }
                 }
-                this.f28652d.add(Pair.create(str, str2));
+                this.f29521d.add(Pair.create(str, str2));
                 return;
             }
             throw new IllegalStateException("Cannot modify request property after connection is made.");
@@ -242,18 +242,18 @@ public class d extends HttpURLConnection {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ((HttpURLConnection) this).connected) {
             return;
         }
-        UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(this), this.f28650b, this.f28649a);
+        UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(this), this.f29519b, this.f29518a);
         if (((HttpURLConnection) this).doOutput) {
             if (((HttpURLConnection) this).method.equals("GET")) {
                 ((HttpURLConnection) this).method = "POST";
             }
-            f fVar = this.f28654f;
+            f fVar = this.f29523f;
             if (fVar != null) {
-                builder.k(fVar.f(), this.f28650b);
+                builder.k(fVar.f(), this.f29519b);
                 if (getRequestProperty("Content-Length") == null && !z()) {
-                    addRequestProperty("Content-Length", Long.toString(this.f28654f.f().a()));
+                    addRequestProperty("Content-Length", Long.toString(this.f29523f.f().a()));
                 }
-                this.f28654f.g();
+                this.f29523f.g();
             } else if (getRequestProperty("Content-Length") == null) {
                 addRequestProperty("Content-Length", "0");
             }
@@ -261,7 +261,7 @@ public class d extends HttpURLConnection {
                 addRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             }
         }
-        for (Pair<String, String> pair : this.f28652d) {
+        for (Pair<String, String> pair : this.f29521d) {
             builder.a((String) pair.first, (String) pair.second);
         }
         if (!getUseCaches()) {
@@ -285,7 +285,7 @@ public class d extends HttpURLConnection {
         builder.j(v());
         ((HttpURLConnection) this).connected = true;
         UrlRequest b2 = builder.b();
-        this.f28651c = b2;
+        this.f29520c = b2;
         b2.start();
     }
 
@@ -310,7 +310,7 @@ public class d extends HttpURLConnection {
     public void disconnect() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && ((HttpURLConnection) this).connected) {
-            this.f28651c.cancel();
+            this.f29520c.cancel();
         }
     }
 
@@ -321,8 +321,8 @@ public class d extends HttpURLConnection {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
                 w();
-                if (this.f28655g.c() >= 400) {
-                    return this.f28653e;
+                if (this.f29524g.c() >= 400) {
+                    return this.f29522e;
                 }
                 return null;
             } catch (IOException unused) {
@@ -387,11 +387,11 @@ public class d extends HttpURLConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             w();
-            if (!((HttpURLConnection) this).instanceFollowRedirects && this.f28657i) {
+            if (!((HttpURLConnection) this).instanceFollowRedirects && this.f29526i) {
                 throw new IOException("Cannot read response body of a redirect.");
             }
-            if (this.f28655g.c() < 400) {
-                return this.f28653e;
+            if (this.f29524g.c() < 400) {
+                return this.f29522e;
             }
             throw new FileNotFoundException(((HttpURLConnection) this).url.toString());
         }
@@ -403,27 +403,27 @@ public class d extends HttpURLConnection {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f28654f == null && ((HttpURLConnection) this).doOutput) {
+            if (this.f29523f == null && ((HttpURLConnection) this).doOutput) {
                 if (!((HttpURLConnection) this).connected) {
                     if (z()) {
-                        this.f28654f = new b(this, ((HttpURLConnection) this).chunkLength, this.f28650b, this.s, this.t);
+                        this.f29523f = new b(this, ((HttpURLConnection) this).chunkLength, this.f29519b, this.s, this.t);
                         B();
                     } else {
                         long x = x();
                         if (x != -1) {
-                            this.f28654f = new c(this, x, this.f28650b);
+                            this.f29523f = new c(this, x, this.f29519b);
                             B();
                         } else {
                             b.a.s0.a.a.a("cr_CronetHttpURLConn", "Outputstream is being buffered in memory.");
                             String requestProperty = getRequestProperty("Content-Length");
                             if (requestProperty == null) {
-                                this.f28654f = new b.a.s0.b.e.a(this);
+                                this.f29523f = new b.a.s0.b.e.a(this);
                             } else {
                                 try {
-                                    this.f28654f = new b.a.s0.b.e.a(this, Long.parseLong(requestProperty));
+                                    this.f29523f = new b.a.s0.b.e.a(this, Long.parseLong(requestProperty));
                                 } catch (NumberFormatException unused) {
                                     b.a.s0.a.a.c("cr_CronetHttpURLConn", "CONTENT_LENGTH has wrong format.", new Object[0]);
-                                    this.f28654f = new b.a.s0.b.e.a(this);
+                                    this.f29523f = new b.a.s0.b.e.a(this);
                                 }
                             }
                         }
@@ -432,7 +432,7 @@ public class d extends HttpURLConnection {
                     throw new ProtocolException("Cannot write to OutputStream after receiving response.");
                 }
             }
-            return this.f28654f;
+            return this.f29523f;
         }
         return (OutputStream) invokeV.objValue;
     }
@@ -444,7 +444,7 @@ public class d extends HttpURLConnection {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (!((HttpURLConnection) this).connected) {
                 TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                for (Pair<String, String> pair : this.f28652d) {
+                for (Pair<String, String> pair : this.f29521d) {
                     if (!treeMap.containsKey(pair.first)) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(pair.second);
@@ -467,7 +467,7 @@ public class d extends HttpURLConnection {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             int q = q(str);
             if (q >= 0) {
-                return (String) this.f28652d.get(q).second;
+                return (String) this.f29521d.get(q).second;
             }
             return null;
         }
@@ -480,7 +480,7 @@ public class d extends HttpURLConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             w();
-            return this.f28655g.c();
+            return this.f29524g.c();
         }
         return invokeV.intValue;
     }
@@ -491,7 +491,7 @@ public class d extends HttpURLConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             w();
-            return this.f28655g.d();
+            return this.f29524g.d();
         }
         return (String) invokeV.objValue;
     }
@@ -500,9 +500,9 @@ public class d extends HttpURLConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             if (this.j) {
-                UrlRequestException urlRequestException = this.f28656h;
+                UrlRequestException urlRequestException = this.f29525h;
                 if (urlRequestException == null) {
-                    if (this.f28655g == null) {
+                    if (this.f29524g == null) {
                         throw new NullPointerException("Response info is null when there is no exception.");
                     }
                     return;
@@ -524,8 +524,8 @@ public class d extends HttpURLConnection {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            for (int i2 = 0; i2 < this.f28652d.size(); i2++) {
-                if (((String) this.f28652d.get(i2).first).equalsIgnoreCase(str)) {
+            for (int i2 = 0; i2 < this.f29521d.size(); i2++) {
+                if (((String) this.f29521d.get(i2).first).equalsIgnoreCase(str)) {
                     return i2;
                 }
             }
@@ -567,7 +567,7 @@ public class d extends HttpURLConnection {
                 return list;
             }
             this.k = new ArrayList();
-            for (Map.Entry<String, String> entry : this.f28655g.b()) {
+            for (Map.Entry<String, String> entry : this.f29524g.b()) {
                 if (!entry.getKey().equalsIgnoreCase("Content-Encoding")) {
                     this.k.add(new AbstractMap.SimpleImmutableEntry(entry));
                 }
@@ -608,8 +608,8 @@ public class d extends HttpURLConnection {
     public void u(ByteBuffer byteBuffer) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, byteBuffer) == null) {
-            this.f28651c.read(byteBuffer);
-            this.f28650b.b(getReadTimeout());
+            this.f29520c.read(byteBuffer);
+            this.f29519b.b(getReadTimeout());
         }
     }
 
@@ -632,16 +632,16 @@ public class d extends HttpURLConnection {
     public final void w() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            f fVar = this.f28654f;
+            f fVar = this.f29523f;
             if (fVar != null) {
                 fVar.e();
                 if (z()) {
-                    this.f28654f.close();
+                    this.f29523f.close();
                 }
             }
             if (!this.j) {
                 B();
-                this.f28650b.b(getReadTimeout());
+                this.f29519b.b(getReadTimeout());
                 this.j = true;
             }
             o();
@@ -666,7 +666,7 @@ public class d extends HttpURLConnection {
     public UrlResponseInfo y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f28655g : (UrlResponseInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f29524g : (UrlResponseInfo) invokeV.objValue;
     }
 
     public final boolean z() {

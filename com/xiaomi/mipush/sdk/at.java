@@ -13,25 +13,25 @@ public final class at {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final at f70605a;
+    public static final at f71525a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ at[] f82a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final at f70606b;
+    public static final at f71526b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final at f70607c;
+    public static final at f71527c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final at f70608d;
+    public static final at f71528d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final at f70609e;
+    public static final at f71529e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final at f70610f;
+    public static final at f71530f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,14 +47,14 @@ public final class at {
                 return;
             }
         }
-        f70605a = new at("DISABLE_PUSH", 0);
-        f70606b = new at("ENABLE_PUSH", 1);
-        f70607c = new at("UPLOAD_HUAWEI_TOKEN", 2);
-        f70608d = new at("UPLOAD_FCM_TOKEN", 3);
-        f70609e = new at("UPLOAD_COS_TOKEN", 4);
+        f71525a = new at("DISABLE_PUSH", 0);
+        f71526b = new at("ENABLE_PUSH", 1);
+        f71527c = new at("UPLOAD_HUAWEI_TOKEN", 2);
+        f71528d = new at("UPLOAD_FCM_TOKEN", 3);
+        f71529e = new at("UPLOAD_COS_TOKEN", 4);
         at atVar = new at("UPLOAD_FTOS_TOKEN", 5);
-        f70610f = atVar;
-        f82a = new at[]{f70605a, f70606b, f70607c, f70608d, f70609e, atVar};
+        f71530f = atVar;
+        f82a = new at[]{f71525a, f71526b, f71527c, f71528d, f71529e, atVar};
     }
 
     public at(String str, int i2) {

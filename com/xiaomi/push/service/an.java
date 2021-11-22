@@ -28,7 +28,7 @@ public class an {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f71410a;
+    public static long f72330a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -37,7 +37,7 @@ public class an {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f71411a;
+        public int f72331a;
 
         /* renamed from: a  reason: collision with other field name */
         public byte[] f896a;
@@ -58,7 +58,7 @@ public class an {
                 }
             }
             this.f896a = bArr;
-            this.f71411a = i2;
+            this.f72331a = i2;
         }
     }
 
@@ -68,7 +68,7 @@ public class an {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f71412a;
+        public long f72332a;
 
         /* renamed from: a  reason: collision with other field name */
         public Bitmap f897a;
@@ -89,7 +89,7 @@ public class an {
                 }
             }
             this.f897a = bitmap;
-            this.f71412a = j;
+            this.f72332a = j;
         }
     }
 
@@ -325,7 +325,7 @@ public class an {
                 com.xiaomi.push.y.a((Closeable) null);
                 return bVar;
             }
-            bVar.f71412a = a2.f71411a;
+            bVar.f72332a = a2.f72331a;
             byte[] bArr = a2.f896a;
             if (bArr != null) {
                 if (z) {
@@ -365,10 +365,10 @@ public class an {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
             if (file.exists()) {
-                if (f71410a == 0) {
-                    f71410a = com.xiaomi.push.x.a(file);
+                if (f72330a == 0) {
+                    f72330a = com.xiaomi.push.x.a(file);
                 }
-                if (f71410a > 15728640) {
+                if (f72330a > 15728640) {
                     try {
                         File[] listFiles = file.listFiles();
                         for (int i2 = 0; i2 < listFiles.length; i2++) {
@@ -379,7 +379,7 @@ public class an {
                     } catch (Exception e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
-                    f71410a = 0L;
+                    f72330a = 0L;
                 }
             }
         }
@@ -430,7 +430,7 @@ public class an {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                     com.xiaomi.push.y.a(bufferedOutputStream2);
                     com.xiaomi.push.y.a(fileOutputStream);
-                    if (f71410a != 0) {
+                    if (f72330a != 0) {
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -447,8 +447,8 @@ public class an {
                 fileOutputStream = null;
             }
             com.xiaomi.push.y.a(fileOutputStream);
-            if (f71410a != 0) {
-                f71410a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
+            if (f72330a != 0) {
+                f72330a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
             }
         }
     }

@@ -3,6 +3,7 @@ package b.a.r0.s0;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -44,12 +45,12 @@ public class b {
                 } catch (Throwable th) {
                     th = th;
                     zipInputStream = zipInputStream2;
-                    b.a.e.e.p.m.e(zipInputStream);
+                    b.a.e.f.p.m.e(zipInputStream);
                     throw th;
                 }
             }
             zipInputStream2.close();
-            b.a.e.e.p.m.e(zipInputStream2);
+            b.a.e.f.p.m.e(zipInputStream2);
             byte[] e2 = e(str, "map.txt");
             if (e2 != null) {
                 String str2 = new String(e2, "UTF-8");
@@ -61,7 +62,7 @@ public class b {
                         if (split.length == 2) {
                             String trim2 = split[0].trim();
                             String trim3 = split[1].trim();
-                            g(str, "s_" + trim3 + ".png", b(trim2, false));
+                            g(str, "s_" + trim3 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, b(trim2, false));
                             g(str, "d_" + trim3 + ".gif", b(trim2, true));
                             linkedList.add(trim2);
                         }

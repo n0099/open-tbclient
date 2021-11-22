@@ -19,7 +19,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f17887a;
+        public View f19340a;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class b {
                     return;
                 }
             }
-            this.f17887a = view;
+            this.f19340a = view;
         }
 
         public abstract boolean a();
@@ -48,12 +48,12 @@ public class b {
 
     /* renamed from: b.a.r0.i1.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0913b extends a {
+    public static class C0978b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0913b(View view) {
+        public C0978b(View view) {
             super(view);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -86,7 +86,7 @@ public class b {
         public void b(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-                this.f17887a.post(runnable);
+                this.f19340a.post(runnable);
             }
         }
 
@@ -94,7 +94,7 @@ public class b {
         public void c(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                View view = this.f17887a;
+                View view = this.f19340a;
                 view.scrollTo(i2, view.getScrollY());
             }
         }
@@ -107,7 +107,7 @@ public class b {
             if (Build.VERSION.SDK_INT >= 14) {
                 return new b.a.r0.i1.a.d.a(view);
             }
-            return new C0913b(view);
+            return new C0978b(view);
         }
         return (a) invokeL.objValue;
     }

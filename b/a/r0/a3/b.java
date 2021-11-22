@@ -1,64 +1,179 @@
 package b.a.r0.a3;
 
-import android.util.SparseArray;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<a> f14718a;
+    public static String f15533a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public boolean f14719a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f14720b;
-
-        public a(boolean z, int i2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1650195468, "Lb/a/r0/a3/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f14719a = z;
-            this.f14720b = i2;
-        }
-    }
-
-    public b(SparseArray<a> sparseArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sparseArray};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1650195468, "Lb/a/r0/a3/b;");
                 return;
             }
         }
-        this.f14718a = sparseArray;
+        f15533a = TbadkCoreApplication.getInst().getApp().getExternalCacheDir() + "/nadDir";
+    }
+
+    public static File a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? FileHelper.CreateFileIfNotFoundAbsolutePath(g(str)) : (File) invokeL.objValue;
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            c(e(f(str)));
+        }
+    }
+
+    public static void c(File file) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, file) == null) || file == null) {
+            return;
+        }
+        try {
+            if (file.exists()) {
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    int length = listFiles.length;
+                    for (int i2 = 0; i2 < length; i2++) {
+                        if (listFiles[i2].isFile()) {
+                            listFiles[i2].delete();
+                        } else {
+                            c(listFiles[i2]);
+                        }
+                    }
+                }
+                file.delete();
+            }
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
+            TiebaStatic.file(e2, "FileHelper.deleteFileOrDir");
+        }
+    }
+
+    public static File d(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? FileHelper.GetFileByAbsolutePath(str) : (File) invokeL.objValue;
+    }
+
+    public static File e(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            if (!b.a.r0.a.h().u()) {
+                return FileHelper.GetFile(str);
+            }
+            return d(g(str));
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static String f(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            return str.replace(".", "_") + ".apk";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (!b.a.r0.a.h().u()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(FileHelper.getCacheDir());
+                File file = new File(sb.toString());
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                sb.append("/");
+                sb.append(str);
+                return sb.toString();
+            }
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append(f15533a);
+            File file2 = new File(sb2.toString());
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            sb2.append("/");
+            sb2.append(str);
+            return sb2.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? g(f(str)) : (String) invokeL.objValue;
+    }
+
+    public static String i(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+            return str + "_" + str2 + ".tmp";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean j(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return l(e(f(str)));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean k(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) {
+            if (TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(str, 0L) == 0) {
+                return false;
+            }
+            return l(e(i(str, str2)));
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean l(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, file)) == null) ? file != null && file.exists() && file.isFile() : invokeL.booleanValue;
     }
 }

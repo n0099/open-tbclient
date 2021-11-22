@@ -81,7 +81,7 @@ public class LiveBannerEntity implements Parcelable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f38739a;
+        public String f39571a;
 
         public b(LiveBannerEntity liveBannerEntity) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class LiveBannerEntity implements Parcelable {
                 return;
             }
             jSONObject.optInt("type");
-            this.f38739a = jSONObject.optString("action");
+            this.f39571a = jSONObject.optString("action");
         }
     }
 

@@ -1,7 +1,6 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -327,7 +326,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                                 if (entry.lfeon == 1) {
                                 }
                             } else {
-                                i2 = b3 | ExifInterface.MARKER_SOF0;
+                                i2 = b3 | 192;
                                 b3 = (byte) i2;
                                 if (entry.lfeon == 1) {
                                 }
@@ -361,7 +360,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                                 if (entry.lfeon == 1) {
                                 }
                             } else {
-                                i3 = b3 | ExifInterface.MARKER_SOF0;
+                                i3 = b3 | 192;
                                 b3 = (byte) i3;
                                 i4 = b4 | ByteCompanionObject.MIN_VALUE;
                                 b4 = (byte) i4;
@@ -433,7 +432,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 allocate.put(b3);
                 allocate.put(b4);
                 allocate.put(new byte[2]);
-                allocate.put(new byte[]{-81, -121, -5, -89, 2, UtilsBlink.VER_TYPE_SEPARATOR, -5, 66, -92, -44, 5, ExifInterface.MARKER_SOF13, -109, -124, 59, -35});
+                allocate.put(new byte[]{-81, -121, -5, -89, 2, UtilsBlink.VER_TYPE_SEPARATOR, -5, 66, -92, -44, 5, -51, -109, -124, 59, -35});
                 ByteBuffer allocate2 = ByteBuffer.allocate((int) eC3SpecificBox.getContentSize());
                 eC3SpecificBox.getContent(allocate2);
                 AudioQuality audioQuality = new AudioQuality();
@@ -695,7 +694,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                         createElement6.setAttribute("AudioTag", Integer.toString(audioQuality.audioTag));
                         createElement6.setAttribute("SamplingRate", Long.toString(audioQuality.samplingRate));
                         createElement6.setAttribute("Channels", Integer.toString(audioQuality.channels));
-                        createElement6.setAttribute(ExifInterface.TAG_BITS_PER_SAMPLE, Integer.toString(audioQuality.bitPerSample));
+                        createElement6.setAttribute("BitsPerSample", Integer.toString(audioQuality.bitPerSample));
                         createElement6.setAttribute("PacketSize", Integer.toString(audioQuality.packetSize));
                         createElement6.setAttribute(str, audioQuality.codecPrivateData);
                         createElement5.appendChild(createElement6);

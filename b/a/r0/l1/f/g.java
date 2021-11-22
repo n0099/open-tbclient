@@ -15,18 +15,18 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20021a;
+    public String f21543a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f20022b;
+    public BaseActivity f21544b;
 
     /* loaded from: classes5.dex */
-    public class a extends b.a.e.e.l.c<b.a.e.l.d.a> {
+    public class a extends b.a.e.f.l.c<b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f20023a;
+        public final /* synthetic */ g f21545a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -43,22 +43,22 @@ public class g {
                     return;
                 }
             }
-            this.f20023a = gVar;
+            this.f21545a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.l.c
-        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar != null) {
-                    g gVar = this.f20023a;
-                    gVar.e(gVar.d(gVar.f20021a, aVar.n()));
+                    g gVar = this.f21545a;
+                    gVar.e(gVar.d(gVar.f21543a, aVar.n()));
                     return;
                 }
-                g gVar2 = this.f20023a;
-                gVar2.e(gVar2.f20022b.getPageContext().getString(R.string.save_fail));
+                g gVar2 = this.f21545a;
+                gVar2.e(gVar2.f21544b.getPageContext().getString(R.string.save_fail));
             }
         }
     }
@@ -78,21 +78,21 @@ public class g {
                 return;
             }
         }
-        this.f20021a = null;
-        this.f20021a = str;
-        this.f20022b = baseActivity;
+        this.f21543a = null;
+        this.f21543a = str;
+        this.f21544b = baseActivity;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f20021a == null || this.f20021a.length() <= 0) {
-                    e(this.f20022b.getPageContext().getString(R.string.save_fail));
+                if (this.f21543a == null || this.f21543a.length() <= 0) {
+                    e(this.f21544b.getPageContext().getString(R.string.save_fail));
                 }
-                b.a.e.e.l.d.h().m(this.f20021a, 10, new a(this), this.f20022b.getUniqueId());
+                b.a.e.f.l.d.h().m(this.f21543a, 10, new a(this), this.f21544b.getUniqueId());
             } catch (Exception unused) {
-                e(this.f20022b.getPageContext().getString(R.string.save_fail));
+                e(this.f21544b.getPageContext().getString(R.string.save_fail));
             }
         }
     }
@@ -101,12 +101,12 @@ public class g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr)) == null) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(str, bArr, this.f20022b.getPageContext().getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(str, bArr, this.f21544b.getPageContext().getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
-                    return this.f20022b.getPageContext().getString(R.string.save_fail);
+                    return this.f21544b.getPageContext().getString(R.string.save_fail);
                 }
-                return this.f20022b.getPageContext().getString(R.string.save_image_to_album);
+                return this.f21544b.getPageContext().getString(R.string.save_image_to_album);
             }
             return FileHelper.getSdErrorString();
         }
@@ -116,7 +116,7 @@ public class g {
     public final void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f20022b.showToast(str);
+            this.f21544b.showToast(str);
         }
     }
 }

@@ -9,8 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.chromium.support_lib_boundary.ProxyControllerBoundaryInterface;
 import org.chromium.support_lib_boundary.ServiceWorkerControllerBoundaryInterface;
 import org.chromium.support_lib_boundary.StaticsBoundaryInterface;
+import org.chromium.support_lib_boundary.TracingControllerBoundaryInterface;
 import org.chromium.support_lib_boundary.WebViewProviderBoundaryInterface;
 import org.chromium.support_lib_boundary.WebkitToCompatConverterBoundaryInterface;
 /* loaded from: classes.dex */
@@ -61,10 +63,20 @@ public class IncompatibleApkWebViewProviderFactory implements WebViewProviderFac
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
-    public ServiceWorkerControllerBoundaryInterface getServiceWorkerController() {
+    public ProxyControllerBoundaryInterface getProxyController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new UnsupportedOperationException(UNSUPPORTED_EXCEPTION_EXPLANATION);
+        }
+        return (ProxyControllerBoundaryInterface) invokeV.objValue;
+    }
+
+    @Override // androidx.webkit.internal.WebViewProviderFactory
+    public ServiceWorkerControllerBoundaryInterface getServiceWorkerController() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             throw new UnsupportedOperationException(UNSUPPORTED_EXCEPTION_EXPLANATION);
         }
         return (ServiceWorkerControllerBoundaryInterface) invokeV.objValue;
@@ -74,24 +86,34 @@ public class IncompatibleApkWebViewProviderFactory implements WebViewProviderFac
     public StaticsBoundaryInterface getStatics() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             throw new UnsupportedOperationException(UNSUPPORTED_EXCEPTION_EXPLANATION);
         }
         return (StaticsBoundaryInterface) invokeV.objValue;
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
+    public TracingControllerBoundaryInterface getTracingController() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            throw new UnsupportedOperationException(UNSUPPORTED_EXCEPTION_EXPLANATION);
+        }
+        return (TracingControllerBoundaryInterface) invokeV.objValue;
+    }
+
+    @Override // androidx.webkit.internal.WebViewProviderFactory
     public String[] getWebViewFeatures() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? EMPTY_STRING_ARRAY : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EMPTY_STRING_ARRAY : (String[]) invokeV.objValue;
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
     public WebkitToCompatConverterBoundaryInterface getWebkitToCompatConverter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             throw new UnsupportedOperationException(UNSUPPORTED_EXCEPTION_EXPLANATION);
         }
         return (WebkitToCompatConverterBoundaryInterface) invokeV.objValue;

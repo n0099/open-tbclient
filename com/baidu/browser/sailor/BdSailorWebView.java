@@ -51,8 +51,10 @@ import com.baidu.webkit.internal.monitor.MonitorConstant;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.internal.utils.NetWorkUtils;
 import com.baidu.webkit.sdk.ClientCertRequest;
+import com.baidu.webkit.sdk.FirstScreenImageInfomation;
 import com.baidu.webkit.sdk.GeolocationPermissions;
 import com.baidu.webkit.sdk.HttpAuthHandler;
+import com.baidu.webkit.sdk.JsCodeCacheResult;
 import com.baidu.webkit.sdk.JsPromptResult;
 import com.baidu.webkit.sdk.JsResult;
 import com.baidu.webkit.sdk.Log;
@@ -60,6 +62,7 @@ import com.baidu.webkit.sdk.PageTransformer;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.RenderProcessGoneDetail;
 import com.baidu.webkit.sdk.VideoPlayerFactory;
+import com.baidu.webkit.sdk.VideoSniffingInfo;
 import com.baidu.webkit.sdk.WebAppShortcutDataListener;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebBackForwardListClient;
@@ -73,6 +76,7 @@ import com.baidu.webkit.sdk.WebStorage;
 import com.baidu.webkit.sdk.WebView;
 import com.baidu.webkit.sdk.WebViewClient;
 import com.baidu.webkit.sdk.WebViewDelegate;
+import com.baidu.webkit.sdk.abtest.ABTestSDK;
 import com.baidu.webkit.sdk.jsapi.IJsAbility;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.List;
@@ -1010,7 +1014,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f36585e;
+        public final /* synthetic */ BdSailorWebView f37414e;
 
         public a(BdSailorWebView bdSailorWebView) {
             Interceptable interceptable = $ic;
@@ -1027,7 +1031,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                     return;
                 }
             }
-            this.f36585e = bdSailorWebView;
+            this.f37414e = bdSailorWebView;
         }
 
         @Override // java.lang.Runnable
@@ -1036,26 +1040,26 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Context context = this.f36585e.getContext();
+                    Context context = this.f37414e.getContext();
                     Activity activity = context instanceof Activity ? (Activity) context : null;
                     if (activity != null) {
-                        if (this.f36585e.getCurrentWebView() != null) {
-                            this.f36585e.getCurrentWebView().setVisibility(0);
+                        if (this.f37414e.getCurrentWebView() != null) {
+                            this.f37414e.getCurrentWebView().setVisibility(0);
                         }
-                        this.f36585e.setFullscreen(activity, false);
+                        this.f37414e.setFullscreen(activity, false);
                         Window window = activity.getWindow();
                         if (window == null || (frameLayout = (FrameLayout) window.getDecorView()) == null) {
                             return;
                         }
-                        if (this.f36585e.mFullscreenContainer != null) {
-                            frameLayout.removeView(this.f36585e.mFullscreenContainer);
-                            this.f36585e.mFullscreenContainer = null;
+                        if (this.f37414e.mFullscreenContainer != null) {
+                            frameLayout.removeView(this.f37414e.mFullscreenContainer);
+                            this.f37414e.mFullscreenContainer = null;
                         }
-                        this.f36585e.mCustomView = null;
-                        if (this.f36585e.mCustomViewCallback != null) {
-                            this.f36585e.mCustomViewCallback.onCustomViewHidden();
+                        this.f37414e.mCustomView = null;
+                        if (this.f37414e.mCustomViewCallback != null) {
+                            this.f37414e.mCustomViewCallback.onCustomViewHidden();
                         }
-                        activity.setRequestedOrientation(this.f36585e.mOriginalOrientation);
+                        activity.setRequestedOrientation(this.f37414e.mOriginalOrientation);
                     }
                 } catch (Exception e2) {
                     Log.e(BdSailorWebView.LOG_TAG, "Exception happened when hide custom view");
@@ -1071,10 +1075,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WebView f36586a;
+        public WebView f37415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f36587b;
+        public final /* synthetic */ BdSailorWebView f37416b;
 
         public b(BdSailorWebView bdSailorWebView, WebView webView) {
             Interceptable interceptable = $ic;
@@ -1091,8 +1095,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                     return;
                 }
             }
-            this.f36587b = bdSailorWebView;
-            this.f36586a = webView;
+            this.f37416b = bdSailorWebView;
+            this.f37415a = webView;
         }
 
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
@@ -1106,10 +1110,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
         public final void onNewHistoryItem(WebHistoryItem webHistoryItem) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webHistoryItem) == null) || this.f36587b.mWebViewExt.getWebViewClientExt() == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webHistoryItem) == null) || this.f37416b.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
-            this.f36587b.mWebViewExt.getWebViewClientExt().onNewPage(this.f36587b);
+            this.f37416b.mWebViewExt.getWebViewClientExt().onNewPage(this.f37416b);
         }
     }
 
@@ -1119,7 +1123,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f36588a;
+        public final /* synthetic */ BdSailorWebView f37417a;
 
         public c(BdSailorWebView bdSailorWebView) {
             Interceptable interceptable = $ic;
@@ -1136,7 +1140,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                     return;
                 }
             }
-            this.f36588a = bdSailorWebView;
+            this.f37417a = bdSailorWebView;
         }
 
         public /* synthetic */ c(BdSailorWebView bdSailorWebView, byte b2) {
@@ -1147,7 +1151,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onNewPicture(WebView webView, Picture picture) {
             WebView.PictureListener pictureListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, webView, picture) == null) || (pictureListener = this.f36588a.mPictureListener) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, webView, picture) == null) || (pictureListener = this.f37417a.mPictureListener) == null) {
                 return;
             }
             pictureListener.onNewPicture(webView, picture);
@@ -1160,10 +1164,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WebView f36589a;
+        public WebView f37418a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f36590b;
+        public final /* synthetic */ BdSailorWebView f37419b;
 
         public d(BdSailorWebView bdSailorWebView, WebView webView) {
             Interceptable interceptable = $ic;
@@ -1180,8 +1184,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                     return;
                 }
             }
-            this.f36590b = bdSailorWebView;
-            this.f36589a = webView;
+            this.f37419b = bdSailorWebView;
+            this.f37418a = webView;
         }
 
         @Override // android.webkit.DownloadListener
@@ -1189,8 +1193,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 Log.d("// BdSailorMonitorEngine", "BdDownloadListenerBridge.onDownloadStart l=" + j + ", ---> s=" + str + ", --->s1=" + str2 + ", ---> s2=" + str3 + ", --- s3=" + str4);
-                if (this.f36590b.mDownloadListener != null) {
-                    this.f36590b.mDownloadListener.onDownloadStart(str, str2, str3, str4, j);
+                if (this.f37419b.mDownloadListener != null) {
+                    this.f37419b.mDownloadListener.onDownloadStart(str, str2, str3, str4, j);
                 }
             }
         }
@@ -1202,10 +1206,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f36591a;
+        public String[] f37420a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f36592b;
+        public final /* synthetic */ BdSailorWebView f37421b;
 
         public e(BdSailorWebView bdSailorWebView) {
             Interceptable interceptable = $ic;
@@ -1222,16 +1226,16 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                     return;
                 }
             }
-            this.f36592b = bdSailorWebView;
-            this.f36591a = new String[]{"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
+            this.f37421b = bdSailorWebView;
+            this.f37420a = new String[]{"mail.163.com", "mail.126.com", "mail.yeah.net", "shouji.163.com"};
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void copyText(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().copyTextExt(this.f36592b, str);
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().copyTextExt(this.f37421b, str);
                 } else {
                     super.copyText(webView, str);
                 }
@@ -1243,8 +1247,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 super.doTextSearch(webView, str);
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.doTextSearchExt(this.f36592b, str);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.doTextSearchExt(this.f37421b, str);
                 }
             }
         }
@@ -1253,8 +1257,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void doTextTranslate(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.doTextTranslateExt(this.f36592b, str);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.doTextTranslateExt(this.f37421b, str);
                 } else {
                     super.doTextTranslate(webView, str);
                 }
@@ -1265,14 +1269,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final Bitmap getDefaultVideoPoster() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36592b.mWebChromeClient != null ? this.f36592b.mWebChromeClient.getDefaultVideoPoster(this.f36592b) : super.getDefaultVideoPoster() : (Bitmap) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37421b.mWebChromeClient != null ? this.f37421b.mWebChromeClient.getDefaultVideoPoster(this.f37421b) : super.getDefaultVideoPoster() : (Bitmap) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final View getVideoLoadingProgressView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36592b.mWebChromeClient != null ? this.f36592b.mWebChromeClient.getVideoLoadingProgressView(this.f36592b) : super.getVideoLoadingProgressView() : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37421b.mWebChromeClient != null ? this.f37421b.mWebChromeClient.getVideoLoadingProgressView(this.f37421b) : super.getVideoLoadingProgressView() : (View) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
@@ -1280,12 +1284,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, valueCallback) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.getVisitedHistory(this.f36592b, valueCallback);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.getVisitedHistory(this.f37421b, valueCallback);
                 } else {
                     super.getVisitedHistory(valueCallback);
                 }
-                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(this.f36592b.getCurrentWebView(), this.f36592b.getUrl(), MonitorConstant.KeySectionType.GET_VISITED_HISTORY.ordinal(), System.currentTimeMillis() - currentTimeMillis);
+                SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(this.f37421b.getCurrentWebView(), this.f37421b.getUrl(), MonitorConstant.KeySectionType.GET_VISITED_HISTORY.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
         }
 
@@ -1293,12 +1297,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void hideMagnifier(WebView webView, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048582, this, webView, i2, i3) == null) {
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().hideMagnifierExt(this.f36592b, i2, i3);
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().hideMagnifierExt(this.f37421b, i2, i3);
                 } else {
                     super.hideMagnifier(webView, i2, i3);
                 }
-                this.f36592b.mIsFunctionLayerShowing = false;
+                this.f37421b.mIsFunctionLayerShowing = false;
             }
         }
 
@@ -1306,12 +1310,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void hideSelectionActionDialog(WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, webView) == null) {
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().hideSelectionActionDialogExt(this.f36592b);
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().hideSelectionActionDialogExt(this.f37421b);
                 } else {
                     super.hideSelectionActionDialog(webView);
                 }
-                this.f36592b.mIsFunctionLayerShowing = false;
+                this.f37421b.mIsFunctionLayerShowing = false;
             }
         }
 
@@ -1319,8 +1323,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void moveMagnifier(WebView webView, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{webView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().moveMagnifierExt(this.f36592b, i2, i3, i4, i5);
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().moveMagnifierExt(this.f37421b, i2, i3, i4, i5);
                 } else {
                     super.moveMagnifier(webView, i2, i3, i4, i5);
                 }
@@ -1331,15 +1335,15 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean needNotifyNativeExitFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36592b.mWebViewExt.getWebChromeClientExt() != null ? this.f36592b.mWebViewExt.getWebChromeClientExt().needNotifyNativeExitFullScreenExt(this.f36592b) : super.needNotifyNativeExitFullScreen() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f37421b.mWebViewExt.getWebChromeClientExt() != null ? this.f37421b.mWebViewExt.getWebChromeClientExt().needNotifyNativeExitFullScreenExt(this.f37421b) : super.needNotifyNativeExitFullScreen() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void notifyClickWhenLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().notifyClickWhenLoadExt(this.f36592b);
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().notifyClickWhenLoadExt(this.f37421b);
                 } else {
                     super.notifyClickWhenLoad();
                 }
@@ -1350,8 +1354,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void notifyClientStatus(WebView webView, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048587, this, webView, i2) == null) {
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().notifyClientStatusExt(this.f36592b, i2);
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().notifyClientStatusExt(this.f37421b, i2);
                 } else {
                     super.notifyClientStatus(webView, i2);
                 }
@@ -1362,8 +1366,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onCloseWindow(WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, webView) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onCloseWindow(this.f36592b);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onCloseWindow(this.f37421b);
                 } else {
                     super.onCloseWindow(webView);
                 }
@@ -1376,7 +1380,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, consoleMessage)) == null) {
                 boolean onConsoleMessage = super.onConsoleMessage(consoleMessage);
-                return (this.f36592b.mWebChromeClient == null || onConsoleMessage) ? onConsoleMessage : this.f36592b.mWebChromeClient.onConsoleMessage(this.f36592b, consoleMessage);
+                return (this.f37421b.mWebChromeClient == null || onConsoleMessage) ? onConsoleMessage : this.f37421b.mWebChromeClient.onConsoleMessage(this.f37421b, consoleMessage);
             }
             return invokeL.booleanValue;
         }
@@ -1385,7 +1389,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2), message})) == null) ? this.f36592b.mWebChromeClient != null ? this.f36592b.mWebChromeClient.onCreateWindow(this.f36592b, z, z2, message) : super.onCreateWindow(webView, z, z2, message) : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2), message})) == null) ? this.f37421b.mWebChromeClient != null ? this.f37421b.mWebChromeClient.onCreateWindow(this.f37421b, z, z2, message) : super.onCreateWindow(webView, z, z2, message) : invokeCommon.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
@@ -1393,8 +1397,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
                 super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onExceededDatabaseQuota(this.f36592b, str, str2, j, j2, j3, quotaUpdater);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onExceededDatabaseQuota(this.f37421b, str, str2, j, j2, j3, quotaUpdater);
                 }
             }
         }
@@ -1403,8 +1407,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onGeolocationPermissionsHidePrompt() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onGeolocationPermissionsHidePrompt(this.f36592b);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onGeolocationPermissionsHidePrompt(this.f37421b);
                 } else {
                     super.onGeolocationPermissionsHidePrompt();
                 }
@@ -1414,20 +1418,20 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048593, this, str, callback) == null) || this.f36592b.mWebChromeClient == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048593, this, str, callback) == null) || this.f37421b.mWebChromeClient == null) {
                 return;
             }
-            this.f36592b.mWebChromeClient.onGeolocationPermissionsShowPrompt(this.f36592b, str, callback);
+            this.f37421b.mWebChromeClient.onGeolocationPermissionsShowPrompt(this.f37421b, str, callback);
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void onHideCustomView() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-                if (this.f36592b.mWebChromeClient != null ? this.f36592b.mWebChromeClient.onHideCustomView(this.f36592b) : false) {
+                if (this.f37421b.mWebChromeClient != null ? this.f37421b.mWebChromeClient.onHideCustomView(this.f37421b) : false) {
                     return;
                 }
-                this.f36592b.hideCustomView();
+                this.f37421b.hideCustomView();
             }
         }
 
@@ -1436,7 +1440,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048595, this, webView, str, str2, jsResult)) == null) {
-                boolean z = this.f36592b.mWebChromeClient != null && this.f36592b.mWebChromeClient.onJsAlert(this.f36592b, str, str2, jsResult);
+                boolean z = this.f37421b.mWebChromeClient != null && this.f37421b.mWebChromeClient.onJsAlert(this.f37421b, str, str2, jsResult);
                 return !z ? super.onJsAlert(webView, str, str2, jsResult) : z;
             }
             return invokeLLLL.booleanValue;
@@ -1450,7 +1454,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 if (!TextUtils.isEmpty(str)) {
                     String host = Uri.parse(str).getHost();
                     if (!TextUtils.isEmpty(host)) {
-                        for (String str3 : this.f36591a) {
+                        for (String str3 : this.f37420a) {
                             if (host.contains(str3)) {
                                 jsResult.confirm();
                                 return true;
@@ -1461,7 +1465,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 if (super.onJsBeforeUnload(webView, str, str2, jsResult)) {
                     return true;
                 }
-                return this.f36592b.mWebChromeClient != null && this.f36592b.mWebChromeClient.onJsBeforeUnload(this.f36592b, str, str2, jsResult);
+                return this.f37421b.mWebChromeClient != null && this.f37421b.mWebChromeClient.onJsBeforeUnload(this.f37421b, str, str2, jsResult);
             }
             return invokeLLLL.booleanValue;
         }
@@ -1470,7 +1474,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048597, this, webView, str, str2, jsResult)) == null) ? this.f36592b.mWebChromeClient != null ? this.f36592b.mWebChromeClient.onJsConfirm(this.f36592b, str, str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult) : invokeLLLL.booleanValue;
+            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048597, this, webView, str, str2, jsResult)) == null) ? this.f37421b.mWebChromeClient != null ? this.f37421b.mWebChromeClient.onJsConfirm(this.f37421b, str, str2, jsResult) : super.onJsConfirm(webView, str, str2, jsResult) : invokeLLLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
@@ -1481,8 +1485,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 if (super.onJsPrompt(webView, str, str2, str3, jsPromptResult)) {
                     return true;
                 }
-                if (this.f36592b.mWebChromeClient != null) {
-                    return this.f36592b.mWebChromeClient.onJsPrompt(this.f36592b, str, str2, str3, jsPromptResult);
+                if (this.f37421b.mWebChromeClient != null) {
+                    return this.f37421b.mWebChromeClient.onJsPrompt(this.f37421b, str, str2, str3, jsPromptResult);
                 }
                 return false;
             }
@@ -1497,7 +1501,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 if (super.onJsTimeout()) {
                     return true;
                 }
-                return this.f36592b.mWebChromeClient != null && this.f36592b.mWebChromeClient.onJsTimeout(this.f36592b);
+                return this.f37421b.mWebChromeClient != null && this.f37421b.mWebChromeClient.onJsTimeout(this.f37421b);
             }
             return invokeV.booleanValue;
         }
@@ -1506,8 +1510,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onNativeElementEnterFullScreen() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().onNativeElementEnterFullScreenExt(this.f36592b);
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().onNativeElementEnterFullScreenExt(this.f37421b);
                 } else {
                     super.onNativeElementEnterFullScreen();
                 }
@@ -1518,8 +1522,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onNativeElementExitFullScreen() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().onNativeElementExitFullScreenExt(this.f36592b);
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().onNativeElementExitFullScreenExt(this.f37421b);
                 } else {
                     super.onNativeElementExitFullScreen();
                 }
@@ -1530,10 +1534,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onOffsetsForFullscreenChanged(float f2, float f3, float f4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-                BdSailorWebView bdSailorWebView = this.f36592b;
+                BdSailorWebView bdSailorWebView = this.f37421b;
                 bdSailorWebView.setTopControlsHeight(bdSailorWebView.mEmbeddedTitlebarHeightPix, f3 > 0.0f);
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onOffsetsForFullscreenChanged(this.f36592b, f2, f3, f4);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onOffsetsForFullscreenChanged(this.f37421b, f2, f3, f4);
                 } else {
                     super.onOffsetsForFullscreenChanged(f2, f3, f4);
                 }
@@ -1544,8 +1548,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onPermissionRequest(PermissionRequest permissionRequest) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048603, this, permissionRequest) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onPermissionRequest(this.f36592b, permissionRequest);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onPermissionRequest(this.f37421b, permissionRequest);
                 } else {
                     super.onPermissionRequest(permissionRequest);
                 }
@@ -1556,8 +1560,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onPermissionRequestCanceled(PermissionRequest permissionRequest) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048604, this, permissionRequest) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onPermissionRequestCanceled(this.f36592b, permissionRequest);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onPermissionRequestCanceled(this.f37421b, permissionRequest);
                 } else {
                     super.onPermissionRequestCanceled(permissionRequest);
                 }
@@ -1569,8 +1573,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048605, this, i2, prerenderStatus) == null) {
                 super.onPrerenderChanged(i2, prerenderStatus);
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().onPrerenderChanged(i2, prerenderStatus);
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().onPrerenderChanged(i2, prerenderStatus);
                 }
             }
         }
@@ -1581,11 +1585,11 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (interceptable == null || interceptable.invokeLI(1048606, this, webView, i2) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 super.onProgressChanged(webView, i2);
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onProgressChanged(this.f36592b, i2);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onProgressChanged(this.f37421b, i2);
                 }
-                if (webView == this.f36592b.mCurrentWebView && i2 == 100) {
-                    this.f36592b.mIsPageLoading = false;
+                if (webView == this.f37421b.mCurrentWebView && i2 == 100) {
+                    this.f37421b.mIsPageLoading = false;
                 }
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, webView.getUrl(), MonitorConstant.KeySectionType.PROGRESSCHANGED.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
@@ -1596,8 +1600,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
                 super.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onReachedMaxAppCacheSize(this.f36592b, j, j2, quotaUpdater);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onReachedMaxAppCacheSize(this.f37421b, j, j2, quotaUpdater);
                 }
             }
         }
@@ -1606,8 +1610,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onReceivedIcon(WebView webView, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048608, this, webView, bitmap) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onReceivedIcon(this.f36592b, bitmap);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onReceivedIcon(this.f37421b, bitmap);
                 } else {
                     super.onReceivedIcon(webView, bitmap);
                 }
@@ -1619,8 +1623,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048609, this, webView, str) == null) {
                 super.onReceivedTitle(webView, str);
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onReceivedTitle(this.f36592b, str);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onReceivedTitle(this.f37421b, str);
                 }
             }
         }
@@ -1629,8 +1633,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048610, this, webView, str, z) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onReceivedTouchIconUrl(this.f36592b, str, z);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onReceivedTouchIconUrl(this.f37421b, str, z);
                 } else {
                     super.onReceivedTouchIconUrl(webView, str, z);
                 }
@@ -1641,8 +1645,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onRequestFocus(WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048611, this, webView) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.onRequestFocus(this.f36592b);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.onRequestFocus(this.f37421b);
                 } else {
                     super.onRequestFocus(webView);
                 }
@@ -1654,8 +1658,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048612, this, webView, str) == null) {
                 super.onSetLoadURL(webView, str);
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().onSetLoadURLExt(this.f36592b, str);
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().onSetLoadURLExt(this.f37421b, str);
                 }
             }
         }
@@ -1664,10 +1668,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048613, this, view, i2, customViewCallback) == null) {
-                if (this.f36592b.mWebChromeClient != null ? this.f36592b.mWebChromeClient.onShowCustomView(this.f36592b, view, i2, customViewCallback) : false) {
+                if (this.f37421b.mWebChromeClient != null ? this.f37421b.mWebChromeClient.onShowCustomView(this.f37421b, view, i2, customViewCallback) : false) {
                     return;
                 }
-                BdSailorWebView bdSailorWebView = this.f36592b;
+                BdSailorWebView bdSailorWebView = this.f37421b;
                 bdSailorWebView.showCustomView(bdSailorWebView.getContext(), view, customViewCallback);
             }
         }
@@ -1676,10 +1680,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048614, this, view, customViewCallback) == null) {
-                if (this.f36592b.mWebChromeClient != null ? this.f36592b.mWebChromeClient.onShowCustomView(this.f36592b, view, customViewCallback) : false) {
+                if (this.f37421b.mWebChromeClient != null ? this.f37421b.mWebChromeClient.onShowCustomView(this.f37421b, view, customViewCallback) : false) {
                     return;
                 }
-                BdSailorWebView bdSailorWebView = this.f36592b;
+                BdSailorWebView bdSailorWebView = this.f37421b;
                 bdSailorWebView.showCustomView(bdSailorWebView.getContext(), view, customViewCallback);
             }
         }
@@ -1688,15 +1692,15 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048615, this, webView, valueCallback, fileChooserParams)) == null) ? this.f36592b.mWebChromeClient != null ? this.f36592b.mWebChromeClient.onShowFileChooser(this.f36592b, valueCallback, fileChooserParams) : super.onShowFileChooser(webView, valueCallback, fileChooserParams) : invokeLLL.booleanValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048615, this, webView, valueCallback, fileChooserParams)) == null) ? this.f37421b.mWebChromeClient != null ? this.f37421b.mWebChromeClient.onShowFileChooser(this.f37421b, valueCallback, fileChooserParams) : super.onShowFileChooser(webView, valueCallback, fileChooserParams) : invokeLLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebChromeClient
         public final void openFileChooser(ValueCallback<Uri> valueCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048616, this, valueCallback) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.openFileChooser(this.f36592b, valueCallback);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.openFileChooser(this.f37421b, valueCallback);
                 } else {
                     super.openFileChooser(valueCallback);
                 }
@@ -1707,8 +1711,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048617, this, valueCallback, str) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.openFileChooser(this.f36592b, valueCallback, str);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.openFileChooser(this.f37421b, valueCallback, str);
                 } else {
                     super.openFileChooser(valueCallback, str);
                 }
@@ -1719,8 +1723,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048618, this, valueCallback, str, str2) == null) {
-                if (this.f36592b.mWebChromeClient != null) {
-                    this.f36592b.mWebChromeClient.openFileChooser(this.f36592b, valueCallback, str, str2);
+                if (this.f37421b.mWebChromeClient != null) {
+                    this.f37421b.mWebChromeClient.openFileChooser(this.f37421b, valueCallback, str, str2);
                 } else {
                     super.openFileChooser(valueCallback, str, str2);
                 }
@@ -1733,12 +1737,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{webView, Integer.valueOf(i2), str, str2, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
                 super.performLongClick(webView, i2, str, str2, i3, i4);
                 if (BdZeusUtil.isWebkitLoaded() || Build.VERSION.SDK_INT >= 19) {
-                    if (this.f36592b.mWebViewExt != null && this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                        this.f36592b.mIsFunctionLayerShowing = true;
-                        this.f36592b.mWebViewExt.getWebChromeClientExt().performLongClickExt(this.f36592b, i2, str, str2, i3, i4);
+                    if (this.f37421b.mWebViewExt != null && this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                        this.f37421b.mIsFunctionLayerShowing = true;
+                        this.f37421b.mWebViewExt.getWebChromeClientExt().performLongClickExt(this.f37421b, i2, str, str2, i3, i4);
                     }
                     if (i2 == 5 || i2 == 8) {
-                        this.f36592b.getWebViewExt().updatePictureUrlListExt();
+                        this.f37421b.getWebViewExt().updatePictureUrlListExt();
                     }
                 }
             }
@@ -1750,12 +1754,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (interceptable == null || interceptable.invokeLLII(1048620, this, webView, hitTestResult, i2, i3) == null) {
                 super.performLongClick(webView, hitTestResult, i2, i3);
                 if (BdZeusUtil.isWebkitLoaded() || Build.VERSION.SDK_INT >= 19) {
-                    if (this.f36592b.mWebViewExt != null && this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                        this.f36592b.mIsFunctionLayerShowing = true;
-                        this.f36592b.mWebViewExt.getWebChromeClientExt().performLongClickExt(this.f36592b, hitTestResult, i2, i3);
+                    if (this.f37421b.mWebViewExt != null && this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                        this.f37421b.mIsFunctionLayerShowing = true;
+                        this.f37421b.mWebViewExt.getWebChromeClientExt().performLongClickExt(this.f37421b, hitTestResult, i2, i3);
                     }
                     if (hitTestResult.getType() == 5 || hitTestResult.getType() == 8) {
-                        this.f36592b.getWebViewExt().updatePictureUrlListExt();
+                        this.f37421b.getWebViewExt().updatePictureUrlListExt();
                     }
                 }
             }
@@ -1765,9 +1769,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void showMagnifier(WebView webView, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{webView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-                this.f36592b.mIsFunctionLayerShowing = true;
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().showMagnifierExt(this.f36592b, i2, i3, i4, i5);
+                this.f37421b.mIsFunctionLayerShowing = true;
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().showMagnifierExt(this.f37421b, i2, i3, i4, i5);
                 } else {
                     super.showMagnifier(webView, i2, i3, i4, i5);
                 }
@@ -1778,9 +1782,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void showSelectionActionDialog(WebView webView, int i2, int i3, int i4, int i5, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{webView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str}) == null) {
-                this.f36592b.mIsFunctionLayerShowing = true;
-                if (this.f36592b.mWebViewExt.getWebChromeClientExt() != null) {
-                    this.f36592b.mWebViewExt.getWebChromeClientExt().showSelectionActionDialogExt(this.f36592b, i2, i3, i4, i5, str);
+                this.f37421b.mIsFunctionLayerShowing = true;
+                if (this.f37421b.mWebViewExt.getWebChromeClientExt() != null) {
+                    this.f37421b.mWebViewExt.getWebChromeClientExt().showSelectionActionDialogExt(this.f37421b, i2, i3, i4, i5, str);
                 } else {
                     super.showSelectionActionDialog(webView, i2, i3, i4, i5, str);
                 }
@@ -1794,10 +1798,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f36593a;
+        public String[] f37422a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f36594b;
+        public final /* synthetic */ BdSailorWebView f37423b;
 
         public f(BdSailorWebView bdSailorWebView) {
             Interceptable interceptable = $ic;
@@ -1814,8 +1818,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                     return;
                 }
             }
-            this.f36594b = bdSailorWebView;
-            this.f36593a = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
+            this.f37423b = bdSailorWebView;
+            this.f37422a = new String[]{"wtai://", "tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "mailto", "smsto:"};
         }
 
         public /* synthetic */ f(BdSailorWebView bdSailorWebView, byte b2) {
@@ -1835,14 +1839,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3)) == null) {
                 boolean z = false;
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    BdSailorWebViewClientExt webViewClientExt = this.f36594b.mWebViewExt.getWebViewClientExt();
-                    BdSailorWebView bdSailorWebView = this.f36594b;
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    BdSailorWebViewClientExt webViewClientExt = this.f37423b.mWebViewExt.getWebViewClientExt();
+                    BdSailorWebView bdSailorWebView = this.f37423b;
                     z = webViewClientExt.shouldHandleImageExt(bdSailorWebView, str, str2, str3, bdSailorWebView.mCurrentWebView == webView);
                     Log.i("WebViewClient", "canHandleImage ret=".concat(String.valueOf(z)));
                 }
                 if (z) {
-                    this.f36594b.stopLoading();
+                    this.f37423b.stopLoading();
                     return true;
                 }
                 return super.canHandleImage(webView, str, str2, str3);
@@ -1856,7 +1860,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 Log.i("WebViewClient", "BeeFrame computeHookH5NavigationStep: offset=".concat(String.valueOf(i2)));
-                return this.f36594b.mWebViewExt.getWebViewClientExt() != null ? this.f36594b.mWebViewExt.getWebViewClientExt().computeHookH5NavigationStep(i2) : super.computeHookH5NavigationStep(i2);
+                return this.f37423b.mWebViewExt.getWebViewClientExt() != null ? this.f37423b.mWebViewExt.getWebViewClientExt().computeHookH5NavigationStep(i2) : super.computeHookH5NavigationStep(i2);
             }
             return invokeI.intValue;
         }
@@ -1867,11 +1871,11 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{webView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 super.doUpdateVisitedHistory(webView, str, z, z2, z3, z4);
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.doUpdateVisitedHistory(this.f36594b, str, z);
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.doUpdateVisitedHistory(this.f37423b, str, z);
                 }
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().doUpdateVisitedHistory(this.f36594b, str, z, z2, z3, z4);
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().doUpdateVisitedHistory(this.f37423b, str, z, z2, z3, z4);
                 }
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.DO_UPDATE_VISITED_HISTORY.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
@@ -1880,10 +1884,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onAbortResourceRequest(WebView webView, String str, String str2, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{webView, str, str2, Long.valueOf(j)}) == null) || !(webView instanceof WebView) || this.f36594b.isDestroyed() || this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{webView, str, str2, Long.valueOf(j)}) == null) || !(webView instanceof WebView) || this.f37423b.isDestroyed() || this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
-            this.f36594b.mWebViewExt.getWebViewClientExt().onAbortResourceRequest(this.f36594b, str, str2, j);
+            this.f37423b.mWebViewExt.getWebViewClientExt().onAbortResourceRequest(this.f37423b, str, str2, j);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
@@ -1891,8 +1895,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, Boolean.valueOf(z)}) == null) {
                 Log.i("pwa", "onCheckHasManifestAndServiceWorker has=" + z + ",url=" + str);
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onCheckHasManifestAndServiceWorker(this.f36594b, str, str2, z);
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onCheckHasManifestAndServiceWorker(this.f37423b, str, str2, z);
                 } else {
                     super.onCheckHasManifestAndServiceWorker(webView, str, str2, z);
                 }
@@ -1904,11 +1908,11 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{webView, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                 super.onDidAsyncWiseSearchStatusChanged(webView, str, i2, j);
-                if (this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+                if (this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                     return;
                 }
                 Log.i("WebViewClient", "onDidAsyncWiseSearchStatusChangedExt status : " + i2 + ", aUrl : " + str);
-                this.f36594b.mWebViewExt.getWebViewClientExt().onDidAsyncWiseSearchStatusChangedExt(this.f36594b, str, i2, j);
+                this.f37423b.mWebViewExt.getWebViewClientExt().onDidAsyncWiseSearchStatusChangedExt(this.f37423b, str, i2, j);
             }
         }
 
@@ -1916,8 +1920,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onDisplaySoftKeyboard(WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, webView) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onDisplaySoftKeyboardExt(this.f36594b);
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onDisplaySoftKeyboardExt(this.f37423b);
                 } else {
                     super.onDisplaySoftKeyboard(webView);
                 }
@@ -1927,21 +1931,21 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFirstContentfulPaint(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str) == null) || this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+            if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str) == null) || this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
             Log.i("WebViewClient", "FCPCallback onFirstContentfulPaintExt, aUrl : ".concat(String.valueOf(str)));
-            this.f36594b.mWebViewExt.getWebViewClientExt().onFirstContentfulPaintExt(this.f36594b, str);
+            this.f37423b.mWebViewExt.getWebViewClientExt().onFirstContentfulPaintExt(this.f37423b, str);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFirstImagePaint(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) || this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) || this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
             Log.i("WebViewClient", "FIPCallback onFirstImagePaintExt, aUrl : ".concat(String.valueOf(str)));
-            this.f36594b.mWebViewExt.getWebViewClientExt().onFirstImagePaintExt(this.f36594b, str);
+            this.f37423b.mWebViewExt.getWebViewClientExt().onFirstImagePaintExt(this.f37423b, str);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
@@ -1949,10 +1953,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048586, this, webView, str) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f36594b.perfLog(webView, "onFirstLayoutDid");
+                this.f37423b.perfLog(webView, "onFirstLayoutDid");
                 super.onFirstLayoutDid(webView, str);
-                if (this.f36594b.mWebViewExt != null && this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onFirstLayoutDidExt(this.f36594b, str);
+                if (this.f37423b.mWebViewExt != null && this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onFirstLayoutDidExt(this.f37423b, str);
                 }
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.DID_FIRST_LAYOUT.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
@@ -1963,39 +1967,27 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048587, this, webView, str) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f36594b.perfLog(webView, "onFirstPaintDid", "Started");
+                this.f37423b.perfLog(webView, "onFirstPaintDid", "Started");
                 super.onFirstPaintDid(webView, str);
-                if (this.f36594b.mWebViewExt != null && this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onFirstPaintDidExt(this.f36594b, str);
+                if (this.f37423b.mWebViewExt != null && this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onFirstPaintDidExt(this.f37423b, str);
                 }
-                this.f36594b.perfLog(webView, "onFirstPaintDid", "Finished");
-                this.f36594b.perfLog(ETAG.KEY_FIRST_PAINT, str);
+                this.f37423b.perfLog(webView, "onFirstPaintDid", "Finished");
+                this.f37423b.perfLog(ETAG.KEY_FIRST_PAINT, str);
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.DID_FIRST_PAINT.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
-        public final void onFirstScreenImagePaint(WebView webView, WebViewClient.FirstScreenImageInfo firstScreenImageInfo) {
+        public final void onFirstScreenImagePaintFinished(WebView webView, FirstScreenImageInfomation firstScreenImageInfomation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048588, this, webView, firstScreenImageInfo) == null) {
-                this.f36594b.perfLog(webView, "BdWebViewClientProxy.onFirstScreenImagePaint");
-                super.onFirstScreenImagePaint(webView, firstScreenImageInfo);
-                if (this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+            if (interceptable == null || interceptable.invokeLL(1048588, this, webView, firstScreenImageInfomation) == null) {
+                this.f37423b.perfLog(webView, "BdWebViewClientProxy.onFirstScreenImagePaintFinished");
+                if (this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                     return;
                 }
-                this.f36594b.perfLog(webView, "BdWebViewClientProxy.onFirstScreenImagePaint 22");
-                BdSailorWebViewClientExt.FirstScreenImageInfo firstScreenImageInfo2 = new BdSailorWebViewClientExt.FirstScreenImageInfo();
-                firstScreenImageInfo2.setHaveImageInScreen(firstScreenImageInfo.getHaveImageInScreen());
-                firstScreenImageInfo2.setUrl(firstScreenImageInfo.getUrl());
-                firstScreenImageInfo2.setImageCount(firstScreenImageInfo.getImageCount());
-                firstScreenImageInfo2.setErrorOccurredCount(firstScreenImageInfo.getErrorOccurredCount());
-                firstScreenImageInfo2.setPosXForMaxImage(firstScreenImageInfo.getPosXForMaxImage());
-                firstScreenImageInfo2.setPosYForMaxImage(firstScreenImageInfo.getPosYForMaxImage());
-                firstScreenImageInfo2.setPaintWidthForMaxImage(firstScreenImageInfo.getPaintWidthForMaxImage());
-                firstScreenImageInfo2.setPaintHeightForMaxImage(firstScreenImageInfo.getPaintHeightForMaxImage());
-                firstScreenImageInfo2.setTimeStampForMaxImage(firstScreenImageInfo.getTimeStampForMaxImage());
-                firstScreenImageInfo2.setMaxTimeStamp(firstScreenImageInfo.getMaxTimeStamp());
-                this.f36594b.mWebViewExt.getWebViewClientExt().onFirstScreenImagePaint(this.f36594b, firstScreenImageInfo2);
+                this.f37423b.perfLog(webView, "BdWebViewClientProxy.onFirstScreenImagePaintFinished 22");
+                this.f37423b.mWebViewExt.getWebViewClientExt().onFirstScreenImagePaintFinished(this.f37423b, firstScreenImageInfomation);
             }
         }
 
@@ -2004,35 +1996,35 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{webView, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
                 System.currentTimeMillis();
-                this.f36594b.perfLog(webView, "onFirstScreenPaintFinished");
+                this.f37423b.perfLog(webView, "onFirstScreenPaintFinished");
                 super.onFirstScreenPaintFinished(webView, str, i2, i3, i4, i5, i6, i7);
                 BdSailorWebViewClientExt.FirstScreenInfo firstScreenInfo = new BdSailorWebViewClientExt.FirstScreenInfo();
                 firstScreenInfo.setDiffDomcompleteAndFspTime(i7);
-                if (this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+                if (this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                     return;
                 }
-                this.f36594b.perfLog(webView, "onFirstScreenPaintFinished 22");
-                this.f36594b.mWebViewExt.getWebViewClientExt().onFirstScreenPaintFinishedExt(this.f36594b, str);
-                this.f36594b.mWebViewExt.getWebViewClientExt().onFirstScreenPaintFinishedExt(this.f36594b, str, firstScreenInfo);
+                this.f37423b.perfLog(webView, "onFirstScreenPaintFinished 22");
+                this.f37423b.mWebViewExt.getWebViewClientExt().onFirstScreenPaintFinishedExt(this.f37423b, str);
+                this.f37423b.mWebViewExt.getWebViewClientExt().onFirstScreenPaintFinishedExt(this.f37423b, str, firstScreenInfo);
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFirstTextPaint(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048590, this, webView, str) == null) || this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048590, this, webView, str) == null) || this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
             Log.i("WebViewClient", "FTPCallback onFirstTextPaintExt, aUrl : ".concat(String.valueOf(str)));
-            this.f36594b.mWebViewExt.getWebViewClientExt().onFirstTextPaintExt(this.f36594b, str);
+            this.f37423b.mWebViewExt.getWebViewClientExt().onFirstTextPaintExt(this.f37423b, str);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onFormResubmission(WebView webView, Message message, Message message2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048591, this, webView, message, message2) == null) {
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onFormResubmission(this.f36594b, message, message2);
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onFormResubmission(this.f37423b, message, message2);
                 } else {
                     super.onFormResubmission(webView, message, message2);
                 }
@@ -2043,8 +2035,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onFullScreenMode(WebView webView, boolean z, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{webView, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onFullScreenModeExt(this.f36594b, z, i2, i3);
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onFullScreenModeExt(this.f37423b, z, i2, i3);
                 } else {
                     super.onFullScreenMode(webView, z, i2, i3);
                 }
@@ -2055,8 +2047,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onGestureFlingEnded(WebView webView, int i2, int i3) {
             BdSailorWebViewClientExt webViewClientExt;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLII(1048593, this, webView, i2, i3) == null) && webView == this.f36594b.mCurrentWebView && (webViewClientExt = this.f36594b.getWebViewExt().getWebViewClientExt()) != null) {
-                webViewClientExt.onGestureFlingEnded(this.f36594b, i2, i3);
+            if ((interceptable == null || interceptable.invokeLII(1048593, this, webView, i2, i3) == null) && webView == this.f37423b.mCurrentWebView && (webViewClientExt = this.f37423b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onGestureFlingEnded(this.f37423b, i2, i3);
             }
         }
 
@@ -2064,8 +2056,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onGestureScrollEnded(WebView webView, int i2, int i3) {
             BdSailorWebViewClientExt webViewClientExt;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLII(1048594, this, webView, i2, i3) == null) && webView == this.f36594b.mCurrentWebView && (webViewClientExt = this.f36594b.getWebViewExt().getWebViewClientExt()) != null) {
-                webViewClientExt.onGestureScrollEnded(this.f36594b, i2, i3);
+            if ((interceptable == null || interceptable.invokeLII(1048594, this, webView, i2, i3) == null) && webView == this.f37423b.mCurrentWebView && (webViewClientExt = this.f37423b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onGestureScrollEnded(this.f37423b, i2, i3);
             }
         }
 
@@ -2073,8 +2065,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onGestureScrollStarted(WebView webView, int i2, int i3) {
             BdSailorWebViewClientExt webViewClientExt;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLII(1048595, this, webView, i2, i3) == null) && webView == this.f36594b.mCurrentWebView && (webViewClientExt = this.f36594b.getWebViewExt().getWebViewClientExt()) != null) {
-                webViewClientExt.onGestureScrollStarted(this.f36594b, i2, i3);
+            if ((interceptable == null || interceptable.invokeLII(1048595, this, webView, i2, i3) == null) && webView == this.f37423b.mCurrentWebView && (webViewClientExt = this.f37423b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onGestureScrollStarted(this.f37423b, i2, i3);
             }
         }
 
@@ -2083,7 +2075,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             InterceptResult invokeLILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048596, this, webView, i2, str, str2)) == null) {
-                String onGetErrorHtmlExt = (!(webView instanceof WebView) || this.f36594b.isDestroyed() || this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) ? null : this.f36594b.mWebViewExt.getWebViewClientExt().onGetErrorHtmlExt(this.f36594b, i2, str, str2);
+                String onGetErrorHtmlExt = (!(webView instanceof WebView) || this.f37423b.isDestroyed() || this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) ? null : this.f37423b.mWebViewExt.getWebViewClientExt().onGetErrorHtmlExt(this.f37423b, i2, str, str2);
                 return onGetErrorHtmlExt != null ? onGetErrorHtmlExt : BdSailorPlatform.getDefaultErrorPageHtml(webView.getContext());
             }
             return (String) invokeLILL.objValue;
@@ -2092,8 +2084,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onGoBackOrForward(WebView webView, int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048597, this, webView, i2) == null) && webView == this.f36594b.mCurrentWebView) {
-                this.f36594b.goBackOrForward(i2);
+            if ((interceptable == null || interceptable.invokeLI(1048597, this, webView, i2) == null) && webView == this.f37423b.mCurrentWebView) {
+                this.f37423b.goBackOrForward(i2);
             }
         }
 
@@ -2101,8 +2093,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onGoBackOrForwardAnimationFinish(WebView webView, int i2) {
             BdSailorWebViewClientExt webViewClientExt;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048598, this, webView, i2) == null) && webView == this.f36594b.mCurrentWebView && (webViewClientExt = this.f36594b.getWebViewExt().getWebViewClientExt()) != null) {
-                webViewClientExt.onGoBackOrForwardAnimationFinish(this.f36594b, i2);
+            if ((interceptable == null || interceptable.invokeLI(1048598, this, webView, i2) == null) && webView == this.f37423b.mCurrentWebView && (webViewClientExt = this.f37423b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onGoBackOrForwardAnimationFinish(this.f37423b, i2);
             }
         }
 
@@ -2110,8 +2102,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onGoBackOrForwardAnimationStart(WebView webView, int i2) {
             BdSailorWebViewClientExt webViewClientExt;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048599, this, webView, i2) == null) && webView == this.f36594b.mCurrentWebView && (webViewClientExt = this.f36594b.getWebViewExt().getWebViewClientExt()) != null) {
-                webViewClientExt.onGoBackOrForwardAnimationStart(this.f36594b, i2);
+            if ((interceptable == null || interceptable.invokeLI(1048599, this, webView, i2) == null) && webView == this.f37423b.mCurrentWebView && (webViewClientExt = this.f37423b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onGoBackOrForwardAnimationStart(this.f37423b, i2);
             }
         }
 
@@ -2119,8 +2111,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onGotNotResponse(WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048600, this, webView) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onGotNotResponse(this.f36594b);
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onGotNotResponse(this.f37423b);
                 } else {
                     super.onGotNotResponse(webView);
                 }
@@ -2132,8 +2124,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
                 Log.i("WebViewClient", "BeeFrame onHandleBackForwardBeyondHistory: offset=".concat(String.valueOf(i2)));
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onHandleBackForwardBeyondHistory(i2);
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onHandleBackForwardBeyondHistory(i2);
                 } else {
                     super.onHandleBackForwardBeyondHistory(i2);
                 }
@@ -2144,8 +2136,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onHasVideo(WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048602, this, webView) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onHasVideoExt(this.f36594b);
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onHasVideoExt(this.f37423b);
                 } else {
                     super.onHasVideo(webView);
                 }
@@ -2156,8 +2148,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onHideSoftKeyboard(WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048603, this, webView) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onHideSoftKeyboardExt(this.f36594b);
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onHideSoftKeyboardExt(this.f37423b);
                 } else {
                     super.onHideSoftKeyboard(webView);
                 }
@@ -2165,10 +2157,23 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
+        public final void onJsCodeCacheFinished(JsCodeCacheResult jsCodeCacheResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048604, this, jsCodeCacheResult) == null) {
+                Log.i("WebViewClient", "[zhh] CodeCache. businessId = %s, jsPath = %s, isCacheUsed = %b", jsCodeCacheResult.businessId, jsCodeCacheResult.jsPath, Boolean.valueOf(jsCodeCacheResult.isCacheUsed));
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onJsCodeCacheFinished(jsCodeCacheResult);
+                } else {
+                    super.onJsCodeCacheFinished(jsCodeCacheResult);
+                }
+            }
+        }
+
+        @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onKeywordExtension(WebView webView, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048604, this, webView, str, str2) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null ? this.f36594b.mWebViewExt.getWebViewClientExt().onKeywordExtensionExt(this.f36594b, str, str2) : false) {
+            if (interceptable == null || interceptable.invokeLLL(1048605, this, webView, str, str2) == null) {
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null ? this.f37423b.mWebViewExt.getWebViewClientExt().onKeywordExtensionExt(this.f37423b, str, str2) : false) {
                     return;
                 }
                 super.onKeywordExtension(webView, str, str2);
@@ -2178,9 +2183,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onLoadResource(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048605, this, webView, str) == null) {
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onLoadResource(this.f36594b, str);
+            if (interceptable == null || interceptable.invokeLL(1048606, this, webView, str) == null) {
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onLoadResource(this.f37423b, str);
                 } else {
                     super.onLoadResource(webView, str);
                 }
@@ -2190,7 +2195,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onMagicFilterHideElement(WebView webView, String str, int i2, int i3, int i4, int i5, int i6) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{webView, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{webView, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
                 super.onMagicFilterHideElement(webView, str, i2, i3, i4, i5, i6);
             }
         }
@@ -2198,7 +2203,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onMainResourceHttpcodeDid(WebView webView, int i2, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048607, this, webView, i2, str) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048608, this, webView, i2, str) == null) {
                 super.onMainResourceHttpcodeDid(webView, i2, str);
             }
         }
@@ -2206,7 +2211,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onMainResourceResponseDid(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048608, this, webView, str) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048609, this, webView, str) == null) {
                 super.onMainResourceResponseDid(webView, str);
             }
         }
@@ -2215,8 +2220,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onNavigationAnimationFinish(WebView webView, boolean z, boolean z2) {
             BdSailorWebViewClientExt webViewClientExt;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && webView == this.f36594b.mCurrentWebView && (webViewClientExt = this.f36594b.getWebViewExt().getWebViewClientExt()) != null) {
-                webViewClientExt.onNavigationAnimationFinish(this.f36594b, z, z2);
+            if ((interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && webView == this.f37423b.mCurrentWebView && (webViewClientExt = this.f37423b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onNavigationAnimationFinish(this.f37423b, z, z2);
             }
         }
 
@@ -2224,31 +2229,44 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onNavigationAnimationStart(WebView webView, boolean z) {
             BdSailorWebViewClientExt webViewClientExt;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048610, this, webView, z) == null) && webView == this.f36594b.mCurrentWebView && (webViewClientExt = this.f36594b.getWebViewExt().getWebViewClientExt()) != null) {
-                webViewClientExt.onNavigationAnimationStart(this.f36594b, z);
+            if ((interceptable == null || interceptable.invokeLZ(1048611, this, webView, z) == null) && webView == this.f37423b.mCurrentWebView && (webViewClientExt = this.f37423b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onNavigationAnimationStart(this.f37423b, z);
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onNewHistoryItem(WebView webView, String str, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048611, this, webView, str, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048612, this, webView, str, i2) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (this.f36594b.mWebViewExt != null && this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onNewPage(this.f36594b);
+                if (this.f37423b.mWebViewExt != null && this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onNewPage(this.f37423b);
                 }
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.NEW_HISTORY_ITEM.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
+        public final void onNotifyVideoInfo(VideoSniffingInfo videoSniffingInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048613, this, videoSniffingInfo) == null) {
+                Log.i("parse-video", "BdSailorWebView onNotifyVideoInfo video info:  url= " + videoSniffingInfo.GetSourceUrl() + " cookies= " + videoSniffingInfo.GetCookie() + " userAgent= " + videoSniffingInfo.GetUserAgent() + " referrer= " + videoSniffingInfo.GetReferrer() + " poster url= " + videoSniffingInfo.GetPosterImageUrl() + " page title= " + videoSniffingInfo.GetPageTitle() + " page url= " + videoSniffingInfo.GetPageUrl());
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onNotifyVideoInfo(videoSniffingInfo);
+                } else {
+                    super.onNotifyVideoInfo(videoSniffingInfo);
+                }
+            }
+        }
+
+        @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPageCanBeScaled(WebView webView, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048612, this, webView, z) == null) {
-                if (this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+            if (interceptable == null || interceptable.invokeLZ(1048614, this, webView, z) == null) {
+                if (this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                     super.onPageCanBeScaled(webView, z);
                 } else {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onPageCanBeScaledExt(this.f36594b, z);
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onPageCanBeScaledExt(this.f37423b, z);
                 }
             }
         }
@@ -2256,11 +2274,11 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPageCommitVisible(WebView webView, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048613, this, webView, str, z) == null) {
+            if (interceptable == null || interceptable.invokeLLZ(1048615, this, webView, str, z) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 super.onPageCommitVisible(webView, str, z);
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onPageCommitVisible(this.f36594b, str);
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onPageCommitVisible(this.f37423b, str);
                 }
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.PAGE_COMMIT_VISIBLE.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
@@ -2269,15 +2287,15 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048614, this, webView, str) == null) {
-                this.f36594b.perfLog(webView, "onPageFinished");
+            if (interceptable == null || interceptable.invokeLL(1048616, this, webView, str) == null) {
+                this.f37423b.perfLog(webView, "onPageFinished");
                 long currentTimeMillis = System.currentTimeMillis();
                 super.onPageFinished(webView, str);
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onPageFinished(this.f36594b, str);
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onPageFinished(this.f37423b, str);
                 }
-                if (webView == this.f36594b.mCurrentWebView) {
-                    this.f36594b.mIsPageLoading = false;
+                if (webView == this.f37423b.mCurrentWebView) {
+                    this.f37423b.mIsPageLoading = false;
                 }
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.PAGEFINISH.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
@@ -2286,12 +2304,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048615, this, webView, str, bitmap) == null) {
-                this.f36594b.perfLog(webView, "onPageStarted");
+            if (interceptable == null || interceptable.invokeLLL(1048617, this, webView, str, bitmap) == null) {
+                this.f37423b.perfLog(webView, "onPageStarted");
                 long currentTimeMillis = System.currentTimeMillis();
                 super.onPageStarted(webView, str, bitmap);
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onPageStarted(this.f36594b, str, bitmap);
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onPageStarted(this.f37423b, str, bitmap);
                 }
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.PAGESTART.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
@@ -2300,9 +2318,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPageSwitching(WebView webView) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048616, this, webView) == null) {
-                if (this.f36594b.isAutoShowTitlebar()) {
-                    this.f36594b.showEmbeddedTitleBar(false);
+            if (interceptable == null || interceptable.invokeL(1048618, this, webView) == null) {
+                if (this.f37423b.isAutoShowTitlebar()) {
+                    this.f37423b.showEmbeddedTitleBar(false);
                 }
                 super.onPageSwitching(webView);
             }
@@ -2311,9 +2329,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPausePlugin() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onPausePluginExt(this.f36594b);
+            if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onPausePluginExt(this.f37423b);
                 } else {
                     super.onPausePlugin();
                 }
@@ -2323,9 +2341,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPlayPlugin() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onPlayPluginExt(this.f36594b);
+            if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onPlayPluginExt(this.f37423b);
                 } else {
                     super.onPlayPlugin();
                 }
@@ -2335,12 +2353,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onPreloadUrlFound(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048619, this, webView, str) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048621, this, webView, str) == null) {
                 super.onPreloadUrlFound(webView, str);
-                if (this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+                if (this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                     super.onPreloadUrlFound(webView, str);
                 } else {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onPreloadUrlFoundExt(this.f36594b, str);
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onPreloadUrlFoundExt(this.f37423b, str);
                 }
             }
         }
@@ -2348,9 +2366,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onProceededAfterSslError(WebView webView, SslError sslError) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048620, this, webView, sslError) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onProceededAfterSslErrorExt(this.f36594b, sslError);
+            if (interceptable == null || interceptable.invokeLL(1048622, this, webView, sslError) == null) {
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onProceededAfterSslErrorExt(this.f37423b, sslError);
                 } else {
                     super.onProceededAfterSslError(webView, sslError);
                 }
@@ -2361,15 +2379,15 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final String onProcessWebSearchUrl(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048621, this, webView, str)) == null) ? (this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) ? super.onProcessWebSearchUrl(webView, str) : this.f36594b.mWebViewExt.getWebViewClientExt().onProcessWebSearchUrl(this.f36594b, str) : (String) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048623, this, webView, str)) == null) ? (this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) ? super.onProcessWebSearchUrl(webView, str) : this.f37423b.mWebViewExt.getWebViewClientExt().onProcessWebSearchUrl(this.f37423b, str) : (String) invokeLL.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048622, this, webView, clientCertRequest) == null) {
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onReceivedClientCertRequest(this.f36594b, clientCertRequest);
+            if (interceptable == null || interceptable.invokeLL(1048624, this, webView, clientCertRequest) == null) {
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onReceivedClientCertRequest(this.f37423b, clientCertRequest);
                 } else {
                     super.onReceivedClientCertRequest(webView, clientCertRequest);
                 }
@@ -2379,10 +2397,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedError(WebView webView, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(1048623, this, webView, i2, str, str2) == null) {
+            if (interceptable == null || interceptable.invokeLILL(1048625, this, webView, i2, str, str2) == null) {
                 super.onReceivedError(webView, i2, str, str2);
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onReceivedError(this.f36594b, i2, str, str2);
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onReceivedError(this.f37423b, i2, str, str2);
                 }
             }
         }
@@ -2390,14 +2408,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048624, this, webView, webResourceRequest, webResourceError) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048626, this, webView, webResourceRequest, webResourceError) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
-                if (this.f36594b.mWebViewClient != null) {
+                if (this.f37423b.mWebViewClient != null) {
                     if (webResourceRequest.isForMainFrame() && (webResourceRequest.getUrl().toString().startsWith("http://") || webResourceRequest.getUrl().toString().startsWith("https://"))) {
-                        this.f36594b.mWebViewClient.onReceivedError(this.f36594b, webResourceError.getErrorCode(), webResourceError.getDescription().toString(), webResourceRequest.getUrl().toString());
+                        this.f37423b.mWebViewClient.onReceivedError(this.f37423b, webResourceError.getErrorCode(), webResourceError.getDescription().toString(), webResourceRequest.getUrl().toString());
                     }
-                    this.f36594b.mWebViewClient.onReceivedError(this.f36594b, webResourceRequest, webResourceError);
+                    this.f37423b.mWebViewClient.onReceivedError(this.f37423b, webResourceRequest, webResourceError);
                 }
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, webView.getUrl(), MonitorConstant.KeySectionType.RECEIVED_ERROR.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }
@@ -2406,9 +2424,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048625, this, webView, httpAuthHandler, str, str2) == null) {
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onReceivedHttpAuthRequest(this.f36594b, httpAuthHandler, str, str2);
+            if (interceptable == null || interceptable.invokeLLLL(1048627, this, webView, httpAuthHandler, str, str2) == null) {
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onReceivedHttpAuthRequest(this.f37423b, httpAuthHandler, str, str2);
                 } else {
                     super.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
                 }
@@ -2418,9 +2436,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048626, this, webView, webResourceRequest, webResourceResponse) == null) {
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onReceivedHttpError(this.f36594b, webResourceRequest, webResourceResponse);
+            if (interceptable == null || interceptable.invokeLLL(1048628, this, webView, webResourceRequest, webResourceResponse) == null) {
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onReceivedHttpError(this.f37423b, webResourceRequest, webResourceResponse);
                 } else {
                     super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
                 }
@@ -2430,9 +2448,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048627, this, webView, str, str2, str3) == null) {
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onReceivedLoginRequest(this.f36594b, str, str2, str3);
+            if (interceptable == null || interceptable.invokeLLLL(1048629, this, webView, str, str2, str3) == null) {
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onReceivedLoginRequest(this.f37423b, str, str2, str3);
                 } else {
                     super.onReceivedLoginRequest(webView, str, str2, str3);
                 }
@@ -2442,12 +2460,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048628, this, webView, sslErrorHandler, sslError) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048630, this, webView, sslErrorHandler, sslError) == null) {
                 com.baidu.browser.sailor.feature.a featureByName = BdSailorPlatform.getInstance().getFeatureByName(BdSailorConfig.SAILOR_BASE_SSL);
                 if (featureByName != null && featureByName.isEnable()) {
                     super.onReceivedSslError(webView, sslErrorHandler, sslError);
-                } else if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onReceivedSslError(this.f36594b, sslErrorHandler, sslError);
+                } else if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onReceivedSslError(this.f37423b, sslErrorHandler, sslError);
                 }
             }
         }
@@ -2456,36 +2474,36 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048629, this, webView, renderProcessGoneDetail)) == null) ? this.f36594b.mWebViewClient != null ? this.f36594b.mWebViewClient.onRenderProcessGone(this.f36594b, renderProcessGoneDetail) : super.onRenderProcessGone(webView, renderProcessGoneDetail) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048631, this, webView, renderProcessGoneDetail)) == null) ? this.f37423b.mWebViewClient != null ? this.f37423b.mWebViewClient.onRenderProcessGone(this.f37423b, renderProcessGoneDetail) : super.onRenderProcessGone(webView, renderProcessGoneDetail) : invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onResourceLoaded(WebView webView, String str, long j, String str2, String str3, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{webView, str, Long.valueOf(j), str2, str3, Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{webView, str, Long.valueOf(j), str2, str3, Integer.valueOf(i2)}) == null) {
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onRestoreFromCache(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048631, this, webView, str) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+            if (interceptable == null || interceptable.invokeLL(1048633, this, webView, str) == null) {
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                     super.onRestoreFromCache(webView, str);
                     return;
                 }
-                this.f36594b.mWebViewExt.getWebViewClientExt().onRestoreFromPageCacheDid(this.f36594b, str);
-                this.f36594b.mWebViewExt.getWebViewClientExt().onRestoreFromCache(this.f36594b, str);
+                this.f37423b.mWebViewExt.getWebViewClientExt().onRestoreFromPageCacheDid(this.f37423b, str);
+                this.f37423b.mWebViewExt.getWebViewClientExt().onRestoreFromCache(this.f37423b, str);
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onRestoreFromPageCacheDid(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048632, this, webView, str) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048634, this, webView, str) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onRestoreFromPageCacheDid(this.f36594b, str);
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onRestoreFromPageCacheDid(this.f37423b, str);
                 } else {
                     super.onRestoreFromPageCacheDid(webView, str);
                 }
@@ -2496,9 +2514,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onResumePlugin() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onResumePluginExt(this.f36594b);
+            if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onResumePluginExt(this.f37423b);
                 } else {
                     super.onResumePlugin();
                 }
@@ -2508,9 +2526,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onScaleChanged(WebView webView, float f2, float f3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onScaleChanged(this.f36594b, f2, f3);
+            if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onScaleChanged(this.f37423b, f2, f3);
                 } else {
                     super.onScaleChanged(webView, f2, f3);
                 }
@@ -2520,21 +2538,21 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onSearchLandingPageClicked(WebView webView, String str, String str2, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{webView, str, str2, Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{webView, str, str2, Long.valueOf(j)}) == null) {
                 super.onSearchLandingPageClicked(webView, str, str2, j);
-                if (this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+                if (this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                     return;
                 }
-                this.f36594b.mWebViewExt.getWebViewClientExt().onSearchLandingPageClicked(this.f36594b, str, str2, j);
+                this.f37423b.mWebViewExt.getWebViewClientExt().onSearchLandingPageClicked(this.f37423b, str, str2, j);
             }
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onSecurityCheckResult(WebView webView, String str, WebViewClient.SecurityInfo securityInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048636, this, webView, str, securityInfo) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onSecurityCheckResultExt(this.f36594b, str, securityInfo);
+            if (interceptable == null || interceptable.invokeLLL(1048638, this, webView, str, securityInfo) == null) {
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onSecurityCheckResultExt(this.f37423b, str, securityInfo);
                 }
                 super.onSecurityCheckResult(webView, str, securityInfo);
             }
@@ -2544,8 +2562,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onStartFirstNavigation(WebView webView, String str, boolean z, boolean z2, boolean z3) {
             BdSailorWebViewClientExt webViewClientExt;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{webView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && webView == this.f36594b.mCurrentWebView && (webViewClientExt = this.f36594b.getWebViewExt().getWebViewClientExt()) != null) {
-                webViewClientExt.onStartFirstNavigation(this.f36594b, str, z, z2, z3);
+            if ((interceptable == null || interceptable.invokeCommon(1048639, this, new Object[]{webView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && webView == this.f37423b.mCurrentWebView && (webViewClientExt = this.f37423b.getWebViewExt().getWebViewClientExt()) != null) {
+                webViewClientExt.onStartFirstNavigation(this.f37423b, str, z, z2, z3);
             }
         }
 
@@ -2553,11 +2571,11 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean onSubFrameBeforeRequest(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048638, this, webView, str)) == null) {
-                if (!(webView instanceof WebView) || this.f36594b.isDestroyed() || this.f36594b.mWebViewExt == null || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048640, this, webView, str)) == null) {
+                if (!(webView instanceof WebView) || this.f37423b.isDestroyed() || this.f37423b.mWebViewExt == null || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                     return false;
                 }
-                return this.f36594b.mWebViewExt.getWebViewClientExt().onSubFrameBeforeRequest(this.f36594b, str);
+                return this.f37423b.mWebViewExt.getWebViewClientExt().onSubFrameBeforeRequest(this.f37423b, str);
             }
             return invokeLL.booleanValue;
         }
@@ -2565,9 +2583,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onSubjectsCollected(WebView webView, boolean z, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048639, this, new Object[]{webView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onSubjectsCollectedExt(this.f36594b, z, i2);
+            if (interceptable == null || interceptable.invokeCommon(1048641, this, new Object[]{webView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onSubjectsCollectedExt(this.f37423b, z, i2);
                 } else {
                     super.onSubjectsCollected(webView, z, i2);
                 }
@@ -2578,16 +2596,16 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean onSupportsForceZoomScale(WebView webView) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, webView)) == null) ? this.f36594b.mWebViewExt.getWebViewClientExt() != null ? this.f36594b.mWebViewExt.getWebViewClientExt().onSupportsForceZoomScale(this.f36594b) : super.onSupportsForceZoomScale(webView) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, webView)) == null) ? this.f37423b.mWebViewExt.getWebViewClientExt() != null ? this.f37423b.mWebViewExt.getWebViewClientExt().onSupportsForceZoomScale(this.f37423b) : super.onSupportsForceZoomScale(webView) : invokeL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean onTextCopied(WebView webView) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, webView)) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().onTextCopiedExt(this.f36594b);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, webView)) == null) {
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().onTextCopiedExt(this.f37423b);
                 }
                 return super.onTextCopied(webView);
             }
@@ -2597,9 +2615,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048642, this, webView, keyEvent) == null) {
-                if (this.f36594b.mWebViewClient != null) {
-                    this.f36594b.mWebViewClient.onUnhandledKeyEvent(this.f36594b, keyEvent);
+            if (interceptable == null || interceptable.invokeLL(1048644, this, webView, keyEvent) == null) {
+                if (this.f37423b.mWebViewClient != null) {
+                    this.f37423b.mWebViewClient.onUnhandledKeyEvent(this.f37423b, keyEvent);
                 } else {
                     super.onUnhandledKeyEvent(webView, keyEvent);
                 }
@@ -2609,19 +2627,19 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void onUpdateTextFieldNextPreStatus(WebView webView, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f36594b.mWebViewExt.getWebViewClientExt() == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f37423b.mWebViewExt.getWebViewClientExt() == null) {
                 return;
             }
-            this.f36594b.mWebViewExt.getWebViewClientExt().onUpdateTextFieldNextPreStatus(this.f36594b, z, z2);
+            this.f37423b.mWebViewExt.getWebViewClientExt().onUpdateTextFieldNextPreStatus(this.f37423b, z, z2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048644, this, webView, webResourceRequest)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048646, this, webView, webResourceRequest)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                WebResourceResponse shouldInterceptRequest = this.f36594b.mWebViewClient != null ? this.f36594b.mWebViewClient.shouldInterceptRequest(this.f36594b, webResourceRequest) : null;
+                WebResourceResponse shouldInterceptRequest = this.f37423b.mWebViewClient != null ? this.f37423b.mWebViewClient.shouldInterceptRequest(this.f37423b, webResourceRequest) : null;
                 if (shouldInterceptRequest == null) {
                     shouldInterceptRequest = shouldInterceptRequest(webView, webResourceRequest.getUrl().toString());
                 }
@@ -2635,9 +2653,9 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048645, this, webView, str)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048647, this, webView, str)) == null) {
                 WebResourceResponse shouldInterceptRequest = super.shouldInterceptRequest(webView, str);
-                return (shouldInterceptRequest == null && this.f36594b.mWebViewClient != null) ? this.f36594b.mWebViewClient.shouldInterceptRequest(this.f36594b, str) : shouldInterceptRequest;
+                return (shouldInterceptRequest == null && this.f37423b.mWebViewClient != null) ? this.f37423b.mWebViewClient.shouldInterceptRequest(this.f37423b, str) : shouldInterceptRequest;
             }
             return (WebResourceResponse) invokeLL.objValue;
         }
@@ -2646,16 +2664,16 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean shouldKeywordExtension(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048646, this, webView, str)) == null) ? this.f36594b.mWebViewExt.getWebViewClientExt() != null ? this.f36594b.mWebViewExt.getWebViewClientExt().shouldKeywordExtensionExt(this.f36594b, str) : super.shouldKeywordExtension(webView, str) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048648, this, webView, str)) == null) ? this.f37423b.mWebViewExt.getWebViewClientExt() != null ? this.f37423b.mWebViewExt.getWebViewClientExt().shouldKeywordExtensionExt(this.f37423b, str) : super.shouldKeywordExtension(webView, str) : invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean shouldOpenFlash(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048647, this, webView, str)) == null) {
-                if (this.f36594b.mWebViewExt.getWebViewClientExt() != null) {
-                    this.f36594b.mWebViewExt.getWebViewClientExt().shouldOpenFlashExt(this.f36594b, str);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048649, this, webView, str)) == null) {
+                if (this.f37423b.mWebViewExt.getWebViewClientExt() != null) {
+                    this.f37423b.mWebViewExt.getWebViewClientExt().shouldOpenFlashExt(this.f37423b, str);
                 }
                 return super.shouldOpenFlash(webView, str);
             }
@@ -2666,16 +2684,16 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048648, this, webView, keyEvent)) == null) ? this.f36594b.mWebViewClient != null ? this.f36594b.mWebViewClient.shouldOverrideKeyEvent(this.f36594b, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048650, this, webView, keyEvent)) == null) ? this.f37423b.mWebViewClient != null ? this.f37423b.mWebViewClient.shouldOverrideKeyEvent(this.f37423b, keyEvent) : super.shouldOverrideKeyEvent(webView, keyEvent) : invokeLL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final boolean shouldOverrideSpecialUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048649, this, webView, str)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048651, this, webView, str)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                boolean shouldOverrideUrlLoading = this.f36594b.mWebViewClient != null ? this.f36594b.mWebViewClient.shouldOverrideUrlLoading(this.f36594b, str) : false;
+                boolean shouldOverrideUrlLoading = this.f37423b.mWebViewClient != null ? this.f37423b.mWebViewClient.shouldOverrideUrlLoading(this.f37423b, str) : false;
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.SHOULD_SPECIAL_LOADING.ordinal(), System.currentTimeMillis() - currentTimeMillis);
                 return shouldOverrideUrlLoading;
             }
@@ -2686,13 +2704,13 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048650, this, webView, webResourceRequest)) == null) {
-                this.f36594b.perfLog(webView, "shouldOverrideUrlLoading");
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048652, this, webView, webResourceRequest)) == null) {
+                this.f37423b.perfLog(webView, "shouldOverrideUrlLoading");
                 long currentTimeMillis = System.currentTimeMillis();
                 String uri = webResourceRequest.getUrl().toString();
                 webView.getSecureProcessor().a(uri);
                 int i2 = 0;
-                boolean shouldOverrideUrlLoading = this.f36594b.mWebViewClient != null ? this.f36594b.mWebViewClient.shouldOverrideUrlLoading(this.f36594b, webResourceRequest) : false;
+                boolean shouldOverrideUrlLoading = this.f37423b.mWebViewClient != null ? this.f37423b.mWebViewClient.shouldOverrideUrlLoading(this.f37423b, webResourceRequest) : false;
                 if (!shouldOverrideUrlLoading) {
                     shouldOverrideUrlLoading = super.shouldOverrideUrlLoading(webView, webResourceRequest);
                 }
@@ -2700,7 +2718,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                     shouldOverrideUrlLoading = shouldOverrideUrlLoading(webView, uri);
                 }
                 if (shouldOverrideUrlLoading && !TextUtils.isEmpty(uri)) {
-                    String[] strArr = this.f36593a;
+                    String[] strArr = this.f37422a;
                     int length = strArr.length;
                     while (true) {
                         if (i2 >= length) {
@@ -2723,8 +2741,8 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048651, this, webView, str)) == null) {
-                boolean shouldOverrideUrlLoading = this.f36594b.mWebViewClient != null ? this.f36594b.mWebViewClient.shouldOverrideUrlLoading(this.f36594b, str) : false;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048653, this, webView, str)) == null) {
+                boolean shouldOverrideUrlLoading = this.f37423b.mWebViewClient != null ? this.f37423b.mWebViewClient.shouldOverrideUrlLoading(this.f37423b, str) : false;
                 return !shouldOverrideUrlLoading ? super.shouldOverrideUrlLoading(webView, str) : shouldOverrideUrlLoading;
             }
             return invokeLL.booleanValue;
@@ -2733,7 +2751,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         @Override // com.baidu.webkit.sdk.WebViewClient
         public final void shouldPageRollBack(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048652, this, webView, str) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048654, this, webView, str) == null) {
             }
         }
     }
@@ -2781,7 +2799,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f36595a;
+        public final /* synthetic */ BdSailorWebView f37424a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(BdSailorWebView bdSailorWebView, WebView webView) {
@@ -2801,70 +2819,70 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                     return;
                 }
             }
-            this.f36595a = bdSailorWebView;
+            this.f37424a = bdSailorWebView;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final boolean canGoBack() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36595a.canGoBack() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37424a.canGoBack() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final boolean canGoBackOrForward(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f36595a.canGoBackOrForward(i2) : invokeI.booleanValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f37424a.canGoBackOrForward(i2) : invokeI.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final boolean canGoForward() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36595a.canGoForward() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37424a.canGoForward() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final View getCurrentTitleBar() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36595a.getCurrentTitleBar() : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37424a.getCurrentTitleBar() : (View) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final View getEmbeddedTitlebar() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36595a.getEmbeddedTitlebar() : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37424a.getEmbeddedTitlebar() : (View) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final View getLandingPageTitleBar() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36595a.getLandingPageTitleBar() : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37424a.getLandingPageTitleBar() : (View) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final View getSearchResultTitleBar() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36595a.getSearchResultTitleBar() : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37424a.getSearchResultTitleBar() : (View) invokeV.objValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final int getTitlebarHeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36595a.getTitlebarHeight() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37424a.getTitlebarHeight() : invokeV.intValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final void goBack() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.f36595a.goBack();
+                this.f37424a.goBack();
             }
         }
 
@@ -2872,7 +2890,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void goBackOrForward(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                this.f36595a.goBackOrForward(i2);
+                this.f37424a.goBackOrForward(i2);
             }
         }
 
@@ -2880,7 +2898,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void goForward() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                this.f36595a.goForward();
+                this.f37424a.goForward();
             }
         }
 
@@ -2888,21 +2906,21 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean isTitlebarCanShow() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f36595a.isTitlebarCanShow() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f37424a.isTitlebarCanShow() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final boolean isTitlebarShowing() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f36595a.isTitlebarShowing() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f37424a.isTitlebarShowing() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.f36595a.onOverScrolled(i2, i3, z, z2);
+                this.f37424a.onOverScrolled(i2, i3, z, z2);
             }
         }
 
@@ -2910,7 +2928,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final void onScrollChanged(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(1048590, this, i2, i3, i4, i5) == null) {
-                this.f36595a.onScrollChanged(i2, i3, i4, i5);
+                this.f37424a.onScrollChanged(i2, i3, i4, i5);
             }
         }
 
@@ -2918,14 +2936,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public final boolean onTouchEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, motionEvent)) == null) ? this.f36595a.onTouchEvent(motionEvent) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, motionEvent)) == null) ? this.f37424a.onTouchEvent(motionEvent) : invokeL.booleanValue;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewDelegate
         public final void setCurrentTitleBar(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-                this.f36595a.setCurrentTitleBar(z);
+                this.f37424a.setCurrentTitleBar(z);
             }
         }
     }
@@ -3016,16 +3034,51 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         init();
     }
 
+    public static void addToWebCache(String str, Map<String, String> map, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65559, null, str, map, z) == null) {
+            WebView.addToWebCache(str, map, z);
+        }
+    }
+
+    public static void addToWebCache(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65560, null, str, z) == null) {
+            WebView.addToWebCache(str, z);
+        }
+    }
+
+    public static void addToWebCache(String str, boolean z, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{str, Boolean.valueOf(z), map}) == null) {
+            WebView.addToWebCache(str, z, map);
+        }
+    }
+
+    public static void addToWebCache(String str, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            WebView.addToWebCache(str, z, z2);
+        }
+    }
+
+    public static void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), map}) == null) {
+            WebView.addToWebCache(str, z, z2, map);
+        }
+    }
+
     private void addWebView(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, this, webView) == null) {
+        if (interceptable == null || interceptable.invokeL(65564, this, webView) == null) {
             addWebView(webView, -1);
         }
     }
 
     private void addWebView(WebView webView, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65560, this, webView, i2) == null) && webView.getParent() == null) {
+        if ((interceptable == null || interceptable.invokeLI(65565, this, webView, i2) == null) && webView.getParent() == null) {
             h hVar = new h(this, webView);
             this.mViewDelegate = hVar;
             webView.setViewDelegate(hVar);
@@ -3039,7 +3092,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     private void bringStatusBarToFront() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || !b.a.k.b.c.b.c() || (view = this.mStatusBar) == null || indexOfChild(view) < 0) {
+        if (!(interceptable == null || interceptable.invokeV(65566, this) == null) || !b.a.k.b.c.b.c() || (view = this.mStatusBar) == null || indexOfChild(view) < 0) {
             return;
         }
         bringChildToFront(this.mStatusBar);
@@ -3047,13 +3100,13 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public static void cancelPreload(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65567, null, str) == null) {
         }
     }
 
     private void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
             checkInit();
             this.mWebSettings = new BdSailorWebSettings(this.mCurrentWebView.getSettings());
             this.mWebViewExt = new BdSailorWebViewExt(this, null);
@@ -3069,7 +3122,11 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 BdSailor.getInstance().getSailorClient().updateSearchUrlProtocol(getContext(), true);
             }
             this.mCurrentWebView.setWebViewPagerContainer(this);
-            setNetworkAvailable(NetWorkUtils.getIsOnline());
+            Log.i(LOG_TAG, "setNetworkAvailable1");
+            if (!ABTestSDK.isZeusNetworkChangeNotifierEnabled()) {
+                Log.i(LOG_TAG, "setNetworkAvailable2");
+                setNetworkAvailable(NetWorkUtils.getIsOnline());
+            }
             if (sInitFirstWebView) {
                 Log.i(GlobalConstants.LOG_PER_TAG, " timing = \n" + ZeusPerformanceTiming.getWebViewInitTiming());
                 sInitFirstWebView = false;
@@ -3080,7 +3137,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     private void initWebView(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65564, this, webView) == null) {
+        if (interceptable == null || interceptable.invokeL(65569, this, webView) == null) {
             webView.setWebChromeClient(new e(this));
             webView.setWebViewClient(new f(this, (byte) 0));
             webView.setPictureListener(new c(this, (byte) 0));
@@ -3090,10 +3147,16 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
+    public static boolean isInWebCache(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65570, null, str)) == null) ? WebView.isInWebCache(str) : invokeL.booleanValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void perfLog(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65565, this, webView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65571, this, webView, str) == null) {
             perfLog(webView, str, null);
         }
     }
@@ -3101,20 +3164,27 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     /* JADX INFO: Access modifiers changed from: private */
     public void perfLog(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65566, this, webView, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65572, this, webView, str, str2) == null) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void perfLog(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65567, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65573, this, str, str2) == null) {
+        }
+    }
+
+    public static void removeFromWebCache(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65574, null, str) == null) {
+            WebView.removeFromWebCache(str);
         }
     }
 
     private void removeWebView(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65568, this, webView) == null) {
+        if (interceptable == null || interceptable.invokeL(65575, this, webView) == null) {
             try {
                 if (b.a.k.b.c.b.c() && BdZeusUtil.isWebkitLoaded()) {
                     webView.getWebViewPager().removeView(webView);
@@ -3128,7 +3198,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     private void setSearchBarTopMargin() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65569, this) == null) && b.a.k.b.c.b.c()) {
+        if ((interceptable == null || interceptable.invokeV(65576, this) == null) && b.a.k.b.c.b.c()) {
             setViewTopMargin(this.mSearchResultTitleBar, this.mStatusBarHeight);
             setViewTopMargin(this.mLandingPageTitleBar, this.mStatusBarHeight);
         }
@@ -3137,14 +3207,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     /* JADX INFO: Access modifiers changed from: private */
     public void setTopControlsHeight(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65570, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65577, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             this.mCurrentWebView.setTopControlsHeight(i2, z);
         }
     }
 
     private void setViewSize(View view, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65571, this, view, i2, i3) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65578, this, view, i2, i3) == null) || view == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -3159,7 +3229,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     private void setViewTopMargin(View view, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65572, this, view, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65579, this, view, i2) == null) || view == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -3174,7 +3244,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     private void setWebViewLayerMarginInternal(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(65573, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(65580, this, i2, i3, i4, i5) == null) {
             this.mWebViewLayerLp.setMargins(i2, i3, i4, i5);
             this.mWebViewLayer.setLayoutParams(this.mWebViewLayerLp);
             onWebViewLayerMarginChanged(i2, i3, i4, i5);
@@ -3460,15 +3530,24 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         webView.evaluateJavascript(str, valueCallback);
     }
 
+    public void evaluateJavascriptMethod(String str, String str2, String str3, ValueCallback<String> valueCallback) {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(1048609, this, str, str2, str3, valueCallback) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
+        }
+        webView.evaluateJavascriptMethod(str, str2, str3, valueCallback);
+    }
+
     public int findAll(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) ? this.mCurrentWebView.findAll(str) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) ? this.mCurrentWebView.findAll(str) : invokeL.intValue;
     }
 
     public void findAllAsync(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
             this.mCurrentWebView.findAllAsync(str);
         }
     }
@@ -3477,7 +3556,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public View findFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             WebView webView = this.mCurrentWebView;
             return webView != null ? webView.findFocus() : super.findFocus();
         }
@@ -3486,21 +3565,21 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void findNext(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
             this.mCurrentWebView.findNext(z);
         }
     }
 
     public void flingScroll(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048613, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048614, this, i2, i3) == null) {
             this.mCurrentWebView.flingScroll(i2, i3);
         }
     }
 
     public void freeMemory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
             this.mCurrentWebView.freeMemory();
         }
     }
@@ -3508,55 +3587,55 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public SslCertificate getCertificate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mCurrentWebView.getCertificate() : (SslCertificate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mCurrentWebView.getCertificate() : (SslCertificate) invokeV.objValue;
     }
 
     public int getContentHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mCurrentWebView.getContentHeight() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.mCurrentWebView.getContentHeight() : invokeV.intValue;
     }
 
     public int getContentWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.mCurrentWebView.getContentWidth() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.mCurrentWebView.getContentWidth() : invokeV.intValue;
     }
 
     public View getCurrentTitleBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.mCurrentTitleBar : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mCurrentTitleBar : (View) invokeV.objValue;
     }
 
     public WebView getCurrentWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mCurrentWebView : (WebView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mCurrentWebView : (WebView) invokeV.objValue;
     }
 
     public ISailorDownloadListener getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mDownloadListener : (ISailorDownloadListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mDownloadListener : (ISailorDownloadListener) invokeV.objValue;
     }
 
     public View getEmbeddedTitlebar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mEmbeddedTitlebar : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.mEmbeddedTitlebar : (View) invokeV.objValue;
     }
 
     public Bitmap getFavicon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.mCurrentWebView.getFavicon() : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.mCurrentWebView.getFavicon() : (Bitmap) invokeV.objValue;
     }
 
     public ViewGroup getFunctionLayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             if (this.mFunctionViewLayer == null) {
                 FrameLayout frameLayout = new FrameLayout(getContext());
                 this.mFunctionViewLayer = frameLayout;
@@ -3571,7 +3650,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public Handler getHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             WebView webView = this.mCurrentWebView;
             return webView != null ? webView.getHandler() : super.getHandler();
         }
@@ -3581,43 +3660,43 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public WebView.HitTestResult getHitTestResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.mCurrentWebView.getHitTestResult() : (WebView.HitTestResult) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.mCurrentWebView.getHitTestResult() : (WebView.HitTestResult) invokeV.objValue;
     }
 
     public String[] getHttpAuthUsernamePassword(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048626, this, str, str2)) == null) ? this.mCurrentWebView.getHttpAuthUsernamePassword(str, str2) : (String[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048627, this, str, str2)) == null) ? this.mCurrentWebView.getHttpAuthUsernamePassword(str, str2) : (String[]) invokeLL.objValue;
     }
 
     public View getLandingPageTitleBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.mLandingPageTitleBar : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.mLandingPageTitleBar : (View) invokeV.objValue;
     }
 
     public String getOriginalUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.mCurrentWebView.getOriginalUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.mCurrentWebView.getOriginalUrl() : (String) invokeV.objValue;
     }
 
     public int getOuterTitlebarHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.mOuterTitlebarHeightPix : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.mOuterTitlebarHeightPix : invokeV.intValue;
     }
 
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.mCurrentWebView.getProgress() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.mCurrentWebView.getProgress() : invokeV.intValue;
     }
 
     public boolean getRendererPriorityWaivedWhenNotVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
             WebView webView = this.mCurrentWebView;
             if (webView != null) {
                 return webView.getRendererPriorityWaivedWhenNotVisible();
@@ -3630,7 +3709,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public int getRendererRequestedPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
             WebView webView = this.mCurrentWebView;
             if (webView != null) {
                 return webView.getRendererRequestedPriority();
@@ -3643,55 +3722,55 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public float getScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.mCurrentWebView.getScale() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.mCurrentWebView.getScale() : invokeV.floatValue;
     }
 
     public View getSearchResultTitleBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.mSearchResultTitleBar : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.mSearchResultTitleBar : (View) invokeV.objValue;
     }
 
     public BdSailorWebSettings getSettings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.mWebSettings : (BdSailorWebSettings) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.mWebSettings : (BdSailorWebSettings) invokeV.objValue;
     }
 
     public ISailorWebSettingsExt getSettingsExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.mWebViewExt.getSettingsExt() : (ISailorWebSettingsExt) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.mWebViewExt.getSettingsExt() : (ISailorWebSettingsExt) invokeV.objValue;
     }
 
     public View getStatusBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.mStatusBar : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.mStatusBar : (View) invokeV.objValue;
     }
 
     public int getStatusBarHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.mStatusBarHeight : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.mStatusBarHeight : invokeV.intValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.mCurrentWebView.getTitle() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.mCurrentWebView.getTitle() : (String) invokeV.objValue;
     }
 
     public int getTitlebarHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.mEmbeddedTitlebarHeightPix : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.mEmbeddedTitlebarHeightPix : invokeV.intValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
             WebView webView = this.mCurrentWebView;
             if (webView != null) {
                 return webView.getUrl();
@@ -3703,7 +3782,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void getWebAppShortcutData(WebAppShortcutDataListener webAppShortcutDataListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, webAppShortcutDataListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048643, this, webAppShortcutDataListener) == null) {
             Log.i("pwa", "bdsailorwebvew.getWebAppShortcutData");
             this.mCurrentWebView.getWebAppShortcutData(webAppShortcutDataListener);
         }
@@ -3711,7 +3790,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void getWebAppShortcutData(WebAppShortcutDataListener webAppShortcutDataListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048643, this, webAppShortcutDataListener, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048644, this, webAppShortcutDataListener, z) == null) {
             Log.i("pwa", "bdsailorwebvew.getWebAppShortcutData");
             this.mCurrentWebView.getWebAppShortcutData(webAppShortcutDataListener, z);
         }
@@ -3720,13 +3799,13 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public BdSailorWebChromeClient getWebChromeClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.mWebChromeClient : (BdSailorWebChromeClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.mWebChromeClient : (BdSailorWebChromeClient) invokeV.objValue;
     }
 
     public int[] getWebScrollXY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
             try {
                 return new int[]{this.mCurrentWebView.getWebView().getScrollX(), this.mCurrentWebView.getWebView().getScrollY()};
             } catch (NullPointerException e2) {
@@ -3740,25 +3819,25 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public BdSailorWebViewClient getWebViewClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? this.mWebViewClient : (BdSailorWebViewClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? this.mWebViewClient : (BdSailorWebViewClient) invokeV.objValue;
     }
 
     public FrameLayout getWebViewContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? this.mWebViewLayer : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.mWebViewLayer : (FrameLayout) invokeV.objValue;
     }
 
     public ISailorWebViewExt getWebViewExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.mWebViewExt : (ISailorWebViewExt) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) ? this.mWebViewExt : (ISailorWebViewExt) invokeV.objValue;
     }
 
     public Looper getWebViewLooper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
             WebView webView = this.mCurrentWebView;
             return webView != null ? webView.getWebViewLooper() : Looper.myLooper();
         }
@@ -3767,7 +3846,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void goBack() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048650, this) == null) && canGoBack()) {
+        if ((interceptable == null || interceptable.invokeV(1048651, this) == null) && canGoBack()) {
             Log.d("bfanim", "BdSailorWebView.Back");
             doRealGoBack();
         }
@@ -3775,7 +3854,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void goBackOrForward(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048651, this, i2) == null) && i2 != 0 && canGoBackOrForward(i2)) {
+        if ((interceptable == null || interceptable.invokeI(1048652, this, i2) == null) && i2 != 0 && canGoBackOrForward(i2)) {
             this.mCurrentWebView.goBackOrForward(i2);
             if (this.mWebViewExt.getWebViewClientExt() != null) {
                 this.mWebViewExt.getWebViewClientExt().onPageBackOrForwardExt(this, i2);
@@ -3785,27 +3864,27 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void goForward() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048652, this) == null) && canGoForward()) {
+        if ((interceptable == null || interceptable.invokeV(1048653, this) == null) && canGoForward()) {
             doRealGoForward();
         }
     }
 
     public void goNextOrPreTextField(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048653, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048654, this, z) == null) {
         }
     }
 
     public boolean hasCustomView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.mCustomView != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) ? this.mCustomView != null : invokeV.booleanValue;
     }
 
     @SuppressLint({"all"})
     public void hideCustomView() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048655, this) == null) || this.mCustomView == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048656, this) == null) || this.mCustomView == null) {
             return;
         }
         try {
@@ -3817,7 +3896,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void hideEmbeddedTitleBar(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048656, this, z) == null) || this.mEmbeddedTitlebar == null || this.mLockEmbeddedTitlebar) {
+        if (!(interceptable == null || interceptable.invokeZ(1048657, this, z) == null) || this.mEmbeddedTitlebar == null || this.mLockEmbeddedTitlebar) {
             return;
         }
         this.mCanHideTitlebar = true;
@@ -3827,7 +3906,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void invokeZoomPicker() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048657, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048658, this) == null) {
             this.mCurrentWebView.invokeZoomPicker();
         }
     }
@@ -3835,19 +3914,19 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean isAutoShowTitlebar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) ? this.mCurrentWebView.isAutoShowTitlebar() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) ? this.mCurrentWebView.isAutoShowTitlebar() : invokeV.booleanValue;
     }
 
     public boolean isDestroyed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) ? this.mCurrentWebView.isDestroyed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.mCurrentWebView.isDestroyed() : invokeV.booleanValue;
     }
 
     public boolean isFeatureEnable(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048660, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, str)) == null) {
             return false;
         }
         return invokeL.booleanValue;
@@ -3857,7 +3936,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean isFocused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
             WebView webView = this.mCurrentWebView;
             return webView != null ? webView.isFocused() : super.isFocused();
         }
@@ -3867,37 +3946,37 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean isPageLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) ? this.mIsPageLoading : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) ? this.mIsPageLoading : invokeV.booleanValue;
     }
 
     public boolean isPrivateBrowsingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) ? this.mCurrentWebView.isPrivateBrowsingEnabled() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.mCurrentWebView.isPrivateBrowsingEnabled() : invokeV.booleanValue;
     }
 
     public boolean isTitlebarCanHide() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.mCanHideTitlebar : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) ? this.mCanHideTitlebar : invokeV.booleanValue;
     }
 
     public boolean isTitlebarCanShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) ? this.mCanShowTitlebar : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.mCanShowTitlebar : invokeV.booleanValue;
     }
 
     public boolean isTitlebarLock() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.mLockEmbeddedTitlebar : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) ? this.mLockEmbeddedTitlebar : invokeV.booleanValue;
     }
 
     public boolean isTitlebarShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
             View view = this.mEmbeddedTitlebar;
             return view != null && view.getTranslationY() == 0.0f;
         }
@@ -3906,28 +3985,28 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void loadData(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048668, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048669, this, str, str2, str3) == null) {
             this.mCurrentWebView.loadData(str, str2, str3);
         }
     }
 
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048669, this, str, str2, str3, str4, str5) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(1048670, this, str, str2, str3, str4, str5) == null) {
             this.mCurrentWebView.loadDataWithBaseURL(str, str2, str3, str4, str5);
         }
     }
 
     public void loadImageInPage(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048670, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048671, this, str) == null) {
             this.mCurrentWebView.loadUrl(SHOW_IMAGE_PREFIX.concat(String.valueOf(str)));
         }
     }
 
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048671, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048672, this, str) == null) {
             if (str == null || !str.startsWith("javascript:")) {
                 perfLog(this.mCurrentWebView, "sailor-loadUrl", "url = ".concat(String.valueOf(str)));
                 perfLog("load", str);
@@ -3938,7 +4017,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void loadUrl(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048672, this, str, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048673, this, str, map) == null) {
             if (str.startsWith("javascript:")) {
                 this.mCurrentWebView.loadUrl(str);
                 return;
@@ -3951,21 +4030,21 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void lockEmbeddedTitlebar(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048673, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048674, this, z) == null) {
             this.mLockEmbeddedTitlebar = z;
         }
     }
 
     public void notifyPageActive(String str, WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048674, this, str, webView) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048675, this, str, webView) == null) {
             notifyPageActive(str, webView, false);
         }
     }
 
     public void notifyPageActive(String str, WebView webView, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048675, this, str, webView, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048676, this, str, webView, z) == null) {
             Log.i("huqin-multiwebview", "BdSailorWebView notifyPageActive, webView = " + webView + ", url = " + str + ", isOpen = " + z);
             if (!z) {
                 webView.setCurrentSourceIdByIdentifier();
@@ -3977,7 +4056,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void notifyPageLeave(String str, WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048676, this, str, webView) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048677, this, str, webView) == null) {
             Log.i("huqin-multiwebview", "BdSailorWebView notifyPageLeave, webView = " + webView + ", url = " + str);
             SessionMonitorEngine.getInstance().notifyPageLeave(str, webView);
             this.mCurrentWebView.onPageSwapFromWebview(webView, str, false);
@@ -3987,7 +4066,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048677, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048678, this) == null) {
             super.onAttachedToWindow();
             if (b.a.k.b.c.b.e(this)) {
                 BdSailor.getInstance().setCurrentSailorWebView(this);
@@ -3999,7 +4078,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean onCheckIsTextEditor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) {
             WebView webView = this.mCurrentWebView;
             if (webView != null) {
                 return webView.onCheckIsTextEditor();
@@ -4012,7 +4091,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048679, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048680, this) == null) {
             super.onDetachedFromWindow();
             if (BdSailor.getInstance().getCurSailorWebView() == this) {
                 BdSailor.getInstance().setCurrentSailorWebView(null);
@@ -4024,7 +4103,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048680, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048681, this, i2, keyEvent)) == null) {
             if (hasCustomView()) {
                 hideCustomView();
                 return true;
@@ -4037,27 +4116,27 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     @Override // android.view.View
     public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048681, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048682, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.mCurrentWebView.onOverScrolledSuper(i2, i3, z, z2);
         }
     }
 
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048682, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048683, this) == null) {
             this.mCurrentWebView.onPause();
         }
     }
 
     public void onReinputErrorUrl() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048683, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048684, this) == null) {
         }
     }
 
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048684, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048685, this) == null) {
             this.mCurrentWebView.onResume();
         }
     }
@@ -4065,7 +4144,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     @Override // android.view.View
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048685, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048686, this, i2, i3, i4, i5) == null) {
             this.mCurrentWebView.onScrollChangedSuper(i2, i3, i4, i5);
         }
     }
@@ -4074,7 +4153,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048686, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048687, this, motionEvent)) == null) {
             boolean z = false;
             if (motionEvent.getAction() == 0) {
                 this.mIsFunctionLayerShowing = false;
@@ -4092,44 +4171,44 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void onWebViewLayerMarginChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048687, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048688, this, i2, i3, i4, i5) == null) {
         }
     }
 
     public boolean overlayHorizontalScrollbar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) ? this.mCurrentWebView.overlayHorizontalScrollbar() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) ? this.mCurrentWebView.overlayHorizontalScrollbar() : invokeV.booleanValue;
     }
 
     public boolean overlayVerticalScrollbar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) ? this.mCurrentWebView.overlayVerticalScrollbar() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048690, this)) == null) ? this.mCurrentWebView.overlayVerticalScrollbar() : invokeV.booleanValue;
     }
 
     public boolean pageDown(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048690, this, z)) == null) ? this.mCurrentWebView.pageDown(z) : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048691, this, z)) == null) ? this.mCurrentWebView.pageDown(z) : invokeZ.booleanValue;
     }
 
     public boolean pageUp(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048691, this, z)) == null) ? this.mCurrentWebView.pageUp(z) : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048692, this, z)) == null) ? this.mCurrentWebView.pageUp(z) : invokeZ.booleanValue;
     }
 
     public void pauseMedia() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048692, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048693, this) == null) {
             this.mCurrentWebView.pauseMedia();
         }
     }
 
     public void pauseTimers() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048693, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048694, this) == null) {
             this.mCurrentWebView.pauseTimers();
         }
     }
@@ -4138,19 +4217,28 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean performLongClick() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) ? this.mCurrentWebView.performLongClick() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) ? this.mCurrentWebView.performLongClick() : invokeV.booleanValue;
     }
 
     public void postUrl(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048695, this, str, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048696, this, str, bArr) == null) {
             this.mCurrentWebView.postUrl(str, bArr);
         }
     }
 
+    public void reinjectJavascriptInterface() {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048697, this) == null) || (webView = this.mCurrentWebView) == null) {
+            return;
+        }
+        webView.reinjectJavascriptInterface();
+    }
+
     public void reload() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048696, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048698, this) == null) {
             this.mCurrentWebView.stopLoading();
             this.mCurrentWebView.reload();
             this.mIsPageLoading = false;
@@ -4160,7 +4248,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public void removeJavascriptInterface(String str) {
         WebView webView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048697, this, str) == null) || (webView = this.mCurrentWebView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048699, this, str) == null) || (webView = this.mCurrentWebView) == null) {
             return;
         }
         webView.removeJavascriptInterface(str);
@@ -4169,7 +4257,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public void removeJavascriptInterfaceExt(String str) {
         WebView webView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048698, this, str) == null) || (webView = this.mCurrentWebView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048700, this, str) == null) || (webView = this.mCurrentWebView) == null) {
             return;
         }
         webView.removeJavascriptInterfaceExt(str);
@@ -4179,19 +4267,19 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean requestChildRectangleOnScreen(View view, Rect rect, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048699, this, view, rect, z)) == null) ? this.mCurrentWebView.requestChildRectangleOnScreen(view, rect, z) : invokeLLZ.booleanValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048701, this, view, rect, z)) == null) ? this.mCurrentWebView.requestChildRectangleOnScreen(view, rect, z) : invokeLLZ.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean requestFocus(int i2, Rect rect) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048700, this, i2, rect)) == null) ? this.mCurrentWebView.requestFocus(i2, rect) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048702, this, i2, rect)) == null) ? this.mCurrentWebView.requestFocus(i2, rect) : invokeIL.booleanValue;
     }
 
     public void requestFocusNodeHref(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048701, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(1048703, this, message) == null) {
             WebView webView = this.mCurrentWebView;
             if (webView != null) {
                 webView.requestFocusNodeHref(message);
@@ -4203,14 +4291,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void requestImageRef(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048702, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(1048704, this, message) == null) {
             this.mCurrentWebView.requestImageRef(message);
         }
     }
 
     public void resetWebViewLayerMargin() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048703, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048705, this) == null) {
             setWebViewLayerMargin(0, 0, 0, 0);
         }
     }
@@ -4219,7 +4307,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         InterceptResult invokeL;
         WebBackForwardList restoreState;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048704, this, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048706, this, bundle)) == null) {
             if (bundle == null || (restoreState = this.mCurrentWebView.restoreState(bundle)) == null) {
                 return null;
             }
@@ -4230,21 +4318,21 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void resumeMedia() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048705, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048707, this) == null) {
             this.mCurrentWebView.resumeMedia();
         }
     }
 
     public void resumeTimers() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048706, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048708, this) == null) {
             this.mCurrentWebView.resumeTimers();
         }
     }
 
     public void runWithThreadProtect(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048707, this, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048709, this, runnable) == null) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 runnable.run();
             } else {
@@ -4255,7 +4343,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void savePassword(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048708, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048710, this, str, str2, str3) == null) {
             this.mCurrentWebView.savePassword(str, str2, str3);
         }
     }
@@ -4264,7 +4352,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         InterceptResult invokeL;
         WebBackForwardList saveState;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048709, this, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048711, this, bundle)) == null) {
             if (bundle == null || (saveState = this.mCurrentWebView.saveState(bundle)) == null) {
                 return null;
             }
@@ -4275,21 +4363,21 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void saveWebArchive(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048710, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048712, this, str) == null) {
             this.mCurrentWebView.saveWebArchive(str);
         }
     }
 
     public void saveWebArchive(String str, boolean z, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048711, this, new Object[]{str, Boolean.valueOf(z), valueCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048713, this, new Object[]{str, Boolean.valueOf(z), valueCallback}) == null) {
             this.mCurrentWebView.saveWebArchive(str, z, valueCallback);
         }
     }
 
     public void setAutoShowTitlebar(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048712, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048714, this, z) == null) {
             this.mCurrentWebView.setAutoShowTitlebar(z);
         }
     }
@@ -4297,7 +4385,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     @Override // android.view.View
     public void setBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048713, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048715, this, i2) == null) {
             this.mSnapBgColor = i2;
             WebView webView = this.mCurrentWebView;
             if (webView != null) {
@@ -4310,7 +4398,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setCertificate(SslCertificate sslCertificate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048714, this, sslCertificate) == null) {
+        if (interceptable == null || interceptable.invokeL(1048716, this, sslCertificate) == null) {
             this.mCurrentWebView.setCertificate(sslCertificate);
         }
     }
@@ -4319,7 +4407,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         View view;
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048715, this, z) == null) || (view = this.mSearchResultTitleBar) == null || (view2 = this.mLandingPageTitleBar) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048717, this, z) == null) || (view = this.mSearchResultTitleBar) == null || (view2 = this.mLandingPageTitleBar) == null) {
             return;
         }
         if (!z) {
@@ -4333,21 +4421,21 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setDownloadListener(ISailorDownloadListener iSailorDownloadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048716, this, iSailorDownloadListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048718, this, iSailorDownloadListener) == null) {
             this.mDownloadListener = iSailorDownloadListener;
         }
     }
 
     public void setDualTitleBars(View view, View view2, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048717, this, view, view2, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048719, this, view, view2, i2, i3) == null) {
             setDualTitleBars(view, view2, i2, i3, true, true);
         }
     }
 
     public void setDualTitleBars(View view, View view2, int i2, int i3, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048718, this, new Object[]{view, view2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048720, this, new Object[]{view, view2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.mSearchResultTitleBar = view;
             if (view != null) {
                 view.setContentDescription("searchbar");
@@ -4367,14 +4455,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setEmbeddedTitleBar(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048719, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048721, this, view) == null) {
             setEmbeddedTitleBar(view, 0);
         }
     }
 
     public void setEmbeddedTitleBar(View view, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048720, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048722, this, view, i2) == null) {
             if (!b.a.k.b.c.b.c()) {
                 setNewTitlebar(view, i2, true, true);
             } else if (view == null) {
@@ -4390,7 +4478,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setFindListener(WebView.FindListener findListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048721, this, findListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048723, this, findListener) == null) {
             this.mCurrentWebView.setFindListener(findListener);
         }
     }
@@ -4398,7 +4486,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public void setFullscreen(Activity activity, boolean z) {
         Window window;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048722, this, activity, z) == null) || activity == null || (window = activity.getWindow()) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048724, this, activity, z) == null) || activity == null || (window = activity.getWindow()) == null) {
             return;
         }
         window.setFlags(!z ? 0 : 1024, 1024);
@@ -4407,7 +4495,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public void setHorizontalScrollbarOverlay(boolean z) {
         WebView webView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048723, this, z) == null) || (webView = this.mCurrentWebView) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048725, this, z) == null) || (webView = this.mCurrentWebView) == null) {
             return;
         }
         webView.setHorizontalScrollbarOverlay(z);
@@ -4415,14 +4503,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048724, this, str, str2, str3, str4) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048726, this, str, str2, str3, str4) == null) {
             this.mCurrentWebView.setHttpAuthUsernamePassword(str, str2, str3, str4);
         }
     }
 
     public void setInitialScale(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048725, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048727, this, i2) == null) {
             this.mCurrentWebView.setInitialScale(i2);
         }
     }
@@ -4430,7 +4518,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     @Override // android.view.View
     public void setLayerType(int i2, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048726, this, i2, paint) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048728, this, i2, paint) == null) {
             WebView webView = this.mCurrentWebView;
             if (webView != null) {
                 webView.setLayerType(i2, paint);
@@ -4442,28 +4530,28 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setMapTrackballToArrowKeys(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048727, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048729, this, z) == null) {
             this.mCurrentWebView.setMapTrackballToArrowKeys(z);
         }
     }
 
     public void setNetworkAvailable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048728, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048730, this, z) == null) {
             this.mCurrentWebView.setNetworkAvailable(z);
         }
     }
 
     public void setNewTitlebar(View view, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048729, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048731, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             setNewTitlebar(view, i2, z, z);
         }
     }
 
     public void setNewTitlebar(View view, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048730, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048732, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             Log.d("new-titlebar", "setNewTitlebar :" + view + " allow hide: " + z + " show: " + z2 + " height: " + i2);
             if (view == null) {
                 View view2 = this.mEmbeddedTitlebar;
@@ -4533,7 +4621,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setOuterTitlebarHeight(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048731, this, i2) == null) && BdZeusUtil.isWebkitLoaded() && !b.a.k.b.c.b.c()) {
+        if ((interceptable == null || interceptable.invokeI(1048733, this, i2) == null) && BdZeusUtil.isWebkitLoaded() && !b.a.k.b.c.b.c()) {
             this.mOuterTitlebarHeightPix = i2;
             setWebViewLayerMarginInternal(this.mMarginLeft, this.mMarginTop + i2, this.mMarginRight, this.mMarginBottom);
         }
@@ -4542,7 +4630,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     @Override // android.view.View
     public void setOverScrollMode(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048732, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048734, this, i2) == null) {
             WebView webView = this.mCurrentWebView;
             if (webView != null) {
                 webView.setOverScrollMode(i2);
@@ -4554,14 +4642,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setPageTransformer(boolean z, PageTransformer pageTransformer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048733, this, z, pageTransformer) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048735, this, z, pageTransformer) == null) {
             this.mCurrentWebView.setPageTransformer(z, pageTransformer);
         }
     }
 
     public void setPictureListener(WebView.PictureListener pictureListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048734, this, pictureListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048736, this, pictureListener) == null) {
             this.mPictureListener = pictureListener;
         }
     }
@@ -4569,7 +4657,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public void setRendererPriorityPolicy(int i2, boolean z) {
         WebView webView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048735, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (webView = this.mCurrentWebView) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048737, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (webView = this.mCurrentWebView) == null) {
             return;
         }
         webView.setRendererPriorityPolicy(i2, z);
@@ -4577,7 +4665,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setSailorWebViewSize(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048736, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048738, this, i2, i3) == null) {
             setViewSize(this.mWebViewLayer, i2, i3);
             setViewSize(this.mCurrentWebView, i2, i3);
             this.mCurrentWebView.setWebViewPagerSize(i2, i3);
@@ -4587,14 +4675,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     @Override // android.view.View
     public void setScrollBarStyle(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048737, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048739, this, i2) == null) {
             this.mCurrentWebView.setScrollBarStyle(i2);
         }
     }
 
     public void setStatusBar(View view, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048738, this, view, i2) == null) && b.a.k.b.c.b.c()) {
+        if ((interceptable == null || interceptable.invokeLI(1048740, this, view, i2) == null) && b.a.k.b.c.b.c()) {
             if (view == null) {
                 View view2 = this.mStatusBar;
                 if (view2 != null) {
@@ -4623,7 +4711,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public void setVerticalScrollbarOverlay(boolean z) {
         WebView webView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048739, this, z) == null) || (webView = this.mCurrentWebView) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048741, this, z) == null) || (webView = this.mCurrentWebView) == null) {
             return;
         }
         webView.setVerticalScrollbarOverlay(z);
@@ -4631,7 +4719,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setVideoPlayerFactory(VideoPlayerFactory videoPlayerFactory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048740, this, videoPlayerFactory) == null) {
+        if (interceptable == null || interceptable.invokeL(1048742, this, videoPlayerFactory) == null) {
             this.mVideoFactory = videoPlayerFactory;
             this.mCurrentWebView.setVideoPlayerFactory(videoPlayerFactory);
         }
@@ -4639,14 +4727,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setWebBackForwardListClient(WebBackForwardListClient webBackForwardListClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048741, this, webBackForwardListClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048743, this, webBackForwardListClient) == null) {
             this.mCurrentWebView.setWebBackForwardListClient(webBackForwardListClient);
         }
     }
 
     public void setWebChromeClient(BdSailorWebChromeClient bdSailorWebChromeClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048742, this, bdSailorWebChromeClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048744, this, bdSailorWebChromeClient) == null) {
             this.mWebChromeClient = bdSailorWebChromeClient;
         }
     }
@@ -4654,7 +4742,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public void setWebChromeClientExt(BdSailorWebChromeClientExt bdSailorWebChromeClientExt) {
         ISailorWebViewExt iSailorWebViewExt;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048743, this, bdSailorWebChromeClientExt) == null) || (iSailorWebViewExt = this.mWebViewExt) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048745, this, bdSailorWebChromeClientExt) == null) || (iSailorWebViewExt = this.mWebViewExt) == null) {
             return;
         }
         iSailorWebViewExt.setWebChromeClientExt(bdSailorWebChromeClientExt);
@@ -4662,7 +4750,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setWebViewClient(BdSailorWebViewClient bdSailorWebViewClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048744, this, bdSailorWebViewClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048746, this, bdSailorWebViewClient) == null) {
             this.mWebViewClient = bdSailorWebViewClient;
         }
     }
@@ -4670,7 +4758,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public void setWebViewClientExt(BdSailorWebViewClientExt bdSailorWebViewClientExt) {
         ISailorWebViewExt iSailorWebViewExt;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048745, this, bdSailorWebViewClientExt) == null) || (iSailorWebViewExt = this.mWebViewExt) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048747, this, bdSailorWebViewClientExt) == null) || (iSailorWebViewExt = this.mWebViewExt) == null) {
             return;
         }
         iSailorWebViewExt.setWebViewClientExt(bdSailorWebViewClientExt);
@@ -4678,7 +4766,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setWebViewLayerMargin(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048746, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048748, this, i2, i3, i4, i5) == null) {
             if ((i2 == this.mMarginLeft && i3 == this.mMarginTop && i4 == this.mMarginRight && i5 == this.mMarginBottom) ? false : true) {
                 this.mMarginLeft = i2;
                 this.mMarginTop = i3;
@@ -4693,12 +4781,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean shouldDelayChildPressedState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048747, this)) == null) ? this.mCurrentWebView.shouldDelayChildPressedState() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048749, this)) == null) ? this.mCurrentWebView.shouldDelayChildPressedState() : invokeV.booleanValue;
     }
 
     public void showCustomView(Context context, View view, WebChromeClient.CustomViewCallback customViewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048748, this, context, view, customViewCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048750, this, context, view, customViewCallback) == null) {
             Activity activity = context instanceof Activity ? (Activity) context : null;
             if (activity != null) {
                 if (this.mCustomView != null) {
@@ -4728,7 +4816,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void showEmbeddedTitleBar(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048749, this, z) == null) || this.mEmbeddedTitlebar == null || this.mLockEmbeddedTitlebar) {
+        if (!(interceptable == null || interceptable.invokeZ(1048751, this, z) == null) || this.mEmbeddedTitlebar == null || this.mLockEmbeddedTitlebar) {
             return;
         }
         this.mCanShowTitlebar = true;
@@ -4739,13 +4827,13 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean showFindDialog(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048750, this, str, z)) == null) ? this.mCurrentWebView.showFindDialog(str, z) : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048752, this, str, z)) == null) ? this.mCurrentWebView.showFindDialog(str, z) : invokeLZ.booleanValue;
     }
 
     public int startPrerender(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048751, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048753, this, str)) == null) {
             WebView webView = this.mCurrentWebView;
             if (webView != null) {
                 return webView.startPrerender(str);
@@ -4757,7 +4845,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void stopLoading() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048752, this) == null) || isDestroyed()) {
+        if (!(interceptable == null || interceptable.invokeV(1048754, this) == null) || isDestroyed()) {
             return;
         }
         this.mCurrentWebView.stopLoading();
@@ -4766,7 +4854,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void suspendScheduledTasks(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048753, this, str) == null) || isDestroyed()) {
+        if (!(interceptable == null || interceptable.invokeL(1048755, this, str) == null) || isDestroyed()) {
             return;
         }
         this.mCurrentWebView.suspendScheduledTasks(str);
@@ -4774,14 +4862,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void switchTitleBar(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048754, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048756, this, z) == null) {
             this.mCurrentWebView.switchTitleBar(z);
         }
     }
 
     public void updateEmbeddedTitleBar(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048755, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || this.mEmbeddedTitlebar == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048757, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || this.mEmbeddedTitlebar == null) {
             return;
         }
         this.mCanHideTitlebar = z;
@@ -4791,14 +4879,14 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void updateTopControlOffset(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048756, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048758, this, i2) == null) {
             this.mCurrentWebView.updateTopControlOffset(i2);
         }
     }
 
     public void updateTopControlsState(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048757, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || this.mEmbeddedTitlebar == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048759, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || this.mEmbeddedTitlebar == null) {
             return;
         }
         Log.d("new-titlebar", "updateTopControlsState :".concat(String.valueOf(z)));
@@ -4829,12 +4917,12 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public boolean zoomIn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048758, this)) == null) ? this.mCurrentWebView.zoomIn() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048760, this)) == null) ? this.mCurrentWebView.zoomIn() : invokeV.booleanValue;
     }
 
     public boolean zoomOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048759, this)) == null) ? this.mCurrentWebView.zoomOut() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048761, this)) == null) ? this.mCurrentWebView.zoomOut() : invokeV.booleanValue;
     }
 }

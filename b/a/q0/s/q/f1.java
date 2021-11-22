@@ -81,7 +81,7 @@ public class f1 extends PostData {
         this.O0 = recommendBook.subscript_icon;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, b.a.e.l.e.n
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

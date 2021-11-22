@@ -24,21 +24,21 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67599a;
+    public int f68512a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67600b;
+    public int f68513b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67601c;
+    public int f68514c;
 
     public a() {
     }
 
     public a(Parcel parcel) {
-        this.f67599a = parcel.readInt();
-        this.f67600b = parcel.readInt();
-        this.f67601c = parcel.readInt();
+        this.f68512a = parcel.readInt();
+        this.f68513b = parcel.readInt();
+        this.f68514c = parcel.readInt();
     }
 
     public static a a(JSONObject jSONObject) {
@@ -61,24 +61,24 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no control message can parse ";
-        b.l.a.a.a.b("ctl", str);
+        b.j.a.a.a.b("ctl", str);
         return aVar;
     }
 
     public int a() {
-        return this.f67599a;
+        return this.f68512a;
     }
 
     public void a(int i2) {
-        this.f67599a = i2;
+        this.f68512a = i2;
     }
 
     public void b(int i2) {
-        this.f67600b = i2;
+        this.f68513b = i2;
     }
 
     public void c(int i2) {
-        this.f67601c = i2;
+        this.f68514c = i2;
     }
 
     @Override // android.os.Parcelable
@@ -87,13 +87,13 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.f67599a + ", cached=" + this.f67600b + ", cacheNum=" + this.f67601c + ExtendedMessageFormat.END_FE;
+        return "Control{pushType=" + this.f68512a + ", cached=" + this.f68513b + ", cacheNum=" + this.f68514c + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f67599a);
-        parcel.writeInt(this.f67600b);
-        parcel.writeInt(this.f67601c);
+        parcel.writeInt(this.f68512a);
+        parcel.writeInt(this.f68513b);
+        parcel.writeInt(this.f68514c);
     }
 }

@@ -13,10 +13,10 @@ public class b implements b.a.n0.n.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3750a;
+    public Context f3840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f3751b;
+    public a f3841b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class b implements b.a.n0.n.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = this.f3751b;
-            return aVar.a(this.f3750a, aVar.f3749c);
+            a aVar = this.f3841b;
+            return aVar.a(this.f3840a, aVar.f3839c);
         }
         return (String) invokeV.objValue;
     }
@@ -47,26 +47,26 @@ public class b implements b.a.n0.n.a {
     public void a(Context context, b.a.n0.n.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
-            this.f3750a = context;
+            this.f3840a = context;
             a aVar = new a();
-            this.f3751b = aVar;
-            aVar.f3749c = null;
+            this.f3841b = aVar;
+            aVar.f3839c = null;
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                aVar.f3748b = cls;
-                aVar.f3747a = cls.newInstance();
+                aVar.f3838b = cls;
+                aVar.f3837a = cls.newInstance();
             } catch (Throwable unused) {
             }
             try {
-                aVar.f3749c = aVar.f3748b.getMethod("getOAID", Context.class);
+                aVar.f3839c = aVar.f3838b.getMethod("getOAID", Context.class);
             } catch (Throwable unused2) {
             }
             try {
-                aVar.f3748b.getMethod("getVAID", Context.class);
+                aVar.f3838b.getMethod("getVAID", Context.class);
             } catch (Throwable unused3) {
             }
             try {
-                aVar.f3748b.getMethod("getAAID", Context.class);
+                aVar.f3838b.getMethod("getAAID", Context.class);
             } catch (Throwable unused4) {
             }
             if (bVar != null) {

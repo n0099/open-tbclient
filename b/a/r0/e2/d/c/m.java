@@ -2,7 +2,7 @@ package b.a.r0.e2.d.c;
 
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.s;
+import b.a.e.m.e.s;
 import b.a.l.e0;
 import b.a.l.l0;
 import b.a.q0.s.q.q1;
@@ -41,7 +41,7 @@ public class m extends b.a.r0.e2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f16282e;
+        public final /* synthetic */ m f17295e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class m extends b.a.r0.e2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
                     return;
                 }
             }
-            this.f16282e = mVar;
+            this.f17295e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f16282e.p.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f16282e.p.getPageActivity(), this.f16282e.s)));
+                this.f17295e.p.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f17295e.p.getPageActivity(), this.f17295e.s)));
             }
         }
     }
@@ -76,7 +76,7 @@ public class m extends b.a.r0.e2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f16283a;
+        public final /* synthetic */ m f17296a;
 
         public b(m mVar) {
             Interceptable interceptable = $ic;
@@ -93,14 +93,14 @@ public class m extends b.a.r0.e2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
                     return;
                 }
             }
-            this.f16283a = mVar;
+            this.f17296a = mVar;
         }
 
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f16283a.p.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f16283a.p.getPageActivity(), this.f16283a.s)));
+                this.f17296a.p.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f17296a.p.getPageActivity(), this.f17296a.s)));
             }
         }
     }
@@ -111,7 +111,7 @@ public class m extends b.a.r0.e2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f16284e;
+        public final /* synthetic */ m f17297e;
 
         public c(m mVar) {
             Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class m extends b.a.r0.e2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
                     return;
                 }
             }
-            this.f16284e = mVar;
+            this.f17297e = mVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,7 +137,7 @@ public class m extends b.a.r0.e2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
         public void c(View view, q1 q1Var, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, q1Var, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                b.a.r0.e2.c.a("c14399", q1Var, i2 + 1, this.f16284e.n.getOrignalPage().getTopicId());
+                b.a.r0.e2.c.a("c14399", q1Var, i2 + 1, this.f17297e.n.getOrignalPage().getTopicId());
             }
         }
 
@@ -148,13 +148,13 @@ public class m extends b.a.r0.e2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, q1Var, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                 if (q1Var == null) {
-                    this.f16284e.p.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f16284e.p.getPageActivity(), this.f16284e.s)));
+                    this.f17297e.p.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f17297e.p.getPageActivity(), this.f17297e.s)));
                     return;
                 }
                 String p = q1Var.p();
-                if (b.a.e.e.p.k.isForumName(p)) {
-                    this.f16284e.p.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f16284e.p.getPageActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-                    b.a.r0.e2.c.a("c13739", q1Var, i2 + 1, this.f16284e.n.getOrignalPage().getTopicId());
+                if (b.a.e.f.p.k.isForumName(p)) {
+                    this.f17297e.p.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17297e.p.getPageActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+                    b.a.r0.e2.c.a("c13739", q1Var, i2 + 1, this.f17297e.n.getOrignalPage().getTopicId());
                 }
             }
         }
@@ -194,7 +194,7 @@ public class m extends b.a.r0.e2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: l0 */
     public ThreadCardViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -221,7 +221,7 @@ public class m extends b.a.r0.e2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: m0 */
     public View Z(int i2, View view, ViewGroup viewGroup, r1 r1Var, ThreadCardViewHolder<r1> threadCardViewHolder) {
         InterceptResult invokeCommon;

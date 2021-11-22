@@ -27,12 +27,12 @@ public class BitmapMemoryCacheFactory {
         }
     }
 
-    public static InstrumentedMemoryCache<CacheKey, CloseableImage> get(MemoryCache<CacheKey, CloseableImage> memoryCache, ImageCacheStatsTracker imageCacheStatsTracker) {
+    public static InstrumentedMemoryCache<CacheKey, CloseableImage> get(CountingMemoryCache<CacheKey, CloseableImage> countingMemoryCache, ImageCacheStatsTracker imageCacheStatsTracker) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, memoryCache, imageCacheStatsTracker)) == null) {
-            imageCacheStatsTracker.registerBitmapMemoryCache(memoryCache);
-            return new InstrumentedMemoryCache<>(memoryCache, new MemoryCacheTracker<CacheKey>(imageCacheStatsTracker) { // from class: com.facebook.imagepipeline.cache.BitmapMemoryCacheFactory.1
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, countingMemoryCache, imageCacheStatsTracker)) == null) {
+            imageCacheStatsTracker.registerBitmapMemoryCache(countingMemoryCache);
+            return new InstrumentedMemoryCache<>(countingMemoryCache, new MemoryCacheTracker<CacheKey>(imageCacheStatsTracker) { // from class: com.facebook.imagepipeline.cache.BitmapMemoryCacheFactory.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImageCacheStatsTracker val$imageCacheStatsTracker;
@@ -55,30 +55,28 @@ public class BitmapMemoryCacheFactory {
                     this.val$imageCacheStatsTracker = imageCacheStatsTracker;
                 }
 
+                @Override // com.facebook.imagepipeline.cache.MemoryCacheTracker
+                public void onCacheMiss() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                        this.val$imageCacheStatsTracker.onBitmapCacheMiss();
+                    }
+                }
+
+                @Override // com.facebook.imagepipeline.cache.MemoryCacheTracker
+                public void onCachePut() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
+                        this.val$imageCacheStatsTracker.onBitmapCachePut();
+                    }
+                }
+
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.imagepipeline.cache.MemoryCacheTracker
                 public void onCacheHit(CacheKey cacheKey) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cacheKey) == null) {
                         this.val$imageCacheStatsTracker.onBitmapCacheHit(cacheKey);
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.facebook.imagepipeline.cache.MemoryCacheTracker
-                public void onCacheMiss(CacheKey cacheKey) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, cacheKey) == null) {
-                        this.val$imageCacheStatsTracker.onBitmapCacheMiss(cacheKey);
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.facebook.imagepipeline.cache.MemoryCacheTracker
-                public void onCachePut(CacheKey cacheKey) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, cacheKey) == null) {
-                        this.val$imageCacheStatsTracker.onBitmapCachePut(cacheKey);
                     }
                 }
             });

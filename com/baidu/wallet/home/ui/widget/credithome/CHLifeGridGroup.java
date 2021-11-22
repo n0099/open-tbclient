@@ -22,13 +22,13 @@ public class CHLifeGridGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CHTitleView f58439a;
+    public CHTitleView f59361a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GridLayout f58440b;
+    public GridLayout f59362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f58441c;
+    public List<BaseItemView> f59363c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHLifeGridGroup(Context context) {
@@ -48,7 +48,7 @@ public class CHLifeGridGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f58441c = new ArrayList();
+        this.f59363c = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
@@ -62,7 +62,7 @@ public class CHLifeGridGroup extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58441c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59363c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -70,8 +70,8 @@ public class CHLifeGridGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_life_layout"), this);
-            this.f58440b = (GridLayout) findViewById(ResUtils.id(getContext(), "ch_life_group"));
-            this.f58439a = (CHTitleView) findViewById(ResUtils.id(getContext(), "ch_life_lable"));
+            this.f59362b = (GridLayout) findViewById(ResUtils.id(getContext(), "ch_life_group"));
+            this.f59361a = (CHTitleView) findViewById(ResUtils.id(getContext(), "ch_life_lable"));
         }
     }
 
@@ -91,19 +91,19 @@ public class CHLifeGridGroup extends BaseItemLayout {
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f58439a.setData(this.mConfigData, getWalletInterface());
+            this.f59361a.setData(this.mConfigData, getWalletInterface());
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-            this.f58440b.setColumnCount(4);
-            this.f58440b.setHorizontalSpacing(0);
-            this.f58440b.setVerticalSpacing(0);
-            a(this.f58440b);
+            this.f59362b.setColumnCount(4);
+            this.f59362b.setHorizontalSpacing(0);
+            this.f59362b.setVerticalSpacing(0);
+            a(this.f59362b);
             int length = dataItemArr.length <= 16 ? dataItemArr.length : 16;
             for (int i2 = 0; i2 < length; i2++) {
                 if (dataItemArr[i2] != null) {
                     CHLifeGridItem cHLifeGridItem = new CHLifeGridItem(getContext());
                     cHLifeGridItem.setData(dataItemArr[i2], getWalletInterface());
-                    this.f58440b.addView(cHLifeGridItem);
-                    this.f58441c.add(cHLifeGridItem);
+                    this.f59362b.addView(cHLifeGridItem);
+                    this.f59363c.add(cHLifeGridItem);
                 }
             }
         }
@@ -128,6 +128,6 @@ public class CHLifeGridGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f58441c = new ArrayList();
+        this.f59363c = new ArrayList();
     }
 }

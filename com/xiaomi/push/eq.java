@@ -13,7 +13,7 @@ public class eq {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Vector<Pair<String, Long>> f70891a;
+    public static Vector<Pair<String, Long>> f71811a;
 
     /* renamed from: a  reason: collision with other field name */
     public static ConcurrentHashMap<String, Long> f337a;
@@ -32,7 +32,7 @@ public class eq {
                 return;
             }
         }
-        f70891a = new Vector<>();
+        f71811a = new Vector<>();
         f337a = new ConcurrentHashMap<>();
     }
 
@@ -41,17 +41,17 @@ public class eq {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             StringBuilder sb = new StringBuilder();
-            synchronized (f70891a) {
-                for (int i2 = 0; i2 < f70891a.size(); i2++) {
-                    Pair<String, Long> elementAt = f70891a.elementAt(i2);
+            synchronized (f71811a) {
+                for (int i2 = 0; i2 < f71811a.size(); i2++) {
+                    Pair<String, Long> elementAt = f71811a.elementAt(i2);
                     sb.append((String) elementAt.first);
                     sb.append(":");
                     sb.append(elementAt.second);
-                    if (i2 < f70891a.size() - 1) {
+                    if (i2 < f71811a.size() - 1) {
                         sb.append(";");
                     }
                 }
-                f70891a.clear();
+                f71811a.clear();
             }
             return sb.toString();
         }

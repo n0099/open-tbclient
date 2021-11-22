@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
-import b.a.r0.l3.j0.n;
+import b.a.r0.m3.j0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;

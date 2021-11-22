@@ -24,7 +24,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f58771a;
+    public int f59693a;
 
     /* renamed from: com.baidu.wallet.lightapp.base.a$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -35,11 +35,11 @@ public class a {
 
     /* renamed from: com.baidu.wallet.lightapp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C1800a {
+    public static class C1841a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f58772a;
+        public static a f59694a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -55,7 +55,7 @@ public class a {
                     return;
                 }
             }
-            f58772a = new a(null);
+            f59694a = new a(null);
         }
     }
 
@@ -66,7 +66,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1800a.f58772a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1841a.f59694a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -82,7 +82,7 @@ public class a {
                 return;
             }
         }
-        this.f58771a = -1;
+        this.f59693a = -1;
     }
 
     public void a(Context context) {

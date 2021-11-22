@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import b.a.q0.m.a;
+import b.a.r0.a4.h;
 import b.a.r0.k2.i;
 import b.a.r0.k2.j;
 import b.a.r0.k2.l;
-import b.a.r0.z3.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -26,7 +26,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52836h;
+    public TextView f53753h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoNetworkStateTipView(Context context) {
@@ -52,7 +52,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f52836h = (TextView) findViewById(i.video_net_tip_duration);
+            this.f53753h = (TextView) findViewById(i.video_net_tip_duration);
         }
     }
 
@@ -74,7 +74,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     public boolean isShowNetworkTips() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (hasAgreeToPlay() || h.d().e() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !b.a.e.e.p.j.x()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (hasAgreeToPlay() || h.d().e() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !b.a.e.f.p.j.x()) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView, android.view.View.OnClickListener
@@ -84,7 +84,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
             return;
         }
         if (view.getId() == i.free_flow) {
-            a.w(true, getContext(), getResources().getString(l.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            a.x(true, getContext(), getResources().getString(l.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view.getId() == i.play) {
             View.OnClickListener onClickListener = this.mOutClickListener;
             if (onClickListener != null) {
@@ -100,7 +100,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f52836h.setText(String.format(getResources().getString(l.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+        this.f53753h.setText(String.format(getResources().getString(l.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -3,8 +3,8 @@ package b.a.r0.j1.m;
 import android.view.View;
 import android.view.ViewGroup;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.c0;
-import b.a.r0.b0.y;
+import b.a.r0.b0.a0;
+import b.a.r0.b0.d0;
 import b.a.r0.b0.z;
 import b.a.r0.x0.k;
 import com.baidu.adp.BdUniqueId;
@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class a extends k<d2, CardViewHolder<y>> implements z {
+public class a extends k<d2, CardViewHolder<z>> implements a0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext x;
-    public c0<d2> y;
+    public d0<d2> y;
 
     /* renamed from: b.a.r0.j1.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0934a extends c0<d2> {
+    public class C0995a extends d0<d2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0934a(a aVar) {
+        public C0995a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +46,7 @@ public class a extends k<d2, CardViewHolder<y>> implements z {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
         public void b(View view, d2 d2Var, Object obj) {
             Interceptable interceptable = $ic;
@@ -74,29 +74,29 @@ public class a extends k<d2, CardViewHolder<y>> implements z {
                 return;
             }
         }
-        this.y = new C0934a(this);
+        this.y = new C0995a(this);
         this.x = tbPageContext;
     }
 
-    @Override // b.a.r0.b0.z
+    @Override // b.a.r0.b0.a0
     public String from() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "FrsHottopicVideoDelegateAdapter" : (String) invokeV.objValue;
     }
 
-    @Override // b.a.r0.x0.k, b.a.r0.b0.z
+    @Override // b.a.r0.x0.k, b.a.r0.b0.a0
     public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f2419e = tbPageContext.getPageActivity();
+        this.f2421e = tbPageContext.getPageActivity();
         this.x = tbPageContext;
-        this.f2423i = bdUniqueId;
+        this.f2425i = bdUniqueId;
     }
 
-    @Override // b.a.r0.x0.k, b.a.r0.b0.z
+    @Override // b.a.r0.x0.k, b.a.r0.b0.a0
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -104,18 +104,18 @@ public class a extends k<d2, CardViewHolder<y>> implements z {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: t0 */
-    public CardViewHolder<y> T(ViewGroup viewGroup) {
+    public CardViewHolder<z> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) ? new CardViewHolder<>(new y(this.x, viewGroup)) : (CardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) ? new CardViewHolder<>(new z(this.x, viewGroup)) : (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     /* renamed from: u0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, d2 d2Var, CardViewHolder<y> cardViewHolder) {
+    public View Z(int i2, View view, ViewGroup viewGroup, d2 d2Var, CardViewHolder<z> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), view, viewGroup, d2Var, cardViewHolder})) == null) {

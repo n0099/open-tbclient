@@ -1,9 +1,9 @@
 package b.a.r0.h1.c.f;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.x0;
-import b.a.r0.b0.e0.k;
+import b.a.r0.b0.f0.k;
 import b.a.r0.h1.c.f.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
@@ -26,10 +26,10 @@ public class c extends b.a.q0.s.q.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17031e;
+    public boolean f18499e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f17032f;
+    public List<n> f18500f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,20 +44,20 @@ public class c extends b.a.q0.s.q.a {
                 return;
             }
         }
-        this.f17031e = false;
+        this.f18499e = false;
     }
 
     public static boolean p(DiscoverHotForum discoverHotForum, int i2) {
         InterceptResult invokeLI;
         Integer num;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, discoverHotForum, i2)) == null) ? TbadkCoreApplication.isLogin() && b.a.q0.b.d.k0() && discoverHotForum != null && (num = discoverHotForum.floor) != null && (i2 < 0 || i2 == num.intValue() - 1) && !ListUtils.isEmpty(discoverHotForum.tab_list) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, discoverHotForum, i2)) == null) ? TbadkCoreApplication.isLogin() && b.a.q0.b.d.o0() && discoverHotForum != null && (num = discoverHotForum.floor) != null && (i2 < 0 || i2 == num.intValue() - 1) && !ListUtils.isEmpty(discoverHotForum.tab_list) : invokeLI.booleanValue;
     }
 
     public List<n> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17032f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18500f : (List) invokeV.objValue;
     }
 
     @Override // b.a.q0.s.q.a
@@ -80,17 +80,17 @@ public class c extends b.a.q0.s.q.a {
         return (d2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? k.B0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? k.D0 : (BdUniqueId) invokeV.objValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17031e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18499e : invokeV.booleanValue;
     }
 
     public boolean k(List<DiscoverTabCard> list) {
@@ -107,14 +107,14 @@ public class c extends b.a.q0.s.q.a {
                 List<RecommendForumInfo> list2 = discoverTabCard.forum_list;
                 if (list2 != null && list2.size() >= 3) {
                     d dVar = new d();
-                    this.f17031e = StringUtils.isNull(discoverTabCard.name) || this.f17031e;
-                    dVar.f17033e = discoverTabCard.name;
+                    this.f18499e = StringUtils.isNull(discoverTabCard.name) || this.f18499e;
+                    dVar.f18501e = discoverTabCard.name;
                     Boolean bool = discoverTabCard.is_show_order_number;
-                    dVar.f17034f = bool == null ? false : bool.booleanValue();
-                    dVar.f17035g = discoverTabCard.jump_name;
+                    dVar.f18502f = bool == null ? false : bool.booleanValue();
+                    dVar.f18503g = discoverTabCard.jump_name;
                     for (int i3 = 0; i3 < discoverTabCard.forum_list.size() && i3 < 3; i3++) {
-                        dVar.f17036h[i3] = new d.a();
-                        d.a aVar = dVar.f17036h[i3];
+                        dVar.f18504h[i3] = new d.a();
+                        d.a aVar = dVar.f18504h[i3];
                         aVar.s(discoverTabCard.forum_list.get(i3).forum_name);
                         aVar.q(discoverTabCard.forum_list.get(i3).avatar);
                         aVar.v(discoverTabCard.forum_list.get(i3).hot_text);
@@ -139,7 +139,7 @@ public class c extends b.a.q0.s.q.a {
     public void o(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f17032f = list;
+            this.f18500f = list;
         }
     }
 }

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class t extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.a, ThreadCardViewHolder<b.a.r0.h1.k.b.c.a>> implements b.a.r0.p.f {
+public class t extends b.a.e.m.e.a<b.a.r0.h1.k.b.c.a, ThreadCardViewHolder<b.a.r0.h1.k.b.c.a>> implements b.a.r0.p.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
@@ -31,12 +31,12 @@ public class t extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.a, ThreadCardViewHolder<b.a.r
     public NEGFeedBackView.b p;
 
     /* loaded from: classes4.dex */
-    public class a implements b.a.e.l.e.w {
+    public class a implements b.a.e.m.e.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ t f17423e;
+        public final /* synthetic */ t f18892e;
 
         public a(t tVar) {
             Interceptable interceptable = $ic;
@@ -53,21 +53,21 @@ public class t extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.a, ThreadCardViewHolder<b.a.r
                     return;
                 }
             }
-            this.f17423e = tVar;
+            this.f18892e = tVar;
         }
 
-        @Override // b.a.e.l.e.w
-        public void b(View view, b.a.e.l.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
+        @Override // b.a.e.m.e.w
+        public void b(View view, b.a.e.m.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof b.a.r0.h1.k.b.c.a) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 b.a.r0.h1.k.b.c.a aVar = (b.a.r0.h1.k.b.c.a) nVar;
-                if (aVar != null && aVar.c0 != 1) {
-                    TiebaStatic.log(new StatisticItem("c13351").param("topic_id", aVar.V).param("obj_locate", aVar.U));
+                if (aVar != null && aVar.j0 != 1) {
+                    TiebaStatic.log(new StatisticItem("c13351").param("topic_id", aVar.X).param("obj_locate", aVar.W));
                 }
-                if (aVar != null && aVar.c0 == 1) {
-                    TiebaStatic.log(new StatisticItem("c13449").param("topic_id", aVar.V));
+                if (aVar != null && aVar.j0 == 1) {
+                    TiebaStatic.log(new StatisticItem("c13449").param("topic_id", aVar.X));
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(this.f17423e.f2419e, aVar.V)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(this.f18892e.f2421e, aVar.X)));
             }
         }
     }
@@ -103,15 +103,15 @@ public class t extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.a, ThreadCardViewHolder<b.a.r
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public ThreadCardViewHolder<b.a.r0.h1.k.b.c.a> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             l0.b bVar = new l0.b(this.n.getPageActivity(), false);
-            b.a.r0.h1.h.o.d dVar = new b.a.r0.h1.h.o.d(this.f2419e, this.n);
-            dVar.o(this.f2423i);
+            b.a.r0.h1.h.o.d dVar = new b.a.r0.h1.h.o.d(this.f2421e, this.n);
+            dVar.o(this.f2425i);
             bVar.n(dVar);
             bVar.l().c(0);
             bVar.l().e(0);
@@ -129,7 +129,7 @@ public class t extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.a, ThreadCardViewHolder<b.a.r
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.h1.k.b.c.a aVar, ThreadCardViewHolder<b.a.r0.h1.k.b.c.a> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -138,7 +138,7 @@ public class t extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.a, ThreadCardViewHolder<b.a.r
             if (aVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null) {
                 return null;
             }
-            TiebaStatic.log(new StatisticItem("c13448").param("topic_id", aVar.V));
+            TiebaStatic.log(new StatisticItem("c13448").param("topic_id", aVar.X));
             threadCardViewHolder.getCardView().p(i2);
             threadCardViewHolder.getCardView().setPage(this.o);
             threadCardViewHolder.showNEGFeedBackView(false).t(this.p);

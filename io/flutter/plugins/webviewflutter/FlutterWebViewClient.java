@@ -24,7 +24,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FlutterWebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterWebViewClient";
@@ -32,7 +32,7 @@ public class FlutterWebViewClient {
     public boolean hasNavigationDelegate;
     public final MethodChannel methodChannel;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class OnNavigationRequestResult implements MethodChannel.Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

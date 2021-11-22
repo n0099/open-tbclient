@@ -60,16 +60,16 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f59851a;
+                public final /* synthetic */ int f60773a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f59852b;
+                public final /* synthetic */ int f60774b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f59853c;
+                public final /* synthetic */ String f60775c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f59854d;
+                public final /* synthetic */ NetWorkPresenter f60776d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -86,17 +86,17 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                             return;
                         }
                     }
-                    this.f59854d = this;
-                    this.f59851a = i2;
-                    this.f59852b = i3;
-                    this.f59853c = str;
+                    this.f60776d = this;
+                    this.f60773a = i2;
+                    this.f60774b = i3;
+                    this.f60775c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f59854d.handleFailure(this.f59851a, this.f59852b, this.f59853c);
+                        this.f60776d.handleFailure(this.f60773a, this.f60774b, this.f60775c);
                     }
                 }
             });
@@ -112,16 +112,16 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f59847a;
+                public final /* synthetic */ int f60769a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f59848b;
+                public final /* synthetic */ Object f60770b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f59849c;
+                public final /* synthetic */ String f60771c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f59850d;
+                public final /* synthetic */ NetWorkPresenter f60772d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,17 +138,17 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                             return;
                         }
                     }
-                    this.f59850d = this;
-                    this.f59847a = i2;
-                    this.f59848b = obj;
-                    this.f59849c = str;
+                    this.f60772d = this;
+                    this.f60769a = i2;
+                    this.f60770b = obj;
+                    this.f60771c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f59850d.handleResponse(this.f59847a, this.f59848b, this.f59849c);
+                        this.f60772d.handleResponse(this.f60769a, this.f60770b, this.f60771c);
                     }
                 }
             });

@@ -8,6 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +125,7 @@ public class BundleInfo implements IBundleInfo {
                 return arrayList2;
             }
             cursor.getColumnIndex("_id");
-            int columnIndex = cursor.getColumnIndex("pkg_name");
+            int columnIndex = cursor.getColumnIndex(EmotionResourceInfo.JSON_KEY_PKG_NAME);
             int columnIndex2 = cursor.getColumnIndex("version_code");
             int columnIndex3 = cursor.getColumnIndex("path");
             int columnIndex4 = cursor.getColumnIndex("update_v");
@@ -259,7 +260,7 @@ public class BundleInfo implements IBundleInfo {
             if (TextUtils.isEmpty(packageName)) {
                 return contentValues;
             }
-            contentValues.put("pkg_name", packageName);
+            contentValues.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, packageName);
             contentValues.put("version_code", Integer.valueOf(bundleInfo.getVersionCode()));
             contentValues.put("path", bundleInfo.getApkPath());
             contentValues.put("min_version", Integer.valueOf(bundleInfo.getMinVersion()));
@@ -755,7 +756,7 @@ public class BundleInfo implements IBundleInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, contentValues)) == null) {
             BundleInfo bundleInfo = new BundleInfo();
-            bundleInfo.setPackageName(contentValues.getAsString("pkg_name"));
+            bundleInfo.setPackageName(contentValues.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME));
             bundleInfo.setVersionCode(contentValues.getAsInteger("version_code").intValue());
             bundleInfo.setApkPath(contentValues.getAsString("path"));
             bundleInfo.setUpdateV(contentValues.getAsLong("update_v").longValue());
@@ -794,7 +795,7 @@ public class BundleInfo implements IBundleInfo {
             if (TextUtils.isEmpty(packageName)) {
                 return contentValues;
             }
-            contentValues.put("pkg_name", packageName);
+            contentValues.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, packageName);
             contentValues.put("version_code", Integer.valueOf(iBundleInfo.getVersionCode()));
             contentValues.put("path", iBundleInfo.getApkPath());
             contentValues.put("min_version", Integer.valueOf(iBundleInfo.getMinVersion()));

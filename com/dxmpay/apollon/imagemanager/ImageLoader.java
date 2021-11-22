@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.f.a.e.a;
+import b.e.a.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -32,29 +32,29 @@ public final class ImageLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f62111f;
+    public static final boolean f63012f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f62112g;
+    public static final String f63013g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static ImageLoader f62113h;
+    public static ImageLoader f63014h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f62114a;
+    public Context f63015a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.dxmpay.apollon.imagemanager.b f62115b;
+    public com.dxmpay.apollon.imagemanager.b f63016b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.f.a.e.a f62116c;
+    public b.e.a.e.a f63017c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageProcessor f62117d;
+    public ImageProcessor f63018d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ThreadPoolExecutor f62118e;
+    public ThreadPoolExecutor f63019e;
 
     /* loaded from: classes11.dex */
     public interface OnGetBitmapListener {
@@ -66,7 +66,7 @@ public final class ImageLoader {
     }
 
     /* loaded from: classes11.dex */
-    public class a implements a.InterfaceC1461a {
+    public class a implements a.InterfaceC1503a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,7 +86,7 @@ public final class ImageLoader {
             }
         }
 
-        @Override // b.f.a.e.a.InterfaceC1461a
+        @Override // b.e.a.e.a.InterfaceC1503a
         public List<File> a(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public final class ImageLoader {
                 if (file.exists() && file.isDirectory()) {
                     LinkedList linkedList = new LinkedList();
                     File[] listFiles = file.listFiles();
-                    long currentTimeMillis = System.currentTimeMillis() - com.baidu.apollon.imagemanager.ImageLoader.f36013d;
+                    long currentTimeMillis = System.currentTimeMillis() - com.baidu.apollon.imagemanager.ImageLoader.f36842d;
                     for (File file2 : listFiles) {
                         if (file2.lastModified() < currentTimeMillis) {
                             linkedList.add(file2);
@@ -147,19 +147,19 @@ public final class ImageLoader {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f62119e;
+        public final /* synthetic */ String f63020e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ OnGetBitmapListener f62120f;
+        public final /* synthetic */ OnGetBitmapListener f63021f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f62121g;
+        public final /* synthetic */ Object f63022g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f62122h;
+        public final /* synthetic */ int f63023h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ ImageLoader f62123i;
+        public final /* synthetic */ ImageLoader f63024i;
 
         public c(ImageLoader imageLoader, String str, OnGetBitmapListener onGetBitmapListener, Object obj, int i2) {
             Interceptable interceptable = $ic;
@@ -176,20 +176,20 @@ public final class ImageLoader {
                     return;
                 }
             }
-            this.f62123i = imageLoader;
-            this.f62119e = str;
-            this.f62120f = onGetBitmapListener;
-            this.f62121g = obj;
-            this.f62122h = i2;
+            this.f63024i = imageLoader;
+            this.f63020e = str;
+            this.f63021f = onGetBitmapListener;
+            this.f63022g = obj;
+            this.f63023h = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62123i.e(this.f62119e, this.f62120f, this.f62121g, this.f62122h)) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f63024i.e(this.f63020e, this.f63021f, this.f63022g, this.f63023h)) {
                 return;
             }
-            this.f62123i.g(this.f62119e, this.f62120f, this.f62121g, this.f62122h);
+            this.f63024i.g(this.f63020e, this.f63021f, this.f63022g, this.f63023h);
         }
     }
 
@@ -206,9 +206,9 @@ public final class ImageLoader {
                 return;
             }
         }
-        f62111f = ApollonConstants.DEBUG;
-        f62112g = ImageLoader.class.getSimpleName();
-        f62113h = null;
+        f63012f = ApollonConstants.DEBUG;
+        f63013g = ImageLoader.class.getSimpleName();
+        f63014h = null;
     }
 
     public ImageLoader(Context context) {
@@ -226,27 +226,27 @@ public final class ImageLoader {
                 return;
             }
         }
-        this.f62118e = null;
+        this.f63019e = null;
         Context applicationContext = context.getApplicationContext();
-        this.f62114a = applicationContext;
-        this.f62117d = new ImageProcessor(applicationContext);
-        this.f62115b = new com.dxmpay.apollon.imagemanager.b();
-        this.f62116c = new b.f.a.e.a(this.f62114a, "dxmpay/wallet/image_cache", new a(this));
+        this.f63015a = applicationContext;
+        this.f63018d = new ImageProcessor(applicationContext);
+        this.f63016b = new com.dxmpay.apollon.imagemanager.b();
+        this.f63017c = new b.e.a.e.a(this.f63015a, "dxmpay/wallet/image_cache", new a(this));
     }
 
     public static ImageLoader getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            boolean z = f62111f;
-            if (f62113h == null) {
+            boolean z = f63012f;
+            if (f63014h == null) {
                 synchronized (ImageLoader.class) {
-                    if (f62113h == null) {
-                        f62113h = new ImageLoader(context.getApplicationContext());
+                    if (f63014h == null) {
+                        f63014h = new ImageLoader(context.getApplicationContext());
                     }
                 }
             }
-            return f62113h;
+            return f63014h;
         }
         return (ImageLoader) invokeL.objValue;
     }
@@ -255,19 +255,19 @@ public final class ImageLoader {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, obj, i2)) == null) {
-            boolean z = f62111f;
-            File a2 = this.f62116c.a(str);
+            boolean z = f63012f;
+            File a2 = this.f63017c.a(str);
             Bitmap bitmap = null;
             if (a2 != null && a2.exists()) {
-                boolean z2 = f62111f;
+                boolean z2 = f63012f;
                 try {
-                    bitmap = this.f62117d.decode(a2, i2);
+                    bitmap = this.f63018d.decode(a2, i2);
                 } catch (FileNotFoundException unused) {
                 }
                 if (bitmap != null) {
-                    boolean z3 = f62111f;
-                    this.f62115b.e(str, bitmap);
-                    this.f62115b.d();
+                    boolean z3 = f63012f;
+                    this.f63016b.e(str, bitmap);
+                    this.f63016b.d();
                 }
             }
             return bitmap;
@@ -278,13 +278,13 @@ public final class ImageLoader {
     public final void b(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            if (this.f62118e == null) {
-                this.f62118e = new ThreadPoolExecutor(3, 6, 10L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new b(this), new ThreadPoolExecutor.DiscardOldestPolicy());
+            if (this.f63019e == null) {
+                this.f63019e = new ThreadPoolExecutor(3, 6, 10L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new b(this), new ThreadPoolExecutor.DiscardOldestPolicy());
                 if (ChannelUtils.isSpecailPackage()) {
-                    this.f62118e.allowCoreThreadTimeOut(true);
+                    this.f63019e.allowCoreThreadTimeOut(true);
                 }
             }
-            this.f62118e.execute(runnable);
+            this.f63019e.execute(runnable);
         }
     }
 
@@ -312,21 +312,21 @@ public final class ImageLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048579, this, str, onGetBitmapListener, obj, i2)) == null) {
             if (onGetBitmapListener == null || !onGetBitmapListener.needCancel(str, obj)) {
-                boolean z = f62111f;
-                File a2 = this.f62116c.a(str);
+                boolean z = f63012f;
+                File a2 = this.f63017c.a(str);
                 if (a2 == null || !a2.exists()) {
                     return false;
                 }
-                boolean z2 = f62111f;
+                boolean z2 = f63012f;
                 try {
-                    bitmap = this.f62117d.decode(a2, i2);
+                    bitmap = this.f63018d.decode(a2, i2);
                 } catch (FileNotFoundException unused) {
                     bitmap = null;
                 }
                 if (bitmap != null) {
-                    boolean z3 = f62111f;
-                    this.f62115b.e(str, bitmap);
-                    this.f62115b.d();
+                    boolean z3 = f63012f;
+                    this.f63016b.e(str, bitmap);
+                    this.f63016b.d();
                     if (onGetBitmapListener != null) {
                         onGetBitmapListener.onGetBitmap(str, obj, bitmap);
                     }
@@ -344,10 +344,10 @@ public final class ImageLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048580, this, str, onGetBitmapListener, obj, i2) == null) {
             if (onGetBitmapListener == null || !onGetBitmapListener.needCancel(str, obj)) {
-                boolean z = f62111f;
-                Context context = this.f62114a;
+                boolean z = f63012f;
+                Context context = this.f63015a;
                 RestTemplate restTemplate = new RestTemplate(context, BussinessUtils.getUA(context), ApollonConstants.HTTP_REQUEST_TYPE_IMAGE_LOAD);
-                restTemplate.setMessageConverter(new b.f.a.g.b.a());
+                restTemplate.setMessageConverter(new b.e.a.g.b.a());
                 Bitmap bitmap = null;
                 try {
                     bArr = (byte[]) restTemplate.d(str, null, "utf-8", byte[].class);
@@ -358,19 +358,19 @@ public final class ImageLoader {
                 if (bArr == null) {
                     return;
                 }
-                this.f62116c.d(str, bArr);
-                File a2 = this.f62116c.a(str);
+                this.f63017c.d(str, bArr);
+                File a2 = this.f63017c.a(str);
                 if (a2 == null || !a2.exists()) {
                     return;
                 }
                 try {
-                    bitmap = this.f62117d.decode(a2, i2);
+                    bitmap = this.f63018d.decode(a2, i2);
                 } catch (FileNotFoundException unused) {
                 }
                 if (bitmap != null) {
-                    boolean z2 = f62111f;
-                    this.f62115b.e(str, bitmap);
-                    this.f62115b.d();
+                    boolean z2 = f63012f;
+                    this.f63016b.e(str, bitmap);
+                    this.f63016b.d();
                     if (onGetBitmapListener != null) {
                         onGetBitmapListener.onGetBitmap(str, obj, bitmap);
                     }
@@ -384,7 +384,7 @@ public final class ImageLoader {
         if ((interceptable == null || interceptable.invokeLLLI(1048581, this, str, onGetBitmapListener, obj, i2) == null) && d(str)) {
             Bitmap bitmapFromMemCache = getBitmapFromMemCache(str);
             if (bitmapFromMemCache != null) {
-                boolean z = f62111f;
+                boolean z = f63012f;
                 onGetBitmapListener.onGetBitmap(str, obj, bitmapFromMemCache);
                 return;
             }
@@ -403,9 +403,9 @@ public final class ImageLoader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            boolean z = f62111f;
+            boolean z = f63012f;
             if (d(str)) {
-                return this.f62115b.a(str);
+                return this.f63016b.a(str);
             }
             return null;
         }
@@ -419,12 +419,12 @@ public final class ImageLoader {
             if (d(str)) {
                 Bitmap bitmapFromMemCache = getBitmapFromMemCache(str);
                 if (bitmapFromMemCache != null) {
-                    boolean z = f62111f;
+                    boolean z = f63012f;
                     return bitmapFromMemCache;
                 }
                 Bitmap a2 = a(str, obj, i2);
                 if (a2 != null) {
-                    boolean z2 = f62111f;
+                    boolean z2 = f63012f;
                 }
                 return a2;
             }

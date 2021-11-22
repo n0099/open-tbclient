@@ -23,17 +23,17 @@ public class j extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f3828d;
+    public static final boolean f3922d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f3829a;
+    public Bitmap f3923a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3830b;
+    public String f3924b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Matrix f3831c;
+    public Matrix f3925c;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class j extends a {
                 return;
             }
         }
-        f3828d = b.a.p0.a.k.f6397a;
+        f3922d = b.a.p0.a.k.f6863a;
     }
 
     public j(String str) {
@@ -66,7 +66,7 @@ public class j extends a {
                 return;
             }
         }
-        this.f3830b = str;
+        this.f3924b = str;
     }
 
     @Override // b.a.p0.a.a0.a.j.a
@@ -74,10 +74,10 @@ public class j extends a {
         Bitmap bitmap;
         Matrix matrix;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (bitmap = this.f3829a) == null || (matrix = this.f3831c) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (bitmap = this.f3923a) == null || (matrix = this.f3925c) == null) {
             return;
         }
-        canvas.drawBitmap(bitmap, matrix, bVar.f3801h);
+        canvas.drawBitmap(bitmap, matrix, bVar.f3895h);
     }
 
     @Override // b.a.p0.a.a0.a.j.a
@@ -92,16 +92,16 @@ public class j extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(this.f3830b);
-                int g2 = b.a.p0.a.v2.n0.g((float) jSONObject.optDouble("x"));
-                int g3 = b.a.p0.a.v2.n0.g((float) jSONObject.optDouble("y"));
+                JSONObject jSONObject = new JSONObject(this.f3924b);
+                int g2 = b.a.p0.a.z2.n0.g((float) jSONObject.optDouble("x"));
+                int g3 = b.a.p0.a.z2.n0.g((float) jSONObject.optDouble("y"));
                 int optInt = jSONObject.optInt("width");
                 int optInt2 = jSONObject.optInt("height");
                 if (optInt <= 0 || optInt2 <= 0) {
                     return 2002;
                 }
-                float g4 = b.a.p0.a.v2.n0.g(optInt);
-                float g5 = b.a.p0.a.v2.n0.g(optInt2);
+                float g4 = b.a.p0.a.z2.n0.g(optInt);
+                float g5 = b.a.p0.a.z2.n0.g(optInt2);
                 String optString = jSONObject.optString("data");
                 if (TextUtils.isEmpty(optString)) {
                     return 2001;
@@ -110,22 +110,22 @@ public class j extends a {
                     byte[] decode = Base64.decode(optString, 2);
                     int i2 = optInt * optInt2 * 4;
                     if (decode != null && decode.length == i2) {
-                        this.f3829a = e(d(decode, optInt, optInt2), g4, g5);
+                        this.f3923a = e(d(decode, optInt, optInt2), g4, g5);
                         Matrix matrix = new Matrix();
-                        this.f3831c = matrix;
+                        this.f3925c = matrix;
                         matrix.postTranslate(g2, g3);
                         return 0;
                     }
                     return 2001;
                 } catch (Exception e2) {
-                    if (f3828d) {
+                    if (f3922d) {
                         e2.printStackTrace();
                     }
-                    b.a.p0.a.e0.d.b("canvasPutImageData", "canvasGetImageData meets exception in decoding bitmap");
+                    b.a.p0.a.e0.d.c("canvasPutImageData", "canvasGetImageData meets exception in decoding bitmap");
                     return 1001;
                 }
             } catch (JSONException e3) {
-                if (f3828d) {
+                if (f3922d) {
                     e3.printStackTrace();
                 }
                 return 1001;

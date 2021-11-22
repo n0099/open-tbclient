@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.hotTopic.tab.net;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.r0.h1.f.a.c;
 import b.a.r0.h1.f.a.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;

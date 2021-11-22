@@ -23,25 +23,25 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ArrayList<String> f12662a;
+    public static final ArrayList<String> f13412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f12663b;
+    public static String f13413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f12664c;
+    public static String f13414c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f12665d;
+    public static boolean f13415d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f12666e;
+    public static String f13416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f12667f;
+    public static String f13417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f12668g;
+    public static String f13418g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,18 +57,18 @@ public class f {
                 return;
             }
         }
-        f12662a = new ArrayList<>();
-        f12665d = false;
+        f13412a = new ArrayList<>();
+        f13415d = false;
     }
 
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!f12665d) {
+            if (!f13415d) {
                 r(context);
             }
-            return f12665d;
+            return f13415d;
         }
         return invokeL.booleanValue;
     }
@@ -76,17 +76,17 @@ public class f {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12666e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f13416e : (String) invokeV.objValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f12663b == null) {
-                f12663b = d(TbadkCoreApplication.getInst().getApp());
+            if (f13413b == null) {
+                f13413b = d(TbadkCoreApplication.getInst().getApp());
             }
-            return f12663b;
+            return f13413b;
         }
         return (String) invokeV.objValue;
     }
@@ -114,13 +114,13 @@ public class f {
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f12667f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f13417f : (String) invokeV.objValue;
     }
 
     public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f12668g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f13418g : (String) invokeV.objValue;
     }
 
     public static void g() {
@@ -128,22 +128,22 @@ public class f {
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             String packageName = TbadkCoreApplication.getInst().getPackageName();
             String str = packageName + ":swan";
-            f12664c = str;
-            f12662a.clear();
-            f12662a.add(packageName);
-            f12662a.add(packageName + ":remote");
-            f12662a.add(packageName + ":cdnTachometer");
-            f12662a.add(packageName + ":daemon");
-            f12662a.add(packageName + ":third");
-            f12662a.add(packageName + ":pluginInstaller");
-            f12662a.add(packageName + ":xiaoying");
-            f12662a.add(packageName + ":media");
-            f12662a.add(packageName + ":kmyas__");
-            f12662a.add(packageName + ":guardService");
-            f12662a.add(packageName + ":warkup");
-            f12662a.add(str);
-            f12662a.add(packageName + ":bdservice_v1");
-            f12662a.add(packageName + ":live");
+            f13414c = str;
+            f13412a.clear();
+            f13412a.add(packageName);
+            f13412a.add(packageName + ":remote");
+            f13412a.add(packageName + ":cdnTachometer");
+            f13412a.add(packageName + ":daemon");
+            f13412a.add(packageName + ":third");
+            f13412a.add(packageName + ":pluginInstaller");
+            f13412a.add(packageName + ":xiaoying");
+            f13412a.add(packageName + ":media");
+            f13412a.add(packageName + ":kmyas__");
+            f13412a.add(packageName + ":guardService");
+            f13412a.add(packageName + ":warkup");
+            f13412a.add(str);
+            f13412a.add(packageName + ":bdservice_v1");
+            f13412a.add(packageName + ":live");
             m("initProcess-->CurrentProcessName=" + c());
         }
     }
@@ -174,9 +174,9 @@ public class f {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            Iterator<String> it = f12662a.iterator();
+            Iterator<String> it = f13412a.iterator();
             while (it.hasNext()) {
-                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(f12664c)) {
+                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(f13414c)) {
                     return true;
                 }
                 while (it.hasNext()) {
@@ -190,7 +190,7 @@ public class f {
     public static boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f12665d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f13415d : invokeV.booleanValue;
     }
 
     public static boolean l() {
@@ -208,28 +208,28 @@ public class f {
     public static void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            f12666e = str;
+            f13416e = str;
         }
     }
 
     public static void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
-            f12665d = z;
+            f13415d = z;
         }
     }
 
     public static void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            f12667f = str;
+            f13417f = str;
         }
     }
 
     public static void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
-            f12668g = str;
+            f13418g = str;
         }
     }
 

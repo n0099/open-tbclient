@@ -15,31 +15,31 @@ public class x0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13478a;
+    public String f14260a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13479b;
+    public String f14261b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13480c;
+    public String f14262c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13481d;
+    public String f14263d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f13482e;
+    public long f14264e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<String> f13483f;
+    public SparseArray<String> f14265f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SparseArray<String> f13484g;
+    public SparseArray<String> f14266g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13485h;
+    public int f14267h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONArray f13486i;
+    public JSONArray f14268i;
     public JSONArray j;
     public String k;
     public String l;
@@ -63,26 +63,26 @@ public class x0 {
                 return;
             }
         }
-        this.f13483f = null;
-        this.f13484g = null;
+        this.f14265f = null;
+        this.f14266g = null;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13485h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14267h : invokeV.intValue;
     }
 
     public SparseArray<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13483f : (SparseArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14265f : (SparseArray) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13480c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14262c : (String) invokeV.objValue;
     }
 
     public JSONArray d() {
@@ -94,58 +94,58 @@ public class x0 {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13481d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14263d : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13479b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14261b : (String) invokeV.objValue;
     }
 
     public JSONArray g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13486i : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14268i : (JSONArray) invokeV.objValue;
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13478a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14260a : (String) invokeV.objValue;
     }
 
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13482e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f14264e : invokeV.longValue;
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f13485h = i2;
+            this.f14267h = i2;
         }
     }
 
     public void j(SparseArray<String> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, sparseArray) == null) {
-            this.f13483f = sparseArray;
+            this.f14265f = sparseArray;
         }
     }
 
     public void k(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.f13480c = String.valueOf(j);
+            this.f14262c = String.valueOf(j);
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f13480c = str;
+            this.f14262c = str;
         }
     }
 
@@ -159,35 +159,35 @@ public class x0 {
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f13481d = str;
+            this.f14263d = str;
         }
     }
 
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f13479b = str;
+            this.f14261b = str;
         }
     }
 
     public void p(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, jSONArray) == null) {
-            this.f13486i = jSONArray;
+            this.f14268i = jSONArray;
         }
     }
 
     public void q(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.f13482e = j;
+            this.f14264e = j;
         }
     }
 
     public void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f13478a = str;
+            this.f14260a = str;
         }
     }
 }

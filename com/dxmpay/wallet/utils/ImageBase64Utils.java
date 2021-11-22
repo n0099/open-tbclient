@@ -82,7 +82,7 @@ public class ImageBase64Utils {
                 Context context = this.mContext;
                 if (context != null && this.mImageUri != null) {
                     try {
-                        return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f40168a);
+                        return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f41000a);
                     } catch (FileNotFoundException e2) {
                         e2.printStackTrace();
                     }

@@ -27,10 +27,10 @@ public final class GlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f62218a = null;
+    public static LayoutInflater f63119a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f62219b = null;
+    public static WeakReference<Toast> f63120b = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,10 +40,10 @@ public final class GlobalUtils {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f62220e;
+        public final /* synthetic */ Context f63121e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f62221f;
+        public final /* synthetic */ View f63122f;
 
         public a(Context context, View view) {
             Interceptable interceptable = $ic;
@@ -60,15 +60,15 @@ public final class GlobalUtils {
                     return;
                 }
             }
-            this.f62220e = context;
-            this.f62221f = view;
+            this.f63121e = context;
+            this.f63122f = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((InputMethodManager) this.f62220e.getSystemService("input_method")).showSoftInput(this.f62221f, 0);
+                ((InputMethodManager) this.f63121e.getSystemService("input_method")).showSoftInput(this.f63122f, 0);
             }
         }
     }
@@ -178,14 +178,14 @@ public final class GlobalUtils {
             if (TextUtils.isEmpty(charSequence)) {
                 return;
             }
-            WeakReference<Toast> weakReference = f62219b;
+            WeakReference<Toast> weakReference = f63120b;
             if (weakReference != null && weakReference.get() != null) {
-                f62219b.get().cancel();
+                f63120b.get().cancel();
             }
-            if (f62218a == null) {
-                f62218a = LayoutInflater.from(applicationContext);
+            if (f63119a == null) {
+                f63119a = LayoutInflater.from(applicationContext);
             }
-            View inflate = f62218a.inflate(ResUtils.layout(applicationContext, "dxm_wallet_base_toast"), (ViewGroup) null);
+            View inflate = f63119a.inflate(ResUtils.layout(applicationContext, "dxm_wallet_base_toast"), (ViewGroup) null);
             if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
                 return;
             }
@@ -199,7 +199,7 @@ public final class GlobalUtils {
             toast.setDuration(i3);
             toast.setGravity(17, 0, 0);
             toast.setView(inflate);
-            f62219b = new WeakReference<>(toast);
+            f63120b = new WeakReference<>(toast);
             toast.show();
         }
     }

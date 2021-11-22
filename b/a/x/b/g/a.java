@@ -15,19 +15,19 @@ public class a implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f29403e;
+    public float f30272e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f29404f;
+    public float f30273f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MirrorType f29405g;
+    public MirrorType f30274g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29406h;
+    public int f30275h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ScaleType f29407i;
+    public ScaleType f30276i;
     public float j;
     public int k;
 
@@ -44,11 +44,11 @@ public class a implements Cloneable {
                 return;
             }
         }
-        this.f29403e = 0.0f;
-        this.f29404f = 0.0f;
-        this.f29405g = MirrorType.NO_MIRROR;
-        this.f29406h = 0;
-        this.f29407i = ScaleType.FIT_XY;
+        this.f30272e = 0.0f;
+        this.f30273f = 0.0f;
+        this.f30274g = MirrorType.NO_MIRROR;
+        this.f30275h = 0;
+        this.f30276i = ScaleType.FIT_XY;
         this.j = 1.0f;
         this.k = -90;
     }
@@ -72,7 +72,7 @@ public class a implements Cloneable {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29406h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30275h : invokeV.intValue;
     }
 
     public float c() {
@@ -84,13 +84,13 @@ public class a implements Cloneable {
     public MirrorType e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29405g : (MirrorType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30274g : (MirrorType) invokeV.objValue;
     }
 
     public ScaleType f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29407i : (ScaleType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30276i : (ScaleType) invokeV.objValue;
     }
 
     public int g() {
@@ -102,26 +102,26 @@ public class a implements Cloneable {
     public float h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29403e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30272e : invokeV.floatValue;
     }
 
     public float i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29404f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30273f : invokeV.floatValue;
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f29406h = i2;
+            this.f30275h = i2;
         }
     }
 
     public void k(MirrorType mirrorType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, mirrorType) == null) {
-            this.f29405g = mirrorType;
+            this.f30274g = mirrorType;
         }
     }
 }

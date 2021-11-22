@@ -1,7 +1,9 @@
 package b.a.r0.x0;
-
-import com.baidu.tbadk.core.view.NavigationBar;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface q0 {
-    NavigationBar getNavigationBar();
+    void changeToSpecialFrs(boolean z);
+
+    void forceRefresh();
+
+    void scrollToTop();
 }

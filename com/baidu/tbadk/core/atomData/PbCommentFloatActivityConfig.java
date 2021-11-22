@@ -283,9 +283,9 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra("thread_id", d2Var.s1());
-            if (d2Var.v1() != null && !StringUtils.isNull(d2Var.v1().G())) {
-                intent.putExtra("god_reply_id", d2Var.v1().G());
+            intent.putExtra("thread_id", d2Var.t1());
+            if (d2Var.w1() != null && !StringUtils.isNull(d2Var.w1().G())) {
+                intent.putExtra("god_reply_id", d2Var.w1().G());
             }
             intent.putExtra("is_good", d2Var.q0());
             intent.putExtra("is_top", d2Var.r0());
@@ -814,7 +814,7 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             if (intent != null && d2Var != null) {
                 BaijiahaoData L = d2Var.L();
                 if (L != null) {
-                    intent.putExtra("key_is_from_dynamic", d2Var.D2());
+                    intent.putExtra("key_is_from_dynamic", d2Var.F2());
                     intent.putExtra("key_ori_ugc_nid", L.oriUgcNid);
                     intent.putExtra("key_ori_ugc_tid", L.oriUgcTid);
                     intent.putExtra("key_ori_ugc_type", L.oriUgcType);

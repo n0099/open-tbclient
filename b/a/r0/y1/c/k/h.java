@@ -13,16 +13,16 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27430a;
+    public String f28933a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27431b;
+    public String f28934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27432c;
+    public String f28935c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27433d;
+    public String f28936d;
 
     public h(VipThemeItem vipThemeItem) {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class h {
                 return;
             }
         }
-        this.f27430a = vipThemeItem.img_url;
-        this.f27431b = vipThemeItem.title;
+        this.f28933a = vipThemeItem.img_url;
+        this.f28934b = vipThemeItem.title;
         vipThemeItem.props_id.intValue();
         vipThemeItem.props_category.intValue();
-        this.f27432c = vipThemeItem.props_category_name;
+        this.f28935c = vipThemeItem.props_category_name;
         String str = vipThemeItem.desc;
         String str2 = vipThemeItem.link;
-        this.f27433d = vipThemeItem.tag_img_url;
+        this.f28936d = vipThemeItem.tag_img_url;
         String str3 = vipThemeItem.update_time;
         vipThemeItem.id.intValue();
         vipThemeItem.type.intValue();
@@ -55,24 +55,24 @@ public class h {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27430a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28933a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27432c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28935c : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27433d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28936d : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27431b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28934b : (String) invokeV.objValue;
     }
 }

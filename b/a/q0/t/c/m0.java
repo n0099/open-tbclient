@@ -17,16 +17,16 @@ public class m0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13816a;
+    public String f14584a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13817b;
+    public String f14585b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13818c;
+    public String f14586c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VcodeExtra f13819d;
+    public VcodeExtra f14587d;
 
     public m0() {
         Interceptable interceptable = $ic;
@@ -41,33 +41,33 @@ public class m0 {
                 return;
             }
         }
-        this.f13816a = null;
-        this.f13817b = null;
-        this.f13818c = null;
+        this.f14584a = null;
+        this.f14585b = null;
+        this.f14586c = null;
     }
 
     public VcodeExtra a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13819d : (VcodeExtra) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14587d : (VcodeExtra) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13816a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14584a : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13817b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14585b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13818c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14586c : (String) invokeV.objValue;
     }
 
     public void e(String str) {
@@ -92,17 +92,17 @@ public class m0 {
             return;
         }
         try {
-            this.f13816a = jSONObject.optString("vcode_md5");
-            this.f13817b = jSONObject.optString("vcode_pic_url");
-            this.f13818c = jSONObject.optString("vcode_type");
+            this.f14584a = jSONObject.optString("vcode_md5");
+            this.f14585b = jSONObject.optString("vcode_pic_url");
+            this.f14586c = jSONObject.optString("vcode_type");
             JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
             VcodeExtra vcodeExtra = new VcodeExtra();
-            this.f13819d = vcodeExtra;
+            this.f14587d = vcodeExtra;
             vcodeExtra.textImg = jSONObject2.optString("textimg");
-            this.f13819d.slideImg = jSONObject2.optString("slideimg");
-            this.f13819d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
-            this.f13819d.successImg = jSONObject2.optString("successimg");
-            this.f13819d.slideEndPoint = jSONObject2.optString("slideendpoint");
+            this.f14587d.slideImg = jSONObject2.optString("slideimg");
+            this.f14587d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
+            this.f14587d.successImg = jSONObject2.optString("successimg");
+            this.f14587d.slideEndPoint = jSONObject2.optString("slideendpoint");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class cx implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f56884a;
+    public final /* synthetic */ String f57806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ JSONArray f56885b;
+    public final /* synthetic */ JSONArray f57807b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f56886c;
+    public final /* synthetic */ int f57808c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ cg f56887d;
+    public final /* synthetic */ cg f57809d;
 
     public cx(cg cgVar, String str, JSONArray jSONArray, int i2) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public final class cx implements View.OnClickListener {
                 return;
             }
         }
-        this.f56887d = cgVar;
-        this.f56884a = str;
-        this.f56885b = jSONArray;
-        this.f56886c = i2;
+        this.f57809d = cgVar;
+        this.f57806a = str;
+        this.f57807b = jSONArray;
+        this.f57808c = i2;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0069: INVOKE  (r1v6 java.lang.Object A[REMOVE]) = 
@@ -64,22 +64,22 @@ public final class cx implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             com.baidu.ufosdk.f.c.a("点击查看不满意原因");
-            if (!TextUtils.isEmpty(this.f56884a) || ((jSONArray2 = this.f56885b) != null && jSONArray2.length() != 0)) {
-                ((Map) this.f56887d.f56861a.f56765h.get(this.f56886c)).put("isClicked", 1);
+            if (!TextUtils.isEmpty(this.f57806a) || ((jSONArray2 = this.f57807b) != null && jSONArray2.length() != 0)) {
+                ((Map) this.f57809d.f57783a.f57687h.get(this.f57808c)).put("isClicked", 1);
             }
-            this.f56887d.f56861a.aF = this.f56886c;
-            if (((Map) this.f56887d.f56861a.f56765h.get(this.f56886c)).containsKey("chatId")) {
-                FeedbackInputActivity feedbackInputActivity = this.f56887d.f56861a;
+            this.f57809d.f57783a.aF = this.f57808c;
+            if (((Map) this.f57809d.f57783a.f57687h.get(this.f57808c)).containsKey("chatId")) {
+                FeedbackInputActivity feedbackInputActivity = this.f57809d.f57783a;
                 StringBuilder sb = new StringBuilder();
-                sb.append(((Map) this.f56887d.f56861a.f56765h.get(this.f56886c)).get("chatId"));
-                feedbackInputActivity.f56763f = sb.toString();
+                sb.append(((Map) this.f57809d.f57783a.f57687h.get(this.f57808c)).get("chatId"));
+                feedbackInputActivity.f57685f = sb.toString();
             }
-            if (TextUtils.isEmpty(this.f56884a) && ((jSONArray = this.f56885b) == null || jSONArray.length() == 0)) {
-                FeedbackInputActivity.a(this.f56887d.f56861a, false, false);
+            if (TextUtils.isEmpty(this.f57806a) && ((jSONArray = this.f57807b) == null || jSONArray.length() == 0)) {
+                FeedbackInputActivity.a(this.f57809d.f57783a, false, false);
             } else {
-                FeedbackInputActivity.a(this.f56887d.f56861a, true, false);
+                FeedbackInputActivity.a(this.f57809d.f57783a, true, false);
             }
-            this.f56887d.f56861a.j.notifyDataSetChanged();
+            this.f57809d.f57783a.j.notifyDataSetChanged();
         }
     }
 }

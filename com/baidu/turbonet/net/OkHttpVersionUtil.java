@@ -1,5 +1,6 @@
 package com.baidu.turbonet.net;
 
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.lang.reflect.InvocationTargetException;
 import java.util.NoSuchElementException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class OkHttpVersionUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +65,7 @@ public class OkHttpVersionUtil {
             if (!a2.isEmpty()) {
                 String[] split = a2.split("/");
                 if (split.length == 2) {
-                    String[] split2 = split[1].split("\\.");
+                    String[] split2 = split[1].split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                     if (split2.length == 3) {
                         try {
                             if (Integer.parseInt(split2[0]) == 3) {

@@ -2,9 +2,10 @@ package com.baidu.swan.apps.core.prefetch.image.config.image;
 
 import android.webkit.MimeTypeMap;
 import androidx.annotation.NonNull;
-import b.a.p0.a.h0.o.h.d.b.a;
-import b.a.p0.a.h0.o.h.g.g;
+import b.a.p0.a.h0.o.g.c.b.a;
+import b.a.p0.a.h0.o.g.f.h;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SystemStrategyImpl implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f43648a;
+    public final List<String> f44405a;
 
     public SystemStrategyImpl() {
         Interceptable interceptable = $ic;
@@ -33,7 +34,7 @@ public class SystemStrategyImpl implements a {
                 return;
             }
         }
-        this.f43648a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl.1
+        this.f44405a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SystemStrategyImpl this$0;
@@ -57,21 +58,21 @@ public class SystemStrategyImpl implements a {
                 add("png");
                 add("jpg");
                 add("jpeg");
-                add("webp");
+                add(OvalActionButton.WEBP);
                 add("bmp");
                 add("gif");
             }
         };
     }
 
-    @Override // b.a.p0.a.h0.o.h.d.b.a
-    public boolean a(@NonNull g gVar) {
+    @Override // b.a.p0.a.h0.o.g.c.b.a
+    public boolean a(@NonNull h.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(gVar.d());
-            gVar.a(MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl));
-            return this.f43648a.contains(fileExtensionFromUrl);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(aVar.d());
+            aVar.a(MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl));
+            return this.f44405a.contains(fileExtensionFromUrl);
         }
         return invokeL.booleanValue;
     }

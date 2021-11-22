@@ -1,12 +1,12 @@
 package com.google.common.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.g;
-import b.i.d.a.i;
-import b.i.d.a.k;
-import b.i.d.a.n;
-import b.i.d.c.o0;
-import b.i.d.c.o1;
+import b.h.d.a.g;
+import b.h.d.a.i;
+import b.h.d.a.k;
+import b.h.d.a.n;
+import b.h.d.c.o0;
+import b.h.d.c.o1;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -39,19 +39,19 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class Types {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g<Type, String> f63687a;
+    public static final g<Type, String> f64587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final i f63688b;
+    public static final i f64588b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static abstract class ClassOwnership {
         public static final /* synthetic */ ClassOwnership[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -60,7 +60,7 @@ public final class Types {
         public static final ClassOwnership OWNED_BY_ENCLOSING_CLASS;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes11.dex */
         public class a<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public final class Types {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes11.dex */
         public static class b extends a<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -242,7 +242,7 @@ public final class Types {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class GenericArrayTypeImpl implements GenericArrayType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -303,7 +303,7 @@ public final class Types {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static abstract class JavaVersion {
         public static final /* synthetic */ JavaVersion[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -314,8 +314,8 @@ public final class Types {
         public static final JavaVersion JAVA9;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes2.dex */
-        public static class a extends b.i.d.h.d<Map.Entry<String, int[][]>> {
+        /* loaded from: classes11.dex */
+        public static class a extends b.h.d.h.d<Map.Entry<String, int[][]>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -334,8 +334,8 @@ public final class Types {
             }
         }
 
-        /* loaded from: classes2.dex */
-        public static class b extends b.i.d.h.d<int[]> {
+        /* loaded from: classes11.dex */
+        public static class b extends b.h.d.h.d<int[]> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -660,7 +660,7 @@ public final class Types {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class ParameterizedTypeImpl implements ParameterizedType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -747,7 +747,7 @@ public final class Types {
                 }
                 sb.append(this.rawType.getName());
                 sb.append(Typography.less);
-                sb.append(Types.f63688b.c(o0.s(this.argumentsList, Types.f63687a)));
+                sb.append(Types.f64588b.c(o0.s(this.argumentsList, Types.f64587a)));
                 sb.append(Typography.greater);
                 return sb.toString();
             }
@@ -755,7 +755,7 @@ public final class Types {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class WildcardTypeImpl implements WildcardType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -837,7 +837,7 @@ public final class Types {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class a implements g<Type, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -857,7 +857,7 @@ public final class Types {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.i.d.a.g
+        @Override // b.h.d.a.g
         /* renamed from: a */
         public String apply(Type type) {
             InterceptResult invokeL;
@@ -866,13 +866,13 @@ public final class Types {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class b extends b.i.d.h.g {
+    /* loaded from: classes11.dex */
+    public static class b extends b.h.d.h.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AtomicReference f63689b;
+        public final /* synthetic */ AtomicReference f64589b;
 
         public b(AtomicReference atomicReference) {
             Interceptable interceptable = $ic;
@@ -889,48 +889,48 @@ public final class Types {
                     return;
                 }
             }
-            this.f63689b = atomicReference;
+            this.f64589b = atomicReference;
         }
 
-        @Override // b.i.d.h.g
+        @Override // b.h.d.h.g
         public void b(Class<?> cls) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cls) == null) {
-                this.f63689b.set(cls.getComponentType());
+                this.f64589b.set(cls.getComponentType());
             }
         }
 
-        @Override // b.i.d.h.g
+        @Override // b.h.d.h.g
         public void c(GenericArrayType genericArrayType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, genericArrayType) == null) {
-                this.f63689b.set(genericArrayType.getGenericComponentType());
+                this.f64589b.set(genericArrayType.getGenericComponentType());
             }
         }
 
-        @Override // b.i.d.h.g
+        @Override // b.h.d.h.g
         public void e(TypeVariable<?> typeVariable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, typeVariable) == null) {
-                this.f63689b.set(Types.q(typeVariable.getBounds()));
+                this.f64589b.set(Types.q(typeVariable.getBounds()));
             }
         }
 
-        @Override // b.i.d.h.g
+        @Override // b.h.d.h.g
         public void f(WildcardType wildcardType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, wildcardType) == null) {
-                this.f63689b.set(Types.q(wildcardType.getUpperBounds()));
+                this.f64589b.set(Types.q(wildcardType.getUpperBounds()));
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class c<X> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f63690a;
+        public static final boolean f64590a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -946,7 +946,7 @@ public final class Types {
                     return;
                 }
             }
-            f63690a = !c.class.getTypeParameters()[0].equals(Types.l(c.class, "X", new Type[0]));
+            f64590a = !c.class.getTypeParameters()[0].equals(Types.l(c.class, "X", new Type[0]));
         }
 
         public c() {
@@ -964,19 +964,19 @@ public final class Types {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class d<D extends GenericDeclaration> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final D f63691a;
+        public final D f64591a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f63692b;
+        public final String f64592b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ImmutableList<Type> f63693c;
+        public final ImmutableList<Type> f64593c;
 
         public d(D d2, String str, Type[] typeArr) {
             Interceptable interceptable = $ic;
@@ -995,37 +995,37 @@ public final class Types {
             }
             Types.g(typeArr, "bound for type variable");
             n.p(d2);
-            this.f63691a = d2;
+            this.f64591a = d2;
             n.p(str);
-            this.f63692b = str;
-            this.f63693c = ImmutableList.copyOf(typeArr);
+            this.f64592b = str;
+            this.f64593c = ImmutableList.copyOf(typeArr);
         }
 
         public D a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63691a : (D) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64591a : (D) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63692b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64592b : (String) invokeV.objValue;
         }
 
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                if (c.f63690a) {
+                if (c.f64590a) {
                     if (obj != null && Proxy.isProxyClass(obj.getClass()) && (Proxy.getInvocationHandler(obj) instanceof e)) {
-                        d dVar = ((e) Proxy.getInvocationHandler(obj)).f63695e;
-                        return this.f63692b.equals(dVar.b()) && this.f63691a.equals(dVar.a()) && this.f63693c.equals(dVar.f63693c);
+                        d dVar = ((e) Proxy.getInvocationHandler(obj)).f64595e;
+                        return this.f64592b.equals(dVar.b()) && this.f64591a.equals(dVar.a()) && this.f64593c.equals(dVar.f64593c);
                     }
                     return false;
                 } else if (obj instanceof TypeVariable) {
                     TypeVariable typeVariable = (TypeVariable) obj;
-                    return this.f63692b.equals(typeVariable.getName()) && this.f63691a.equals(typeVariable.getGenericDeclaration());
+                    return this.f64592b.equals(typeVariable.getName()) && this.f64591a.equals(typeVariable.getGenericDeclaration());
                 } else {
                     return false;
                 }
@@ -1036,26 +1036,26 @@ public final class Types {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63691a.hashCode() ^ this.f63692b.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64591a.hashCode() ^ this.f64592b.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63692b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64592b : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class e implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final ImmutableMap<String, Method> f63694f;
+        public static final ImmutableMap<String, Method> f64594f;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final d<?> f63695e;
+        public final d<?> f64595e;
 
         static {
             InterceptResult invokeClinit;
@@ -1081,7 +1081,7 @@ public final class Types {
                     builder.c(method.getName(), method);
                 }
             }
-            f63694f = builder.a();
+            f64594f = builder.a();
         }
 
         public e(d<?> dVar) {
@@ -1099,7 +1099,7 @@ public final class Types {
                     return;
                 }
             }
-            this.f63695e = dVar;
+            this.f64595e = dVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -1108,10 +1108,10 @@ public final class Types {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
                 String name = method.getName();
-                Method method2 = f63694f.get(name);
+                Method method2 = f64594f.get(name);
                 if (method2 != null) {
                     try {
-                        return method2.invoke(this.f63695e, objArr);
+                        return method2.invoke(this.f64595e, objArr);
                     } catch (InvocationTargetException e2) {
                         throw e2.getCause();
                     }
@@ -1135,8 +1135,8 @@ public final class Types {
                 return;
             }
         }
-        f63687a = new a();
-        f63688b = i.g(StringUtil.ARRAY_ELEMENT_SEPARATOR).i(StringUtil.NULL_STRING);
+        f64587a = new a();
+        f64588b = i.g(StringUtil.ARRAY_ELEMENT_SEPARATOR).i(StringUtil.NULL_STRING);
     }
 
     public static void g(Type[] typeArr, String str) {
@@ -1230,7 +1230,7 @@ public final class Types {
     public static <D extends GenericDeclaration> TypeVariable<D> o(D d2, String str, Type[] typeArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, d2, str, typeArr)) == null) ? (TypeVariable) b.i.d.h.c.a(TypeVariable.class, new e(new d(d2, str, typeArr))) : (TypeVariable) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, d2, str, typeArr)) == null) ? (TypeVariable) b.h.d.h.c.a(TypeVariable.class, new e(new d(d2, str, typeArr))) : (TypeVariable) invokeLLL.objValue;
     }
 
     public static WildcardType p(Type type) {

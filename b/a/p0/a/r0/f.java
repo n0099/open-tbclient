@@ -8,9 +8,11 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import b.a.p0.a.r0.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,24 +34,27 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class f extends b.a.p0.a.k2.f.c {
+public class f extends b.a.p0.a.o2.f.c {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: e  reason: collision with root package name */
-    public static List<String> f7579e;
+    /* renamed from: f  reason: collision with root package name */
+    public static List<String> f8093f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f7580a;
+    public Context f8094a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7581b;
+    public String f8095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b.a.p0.a.k2.f.d f7582c;
+    public final b.a.p0.a.o2.f.d f8096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b.a.p0.a.k2.f.e f7583d;
+    public final b.a.p0.a.o2.f.e f8097d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final String f8098e;
 
     static {
         InterceptResult invokeClinit;
@@ -65,21 +70,21 @@ public class f extends b.a.p0.a.k2.f.c {
             }
         }
         ArrayList arrayList = new ArrayList();
-        f7579e = arrayList;
+        f8093f = arrayList;
         arrayList.add("ascii");
-        f7579e.add("base64");
-        f7579e.add("binary");
-        f7579e.add("hex");
-        f7579e.add("utf-8");
-        f7579e.add("utf8");
-        f7579e.add("latin1");
-        f7579e.add("ucs2");
-        f7579e.add("ucs-2");
-        f7579e.add("utf16le");
-        f7579e.add("utf-16le");
+        f8093f.add("base64");
+        f8093f.add("binary");
+        f8093f.add("hex");
+        f8093f.add("utf-8");
+        f8093f.add("utf8");
+        f8093f.add("latin1");
+        f8093f.add("ucs2");
+        f8093f.add("ucs-2");
+        f8093f.add("utf16le");
+        f8093f.add("utf-16le");
     }
 
-    public f(Context context, String str, @NonNull b.a.p0.a.k2.f.d dVar) {
+    public f(Context context, String str, @NonNull b.a.p0.a.o2.f.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,54 +99,55 @@ public class f extends b.a.p0.a.k2.f.c {
                 return;
             }
         }
-        this.f7580a = context;
-        this.f7581b = str;
-        this.f7582c = dVar;
-        this.f7583d = dVar.d();
+        this.f8094a = context;
+        this.f8095b = str;
+        this.f8096c = dVar;
+        this.f8097d = dVar.d();
+        this.f8098e = new File(this.f8096c.f(), "record.pro").getAbsolutePath();
     }
 
     public c A(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            c v = n.v(str, n.D("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true), "fail parameter error: parameter.zipFilePath should be String instead of Object;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, n.G("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true), "fail parameter error: parameter.zipFilePath should be String instead of Object;");
+            if (x != null) {
+                return x;
             }
-            c v2 = n.v(str2, n.D("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true), "fail parameter error: parameter.targetPath should be String instead of Object;");
-            if (v2 != null) {
-                return v2;
+            c x2 = n.x(str2, n.G("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true), "fail parameter error: parameter.targetPath should be String instead of Object;");
+            if (x2 != null) {
+                return x2;
             }
             if (!str2.startsWith("bdfile://tmp") && !str2.startsWith(a.USER_DATA_PATH)) {
                 return d(-1, "fail permission denied, open " + str2);
             }
-            String I = n.I(str);
-            if (!this.f7582c.j(I, true)) {
-                return d(-4, n.D("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
+            String L = n.L(str);
+            if (!this.f8096c.j(L, true)) {
+                return d(-4, n.G("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
             }
-            if (!n.R(str2)) {
-                return d(-4, n.D("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
+            if (!n.V(str2)) {
+                return d(-4, n.G("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
             }
             if (m(str2)) {
-                return d(-1, n.D("fail permission denied, ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
+                return d(-1, n.G("fail permission denied, ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
             }
-            String g2 = g(I);
+            String g2 = g(L);
             String g3 = g(str2);
             if (TextUtils.isEmpty(g2)) {
-                return d(-1, n.D("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
+                return d(-1, n.G("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
             }
             if (TextUtils.isEmpty(g3)) {
-                return d(-1, n.D("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
+                return d(-1, n.G("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
             }
             File file = new File(g2);
             if (!file.exists()) {
-                return d(-1, n.D("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
+                return d(-1, n.G("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
             }
             if (!g2.endsWith(".zip")) {
                 return d(-1, "fail unzip failed");
             }
             if (!file.isFile()) {
-                return d(-1, n.D("fail permission denied, ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
+                return d(-1, n.G("fail permission denied, ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
             }
             File file2 = new File(g3);
             if (!file2.exists()) {
@@ -149,201 +155,202 @@ public class f extends b.a.p0.a.k2.f.c {
             } else if (file2.isFile()) {
                 return d(-1, "fail unzip failed");
             }
-            List<String> m = n.m(g3, true);
-            if (!b.a.p0.t.d.T(g2, g3)) {
+            List<String> o = n.o(g3, true);
+            if (!b.a.p0.w.d.U(g2, g3)) {
                 return d(-1, "fail unzip failed");
             }
             if (str2.startsWith(a.USER_DATA_PATH)) {
-                List<String> m2 = n.m(g3, true);
-                ArrayList arrayList = new ArrayList(m2.size());
+                List<String> o2 = n.o(g3, true);
+                ArrayList arrayList = new ArrayList(o2.size());
                 long j = 0;
-                for (String str3 : m2) {
-                    if (!m.contains(str3)) {
+                for (String str3 : o2) {
+                    if (!o.contains(str3)) {
                         arrayList.add(str3);
-                        j += n.x(str3);
+                        j += n.A(str3);
                     }
                 }
-                if (this.f7583d.a(j)) {
-                    n.g(arrayList);
+                if (this.f8097d.a(j)) {
+                    n.i(arrayList);
                     return d(-1, p());
                 }
-                this.f7583d.b(j);
+                this.f8097d.b(j);
             }
             return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
         }
         return (c) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:92:0x01bd */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:99:0x01b0 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x01d2 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x01df */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00e7  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00f0  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0164 A[Catch: all -> 0x01ac, Exception -> 0x01af, TryCatch #6 {Exception -> 0x01af, all -> 0x01ac, blocks: (B:56:0x0124, B:58:0x012e, B:60:0x0136, B:63:0x0148, B:65:0x0150, B:68:0x0154, B:70:0x015c, B:72:0x0164, B:74:0x017d, B:73:0x016f, B:80:0x0190), top: B:100:0x0122 }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x016f A[Catch: all -> 0x01ac, Exception -> 0x01af, TryCatch #6 {Exception -> 0x01af, all -> 0x01ac, blocks: (B:56:0x0124, B:58:0x012e, B:60:0x0136, B:63:0x0148, B:65:0x0150, B:68:0x0154, B:70:0x015c, B:72:0x0164, B:74:0x017d, B:73:0x016f, B:80:0x0190), top: B:100:0x0122 }] */
-    /* JADX WARN: Type inference failed for: r14v12 */
-    /* JADX WARN: Type inference failed for: r14v13 */
-    /* JADX WARN: Type inference failed for: r14v2, types: [java.lang.CharSequence, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r14v28 */
-    /* JADX WARN: Type inference failed for: r14v29 */
-    /* JADX WARN: Type inference failed for: r14v3 */
-    /* JADX WARN: Type inference failed for: r14v4 */
-    /* JADX WARN: Type inference failed for: r14v5, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r14v6 */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0155 A[Catch: all -> 0x01ce, Exception -> 0x01d1, TRY_LEAVE, TryCatch #5 {Exception -> 0x01d1, all -> 0x01ce, blocks: (B:44:0x00f5, B:46:0x00ff, B:48:0x0107, B:50:0x0117, B:53:0x0126, B:56:0x0133, B:58:0x013b, B:61:0x013f, B:63:0x0147, B:65:0x0155, B:68:0x0164, B:70:0x016c, B:72:0x0185, B:71:0x0177, B:78:0x0199, B:80:0x01a5, B:83:0x01b4), top: B:103:0x00f3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0164 A[Catch: all -> 0x01ce, Exception -> 0x01d1, TRY_ENTER, TryCatch #5 {Exception -> 0x01d1, all -> 0x01ce, blocks: (B:44:0x00f5, B:46:0x00ff, B:48:0x0107, B:50:0x0117, B:53:0x0126, B:56:0x0133, B:58:0x013b, B:61:0x013f, B:63:0x0147, B:65:0x0155, B:68:0x0164, B:70:0x016c, B:72:0x0185, B:71:0x0177, B:78:0x0199, B:80:0x01a5, B:83:0x01b4), top: B:103:0x00f3 }] */
+    /* JADX WARN: Type inference failed for: r13v15 */
+    /* JADX WARN: Type inference failed for: r13v16 */
+    /* JADX WARN: Type inference failed for: r13v2, types: [java.lang.CharSequence, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r13v3 */
+    /* JADX WARN: Type inference failed for: r13v34 */
+    /* JADX WARN: Type inference failed for: r13v35 */
+    /* JADX WARN: Type inference failed for: r13v4 */
+    /* JADX WARN: Type inference failed for: r13v5, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r13v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final c B(String str, Object obj, String str2, boolean z) {
         InterceptResult invokeCommon;
-        int length;
         FileOutputStream fileOutputStream;
+        long length;
         FileOutputStream fileOutputStream2;
         String str3;
-        BufferedWriter bufferedWriter;
+        long length2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, obj, str2, Boolean.valueOf(z)})) != null) {
-            return (c) invokeCommon.objValue;
-        }
-        c n = n(str);
-        if (n != null) {
-            return n;
-        }
-        if (obj == null) {
-            return d(-1, "The argument must be string or arrayBuffer");
-        }
-        int length2 = (a.USER_DATA_PATH + File.separator).length();
-        if (!n.R(str)) {
-            return d(-4, "fail permission denied, open " + str.substring(length2));
-        }
-        boolean z2 = obj instanceof byte[];
-        String str4 = "utf-8";
-        String str5 = str2;
-        if (!z2) {
-            boolean isEmpty = TextUtils.isEmpty(str2);
-            str5 = str2;
-            if (isEmpty) {
-                str5 = "utf-8";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, obj, str2, Boolean.valueOf(z)})) == null) {
+            c n = n(str);
+            if (n != null) {
+                return n;
             }
-        }
-        boolean isEmpty2 = TextUtils.isEmpty(str5);
-        ?? r14 = str5;
-        if (!isEmpty2) {
-            boolean equals = "binary".equals(str5.toLowerCase());
-            String str6 = str5;
-            if (equals) {
-                str6 = "latin1";
+            if (obj == null) {
+                return d(-1, "The argument must be string or arrayBuffer");
             }
-            boolean contains = f7579e.contains(str6.toLowerCase());
-            r14 = str6;
-            if (!contains) {
-                return d(-1, "fail invalid encoding \"" + str6 + "\"");
+            int length3 = (a.USER_DATA_PATH + File.separator).length();
+            if (!n.V(str)) {
+                return d(-4, "fail permission denied, open " + str.substring(length3));
             }
-        }
-        c h2 = h(str, false);
-        if (h2 != null) {
-            return h2;
-        }
-        String g2 = g(str);
-        if (TextUtils.isEmpty(g2)) {
-            return d(-1, "fail no such file or directory " + str.substring(length2));
-        }
-        long j = 0;
-        if (!z2) {
-            String str7 = (String) obj;
-            if (!TextUtils.isEmpty(str7)) {
-                length = str7.getBytes().length;
-                j = length;
-                if (!this.f7582c.d().a(j)) {
-                    return d(-1, p());
+            boolean z2 = obj instanceof byte[];
+            String str4 = "utf-8";
+            String str5 = str2;
+            if (!z2) {
+                boolean isEmpty = TextUtils.isEmpty(str2);
+                str5 = str2;
+                if (isEmpty) {
+                    str5 = "utf-8";
                 }
-                File file = new File(g2);
-                if (file.exists() && file.isDirectory()) {
-                    return d(-1, " fail illegal operation on a directory, open " + str);
+            }
+            boolean isEmpty2 = TextUtils.isEmpty(str5);
+            ?? r13 = str5;
+            if (!isEmpty2) {
+                boolean equals = "binary".equals(str5.toLowerCase());
+                String str6 = str5;
+                if (equals) {
+                    str6 = "latin1";
                 }
-                long length3 = file.length();
-                c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-                BufferedWriter bufferedWriter2 = null;
+                boolean contains = f8093f.contains(str6.toLowerCase());
+                r13 = str6;
+                if (!contains) {
+                    return d(-1, "fail invalid encoding \"" + str6 + "\"");
+                }
+            }
+            c h2 = h(str, false);
+            if (h2 != null) {
+                return h2;
+            }
+            String g2 = g(str);
+            if (TextUtils.isEmpty(g2)) {
+                return d(-1, "fail no such file or directory " + str.substring(length3));
+            }
+            File file = new File(g2);
+            if (file.exists() && file.isDirectory()) {
+                return d(-1, " fail illegal operation on a directory, open " + str);
+            }
+            long z3 = n.z(file);
+            c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+            BufferedWriter bufferedWriter = null;
+            try {
                 try {
                     try {
-                        try {
-                            if (!z2) {
-                                if (!TextUtils.isEmpty((String) obj) && TextUtils.equals("base64", r14)) {
-                                    byte[] decode = Base64.decode((String) obj, 2);
-                                    FileOutputStream fileOutputStream3 = new FileOutputStream(file, z);
-                                    fileOutputStream3.write(decode);
-                                    fileOutputStream3.flush();
-                                    fileOutputStream2 = fileOutputStream3;
-                                } else {
-                                    String[] s = n.s((String) obj, r14);
+                        if (!z2) {
+                            if (!TextUtils.isEmpty((String) obj) && TextUtils.equals("base64", r13)) {
+                                byte[] decode = Base64.decode((String) obj, 2);
+                                length = decode.length;
+                                if (this.f8097d.a(length)) {
+                                    c d3 = d(-1, p());
+                                    b.a.p0.w.d.d(null);
+                                    b.a.p0.w.d.d(null);
+                                    return d3;
+                                }
+                                FileOutputStream fileOutputStream3 = new FileOutputStream(file, z);
+                                fileOutputStream3.write(decode);
+                                fileOutputStream3.flush();
+                                fileOutputStream2 = fileOutputStream3;
+                            } else {
+                                String[] u = n.u((String) obj, r13);
+                                if (u != null && u.length == 2) {
+                                    str3 = u[0];
+                                    str4 = u[1];
+                                    length2 = str3.getBytes().length;
+                                    if (!this.f8097d.a(length2)) {
+                                        c d4 = d(-1, p());
+                                        b.a.p0.w.d.d(null);
+                                        b.a.p0.w.d.d(null);
+                                        return d4;
+                                    }
+                                    BufferedWriter bufferedWriter2 = new BufferedWriter(TextUtils.isEmpty(str4) ? new OutputStreamWriter(new FileOutputStream(file, z)) : new OutputStreamWriter(new FileOutputStream(file, z), str4.toLowerCase()));
                                     try {
-                                        if (s != null && s.length == 2) {
-                                            str3 = s[0];
-                                            str4 = s[1];
-                                            bufferedWriter = new BufferedWriter(!TextUtils.isEmpty(str4) ? new OutputStreamWriter(new FileOutputStream(file, z)) : new OutputStreamWriter(new FileOutputStream(file, z), str4.toLowerCase()));
-                                            bufferedWriter.write(str3);
-                                            bufferedWriter.flush();
-                                            fileOutputStream2 = null;
-                                            bufferedWriter2 = bufferedWriter;
-                                        }
-                                        bufferedWriter.write(str3);
-                                        bufferedWriter.flush();
+                                        bufferedWriter2.write(str3);
+                                        bufferedWriter2.flush();
+                                        length = length2;
                                         fileOutputStream2 = null;
-                                        bufferedWriter2 = bufferedWriter;
+                                        bufferedWriter = bufferedWriter2;
                                     } catch (Exception unused) {
-                                        r14 = 0;
-                                        bufferedWriter2 = bufferedWriter;
+                                        r13 = 0;
+                                        bufferedWriter = bufferedWriter2;
                                         d2 = d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                                        fileOutputStream = r14;
-                                        b.a.p0.t.d.d(bufferedWriter2);
-                                        b.a.p0.t.d.d(fileOutputStream);
+                                        fileOutputStream = r13;
+                                        b.a.p0.w.d.d(bufferedWriter);
+                                        b.a.p0.w.d.d(fileOutputStream);
                                         return d2;
                                     } catch (Throwable th) {
                                         th = th;
-                                        r14 = 0;
-                                        bufferedWriter2 = bufferedWriter;
-                                        b.a.p0.t.d.d(bufferedWriter2);
-                                        b.a.p0.t.d.d(r14);
+                                        r13 = 0;
+                                        bufferedWriter = bufferedWriter2;
+                                        b.a.p0.w.d.d(bufferedWriter);
+                                        b.a.p0.w.d.d(r13);
                                         throw th;
                                     }
-                                    str3 = "";
-                                    bufferedWriter = new BufferedWriter(!TextUtils.isEmpty(str4) ? new OutputStreamWriter(new FileOutputStream(file, z)) : new OutputStreamWriter(new FileOutputStream(file, z), str4.toLowerCase()));
                                 }
-                            } else {
-                                byte[] bArr = (byte[]) obj;
-                                FileOutputStream fileOutputStream4 = new FileOutputStream(g2, z);
-                                fileOutputStream4.write(bArr);
-                                fileOutputStream4.flush();
-                                fileOutputStream2 = fileOutputStream4;
+                                str3 = "";
+                                length2 = str3.getBytes().length;
+                                if (!this.f8097d.a(length2)) {
+                                }
                             }
-                            if (z) {
-                                this.f7583d.b(j);
-                                fileOutputStream = fileOutputStream2;
-                            } else {
-                                this.f7583d.b(j - length3);
-                                fileOutputStream = fileOutputStream2;
+                        } else {
+                            byte[] bArr = (byte[]) obj;
+                            length = bArr.length;
+                            if (this.f8097d.a(length)) {
+                                c d5 = d(-1, p());
+                                b.a.p0.w.d.d(null);
+                                b.a.p0.w.d.d(null);
+                                return d5;
                             }
-                        } catch (Exception unused2) {
+                            FileOutputStream fileOutputStream4 = new FileOutputStream(g2, z);
+                            fileOutputStream4.write(bArr);
+                            fileOutputStream4.flush();
+                            fileOutputStream2 = fileOutputStream4;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
+                        if (z) {
+                            this.f8097d.b(length);
+                            fileOutputStream = fileOutputStream2;
+                        } else {
+                            this.f8097d.b(length - z3);
+                            fileOutputStream = fileOutputStream2;
+                        }
+                    } catch (Exception unused2) {
                     }
-                } catch (Exception unused3) {
-                    r14 = 0;
-                } catch (Throwable th3) {
-                    th = th3;
-                    r14 = 0;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-                b.a.p0.t.d.d(bufferedWriter2);
-                b.a.p0.t.d.d(fileOutputStream);
-                return d2;
+            } catch (Exception unused3) {
+                r13 = 0;
+            } catch (Throwable th3) {
+                th = th3;
+                r13 = 0;
             }
+            b.a.p0.w.d.d(bufferedWriter);
+            b.a.p0.w.d.d(fileOutputStream);
+            return d2;
         }
-        if (z2) {
-            length = ((byte[]) obj).length;
-            j = length;
-        }
-        if (!this.f7582c.d().a(j)) {
-        }
+        return (c) invokeCommon.objValue;
     }
 
     public c C(boolean z, String str, Object obj, String str2) {
@@ -356,8 +363,8 @@ public class f extends b.a.p0.a.k2.f.c {
             } else {
                 str3 = "fail permission denied, open " + str;
             }
-            c v = n.v(str, str3, z ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
-            return v != null ? v : B(str, obj, str2, false);
+            c x = n.x(str, str3, z ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
+            return x != null ? x : B(str, obj, str2, false);
         }
         return (c) invokeCommon.objValue;
     }
@@ -366,19 +373,22 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-            c v = n.v(str, z ? "path must be a string" : n.C("fail no such file or directory ", "access", str, null), z ? " The argument must be string" : "fail parameter error: parameter.path should be String instead of Undefined;");
-            if (v != null) {
-                return v;
+            if (n.S(str)) {
+                return d(-1, "fail permission denied, open " + str);
             }
-            String I = n.I(str);
-            if (!this.f7582c.j(I, true)) {
-                return d(-4, n.C("fail no such file or directory ", "access", str, null));
+            c x = n.x(str, z ? "path must be a string" : n.F("fail no such file or directory ", "access", str, null), z ? " The argument must be string" : "fail parameter error: parameter.path should be String instead of Undefined;");
+            if (x != null) {
+                return x;
             }
-            String g2 = g(I);
+            String L = n.L(str);
+            if (!this.f8096c.j(L, true)) {
+                return d(-4, n.F("fail no such file or directory ", "access", str, null));
+            }
+            String g2 = g(L);
             if (TextUtils.isEmpty(g2)) {
                 return d(-1, "fail no such file or directory " + str);
             } else if (!new File(g2).exists()) {
-                return d(-1, n.C("fail no such file or directory ", "access", str, null));
+                return d(-1, n.F("fail no such file or directory ", "access", str, null));
             } else {
                 return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
             }
@@ -390,33 +400,33 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, obj, str2, Boolean.valueOf(z)})) == null) {
-            c v = n.v(str, n.C("fail permission denied, open ", null, str, null), z ? " The argument must be string" : "fail parameter error: parameter.filePath should be String instead of NULL;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, n.F("fail permission denied, open ", null, str, null), z ? " The argument must be string" : "fail parameter error: parameter.filePath should be String instead of NULL;");
+            if (x != null) {
+                return x;
             }
-            String I = n.I(str);
+            String L = n.L(str);
             if (!"mounted".equals(Environment.getExternalStorageState())) {
                 return d(-1, "fail sdcard not mounted ");
             }
-            c n = n(I);
+            c n = n(L);
             if (n != null) {
                 return n;
             }
             if (obj == null) {
                 return d(-1, "fail TypeError: data argument must be a string, Buffer, ArrayBuffer, Array, or array-like object");
             }
-            String g2 = g(I);
+            String g2 = g(L);
             if (TextUtils.isEmpty(g2)) {
                 return d(-1, "fail no such file or directory " + str);
             }
             File file = new File(g2);
             if (!file.exists()) {
-                return d(-1, n.C("fail no such file or directory ", "open", str, null));
+                return d(-1, n.F("fail no such file or directory ", "open", str, null));
             }
             if (file.isDirectory()) {
                 return d(-1, "fail illegal operation on a directory, open " + str);
             }
-            return B(I, obj, str2, true);
+            return B(L, obj, str2, true);
         }
         return (c) invokeCommon.objValue;
     }
@@ -425,68 +435,74 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048581, this, str, str2, z)) == null) {
-            c v = n.v(str, "srcPath must be a string", " The argument must be string");
-            if (v != null) {
-                return v;
-            }
-            c v2 = n.v(str2, "destPath must be a string", " The argument must be string");
-            if (v2 != null) {
-                return v2;
-            }
-            String I = n.I(str);
-            boolean z2 = true;
-            if (!this.f7582c.j(I, true)) {
-                return d(-4, n.C("fail no such file or directory ", "copyFile", str, null));
-            }
-            String I2 = n.I(str2);
-            if (!n.R(I2)) {
-                return d(-4, n.C("fail permission denied, open ", "copyFile", str2, null));
-            }
-            c n = n(I2);
-            if (n != null) {
-                return n;
-            }
-            String g2 = g(I);
-            if (TextUtils.isEmpty(g2)) {
-                return d(-1, "fail no such file or directory " + str);
-            }
-            File file = new File(g2);
-            if (file.exists() && file.isFile()) {
-                c h2 = h(I2, false);
-                if (h2 != null) {
-                    h2.f7459b = n.C("fail no such file or directory ", "copyFile", str2, null);
-                    return h2;
-                } else if (I2.endsWith(File.separator)) {
-                    return d(-1, n.C("fail permission denied, ", "copyFile", str, str2));
-                } else {
-                    String g3 = g(I2);
-                    if (TextUtils.isEmpty(g3)) {
-                        return d(-1, "fail no such file or directory " + str2);
-                    }
-                    File file2 = new File(g3);
-                    if (file2.exists() && file2.isDirectory()) {
-                        if (k(file2.listFiles())) {
-                            return d(-1, n.C("fail permission denied, ", "copyFile", str, str2));
-                        }
-                        try {
-                            file2.delete();
-                        } catch (Exception unused) {
-                            return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                        }
-                    }
-                    long x = n.x(g2);
-                    z2 = (I.equals(I2) || I.startsWith(a.USER_DATA_PATH)) ? false : false;
-                    if (z2 && this.f7583d.a(x)) {
-                        return d(-1, p());
-                    }
-                    c w = !I.equals(I2) ? w(I, I2) : d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-                    if (z2 && w != null && w.f7458a == 0) {
-                        this.f7583d.b(x);
-                    }
-                    return w;
+            if (n.S(str)) {
+                return d(-1, "fail permission denied, open " + str);
+            } else if (n.S(str2)) {
+                return d(-1, "fail permission denied, open " + str2);
+            } else {
+                c x = n.x(str, "srcPath must be a string", " The argument must be string");
+                if (x != null) {
+                    return x;
                 }
+                c x2 = n.x(str2, "destPath must be a string", " The argument must be string");
+                if (x2 != null) {
+                    return x2;
+                }
+                String L = n.L(str);
+                boolean z2 = true;
+                if (!this.f8096c.j(L, true)) {
+                    return d(-4, n.F("fail no such file or directory ", "copyFile", str, null));
+                }
+                String L2 = n.L(str2);
+                if (!n.V(L2)) {
+                    return d(-4, n.F("fail permission denied, open ", "copyFile", str2, null));
+                }
+                c n = n(L2);
+                if (n != null) {
+                    return n;
+                }
+                String g2 = g(L);
+                if (TextUtils.isEmpty(g2)) {
+                    return d(-1, "fail no such file or directory " + str);
+                }
+                File file = new File(g2);
+                if (file.exists() && file.isFile()) {
+                    c h2 = h(L2, false);
+                    if (h2 != null) {
+                        h2.f7973b = n.F("fail no such file or directory ", "copyFile", str2, null);
+                        return h2;
+                    } else if (L2.endsWith(File.separator)) {
+                        return d(-1, n.F("fail permission denied, ", "copyFile", str, str2));
+                    } else {
+                        String g3 = g(L2);
+                        if (TextUtils.isEmpty(g3)) {
+                            return d(-1, "fail no such file or directory " + str2);
+                        }
+                        File file2 = new File(g3);
+                        if (file2.exists() && file2.isDirectory()) {
+                            if (k(file2.listFiles())) {
+                                return d(-1, n.F("fail permission denied, ", "copyFile", str, str2));
+                            }
+                            try {
+                                file2.delete();
+                            } catch (Exception unused) {
+                                return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                            }
+                        }
+                        long A = n.A(g2);
+                        z2 = (L.equals(L2) || L.startsWith(a.USER_DATA_PATH)) ? false : false;
+                        if (z2 && this.f8097d.a(A)) {
+                            return d(-1, p());
+                        }
+                        c w = !L.equals(L2) ? w(L, L2) : d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                        if (z2 && w != null && w.f7972a == 0) {
+                            this.f8097d.b(A);
+                        }
+                        return w;
+                    }
+                }
+                return d(-1, n.F("fail no such file or directory ", "copyFile", str, null));
             }
-            return d(-1, n.C("fail no such file or directory ", "copyFile", str, null));
         }
         return (c) invokeLLZ.objValue;
     }
@@ -496,8 +512,8 @@ public class f extends b.a.p0.a.k2.f.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, str)) == null) {
             c cVar = new c();
-            cVar.f7458a = i2;
-            cVar.f7459b = str;
+            cVar.f7972a = i2;
+            cVar.f7973b = str;
             return cVar;
         }
         return (c) invokeIL.objValue;
@@ -507,15 +523,15 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            c v = n.v(str, "fail file not exist", "fail parameter error: parameter.filePath should be String instead of Undefined;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, "fail file not exist", "fail parameter error: parameter.filePath should be String instead of Undefined;");
+            if (x != null) {
+                return x;
             }
-            String I = n.I(str);
-            if (!this.f7582c.j(I, true)) {
+            String L = n.L(str);
+            if (!this.f8096c.j(L, true)) {
                 return d(-4, "fail file not exist");
             }
-            String g2 = g(I);
+            String g2 = g(L);
             if (TextUtils.isEmpty(g2)) {
                 return d(-1, "fail no such file or directory " + str);
             }
@@ -527,8 +543,8 @@ public class f extends b.a.p0.a.k2.f.c {
                 return d(-1, "fail " + str + " is directory");
             }
             c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-            d2.f7462e = file.exists() ? file.length() : 0L;
-            d2.f7464g = file.exists() ? b.a.p0.t.f.b(file, false) : null;
+            d2.f7976e = file.exists() ? file.length() : 0L;
+            d2.f7978g = file.exists() ? b.a.p0.w.f.b(file, false) : null;
             return d2;
         }
         return (c) invokeL.objValue;
@@ -540,29 +556,29 @@ public class f extends b.a.p0.a.k2.f.c {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
             if (TextUtils.isEmpty(str)) {
                 c cVar = new c();
-                cVar.f7458a = -1;
-                cVar.f7459b = "fail no such file or directory " + str;
+                cVar.f7972a = -1;
+                cVar.f7973b = "fail no such file or directory " + str;
                 return cVar;
             }
             String g2 = g(str);
             if (TextUtils.isEmpty(str)) {
                 c cVar2 = new c();
-                cVar2.f7458a = -1;
-                cVar2.f7459b = "fail no such file or directory " + str;
+                cVar2.f7972a = -1;
+                cVar2.f7973b = "fail no such file or directory " + str;
                 return cVar2;
             }
             File file = new File(g2);
             if (!file.exists()) {
                 c cVar3 = new c();
-                cVar3.f7458a = -1;
-                cVar3.f7459b = "fail no such file or directory " + str;
+                cVar3.f7972a = -1;
+                cVar3.f7973b = "fail no such file or directory " + str;
                 return cVar3;
             } else if (!z || file.isFile()) {
                 return null;
             } else {
                 c cVar4 = new c();
-                cVar4.f7458a = -1;
-                cVar4.f7459b = "fail no such file or directory " + str;
+                cVar4.f7972a = -1;
+                cVar4.f7973b = "fail no such file or directory " + str;
                 return cVar4;
             }
         }
@@ -578,16 +594,16 @@ public class f extends b.a.p0.a.k2.f.c {
                 return "";
             }
             if (!str.startsWith("bdfile://code")) {
-                return str.startsWith(WebGLImageLoader.BDFILE) ? this.f7582c.i(str) : "";
+                return str.startsWith(WebGLImageLoader.BDFILE) ? this.f8096c.i(str) : "";
             }
-            if (this.f7581b.endsWith(File.separator)) {
-                String str3 = this.f7581b;
+            if (this.f8095b.endsWith(File.separator)) {
+                String str3 = this.f8095b;
                 str2 = str3.substring(0, str3.length() - 1);
             } else {
-                str2 = this.f7581b;
+                str2 = this.f8095b;
             }
-            this.f7581b = str2;
-            return this.f7581b + str.substring(13);
+            this.f8095b = str2;
+            return this.f8095b + str.substring(13);
         }
         return (String) invokeL.objValue;
     }
@@ -622,29 +638,27 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String f2 = this.f7582c.f();
             String g2 = g(a.USER_DATA_PATH);
             if (TextUtils.isEmpty(g2)) {
                 return d(-1, "path must be a string");
             }
+            String f2 = this.f8096c.f();
             ArrayList arrayList = new ArrayList();
-            for (String str : n.m(g2, false)) {
-                File file = new File(str);
-                d dVar = new d();
-                long j = 0;
-                dVar.createTime = file.exists() ? file.lastModified() : 0L;
-                String absolutePath = file.getAbsolutePath();
-                if (file.exists() && !TextUtils.isEmpty(absolutePath) && !TextUtils.isEmpty(f2) && absolutePath.startsWith(f2)) {
-                    dVar.filePath = this.f7582c.g(absolutePath);
+            for (String str : n.o(g2, false)) {
+                if (!TextUtils.equals(str, this.f8098e)) {
+                    File file = new File(str);
+                    d dVar = new d();
+                    dVar.createTime = file.exists() ? file.lastModified() : 0L;
+                    String absolutePath = file.getAbsolutePath();
+                    if (file.exists() && !TextUtils.isEmpty(absolutePath) && !TextUtils.isEmpty(f2) && absolutePath.startsWith(f2)) {
+                        dVar.filePath = this.f8096c.g(absolutePath);
+                    }
+                    dVar.size = file.exists() ? file.length() : 0L;
+                    arrayList.add(dVar);
                 }
-                if (file.exists()) {
-                    j = file.length();
-                }
-                dVar.size = j;
-                arrayList.add(dVar);
             }
             c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-            d2.f7463f = arrayList;
+            d2.f7977f = arrayList;
             return d2;
         }
         return (c) invokeV.objValue;
@@ -703,8 +717,8 @@ public class f extends b.a.p0.a.k2.f.c {
                 }
             }
             c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-            d2.f7461d = jVar;
-            d2.f7459b = NewBindCardEntry.BING_CARD_SUCCESS_MSG;
+            d2.f7975d = jVar;
+            d2.f7973b = NewBindCardEntry.BING_CARD_SUCCESS_MSG;
             return d2;
         }
         return (c) invokeLL.objValue;
@@ -723,7 +737,7 @@ public class f extends b.a.p0.a.k2.f.c {
             if (TextUtils.isEmpty(str) || !str.contains(".")) {
                 return false;
             }
-            String[] split = str.split("\\.");
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             return (split.length != 2 || TextUtils.isEmpty(split[0]) || TextUtils.isEmpty(split[1])) ? false : true;
         }
         return invokeL.booleanValue;
@@ -749,10 +763,10 @@ public class f extends b.a.p0.a.k2.f.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             c d2 = d(-1, "fail permission denied, open " + str);
-            if (!TextUtils.isEmpty(str) && str.startsWith(a.USER_DATA_PATH)) {
-                return null;
+            if (TextUtils.isEmpty(str) || n.S(str) || !str.startsWith(a.USER_DATA_PATH)) {
+                return d2;
             }
-            return d2;
+            return null;
         }
         return (c) invokeL.objValue;
     }
@@ -768,15 +782,15 @@ public class f extends b.a.p0.a.k2.f.c {
             } else {
                 str2 = "fail permission denied, open " + str;
             }
-            c v = n.v(str, str2, z2 ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, str2, z2 ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
+            if (x != null) {
+                return x;
             }
             c n = n(str);
             if (n != null) {
                 return n;
             }
-            if (!n.R(str)) {
+            if (!n.V(str)) {
                 return d(-4, "fail permission denied, open " + str);
             }
             String g2 = g(str);
@@ -812,8 +826,8 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            String l = b.a.p0.t.d.l(this.f7583d.getMaxSize());
-            return String.format("fail file size over %s", (TextUtils.isEmpty(l) || TextUtils.equals(l, FileUtils.UNKNOW)) ? "" : "");
+            String n = b.a.p0.w.d.n(this.f8097d.getMaxSize());
+            return String.format("fail file size over %s", (TextUtils.isEmpty(n) || TextUtils.equals(n, FileUtils.UNKNOW)) ? "" : "");
         }
         return (String) invokeV.objValue;
     }
@@ -822,61 +836,64 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048595, this, str, str2, z)) == null) {
-            c v = n.v(str, z ? "filePath must be a string" : "fail file not found", z ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of NULL;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, z ? "filePath must be a string" : "fail file not found", z ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of NULL;");
+            if (x != null) {
+                return x;
             }
-            String I = n.I(str);
-            if (!this.f7582c.j(I, true)) {
+            String L = n.L(str);
+            if (!this.f8096c.j(L, true)) {
                 return d(-1, "fail permission denied, open " + str);
-            }
-            c f2 = f(I, true);
-            if (f2 != null) {
-                f2.f7459b = n.C("fail no such file or directory ", "open", str, null);
-                return f2;
-            }
-            boolean isEmpty = TextUtils.isEmpty(str2);
-            if (!isEmpty) {
-                str2 = str2.toLowerCase();
-                if ("binary".equals(str2)) {
-                    str2 = "latin1";
+            } else if (n.S(str)) {
+                return d(-1, "fail permission denied, open " + str);
+            } else {
+                c f2 = f(L, true);
+                if (f2 != null) {
+                    f2.f7973b = n.F("fail no such file or directory ", "open", str, null);
+                    return f2;
                 }
-            }
-            if (!isEmpty && !f7579e.contains(str2)) {
-                return d(-1, "fail Error: Unknown encoding: " + str2);
-            }
-            String g2 = g(I);
-            if (TextUtils.isEmpty(g2)) {
-                return d(-1, "fail no such file or directory " + str);
-            }
-            File file = new File(g2);
-            byte[] bArr = new byte[0];
-            c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-            try {
-                String str3 = "";
-                if (TextUtils.isEmpty(str2)) {
-                    bArr = n.o(g2);
-                } else if ("base64".equals(str2)) {
-                    bArr = n.o(g2);
-                    if (bArr.length != 0) {
-                        str3 = Base64.encodeToString(bArr, 2);
+                boolean isEmpty = TextUtils.isEmpty(str2);
+                if (!isEmpty) {
+                    str2 = str2.toLowerCase();
+                    if ("binary".equals(str2)) {
+                        str2 = "latin1";
                     }
-                } else if ("hex".equals(str2)) {
-                    str3 = n.l(g2);
-                } else {
-                    str3 = r(new FileInputStream(file), str2);
                 }
-                if (TextUtils.isEmpty(str2)) {
-                    d2.f7465h = bArr;
-                } else {
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(str3);
-                    d2.f7460c = arrayList;
+                if (!isEmpty && !f8093f.contains(str2)) {
+                    return d(-1, "fail Error: Unknown encoding: " + str2);
                 }
-                return d2;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                String g2 = g(L);
+                if (TextUtils.isEmpty(g2)) {
+                    return d(-1, "fail no such file or directory " + str);
+                }
+                File file = new File(g2);
+                byte[] bArr = new byte[0];
+                c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                try {
+                    String str3 = "";
+                    if (TextUtils.isEmpty(str2)) {
+                        bArr = n.q(g2);
+                    } else if ("base64".equals(str2)) {
+                        bArr = n.q(g2);
+                        if (bArr.length != 0) {
+                            str3 = Base64.encodeToString(bArr, 2);
+                        }
+                    } else if ("hex".equals(str2)) {
+                        str3 = n.n(g2);
+                    } else {
+                        str3 = r(new FileInputStream(file), str2);
+                    }
+                    if (TextUtils.isEmpty(str2)) {
+                        d2.f7979h = bArr;
+                    } else {
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.add(str3);
+                        d2.f7974c = arrayList;
+                    }
+                    return d2;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                }
             }
         }
         return (c) invokeLLZ.objValue;
@@ -907,7 +924,7 @@ public class f extends b.a.p0.a.k2.f.c {
             e2.printStackTrace();
             return "";
         } finally {
-            b.a.p0.t.d.d(fileInputStream);
+            b.a.p0.w.d.d(fileInputStream);
         }
     }
 
@@ -915,15 +932,15 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048597, this, str, z)) == null) {
-            c v = n.v(str, z ? "dirPath must be a string" : "fail permission denied, open " + str, z ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, z ? "dirPath must be a string" : "fail permission denied, open " + str, z ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
+            if (x != null) {
+                return x;
             }
-            String I = n.I(str);
-            if (!n.S(I)) {
+            String L = n.L(str);
+            if (!n.W(L)) {
                 return d(-4, "fail permission denied, open " + str);
             }
-            String g2 = g(I);
+            String g2 = g(L);
             if (TextUtils.isEmpty(g2)) {
                 return d(-1, "fail no such file or directory " + str);
             }
@@ -937,13 +954,13 @@ public class f extends b.a.p0.a.k2.f.c {
                 ArrayList arrayList = new ArrayList();
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
-                        if (file2 != null && file2.exists()) {
-                            arrayList.add(b.a.p0.t.d.q(file2.getAbsolutePath()));
+                        if (file2 != null && file2.exists() && !TextUtils.equals(file2.getAbsolutePath(), this.f8098e)) {
+                            arrayList.add(b.a.p0.w.d.s(file2.getAbsolutePath()));
                         }
                     }
                 }
                 c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-                d2.f7460c = arrayList;
+                d2.f7974c = arrayList;
                 return d2;
             }
         }
@@ -954,9 +971,9 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            c v = n.v(str, "fail file not exist", "fail parameter error: parameter.filePath should be String instead of Object;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, "fail file not exist", "fail parameter error: parameter.filePath should be String instead of Object;");
+            if (x != null) {
+                return x;
             }
             if (n(str) != null) {
                 return d(-4, "fail file not exist");
@@ -967,12 +984,12 @@ public class f extends b.a.p0.a.k2.f.c {
             }
             File file = new File(g2);
             if (file.exists() && !file.isDirectory()) {
-                long x = n.x(g2);
+                long A = n.A(g2);
                 try {
                     if (!file.delete()) {
                         return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                     }
-                    this.f7583d.b(-x);
+                    this.f8097d.b(-A);
                     return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
                 } catch (Exception unused) {
                     return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
@@ -987,60 +1004,66 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048599, this, str, str2, z)) == null) {
-            c v = n.v(str, z ? "oldPath must be a string" : n.C("fail no such file or directory ", "rename", str, null), z ? " The argument must be string" : "fail parameter error: parameter.oldPath should be String instead of Undefined;");
-            if (v != null) {
-                return v;
-            }
-            c v2 = n.v(str2, z ? "newPath must be a string" : n.C("fail no such file or directory ", "rename", str2, null), z ? " The argument must be string" : "fail parameter error: parameter.newPath should be String instead of Undefined;");
-            if (v2 != null) {
-                return v2;
-            }
-            String I = n.I(str);
-            c n = n(I);
-            if (n != null) {
-                n.f7459b = n.C("fail permission denied, ", "rename", str, str2);
-                return n;
-            }
-            String I2 = n.I(str2);
-            c n2 = n(I2);
-            if (n2 != null) {
-                n2.f7459b = n.C("fail permission denied, ", "rename", str, str2);
-                return n2;
-            }
-            c f2 = f(I, false);
-            if (f2 != null) {
-                f2.f7459b = n.C("fail no such file or directory ", "rename", str, str2);
-                return f2;
-            } else if (n.R(I) && n.R(I2)) {
-                c h2 = h(I2, false);
-                if (h2 != null) {
-                    h2.f7459b = n.C("fail no such file or directory ", "rename", str, str2);
-                    return h2;
-                }
-                String g2 = g(I);
-                if (TextUtils.isEmpty(g2)) {
-                    return d(-1, "fail no such file or directory " + str);
-                }
-                String g3 = g(I2);
-                if (TextUtils.isEmpty(g3)) {
-                    return d(-1, "fail no such file or directory " + str2);
-                }
-                File file = new File(g2);
-                File file2 = new File(g3);
-                boolean exists = file2.exists();
-                if (n.Q(file, file2) && (!file.isDirectory() || exists || !m(g3))) {
-                    try {
-                        if ((file2.isDirectory() && file2.listFiles() != null && file2.listFiles().length > 0) || !file.renameTo(file2)) {
-                            return d(-1, "fail rename failed");
-                        }
-                        return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
-                    } catch (Exception unused) {
-                        return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                    }
-                }
-                return d(-1, "fail rename failed");
+            if (n.S(str)) {
+                return d(-1, "fail permission denied, open " + str);
+            } else if (n.S(str2)) {
+                return d(-1, "fail permission denied, open " + str2);
             } else {
-                return d(-4, n.C("fail permission denied, ", "rename", str, str2));
+                c x = n.x(str, z ? "oldPath must be a string" : n.F("fail no such file or directory ", "rename", str, null), z ? " The argument must be string" : "fail parameter error: parameter.oldPath should be String instead of Undefined;");
+                if (x != null) {
+                    return x;
+                }
+                c x2 = n.x(str2, z ? "newPath must be a string" : n.F("fail no such file or directory ", "rename", str2, null), z ? " The argument must be string" : "fail parameter error: parameter.newPath should be String instead of Undefined;");
+                if (x2 != null) {
+                    return x2;
+                }
+                String L = n.L(str);
+                c n = n(L);
+                if (n != null) {
+                    n.f7973b = n.F("fail permission denied, ", "rename", str, str2);
+                    return n;
+                }
+                String L2 = n.L(str2);
+                c n2 = n(L2);
+                if (n2 != null) {
+                    n2.f7973b = n.F("fail permission denied, ", "rename", str, str2);
+                    return n2;
+                }
+                c f2 = f(L, false);
+                if (f2 != null) {
+                    f2.f7973b = n.F("fail no such file or directory ", "rename", str, str2);
+                    return f2;
+                } else if (n.V(L) && n.V(L2)) {
+                    c h2 = h(L2, false);
+                    if (h2 != null) {
+                        h2.f7973b = n.F("fail no such file or directory ", "rename", str, str2);
+                        return h2;
+                    }
+                    String g2 = g(L);
+                    if (TextUtils.isEmpty(g2)) {
+                        return d(-1, "fail no such file or directory " + str);
+                    }
+                    String g3 = g(L2);
+                    if (TextUtils.isEmpty(g3)) {
+                        return d(-1, "fail no such file or directory " + str2);
+                    }
+                    File file = new File(g2);
+                    File file2 = new File(g3);
+                    boolean exists = file2.exists();
+                    if (n.U(file, file2) && (!file.isDirectory() || exists || !m(g3))) {
+                        try {
+                            if ((file2.isDirectory() && file2.listFiles() != null && file2.listFiles().length > 0) || !file.renameTo(file2)) {
+                                return d(-1, "fail rename failed");
+                            }
+                            return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                        } catch (Exception unused) {
+                            return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                        }
+                    }
+                    return d(-1, "fail rename failed");
+                } else {
+                    return d(-4, n.F("fail permission denied, ", "rename", str, str2));
+                }
             }
         }
         return (c) invokeLLZ.objValue;
@@ -1049,7 +1072,7 @@ public class f extends b.a.p0.a.k2.f.c {
     public c v(String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         String str2;
-        boolean i2;
+        boolean f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (z2) {
@@ -1057,15 +1080,15 @@ public class f extends b.a.p0.a.k2.f.c {
             } else {
                 str2 = "fail permission denied, open " + str;
             }
-            c v = n.v(str, str2, z2 ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, str2, z2 ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
+            if (x != null) {
+                return x;
             }
             c n = n(str);
             if (n != null) {
                 return n;
             }
-            if (!n.S(str)) {
+            if (!n.W(str)) {
                 return d(-4, "fail permission denied, open " + str);
             }
             String g2 = g(str);
@@ -1078,11 +1101,17 @@ public class f extends b.a.p0.a.k2.f.c {
                 try {
                     if (z || !k) {
                         if (!z) {
-                            i2 = file.delete();
+                            long z3 = n.z(file);
+                            f2 = file.delete();
+                            if (f2) {
+                                this.f8097d.b(-z3);
+                            }
                         } else {
-                            i2 = b.a.p0.t.d.i(file);
+                            n.b bVar = new n.b();
+                            f2 = n.f(file, bVar);
+                            this.f8097d.b(-bVar.f8117a);
                         }
-                        if (!i2) {
+                        if (!f2) {
                             return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                         }
                         return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
@@ -1097,130 +1126,132 @@ public class f extends b.a.p0.a.k2.f.c {
         return (c) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00bb  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00c6  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00d7  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00e2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final c w(String str, String str2) {
         InterceptResult invokeLL;
         FileOutputStream fileOutputStream;
-        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, str, str2)) == null) {
-            String g2 = g(str);
-            String g3 = g(str2);
-            FileInputStream fileInputStream2 = null;
-            if (TextUtils.isEmpty(g2)) {
-                return d(-1, n.C("fail no such file or directory ", null, str, null));
-            }
-            if (TextUtils.isEmpty(g3)) {
-                return d(-1, n.C("fail no such file or directory ", null, str2, null));
-            }
-            c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048601, this, str, str2)) != null) {
+            return (c) invokeLL.objValue;
+        }
+        if (n.S(str)) {
+            return d(-1, "fail permission denied, open " + str);
+        }
+        String g2 = g(str);
+        String g3 = g(str2);
+        FileInputStream fileInputStream = null;
+        if (TextUtils.isEmpty(g2)) {
+            return d(-1, n.F("fail no such file or directory ", null, str, null));
+        }
+        if (TextUtils.isEmpty(g3)) {
+            return d(-1, n.F("fail no such file or directory ", null, str2, null));
+        }
+        c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+        try {
+            File file = new File(g3);
+            FileInputStream fileInputStream2 = new FileInputStream(new File(g2));
             try {
-                File file = new File(g3);
-                fileInputStream = new FileInputStream(new File(g2));
+                fileOutputStream = new FileOutputStream(file);
                 try {
-                    fileOutputStream = new FileOutputStream(file);
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = fileInputStream2.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                        fileOutputStream.flush();
+                    }
+                    b.a.p0.w.d.d(fileInputStream2);
+                    b.a.p0.w.d.d(fileOutputStream);
+                    if (!TextUtils.isEmpty(str2)) {
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.add(str2);
+                        d2.f7974c = arrayList;
+                    } else {
+                        d2.f7973b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+                        d2.f7972a = -1;
+                    }
+                    return d2;
                 } catch (IOException e2) {
                     e = e2;
-                    fileOutputStream = null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = null;
+                    fileInputStream = fileInputStream2;
+                    try {
+                        e.printStackTrace();
+                        c d3 = d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                        b.a.p0.w.d.d(fileInputStream);
+                        b.a.p0.w.d.d(fileOutputStream);
+                        if (!TextUtils.isEmpty("")) {
+                            ArrayList arrayList2 = new ArrayList();
+                            arrayList2.add(str2);
+                            d2.f7974c = arrayList2;
+                        } else {
+                            d2.f7973b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+                            d2.f7972a = -1;
+                        }
+                        return d3;
+                    } catch (Throwable th) {
+                        th = th;
+                        b.a.p0.w.d.d(fileInputStream);
+                        b.a.p0.w.d.d(fileOutputStream);
+                        if (TextUtils.isEmpty("")) {
+                            ArrayList arrayList3 = new ArrayList();
+                            arrayList3.add(str2);
+                            d2.f7974c = arrayList3;
+                        } else {
+                            d2.f7973b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+                            d2.f7972a = -1;
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileInputStream = fileInputStream2;
+                    b.a.p0.w.d.d(fileInputStream);
+                    b.a.p0.w.d.d(fileOutputStream);
+                    if (TextUtils.isEmpty("")) {
+                    }
+                    throw th;
                 }
             } catch (IOException e3) {
                 e = e3;
                 fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
                 fileOutputStream = null;
             }
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                    fileOutputStream.flush();
-                }
-                b.a.p0.t.d.d(fileInputStream);
-                b.a.p0.t.d.d(fileOutputStream);
-                if (!TextUtils.isEmpty(str2)) {
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(str2);
-                    d2.f7460c = arrayList;
-                } else {
-                    d2.f7459b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
-                    d2.f7458a = -1;
-                }
-                return d2;
-            } catch (IOException e4) {
-                e = e4;
-                fileInputStream2 = fileInputStream;
-                try {
-                    e.printStackTrace();
-                    c d3 = d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                    b.a.p0.t.d.d(fileInputStream2);
-                    b.a.p0.t.d.d(fileOutputStream);
-                    if (!TextUtils.isEmpty("")) {
-                        ArrayList arrayList2 = new ArrayList();
-                        arrayList2.add(str2);
-                        d2.f7460c = arrayList2;
-                    } else {
-                        d2.f7459b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
-                        d2.f7458a = -1;
-                    }
-                    return d3;
-                } catch (Throwable th3) {
-                    th = th3;
-                    b.a.p0.t.d.d(fileInputStream2);
-                    b.a.p0.t.d.d(fileOutputStream);
-                    if (TextUtils.isEmpty("")) {
-                        ArrayList arrayList3 = new ArrayList();
-                        arrayList3.add(str2);
-                        d2.f7460c = arrayList3;
-                    } else {
-                        d2.f7459b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
-                        d2.f7458a = -1;
-                    }
-                    throw th;
-                }
-            } catch (Throwable th4) {
-                th = th4;
-                fileInputStream2 = fileInputStream;
-                b.a.p0.t.d.d(fileInputStream2);
-                b.a.p0.t.d.d(fileOutputStream);
-                if (TextUtils.isEmpty("")) {
-                }
-                throw th;
-            }
+        } catch (IOException e4) {
+            e = e4;
+            fileOutputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
+            fileOutputStream = null;
         }
-        return (c) invokeLL.objValue;
     }
 
     public c x(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048602, this, str, str2, z)) == null) {
-            c v = n.v(str, z ? "tempFilePath must be a string" : "fail tempFilePath file not exist", z ? " The argument must be string" : "fail parameter error: parameter.tempFilePath should be String instead of Object;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, z ? "tempFilePath must be a string" : "fail tempFilePath file not exist", z ? " The argument must be string" : "fail parameter error: parameter.tempFilePath should be String instead of Object;");
+            if (x != null) {
+                return x;
             }
-            String I = n.I(str2);
-            if (TextUtils.isEmpty(I)) {
-                I = a.USER_DATA_PATH + File.separator + b.a.p0.t.d.q(str);
+            String L = n.L(str2);
+            if (TextUtils.isEmpty(L)) {
+                L = a.USER_DATA_PATH + File.separator + b.a.p0.w.d.s(str);
             }
-            if (!I.startsWith(a.USER_DATA_PATH)) {
-                return d(-1, n.C("fail permission denied, open ", null, str2, null));
+            if (!L.startsWith(a.USER_DATA_PATH)) {
+                return d(-1, n.F("fail permission denied, open ", null, str2, null));
             }
-            if (!this.f7582c.l(str)) {
+            if (!this.f8096c.l(str)) {
                 return d(-4, "fail it is not a tempFilePath");
             }
-            c h2 = h(I, false);
+            c h2 = h(L, false);
             if (h2 != null) {
                 return h2;
             }
@@ -1228,54 +1259,54 @@ public class f extends b.a.p0.a.k2.f.c {
             if (h3 != null) {
                 return h3;
             }
-            String g2 = g(I);
+            String g2 = g(L);
             if (TextUtils.isEmpty(g2)) {
                 return d(-1, "fail no such file or directory " + str2);
             }
             File file = new File(g2);
-            if (!a.USER_DATA_PATH.equals(I) && (!file.exists() || !file.isDirectory())) {
+            if (!a.USER_DATA_PATH.equals(L) && (!file.exists() || !file.isDirectory())) {
                 c f2 = f(str, true);
                 if (f2 != null) {
-                    f2.f7459b = "fail no such file or directory ";
+                    f2.f7973b = "fail no such file or directory ";
                     return f2;
                 }
                 String g3 = g(str);
                 if (TextUtils.isEmpty(g3)) {
                     return d(-1, "fail no such file or directory " + str);
                 }
-                long x = n.x(g3);
-                if (this.f7583d.a(x)) {
+                long A = n.A(g3);
+                if (this.f8097d.a(A)) {
                     return d(-1, p());
                 }
-                if (I.startsWith(a.USER_DATA_PATH) && !n.O(I) && !n.O(str)) {
-                    c h4 = h(I, false);
+                if (L.startsWith(a.USER_DATA_PATH) && !n.R(L) && !n.R(str)) {
+                    c h4 = h(L, false);
                     if (h4 != null) {
                         return h4;
                     }
-                    c n = n(I);
+                    c n = n(L);
                     if (n != null) {
                         return n;
                     }
-                    c w = w(str, I);
-                    if (w != null && w.f7458a == 0) {
-                        this.f7583d.b(x);
+                    c w = w(str, L);
+                    if (w != null && w.f7972a == 0) {
+                        this.f8097d.b(A);
                         if (TextUtils.isEmpty(str)) {
-                            return d(-1, n.C("fail no such file or directory ", null, str, null));
+                            return d(-1, n.F("fail no such file or directory ", null, str, null));
                         }
                         File file2 = new File(g3);
                         if (file2.exists()) {
                             file2.delete();
                         }
                         ArrayList arrayList = new ArrayList();
-                        arrayList.add(I);
-                        w.f7460c = arrayList;
-                        w.f7459b = NewBindCardEntry.BING_CARD_SUCCESS_MSG;
+                        arrayList.add(L);
+                        w.f7974c = arrayList;
+                        w.f7973b = NewBindCardEntry.BING_CARD_SUCCESS_MSG;
                     }
                     return w;
                 }
-                return d(-1, n.C("fail permission denied, open ", null, str2, null));
+                return d(-1, n.F("fail permission denied, open ", null, str2, null));
             }
-            return d(-1, n.C("fail Error: EISDIR: illegal operation on a directory, open ", null, str2, null));
+            return d(-1, n.F("fail Error: EISDIR: illegal operation on a directory, open ", null, str2, null));
         }
         return (c) invokeLLZ.objValue;
     }
@@ -1284,11 +1315,11 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048603, this, str, z)) == null) {
-            c v = n.v(str, z ? "path must be a string" : n.C("fail no such file or directory ", null, str, null), z ? " The argument must be string" : "fail parameter error: parameter.path should be String instead of Object;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, z ? "path must be a string" : n.F("fail no such file or directory ", null, str, null), z ? " The argument must be string" : "fail parameter error: parameter.path should be String instead of Object;");
+            if (x != null) {
+                return x;
             }
-            if (!this.f7582c.l(str) && !this.f7582c.b(str)) {
+            if (!this.f8096c.l(str) && !this.f8096c.b(str)) {
                 return d(-1, "fail permission denied, open " + str);
             }
             c f2 = f(str, false);
@@ -1298,7 +1329,7 @@ public class f extends b.a.p0.a.k2.f.c {
             j jVar = new j();
             String g2 = g(str);
             if (TextUtils.isEmpty(g2)) {
-                return d(-1, n.C("fail no such file or directory ", null, str, null));
+                return d(-1, n.F("fail no such file or directory ", null, str, null));
             }
             File file = new File(g2);
             jVar.a(file.isDirectory());
@@ -1312,12 +1343,12 @@ public class f extends b.a.p0.a.k2.f.c {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048604, this, str, z)) == null) {
-            c v = n.v(str, z ? "filePath must be a string" : n.C("fail no such file or directory ", null, str, null), z ? " The argument must be string" : "fail parameter error: parameter.filePath should be String instead of Object;");
-            if (v != null) {
-                return v;
+            c x = n.x(str, z ? "filePath must be a string" : n.F("fail no such file or directory ", null, str, null), z ? " The argument must be string" : "fail parameter error: parameter.filePath should be String instead of Object;");
+            if (x != null) {
+                return x;
             }
-            if (!n.S(str)) {
-                return d(-4, n.C("fail permission denied, open ", null, str, null));
+            if (!n.W(str)) {
+                return d(-4, n.F("fail permission denied, open ", null, str, null));
             }
             c f2 = f(str, false);
             if (f2 != null) {
@@ -1329,21 +1360,21 @@ public class f extends b.a.p0.a.k2.f.c {
             }
             String g2 = g(str);
             if (TextUtils.isEmpty(g2)) {
-                return d(-1, n.C("fail no such file or directory ", null, str, null));
+                return d(-1, n.F("fail no such file or directory ", null, str, null));
             }
             File file = new File(g2);
             if (file.isDirectory()) {
-                return d(-1, n.C("fail operation not permitted ", "unlink", str, null));
+                return d(-1, n.F("fail operation not permitted ", "unlink", str, null));
             }
-            long x = n.x(g2);
+            long A = n.A(g2);
             try {
                 if (file.delete()) {
-                    this.f7583d.b(-x);
+                    this.f8097d.b(-A);
                     return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
                 }
-                return d(-1, n.C(com.baidu.pass.biometrics.face.liveness.b.a.g0, null, str, null));
+                return d(-1, n.F(com.baidu.pass.biometrics.face.liveness.b.a.g0, null, str, null));
             } catch (Exception unused) {
-                return d(-1, n.C(com.baidu.pass.biometrics.face.liveness.b.a.g0, null, str, null));
+                return d(-1, n.F(com.baidu.pass.biometrics.face.liveness.b.a.g0, null, str, null));
             }
         }
         return (c) invokeLZ.objValue;

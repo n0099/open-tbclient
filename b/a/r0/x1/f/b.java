@@ -3,7 +3,7 @@ package b.a.r0.x1.f;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import b.a.q0.d1.u0;
+import b.a.q0.c1.t0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,32 +21,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements PayChannelService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ITiebaPay f27025a;
+    public ITiebaPay f28557a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements IPayChannel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f27026a;
+        public final /* synthetic */ b f28558a;
 
         /* renamed from: b.a.r0.x1.f.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C1328a implements ITiebaPayCallback {
+        /* loaded from: classes6.dex */
+        public class C1397a implements ITiebaPayCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ IPayCallback f27027a;
+            public final /* synthetic */ IPayCallback f28559a;
 
-            public C1328a(a aVar, IPayCallback iPayCallback) {
+            public C1397a(a aVar, IPayCallback iPayCallback) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,14 +61,14 @@ public class b implements PayChannelService {
                         return;
                     }
                 }
-                this.f27027a = iPayCallback;
+                this.f28559a = iPayCallback;
             }
 
             @Override // com.baidu.tieba.wallet.ITiebaPayCallback
             public void onPayResult(int i2, String str) {
                 IPayCallback iPayCallback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || (iPayCallback = this.f27027a) == null) {
+                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || (iPayCallback = this.f28559a) == null) {
                     return;
                 }
                 iPayCallback.onPayResult(i2, str);
@@ -90,7 +90,7 @@ public class b implements PayChannelService {
                     return;
                 }
             }
-            this.f27026a = bVar;
+            this.f28558a = bVar;
         }
 
         @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
@@ -105,7 +105,7 @@ public class b implements PayChannelService {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return u0.b() + " (Baidu; P1 " + Build.VERSION.RELEASE + SmallTailInfo.EMOTION_SUFFIX;
+                return t0.b() + " (Baidu; P1 " + Build.VERSION.RELEASE + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
@@ -123,9 +123,9 @@ public class b implements PayChannelService {
             if (!(interceptable == null || interceptable.invokeLLL(1048579, this, activity, hashMap, iPayCallback) == null) || hashMap == null || hashMap.isEmpty()) {
                 return;
             }
-            this.f27026a.c();
-            if (this.f27026a.f27025a != null) {
-                this.f27026a.f27025a.pay(hashMap.remove("channel"), hashMap, new C1328a(this, iPayCallback));
+            this.f28558a.c();
+            if (this.f28558a.f28557a != null) {
+                this.f28558a.f28557a.pay(hashMap.remove("channel"), hashMap, new C1397a(this, iPayCallback));
             } else if (iPayCallback != null) {
                 iPayCallback.onPayResult(2, null);
             }
@@ -152,7 +152,7 @@ public class b implements PayChannelService {
                 return;
             }
         }
-        this.f27025a = null;
+        this.f28557a = null;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
@@ -181,8 +181,8 @@ public class b implements PayChannelService {
     public final void c() {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f27025a == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
-            this.f27025a = (ITiebaPay) runTask.getData();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f28557a == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
+            this.f28557a = (ITiebaPay) runTask.getData();
         }
     }
 }

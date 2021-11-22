@@ -3,12 +3,10 @@ package com.google.zxing.oned;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.mobads.container.info.XDeviceInfo;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +20,7 @@ import com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class EANManufacturerOrgSupport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,14 +85,14 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{489}, "HK");
                     add(new int[]{490, DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR}, "JP");
                     add(new int[]{500, 509}, "GB");
-                    add(new int[]{UIMsg.m_AppUI.MSG_PLACEFIELD_RELOAD}, "GR");
+                    add(new int[]{520}, "GR");
                     add(new int[]{SDKLogTypeConstants.TYPE_DOWNLOAD_COMPLETED_ACTION}, ExpandedProductParsedResult.POUND);
                     add(new int[]{529}, "CY");
                     add(new int[]{531}, "MK");
                     add(new int[]{535}, "MT");
                     add(new int[]{539}, "IE");
                     add(new int[]{RecordConstants.DEFAULT_PREVIEW_WIDTH, 549}, "BE/LU");
-                    add(new int[]{CoolPraiseView.START_DELAY_TIME_MS}, "PT");
+                    add(new int[]{560}, "PT");
                     add(new int[]{569}, "IS");
                     add(new int[]{570, 579}, "DK");
                     add(new int[]{590}, "PL");

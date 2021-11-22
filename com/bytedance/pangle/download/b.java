@@ -14,20 +14,20 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f61313d;
+    public static b f62212d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f61314a;
+    public boolean f62213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f61315b;
+    public List<a> f62214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61316c;
+    public boolean f62215c;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f61317e;
+    public int f62216e;
 
     static {
         InterceptResult invokeClinit;
@@ -57,21 +57,21 @@ public class b {
                 return;
             }
         }
-        this.f61317e = 0;
-        this.f61314a = true;
-        this.f61315b = new ArrayList();
-        this.f61316c = false;
+        this.f62216e = 0;
+        this.f62213a = true;
+        this.f62214b = new ArrayList();
+        this.f62215c = false;
     }
 
     public static /* synthetic */ int c(b bVar) {
-        int i2 = bVar.f61317e;
-        bVar.f61317e = i2 + 1;
+        int i2 = bVar.f62216e;
+        bVar.f62216e = i2 + 1;
         return i2;
     }
 
     public static /* synthetic */ int d(b bVar) {
-        int i2 = bVar.f61317e;
-        bVar.f61317e = i2 - 1;
+        int i2 = bVar.f62216e;
+        bVar.f62216e = i2 - 1;
         return i2;
     }
 
@@ -79,14 +79,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f61313d == null) {
+            if (f62212d == null) {
                 synchronized (b.class) {
-                    if (f61313d == null) {
-                        f61313d = new b();
+                    if (f62212d == null) {
+                        f62212d = new b();
                     }
                 }
             }
-            return f61313d;
+            return f62212d;
         }
         return (b) invokeV.objValue;
     }

@@ -24,16 +24,16 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f69653a;
+    public static long f70573a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f69654b;
+    public static long f70574b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HandlerThread f69655c;
+    public static final HandlerThread f70575c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Handler f69656d;
+    public static final Handler f70576d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,11 +49,11 @@ public class b {
                 return;
             }
         }
-        f69655c = new HandlerThread("Downloader-preconnecter");
+        f70575c = new HandlerThread("Downloader-preconnecter");
         b();
-        f69655c.start();
-        Handler handler = new Handler(f69655c.getLooper());
-        f69656d = handler;
+        f70575c.start();
+        Handler handler = new Handler(f70575c.getLooper());
+        f70576d = handler;
         handler.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -88,8 +88,8 @@ public class b {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            f69653a = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_connection_outdate_time", 300000L);
-            f69654b = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_head_info_outdate_time", 300000L);
+            f70573a = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_connection_outdate_time", 300000L);
+            f70574b = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_head_info_outdate_time", 300000L);
             a.a().a(com.ss.android.socialbase.downloader.g.a.c().a("preconnect_max_cache_size", 3));
         }
     }
@@ -97,21 +97,21 @@ public class b {
     public static Looper a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f69655c.getLooper() : (Looper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f70575c.getLooper() : (Looper) invokeV.objValue;
     }
 
     public static void a(String str, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, jVar) == null) {
-            f69656d.post(new Runnable(str, jVar) { // from class: com.ss.android.socialbase.downloader.network.a.b.2
+            f70576d.post(new Runnable(str, jVar) { // from class: com.ss.android.socialbase.downloader.network.a.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f69657a;
+                public final /* synthetic */ String f70577a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ j f69658b;
+                public final /* synthetic */ j f70578b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -128,8 +128,8 @@ public class b {
                             return;
                         }
                     }
-                    this.f69657a = str;
-                    this.f69658b = jVar;
+                    this.f70577a = str;
+                    this.f70578b = jVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -138,17 +138,17 @@ public class b {
                     if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
                         return;
                     }
-                    if (!TextUtils.isEmpty(this.f69657a)) {
+                    if (!TextUtils.isEmpty(this.f70577a)) {
                         try {
                             try {
                                 List<com.ss.android.socialbase.downloader.model.c> b2 = b.b(0L, null, null);
-                                r1 = a.a().a(this.f69657a) ? a.a().a(this.f69657a, b2) : null;
+                                r1 = a.a().a(this.f70577a) ? a.a().a(this.f70577a, b2) : null;
                                 if (r1 == null) {
-                                    c cVar = new c(this.f69657a, b2, 0L);
+                                    c cVar = new c(this.f70577a, b2, 0L);
                                     try {
                                         cVar.a();
                                         if (cVar.e()) {
-                                            a.a().a(this.f69657a, cVar);
+                                            a.a().a(this.f70577a, cVar);
                                         }
                                         r1 = cVar;
                                     } catch (Exception e2) {
@@ -167,8 +167,8 @@ public class b {
                                     }
                                 }
                                 Map<String, String> i2 = r1.i();
-                                if (this.f69658b != null) {
-                                    this.f69658b.a(i2);
+                                if (this.f70578b != null) {
+                                    this.f70578b.a(i2);
                                 }
                             } catch (Throwable th2) {
                                 th = th2;
@@ -181,7 +181,7 @@ public class b {
                         } catch (Throwable unused2) {
                         }
                     } else {
-                        j jVar2 = this.f69658b;
+                        j jVar2 = this.f70578b;
                         if (jVar2 != null) {
                             jVar2.a(null);
                         }

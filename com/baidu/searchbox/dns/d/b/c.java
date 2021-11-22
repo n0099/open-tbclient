@@ -29,8 +29,8 @@ public class c extends b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.dns.d.b.b
-    /* renamed from: L */
-    public Deque<a> G() {
+    /* renamed from: J */
+    public Deque<a> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ArrayDeque() : (Deque) invokeV.objValue;
@@ -38,8 +38,8 @@ public class c extends b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.dns.d.b.b
-    /* renamed from: M */
-    public Deque<a> H() {
+    /* renamed from: K */
+    public Deque<a> F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new ArrayDeque() : (Deque) invokeV.objValue;

@@ -1,9 +1,10 @@
 package okhttp3.internal.publicsuffix;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,9 +51,9 @@ public final class PublicSuffixDatabase {
                 return;
             }
         }
-        WILDCARD_LABEL = new byte[]{ExifInterface.START_CODE};
+        WILDCARD_LABEL = new byte[]{42};
         EMPTY_RULE = new String[0];
-        PREVAILING_RULE = new String[]{"*"};
+        PREVAILING_RULE = new String[]{ProxyConfig.MATCH_ALL_SCHEMES};
         instance = new PublicSuffixDatabase();
     }
 
@@ -222,17 +223,17 @@ public final class PublicSuffixDatabase {
                 }
             }
             if (str != null) {
-                return ("!" + str).split("\\.");
+                return ("!" + str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             } else if (str2 == null && str3 == null) {
                 return PREVAILING_RULE;
             } else {
                 if (str2 != null) {
-                    strArr2 = str2.split("\\.");
+                    strArr2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 } else {
                     strArr2 = EMPTY_RULE;
                 }
                 if (str3 != null) {
-                    strArr3 = str3.split("\\.");
+                    strArr3 = str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 } else {
                     strArr3 = EMPTY_RULE;
                 }
@@ -309,7 +310,7 @@ public final class PublicSuffixDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
-                String[] split = IDN.toUnicode(str).split("\\.");
+                String[] split = IDN.toUnicode(str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String[] findMatchingRule = findMatchingRule(split);
                 if (split.length != findMatchingRule.length || findMatchingRule[0].charAt(0) == '!') {
                     if (findMatchingRule[0].charAt(0) == '!') {
@@ -320,7 +321,7 @@ public final class PublicSuffixDatabase {
                         length2 = findMatchingRule.length + 1;
                     }
                     StringBuilder sb = new StringBuilder();
-                    String[] split2 = str.split("\\.");
+                    String[] split2 = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                     for (int i2 = length - length2; i2 < split2.length; i2++) {
                         sb.append(split2[i2]);
                         sb.append('.');

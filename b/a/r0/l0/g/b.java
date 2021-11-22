@@ -24,16 +24,16 @@ public class b extends k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f19975a;
+    public c f21497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<String> f19976b;
+    public SparseArray<String> f21498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f19977c;
+    public HashMap<String, String> f21499c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Gson f19978d;
+    public Gson f21500d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(int i2) {
@@ -53,7 +53,7 @@ public class b extends k {
                 return;
             }
         }
-        this.f19978d = new Gson();
+        this.f21500d = new Gson();
         a();
     }
 
@@ -61,19 +61,19 @@ public class b extends k {
         int e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f19976b = new SparseArray<>();
+            this.f21498b = new SparseArray<>();
             ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
             if (ListUtils.isEmpty(findHttpTasks)) {
                 return;
             }
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
                 String url = findHttpTasks.get(i2).getUrl();
-                if (!b.a.e.e.p.k.isEmpty(url) && url.contains("?")) {
+                if (!b.a.e.f.p.k.isEmpty(url) && url.contains("?")) {
                     String[] split = url.split("[?]");
                     String str = split[1];
                     String str2 = split[0];
-                    if (!b.a.e.e.p.k.isEmpty(str) && str.contains("=") && (e2 = b.a.e.e.m.b.e(str.split("[=]")[1], 0)) != 0) {
-                        this.f19976b.put(e2, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                    if (!b.a.e.f.p.k.isEmpty(str) && str.contains("=") && (e2 = b.a.e.f.m.b.e(str.split("[=]")[1], 0)) != 0) {
+                        this.f21498b.put(e2, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -85,9 +85,9 @@ public class b extends k {
         HashMap<String, String> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
-            String str = this.f19976b.get(socketMessage.getCmd());
-            if (str != null && (hashMap = this.f19977c) != null && hashMap.get(str) != null && this.f19975a != null) {
-                this.f19975a.a(str, this.f19978d.toJson(this.f19977c.get(str)), this.f19978d.toJson(this.f19978d.toJson(socketMessage.getData())));
+            String str = this.f21498b.get(socketMessage.getCmd());
+            if (str != null && (hashMap = this.f21499c) != null && hashMap.get(str) != null && this.f21497a != null) {
+                this.f21497a.a(str, this.f21500d.toJson(this.f21499c.get(str)), this.f21500d.toJson(this.f21500d.toJson(socketMessage.getData())));
             }
             return socketMessage;
         }
@@ -97,14 +97,14 @@ public class b extends k {
     public void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f19975a = cVar;
+            this.f21497a = cVar;
         }
     }
 
     public void d(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) {
-            this.f19977c = hashMap;
+            this.f21499c = hashMap;
         }
     }
 

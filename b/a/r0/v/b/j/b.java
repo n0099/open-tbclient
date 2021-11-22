@@ -36,7 +36,7 @@ public class b extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f24201e;
+        public final /* synthetic */ b f25664e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -53,28 +53,28 @@ public class b extends ActivityDelegation {
                     return;
                 }
             }
-            this.f24201e = bVar;
+            this.f25664e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f24201e.d(true);
+                this.f25664e.d(true);
             }
         }
     }
 
     /* renamed from: b.a.r0.v.b.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class DialogInterface$OnCancelListenerC1184b implements DialogInterface.OnCancelListener {
+    public class DialogInterface$OnCancelListenerC1250b implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f24202e;
+        public final /* synthetic */ b f25665e;
 
-        public DialogInterface$OnCancelListenerC1184b(b bVar) {
+        public DialogInterface$OnCancelListenerC1250b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,14 +89,14 @@ public class b extends ActivityDelegation {
                     return;
                 }
             }
-            this.f24202e = bVar;
+            this.f25665e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f24202e.d(false);
+                this.f25665e.d(false);
             }
         }
     }
@@ -209,7 +209,7 @@ public class b extends ActivityDelegation {
                 }
                 TiebaStatic.log(new StatisticItem("c13530").param("obj_id", aVar.l0).param("obj_type", aVar.m0).param("obj_source", aVar.n0));
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig(activity, aVar, false);
-                shareDialogConfig.onCancelListener = new DialogInterface$OnCancelListenerC1184b(this);
+                shareDialogConfig.onCancelListener = new DialogInterface$OnCancelListenerC1250b(this);
                 shareDialogConfig.onDismissListener = new c(this);
                 JSONArray o = aVar.o();
                 if (o != null && !TextUtils.isEmpty(aVar.m()) && !TextUtils.isEmpty(aVar.l())) {

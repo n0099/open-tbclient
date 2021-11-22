@@ -15,19 +15,19 @@ public class c implements Cloneable, Comparable<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EGLContext f29412e;
+    public EGLContext f30281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f29413f;
+    public d f30282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.x.b.f.c f29414g;
+    public b.a.x.b.f.c f30283g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.x.b.f.a f29415h;
+    public b.a.x.b.f.a f30284h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f29416i;
+    public a f30285i;
     public boolean j;
     public b.a.x.b.e.c k;
     public b l;
@@ -49,13 +49,13 @@ public class c implements Cloneable, Comparable<c> {
                 return;
             }
         }
-        this.f29412e = eGLContext;
+        this.f30281e = eGLContext;
         this.m = i2;
         this.n = z;
-        this.f29413f = new d();
-        this.f29414g = new b.a.x.b.f.c();
-        this.f29415h = new b.a.x.b.f.b();
-        this.f29416i = new a();
+        this.f30282f = new d();
+        this.f30283g = new b.a.x.b.f.c();
+        this.f30284h = new b.a.x.b.f.b();
+        this.f30285i = new a();
         this.j = false;
         this.k = null;
         this.l = new b();
@@ -75,7 +75,7 @@ public class c implements Cloneable, Comparable<c> {
                 cVar = null;
             }
             if (cVar != null) {
-                cVar.n(this.f29416i.clone());
+                cVar.n(this.f30285i.clone());
                 cVar.q(this.l.clone());
             }
             return cVar;
@@ -95,7 +95,7 @@ public class c implements Cloneable, Comparable<c> {
     public a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29416i : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30285i : (a) invokeV.objValue;
     }
 
     public int e() {
@@ -107,13 +107,13 @@ public class c implements Cloneable, Comparable<c> {
     public b.a.x.b.f.a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29415h : (b.a.x.b.f.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30284h : (b.a.x.b.f.a) invokeV.objValue;
     }
 
     public EGLContext g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29412e : (EGLContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30281e : (EGLContext) invokeV.objValue;
     }
 
     public b.a.x.b.e.c h() {
@@ -131,13 +131,13 @@ public class c implements Cloneable, Comparable<c> {
     public b.a.x.b.f.c j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29414g : (b.a.x.b.f.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30283g : (b.a.x.b.f.c) invokeV.objValue;
     }
 
     public d k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29413f : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f30282f : (d) invokeV.objValue;
     }
 
     public boolean l() {
@@ -155,14 +155,14 @@ public class c implements Cloneable, Comparable<c> {
     public void n(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
-            this.f29416i = aVar;
+            this.f30285i = aVar;
         }
     }
 
     public void o(EGLContext eGLContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, eGLContext) == null) {
-            this.f29412e = eGLContext;
+            this.f30281e = eGLContext;
         }
     }
 
@@ -183,7 +183,7 @@ public class c implements Cloneable, Comparable<c> {
     public void r(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, dVar) == null) {
-            this.f29413f = dVar;
+            this.f30282f = dVar;
         }
     }
 }

@@ -1,15 +1,13 @@
 package b.a.p0.a.p.c;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 /* loaded from: classes.dex */
-public class m implements b.a.p0.a.p.d.y {
+public class m implements b.a.p0.a.p.d.z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,26 +25,20 @@ public class m implements b.a.p0.a.p.d.y {
         }
     }
 
-    @Override // b.a.p0.a.p.d.y
-    public long a(Context context) {
+    @Override // b.a.p0.a.p.d.z
+    public float a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // b.a.p0.a.p.d.z
+    public String processUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? b.a.p0.a.d0.b.b().f4515a : invokeL.longValue;
-    }
-
-    @Override // b.a.p0.a.p.d.y
-    public void b(Context context, String str, b.a.p0.a.v2.e1.b<String> bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, bVar) == null) {
-            b.a.p0.a.r.a.d(str, bVar);
-        }
-    }
-
-    @Override // b.a.p0.a.p.d.y
-    public void c(Context context, JSONArray jSONArray, b.a.p0.a.v2.e1.b<String> bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray, bVar) == null) {
-            b.a.p0.a.r.a.e(jSONArray, bVar);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? b.a.p0.a.d0.c.w(str, true) : (String) invokeL.objValue;
     }
 }

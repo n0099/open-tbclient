@@ -1,293 +1,149 @@
 package b.a.p0.a.h1;
 
-import android.content.Context;
-import android.text.TextUtils;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.c2.f.a0;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import b.a.p0.a.e0.d;
+import b.a.p0.a.h1.c.a;
+import b.a.p0.a.h1.c.b;
 import b.a.p0.a.h1.c.c;
-import b.a.p0.a.h1.c.f;
-import b.a.p0.a.h1.c.g;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes.dex */
-public class a extends a0 {
+public class a {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final boolean f6209b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(e eVar) {
-        super(eVar, "/swanAPI/map");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* renamed from: a  reason: collision with root package name */
+    public final List<b.a.p0.a.h1.c.a> f6210a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1324595402, "Lb/a/p0/a/h1/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1324595402, "Lb/a/p0/a/h1/a;");
                 return;
             }
         }
+        f6209b = k.f6863a;
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
-        InterceptResult invokeLLLL;
+    public a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4160b) {
-                String str = "handle entity: " + unitedSchemeEntity.toString();
-                return false;
-            }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.a2.e eVar) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            if (a0.f4160b) {
-                String str2 = "handleSubAction subAction: " + str;
-            }
-            d.g("map", "handleSubAction " + str);
-            b a2 = b.a(unitedSchemeEntity, callbackHandler);
-            char c2 = 65535;
-            switch (str.hashCode()) {
-                case -2079680864:
-                    if (str.equals("/swanAPI/map/translateMarker")) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case -2068557416:
-                    if (str.equals("/swanAPI/map/getCenterLocation")) {
-                        c2 = '\t';
-                        break;
-                    }
-                    break;
-                case -398143716:
-                    if (str.equals("/swanAPI/map/getScale")) {
-                        c2 = 7;
-                        break;
-                    }
-                    break;
-                case 51993511:
-                    if (str.equals("/swanAPI/map/openLocation")) {
-                        c2 = 4;
-                        break;
-                    }
-                    break;
-                case 379323012:
-                    if (str.equals("/swanAPI/map/create")) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-                case 515840866:
-                    if (str.equals("/swanAPI/map/getRegion")) {
-                        c2 = '\b';
-                        break;
-                    }
-                    break;
-                case 797006348:
-                    if (str.equals("/swanAPI/map/remove")) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 892770897:
-                    if (str.equals("/swanAPI/map/update")) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 1007473955:
-                    if (str.equals("/swanAPI/map/includePoints")) {
-                        c2 = 6;
-                        break;
-                    }
-                    break;
-                case 1142165295:
-                    if (str.equals("/swanAPI/map/openWalkNavigation")) {
-                        c2 = 11;
-                        break;
-                    }
-                    break;
-                case 1256916873:
-                    if (str.equals("/swanAPI/map/moveToLocation")) {
-                        c2 = 5;
-                        break;
-                    }
-                    break;
-                case 1475857524:
-                    if (str.equals("/swanAPI/map/chooseLocation")) {
-                        c2 = '\n';
-                        break;
-                    }
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    c j = j(unitedSchemeEntity, c.class);
-                    if (k(j, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().g(context, j, a2, eVar);
-                case 1:
-                    c j2 = j(unitedSchemeEntity, c.class);
-                    if (k(j2, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().update(context, j2, a2, eVar);
-                case 2:
-                    c j3 = j(unitedSchemeEntity, c.class);
-                    if (k(j3, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().l(context, j3, a2, eVar);
-                case 3:
-                    f fVar = (f) j(unitedSchemeEntity, f.class);
-                    if (k(fVar, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().j(context, fVar, a2, eVar);
-                case 4:
-                    b.a.p0.a.h1.c.e eVar2 = (b.a.p0.a.h1.c.e) j(unitedSchemeEntity, b.a.p0.a.h1.c.e.class);
-                    if (k(eVar2, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().h(context, eVar2, a2, eVar);
-                case 5:
-                    c j4 = j(unitedSchemeEntity, c.class);
-                    if (k(j4, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().m(context, j4, a2, eVar);
-                case 6:
-                    b.a.p0.a.h1.c.b bVar = (b.a.p0.a.h1.c.b) j(unitedSchemeEntity, b.a.p0.a.h1.c.b.class);
-                    if (k(bVar, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().b(context, bVar, a2, eVar);
-                case 7:
-                    c j5 = j(unitedSchemeEntity, c.class);
-                    if (k(j5, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().c(context, j5, a2, eVar);
-                case '\b':
-                    c j6 = j(unitedSchemeEntity, c.class);
-                    if (k(j6, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().n(context, j6, a2, eVar);
-                case '\t':
-                    c j7 = j(unitedSchemeEntity, c.class);
-                    if (k(j7, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().k(context, j7, a2, eVar);
-                case '\n':
-                    b.a.p0.a.h1.c.a aVar = (b.a.p0.a.h1.c.a) j(unitedSchemeEntity, b.a.p0.a.h1.c.a.class);
-                    if (k(aVar, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().e(context, aVar, a2, eVar);
-                case 11:
-                    g gVar = (g) j(unitedSchemeEntity, g.class);
-                    if (k(gVar, a2)) {
-                        return false;
-                    }
-                    return b.a.p0.a.c1.a.F().a(context, gVar, a2, eVar);
-                default:
-                    return super.i(context, unitedSchemeEntity, callbackHandler, str, eVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLLL.booleanValue;
+        this.f6210a = new ArrayList();
+        e();
     }
 
-    public <T extends c> T j(UnitedSchemeEntity unitedSchemeEntity, Class<T> cls) {
-        InterceptResult invokeLL;
-        JSONObject jSONObject;
-        T newInstance;
+    @Nullable
+    public final b.a.p0.a.h1.c.b a(@NonNull String str, int i2, int i3, @NonNull String str2, @NonNull Object obj) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, cls)) == null) {
-            T t = null;
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            HashMap<String, String> params = unitedSchemeEntity.getParams();
-            if (params != null && !params.isEmpty()) {
-                String str = params.get("params");
-                if (str == null) {
-                    d.b("map", "params string is empty");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2, obj})) == null) {
+            b.a aVar = new b.a();
+            aVar.e(str);
+            aVar.g(i2);
+            aVar.c(i3);
+            aVar.b(str2);
+            aVar.f(obj);
+            b.a.p0.a.h1.c.b a2 = aVar.a();
+            if (a2 == null) {
+                if (f6209b) {
+                    String str3 = "build branch(" + str + ") fail: " + aVar.d().getMessage();
                     return null;
                 }
-                try {
-                    jSONObject = new JSONObject(str);
-                    newInstance = cls.newInstance();
-                } catch (Exception e2) {
-                    e = e2;
-                }
-                try {
-                    newInstance.a(jSONObject);
-                    return newInstance;
-                } catch (Exception e3) {
-                    e = e3;
-                    t = newInstance;
-                    e.printStackTrace();
-                    d.b("map", "params json parse error");
-                    return t;
-                }
+                return null;
             }
-            d.b("map", "entity get Params is empty");
-            return null;
+            return a2;
         }
-        return (T) invokeLL.objValue;
+        return (b.a.p0.a.h1.c.b) invokeCommon.objValue;
     }
 
-    public final boolean k(c cVar, b bVar) {
-        InterceptResult invokeLL;
+    @Nullable
+    public final c b(int i2, @NonNull String str, @NonNull Object obj) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cVar, bVar)) == null) {
-            if (cVar == null) {
-                d.b("map", "parse error, model is null");
-                bVar.d(202);
-                return true;
-            }
-            if (TextUtils.isEmpty(cVar.f4057g)) {
-                String B = q0.B();
-                if (!TextUtils.isEmpty(B)) {
-                    cVar.f4057g = B;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, obj)) == null) {
+            c.a aVar = new c.a();
+            aVar.e(i2);
+            aVar.d(str);
+            aVar.b(obj);
+            c a2 = aVar.a();
+            if (a2 == null) {
+                if (f6209b) {
+                    String str2 = "build switch(" + str + ") fail: " + aVar.c().getMessage();
                 }
-                d.l("map", "webView id is empty, use current webView");
+                return null;
             }
-            if (q0.m(cVar.f4057g) == null) {
-                bVar.d(202);
-                d.b("map", "can not find weiView by id " + cVar.f4057g);
-                return true;
-            }
-            return false;
+            return a2;
         }
-        return invokeLL.booleanValue;
+        return (c) invokeILL.objValue;
+    }
+
+    @NonNull
+    public List<b.a.p0.a.h1.c.a> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.f6210a) : (List) invokeV.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            c b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
+            if (b2 == null) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
+            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
+            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
+            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
+            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
+            a.C0263a c0263a = new a.C0263a();
+            c0263a.c(b2);
+            c0263a.a(arrayList);
+            b.a.p0.a.h1.c.a b3 = c0263a.b();
+            if (b3 == null) {
+                return false;
+            }
+            return this.f6210a.add(b3);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
+            d.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
+        }
     }
 }

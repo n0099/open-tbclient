@@ -1,10 +1,10 @@
 package b.a.r0.o0.g;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.d.l;
-import b.a.e.e.p.k;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
+import b.a.e.f.d.l;
+import b.a.e.f.p.k;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -39,39 +39,39 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RecentlyVisitedForumData f21588a;
+    public RecentlyVisitedForumData f23087a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f21589b;
+    public boolean f23088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f21590c;
+    public boolean f23089c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f21591d;
+    public boolean f23090d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f21592e;
+    public f f23091e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f21593f;
+    public CustomMessageListener f23092f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f21594g;
+    public CustomMessageListener f23093g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.e.c.g.a f21595h;
+    public b.a.e.c.g.a f23094h;
 
     /* renamed from: b.a.r0.o0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1057a extends i0<Object> {
+    public class C1125a extends i0<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f21596a;
+        public final /* synthetic */ a f23095a;
 
-        public C1057a(a aVar) {
+        public C1125a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,18 +86,18 @@ public class a {
                     return;
                 }
             }
-            this.f21596a = aVar;
+            this.f23095a = aVar;
         }
 
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 b.a.q0.s.r.a.f();
                 l<String> h2 = b.a.q0.s.r.a.h("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount() == null ? "local" : TbadkCoreApplication.getCurrentAccount());
-                if (h2 != null && this.f21596a.f21588a != null) {
-                    h2.g("recently_visited_forum", OrmObject.jsonStrWithObject(this.f21596a.f21588a));
+                if (h2 != null && this.f23095a.f23087a != null) {
+                    h2.g("recently_visited_forum", OrmObject.jsonStrWithObject(this.f23095a.f23087a));
                 }
                 return null;
             }
@@ -111,7 +111,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f21597a;
+        public final /* synthetic */ a f23096a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class a {
                     return;
                 }
             }
-            this.f21597a = aVar;
+            this.f23096a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,9 +174,9 @@ public class a {
         public void onPostExecute(RecentlyVisitedForumData recentlyVisitedForumData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentlyVisitedForumData) == null) {
-                this.f21597a.f21589b = false;
+                this.f23096a.f23088b = false;
                 if (recentlyVisitedForumData != null) {
-                    this.f21597a.x(recentlyVisitedForumData.y(), true);
+                    this.f23096a.x(recentlyVisitedForumData.y(), true);
                 }
             }
         }
@@ -188,7 +188,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f21598a;
+        public final /* synthetic */ a f23097a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, int i2) {
@@ -208,7 +208,7 @@ public class a {
                     return;
                 }
             }
-            this.f21598a = aVar;
+            this.f23097a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -218,7 +218,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
-            this.f21598a.q((VisitedForumData) customResponsedMessage.getData());
+            this.f23097a.q((VisitedForumData) customResponsedMessage.getData());
         }
     }
 
@@ -228,7 +228,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f21599a;
+        public final /* synthetic */ a f23098a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(a aVar, int i2) {
@@ -248,7 +248,7 @@ public class a {
                     return;
                 }
             }
-            this.f21599a = aVar;
+            this.f23098a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -258,7 +258,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f21599a.m();
+            this.f23098a.m();
         }
     }
 
@@ -268,7 +268,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f21600a;
+        public final /* synthetic */ a f23099a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(a aVar, int i2, int i3) {
@@ -289,21 +289,21 @@ public class a {
                     return;
                 }
             }
-            this.f21600a = aVar;
+            this.f23099a = aVar;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f21600a.f21590c = false;
+                this.f23099a.f23089c = false;
                 if (responsedMessage == null) {
                     return;
                 }
                 if (responsedMessage instanceof RecentlyVisitedForumHttpResponseMessage) {
-                    this.f21600a.s((RecentlyVisitedForumHttpResponseMessage) responsedMessage);
+                    this.f23099a.s((RecentlyVisitedForumHttpResponseMessage) responsedMessage);
                 } else if (responsedMessage instanceof RecentlyVisitedForumSocketResponseMessage) {
-                    this.f21600a.t((RecentlyVisitedForumSocketResponseMessage) responsedMessage);
+                    this.f23099a.t((RecentlyVisitedForumSocketResponseMessage) responsedMessage);
                 }
             }
         }
@@ -323,7 +323,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f21601a;
+        public static a f23100a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -339,18 +339,18 @@ public class a {
                     return;
                 }
             }
-            f21601a = new a(null);
+            f23100a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C1057a c1057a) {
+    public /* synthetic */ a(C1125a c1125a) {
         this();
     }
 
     public static a l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? g.f21601a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? g.f23100a : (a) invokeV.objValue;
     }
 
     public void i(VisitedForumData visitedForumData) {
@@ -363,23 +363,23 @@ public class a {
     public RecentlyVisitedForumData j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21588a : (RecentlyVisitedForumData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23087a : (RecentlyVisitedForumData) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RecentlyVisitedForumData recentlyVisitedForumData = this.f21588a;
-            if (recentlyVisitedForumData == null || recentlyVisitedForumData.y() == null || this.f21588a.y().size() < 1) {
+            RecentlyVisitedForumData recentlyVisitedForumData = this.f23087a;
+            if (recentlyVisitedForumData == null || recentlyVisitedForumData.y() == null || this.f23087a.y().size() < 1) {
                 return "";
             }
-            ArrayList<VisitedForumData> arrayList = new ArrayList(this.f21588a.y());
+            ArrayList<VisitedForumData> arrayList = new ArrayList(this.f23087a.y());
             JSONArray jSONArray = new JSONArray();
             for (VisitedForumData visitedForumData : arrayList) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("forum_id", b.a.e.e.m.b.g(visitedForumData.getForumId(), 0L));
+                    jSONObject.put("forum_id", b.a.e.f.m.b.g(visitedForumData.getForumId(), 0L));
                     jSONObject.put("visit_time", visitedForumData.E());
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -394,7 +394,7 @@ public class a {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f21589b = true;
+            this.f23088b = true;
             b bVar = new b(this);
             bVar.setPriority(3);
             bVar.execute(new Void[0]);
@@ -403,30 +403,30 @@ public class a {
 
     public void n() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f21590c) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f23089c) {
             return;
         }
         RecentlyVisitedForumRequestMessage recentlyVisitedForumRequestMessage = new RecentlyVisitedForumRequestMessage();
-        recentlyVisitedForumRequestMessage.setForumData(this.f21588a.y());
-        this.f21590c = MessageManager.getInstance().sendMessage(recentlyVisitedForumRequestMessage);
+        recentlyVisitedForumRequestMessage.setForumData(this.f23087a.y());
+        this.f23089c = MessageManager.getInstance().sendMessage(recentlyVisitedForumRequestMessage);
     }
 
     public void o() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fVar = this.f21592e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (fVar = this.f23091e) == null) {
             return;
         }
-        fVar.a(this.f21588a.y(), this.f21591d);
+        fVar.a(this.f23087a.y(), this.f23090d);
     }
 
     public final void p(VisitedForumData visitedForumData) {
         int x;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, visitedForumData) == null) || visitedForumData == null || (x = this.f21588a.x(visitedForumData)) < 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, visitedForumData) == null) || visitedForumData == null || (x = this.f23087a.x(visitedForumData)) < 0) {
             return;
         }
-        f fVar = this.f21592e;
+        f fVar = this.f23091e;
         if (fVar != null) {
             fVar.b(x);
         }
@@ -439,8 +439,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, visitedForumData) == null) || visitedForumData == null) {
             return;
         }
-        this.f21588a.w(visitedForumData);
-        this.f21588a.C(20);
+        this.f23087a.w(visitedForumData);
+        this.f23087a.C(20);
         o();
         y();
         l().n();
@@ -449,7 +449,7 @@ public class a {
     public void r() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (fVar = this.f21592e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (fVar = this.f23091e) == null) {
             return;
         }
         fVar.onNotify();
@@ -474,9 +474,9 @@ public class a {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            MessageManager.getInstance().registerListener(this.f21595h);
-            MessageManager.getInstance().registerListener(this.f21593f);
-            MessageManager.getInstance().registerListener(this.f21594g);
+            MessageManager.getInstance().registerListener(this.f23094h);
+            MessageManager.getInstance().registerListener(this.f23092f);
+            MessageManager.getInstance().registerListener(this.f23093g);
         }
     }
 
@@ -484,7 +484,7 @@ public class a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, visitedForumData) == null) && TbadkCoreApplication.isLogin()) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DELETE_HISTORY_FORUM);
-            httpMessage.addParam("forum_id", b.a.e.e.m.b.g(visitedForumData.getForumId(), 0L));
+            httpMessage.addParam("forum_id", b.a.e.f.m.b.g(visitedForumData.getForumId(), 0L));
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -492,7 +492,7 @@ public class a {
     public void w(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, fVar) == null) {
-            this.f21592e = fVar;
+            this.f23091e = fVar;
         }
     }
 
@@ -501,18 +501,18 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLZ(1048590, this, linkedList, z) == null) || linkedList == null) {
             return;
         }
-        this.f21588a.B(linkedList);
-        this.f21588a.C(20);
-        this.f21591d = z;
+        this.f23087a.B(linkedList);
+        this.f23087a.C(20);
+        this.f23090d = z;
         o();
     }
 
     public void y() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f21589b) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f23088b) {
             return;
         }
-        l0.b(new C1057a(this), null);
+        l0.b(new C1125a(this), null);
     }
 
     public a() {
@@ -528,12 +528,12 @@ public class a {
                 return;
             }
         }
-        this.f21589b = false;
-        this.f21590c = false;
-        this.f21593f = new c(this, 2016564);
-        this.f21594g = new d(this, 2005016);
-        this.f21595h = new e(this, CmdConfigHttp.CMD_GET_HISTORY_FORUM, 309601);
-        this.f21588a = new RecentlyVisitedForumData();
+        this.f23088b = false;
+        this.f23089c = false;
+        this.f23092f = new c(this, 2016564);
+        this.f23093g = new d(this, 2005016);
+        this.f23094h = new e(this, CmdConfigHttp.CMD_GET_HISTORY_FORUM, 309601);
+        this.f23087a = new RecentlyVisitedForumData();
         u();
         m();
     }

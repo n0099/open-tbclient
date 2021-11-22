@@ -14,7 +14,7 @@ public class z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a0> f13892a;
+    public List<a0> f14665a;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class z {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-            this.f13892a = new ArrayList();
+            this.f14665a = new ArrayList();
             try {
                 if (jSONArray == null) {
                     b.a.q0.s.e0.b.j().x("key_index_tab_info_list", "[]");
@@ -44,20 +44,20 @@ public class z {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     a0 a0Var = new a0();
                     a0 a0Var2 = new a0();
-                    a0Var.b(jSONArray.getJSONObject(i2));
+                    a0Var.e(jSONArray.getJSONObject(i2));
                     for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
-                        a0Var2.b(jSONArray2.getJSONObject(i3));
-                        if (a0Var.f13737c != null && a0Var.f13737c.equals(a0Var2.f13737c)) {
-                            if (!TextUtils.isEmpty(a0Var2.f13739e) && a0Var2.f13739e.equals(a0Var.f13739e)) {
+                        a0Var2.e(jSONArray2.getJSONObject(i3));
+                        if (a0Var.f14502c != null && a0Var.f14502c.equals(a0Var2.f14502c)) {
+                            if (!TextUtils.isEmpty(a0Var2.f14504e) && a0Var2.f14504e.equals(a0Var.f14504e)) {
                                 z = false;
-                                a0Var.f13740f = z;
+                                a0Var.f14505f = z;
                             }
                             z = true;
-                            a0Var.f13740f = z;
+                            a0Var.f14505f = z;
                         }
                     }
-                    if (!a0Var.a()) {
-                        this.f13892a.add(a0Var);
+                    if (!a0Var.c()) {
+                        this.f14665a.add(a0Var);
                     }
                 }
                 b.a.q0.s.e0.b.j().x("key_index_tab_info_list", jSONArray.toString());

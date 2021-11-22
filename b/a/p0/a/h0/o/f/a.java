@@ -4,7 +4,8 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import b.a.p0.a.u.c.b;
 import b.a.p0.a.u.c.d;
-import b.a.p0.a.v2.w;
+import b.a.p0.a.z2.w;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,30 +39,42 @@ public class a extends d {
         }
     }
 
-    public b.a.p0.a.u.h.b q(String str) {
+    @Override // b.a.p0.a.u.c.d
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Prefetch" : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.a.u.c.d
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SwanPrefetchResourcesApi" : (String) invokeV.objValue;
+    }
+
+    public b.a.p0.a.u.h.b x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (b.a.p0.a.h0.o.g.a.f5647a) {
-                String str2 = "receive prefetchResources data = " + str;
-            }
-            Pair<b.a.p0.a.u.h.b, JSONObject> b2 = b.a.p0.a.u.i.b.b("Api-Base", str);
-            JSONObject jSONObject = (JSONObject) b2.second;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#prefetchResources params=" + str, false);
+            Pair<b.a.p0.a.u.h.b, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
             if (jSONObject == null) {
-                return (b.a.p0.a.u.h.b) b2.first;
+                return (b.a.p0.a.u.h.b) s.first;
             }
-            if (!SwanAppNetworkUtils.i(b.a.p0.a.c1.a.b())) {
+            if (!SwanAppNetworkUtils.i(b.a.p0.a.c1.a.c())) {
                 return new b.a.p0.a.u.h.b(1001, "network disconnected");
             }
             JSONArray c2 = w.c(jSONObject, "video");
             if (c2 != null && c2.length() > 0) {
-                b.a.p0.a.c1.a.P().a(c2);
+                b.a.p0.a.c1.a.U().a(c2);
             }
             JSONArray c3 = w.c(jSONObject, "image");
             if (c3 != null && c3.length() > 0) {
-                b.a.p0.a.c1.a.P().c(c3);
+                b.a.p0.a.c1.a.U().c(c3);
             }
-            return new b.a.p0.a.u.h.b(0);
+            return b.a.p0.a.u.h.b.f();
         }
         return (b.a.p0.a.u.h.b) invokeL.objValue;
     }

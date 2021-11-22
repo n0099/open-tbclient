@@ -12,11 +12,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.q;
-import b.a.r0.k2.u.f.w0;
+import b.a.e.f.p.l;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.q;
+import b.a.r0.k2.u.f.x0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -58,19 +58,19 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public ImageView D;
 
     /* renamed from: e  reason: collision with root package name */
-    public Gson f44969e;
+    public Gson f45817e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f44970f;
+    public Context f45818f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f44971g;
+    public LinearLayout f45819g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44972h;
+    public TextView f45820h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f44973i;
+    public TextView f45821i;
     public TextView j;
     public TextView k;
     public TextView l;
@@ -79,7 +79,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public TextView n;
     public TextView o;
     public PermissionJudgePolicy p;
-    public w0 q;
+    public x0 q;
     public TbPageContext r;
     public b.a.q0.s.s.a s;
     public Bitmap t;
@@ -96,7 +96,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadAchievementShareDialogView f44974e;
+        public final /* synthetic */ ThreadAchievementShareDialogView f45822e;
 
         public a(ThreadAchievementShareDialogView threadAchievementShareDialogView) {
             Interceptable interceptable = $ic;
@@ -113,14 +113,14 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                     return;
                 }
             }
-            this.f44974e = threadAchievementShareDialogView;
+            this.f45822e = threadAchievementShareDialogView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f44974e.s != null && this.f44974e.s.isShowing()) {
-                this.f44974e.s.dismiss();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f45822e.s != null && this.f45822e.s.isShowing()) {
+                this.f45822e.s.dismiss();
             }
         }
     }
@@ -131,7 +131,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadAchievementShareDialogView f44975e;
+        public final /* synthetic */ ThreadAchievementShareDialogView f45823e;
 
         public b(ThreadAchievementShareDialogView threadAchievementShareDialogView) {
             Interceptable interceptable = $ic;
@@ -148,14 +148,14 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                     return;
                 }
             }
-            this.f44975e = threadAchievementShareDialogView;
+            this.f45823e = threadAchievementShareDialogView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f44975e;
+                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f45823e;
                 threadAchievementShareDialogView.l(threadAchievementShareDialogView.generateSharedImg());
             }
         }
@@ -167,7 +167,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadAchievementShareDialogView f44976e;
+        public final /* synthetic */ ThreadAchievementShareDialogView f45824e;
 
         public c(ThreadAchievementShareDialogView threadAchievementShareDialogView) {
             Interceptable interceptable = $ic;
@@ -184,14 +184,14 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                     return;
                 }
             }
-            this.f44976e = threadAchievementShareDialogView;
+            this.f45824e = threadAchievementShareDialogView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f44976e;
+                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f45824e;
                 threadAchievementShareDialogView.n(threadAchievementShareDialogView.generateSharedImg(), 3);
             }
         }
@@ -203,7 +203,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadAchievementShareDialogView f44977e;
+        public final /* synthetic */ ThreadAchievementShareDialogView f45825e;
 
         public d(ThreadAchievementShareDialogView threadAchievementShareDialogView) {
             Interceptable interceptable = $ic;
@@ -220,14 +220,14 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                     return;
                 }
             }
-            this.f44977e = threadAchievementShareDialogView;
+            this.f45825e = threadAchievementShareDialogView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f44977e;
+                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f45825e;
                 threadAchievementShareDialogView.n(threadAchievementShareDialogView.generateSharedImg(), 2);
             }
         }
@@ -239,7 +239,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadAchievementShareDialogView f44978e;
+        public final /* synthetic */ ThreadAchievementShareDialogView f45826e;
 
         public e(ThreadAchievementShareDialogView threadAchievementShareDialogView) {
             Interceptable interceptable = $ic;
@@ -256,14 +256,14 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                     return;
                 }
             }
-            this.f44978e = threadAchievementShareDialogView;
+            this.f45826e = threadAchievementShareDialogView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f44978e;
+                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f45826e;
                 threadAchievementShareDialogView.n(threadAchievementShareDialogView.generateSharedImg(), 4);
             }
         }
@@ -275,7 +275,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadAchievementShareDialogView f44979e;
+        public final /* synthetic */ ThreadAchievementShareDialogView f45827e;
 
         public f(ThreadAchievementShareDialogView threadAchievementShareDialogView) {
             Interceptable interceptable = $ic;
@@ -292,14 +292,14 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                     return;
                 }
             }
-            this.f44979e = threadAchievementShareDialogView;
+            this.f45827e = threadAchievementShareDialogView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f44979e;
+                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f45827e;
                 threadAchievementShareDialogView.n(threadAchievementShareDialogView.generateSharedImg(), 8);
             }
         }
@@ -311,7 +311,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadAchievementShareDialogView f44980e;
+        public final /* synthetic */ ThreadAchievementShareDialogView f45828e;
 
         public g(ThreadAchievementShareDialogView threadAchievementShareDialogView) {
             Interceptable interceptable = $ic;
@@ -328,14 +328,14 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                     return;
                 }
             }
-            this.f44980e = threadAchievementShareDialogView;
+            this.f45828e = threadAchievementShareDialogView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f44980e;
+                ThreadAchievementShareDialogView threadAchievementShareDialogView = this.f45828e;
                 threadAchievementShareDialogView.n(threadAchievementShareDialogView.generateSharedImg(), 6);
             }
         }
@@ -347,13 +347,13 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f44981a;
+        public final /* synthetic */ Bitmap f45829a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f44982b;
+        public final /* synthetic */ int f45830b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ThreadAchievementShareDialogView f44983c;
+        public final /* synthetic */ ThreadAchievementShareDialogView f45831c;
 
         public h(ThreadAchievementShareDialogView threadAchievementShareDialogView, Bitmap bitmap, int i2) {
             Interceptable interceptable = $ic;
@@ -370,18 +370,18 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                     return;
                 }
             }
-            this.f44983c = threadAchievementShareDialogView;
-            this.f44981a = bitmap;
-            this.f44982b = i2;
+            this.f45831c = threadAchievementShareDialogView;
+            this.f45829a = bitmap;
+            this.f45830b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44983c.i(this.f44981a, this.f44982b) : (ShareItem) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45831c.i(this.f45829a, this.f45830b) : (ShareItem) invokeV.objValue;
         }
     }
 
@@ -391,10 +391,10 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f44984a;
+        public final /* synthetic */ int f45832a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ThreadAchievementShareDialogView f44985b;
+        public final /* synthetic */ ThreadAchievementShareDialogView f45833b;
 
         public i(ThreadAchievementShareDialogView threadAchievementShareDialogView, int i2) {
             Interceptable interceptable = $ic;
@@ -411,17 +411,17 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                     return;
                 }
             }
-            this.f44985b = threadAchievementShareDialogView;
-            this.f44984a = i2;
+            this.f45833b = threadAchievementShareDialogView;
+            this.f45832a = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.q
+        @Override // b.a.q0.c1.q
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f44985b.f44970f, this.f44984a, shareItem, false));
+                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.f45833b.f45818f, this.f45832a, shareItem, false));
             }
         }
     }
@@ -444,8 +444,8 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                 return;
             }
         }
-        this.f44969e = new Gson();
-        this.f44970f = context;
+        this.f45817e = new Gson();
+        this.f45818f = context;
         this.mShareInfo = k(str);
     }
 
@@ -454,12 +454,12 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         int k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            int g2 = l.g(this.f44970f, R.dimen.tbds44);
-            int g3 = l.g(this.f44970f, R.dimen.tbds54);
-            if (UtilHelper.getRealScreenOrientation(this.f44970f) == 2) {
-                k = l.i(this.f44970f);
+            int g2 = l.g(this.f45818f, R.dimen.tbds44);
+            int g3 = l.g(this.f45818f, R.dimen.tbds54);
+            if (UtilHelper.getRealScreenOrientation(this.f45818f) == 2) {
+                k = l.i(this.f45818f);
             } else {
-                k = l.k(this.f44970f);
+                k = l.k(this.f45818f);
             }
             return ((k - (g2 * 2)) - g3) / 6;
         }
@@ -472,9 +472,9 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, aVar)) == null) {
             this.r = tbPageContext;
             this.s = aVar;
-            j(this.f44970f);
+            j(this.f45818f);
             if (this.mShareInfo.getParams() != null && !ListUtils.isEmpty(this.mShareInfo.getParams().getThread_list())) {
-                this.x.addView(new b.a.q0.m.g.a(this.f44970f, this.mShareInfo).a());
+                this.x.addView(new b.a.q0.m.g.a(this.f45818f, this.mShareInfo).a());
                 this.o.setText(this.mShareInfo.getParams().getTitle());
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.THREAD_ACHIEVEMENT_DETAIL_SHARE);
                 statisticItem.param("obj_source", 1);
@@ -482,9 +482,9 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
                 this.C = 2;
             } else if (this.mShareInfo.getParams() != null) {
                 if (this.mShareInfo.getParams().getVideo_info() != null) {
-                    this.x.addView(new b.a.q0.m.g.c(this.f44970f, this.mShareInfo).a());
+                    this.x.addView(new b.a.q0.m.g.c(this.f45818f, this.mShareInfo).a());
                 } else {
-                    this.x.addView(new b.a.q0.m.g.b(this.f44970f, this.mShareInfo).a());
+                    this.x.addView(new b.a.q0.m.g.b(this.f45818f, this.mShareInfo).a());
                 }
                 this.o.setText(this.mShareInfo.getParams().getTitle());
                 StatisticItem statisticItem2 = new StatisticItem("c10898");
@@ -570,7 +570,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             shareItem.g0 = false;
             shareItem.f0 = false;
             shareItem.Z = 1;
-            shareItem.r = this.f44970f.getString(R.string.app_name);
+            shareItem.r = this.f45818f.getString(R.string.app_name);
             shareItem.s = "";
             shareItem.i(bitmap);
             shareItem.g();
@@ -584,26 +584,26 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.webview_poster_share, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_private_share);
-            this.f44971g = linearLayout;
+            this.f45819g = linearLayout;
             this.u = linearLayout.findViewById(R.id.poster_head_bg);
-            SkinManager.setBackgroundResource(this.f44971g, R.drawable.bg_frs_private_dialog);
+            SkinManager.setBackgroundResource(this.f45819g, R.drawable.bg_frs_private_dialog);
             SkinManager.setBackgroundResource(this.u, R.drawable.pic_announcement_round);
-            this.x = (FrameLayout) this.f44971g.findViewById(R.id.poster_container);
-            this.o = (TextView) this.f44971g.findViewById(R.id.achievement_desc);
-            this.y = (HeadImageView) this.f44971g.findViewById(R.id.head_portrait);
-            TextView textView = (TextView) this.f44971g.findViewById(R.id.user_name);
+            this.x = (FrameLayout) this.f45819g.findViewById(R.id.poster_container);
+            this.o = (TextView) this.f45819g.findViewById(R.id.achievement_desc);
+            this.y = (HeadImageView) this.f45819g.findViewById(R.id.head_portrait);
+            TextView textView = (TextView) this.f45819g.findViewById(R.id.user_name);
             this.n = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0101);
             this.y.setIsRound(true);
             this.y.setPlaceHolder(2);
             this.y.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.w = (LinearLayout) this.f44971g.findViewById(R.id.share_view_layout);
-            this.v = (ImageView) this.f44971g.findViewById(R.id.share_qrcode);
-            this.z = (TextView) this.f44971g.findViewById(R.id.qrcode_top_desc);
-            this.A = (TextView) this.f44971g.findViewById(R.id.qrcode_bottom_desc);
-            this.B = (FrameLayout) this.f44971g.findViewById(R.id.qrcode_layout);
-            ImageView imageView = (ImageView) this.f44971g.findViewById(R.id.close_button);
+            this.w = (LinearLayout) this.f45819g.findViewById(R.id.share_view_layout);
+            this.v = (ImageView) this.f45819g.findViewById(R.id.share_qrcode);
+            this.z = (TextView) this.f45819g.findViewById(R.id.qrcode_top_desc);
+            this.A = (TextView) this.f45819g.findViewById(R.id.qrcode_bottom_desc);
+            this.B = (FrameLayout) this.f45819g.findViewById(R.id.qrcode_layout);
+            ImageView imageView = (ImageView) this.f45819g.findViewById(R.id.close_button);
             this.D = imageView;
             imageView.setOnClickListener(new a(this));
             SkinManager.setImageResource(this.D, R.drawable.icon_popup_shut_n);
@@ -611,27 +611,27 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             SkinManager.setViewTextColor(this.A, R.color.CAM_X0109);
             SkinManager.setBackgroundColor(this.B, R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.w, R.drawable.bg_frs_private_dialog);
-            TextView textView2 = (TextView) this.f44971g.findViewById(R.id.frs_private_share_download);
-            this.f44972h = textView2;
+            TextView textView2 = (TextView) this.f45819g.findViewById(R.id.frs_private_share_download);
+            this.f45820h = textView2;
             m(textView2, new SvgMaskType(R.drawable.icon_mask_frs_private_share_download40_svg));
-            this.f44972h.setOnClickListener(new b(this));
-            TextView textView3 = (TextView) this.f44971g.findViewById(R.id.frs_private_share_wechat);
-            this.f44973i = textView3;
+            this.f45820h.setOnClickListener(new b(this));
+            TextView textView3 = (TextView) this.f45819g.findViewById(R.id.frs_private_share_wechat);
+            this.f45821i = textView3;
             m(textView3, new SvgMaskType(R.drawable.icon_mask_share_wechat40_svg));
-            this.f44973i.setOnClickListener(new c(this));
-            TextView textView4 = (TextView) this.f44971g.findViewById(R.id.frs_private_share_moment);
+            this.f45821i.setOnClickListener(new c(this));
+            TextView textView4 = (TextView) this.f45819g.findViewById(R.id.frs_private_share_moment);
             this.j = textView4;
             m(textView4, new SvgMaskType(R.drawable.icon_mask_share_circle40_svg));
             this.j.setOnClickListener(new d(this));
-            TextView textView5 = (TextView) this.f44971g.findViewById(R.id.frs_private_share_qzone);
+            TextView textView5 = (TextView) this.f45819g.findViewById(R.id.frs_private_share_qzone);
             this.k = textView5;
             m(textView5, new SvgMaskType(R.drawable.icon_mask_share_qqzone40_svg));
             this.k.setOnClickListener(new e(this));
-            TextView textView6 = (TextView) this.f44971g.findViewById(R.id.frs_private_share_qq);
+            TextView textView6 = (TextView) this.f45819g.findViewById(R.id.frs_private_share_qq);
             this.l = textView6;
             m(textView6, new SvgMaskType(R.drawable.icon_mask_share_qq40_svg));
             this.l.setOnClickListener(new f(this));
-            TextView textView7 = (TextView) this.f44971g.findViewById(R.id.frs_private_share_weibo);
+            TextView textView7 = (TextView) this.f45819g.findViewById(R.id.frs_private_share_weibo);
             this.m = textView7;
             m(textView7, new SvgMaskType(R.drawable.icon_mask_share_weibo40_svg));
             this.m.setOnClickListener(new g(this));
@@ -645,7 +645,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return (ThreadAchievementShareInfo) this.f44969e.fromJson(str, (Class<Object>) ThreadAchievementShareInfo.class);
+            return (ThreadAchievementShareInfo) this.f45817e.fromJson(str, (Class<Object>) ThreadAchievementShareInfo.class);
         }
         return (ThreadAchievementShareInfo) invokeL.objValue;
     }
@@ -656,7 +656,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             return;
         }
         if (this.q == null) {
-            this.q = new w0(this.r);
+            this.q = new x0(this.r);
         }
         if (this.mShareInfo.getParams() != null && !TextUtils.isEmpty(this.mShareInfo.getParams().getUrl())) {
             this.q.b(this.mShareInfo.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));

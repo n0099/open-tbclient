@@ -16,7 +16,7 @@ public class b implements ZeusPluginFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8971a;
+    public String f9317a;
 
     public b(@NonNull String str) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class b implements ZeusPluginFactory {
                 return;
             }
         }
-        this.f8971a = str;
+        this.f9317a = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -41,8 +41,8 @@ public class b implements ZeusPluginFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            c cVar = new c(invoker, this.f8971a);
-            if (k.f6397a) {
+            c cVar = new c(invoker, this.f9317a);
+            if (k.f6863a) {
                 String str = "Factory 「Hash:" + hashCode() + "」 is creating inline input「Hash:" + cVar.hashCode() + "」";
             }
             return new a(cVar);

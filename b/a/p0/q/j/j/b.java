@@ -1,0 +1,8 @@
+package b.a.p0.q.j.j;
+
+import b.a.p0.q.j.g;
+import b.a.p0.q.j.i.f.e;
+/* loaded from: classes4.dex */
+public interface b extends g {
+    e b(String str, int i2) throws Exception;
+}

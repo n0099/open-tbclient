@@ -1,7 +1,7 @@
 package b.a.r0.q.c;
 
 import android.view.View;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,28 +25,28 @@ public class a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BaseActivity f22475e;
+    public final BaseActivity f23996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f22476f;
+    public b f23997f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AccountSafeModel f22477g;
+    public AccountSafeModel f23998g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.e.c.g.a f22478h;
+    public b.a.e.c.g.a f23999h;
 
     /* renamed from: b.a.r0.q.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1098a extends b.a.e.c.g.a {
+    public class C1165a extends b.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f22479a;
+        public final /* synthetic */ a f24000a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1098a(a aVar, int i2, int i3) {
+        public C1165a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -64,7 +64,7 @@ public class a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f22479a = aVar;
+            this.f24000a = aVar;
         }
 
         @Override // b.a.e.c.g.a
@@ -72,33 +72,33 @@ public class a implements View.OnClickListener {
             String errorString;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (this.f22479a.f22477g != null) {
-                    this.f22479a.f22477g.E(false);
+                if (this.f24000a.f23998g != null) {
+                    this.f24000a.f23998g.E(false);
                 }
-                this.f22479a.f22475e.closeLoadingDialog();
+                this.f24000a.f23996e.closeLoadingDialog();
                 if (responsedMessage == null) {
                     return;
                 }
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    b.a.r0.c3.b.a.a privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
+                    b.a.r0.d3.b.a.a privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                         privacyData = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
-                    if (this.f22479a.f22477g != null) {
-                        this.f22479a.f22477g.D(privacyData);
+                    if (this.f24000a.f23998g != null) {
+                        this.f24000a.f23998g.D(privacyData);
                     }
-                    if (this.f22479a.f22476f == null || this.f22479a.f22477g == null || this.f22479a.f22477g.x() == null) {
+                    if (this.f24000a.f23997f == null || this.f24000a.f23998g == null || this.f24000a.f23998g.x() == null) {
                         return;
                     }
-                    this.f22479a.f22476f.d(this.f22479a.f22477g.x().f());
+                    this.f24000a.f23997f.d(this.f24000a.f23998g.x().f());
                     return;
                 }
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.f22479a.f22475e.getString(R.string.neterror);
+                    errorString = this.f24000a.f23996e.getString(R.string.neterror);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
-                this.f22479a.f22475e.showToast(errorString);
+                this.f24000a.f23996e.showToast(errorString);
             }
         }
     }
@@ -118,29 +118,29 @@ public class a implements View.OnClickListener {
                 return;
             }
         }
-        C1098a c1098a = new C1098a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
-        this.f22478h = c1098a;
-        this.f22475e = baseActivity;
-        baseActivity.registerListener(c1098a);
-        this.f22476f = new b(this.f22475e, this);
-        this.f22477g = new AccountSafeModel(this.f22475e);
+        C1165a c1165a = new C1165a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
+        this.f23999h = c1165a;
+        this.f23996e = baseActivity;
+        baseActivity.registerListener(c1165a);
+        this.f23997f = new b(this.f23996e, this);
+        this.f23998g = new AccountSafeModel(this.f23996e);
         if (j.z()) {
             g();
         } else {
-            this.f22475e.showToast(R.string.neterror);
+            this.f23996e.showToast(R.string.neterror);
         }
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22476f.a() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23997f.a() : (View) invokeV.objValue;
     }
 
     public void e(int i2) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (bVar = this.f22476f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (bVar = this.f23997f) == null) {
             return;
         }
         bVar.e(i2);
@@ -149,12 +149,12 @@ public class a implements View.OnClickListener {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f22475e.closeLoadingDialog();
-            AccountSafeModel accountSafeModel = this.f22477g;
+            this.f23996e.closeLoadingDialog();
+            AccountSafeModel accountSafeModel = this.f23998g;
             if (accountSafeModel != null) {
                 accountSafeModel.cancelLoadData();
             }
-            b bVar = this.f22476f;
+            b bVar = this.f23997f;
             if (bVar != null) {
                 bVar.c();
             }
@@ -164,10 +164,10 @@ public class a implements View.OnClickListener {
     public final void g() {
         AccountSafeModel accountSafeModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (accountSafeModel = this.f22477g) == null || accountSafeModel.A()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (accountSafeModel = this.f23998g) == null || accountSafeModel.A()) {
             return;
         }
-        this.f22477g.C();
+        this.f23998g.C();
     }
 
     @Override // android.view.View.OnClickListener
@@ -177,13 +177,13 @@ public class a implements View.OnClickListener {
             if (view.getId() == R.id.bar_record) {
                 TiebaStatic.log("c10013");
                 if (!j.z()) {
-                    this.f22475e.showToast(R.string.neterror);
+                    this.f23996e.showToast(R.string.neterror);
                 } else {
-                    UrlManager.getInstance().dealOneLink(this.f22475e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                    UrlManager.getInstance().dealOneLink(this.f23996e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
                 }
             } else if (view.getId() == R.id.account_status) {
-                AccountSafeModel accountSafeModel = this.f22477g;
-                AntiHelper.p(this.f22475e, accountSafeModel != null ? accountSafeModel.y() : "");
+                AccountSafeModel accountSafeModel = this.f23998g;
+                AntiHelper.p(this.f23996e, accountSafeModel != null ? accountSafeModel.y() : "");
             }
         }
     }

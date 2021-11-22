@@ -3,8 +3,8 @@ package com.baidu.tieba.im.message.chat;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.c.e.c.a;
-import b.a.e.e.m.b;
-import b.a.e.l.e.n;
+import b.a.e.f.m.b;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -396,7 +396,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.toUserInfo : (UserData) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

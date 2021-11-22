@@ -12,7 +12,6 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
@@ -30,10 +29,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, HashMap<String, Integer>> f13610a;
+    public static final HashMap<String, HashMap<String, Integer>> f14392a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SparseArray<String> f13611b;
+    public static final SparseArray<String> f14393b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,8 +48,8 @@ public class a {
                 return;
             }
         }
-        f13610a = new HashMap<>();
-        f13611b = new SparseArray<>();
+        f14392a = new HashMap<>();
+        f14393b = new SparseArray<>();
     }
 
     public static Drawable A(View view, Drawable drawable, String[] strArr) {
@@ -91,10 +90,10 @@ public class a {
             c2.A();
             GradientDrawable m = c2.m(i3);
             m.setColor(h(i2));
-            m.setStroke((int) c2.u(), b.a.r0.l3.c.a(c2.t(), c2.s()));
+            m.setStroke((int) c2.u(), b.a.r0.m3.c.a(c2.t(), c2.s()));
             GradientDrawable m2 = c2.m(i3);
-            m2.setColor(b.a.r0.l3.c.a(h(i2), SkinManager.RESOURCE_ALPHA_PRESS));
-            m2.setStroke((int) c2.u(), b.a.r0.l3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
+            m2.setColor(b.a.r0.m3.c.a(h(i2), SkinManager.RESOURCE_ALPHA_PRESS));
+            m2.setStroke((int) c2.u(), b.a.r0.m3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842910, 16842919}, m2);
             stateListDrawable.addState(new int[]{16842910, 16842908}, m2);
@@ -112,10 +111,10 @@ public class a {
             c2.A();
             GradientDrawable m = c2.m(i4);
             m.setColor(h(i2));
-            m.setStroke((int) c2.u(), b.a.r0.l3.c.a(c2.t(), c2.s()));
+            m.setStroke((int) c2.u(), b.a.r0.m3.c.a(c2.t(), c2.s()));
             GradientDrawable m2 = c2.m(i4);
             m2.setColor(h(i3));
-            m2.setStroke((int) c2.u(), b.a.r0.l3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
+            m2.setStroke((int) c2.u(), b.a.r0.m3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842910, 16842919}, m2);
             stateListDrawable.addState(new int[]{16842910, 16842908}, m2);
@@ -173,7 +172,7 @@ public class a {
     public static float a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) ? b.a.e.e.m.b.d(E(i2), 0.0f) : invokeI.floatValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) ? b.a.e.f.m.b.d(E(i2), 0.0f) : invokeI.floatValue;
     }
 
     public static Drawable b(Drawable drawable, int i2) {
@@ -309,10 +308,10 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i2)) == null) {
-            String str = f13611b.get(i2);
+            String str = f14393b.get(i2);
             if (str == null) {
                 str = i2 == 0 ? "" : TbadkCoreApplication.getInst().getResources().getResourceEntryName(i2);
-                f13611b.put(i2, str);
+                f14393b.put(i2, str);
             }
             return str;
         }
@@ -363,10 +362,10 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, str, str2)) == null) {
-            HashMap<String, Integer> hashMap = f13610a.get(str2);
+            HashMap<String, Integer> hashMap = f14392a.get(str2);
             if (hashMap == null) {
                 hashMap = new HashMap<>();
-                f13610a.put(str2, hashMap);
+                f14392a.put(str2, hashMap);
             }
             Integer num = hashMap.get(str);
             if (num == null) {
@@ -403,7 +402,7 @@ public class a {
             int min = Math.min(strArr.length, 4);
             float[] fArr = new float[min];
             for (int i2 = 0; i2 < min; i2++) {
-                fArr[i2] = b.a.e.e.m.b.d(strArr[i2], 0.0f);
+                fArr[i2] = b.a.e.f.m.b.d(strArr[i2], 0.0f);
             }
             return fArr;
         }
@@ -436,7 +435,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) {
-            if (str.endsWith(IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
+            if (str.endsWith("H")) {
                 return Float.parseFloat(str.substring(0, str.length() - 1));
             }
             return n(str);

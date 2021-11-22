@@ -14,7 +14,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.executor.BaseTask;
 import com.baidu.mobads.container.executor.TaskScheduler;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -502,7 +501,7 @@ public class CircleTextProgressbar extends TextView {
         this.outLineColor = -16777216;
         this.outLineWidth = 2;
         this.inCircleColors = ColorStateList.valueOf(0);
-        this.progressLineColor = BaseAnimatedElement.DEBUG_PAINT_COLOR;
+        this.progressLineColor = -16776961;
         this.progressLineWidth = 8;
         this.mPaint = new Paint();
         this.mArcRect = new RectF();

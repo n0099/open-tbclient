@@ -15,6 +15,8 @@ public final class CommandType {
     public static /* synthetic */ Interceptable $ic;
     public static final CommandType ACTION_URL;
     public static final CommandType BANNER_VIEW;
+    public static final CommandType DOWNLOAD_PERMISSION_CLICK;
+    public static final CommandType DOWNLOAD_PRIVACY_CLICK;
     public static final CommandType GET_APP_STATUS;
     public static final CommandType GET_CONFS;
     public static final CommandType GET_DOWNLOAD_STATUS;
@@ -48,9 +50,11 @@ public final class CommandType {
         GET_APP_STATUS = new CommandType("GET_APP_STATUS", 6, "getAppStatus");
         OPEN_APP = new CommandType("OPEN_APP", 7, "openApp");
         BANNER_VIEW = new CommandType("BANNER_VIEW", 8, "banner");
-        CommandType commandType = new CommandType("UNSPECIFIED", 9, "");
+        DOWNLOAD_PERMISSION_CLICK = new CommandType("DOWNLOAD_PERMISSION_CLICK", 9, "setPermissionActionUrl");
+        DOWNLOAD_PRIVACY_CLICK = new CommandType("DOWNLOAD_PRIVACY_CLICK", 10, "setPrivacyActionUrl");
+        CommandType commandType = new CommandType("UNSPECIFIED", 11, "");
         UNSPECIFIED = commandType;
-        $VALUES = new CommandType[]{ACTION_URL, GET_CONFS, PRINT_LOG, PAUSE_DOWNLOAD, GET_DOWNLOAD_STATUS, INSTALL_APP, GET_APP_STATUS, OPEN_APP, BANNER_VIEW, commandType};
+        $VALUES = new CommandType[]{ACTION_URL, GET_CONFS, PRINT_LOG, PAUSE_DOWNLOAD, GET_DOWNLOAD_STATUS, INSTALL_APP, GET_APP_STATUS, OPEN_APP, BANNER_VIEW, DOWNLOAD_PERMISSION_CLICK, DOWNLOAD_PRIVACY_CLICK, commandType};
     }
 
     public CommandType(String str, int i2, String str2) {

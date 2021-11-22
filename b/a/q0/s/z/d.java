@@ -20,10 +20,10 @@ public abstract class d implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f13648a;
+    public final l f14439a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Method> f13649b;
+    public final HashMap<String, Method> f14440b;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: b.a.q0.s.z.d */
     /* JADX WARN: Multi-variable type inference failed */
@@ -42,10 +42,10 @@ public abstract class d implements h {
                 return;
             }
         }
-        this.f13648a = lVar;
-        this.f13649b = new HashMap<>();
+        this.f14439a = lVar;
+        this.f14440b = new HashMap<>();
         b(getClass());
-        if (this.f13649b.isEmpty()) {
+        if (this.f14440b.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
@@ -55,7 +55,7 @@ public abstract class d implements h {
         Object invoke;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
-            Method method = this.f13649b.get(str);
+            Method method = this.f14440b.get(str);
             if (method != null) {
                 o oVar = (o) method.getAnnotation(o.class);
                 String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
@@ -134,7 +134,7 @@ public abstract class d implements h {
                         str = method.getName();
                     }
                     method.setAccessible(true);
-                    this.f13649b.put(str, method);
+                    this.f14440b.put(str, method);
                 }
             }
             Class<? super Object> superclass = cls.getSuperclass();
@@ -165,7 +165,7 @@ public abstract class d implements h {
             if (jSONObject != null) {
                 hashMap.put("data", jSONObject);
             }
-            this.f13648a.c(m.k(str, hashMap));
+            this.f14439a.c(m.k(str, hashMap));
         }
     }
 
@@ -180,13 +180,13 @@ public abstract class d implements h {
             HashMap hashMap = new HashMap(4);
             hashMap.put("errNo", str2);
             hashMap.put("errMsg", str3);
-            this.f13648a.c(m.k(optString, hashMap));
+            this.f14439a.c(m.k(optString, hashMap));
         }
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13648a.getContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14439a.getContext() : (Context) invokeV.objValue;
     }
 }

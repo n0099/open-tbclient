@@ -2,7 +2,7 @@ package b.a.q0.o0;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -23,17 +23,17 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f12788d;
+    public static e f13538d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f12789a;
+    public boolean f13539a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12790b;
+    public int f13540b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12791c;
+    public boolean f13541c;
 
     /* loaded from: classes4.dex */
     public class a extends b.a.q0.o0.b {
@@ -83,7 +83,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12792a;
+        public final /* synthetic */ e f13542a;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class e {
                     return;
                 }
             }
-            this.f12792a = eVar;
+            this.f13542a = eVar;
         }
 
         @Override // b.a.q0.o0.b
         public int getMaxCost() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12792a.f12790b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13542a.f13540b : invokeV.intValue;
         }
 
         @Override // b.a.q0.o0.b
@@ -149,22 +149,22 @@ public class e {
                 return;
             }
         }
-        this.f12789a = false;
-        this.f12791c = false;
+        this.f13539a = false;
+        this.f13541c = false;
     }
 
     public static e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f12788d == null) {
+            if (f13538d == null) {
                 synchronized (e.class) {
-                    if (f12788d == null) {
-                        f12788d = new e();
+                    if (f13538d == null) {
+                        f13538d = new e();
                     }
                 }
             }
-            return f12788d;
+            return f13538d;
         }
         return (e) invokeV.objValue;
     }
@@ -176,7 +176,7 @@ public class e {
             if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
                 return b.a.q0.s.e0.b.j().k("page_stay_max_cost", 0);
             }
-            return this.f12790b;
+            return this.f13540b;
         }
         return invokeV.intValue;
     }
@@ -203,34 +203,34 @@ public class e {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12789a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13539a : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12791c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13541c : invokeV.booleanValue;
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f12790b = i2;
-            b.a.q0.s.e0.b.j().v("page_stay_max_cost", this.f12790b);
+            this.f13540b = i2;
+            b.a.q0.s.e0.b.j().v("page_stay_max_cost", this.f13540b);
         }
     }
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f12789a = z;
+            this.f13539a = z;
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f12791c = z;
+            this.f13541c = z;
         }
     }
 
@@ -239,7 +239,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, dVar, bVar) == null) || dVar == null || StringUtils.isNull(dVar.c())) {
             return;
         }
-        if (dVar.f12779a) {
+        if (dVar.f13529a) {
             if (bVar == null) {
                 bVar = new a(this);
             }
@@ -248,8 +248,8 @@ public class e {
                 statisticItem.param("obj_source", c.a(dVar.h()));
                 statisticItem.param("obj_locate", dVar.c());
                 statisticItem.param("obj_type", "0");
-                if (!StringUtils.isNull(dVar.f12787i)) {
-                    statisticItem.param("obj_id", dVar.f12787i);
+                if (!StringUtils.isNull(dVar.f13537i)) {
+                    statisticItem.param("obj_id", dVar.f13537i);
                 }
                 if (dVar.b() != 0) {
                     statisticItem.param("ad_source", dVar.b());
@@ -311,8 +311,8 @@ public class e {
                 statisticItem2.param("ab_tag", dVar.a());
             }
             if (g()) {
-                if (!StringUtils.isNull(dVar.f12787i)) {
-                    statisticItem2.param("obj_id", dVar.f12787i);
+                if (!StringUtils.isNull(dVar.f13537i)) {
+                    statisticItem2.param("obj_id", dVar.f13537i);
                 }
                 if (!StringUtils.isNull(dVar.j)) {
                     statisticItem2.param("obj_name", dVar.j);

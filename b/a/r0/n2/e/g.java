@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class g extends BaseCardInfo implements b.a.e.l.e.n {
+public class g extends BaseCardInfo implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static BdUniqueId f21449g;
+    public static BdUniqueId f22945g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f21450e;
+    public List<a> f22946e;
 
     /* renamed from: f  reason: collision with root package name */
-    public UserData f21451f;
+    public UserData f22947f;
 
     /* loaded from: classes5.dex */
     public static class a {
@@ -32,13 +32,13 @@ public class g extends BaseCardInfo implements b.a.e.l.e.n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f21452a;
+        public int f22948a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f21453b;
+        public int f22949b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f21454c;
+        public String f22950c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class g extends BaseCardInfo implements b.a.e.l.e.n {
                 return;
             }
         }
-        f21449g = BdUniqueId.gen();
+        f22945g = BdUniqueId.gen();
     }
 
     public g() {
@@ -88,14 +88,14 @@ public class g extends BaseCardInfo implements b.a.e.l.e.n {
     public void g(List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f21450e = list;
+            this.f22946e = list;
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f21449g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f22945g : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -24,14 +24,14 @@ public class a extends b.a.q0.x.a0.a {
 
     /* renamed from: b.a.r0.y1.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C1354a implements a.InterfaceC0713a {
+    public class C1421a implements a.InterfaceC0749a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27723a;
+        public final /* synthetic */ a f29226a;
 
-        public C1354a(a aVar) {
+        public C1421a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,15 +46,15 @@ public class a extends b.a.q0.x.a0.a {
                     return;
                 }
             }
-            this.f27723a = aVar;
+            this.f29226a = aVar;
         }
 
-        @Override // b.a.q0.x.a0.a.InterfaceC0713a
+        @Override // b.a.q0.x.a0.a.InterfaceC0749a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
-                DLauncher A = this.f27723a.A(i2);
+                DLauncher A = this.f29226a.A(i2);
                 if (A.getLayoutParams() == null) {
                     A.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
@@ -124,7 +124,7 @@ public class a extends b.a.q0.x.a0.a {
             q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
             t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
             u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            x(new C1354a(this));
+            x(new C1421a(this));
             h().b(this);
         }
     }

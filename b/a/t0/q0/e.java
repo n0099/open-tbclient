@@ -15,7 +15,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f28889a;
+    public static final boolean f29758a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class e {
                 return;
             }
         }
-        f28889a = b0.m();
+        f29758a = b0.m();
     }
 
     public static byte[] a(InputStream inputStream) {
@@ -48,7 +48,7 @@ public class e {
                 try {
                     i2 = inputStream.read(bArr, 0, 1024);
                 } catch (IOException e2) {
-                    if (f28889a) {
+                    if (f29758a) {
                         e2.toString();
                     }
                     i2 = 0;
@@ -62,7 +62,7 @@ public class e {
             try {
                 byteArrayOutputStream.close();
             } catch (IOException e3) {
-                if (f28889a) {
+                if (f29758a) {
                     e3.toString();
                 }
             }
@@ -91,7 +91,7 @@ public class e {
                             return null;
                         } catch (Exception e2) {
                             e = e2;
-                            if (!f28889a) {
+                            if (!f29758a) {
                                 return null;
                             }
                             e.toString();
@@ -101,14 +101,14 @@ public class e {
                         return null;
                     }
                 } catch (Exception unused) {
-                    boolean z = f28889a;
+                    boolean z = f29758a;
                     if (inputStream != null) {
                         try {
                             inputStream.close();
                             return null;
                         } catch (Exception e3) {
                             e = e3;
-                            if (!f28889a) {
+                            if (!f29758a) {
                                 return null;
                             }
                             e.toString();
@@ -122,7 +122,7 @@ public class e {
                     try {
                         inputStream.close();
                     } catch (Exception e4) {
-                        if (f28889a) {
+                        if (f29758a) {
                             e4.toString();
                         }
                     }

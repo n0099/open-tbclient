@@ -25,60 +25,62 @@ import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String A = "schemefrom";
-    public static String B = "from";
-    public static String C = "token";
-    public static String D = "tab_name";
-    public static String E = "maintablocate";
-    public static String F = "maintab_subtab";
-    public static String G = "newgod_from";
-    public static String H = "field_id";
-    public static String I = "chushou_third_live_type";
-    public static String J = "chuchou_third_room_id";
-    public static String K = "yy_url";
-    public static String L = "hotTrend";
-    public static String M = "tab_id";
-    public static String N = "param_uri";
-    public static String O = "forumId";
-    public static String P = "item_id";
-    public static String Q = "itemId";
-    public static String R = "sortType";
-    public static String S = "rankType";
-    public static String T = "rankCode";
-    public static String U = "homeTabName";
-    public static String V = "tabId";
-    public static String W = "query";
-    public static String X = "source";
-    public static String Y = "forumName";
-    public static String Z = "useMainState";
+    public static String A = "url";
+    public static String B = "schemefrom";
+    public static String C = "from";
+    public static String D = "token";
+    public static String E = "tab_name";
+    public static String F = "maintablocate";
+    public static String G = "maintab_subtab";
+    public static String H = "newgod_from";
+    public static String I = "field_id";
+    public static String J = "chushou_third_live_type";
+    public static String K = "chuchou_third_room_id";
+    public static String L = "yy_url";
+    public static String M = "hotTrend";
+    public static String N = "tab_id";
+    public static String O = "param_uri";
+    public static String P = "forumId";
+    public static String Q = "item_id";
+    public static String R = "itemId";
+    public static String S = "sortType";
+    public static String T = "rankType";
+    public static String U = "rankCode";
+    public static String V = "homeTabName";
+    public static String W = "tabId";
+    public static String X = "query";
+    public static String Y = "source";
+    public static String Z = "forumName";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f11777a = "com.baidu.tieba";
-    public static String a0 = "from_tb_token";
+    public static String f12528a = "com.baidu.tieba";
+    public static String a0 = "useMainState";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f11778b = "unidispatch";
+    public static String f12529b = "unidispatch";
+    public static String b0 = "tabCode";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f11779c = "/homepage";
+    public static String f12530c = "/homepage";
+    public static String c0 = "from_tb_token";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f11780d = "/enterforum";
+    public static String f12531d = "/enterforum";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f11781e = "/recommendforum";
+    public static String f12532e = "/recommendforum";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f11782f = "/frs";
+    public static String f12533f = "/frs";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f11783g = "/pb";
+    public static String f12534g = "/pb";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f11784h = "/tbwebview";
+    public static String f12535h = "/tbwebview";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f11785i = "/usercenter";
+    public static String f12536i = "/usercenter";
     public static String j = "/topicdetail";
     public static String k = "/tiebachushou";
     public static String l = "/tiebayy";
@@ -86,16 +88,16 @@ public class g {
     public static String n = "/minePage";
     public static String o = "/messageCenter";
     public static String p = "/videotab";
-    public static String q = "extdata";
-    public static String r = "kw";
-    public static String s = "tid";
-    public static String t = "ori_ugc_nid";
-    public static String u = "ori_ugc_tid";
-    public static String v = "ori_ugc_type";
-    public static String w = "ori_ugc_vid";
-    public static String x = "portrait";
-    public static String y = "topic_id";
-    public static String z = "url";
+    public static String q = "/hometab";
+    public static String r = "extdata";
+    public static String s = "kw";
+    public static String t = "tid";
+    public static String u = "ori_ugc_nid";
+    public static String v = "ori_ugc_tid";
+    public static String w = "ori_ugc_type";
+    public static String x = "ori_ugc_vid";
+    public static String y = "portrait";
+    public static String z = "topic_id";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -114,7 +116,7 @@ public class g {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final g f11786a;
+        public static final g f12537a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -130,7 +132,7 @@ public class g {
                     return;
                 }
             }
-            f11786a = new g(null);
+            f12537a = new g(null);
         }
     }
 
@@ -156,19 +158,19 @@ public class g {
     public static final g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.f11786a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.f12537a : (g) invokeV.objValue;
     }
 
     public static boolean c(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) ? uri != null && f11777a.equals(uri.getScheme()) && f11778b.equals(uri.getHost()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) ? uri != null && f12528a.equals(uri.getScheme()) && f12529b.equals(uri.getHost()) : invokeL.booleanValue;
     }
 
     public final void a(String str, Uri uri, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, uri, str2) == null) {
-            if (uri != null && uri.getQueryParameter("obj_source") != null && uri.getQueryParameter("obj_type") != null && !StringHelper.equals(str2, a0)) {
+            if (uri != null && uri.getQueryParameter("obj_source") != null && uri.getQueryParameter("obj_type") != null && !StringHelper.equals(str2, c0)) {
                 TiebaStatic.log(new StatisticItem("c13391").param("obj_type", uri.getQueryParameter("obj_type")).param("obj_source", uri.getQueryParameter("obj_source")));
             }
             if (str == null || str.contains("tbwebview") || uri == null) {
@@ -184,18 +186,18 @@ public class g {
 
     public void d(Uri uri, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, bVar) == null) && uri != null && c(uri) && f11782f.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, bVar) == null) && uri != null && c(uri) && f12533f.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String str = r;
+            String str = s;
             hashMap.put(str, uri.getQueryParameter(str));
-            String str2 = M;
+            String str2 = N;
             hashMap.put(str2, uri.getQueryParameter(str2));
-            String str3 = s;
+            String str3 = t;
             hashMap.put(str3, uri.getQueryParameter(str3));
-            l(uri.getQueryParameter(B));
-            String queryParameter = uri.getQueryParameter(q);
-            String queryParameter2 = uri.getQueryParameter(A);
-            k(queryParameter, queryParameter2, uri.getQueryParameter(C), uri);
+            l(uri.getQueryParameter(C));
+            String queryParameter = uri.getQueryParameter(r);
+            String queryParameter2 = uri.getQueryParameter(B);
+            k(queryParameter, queryParameter2, uri.getQueryParameter(D), uri);
             a("", uri, queryParameter2);
             bVar.onCallBack(hashMap);
         }
@@ -205,37 +207,41 @@ public class g {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, bVar) == null) && uri != null && c(uri)) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String queryParameter = uri.getQueryParameter(q);
-            String queryParameter2 = uri.getQueryParameter(A);
-            String queryParameter3 = uri.getQueryParameter(C);
-            String queryParameter4 = uri.getQueryParameter(D);
+            String queryParameter = uri.getQueryParameter(r);
+            String queryParameter2 = uri.getQueryParameter(B);
+            String queryParameter3 = uri.getQueryParameter(D);
+            String queryParameter4 = uri.getQueryParameter(E);
+            String queryParameter5 = uri.getQueryParameter(b0);
             k(queryParameter, queryParameter2, queryParameter3, uri);
-            l(uri.getQueryParameter(B));
+            l(uri.getQueryParameter(C));
             a("", uri, queryParameter2);
             w.c(uri);
-            if (f11779c.equals(uri.getPath())) {
-                hashMap.put(E, 2);
-                String str = G;
+            if (f12530c.equals(uri.getPath())) {
+                hashMap.put(F, 2);
+                String str = H;
                 hashMap.put(str, uri.getQueryParameter(str));
-                String str2 = H;
+                String str2 = I;
                 hashMap.put(str2, uri.getQueryParameter(str2));
-                hashMap.put(D, queryParameter4);
-            } else if (f11780d.equals(uri.getPath())) {
-                hashMap.put(E, 1);
-                hashMap.put(F, queryParameter4);
-            } else if (f11781e.equals(uri.getPath())) {
-                hashMap.put(E, 1);
-                hashMap.put(F, "1_recommend");
+                hashMap.put(E, queryParameter4);
+            } else if (f12531d.equals(uri.getPath())) {
+                hashMap.put(F, 1);
+                hashMap.put(G, queryParameter4);
+            } else if (f12532e.equals(uri.getPath())) {
+                hashMap.put(F, 1);
+                hashMap.put(G, "1_recommend");
             } else if (m.equals(uri.getPath())) {
-                hashMap.put(E, 2);
-                hashMap.put(D, queryParameter4);
+                hashMap.put(F, 2);
+                hashMap.put(E, queryParameter4);
             } else if (n.equals(uri.getPath())) {
-                hashMap.put(E, 8);
+                hashMap.put(F, 8);
             } else if (o.equals(uri.getPath())) {
-                hashMap.put(E, 3);
+                hashMap.put(F, 3);
             } else if (p.equals(uri.getPath())) {
-                hashMap.put(E, 22);
-                hashMap.put(F, "22_recommend");
+                hashMap.put(F, 22);
+                hashMap.put(G, "22_recommend");
+            } else if (q.equals(uri.getPath())) {
+                hashMap.put(F, 2);
+                hashMap.put(b0, queryParameter5);
             }
             bVar.onCallBack(hashMap);
         }
@@ -243,22 +249,22 @@ public class g {
 
     public void f(Uri uri, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, uri, bVar) == null) && uri != null && c(uri) && f11783g.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, uri, bVar) == null) && uri != null && c(uri) && f12534g.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String str = s;
+            String str = t;
             hashMap.put(str, uri.getQueryParameter(str));
-            String str2 = t;
+            String str2 = u;
             hashMap.put(str2, uri.getQueryParameter(str2));
-            String str3 = u;
+            String str3 = v;
             hashMap.put(str3, uri.getQueryParameter(str3));
-            String str4 = v;
+            String str4 = w;
             hashMap.put(str4, uri.getQueryParameter(str4));
-            String str5 = w;
+            String str5 = x;
             hashMap.put(str5, uri.getQueryParameter(str5));
-            l(uri.getQueryParameter(B));
-            String queryParameter = uri.getQueryParameter(q);
-            String queryParameter2 = uri.getQueryParameter(A);
-            k(queryParameter, queryParameter2, uri.getQueryParameter(C), uri);
+            l(uri.getQueryParameter(C));
+            String queryParameter = uri.getQueryParameter(r);
+            String queryParameter2 = uri.getQueryParameter(B);
+            k(queryParameter, queryParameter2, uri.getQueryParameter(D), uri);
             a("", uri, queryParameter2);
             bVar.onCallBack(hashMap);
         }
@@ -268,23 +274,23 @@ public class g {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, uri, bVar) == null) && uri != null && c(uri) && j.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String str = y;
+            String str = z;
             hashMap.put(str, uri.getQueryParameter(str));
-            l(uri.getQueryParameter(B));
-            k(uri.getQueryParameter(q), uri.getQueryParameter(A), uri.getQueryParameter(C), uri);
+            l(uri.getQueryParameter(C));
+            k(uri.getQueryParameter(r), uri.getQueryParameter(B), uri.getQueryParameter(D), uri);
             bVar.onCallBack(hashMap);
         }
     }
 
     public void h(Uri uri, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, uri, bVar) == null) && uri != null && c(uri) && f11785i.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, uri, bVar) == null) && uri != null && c(uri) && f12536i.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String str = x;
+            String str = y;
             hashMap.put(str, uri.getQueryParameter(str));
-            String str2 = Z;
+            String str2 = a0;
             hashMap.put(str2, Boolean.valueOf(uri.getBooleanQueryParameter(str2, false)));
-            k(uri.getQueryParameter(q), uri.getQueryParameter(A), uri.getQueryParameter(C), uri);
+            k(uri.getQueryParameter(r), uri.getQueryParameter(B), uri.getQueryParameter(D), uri);
             bVar.onCallBack(hashMap);
         }
     }
@@ -303,15 +309,15 @@ public class g {
 
     public void j(String str, Uri uri, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, uri, bVar) == null) && uri != null && c(uri) && f11784h.equals(uri.getPath())) {
+        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, uri, bVar) == null) && uri != null && c(uri) && f12535h.equals(uri.getPath())) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String str2 = z;
+            String str2 = A;
             hashMap.put(str2, uri.getQueryParameter(str2));
-            hashMap.put(N, uri);
-            l(uri.getQueryParameter(B));
-            String queryParameter = uri.getQueryParameter(q);
-            String queryParameter2 = uri.getQueryParameter(A);
-            k(queryParameter, queryParameter2, uri.getQueryParameter(C), uri);
+            hashMap.put(O, uri);
+            l(uri.getQueryParameter(C));
+            String queryParameter = uri.getQueryParameter(r);
+            String queryParameter2 = uri.getQueryParameter(B);
+            k(queryParameter, queryParameter2, uri.getQueryParameter(D), uri);
             a(str, uri, queryParameter2);
             bVar.onCallBack(hashMap);
         }
@@ -324,7 +330,7 @@ public class g {
         String str7;
         Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, uri) == null) || b.a.e.e.p.k.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, uri) == null) || b.a.e.f.p.k.isEmpty(str)) {
             return;
         }
         b.a.q0.a.c cVar = new b.a.q0.a.c(str);
@@ -333,14 +339,14 @@ public class g {
             return;
         }
         TbSingleton.getInstance().setInvokeSource(cVar.e());
-        b.a.e.e.n.g.f(String.valueOf(cVar.d()));
-        b.a.e.e.n.g.i(String.valueOf(cVar.q()));
-        int i2 = StringHelper.equals(str2, a0) ? 2 : 1;
+        b.a.e.f.n.g.f(String.valueOf(cVar.d()));
+        b.a.e.f.n.g.i(String.valueOf(cVar.q()));
+        int i2 = StringHelper.equals(str2, c0) ? 2 : 1;
         String str8 = "";
         if (uri != null) {
-            str8 = uri.getQueryParameter(r);
-            str5 = uri.getQueryParameter(s);
-            str6 = uri.getQueryParameter(W);
+            str8 = uri.getQueryParameter(s);
+            str5 = uri.getQueryParameter(t);
+            str6 = uri.getQueryParameter(X);
             str7 = uri.getQueryParameter("hightlight_anchor_pid");
             str4 = uri.getQueryParameter(TiebaStatic.Params.REFER);
         } else {
@@ -363,8 +369,8 @@ public class g {
     public final void l(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && !TextUtils.isEmpty(str) && "shoubai".equals(str)) {
-            b.a.q0.d1.h.m().v(true);
-            b.a.q0.d1.h.m().k();
+            b.a.q0.c1.h.m().v(true);
+            b.a.q0.c1.h.m().k();
         }
     }
 

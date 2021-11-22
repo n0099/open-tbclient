@@ -6,13 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a1.e;
 import b.a.p0.a.k;
 import b.a.p0.a.p.d.e0;
-import b.a.p0.t.d;
+import b.a.p0.w.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.QuickPersistConfig;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,22 +27,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8928a;
+    public static final boolean f9272a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.x0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0450a implements e0.a {
+    public class C0465a implements e0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ File f8929a;
+        public final /* synthetic */ File f9273a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f8930b;
+        public final /* synthetic */ a f9274b;
 
-        public C0450a(a aVar, File file) {
+        public C0465a(a aVar, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,18 +57,18 @@ public class a {
                     return;
                 }
             }
-            this.f8930b = aVar;
-            this.f8929a = file;
+            this.f9274b = aVar;
+            this.f9273a = file;
         }
 
         @Override // b.a.p0.a.p.d.e0.a
         public void onResult(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (!k.f6397a) {
-                    d.K(this.f8929a);
+                if (!k.f6863a) {
+                    d.L(this.f9273a);
                 }
-                a aVar = this.f8930b;
+                a aVar = this.f9274b;
                 aVar.p("upload file: done. feedback data = " + str);
             }
         }
@@ -79,7 +79,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f8931a;
+        public static final a f9275a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -95,7 +95,7 @@ public class a {
                     return;
                 }
             }
-            f8931a = new a(null);
+            f9275a = new a(null);
         }
     }
 
@@ -112,17 +112,17 @@ public class a {
                 return;
             }
         }
-        f8928a = k.f6397a;
+        f9272a = k.f6863a;
     }
 
-    public /* synthetic */ a(C0450a c0450a) {
+    public /* synthetic */ a(C0465a c0465a) {
         this();
     }
 
     public static a n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f8931a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f9275a : (a) invokeV.objValue;
     }
 
     public boolean a(String str) {
@@ -138,14 +138,14 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            File q = q(str, file, b.a.p0.a.x0.a.d.a.f8942h);
+            File q = q(str, file, b.a.p0.a.x0.a.d.a.f9286h);
             if (q == null) {
                 return false;
             }
-            File file2 = new File(b.a.p0.a.x0.a.d.a.f8935a, str);
+            File file2 = new File(b.a.p0.a.x0.a.d.a.f9279a, str);
             if (file2.exists()) {
                 File file3 = new File(q, str);
-                d.k(file3);
+                d.l(file3);
                 d.e(file2, file3);
                 return true;
             }
@@ -173,11 +173,11 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
-            File q = q(str, new File(file, b.a.p0.a.x0.a.d.a.f8943i), "swan_plugin_workspace");
+            File q = q(str, new File(file, b.a.p0.a.x0.a.d.a.f9287i), "swan_plugin_workspace");
             if (q == null) {
                 return false;
             }
-            File q2 = e.q();
+            File q2 = b.a.p0.a.a1.d.q();
             if (q2.exists()) {
                 d.e(q2, q);
                 return false;
@@ -195,7 +195,7 @@ public class a {
             if (context == null || q == null) {
                 return false;
             }
-            return m(context, str, q, new File(b.a.p0.a.k2.h.c.A()), ".kv") | m(context, str, q, new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), ActivityChooserModel.HISTORY_FILE_EXTENSION);
+            return m(context, str, q, new File(b.a.p0.a.o2.h.c.e()), SwanKV.PREFS_SUFFIX) | m(context, str, q, new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), ActivityChooserModel.HISTORY_FILE_EXTENSION);
         }
         return invokeLLL.booleanValue;
     }
@@ -213,8 +213,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, context, str, file) == null) {
             boolean i2 = i(str, file);
-            boolean b2 = b(b.a.p0.a.x0.a.d.a.f8936b, file);
-            boolean b3 = b(b.a.p0.a.x0.a.d.a.f8937c, file);
+            boolean b2 = b(b.a.p0.a.x0.a.d.a.f9280b, file);
+            boolean b3 = b(b.a.p0.a.x0.a.d.a.f9281c, file);
             boolean e2 = e(context, str, file);
             boolean c2 = c(str, file);
             boolean a2 = a(str);
@@ -232,7 +232,7 @@ public class a {
                 return null;
             }
             p("cloneFilesAndMakeZip start, appKey = " + str);
-            File file = new File(b.a.p0.a.x0.a.d.a.f8940f + str);
+            File file = new File(b.a.p0.a.x0.a.d.a.f9284f + str);
             if (!l(file)) {
                 p("delete old tmp dir failed");
                 return null;
@@ -244,7 +244,7 @@ public class a {
             }
             File file2 = new File(a2, b.a.p0.a.x0.a.d.a.l);
             if (file2.exists()) {
-                d.K(file2);
+                d.L(file2);
             }
             d.h(file2);
             g(context, str, file);
@@ -259,14 +259,14 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, file)) == null) {
-            File q = q(str, file, b.a.p0.a.x0.a.d.a.f8941g);
+            File q = q(str, file, b.a.p0.a.x0.a.d.a.f9285g);
             if (q == null) {
                 return false;
             }
-            File file2 = new File(b.a.p0.a.x0.a.d.a.f8935a, str);
+            File file2 = new File(b.a.p0.a.x0.a.d.a.f9279a, str);
             if (file2.exists()) {
                 File file3 = new File(q, str);
-                d.k(file3);
+                d.l(file3);
                 d.e(file2, file3);
                 return true;
             }
@@ -305,8 +305,8 @@ public class a {
             if (file == null) {
                 return false;
             }
-            d.i(file);
-            return d.k(file);
+            d.j(file);
+            return d.l(file);
         }
         return invokeL.booleanValue;
     }
@@ -330,11 +330,11 @@ public class a {
     public final void o(File file, File file2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, file, file2) == null) {
-            boolean W = d.W(file.getAbsolutePath(), file2.getAbsolutePath());
-            if (W) {
-                d.i(file);
+            boolean X = d.X(file.getAbsolutePath(), file2.getAbsolutePath());
+            if (X) {
+                d.j(file);
             }
-            p("zip file status = " + W);
+            p("zip file status = " + X);
         }
     }
 
@@ -343,7 +343,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        boolean z = f8928a;
+        boolean z = f9272a;
     }
 
     public File q(String str, File file, String str2) {
@@ -354,7 +354,7 @@ public class a {
                 return null;
             }
             File file2 = new File(file, str2);
-            if (d.k(file2)) {
+            if (d.l(file2)) {
                 return file2;
             }
             return null;
@@ -368,14 +368,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, file, str)) == null) {
             if (file != null && file.exists()) {
-                File file2 = new File(b.a.p0.a.x0.a.d.a.f8935a, str);
+                File file2 = new File(b.a.p0.a.x0.a.d.a.f9279a, str);
                 String str2 = (!file2.exists() || (list = file2.list()) == null || list.length <= 0) ? "-1" : list[0];
                 p("upload file: ready");
-                e0 t = b.a.p0.a.c1.a.t();
+                e0 u = b.a.p0.a.c1.a.u();
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("aiappid", str);
                 hashMap.put("aiappversion", str2);
-                t.c(hashMap, file, new C0450a(this, file));
+                u.c(hashMap, file, new C0465a(this, file));
                 return true;
             }
             p("no zip file");

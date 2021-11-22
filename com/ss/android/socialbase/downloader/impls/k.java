@@ -21,13 +21,13 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<DownloadInfo> f69562a;
+    public final SparseArray<DownloadInfo> f70482a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f69563b;
+    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f70483b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SparseArray<Map<Long, com.ss.android.socialbase.downloader.f.i>> f69564c;
+    public final SparseArray<Map<Long, com.ss.android.socialbase.downloader.f.i>> f70484c;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -42,15 +42,15 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
                 return;
             }
         }
-        this.f69562a = new SparseArray<>();
-        this.f69563b = new SparseArray<>();
-        this.f69564c = new SparseArray<>();
+        this.f70482a = new SparseArray<>();
+        this.f70483b = new SparseArray<>();
+        this.f70484c = new SparseArray<>();
     }
 
     public SparseArray<DownloadInfo> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69562a : (SparseArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70482a : (SparseArray) invokeV.objValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -68,7 +68,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
             synchronized (this) {
                 try {
-                    downloadInfo = this.f69562a.get(i2);
+                    downloadInfo = this.f70482a.get(i2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     downloadInfo = null;
@@ -102,12 +102,12 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (this.f69562a.size() == 0) {
+                if (this.f70482a.size() == 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f69562a.size(); i2++) {
-                    DownloadInfo downloadInfo = this.f69562a.get(this.f69562a.keyAt(i2));
+                for (int i2 = 0; i2 < this.f70482a.size(); i2++) {
+                    DownloadInfo downloadInfo = this.f70482a.get(this.f70482a.keyAt(i2));
                     if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && downloadInfo.getStatus() == -3) {
                         arrayList.add(downloadInfo);
                     }
@@ -127,12 +127,12 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (this.f69562a.size() == 0) {
+                if (this.f70482a.size() == 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f69562a.size(); i2++) {
-                    DownloadInfo downloadInfo = this.f69562a.get(this.f69562a.keyAt(i2));
+                for (int i2 = 0; i2 < this.f70482a.size(); i2++) {
+                    DownloadInfo downloadInfo = this.f70482a.get(this.f70482a.keyAt(i2));
                     if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && DownloadStatus.isUnCompletedStatus(downloadInfo.getStatus())) {
                         arrayList.add(downloadInfo);
                     }
@@ -169,7 +169,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
             synchronized (this) {
-                this.f69562a.remove(i2);
+                this.f70482a.remove(i2);
             }
             return true;
         }
@@ -179,7 +179,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     public SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f69563b : (SparseArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f70483b : (SparseArray) invokeV.objValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -246,7 +246,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) {
             synchronized (this) {
-                map = this.f69564c.get(i2);
+                map = this.f70484c.get(i2);
             }
             return map;
         }
@@ -258,7 +258,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
             synchronized (this) {
-                this.f69564c.remove(i2);
+                this.f70484c.remove(i2);
             }
         }
     }
@@ -269,7 +269,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
             synchronized (this) {
-                Map<Long, com.ss.android.socialbase.downloader.f.i> map = this.f69564c.get(i2);
+                Map<Long, com.ss.android.socialbase.downloader.f.i> map = this.f70484c.get(i2);
                 if (map != null && !map.isEmpty()) {
                     return new ArrayList(map.values());
                 }
@@ -288,9 +288,9 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
             synchronized (this) {
                 arrayList = new ArrayList();
                 try {
-                    int size = this.f69562a.size();
+                    int size = this.f70482a.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        DownloadInfo valueAt = this.f69562a.valueAt(i2);
+                        DownloadInfo valueAt = this.f70482a.valueAt(i2);
                         if (str != null && str.equals(valueAt.getUrl())) {
                             arrayList.add(valueAt);
                         }
@@ -326,12 +326,12 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (this.f69562a.size() == 0) {
+                if (this.f70482a.size() == 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f69562a.size(); i2++) {
-                    DownloadInfo downloadInfo = this.f69562a.get(this.f69562a.keyAt(i2));
+                for (int i2 = 0; i2 < this.f70482a.size(); i2++) {
+                    DownloadInfo downloadInfo = this.f70482a.get(this.f70482a.keyAt(i2));
                     if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && DownloadStatus.isFailedStatus(downloadInfo.getStatus())) {
                         arrayList.add(downloadInfo);
                     }
@@ -347,10 +347,10 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             int k = bVar.k();
-            List<com.ss.android.socialbase.downloader.model.b> list = this.f69563b.get(k);
+            List<com.ss.android.socialbase.downloader.model.b> list = this.f70483b.get(k);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f69563b.put(k, list);
+                this.f70483b.put(k, list);
             }
             list.add(bVar);
         }
@@ -392,7 +392,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
             synchronized (this) {
-                list = this.f69563b.get(i2);
+                list = this.f70483b.get(i2);
             }
             return list;
         }
@@ -404,7 +404,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
             synchronized (this) {
-                this.f69563b.remove(i2);
+                this.f70483b.remove(i2);
             }
         }
     }
@@ -414,8 +414,8 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             synchronized (this) {
-                this.f69562a.clear();
-                this.f69563b.clear();
+                this.f70482a.clear();
+                this.f70483b.clear();
             }
         }
     }
@@ -441,12 +441,12 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             synchronized (this) {
-                if (this.f69562a.size() == 0) {
+                if (this.f70482a.size() == 0) {
                     return null;
                 }
-                ArrayList arrayList = new ArrayList(this.f69562a.size());
-                for (int i2 = 0; i2 < this.f69562a.size(); i2++) {
-                    DownloadInfo valueAt = this.f69562a.valueAt(i2);
+                ArrayList arrayList = new ArrayList(this.f70482a.size());
+                for (int i2 = 0; i2 < this.f70482a.size(); i2++) {
+                    DownloadInfo valueAt = this.f70482a.valueAt(i2);
                     if (valueAt != null) {
                         arrayList.add(valueAt);
                     }
@@ -572,10 +572,10 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
                 if (downloadInfo == null) {
                     return true;
                 }
-                if (this.f69562a.get(downloadInfo.getId()) == null) {
+                if (this.f70482a.get(downloadInfo.getId()) == null) {
                     z = false;
                 }
-                this.f69562a.put(downloadInfo.getId(), downloadInfo);
+                this.f70482a.put(downloadInfo.getId(), downloadInfo);
                 return z;
             }
         }
@@ -647,7 +647,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, map)) == null) {
             synchronized (this) {
-                this.f69564c.put(i2, map);
+                this.f70484c.put(i2, map);
             }
             return false;
         }

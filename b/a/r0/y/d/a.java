@@ -1,6 +1,6 @@
 package b.a.r0.y.d;
 
-import b.a.q0.z0.b;
+import b.a.q0.y0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f27219a;
+    public TbPageContext f28722a;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -36,11 +36,11 @@ public class a {
                 return;
             }
         }
-        this.f27219a = tbPageContext;
+        this.f28722a = tbPageContext;
         b bVar = new b(309641);
         bVar.setResponsedClass(CandidateSearchSocketResMsg.class);
         MessageManager.getInstance().registerTask(bVar);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, b.a.r0.l3.f0.a.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, b.a.r0.m3.f0.a.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
         tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
@@ -51,7 +51,7 @@ public class a {
             CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
             candidateSearchReqMsg.applyId = i2;
             candidateSearchReqMsg.fid = j;
-            candidateSearchReqMsg.setTag(this.f27219a.getUniqueId());
+            candidateSearchReqMsg.setTag(this.f28722a.getUniqueId());
             MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
         }
     }

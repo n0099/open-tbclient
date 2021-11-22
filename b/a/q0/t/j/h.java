@@ -3,8 +3,8 @@ package b.a.q0.t.j;
 import android.os.Build;
 import android.text.TextUtils;
 import b.a.e.c.f.j;
-import b.a.e.e.p.l;
-import b.a.e.e.r.k;
+import b.a.e.f.p.l;
+import b.a.e.f.r.k;
 import b.a.q0.s.l.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
@@ -40,23 +40,23 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static h f14106f;
+    public static h f14879f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14107a;
+    public int f14880a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.e.c.e.c.k.a f14108b;
+    public b.a.e.c.e.c.k.a f14881b;
 
     /* renamed from: c  reason: collision with root package name */
-    public UpdateClientInfoMessage f14109c;
+    public UpdateClientInfoMessage f14882c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14110d;
+    public int f14883d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.a.e.c.e.c.k.a f14111e;
+    public final b.a.e.c.e.c.k.a f14884e;
 
     /* loaded from: classes4.dex */
     public class a implements b.a.e.c.e.c.k.a {
@@ -64,7 +64,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f14112a;
+        public final /* synthetic */ h f14885a;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -81,16 +81,16 @@ public class h {
                     return;
                 }
             }
-            this.f14112a = hVar;
+            this.f14885a = hVar;
         }
 
         @Override // b.a.e.c.e.c.k.a
         public void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f14112a.f14108b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f14885a.f14881b == null) {
                 return;
             }
-            this.f14112a.f14108b.a(str);
+            this.f14885a.f14881b.a(str);
         }
 
         @Override // b.a.e.c.e.c.k.a
@@ -99,8 +99,8 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
                 b.a.q0.f0.a.b(0, 2, 0, 0, 0);
-                if (this.f14112a.f14108b != null) {
-                    this.f14112a.f14108b.b(i2, str);
+                if (this.f14885a.f14881b != null) {
+                    this.f14885a.f14881b.b(i2, str);
                 }
                 return false;
             }
@@ -108,21 +108,21 @@ public class h {
         }
 
         @Override // b.a.e.c.e.c.k.a
-        public void c(b.a.e.e.r.c cVar) {
+        public void c(b.a.e.f.r.c cVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || this.f14112a.f14108b == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || this.f14885a.f14881b == null) {
                 return;
             }
-            this.f14112a.f14108b.c(cVar);
+            this.f14885a.f14881b.c(cVar);
         }
 
         @Override // b.a.e.c.e.c.k.a
         public void d(k kVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || this.f14112a.f14108b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || this.f14885a.f14881b == null) {
                 return;
             }
-            this.f14112a.f14108b.d(kVar);
+            this.f14885a.f14881b.d(kVar);
         }
 
         @Override // b.a.e.c.e.c.k.a
@@ -130,17 +130,17 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
                 b.a.q0.f0.a.b(0, 1, 0, 0, 0);
-                if (this.f14112a.f14108b != null) {
-                    this.f14112a.f14108b.g(map);
+                if (this.f14885a.f14881b != null) {
+                    this.f14885a.f14881b.g(map);
                 }
                 b.a.e.c.e.c.i.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
-                if (b.a.q0.q0.k.d().g() && h.b(this.f14112a) < 10) {
+                if (b.a.q0.q0.k.d().g() && h.b(this.f14885a) < 10) {
                     b.a.e.c.e.c.i.e();
                 }
                 b.a.q0.f0.a.b(1001, 0, 0, 3, 0);
-                h hVar = this.f14112a;
-                hVar.f14109c = hVar.i();
-                MessageManager.getInstance().sendMessage(this.f14112a.f14109c);
+                h hVar = this.f14885a;
+                hVar.f14882c = hVar.i();
+                MessageManager.getInstance().sendMessage(this.f14885a.f14882c);
             }
         }
     }
@@ -151,7 +151,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f14113a;
+        public final /* synthetic */ h f14886a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(h hVar, int i2) {
@@ -171,7 +171,7 @@ public class h {
                     return;
                 }
             }
-            this.f14113a = hVar;
+            this.f14886a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -184,7 +184,7 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
                 if (!(socketResponsedMessage instanceof ResponseOnlineMessage)) {
-                    this.f14113a.o(socketResponsedMessage.getCmd(), -1, null);
+                    this.f14886a.o(socketResponsedMessage.getCmd(), -1, null);
                     return null;
                 }
                 ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
@@ -196,12 +196,12 @@ public class h {
                     j = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getClientLogID();
                 }
                 if (responseOnlineMessage.getError() != 0) {
-                    this.f14113a.o(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
-                    b.a.e.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i2, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + this.f14113a.f14107a);
+                    this.f14886a.o(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
+                    b.a.e.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i2, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + this.f14886a.f14880a);
                     return null;
                 }
-                this.f14113a.m();
-                b.a.e.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i2, "online_succ", 0, "online succ. retry count-" + this.f14113a.f14107a);
+                this.f14886a.m();
+                b.a.e.c.e.c.i.b("TbOnline", socketResponsedMessage.getCmd(), j, i2, "online_succ", 0, "online succ. retry count-" + this.f14886a.f14880a);
                 return socketResponsedMessage;
             }
             return (SocketResponsedMessage) invokeL.objValue;
@@ -236,16 +236,16 @@ public class h {
                 return;
             }
         }
-        this.f14108b = null;
-        this.f14109c = null;
-        this.f14110d = 0;
-        this.f14111e = new a(this);
+        this.f14881b = null;
+        this.f14882c = null;
+        this.f14883d = 0;
+        this.f14884e = new a(this);
         MessageManager.getInstance().addResponsedMessageRule(new b(this, 1001));
     }
 
     public static /* synthetic */ int b(h hVar) {
-        int i2 = hVar.f14110d + 1;
-        hVar.f14110d = i2;
+        int i2 = hVar.f14883d + 1;
+        hVar.f14883d = i2;
         return i2;
     }
 
@@ -255,14 +255,14 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             synchronized (h.class) {
-                if (f14106f == null) {
+                if (f14879f == null) {
                     synchronized (h.class) {
-                        if (f14106f == null) {
-                            f14106f = new h();
+                        if (f14879f == null) {
+                            f14879f = new h();
                         }
                     }
                 }
-                hVar = f14106f;
+                hVar = f14879f;
             }
             return hVar;
         }
@@ -292,14 +292,14 @@ public class h {
                 updateClientInfoMessage.addUserInfo("from", from);
             }
             if (NetTypeFixedSwitch.isOn()) {
-                updateClientInfoMessage.addUserInfo("net_type", String.valueOf(b.a.e.e.p.j.I()));
+                updateClientInfoMessage.addUserInfo("net_type", String.valueOf(b.a.e.f.p.j.I()));
             } else {
                 String str = new NetWork().getNetContext().getRequest().getNetWorkParam().mNetType;
                 if (str != null) {
                     updateClientInfoMessage.addUserInfo("net_type", str);
                 }
             }
-            if (!NetDeleteSwitch.isOn() && (valueOf = String.valueOf(b.a.e.e.p.j.I())) != null) {
+            if (!NetDeleteSwitch.isOn() && (valueOf = String.valueOf(b.a.e.f.p.j.I())) != null) {
                 updateClientInfoMessage.addUserInfo("net", valueOf);
             }
             updateClientInfoMessage.addUserInfo("cuid", TbadkCoreApplication.getInst().getCuid());
@@ -309,6 +309,11 @@ public class h {
             updateClientInfoMessage.addUserInfo("timestamp", Long.toString(System.currentTimeMillis()));
             updateClientInfoMessage.addUserInfo("model", Build.MODEL);
             updateClientInfoMessage.addUserInfo(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
+            updateClientInfoMessage.addUserInfo("z_id", TbadkCoreApplication.getInst().getZid());
+            updateClientInfoMessage.addUserInfo("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
+            updateClientInfoMessage.addUserInfo("brand", Build.BRAND);
+            updateClientInfoMessage.addUserInfo(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
+            updateClientInfoMessage.addUserInfo("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
             updateClientInfoMessage.addUserInfo("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
             updateClientInfoMessage.addUserInfo("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             updateClientInfoMessage.addUserInfo("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
@@ -334,7 +339,7 @@ public class h {
                     a.b d2 = b.a.q0.s.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
                     String a2 = b.a.q0.s.l.e.a(TbadkCoreApplication.getCurrentAccountInfo());
                     if (d2 != null) {
-                        updateClientInfoMessage.setBduss(d2.f13137a, a2);
+                        updateClientInfoMessage.setBduss(d2.f13917a, a2);
                     } else {
                         updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss(), a2);
                     }
@@ -349,7 +354,7 @@ public class h {
                 updateClientInfoMessage.setPub_env(Integer.valueOf(b.a.q0.t.b.a.b().c()));
             }
             if (TbSingleton.getInstance().isVisitPreviewServer()) {
-                updateClientInfoMessage.setPub_env(Integer.valueOf(b.a.e.e.m.b.e(TbSingleton.getInstance().getPubEnvValue(), 0)));
+                updateClientInfoMessage.setPub_env(Integer.valueOf(b.a.e.f.m.b.e(TbSingleton.getInstance().getPubEnvValue(), 0)));
             }
             updateClientInfoMessage.setSecretKey(b.a.e.c.e.c.j.d.a().c());
             updateClientInfoMessage.addUserInfo("pversion", "1.0.3");
@@ -375,20 +380,20 @@ public class h {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().getSocketClient().G(this.f14111e);
+            MessageManager.getInstance().getSocketClient().G(this.f14884e);
         }
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14107a >= 5 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14880a >= 5 : invokeV.booleanValue;
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f14107a = 0;
+            this.f14880a = 0;
             MessageManager.getInstance().getSocketClient().I();
             NoNetworkView.updateUI();
             BdSocketLinkService.stopReConnStrategy("online succ");
@@ -398,7 +403,7 @@ public class h {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f14107a++;
+            this.f14880a++;
             if (l()) {
                 BdSocketLinkService.setAvailable(false);
                 NoNetworkView.updateUI();
@@ -417,7 +422,7 @@ public class h {
     public void p(b.a.e.c.e.c.k.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f14108b = aVar;
+            this.f14881b = aVar;
         }
     }
 }

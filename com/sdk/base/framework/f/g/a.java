@@ -16,10 +16,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68235a = "com.sdk.base.framework.f.g.a";
+    public static final String f69155a = "com.sdk.base.framework.f.g.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f68236b;
+    public static final Boolean f69156b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class a {
                 return;
             }
         }
-        f68236b = Boolean.valueOf(com.sdk.base.framework.c.f.f68205b);
+        f69156b = Boolean.valueOf(com.sdk.base.framework.c.f.f69125b);
     }
 
     public a() {
@@ -56,7 +56,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            c cVar = c.f68239c;
+            c cVar = c.f69159c;
             if (context == null) {
                 return cVar;
             }
@@ -65,13 +65,13 @@ public class a {
                 if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                     String typeName = activeNetworkInfo.getTypeName();
                     if ("MOBILE".equalsIgnoreCase(typeName)) {
-                        cVar = c.f68238b;
+                        cVar = c.f69158b;
                     } else if (CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING.equalsIgnoreCase(typeName)) {
-                        cVar = c.f68237a;
+                        cVar = c.f69157a;
                     }
                 }
             } catch (Throwable th) {
-                com.sdk.base.framework.a.a.c.b(f68235a, th.getMessage(), f68236b);
+                com.sdk.base.framework.a.a.c.b(f69155a, th.getMessage(), f69156b);
             }
             return cVar;
         }

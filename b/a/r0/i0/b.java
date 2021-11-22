@@ -1,6 +1,6 @@
 package b.a.r0.i0;
 
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
@@ -21,7 +21,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f17820a;
+    public static b f19273a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -32,21 +32,21 @@ public class b {
 
     /* renamed from: b.a.r0.i0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0908b extends BdAsyncTask<String, Void, Boolean> {
+    public static class C0973b extends BdAsyncTask<String, Void, Boolean> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final BdUniqueId f17821d;
+        public static final BdUniqueId f19274d;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Process f17822a;
+        public Process f19275a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17823b;
+        public String f19276b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f17824c;
+        public long f19277c;
 
         static {
             InterceptResult invokeClinit;
@@ -61,10 +61,10 @@ public class b {
                     return;
                 }
             }
-            f17821d = BdUniqueId.gen();
+            f19274d = BdUniqueId.gen();
         }
 
-        public /* synthetic */ C0908b(String str, a aVar) {
+        public /* synthetic */ C0973b(String str, a aVar) {
             this(str);
         }
 
@@ -83,7 +83,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 super.onCancelled();
-                Process process = this.f17822a;
+                Process process = this.f19275a;
                 if (process != null) {
                     try {
                         process.destroy();
@@ -91,11 +91,11 @@ public class b {
                         th.printStackTrace();
                     }
                 }
-                b.a.r0.i0.i.d.m().n(this.f17823b, (int) this.f17824c, false);
+                b.a.r0.i0.i.d.m().n(this.f19276b, (int) this.f19277c, false);
             }
         }
 
-        public C0908b(String str) {
+        public C0973b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,9 +110,9 @@ public class b {
                     return;
                 }
             }
-            this.f17822a = null;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, f17821d));
-            this.f17823b = str;
+            this.f19275a = null;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, f19274d));
+            this.f19276b = str;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 0, expect 1 */
@@ -127,10 +127,10 @@ public class b {
                     try {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
-                            Process exec = runtime.exec(b() + this.f17823b);
-                            this.f17822a = exec;
+                            Process exec = runtime.exec(b() + this.f19276b);
+                            this.f19275a = exec;
                             r1 = exec.waitFor() == 0;
-                            this.f17824c = System.currentTimeMillis() - currentTimeMillis;
+                            this.f19277c = System.currentTimeMillis() - currentTimeMillis;
                         } catch (InterruptedException e2) {
                             BdLog.detailException(e2);
                             d.c().a("test_speed", e2.getMessage());
@@ -142,10 +142,10 @@ public class b {
                         BdLog.detailException(th);
                         d.c().a("test_speed", th.getMessage());
                     }
-                    this.f17822a.destroy();
+                    this.f19275a.destroy();
                     return Boolean.valueOf(r1);
                 } catch (Throwable th2) {
-                    this.f17822a.destroy();
+                    this.f19275a.destroy();
                     throw th2;
                 }
             }
@@ -158,12 +158,12 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bool) == null) {
                 boolean booleanValue = bool != null ? bool.booleanValue() : true;
-                b.a.r0.i0.i.d.m().n(this.f17823b, (int) this.f17824c, booleanValue);
-                b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                b.a.r0.i0.i.d.m().n(this.f19276b, (int) this.f19277c, booleanValue);
+                b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("workflow", "dnsproxy_testspeed");
                 statsItem.c("issuc", Boolean.valueOf(booleanValue));
-                statsItem.b("ip", this.f17823b);
-                statsItem.c("speed", Integer.valueOf((int) this.f17824c));
+                statsItem.b("ip", this.f19276b);
+                statsItem.c("speed", Integer.valueOf((int) this.f19277c));
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
             }
         }
@@ -202,14 +202,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f17820a == null) {
+            if (f19273a == null) {
                 synchronized (b.class) {
-                    if (f17820a == null) {
-                        f17820a = new b();
+                    if (f19273a == null) {
+                        f19273a = new b();
                     }
                 }
             }
-            return f17820a;
+            return f19273a;
         }
         return (b) invokeV.objValue;
     }
@@ -218,7 +218,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, set) == null) {
             for (String str : set) {
-                new C0908b(str, null).execute(new String[0]);
+                new C0973b(str, null).execute(new String[0]);
             }
         }
     }

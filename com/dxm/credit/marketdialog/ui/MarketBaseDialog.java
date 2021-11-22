@@ -18,25 +18,25 @@ import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.dxm.credit.marketdialog.data.MarketDialogResponse;
 import java.util.Arrays;
 /* loaded from: classes11.dex */
-public abstract class MarketBaseDialog extends Dialog implements b.e.b.a.c.b {
+public abstract class MarketBaseDialog extends Dialog implements b.d.b.a.c.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View close;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.e.b.a.c.a f62055e;
+    public b.d.b.a.c.a f62956e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62056f;
+    public int f62957f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f62057g;
+    public b f62958g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SharedPreferences f62058h;
+    public SharedPreferences f62959h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f62059i;
+    public Context f62960i;
     public MarketDialogResponse.Dialog mData;
     public View mRootView;
 
@@ -46,7 +46,7 @@ public abstract class MarketBaseDialog extends Dialog implements b.e.b.a.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MarketBaseDialog f62060e;
+        public final /* synthetic */ MarketBaseDialog f62961e;
 
         public a(MarketBaseDialog marketBaseDialog) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public abstract class MarketBaseDialog extends Dialog implements b.e.b.a.c.b {
                     return;
                 }
             }
-            this.f62060e = marketBaseDialog;
+            this.f62961e = marketBaseDialog;
         }
 
         @Override // android.view.View.OnClickListener
@@ -72,9 +72,9 @@ public abstract class MarketBaseDialog extends Dialog implements b.e.b.a.c.b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                 return;
             }
-            MarketDialogResponse.Dialog dialog = this.f62060e.mData;
+            MarketDialogResponse.Dialog dialog = this.f62961e.mData;
             DXMSdkSAUtils.onEventWithValues("sdk_market_dialog_click_cancle", Arrays.asList(dialog.group_name, dialog.group_limit));
-            this.f62060e.close();
+            this.f62961e.close();
         }
     }
 
@@ -153,8 +153,8 @@ public abstract class MarketBaseDialog extends Dialog implements b.e.b.a.c.b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || context == null) {
             return;
         }
-        this.f62059i = context;
-        this.f62058h = context.getSharedPreferences("pop_window_sign_record", 0);
+        this.f62960i = context;
+        this.f62959h = context.getSharedPreferences("pop_window_sign_record", 0);
     }
 
     public void close() {
@@ -192,18 +192,18 @@ public abstract class MarketBaseDialog extends Dialog implements b.e.b.a.c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.dismiss();
-            b.e.b.a.c.a aVar = this.f62055e;
+            b.d.b.a.c.a aVar = this.f62956e;
             if (aVar != null) {
                 aVar.g();
             }
         }
     }
 
-    @Override // b.e.b.a.c.b
+    @Override // b.d.b.a.c.b
     public final int getIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f62056f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f62957f : invokeV.intValue;
     }
 
     public abstract boolean initViews();
@@ -211,17 +211,17 @@ public abstract class MarketBaseDialog extends Dialog implements b.e.b.a.c.b {
     public boolean isInQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f62055e.e(this) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f62956e.e(this) : invokeV.booleanValue;
     }
 
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f62058h == null || this.mData == null) {
+            if (this.f62959h == null || this.mData == null) {
                 return false;
             }
-            b bVar = this.f62057g;
+            b bVar = this.f62958g;
             return bVar == null || bVar.a();
         }
         return invokeV.booleanValue;
@@ -234,29 +234,29 @@ public abstract class MarketBaseDialog extends Dialog implements b.e.b.a.c.b {
         }
     }
 
-    @Override // b.e.b.a.c.b
-    public final void setHostQuene(b.e.b.a.c.a aVar) {
+    @Override // b.d.b.a.c.b
+    public final void setHostQuene(b.d.b.a.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.f62055e = aVar;
+            this.f62956e = aVar;
         }
     }
 
     public final void setIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f62056f = i2;
+            this.f62957f = i2;
         }
     }
 
     public void setRule(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.f62057g = bVar;
+            this.f62958g = bVar;
         }
     }
 
-    @Override // android.app.Dialog, b.e.b.a.c.b
+    @Override // android.app.Dialog, b.d.b.a.c.b
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -275,9 +275,9 @@ public abstract class MarketBaseDialog extends Dialog implements b.e.b.a.c.b {
     }
 
     public final void showNext() {
-        b.e.b.a.c.a aVar;
+        b.d.b.a.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.f62055e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.f62956e) == null) {
             return;
         }
         aVar.f();
@@ -286,7 +286,7 @@ public abstract class MarketBaseDialog extends Dialog implements b.e.b.a.c.b {
     public void showOnly() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (context = this.f62059i) == null || !(context instanceof Activity) || ((Activity) context).isFinishing()) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (context = this.f62960i) == null || !(context instanceof Activity) || ((Activity) context).isFinishing()) {
             return;
         }
         super.show();

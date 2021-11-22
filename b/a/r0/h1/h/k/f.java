@@ -22,7 +22,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f17485a;
+    public BdUniqueId f18954a;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -37,13 +37,13 @@ public class f {
                 return;
             }
         }
-        this.f17485a = null;
+        this.f18954a = null;
     }
 
     public void a(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.f17485a = bdUniqueId;
+            this.f18954a = bdUniqueId;
             b();
             c();
         }
@@ -52,7 +52,7 @@ public class f {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, b.a.r0.l3.f0.a.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, b.a.r0.m3.f0.a.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -62,7 +62,7 @@ public class f {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b.a.q0.z0.b bVar = new b.a.q0.z0.b(309277);
+            b.a.q0.y0.b bVar = new b.a.q0.y0.b(309277);
             bVar.setResponsedClass(RealTimeSocketResponse.class);
             bVar.g(true);
             MessageManager.getInstance().registerTask(bVar);
@@ -75,7 +75,7 @@ public class f {
             return;
         }
         if (netMessage.getTag() == null) {
-            netMessage.setTag(this.f17485a);
+            netMessage.setTag(this.f18954a);
         }
         MessageManager.getInstance().sendMessage(netMessage);
     }
@@ -93,7 +93,7 @@ public class f {
         realTimeRequest.setAbtest_tag(str3);
         realTimeRequest.setType(i3);
         realTimeRequest.setPage(str4);
-        if (baijiahaoData != null && i3 != b.a.e.e.m.b.e("2", 0)) {
+        if (baijiahaoData != null && i3 != b.a.e.f.m.b.e("2", 0)) {
             realTimeRequest.setOriUgcNid(baijiahaoData.oriUgcNid);
             realTimeRequest.setOriUgcTid(baijiahaoData.oriUgcTid);
             realTimeRequest.setOriUgcType(Integer.toString(baijiahaoData.oriUgcType));

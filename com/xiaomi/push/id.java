@@ -20,7 +20,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f71219a;
+    public static final iy f72139a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f647a;
@@ -43,7 +43,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
             }
         }
         f647a = new jg("XmPushActionNormalConfig");
-        f71219a = new iy("", (byte) 15, (short) 1);
+        f72139a = new iy("", (byte) 15, (short) 1);
     }
 
     public id() {
@@ -106,7 +106,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
         jbVar.m527a();
         while (true) {
             iy m523a = jbVar.m523a();
-            byte b2 = m523a.f71328a;
+            byte b2 = m523a.f72248a;
             if (b2 == 0) {
                 jbVar.f();
                 m465a();
@@ -160,7 +160,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
             m465a();
             jbVar.a(f647a);
             if (this.f648a != null) {
-                jbVar.a(f71219a);
+                jbVar.a(f72139a);
                 jbVar.a(new iz(StandardMessageCodec.LIST, this.f648a.size()));
                 for (ho hoVar : this.f648a) {
                     hoVar.b(jbVar);

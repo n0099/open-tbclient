@@ -12,13 +12,13 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5461a;
+    public String f5742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PMSAppInfo f5462b;
+    public PMSAppInfo f5743b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PrefetchEvent.c f5463c;
+    public PrefetchEvent.c f5744c;
 
     public i() {
         Interceptable interceptable = $ic;

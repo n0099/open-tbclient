@@ -20,7 +20,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f18985a;
+    public TbPageContext f20522a;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class a {
                 return;
             }
         }
-        this.f18985a = tbPageContext;
+        this.f20522a = tbPageContext;
     }
 
     public final void a(PbModel pbModel, int i2) {
@@ -68,11 +68,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbModel)) == null) {
             int i2 = 0;
-            if (this.f18985a.getPageActivity() != null && pbModel != null && (fVar = pbModel.J) != null) {
+            if (this.f20522a.getPageActivity() != null && pbModel != null && (fVar = pbModel.J) != null) {
                 if ("3".equals(fVar.g0)) {
-                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.f18985a.getPageActivity()).createNormalCfg(2);
-                    createNormalCfg.setSubTabName(this.f18985a.getString(b.a.r0.k2.l.tab_name_topic_rank));
-                    this.f18985a.sendMessage(new CustomMessage(2015002, createNormalCfg));
+                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.f20522a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg.setSubTabName(this.f20522a.getString(b.a.r0.k2.l.tab_name_topic_rank));
+                    this.f20522a.sendMessage(new CustomMessage(2015002, createNormalCfg));
                     return true;
                 }
                 String p = b.a.q0.s.e0.b.j().p("key_pb_back_sid1", "");
@@ -89,15 +89,15 @@ public class a {
                     return false;
                 }
                 if (str.equals("1")) {
-                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.f18985a.getPageActivity()).createNormalCfg(2);
+                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.f20522a.getPageActivity()).createNormalCfg(2);
                     createNormalCfg2.setSubTab(1, null);
-                    this.f18985a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
+                    this.f20522a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
                     a(pbModel, 1);
                     return true;
                 } else if (str.equals("2")) {
-                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.f18985a.getPageActivity()).createNormalCfg(1);
+                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.f20522a.getPageActivity()).createNormalCfg(1);
                     createNormalCfg3.setSubTab(0, pbModel.J.g0);
-                    this.f18985a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
+                    this.f20522a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
                     if ("游戏".equals(pbModel.J.g0)) {
                         i2 = 2;
                     } else if ("数码".equals(pbModel.J.g0)) {

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pass.biometrics.R;
 import com.baidu.pass.biometrics.base.NoProguard;
 import com.baidu.pass.biometrics.base.utils.PassBioGlobalUtils;
@@ -21,16 +22,16 @@ public class BaseActivity extends Activity implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f41716a;
+    public boolean f42548a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f41717b;
+    public boolean f42549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41718c;
+    public String f42550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f41719d;
+    public boolean f42551d;
 
     public BaseActivity() {
         Interceptable interceptable = $ic;
@@ -45,19 +46,19 @@ public class BaseActivity extends Activity implements NoProguard {
                 return;
             }
         }
-        this.f41716a = false;
-        this.f41717b = true;
-        this.f41719d = false;
+        this.f42548a = false;
+        this.f42549b = true;
+        this.f42551d = false;
     }
 
     @TargetApi(24)
     private void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && Build.VERSION.SDK_INT >= 24 && isInMultiWindowMode()) {
-            if (this.f41716a) {
-                PassBioGlobalUtils.toastWithText(getActivity(), this.f41718c, 1);
+            if (this.f42548a) {
+                PassBioGlobalUtils.toastWithText(getActivity(), this.f42550c, 1);
             }
-            if (this.f41717b) {
+            if (this.f42549b) {
                 return;
             }
             finish();
@@ -73,7 +74,7 @@ public class BaseActivity extends Activity implements NoProguard {
     public boolean isActivityInForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41719d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42551d : invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -89,7 +90,8 @@ public class BaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f41718c = getResources().getString(R.string.pass_bio_multi_window_tips);
+            this.f42550c = getResources().getString(R.string.pass_bio_multi_window_tips);
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -124,10 +126,10 @@ public class BaseActivity extends Activity implements NoProguard {
         }
         super.onMultiWindowModeChanged(z);
         if (z && isActivityInForeground()) {
-            if (this.f41716a) {
-                PassBioGlobalUtils.toastWithText(getActivity(), this.f41718c, 1);
+            if (this.f42548a) {
+                PassBioGlobalUtils.toastWithText(getActivity(), this.f42550c, 1);
             }
-            if (this.f41717b) {
+            if (this.f42549b) {
                 return;
             }
             finish();
@@ -139,7 +141,7 @@ public class BaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPause();
-            this.f41719d = false;
+            this.f42551d = false;
         }
     }
 
@@ -148,31 +150,31 @@ public class BaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            this.f41719d = true;
+            this.f42551d = true;
             a();
         }
     }
 
     public void setIsMultiWindowAvailable(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || z == this.f41717b) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || z == this.f42549b) {
             return;
         }
-        this.f41717b = z;
+        this.f42549b = z;
     }
 
     public void setIsShowMultiWindowTips(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || z == this.f41716a) {
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || z == this.f42548a) {
             return;
         }
-        this.f41716a = z;
+        this.f42548a = z;
     }
 
     public void setMultiWindowTipsId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f41718c = str;
+            this.f42550c = str;
         }
     }
 }

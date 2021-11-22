@@ -50,21 +50,21 @@ public class k {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            String w = n.w(AppRuntime.getAppContext());
-            if (TextUtils.isEmpty(w)) {
+            String y = n.y(AppRuntime.getAppContext());
+            if (TextUtils.isEmpty(y)) {
                 return;
             }
-            File file = new File(w);
+            File file = new File(y);
             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                 for (File file2 : listFiles) {
                     if (file2.isDirectory()) {
                         String str = file2.getAbsolutePath() + File.separator + "aigames/sandbox";
                         File file3 = new File(str);
                         if (file3.exists() && file3.isDirectory()) {
-                            String str2 = w + File.separator + "swangame/anonymous/sandbox";
+                            String str2 = y + File.separator + "swangame/anonymous/sandbox";
                             if (!file3.renameTo(new File(str2))) {
                                 n.e(str, str2);
-                                n.h(str);
+                                n.j(str);
                             }
                         }
                     }
@@ -96,11 +96,11 @@ public class k {
             if (!absolutePath.equals(str)) {
                 File file3 = new File(str);
                 if (file3.exists()) {
-                    b.a.p0.t.d.K(file3);
+                    b.a.p0.w.d.L(file3);
                 }
                 if (!file2.renameTo(file3)) {
-                    b.a.p0.t.d.f(file2, file3);
-                    b.a.p0.t.d.K(file2);
+                    b.a.p0.w.d.f(file2, file3);
+                    b.a.p0.w.d.L(file2);
                 }
             }
         }
@@ -108,17 +108,17 @@ public class k {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && b.a.p0.a.k2.g.h.a().getBoolean("swan_game_data_migration", true)) {
-            b.a.p0.a.k2.g.h.a().putBoolean("swan_game_data_migration", false);
-            if (b.a.p0.a.b1.a.f4016a) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && b.a.p0.a.o2.g.h.a().getBoolean("swan_game_data_migration", true)) {
+            b.a.p0.a.o2.g.h.a().putBoolean("swan_game_data_migration", false);
+            if (b.a.p0.a.b1.a.f4148a) {
                 String str = "before migrate " + System.currentTimeMillis();
             }
             a();
-            if (b.a.p0.a.b1.a.f4016a) {
+            if (b.a.p0.a.b1.a.f4148a) {
                 String str2 = "in migrate " + System.currentTimeMillis();
             }
             b();
-            if (b.a.p0.a.b1.a.f4016a) {
+            if (b.a.p0.a.b1.a.f4148a) {
                 String str3 = "end migrate " + System.currentTimeMillis();
             }
         }

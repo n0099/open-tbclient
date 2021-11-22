@@ -1,7 +1,6 @@
 package com.alibaba.fastjson.util;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.asm.ClassReader;
 import com.alibaba.fastjson.asm.TypeCollector;
@@ -113,7 +112,7 @@ public class ASMUtils {
                 return "I";
             }
             if (Void.TYPE == cls) {
-                return ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
+                return "V";
             }
             if (Boolean.TYPE == cls) {
                 return "Z";
@@ -125,7 +124,7 @@ public class ASMUtils {
                 return "B";
             }
             if (Short.TYPE == cls) {
-                return ExifInterface.LATITUDE_SOUTH;
+                return "S";
             }
             if (Float.TYPE == cls) {
                 return "F";

@@ -22,19 +22,19 @@ public class c implements b, View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f27821e;
+    public TbPageContext f29339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f27822f;
+    public LinearLayout f29340f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f27823g;
+    public TextView f29341g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f27824h;
+    public TextView f29342h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f27825i;
+    public TextView f29343i;
     public TextView j;
     public TextView k;
     public a l;
@@ -59,7 +59,7 @@ public class c implements b, View.OnClickListener {
         }
         this.n = 0;
         this.o = new HashMap();
-        this.f27821e = tbPageContext;
+        this.f29339e = tbPageContext;
         this.l = aVar;
         this.m = aVar2;
         e();
@@ -76,14 +76,14 @@ public class c implements b, View.OnClickListener {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27822f.getVisibility() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29340f.getVisibility() : invokeV.intValue;
     }
 
     @Override // b.a.r0.z.c.b
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f27822f.setVisibility(i2);
+            this.f29340f.setVisibility(i2);
         }
     }
 
@@ -112,23 +112,23 @@ public class c implements b, View.OnClickListener {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f27822f = (LinearLayout) this.f27821e.getPageActivity().findViewById(R.id.capture_speed_container);
-            this.f27823g = (TextView) this.f27821e.getPageActivity().findViewById(R.id.speed_slowest);
-            this.f27824h = (TextView) this.f27821e.getPageActivity().findViewById(R.id.speed_slow);
-            this.f27825i = (TextView) this.f27821e.getPageActivity().findViewById(R.id.speed_normal);
-            this.j = (TextView) this.f27821e.getPageActivity().findViewById(R.id.speed_fast);
-            this.k = (TextView) this.f27821e.getPageActivity().findViewById(R.id.speed_fastest);
-            this.f27823g.setOnClickListener(this);
-            this.f27824h.setOnClickListener(this);
-            this.f27825i.setOnClickListener(this);
+            this.f29340f = (LinearLayout) this.f29339e.getPageActivity().findViewById(R.id.capture_speed_container);
+            this.f29341g = (TextView) this.f29339e.getPageActivity().findViewById(R.id.speed_slowest);
+            this.f29342h = (TextView) this.f29339e.getPageActivity().findViewById(R.id.speed_slow);
+            this.f29343i = (TextView) this.f29339e.getPageActivity().findViewById(R.id.speed_normal);
+            this.j = (TextView) this.f29339e.getPageActivity().findViewById(R.id.speed_fast);
+            this.k = (TextView) this.f29339e.getPageActivity().findViewById(R.id.speed_fastest);
+            this.f29341g.setOnClickListener(this);
+            this.f29342h.setOnClickListener(this);
+            this.f29343i.setOnClickListener(this);
             this.j.setOnClickListener(this);
             this.k.setOnClickListener(this);
-            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f27822f);
+            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f29340f);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0214);
-            h(this.f27825i, true);
-            h(this.f27823g, false);
-            h(this.f27824h, false);
+            h(this.f29343i, true);
+            h(this.f29341g, false);
+            h(this.f29342h, false);
             h(this.j, false);
             h(this.k, false);
         }
@@ -150,7 +150,7 @@ public class c implements b, View.OnClickListener {
     public final void h(TextView textView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, textView, z) == null) {
-            textView.setTextColor(this.f27821e.getResources().getColor(z ? R.color.CAM_X0302 : R.color.CAM_X0101));
+            textView.setTextColor(this.f29339e.getResources().getColor(z ? R.color.CAM_X0302 : R.color.CAM_X0101));
             textView.setTextSize(0, UtilHelper.getDimenPixelSize(z ? R.dimen.T_X05 : R.dimen.T_X07));
         }
     }
@@ -159,11 +159,11 @@ public class c implements b, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 0) {
-                h(this.f27825i, z);
+                h(this.f29343i, z);
             } else if (i2 == 1) {
-                h(this.f27824h, z);
+                h(this.f29342h, z);
             } else if (i2 == 2) {
-                h(this.f27823g, z);
+                h(this.f29341g, z);
             } else if (i2 == 3) {
                 h(this.j, z);
             } else if (i2 != 4) {

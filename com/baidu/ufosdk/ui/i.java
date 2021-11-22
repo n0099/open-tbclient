@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class i extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f57026a;
+    public Paint f57948a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f57027b;
+    public Path f57949b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context) {
@@ -40,22 +40,22 @@ public final class i extends View {
             }
         }
         Paint paint = new Paint(1);
-        this.f57026a = paint;
+        this.f57948a = paint;
         paint.setColor(-3355444);
-        this.f57026a.setStyle(Paint.Style.STROKE);
-        this.f57026a.setStrokeWidth(3.0f);
-        this.f57027b = new Path();
-        this.f57026a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
+        this.f57948a.setStyle(Paint.Style.STROKE);
+        this.f57948a.setStrokeWidth(3.0f);
+        this.f57949b = new Path();
+        this.f57948a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
     }
 
     @Override // android.view.View
     public final void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f57027b.reset();
-            this.f57027b.moveTo(0.0f, 0.0f);
-            this.f57027b.lineTo(getWidth(), 0.0f);
-            canvas.drawPath(this.f57027b, this.f57026a);
+            this.f57949b.reset();
+            this.f57949b.moveTo(0.0f, 0.0f);
+            this.f57949b.lineTo(getWidth(), 0.0f);
+            canvas.drawPath(this.f57949b, this.f57948a);
         }
     }
 }

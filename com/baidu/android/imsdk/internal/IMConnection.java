@@ -562,7 +562,7 @@ public final class IMConnection {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.f28673e) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.f29542e) {
                     return;
                 }
                 this.this$0.internalConnect(false);
@@ -660,7 +660,7 @@ public final class IMConnection {
 
     private void connectImpl(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || a.f28673e) {
+        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || a.f29542e) {
             return;
         }
         if (!this.mConnected.get() && !this.mConnectting.get()) {
@@ -697,7 +697,7 @@ public final class IMConnection {
                     this.val$isInternalAction = z;
                 }
 
-                /* JADX WARN: Removed duplicated region for block: B:21:0x00bc  */
+                /* JADX WARN: Removed duplicated region for block: B:21:0x00bd  */
                 /* JADX WARN: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
                 @Override // com.baidu.android.imsdk.internal.IMSocketAddrProvider.IGetSocketAddrListener
                 /*
@@ -786,7 +786,7 @@ public final class IMConnection {
 
     private void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || a.f28673e) {
+        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || a.f29542e) {
             return;
         }
         LogUtils.i(TAG, "destroy");
@@ -877,7 +877,7 @@ public final class IMConnection {
 
     public void disconnectedByPeer() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || a.f28673e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || a.f29542e) {
             return;
         }
         LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);

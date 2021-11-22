@@ -44,31 +44,31 @@ public final class f extends Observable {
     public Runnable C;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Integer, Boolean> f28996a;
+    public final Map<Integer, Boolean> f29865a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f28997b;
+    public AtomicInteger f29866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28998c;
+    public int f29867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28999d;
+    public boolean f29868d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile LinkedList<b.a.u.a.c.b> f29000e;
+    public volatile LinkedList<b.a.u.a.c.b> f29869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<Long, b.a.u.a.c.b> f29001f;
+    public final HashMap<Long, b.a.u.a.c.b> f29870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f29002g;
+    public final Object f29871g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Object f29003h;
+    public final Object f29872h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.u.a.e.b f29004i;
+    public b.a.u.a.e.b f29873i;
     public Map<Long, b.a.u.a.b.d.b> j;
     public Map<Long, b.a.u.a.b.d.b> k;
     public j l;
@@ -93,16 +93,16 @@ public final class f extends Observable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f29005a;
+        public final /* synthetic */ String f29874a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f29006b;
+        public final /* synthetic */ String f29875b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f29007c;
+        public final /* synthetic */ String f29876c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ f f29008d;
+        public final /* synthetic */ f f29877d;
 
         public a(f fVar, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -119,10 +119,10 @@ public final class f extends Observable {
                     return;
                 }
             }
-            this.f29008d = fVar;
-            this.f29005a = str;
-            this.f29006b = str2;
-            this.f29007c = str3;
+            this.f29877d = fVar;
+            this.f29874a = str;
+            this.f29875b = str2;
+            this.f29876c = str3;
         }
 
         @Override // b.a.u.a.c.a.d
@@ -131,20 +131,20 @@ public final class f extends Observable {
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) {
                 b.a.u.a.h.e.a("SocketTransceiver", "-----try to connect ip:" + str2);
                 if (TextUtils.isEmpty(str2)) {
-                    str2 = this.f29005a;
+                    str2 = this.f29874a;
                 }
-                f fVar = this.f29008d;
+                f fVar = this.f29877d;
                 fVar.w = str2;
-                b.a.u.a.a.c d2 = b.a.u.a.a.a.h(fVar.q).g(601110).c("dns_end", System.currentTimeMillis()).d(ClientCookie.PORT_ATTR, this.f29006b).d("ip", str2).d("domain", this.f29005a).d("protocol", this.f29007c);
+                b.a.u.a.a.c d2 = b.a.u.a.a.a.h(fVar.q).g(601110).c("dns_end", System.currentTimeMillis()).d(ClientCookie.PORT_ATTR, this.f29875b).d("ip", str2).d("domain", this.f29874a).d("protocol", this.f29876c);
                 d2.d("P31", "DNS result:" + i2).d("con_err_code", "P31");
                 if (i2 == 0) {
-                    b.a.u.a.a.a.h(this.f29008d.q).g(601110).b("connect_state", 2);
-                    b.a.u.a.g.a a2 = b.a.u.a.g.a.a(this.f29008d.q);
-                    f fVar2 = this.f29008d;
-                    a2.b(new e(fVar2, str2, this.f29006b, Integer.valueOf(fVar2.f28997b.incrementAndGet())));
+                    b.a.u.a.a.a.h(this.f29877d.q).g(601110).b("connect_state", 2);
+                    b.a.u.a.g.a a2 = b.a.u.a.g.a.a(this.f29877d.q);
+                    f fVar2 = this.f29877d;
+                    a2.b(new e(fVar2, str2, this.f29875b, Integer.valueOf(fVar2.f29866b.incrementAndGet())));
                     return;
                 }
-                b.a.u.a.a.a.h(this.f29008d.q).g(601110).c("flow_end_time", System.currentTimeMillis()).b("retry_cout", this.f29008d.p.get()).e();
+                b.a.u.a.a.a.h(this.f29877d.q).g(601110).c("flow_end_time", System.currentTimeMillis()).b("retry_cout", this.f29877d.p.get()).e();
             }
         }
     }
@@ -155,7 +155,7 @@ public final class f extends Observable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f29009e;
+        public final /* synthetic */ f f29878e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -172,14 +172,14 @@ public final class f extends Observable {
                     return;
                 }
             }
-            this.f29009e = fVar;
+            this.f29878e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29009e.M();
+                this.f29878e.M();
             }
         }
     }
@@ -190,7 +190,7 @@ public final class f extends Observable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f29010e;
+        public final /* synthetic */ f f29879e;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -207,15 +207,15 @@ public final class f extends Observable {
                     return;
                 }
             }
-            this.f29010e = fVar;
+            this.f29879e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f fVar = this.f29010e;
-                fVar.f0(fVar.f29004i.b(this.f29010e.q, 1L));
+                f fVar = this.f29879e;
+                fVar.f0(fVar.f29873i.b(this.f29879e.q, 1L));
             }
         }
     }
@@ -225,7 +225,7 @@ public final class f extends Observable {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f29011a;
+        public static final /* synthetic */ int[] f29880a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -242,21 +242,21 @@ public final class f extends Observable {
                 }
             }
             int[] iArr = new int[BLCPRequest.SendTimeoutSecond.values().length];
-            f29011a = iArr;
+            f29880a = iArr;
             try {
                 iArr[BLCPRequest.SendTimeoutSecond.TIMEOUT_20s.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f29011a[BLCPRequest.SendTimeoutSecond.TIMEOUT_30s.ordinal()] = 2;
+                f29880a[BLCPRequest.SendTimeoutSecond.TIMEOUT_30s.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f29011a[BLCPRequest.SendTimeoutSecond.TIMEOUT_50s.ordinal()] = 3;
+                f29880a[BLCPRequest.SendTimeoutSecond.TIMEOUT_50s.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f29011a[BLCPRequest.SendTimeoutSecond.TIMEOUT_120s.ordinal()] = 4;
+                f29880a[BLCPRequest.SendTimeoutSecond.TIMEOUT_120s.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -268,16 +268,16 @@ public final class f extends Observable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f29012e;
+        public String f29881e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f29013f;
+        public String f29882f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Integer f29014g;
+        public Integer f29883g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ f f29015h;
+        public final /* synthetic */ f f29884h;
 
         /* loaded from: classes6.dex */
         public class a implements Runnable {
@@ -285,7 +285,7 @@ public final class f extends Observable {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f29016e;
+            public final /* synthetic */ e f29885e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -302,15 +302,15 @@ public final class f extends Observable {
                         return;
                     }
                 }
-                this.f29016e = eVar;
+                this.f29885e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b.a.u.a.h.d.c(this.f29016e.f29015h.q);
-                    b.a.u.a.h.d.e("lcp connect:" + (System.currentTimeMillis() - this.f29016e.f29015h.A));
+                    b.a.u.a.h.d.c(this.f29885e.f29884h.q);
+                    b.a.u.a.h.d.e("lcp connect:" + (System.currentTimeMillis() - this.f29885e.f29884h.A));
                 }
             }
         }
@@ -330,10 +330,10 @@ public final class f extends Observable {
                     return;
                 }
             }
-            this.f29015h = fVar;
-            this.f29013f = str;
-            this.f29012e = str2;
-            this.f29014g = num;
+            this.f29884h = fVar;
+            this.f29882f = str;
+            this.f29881e = str2;
+            this.f29883g = num;
         }
 
         @Override // java.lang.Runnable
@@ -345,82 +345,82 @@ public final class f extends Observable {
                     } catch (Exception e2) {
                         b.a.u.a.h.e.c("SocketTransceiver", "connectRunnable", e2);
                     }
-                    if (!this.f29015h.I()) {
-                        if (this.f29015h.m != null && this.f29015h.m.isAlive()) {
-                            this.f29015h.m.interrupt();
+                    if (!this.f29884h.I()) {
+                        if (this.f29884h.m != null && this.f29884h.m.isAlive()) {
+                            this.f29884h.m.interrupt();
                             b.a.u.a.h.e.a("SocketTransceiver", "readThread interrupt");
                         }
-                        if (this.f29015h.l != null && this.f29015h.l.isAlive()) {
-                            this.f29015h.l.interrupt();
+                        if (this.f29884h.l != null && this.f29884h.l.isAlive()) {
+                            this.f29884h.l.interrupt();
                             b.a.u.a.h.e.a("SocketTransceiver", "sendThread interrupt");
                         }
-                        RunnableC1401f runnableC1401f = new RunnableC1401f(this.f29015h, this.f29014g, this.f29013f);
-                        this.f29015h.u.a(this.f29013f);
-                        this.f29015h.u.postDelayed(runnableC1401f, 15000L);
+                        RunnableC1443f runnableC1443f = new RunnableC1443f(this.f29884h, this.f29883g, this.f29882f);
+                        this.f29884h.u.a(this.f29882f);
+                        this.f29884h.u.postDelayed(runnableC1443f, 15000L);
                         try {
-                            b.a.u.a.a.a.h(this.f29015h.q).g(601110).c("socket_begin", System.currentTimeMillis());
-                            b.a.u.a.c.e e3 = this.f29015h.r.e(this.f29013f, Integer.valueOf(this.f29012e).intValue());
-                            if (this.f29015h.I()) {
-                                b.a.u.a.a.a.h(this.f29015h.q).g(601110).c("socket_end", System.currentTimeMillis()).c("flow_end_time", System.currentTimeMillis()).d("P12", "socketConnect after, but socket has created ok.").d("con_err_code", "P12").b("retry_cout", this.f29015h.p.get()).e();
+                            b.a.u.a.a.a.h(this.f29884h.q).g(601110).c("socket_begin", System.currentTimeMillis());
+                            b.a.u.a.c.e e3 = this.f29884h.r.e(this.f29882f, Integer.valueOf(this.f29881e).intValue());
+                            if (this.f29884h.I()) {
+                                b.a.u.a.a.a.h(this.f29884h.q).g(601110).c("socket_end", System.currentTimeMillis()).c("flow_end_time", System.currentTimeMillis()).d("P12", "socketConnect after, but socket has created ok.").d("con_err_code", "P12").b("retry_cout", this.f29884h.p.get()).e();
                                 b.a.u.a.h.e.a("SocketTransceiver", "socketConnect after, but socket has created ok.");
-                                this.f29015h.J(e3);
+                                this.f29884h.J(e3);
                                 return;
-                            } else if (e3.f28992b.booleanValue()) {
-                                synchronized (this.f29015h.f28996a) {
+                            } else if (e3.f29861b.booleanValue()) {
+                                synchronized (this.f29884h.f29865a) {
                                     b.a.u.a.h.e.a("SocketTransceiver", "socketNeedCloseMap remove connectTimeoutTask");
-                                    this.f29015h.u.removeCallbacks(runnableC1401f);
-                                    runnableC1401f.a();
-                                    if (!this.f29015h.I()) {
-                                        if (this.f29015h.f28996a.get(this.f29014g) == null) {
+                                    this.f29884h.u.removeCallbacks(runnableC1443f);
+                                    runnableC1443f.a();
+                                    if (!this.f29884h.I()) {
+                                        if (this.f29884h.f29865a.get(this.f29883g) == null) {
                                             b.a.u.a.h.e.a("SocketTransceiver", "socketNeedCloseMap setCurrentSocketState");
-                                            this.f29015h.r.c(e3);
+                                            this.f29884h.r.c(e3);
                                         }
-                                        b.a.u.a.a.a.h(this.f29015h.q).g(601110).c("socket_end", System.currentTimeMillis()).b("connect_state", 3).d("P15", "create Socket ok").d("con_err_code", "P15");
-                                        b.a.u.a.h.f.B(this.f29015h.q, this.f29015h.p.get() == 0 ? 1 : 2);
+                                        b.a.u.a.a.a.h(this.f29884h.q).g(601110).c("socket_end", System.currentTimeMillis()).b("connect_state", 3).d("P15", "create Socket ok").d("con_err_code", "P15");
+                                        b.a.u.a.h.f.B(this.f29884h.q, this.f29884h.p.get() == 0 ? 1 : 2);
                                         b.a.u.a.h.e.d("SocketTransceiver", "create Socket ok");
-                                        b.a.u.a.c.a.g(this.f29015h.q, this.f29013f);
-                                        b.a.u.a.a.a.h(this.f29015h.q).g(601110).c("login_begin", System.currentTimeMillis());
-                                        this.f29015h.f0(this.f29015h.f29004i.b(this.f29015h.q, 1L));
-                                        this.f29015h.v = SystemClock.currentThreadTimeMillis();
-                                        if (b.a.u.a.h.c.a(this.f29015h.q) != 0) {
-                                            b.a.u.a.g.a.a(this.f29015h.q).b(new a(this));
+                                        b.a.u.a.c.a.g(this.f29884h.q, this.f29882f);
+                                        b.a.u.a.a.a.h(this.f29884h.q).g(601110).c("login_begin", System.currentTimeMillis());
+                                        this.f29884h.f0(this.f29884h.f29873i.b(this.f29884h.q, 1L));
+                                        this.f29884h.v = SystemClock.currentThreadTimeMillis();
+                                        if (b.a.u.a.h.c.a(this.f29884h.q) != 0) {
+                                            b.a.u.a.g.a.a(this.f29884h.q).b(new a(this));
                                         }
-                                        b.a.u.a.h.e.a("SocketTransceiver", "connectImpl time:" + this.f29015h.v);
-                                        f.D.f28961a = -2;
-                                        this.f29015h.o = false;
-                                        this.f29015h.l = new j(this.f29015h, this.f29013f);
-                                        this.f29015h.l.start();
-                                        this.f29015h.m = new i(this.f29015h, this.f29013f);
-                                        this.f29015h.m.start();
+                                        b.a.u.a.h.e.a("SocketTransceiver", "connectImpl time:" + this.f29884h.v);
+                                        f.D.f29830a = -2;
+                                        this.f29884h.o = false;
+                                        this.f29884h.l = new j(this.f29884h, this.f29882f);
+                                        this.f29884h.l.start();
+                                        this.f29884h.m = new i(this.f29884h, this.f29882f);
+                                        this.f29884h.m.start();
                                         return;
                                     }
                                     b.a.u.a.h.e.a("SocketTransceiver", "socketNeedCloseMap but socket has created ok.");
-                                    this.f29015h.J(e3);
+                                    this.f29884h.J(e3);
                                     return;
                                 }
                             } else {
-                                b.a.u.a.a.a.h(this.f29015h.q).g(601110).c("flow_end_time", System.currentTimeMillis()).d("P14", "connect env error:" + this.f29013f).d("con_err_code", "P14").b("retry_cout", this.f29015h.p.get()).e();
-                                this.f29015h.u.removeCallbacks(runnableC1401f);
-                                this.f29015h.i0("connect env error:", this.f29013f);
+                                b.a.u.a.a.a.h(this.f29884h.q).g(601110).c("flow_end_time", System.currentTimeMillis()).d("P14", "connect env error:" + this.f29882f).d("con_err_code", "P14").b("retry_cout", this.f29884h.p.get()).e();
+                                this.f29884h.u.removeCallbacks(runnableC1443f);
+                                this.f29884h.i0("connect env error:", this.f29882f);
                                 return;
                             }
                         } catch (Throwable th) {
                             String str = "Throwable : " + th;
                             b.a.u.a.h.e.c("SocketTransceiver", str, th);
-                            this.f29015h.u.removeCallbacks(runnableC1401f);
-                            runnableC1401f.a();
-                            synchronized (this.f29015h.f28996a) {
-                                if (this.f29015h.f28996a.get(this.f29014g) != null) {
-                                    this.f29015h.f28996a.remove(this.f29014g);
+                            this.f29884h.u.removeCallbacks(runnableC1443f);
+                            runnableC1443f.a();
+                            synchronized (this.f29884h.f29865a) {
+                                if (this.f29884h.f29865a.get(this.f29883g) != null) {
+                                    this.f29884h.f29865a.remove(this.f29883g);
                                     return;
                                 }
-                                this.f29015h.O("ConnectTask exception:" + str, this.f29013f);
+                                this.f29884h.O("ConnectTask exception:" + str, this.f29882f);
                                 return;
                             }
                         }
                     }
                     b.a.u.a.h.e.a("SocketTransceiver", "socket create begin, but socket has created ok.");
-                    b.a.u.a.a.a.h(this.f29015h.q).g(601110).d("P11", "socket create begin, but socket has created ok.").d("con_err_code", "P11").c("flow_end_time", System.currentTimeMillis()).b("retry_cout", this.f29015h.p.get()).e();
+                    b.a.u.a.a.a.h(this.f29884h.q).g(601110).d("P11", "socket create begin, but socket has created ok.").d("con_err_code", "P11").c("flow_end_time", System.currentTimeMillis()).b("retry_cout", this.f29884h.p.get()).e();
                 }
             }
         }
@@ -428,23 +428,23 @@ public final class f extends Observable {
 
     /* renamed from: b.a.u.a.c.f$f  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC1401f implements Runnable {
+    public class RunnableC1443f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Integer f29017e;
+        public Integer f29886e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f29018f;
+        public boolean f29887f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f29019g;
+        public String f29888g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ f f29020h;
+        public final /* synthetic */ f f29889h;
 
-        public RunnableC1401f(f fVar, Integer num, String str) {
+        public RunnableC1443f(f fVar, Integer num, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -459,16 +459,16 @@ public final class f extends Observable {
                     return;
                 }
             }
-            this.f29020h = fVar;
-            this.f29018f = false;
-            this.f29017e = num;
-            this.f29019g = str;
+            this.f29889h = fVar;
+            this.f29887f = false;
+            this.f29886e = num;
+            this.f29888g = str;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29018f = true;
+                this.f29887f = true;
             }
         }
 
@@ -476,15 +476,15 @@ public final class f extends Observable {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                synchronized (this.f29020h.f28996a) {
-                    if (!this.f29018f && f.D.f28961a != 0) {
-                        this.f29020h.f28996a.put(this.f29017e, Boolean.TRUE);
-                        b.a.u.a.a.a.h(this.f29020h.q).g(601110).c("socket_end", System.currentTimeMillis());
-                        this.f29020h.O("time out:", this.f29019g);
+                synchronized (this.f29889h.f29865a) {
+                    if (!this.f29887f && f.D.f29830a != 0) {
+                        this.f29889h.f29865a.put(this.f29886e, Boolean.TRUE);
+                        b.a.u.a.a.a.h(this.f29889h.q).g(601110).c("socket_end", System.currentTimeMillis());
+                        this.f29889h.O("time out:", this.f29888g);
                         return;
                     }
                     b.a.u.a.h.e.b("SocketTransceiver", "ConnectTimeOutTask has stoped");
-                    this.f29020h.u.removeCallbacks(this);
+                    this.f29889h.u.removeCallbacks(this);
                 }
             }
         }
@@ -496,10 +496,10 @@ public final class f extends Observable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f29021a;
+        public String f29890a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f29022b;
+        public final /* synthetic */ f f29891b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(f fVar, Looper looper) {
@@ -519,13 +519,13 @@ public final class f extends Observable {
                     return;
                 }
             }
-            this.f29022b = fVar;
+            this.f29891b = fVar;
         }
 
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f29021a = str;
+                this.f29890a = str;
             }
         }
 
@@ -538,8 +538,8 @@ public final class f extends Observable {
                     return;
                 }
                 long j = message.arg1;
-                synchronized (this.f29022b.f29003h) {
-                    this.f29022b.Y(j, this.f29021a);
+                synchronized (this.f29891b.f29872h) {
+                    this.f29891b.Y(j, this.f29890a);
                 }
             }
         }
@@ -551,10 +551,10 @@ public final class f extends Observable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f29025e;
+        public String f29894e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f29026f;
+        public final /* synthetic */ f f29895f;
 
         public i(f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -571,8 +571,8 @@ public final class f extends Observable {
                     return;
                 }
             }
-            this.f29026f = fVar;
-            this.f29025e = str;
+            this.f29895f = fVar;
+            this.f29894e = str;
             setName("LCP-SocketTransceiver-readThread");
         }
 
@@ -581,57 +581,57 @@ public final class f extends Observable {
             b.a.u.a.c.b bVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                while (!this.f29026f.o) {
+                while (!this.f29895f.o) {
                     try {
                         try {
-                            b.a.u.a.c.b c2 = this.f29026f.f29004i.c(this.f29026f.r.b());
+                            b.a.u.a.c.b c2 = this.f29895f.f29873i.c(this.f29895f.r.b());
                             if (c2 != null && c2.n > 0) {
-                                this.f29026f.u.removeCallbacks(this.f29026f.s);
+                                this.f29895f.u.removeCallbacks(this.f29895f.s);
                                 c2.m = false;
                                 b.a.u.a.h.e.d("SocketTransceiver", "ReadThread :" + c2.toString());
                                 if (!c2.k) {
-                                    if (c2.f28988i == 1 && c2.f28987h == 4) {
-                                        Context context = this.f29026f.q;
+                                    if (c2.f29857i == 1 && c2.f29856h == 4) {
+                                        Context context = this.f29895f.q;
                                         b.a.u.a.h.b.a(context, 1L, "read", c2.n + "");
                                     }
-                                    if (c2.f28988i == 50 && c2.f28987h == 2) {
-                                        Context context2 = this.f29026f.q;
+                                    if (c2.f29857i == 50 && c2.f29856h == 2) {
+                                        Context context2 = this.f29895f.q;
                                         b.a.u.a.h.b.a(context2, 50L, "read", c2.n + "");
                                     }
-                                    synchronized (this.f29026f.f29003h) {
+                                    synchronized (this.f29895f.f29872h) {
                                         b.a.u.a.h.e.a("SocketTransceiver", "ReadThread handleResponseMessage...");
-                                        bVar = (b.a.u.a.c.b) this.f29026f.f29001f.remove(Long.valueOf(c2.n));
+                                        bVar = (b.a.u.a.c.b) this.f29895f.f29870f.remove(Long.valueOf(c2.n));
                                     }
-                                    this.f29026f.W(c2, bVar, this.f29025e);
+                                    this.f29895f.W(c2, bVar, this.f29894e);
                                 }
-                                synchronized (this.f29026f.f29003h) {
-                                    if (this.f29026f.f29001f.size() != 0) {
+                                synchronized (this.f29895f.f29872h) {
+                                    if (this.f29895f.f29870f.size() != 0) {
                                         b.a.u.a.h.e.a("SocketTransceiver", "ReadThread socketTimeoutRunnable ...");
-                                        this.f29026f.s.b(c2.n);
-                                        this.f29026f.s.a(this.f29025e);
-                                        this.f29026f.u.a(this.f29025e);
-                                        this.f29026f.u.postDelayed(this.f29026f.s, c2.f28981b);
+                                        this.f29895f.s.b(c2.n);
+                                        this.f29895f.s.a(this.f29894e);
+                                        this.f29895f.u.a(this.f29894e);
+                                        this.f29895f.u.postDelayed(this.f29895f.s, c2.f29850b);
                                     }
                                 }
                             }
                         } catch (Exception e2) {
-                            if (this.f29026f.o) {
+                            if (this.f29895f.o) {
                                 return;
                             }
                             b.a.u.a.h.e.c("SocketTransceiver", "ReadThread exception: " + e2, e2);
-                            this.f29026f.f28999d = false;
-                            f fVar = this.f29026f;
-                            fVar.O("ReadThread exception: " + e2, this.f29025e);
+                            this.f29895f.f29868d = false;
+                            f fVar = this.f29895f;
+                            fVar.O("ReadThread exception: " + e2, this.f29894e);
                             return;
                         }
                     } catch (Exception e3) {
-                        if (this.f29026f.o) {
+                        if (this.f29895f.o) {
                             return;
                         }
                         b.a.u.a.h.e.c("SocketTransceiver", "onStartCommand", e3);
-                        this.f29026f.f28999d = false;
-                        f fVar2 = this.f29026f;
-                        fVar2.O("onStartCommand:" + e3, this.f29025e);
+                        this.f29895f.f29868d = false;
+                        f fVar2 = this.f29895f;
+                        fVar2.O("onStartCommand:" + e3, this.f29894e);
                         return;
                     }
                 }
@@ -645,10 +645,10 @@ public final class f extends Observable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f29027e;
+        public String f29896e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f29028f;
+        public final /* synthetic */ f f29897f;
 
         public j(f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -665,8 +665,8 @@ public final class f extends Observable {
                     return;
                 }
             }
-            this.f29028f = fVar;
-            this.f29027e = str;
+            this.f29897f = fVar;
+            this.f29896e = str;
             setName("LCP-SocketTransceiver-SendThread");
         }
 
@@ -674,70 +674,70 @@ public final class f extends Observable {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                while (!this.f29028f.o) {
+                while (!this.f29897f.o) {
                     try {
                         b.a.u.a.c.b bVar = null;
                         try {
-                            synchronized (this.f29028f.f29000e) {
-                                if (this.f29028f.f29000e.size() == 0) {
-                                    this.f29028f.f29000e.wait();
+                            synchronized (this.f29897f.f29869e) {
+                                if (this.f29897f.f29869e.size() == 0) {
+                                    this.f29897f.f29869e.wait();
                                 } else {
-                                    bVar = (b.a.u.a.c.b) this.f29028f.f29000e.removeFirst();
+                                    bVar = (b.a.u.a.c.b) this.f29897f.f29869e.removeFirst();
                                 }
                             }
                         } catch (InterruptedException e2) {
                             b.a.u.a.h.e.b("SocketTransceiver", "SendThread wait exception: " + e2);
-                            f fVar = this.f29028f;
-                            fVar.O("SendThread wait exception: " + e2, this.f29027e);
+                            f fVar = this.f29897f;
+                            fVar.O("SendThread wait exception: " + e2, this.f29896e);
                         }
                         if (bVar != null) {
                             try {
-                                if (this.f29028f.o) {
-                                    this.f29028f.X(bVar.n, this.f29027e);
+                                if (this.f29897f.o) {
+                                    this.f29897f.X(bVar.n, this.f29896e);
                                     return;
                                 }
                                 bVar.m = true;
-                                bVar.j = f.D.f28961a;
+                                bVar.j = f.D.f29830a;
                                 if (bVar.o) {
-                                    synchronized (this.f29028f.f29003h) {
-                                        if (this.f29028f.f29001f.isEmpty()) {
-                                            this.f29028f.u.removeCallbacks(this.f29028f.s);
-                                            this.f29028f.s.b(bVar.n);
-                                            this.f29028f.s.a(this.f29027e);
-                                            this.f29028f.u.a(this.f29027e);
-                                            this.f29028f.u.postDelayed(this.f29028f.s, 15000L);
+                                    synchronized (this.f29897f.f29872h) {
+                                        if (this.f29897f.f29870f.isEmpty()) {
+                                            this.f29897f.u.removeCallbacks(this.f29897f.s);
+                                            this.f29897f.s.b(bVar.n);
+                                            this.f29897f.s.a(this.f29896e);
+                                            this.f29897f.u.a(this.f29896e);
+                                            this.f29897f.u.postDelayed(this.f29897f.s, 15000L);
                                         }
                                     }
                                 }
                                 b.a.u.a.h.e.e("SocketTransceiver", "SendThread :" + bVar.toString());
-                                if (bVar.f28988i == 1 && bVar.f28987h == 4) {
-                                    Context context = this.f29028f.q;
+                                if (bVar.f29857i == 1 && bVar.f29856h == 4) {
+                                    Context context = this.f29897f.q;
                                     b.a.u.a.h.b.a(context, 1L, "send", bVar.n + "");
                                 }
-                                if (bVar.f28988i == 50 && bVar.f28987h == 2) {
-                                    Context context2 = this.f29028f.q;
+                                if (bVar.f29857i == 50 && bVar.f29856h == 2) {
+                                    Context context2 = this.f29897f.q;
                                     b.a.u.a.h.b.a(context2, 50L, "send", bVar.n + "");
                                 }
-                                synchronized (this.f29028f.f29002g) {
-                                    this.f29028f.r.f(bVar);
+                                synchronized (this.f29897f.f29871g) {
+                                    this.f29897f.r.f(bVar);
                                 }
                                 if (!bVar.k && bVar.o) {
-                                    synchronized (this.f29028f.f29003h) {
-                                        this.f29028f.f29001f.put(Long.valueOf(bVar.n), bVar);
+                                    synchronized (this.f29897f.f29872h) {
+                                        this.f29897f.f29870f.put(Long.valueOf(bVar.n), bVar);
                                     }
                                 }
                             } catch (Exception e3) {
                                 b.a.u.a.h.e.c("SocketTransceiver", "SendThread sendMessage Exception:", e3);
-                                this.f29028f.T(bVar.n, e3.toString(), this.f29027e);
-                                f fVar2 = this.f29028f;
-                                fVar2.O("SendThread sendMessage Exception:" + e3, this.f29027e);
+                                this.f29897f.T(bVar.n, e3.toString(), this.f29896e);
+                                f fVar2 = this.f29897f;
+                                fVar2.O("SendThread sendMessage Exception:" + e3, this.f29896e);
                                 return;
                             }
                         }
                     } catch (Exception e4) {
                         b.a.u.a.h.e.c("SocketTransceiver", "SendThread Exception:", e4);
-                        f fVar3 = this.f29028f;
-                        fVar3.O("SendThread Exception:" + e4, this.f29027e);
+                        f fVar3 = this.f29897f;
+                        fVar3.O("SendThread Exception:" + e4, this.f29896e);
                         return;
                     }
                 }
@@ -751,13 +751,13 @@ public final class f extends Observable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f29029e;
+        public long f29898e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f29030f;
+        public String f29899f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f29031g;
+        public final /* synthetic */ f f29900g;
 
         public k(f fVar) {
             Interceptable interceptable = $ic;
@@ -774,20 +774,20 @@ public final class f extends Observable {
                     return;
                 }
             }
-            this.f29031g = fVar;
+            this.f29900g = fVar;
         }
 
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f29030f = str;
+                this.f29899f = str;
             }
         }
 
         public void b(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.f29029e = j;
+                this.f29898e = j;
             }
         }
 
@@ -795,8 +795,8 @@ public final class f extends Observable {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f29031g.Y(this.f29029e, this.f29030f);
-                this.f29031g.O("read and write thread timeout:", this.f29030f);
+                this.f29900g.Y(this.f29898e, this.f29899f);
+                this.f29900g.O("read and write thread timeout:", this.f29899f);
             }
         }
 
@@ -836,15 +836,15 @@ public final class f extends Observable {
                 return;
             }
         }
-        this.f28996a = new TreeMap();
-        this.f28997b = new AtomicInteger(0);
-        this.f28998c = 0;
-        this.f28999d = false;
-        this.f29000e = new LinkedList<>();
-        this.f29001f = new LinkedHashMap();
-        this.f29002g = new Object();
-        this.f29003h = new Object();
-        this.f29004i = new b.a.u.a.e.b();
+        this.f29865a = new TreeMap();
+        this.f29866b = new AtomicInteger(0);
+        this.f29867c = 0;
+        this.f29868d = false;
+        this.f29869e = new LinkedList<>();
+        this.f29870f = new LinkedHashMap();
+        this.f29871g = new Object();
+        this.f29872h = new Object();
+        this.f29873i = new b.a.u.a.e.b();
         this.j = new LinkedHashMap();
         this.k = new LinkedHashMap();
         this.n = new h(this, null);
@@ -885,31 +885,31 @@ public final class f extends Observable {
             synchronized (this) {
                 if (b.a.u.a.h.f.m(this.q)) {
                     b.a.u.a.c.b bVar2 = new b.a.u.a.c.b();
-                    bVar2.f28987h = bLCPRequest.f38603a;
-                    bVar2.f28988i = bLCPRequest.f38604b;
-                    bVar2.f28980a = bLCPRequest.f38605c;
-                    if (bLCPRequest.f38606d < 0) {
+                    bVar2.f29856h = bLCPRequest.f39435a;
+                    bVar2.f29857i = bLCPRequest.f39436b;
+                    bVar2.f29849a = bLCPRequest.f39437c;
+                    if (bLCPRequest.f39438d < 0) {
                         bVar2.n = System.currentTimeMillis();
                     } else {
-                        bVar2.n = bLCPRequest.f38606d;
+                        bVar2.n = bLCPRequest.f39438d;
                     }
-                    int i2 = d.f29011a[bLCPRequest.f38607e.ordinal()];
+                    int i2 = d.f29880a[bLCPRequest.f39439e.ordinal()];
                     if (i2 == 1) {
-                        bVar2.f28981b = 20000L;
+                        bVar2.f29850b = 20000L;
                     } else if (i2 == 2) {
-                        bVar2.f28981b = 30000L;
+                        bVar2.f29850b = 30000L;
                     } else if (i2 != 3) {
-                        bVar2.f28981b = 15000L;
+                        bVar2.f29850b = 15000L;
                     } else {
-                        bVar2.f28981b = 50000L;
+                        bVar2.f29850b = 50000L;
                     }
                     if (bLCPRequest instanceof b.a.u.a.b.d.a) {
-                        long j2 = (bVar2.f28987h * 10000) + bVar2.f28988i;
+                        long j2 = (bVar2.f29856h * 10000) + bVar2.f29857i;
                         bVar2.n = j2;
-                        g0(bVar2.f28987h, bVar2.f28988i, j2, true, bVar);
+                        g0(bVar2.f29856h, bVar2.f29857i, j2, true, bVar);
                     } else {
-                        g0(bVar2.f28987h, bVar2.f28988i, bVar2.n, false, bVar);
-                        this.f29004i.a(bVar2, true);
+                        g0(bVar2.f29856h, bVar2.f29857i, bVar2.n, false, bVar);
+                        this.f29873i.a(bVar2, true);
                         f0(bVar2);
                     }
                 }
@@ -922,29 +922,29 @@ public final class f extends Observable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b.a.u.a.c.d dVar = this.r;
-            return (dVar == null || dVar.a() == null || this.r.a().f28993c == null || !this.r.a().f28993c.isConnected()) ? false : true;
+            return (dVar == null || dVar.a() == null || this.r.a().f29862c == null || !this.r.a().f29862c.isConnected()) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
     public final void J(b.a.u.a.c.e eVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) && eVar != null && eVar.f28991a.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) && eVar != null && eVar.f29860a.booleanValue()) {
             try {
-                if (eVar.f28993c != null) {
-                    if (eVar.f28993c.hashCode() == this.r.a().f28993c.hashCode()) {
+                if (eVar.f29862c != null) {
+                    if (eVar.f29862c.hashCode() == this.r.a().f29862c.hashCode()) {
                         b.a.u.a.h.e.e("SocketTransceiver", "closeExistedConnection  state.socket.hashCode() is same to cur socket!!!");
                         return;
                     }
-                    eVar.f28993c.close();
-                    eVar.f28993c = null;
-                    if (eVar.f28994d != null) {
-                        eVar.f28994d.close();
-                        eVar.f28994d = null;
+                    eVar.f29862c.close();
+                    eVar.f29862c = null;
+                    if (eVar.f29863d != null) {
+                        eVar.f29863d.close();
+                        eVar.f29863d = null;
                     }
-                    if (eVar.f28995e != null) {
-                        eVar.f28995e.close();
-                        eVar.f28995e = null;
+                    if (eVar.f29864e != null) {
+                        eVar.f29864e.close();
+                        eVar.f29864e = null;
                     }
                     b.a.u.a.h.e.a("SocketTransceiver", "closeExistedConnection ok");
                 }
@@ -985,15 +985,15 @@ public final class f extends Observable {
                     d0();
                     return;
                 }
-                if (D.f28961a != 0 && D.f28961a != -2) {
+                if (D.f29830a != 0 && D.f29830a != -2) {
                     this.u.removeCallbacks(this.B);
                     this.u.removeCallbacks(this.C);
                     this.u.removeCallbacks(this.n);
                     c0();
                     return;
                 }
-                b.a.u.a.h.e.d("SocketTransceiver", "connectImpl connect state:" + D.f28961a);
-                b.a.u.a.a.a.h(this.q).g(601110).b("inner_connect_state", D.f28961a).c("flow_end_time", System.currentTimeMillis()).d("P33", "connectImpl error").d("con_err_code", "P33").b("retry_cout", this.p.get()).e();
+                b.a.u.a.h.e.d("SocketTransceiver", "connectImpl connect state:" + D.f29830a);
+                b.a.u.a.a.a.h(this.q).g(601110).b("inner_connect_state", D.f29830a).c("flow_end_time", System.currentTimeMillis()).d("P33", "connectImpl error").d("con_err_code", "P33").b("retry_cout", this.p.get()).e();
             }
         }
     }
@@ -1004,15 +1004,15 @@ public final class f extends Observable {
             synchronized (this) {
                 if (b.a.u.a.h.f.m(this.q)) {
                     b.a.u.a.h.e.d("SocketTransceiver", "destroy");
-                    D.f28961a = -1;
+                    D.f29830a = -1;
                     setChanged();
                     notifyObservers(D);
                     Z();
                     this.u.removeCallbacks(this.s);
                     this.o = true;
                     if (this.r != null) {
-                        synchronized (this.f29000e) {
-                            this.f29000e.notifyAll();
+                        synchronized (this.f29869e) {
+                            this.f29869e.notifyAll();
                             b.a.u.a.h.e.d("SocketTransceiver", "destroy notifyAll");
                         }
                         try {
@@ -1032,7 +1032,7 @@ public final class f extends Observable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             synchronized (this) {
-                b.a.u.a.h.e.d("SocketTransceiver", "disconnectedByLcp, destroyConnection = " + this.f28999d + ", net :" + RequsetNetworkUtils.isConnected(this.q) + ", isSmallFlow :" + b.a.u.a.h.f.m(this.q));
+                b.a.u.a.h.e.d("SocketTransceiver", "disconnectedByLcp, destroyConnection = " + this.f29868d + ", net :" + RequsetNetworkUtils.isConnected(this.q) + ", isSmallFlow :" + b.a.u.a.h.f.m(this.q));
                 b.a.u.a.a.a.h(this.q).g(601110).d("P13", str).d("con_err_code", "P13").c("flow_end_time", System.currentTimeMillis()).b("retry_cout", this.p.get()).e();
                 b.a.u.a.a.c c2 = b.a.u.a.a.a.h(this.q).b(601110).c("flow_start_time", System.currentTimeMillis());
                 StringBuilder sb = new StringBuilder();
@@ -1041,9 +1041,9 @@ public final class f extends Observable {
                 c2.d("source", sb.toString());
                 if (b.a.u.a.h.f.m(this.q)) {
                     P(str2);
-                    if (this.f28999d) {
+                    if (this.f29868d) {
                         b.a.u.a.a.c c3 = b.a.u.a.a.a.h(this.q).g(601110).c("flow_end_time", System.currentTimeMillis());
-                        c3.d("P16", "disconnectedByLcp:" + this.f28999d).d("con_err_code", "P16").b("retry_cout", this.p.get()).e();
+                        c3.d("P16", "disconnectedByLcp:" + this.f29868d).d("con_err_code", "P16").b("retry_cout", this.p.get()).e();
                         d0();
                         return;
                     }
@@ -1064,18 +1064,18 @@ public final class f extends Observable {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             try {
                 b.a.u.a.h.e.a("SocketTransceiver", "fatalAllMessage begin ");
-                synchronized (this.f29000e) {
-                    while (this.f29000e.size() > 0) {
-                        Q(this.f29000e.removeFirst(), str);
+                synchronized (this.f29869e) {
+                    while (this.f29869e.size() > 0) {
+                        Q(this.f29869e.removeFirst(), str);
                     }
                     b.a.u.a.h.e.a("SocketTransceiver", "fatalAllMessage sendQueue end ");
                 }
-                synchronized (this.f29003h) {
+                synchronized (this.f29872h) {
                     b.a.u.a.h.e.a("SocketTransceiver", "fatalAllMessage mSync begin");
-                    for (Long l : this.f29001f.keySet()) {
-                        Q(this.f29001f.get(l), str);
+                    for (Long l : this.f29870f.keySet()) {
+                        Q(this.f29870f.get(l), str);
                     }
-                    this.f29001f.clear();
+                    this.f29870f.clear();
                     b.a.u.a.h.e.a("SocketTransceiver", "fatalAllMessage mSync end");
                 }
             } catch (Exception e2) {
@@ -1086,10 +1086,10 @@ public final class f extends Observable {
 
     public final void Q(b.a.u.a.c.b bVar, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, bVar, str) == null) || bVar == null || bVar.f28987h == 1) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, bVar, str) == null) || bVar == null || bVar.f29856h == 1) {
             return;
         }
-        b.a.u.a.h.e.b("SocketTransceiver", "fetalAndClearAllMsgs :" + bVar.n + ", serviceId :" + bVar.f28987h + ", methodId :" + bVar.f28988i);
+        b.a.u.a.h.e.b("SocketTransceiver", "fetalAndClearAllMsgs :" + bVar.n + ", serviceId :" + bVar.f29856h + ", methodId :" + bVar.f29857i);
         W(new b.a.u.a.c.b(), bVar, str);
     }
 
@@ -1103,16 +1103,16 @@ public final class f extends Observable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
             try {
-                if (this.f29001f.size() <= 0 || !this.f29001f.containsKey(Long.valueOf(j2))) {
+                if (this.f29870f.size() <= 0 || !this.f29870f.containsKey(Long.valueOf(j2))) {
                     return;
                 }
-                b.a.u.a.h.e.a("SocketTransceiver", "handle msg exception!!! " + this.f29001f.get(Long.valueOf(j2)).toString());
-                b.a.u.a.c.b remove = this.f29001f.remove(Long.valueOf(j2));
+                b.a.u.a.h.e.a("SocketTransceiver", "handle msg exception!!! " + this.f29870f.get(Long.valueOf(j2)).toString());
+                b.a.u.a.c.b remove = this.f29870f.remove(Long.valueOf(j2));
                 if (remove == null) {
                     return;
                 }
-                remove.f28982c = 8005;
-                remove.f28983d = "socket exception :" + str;
+                remove.f29851c = 8005;
+                remove.f29852d = "socket exception :" + str;
                 W(remove, remove, str2);
             } catch (Exception e2) {
                 b.a.u.a.h.e.a("SocketTransceiver", "handle msg exception!!! " + e2);
@@ -1124,10 +1124,10 @@ public final class f extends Observable {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, bVar, str) == null) {
-            if (bVar.f28982c == 0) {
-                long j2 = bVar.f28986g;
+            if (bVar.f29851c == 0) {
+                long j2 = bVar.f29855g;
                 long j3 = j2 > 0 ? j2 : 60000L;
-                long j4 = bVar.f28988i;
+                long j4 = bVar.f29857i;
                 if (j4 == 1) {
                     V(j3, true, str);
                     return;
@@ -1139,21 +1139,21 @@ public final class f extends Observable {
                     return;
                 } else {
                     i0("LCP logout:", str);
-                    D.f28961a = bVar.j;
+                    D.f29830a = bVar.j;
                     setChanged();
                     notifyObservers(D);
                     Z();
                     return;
                 }
             }
-            String str2 = " errorcode:" + bVar.f28982c + " errmsg:" + bVar.f28983d;
-            if (!String.valueOf(bVar.f28982c).startsWith("30") && (i2 = bVar.f28982c) != 1011 && i2 != 2003) {
+            String str2 = " errorcode:" + bVar.f29851c + " errmsg:" + bVar.f29852d;
+            if (!String.valueOf(bVar.f29851c).startsWith("30") && (i2 = bVar.f29851c) != 1011 && i2 != 2003) {
                 if (i2 != 1012) {
                     if (i2 == 1013) {
                         V(60000L, false, str);
                         return;
                     }
-                    D.f28961a = -1;
+                    D.f29830a = -1;
                     setChanged();
                     notifyObservers(D);
                     Z();
@@ -1161,11 +1161,11 @@ public final class f extends Observable {
                     return;
                 }
                 b.a.u.a.a.a.h(this.q).g(601110).c("flow_end_time", System.currentTimeMillis()).c("login_end", System.currentTimeMillis()).d("P45", "lcp login failed:" + str2).d("con_err_code", "P45").b("retry_cout", this.p.get()).e();
-                b.a.u.a.h.e.a("SocketTransceiver", "login error :" + bVar.f28982c);
+                b.a.u.a.h.e.a("SocketTransceiver", "login error :" + bVar.f29851c);
                 return;
             }
-            b.a.u.a.h.e.a("SocketTransceiver", "login error, then request token, error :" + bVar.f28982c);
-            i0("errorCode:" + String.valueOf(bVar.f28982c), str);
+            b.a.u.a.h.e.a("SocketTransceiver", "login error, then request token, error :" + bVar.f29851c);
+            i0("errorCode:" + String.valueOf(bVar.f29851c), str);
             b.a.u.a.h.f.z(this.q, "");
             b.a.u.a.a.a.h(this.q).g(601110).c("flow_end_time", System.currentTimeMillis()).c("login_end", System.currentTimeMillis()).d("P45", "lcp login failed:" + str2).d("con_err_code", "P45").b("retry_cout", this.p.get()).e();
             b.a.u.a.a.a.h(this.q).b(601110).c("flow_start_time", System.currentTimeMillis()).d("source", "lcp login failed:" + str2);
@@ -1179,7 +1179,7 @@ public final class f extends Observable {
             try {
                 b.a.u.a.a.a.h(this.q).g(601110).c("login_end", System.currentTimeMillis()).c("flow_end_time", System.currentTimeMillis()).b("connect_state", 4).d("P55", "lcp login success").d("con_err_code", "lcp login success").b("retry_cout", this.p.get()).e();
                 this.p.set(0);
-                D.f28961a = 0;
+                D.f29830a = 0;
                 setChanged();
                 notifyObservers(D);
                 Z();
@@ -1197,14 +1197,14 @@ public final class f extends Observable {
     public final void W(b.a.u.a.c.b bVar, b.a.u.a.c.b bVar2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048590, this, bVar, bVar2, str) == null) {
-            long j2 = bVar.f28987h;
+            long j2 = bVar.f29856h;
             if (j2 == 1) {
                 U(bVar, str);
             } else if (j2 != -1) {
                 a0(bVar);
             } else if (bVar2 == null) {
             } else {
-                if (bVar2.f28987h == 1) {
+                if (bVar2.f29856h == 1) {
                     U(bVar2, str);
                 } else {
                     a0(bVar2);
@@ -1217,16 +1217,16 @@ public final class f extends Observable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048591, this, j2, str) == null) {
             try {
-                if (this.f29001f.size() <= 0 || !this.f29001f.containsKey(Long.valueOf(j2))) {
+                if (this.f29870f.size() <= 0 || !this.f29870f.containsKey(Long.valueOf(j2))) {
                     return;
                 }
-                b.a.u.a.h.e.a("SocketTransceiver", "handle msg socket stoped!!! " + this.f29001f.get(Long.valueOf(j2)).toString());
-                b.a.u.a.c.b remove = this.f29001f.remove(Long.valueOf(j2));
+                b.a.u.a.h.e.a("SocketTransceiver", "handle msg socket stoped!!! " + this.f29870f.get(Long.valueOf(j2)).toString());
+                b.a.u.a.c.b remove = this.f29870f.remove(Long.valueOf(j2));
                 if (remove == null) {
                     return;
                 }
-                remove.f28982c = 8006;
-                remove.f28983d = "socket stopped :";
+                remove.f29851c = 8006;
+                remove.f29852d = "socket stopped :";
                 W(remove, remove, str);
             } catch (Exception e2) {
                 b.a.u.a.h.e.a("SocketTransceiver", "handle msg socket stoped!!! " + e2);
@@ -1238,16 +1238,16 @@ public final class f extends Observable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048592, this, j2, str) == null) {
             try {
-                if (this.f29001f.size() <= 0 || !this.f29001f.containsKey(Long.valueOf(j2))) {
+                if (this.f29870f.size() <= 0 || !this.f29870f.containsKey(Long.valueOf(j2))) {
                     return;
                 }
-                b.a.u.a.h.e.a("SocketTransceiver", "handle msg timeout!!! " + this.f29001f.get(Long.valueOf(j2)).toString());
-                b.a.u.a.c.b remove = this.f29001f.remove(Long.valueOf(j2));
+                b.a.u.a.h.e.a("SocketTransceiver", "handle msg timeout!!! " + this.f29870f.get(Long.valueOf(j2)).toString());
+                b.a.u.a.c.b remove = this.f29870f.remove(Long.valueOf(j2));
                 if (remove == null) {
                     return;
                 }
-                remove.f28982c = 8004;
-                remove.f28983d = "socket timeout";
+                remove.f29851c = 8004;
+                remove.f29852d = "socket timeout";
                 W(remove, remove, str);
             } catch (Exception e2) {
                 b.a.u.a.h.e.a("SocketTransceiver", "handle msg timeout!!! " + e2);
@@ -1259,7 +1259,7 @@ public final class f extends Observable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             Intent intent = new Intent();
-            intent.putExtra("com.baidu.lcp.sdk.connect.state", D.f28961a);
+            intent.putExtra("com.baidu.lcp.sdk.connect.state", D.f29830a);
             intent.setAction("com.baidu.lcp.sdk.broadcast");
             LocalBroadcastManager.getInstance(this.q).sendBroadcast(intent);
         }
@@ -1271,7 +1271,7 @@ public final class f extends Observable {
             synchronized (this) {
                 b.a.u.a.b.d.b bVar2 = null;
                 try {
-                    Long valueOf = Long.valueOf(!bVar.f28984e ? bVar.n : (bVar.f28987h * 10000) + bVar.f28988i);
+                    Long valueOf = Long.valueOf(!bVar.f29853e ? bVar.n : (bVar.f29856h * 10000) + bVar.f29857i);
                     b.a.u.a.h.e.a("SocketTransceiver", "onBLCPResponse key:" + valueOf + ", msgId :" + bVar.n + ", invoke keys :" + this.j.keySet().toString() + ", notify keys :" + this.k.keySet().toString());
                     if (this.k.size() > 0 && this.k.containsKey(valueOf)) {
                         bVar2 = this.k.get(valueOf);
@@ -1279,11 +1279,11 @@ public final class f extends Observable {
                         bVar2 = this.j.remove(valueOf);
                     }
                     if (bVar2 != null) {
-                        b.a.u.a.h.e.a("SocketTransceiver", "onBLCPResponse methodId :" + bVar.f28988i + ", serviceId :" + bVar.f28987h + ", error :" + bVar.f28982c + ", msgId :" + bVar.n + ", errMsg :" + bVar.f28983d + ", invoke keys :" + this.j.keySet().toString());
-                        bVar2.onResponse(bVar.f28982c, bVar.f28983d, bVar.f28987h, bVar.f28988i, bVar.n, bVar.f28985f);
-                        if (bVar.f28982c == 1011) {
-                            b.a.u.a.h.e.a("SocketTransceiver", "onBLCPResponse errorCode :" + bVar.f28982c + ", and will send lcm login msg .");
-                            f0(this.f29004i.b(this.q, 1L));
+                        b.a.u.a.h.e.a("SocketTransceiver", "onBLCPResponse methodId :" + bVar.f29857i + ", serviceId :" + bVar.f29856h + ", error :" + bVar.f29851c + ", msgId :" + bVar.n + ", errMsg :" + bVar.f29852d + ", invoke keys :" + this.j.keySet().toString());
+                        bVar2.onResponse(bVar.f29851c, bVar.f29852d, bVar.f29856h, bVar.f29857i, bVar.n, bVar.f29854f);
+                        if (bVar.f29851c == 1011) {
+                            b.a.u.a.h.e.a("SocketTransceiver", "onBLCPResponse errorCode :" + bVar.f29851c + ", and will send lcm login msg .");
+                            f0(this.f29873i.b(this.q, 1L));
                         }
                     }
                 } catch (Exception e2) {
@@ -1297,7 +1297,7 @@ public final class f extends Observable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             b.a.u.a.h.e.a("SocketTransceiver", "customPingRunnable send PingRequest ");
-            f0(this.f29004i.b(this.q, 3L));
+            f0(this.f29873i.b(this.q, 3L));
         }
     }
 
@@ -1310,16 +1310,16 @@ public final class f extends Observable {
                     L(this.x, this.y, this.z);
                     return;
                 }
-                b.a.u.a.h.e.f("SocketTransceiver", "protocolOption  thread :" + Thread.activeCount() + ", cur :" + Thread.currentThread() + "， protocol count :" + this.f28998c);
-                String[] split = b.a.u.a.h.f.h(this.q, this.f28998c).split(":");
+                b.a.u.a.h.e.f("SocketTransceiver", "protocolOption  thread :" + Thread.activeCount() + ", cur :" + Thread.currentThread() + "， protocol count :" + this.f29867c);
+                String[] split = b.a.u.a.h.f.h(this.q, this.f29867c).split(":");
                 if (split.length < 3) {
                     return;
                 }
-                String str = TextUtils.isEmpty(split[0]) ? b.c.f36147d : split[0];
+                String str = TextUtils.isEmpty(split[0]) ? b.c.f36976d : split[0];
                 String str2 = split[1];
                 String str3 = split[2];
-                if (this.f28998c >= b.a.u.a.h.f.i(this.q)) {
-                    this.f28998c = 0;
+                if (this.f29867c >= b.a.u.a.h.f.i(this.q)) {
+                    this.f29867c = 0;
                     b.a.u.a.h.e.a("SocketTransceiver", "protocolOption failed, connectip:" + str2 + ", port:" + str3 + ", protocolType:" + str);
                     this.r = new b.a.u.a.c.g(this.q, "tls");
                     this.x = "lcs.baidu.com";
@@ -1330,10 +1330,10 @@ public final class f extends Observable {
                 }
                 if ("quic".equals(str) && !(this.r instanceof QuicMessageHandler)) {
                     this.r = new QuicMessageHandler(this.q);
-                } else if (b.c.f36147d.equals(str) || ("tls".equals(str) && !(this.r instanceof b.a.u.a.c.g))) {
+                } else if (b.c.f36976d.equals(str) || ("tls".equals(str) && !(this.r instanceof b.a.u.a.c.g))) {
                     this.r = new b.a.u.a.c.g(this.q, str);
                 }
-                this.f28998c++;
+                this.f29867c++;
                 if (this.r != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
                     b.a.u.a.h.e.a("SocketTransceiver", "type :" + str + ", host :" + str2 + ", port :" + str3);
                     this.x = str2;
@@ -1352,7 +1352,7 @@ public final class f extends Observable {
     public final void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f28998c = 0;
+            this.f29867c = 0;
             this.p.set(0);
             b.a.u.a.c.a.i();
         }
@@ -1363,7 +1363,7 @@ public final class f extends Observable {
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             try {
                 this.p.incrementAndGet();
-                if (this.p.get() <= 10 && D.f28961a == -1) {
+                if (this.p.get() <= 10 && D.f29830a == -1) {
                     long K = K(this.p.get());
                     this.u.removeCallbacks(this.n);
                     this.u.removeCallbacks(z ? this.B : this.C);
@@ -1381,7 +1381,7 @@ public final class f extends Observable {
                     return;
                 }
                 b.a.u.a.a.c c2 = b.a.u.a.a.a.h(this.q).g(601110).c("flow_end_time", System.currentTimeMillis());
-                c2.d("P19", "failedNumber：" + this.p.get() + ",connectState:" + D.f28961a).d("con_err_code", "P19").b("retry_cout", this.p.get()).e();
+                c2.d("P19", "failedNumber：" + this.p.get() + ",connectState:" + D.f29830a).d("con_err_code", "P19").b("retry_cout", this.p.get()).e();
             } catch (Exception e2) {
                 b.a.u.a.a.c c3 = b.a.u.a.a.a.h(this.q).g(601110).c("flow_end_time", System.currentTimeMillis());
                 c3.d("P20", "retry exception:" + e2).d("con_err_code", "P20").b("retry_cout", this.p.get()).e();
@@ -1398,9 +1398,9 @@ public final class f extends Observable {
                 } catch (Exception e2) {
                     b.a.u.a.h.e.c("SocketTransceiver", "sendMessage Exception :", e2);
                 }
-                synchronized (this.f29000e) {
+                synchronized (this.f29869e) {
                     boolean z = false;
-                    Iterator<b.a.u.a.c.b> it = this.f29000e.iterator();
+                    Iterator<b.a.u.a.c.b> it = this.f29869e.iterator();
                     while (it.hasNext()) {
                         b.a.u.a.c.b next = it.next();
                         b.a.u.a.h.e.a("SocketTransceiver", "sendMessage queue :" + next.n);
@@ -1409,31 +1409,31 @@ public final class f extends Observable {
                         }
                     }
                     if (bVar.l) {
-                        if (!z && D.f28961a == -1) {
-                            this.f29000e.addFirst(bVar);
-                            this.f29000e.notifyAll();
+                        if (!z && D.f29830a == -1) {
+                            this.f29869e.addFirst(bVar);
+                            this.f29869e.notifyAll();
                         }
-                        b.a.u.a.h.e.b("SocketTransceiver", "sendMessage cur methodId :1, state :" + D.f28961a);
-                    } else if (D.f28961a == -1) {
+                        b.a.u.a.h.e.b("SocketTransceiver", "sendMessage cur methodId :1, state :" + D.f29830a);
+                    } else if (D.f29830a == -1) {
                         if (I()) {
-                            if (this.f29000e.size() <= 0 || !z) {
-                                this.f29000e.addFirst(this.f29004i.b(this.q, 1L));
-                                this.f29000e.notifyAll();
+                            if (this.f29869e.size() <= 0 || !z) {
+                                this.f29869e.addFirst(this.f29873i.b(this.q, 1L));
+                                this.f29869e.notifyAll();
                             }
                             if (!bVar.k) {
-                                this.f29000e.add(bVar);
-                                this.f29000e.notifyAll();
+                                this.f29869e.add(bVar);
+                                this.f29869e.notifyAll();
                             }
                         } else {
                             if (bVar.k) {
                                 b.a.u.a.a.a.h(this.q).b(601110).c("flow_start_time", System.currentTimeMillis()).d("source", "ping");
                                 c0();
                             }
-                            this.f29000e.add(bVar);
+                            this.f29869e.add(bVar);
                         }
                     } else {
-                        this.f29000e.add(bVar);
-                        this.f29000e.notifyAll();
+                        this.f29869e.add(bVar);
+                        this.f29869e.notifyAll();
                     }
                 }
             }
@@ -1468,7 +1468,7 @@ public final class f extends Observable {
                 if (b.a.u.a.h.f.m(this.q)) {
                     b.a.u.a.h.e.d("SocketTransceiver", "---socketDisconnect---");
                     this.o = true;
-                    this.f28999d = true;
+                    this.f29868d = true;
                     P(str2);
                     d0();
                     this.u.removeCallbacks(this.B);
@@ -1487,10 +1487,10 @@ public final class f extends Observable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f29023e;
+        public long f29892e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f29024f;
+        public final /* synthetic */ f f29893f;
 
         public h(f fVar) {
             Interceptable interceptable = $ic;
@@ -1507,14 +1507,14 @@ public final class f extends Observable {
                     return;
                 }
             }
-            this.f29024f = fVar;
-            this.f29023e = 60000L;
+            this.f29893f = fVar;
+            this.f29892e = 60000L;
         }
 
         public void a(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.f29023e = j;
+                this.f29892e = j;
             }
         }
 
@@ -1522,11 +1522,11 @@ public final class f extends Observable {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f29024f.u.removeCallbacks(this.f29024f.n);
-                if (b.a.u.a.h.f.m(this.f29024f.q)) {
-                    this.f29024f.u.postDelayed(this.f29024f.n, this.f29023e);
-                    f fVar = this.f29024f;
-                    fVar.f0(fVar.f29004i.b(this.f29024f.q, 3L));
+                this.f29893f.u.removeCallbacks(this.f29893f.n);
+                if (b.a.u.a.h.f.m(this.f29893f.q)) {
+                    this.f29893f.u.postDelayed(this.f29893f.n, this.f29892e);
+                    f fVar = this.f29893f;
+                    fVar.f0(fVar.f29873i.b(this.f29893f.q, 3L));
                 }
             }
         }

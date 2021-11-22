@@ -7,7 +7,7 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,21 +22,21 @@ public class ArrowView extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f53471i = 20;
+    public static int f54390i = 20;
     public static int j = 13;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53472e;
+    public int f54391e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53473f;
+    public int f54392f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f53474g;
+    public Paint f54393g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f53475h;
+    public Path f54394h;
 
     static {
         InterceptResult invokeClinit;
@@ -77,13 +77,13 @@ public class ArrowView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            f53471i = l.g(context, R.dimen.tbds20);
+            f54390i = l.g(context, R.dimen.tbds20);
             j = l.g(context, R.dimen.tbds13);
             Paint paint = new Paint();
-            this.f53474g = paint;
+            this.f54393g = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
-            this.f53474g.setAntiAlias(true);
-            this.f53475h = new Path();
+            this.f54393g.setAntiAlias(true);
+            this.f54394h = new Path();
         }
     }
 
@@ -92,12 +92,12 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f53475h.reset();
-            this.f53475h.moveTo(this.f53472e / 2, 0.0f);
-            this.f53475h.lineTo(0.0f, this.f53473f);
-            this.f53475h.lineTo(this.f53472e, this.f53473f);
-            this.f53475h.close();
-            canvas.drawPath(this.f53475h, this.f53474g);
+            this.f54394h.reset();
+            this.f54394h.moveTo(this.f54391e / 2, 0.0f);
+            this.f54394h.lineTo(0.0f, this.f54392f);
+            this.f54394h.lineTo(this.f54391e, this.f54392f);
+            this.f54394h.close();
+            canvas.drawPath(this.f54394h, this.f54393g);
         }
     }
 
@@ -111,9 +111,9 @@ public class ArrowView extends View {
             int mode2 = View.MeasureSpec.getMode(i3);
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(f53471i, j);
+                setMeasuredDimension(f54390i, j);
             } else if (mode == Integer.MIN_VALUE) {
-                setMeasuredDimension(f53471i, size2);
+                setMeasuredDimension(f54390i, size2);
             } else if (mode2 == Integer.MIN_VALUE) {
                 setMeasuredDimension(size, j);
             }
@@ -125,8 +125,8 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f53472e = i2;
-            this.f53473f = i3;
+            this.f54391e = i2;
+            this.f54392f = i3;
         }
     }
 

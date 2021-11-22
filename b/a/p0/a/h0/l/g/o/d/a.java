@@ -2,9 +2,10 @@ package b.a.p0.a.h0.l.g.o.d;
 
 import android.util.Pair;
 import androidx.annotation.NonNull;
-import b.a.p0.a.a2.e;
+import b.a.p0.a.d2.e;
 import b.a.p0.a.u.c.b;
 import b.a.p0.a.u.c.d;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,24 +37,35 @@ public class a extends d {
         }
     }
 
-    public b.a.p0.a.u.h.b q(String str) {
+    @Override // b.a.p0.a.u.c.d
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Preload" : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.a.u.c.d
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadStatusApi" : (String) invokeV.objValue;
+    }
+
+    public b.a.p0.a.u.h.b x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (d.f8000c) {
-                String str2 = "start get preloadStatus - " + str;
-            }
-            if (e.P() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#preloadStatus", false);
+            if (e.a0() == null) {
                 return new b.a.p0.a.u.h.b(1001, "SwanApp is null");
             }
-            Pair<b.a.p0.a.u.h.b, JSONObject> b2 = b.a.p0.a.u.i.b.b("Api-preloadStatus", str);
-            b.a.p0.a.u.h.b bVar = (b.a.p0.a.u.h.b) b2.first;
-            if (!bVar.isSuccess()) {
-                boolean z = d.f8000c;
-                return bVar;
+            Pair<b.a.p0.a.u.h.b, JSONObject> s = s(str);
+            b.a.p0.a.u.h.b bVar = (b.a.p0.a.u.h.b) s.first;
+            if (bVar.isSuccess()) {
+                b.a.p0.a.h0.l.g.o.a.c().j((JSONObject) s.second);
+                return b.a.p0.a.u.h.b.f();
             }
-            b.a.p0.a.h0.l.g.o.a.c().j((JSONObject) b2.second);
-            return new b.a.p0.a.u.h.b(0);
+            return bVar;
         }
         return (b.a.p0.a.u.h.b) invokeL.objValue;
     }

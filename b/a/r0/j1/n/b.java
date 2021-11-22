@@ -16,6 +16,6 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLLLI(65536, null, d2Var, str, str2, i2) == null) || d2Var == null || TextUtils.isEmpty(str)) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c13022").param("obj_name", str).param("tid", d2Var.s1()).param("fid", d2Var.T()).param("obj_source", d2Var.X0).param("obj_locate", str2).param("obj_type", i2).param("ab_tag", d2Var.Z0));
+        TiebaStatic.log(new StatisticItem("c13022").param("obj_name", str).param("tid", d2Var.t1()).param("fid", d2Var.T()).param("obj_source", d2Var.X0).param("obj_locate", str2).param("obj_type", i2).param("ab_tag", d2Var.Z0));
     }
 }

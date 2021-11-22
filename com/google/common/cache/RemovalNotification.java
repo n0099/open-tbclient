@@ -1,6 +1,6 @@
 package com.google.common.cache;
 
-import b.i.d.a.n;
+import b.h.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.AbstractMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class RemovalNotification<K, V> extends AbstractMap.SimpleImmutableEntry<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;

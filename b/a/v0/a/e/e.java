@@ -13,11 +13,11 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f29103b;
+    public static final e f29972b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l f29104a;
+    public l f29973a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public final class e {
                 return;
             }
         }
-        f29103b = new e();
+        f29972b = new e();
     }
 
     public e() {
@@ -48,26 +48,26 @@ public final class e {
                 return;
             }
         }
-        this.f29104a = new l();
+        this.f29973a = new l();
     }
 
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f29103b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f29972b : (e) invokeV.objValue;
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f29104a.a(str);
+            this.f29973a.a(str);
         }
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f29104a.b(str);
+            this.f29973a.b(str);
         }
     }
 }

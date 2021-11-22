@@ -1,8 +1,8 @@
 package b.a.r0.l1.y;
 
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.q;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.q;
 import b.a.q0.t.e.f;
 import b.a.r0.l1.h.l;
 import b.a.r0.l1.h.m;
@@ -28,14 +28,14 @@ public class b {
 
         /* renamed from: b.a.r0.l1.y.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1017a extends i0<Integer> {
+        public class C1085a extends i0<Integer> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ boolean f20455a;
+            public final /* synthetic */ boolean f21977a;
 
-            public C1017a(a aVar, boolean z) {
+            public C1085a(a aVar, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,17 +50,17 @@ public class b {
                         return;
                     }
                 }
-                this.f20455a = z;
+                this.f21977a = z;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // b.a.q0.d1.i0
+            @Override // b.a.q0.c1.i0
             public Integer doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (!this.f20455a) {
+                    if (!this.f21977a) {
                         b.a.r0.l1.h.b.a().b();
                     }
                     return 0;
@@ -71,11 +71,11 @@ public class b {
 
         /* renamed from: b.a.r0.l1.y.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1018b implements q<Integer> {
+        public class C1086b implements q<Integer> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1018b(a aVar) {
+            public C1086b(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class b {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.q0.d1.q
+            @Override // b.a.q0.c1.q
             /* renamed from: a */
             public void onReturnDataInUI(Integer num) {
                 Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class b {
                 m.t().p();
                 l.t().p();
             }
-            l0.c(new C1017a(this, isNull), new C1018b(this));
+            l0.c(new C1085a(this, isNull), new C1086b(this));
         }
     }
 

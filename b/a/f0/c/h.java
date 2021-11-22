@@ -16,10 +16,10 @@ public class h extends e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, String> f2873a;
+    public static HashMap<String, String> f2966a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, e> f2874b;
+    public static HashMap<String, e> f2967b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -33,7 +33,7 @@ public class h extends e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final h f2875a;
+        public static final h f2968a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public class h extends e {
                     return;
                 }
             }
-            f2875a = new h(null);
+            f2968a = new h(null);
         }
     }
 
@@ -66,8 +66,8 @@ public class h extends e {
                 return;
             }
         }
-        f2873a = new HashMap<>();
-        f2874b = new HashMap<>();
+        f2966a = new HashMap<>();
+        f2967b = new HashMap<>();
     }
 
     public /* synthetic */ h(a aVar) {
@@ -77,7 +77,7 @@ public class h extends e {
     public static h e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f2875a : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f2968a : (h) invokeV.objValue;
     }
 
     @Override // b.a.f0.c.e
@@ -87,11 +87,11 @@ public class h extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, gVar, aVar)) == null) {
             String b2 = gVar.b();
-            if (f2873a.get(b2) != null) {
-                gVar.h(b2, f2873a.get(b2));
+            if (f2966a.get(b2) != null) {
+                gVar.h(b2, f2966a.get(b2));
             }
             String e2 = gVar.e(true);
-            if (TextUtils.isEmpty(e2) || (eVar = f2874b.get(e2)) == null) {
+            if (TextUtils.isEmpty(e2) || (eVar = f2967b.get(e2)) == null) {
                 return false;
             }
             return eVar.b(context, gVar, aVar);
@@ -115,7 +115,7 @@ public class h extends e {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, eVar) == null) || TextUtils.isEmpty(str) || eVar == null) {
             return;
         }
-        f2874b.put(str, eVar);
+        f2967b.put(str, eVar);
     }
 
     public void g(e eVar) {
@@ -123,7 +123,7 @@ public class h extends e {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) || eVar == null) {
             return;
         }
-        eVar.a(f2873a);
+        eVar.a(f2966a);
     }
 
     public h() {

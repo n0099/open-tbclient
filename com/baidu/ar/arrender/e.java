@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.DuMixInput;
 import com.baidu.ar.DuMixOutput;
@@ -127,13 +128,13 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         this.hd = new com.baidu.ar.arplay.core.engine.a(Looper.getMainLooper());
         com.baidu.ar.f.c cVar = new com.baidu.ar.f.c(context);
         this.hf = cVar;
-        cVar.b(this.f36443f);
+        cVar.b(this.f37272f);
         com.baidu.ar.lua.a aVar = new com.baidu.ar.lua.a();
         this.hh = aVar;
-        aVar.b(this.f36443f);
+        aVar.b(this.f37272f);
         com.baidu.ar.steploading.d dVar = new com.baidu.ar.steploading.d(context);
         this.hg = dVar;
-        dVar.b(this.f36443f);
+        dVar.b(this.f37272f);
         this.hi = new ConcurrentHashMap<>();
         boolean A = com.baidu.ar.h.p.A(this.mContext);
         this.hl = A;
@@ -313,7 +314,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
                 com.baidu.ar.h.b.b("ARRendererBase", "addOutputSurface duMixOutput is error!!!");
                 return;
             }
-            com.baidu.ar.h.b.c("ARRendererBase", "addOutputSurface() surface = " + duMixOutput.getOutputSurface().hashCode() + " & width*height = " + duMixOutput.getOutputWidth() + "*" + duMixOutput.getOutputHeight() + " & rotation = " + duMixOutput.getRotationType() + " & mode = " + duMixOutput.getScaleType());
+            com.baidu.ar.h.b.c("ARRendererBase", "addOutputSurface() surface = " + duMixOutput.getOutputSurface().hashCode() + " & width*height = " + duMixOutput.getOutputWidth() + ProxyConfig.MATCH_ALL_SCHEMES + duMixOutput.getOutputHeight() + " & rotation = " + duMixOutput.getRotationType() + " & mode = " + duMixOutput.getScaleType());
             String addOutputSurface = this.hx.getARPRenderer().addOutputSurface((Surface) duMixOutput.getOutputSurface(), duMixOutput.getOutputWidth(), duMixOutput.getOutputHeight(), b.a(duMixOutput.getRotationType(), duMixOutput.getMirriorType()), b.a(duMixOutput.getScaleType()));
             a(addOutputSurface, this.V, duMixOutput);
             p pVar = new p(duMixOutput);

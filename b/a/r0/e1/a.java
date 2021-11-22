@@ -2,7 +2,7 @@ package b.a.r0.e1;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.NetWork;
@@ -20,11 +20,11 @@ public class a {
 
     /* renamed from: b.a.r0.e1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class RunnableC0827a implements Runnable {
+    public static class RunnableC0866a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0827a() {
+        public RunnableC0866a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             if (!l.C()) {
-                TbadkCoreApplication.getInst().handler.post(new RunnableC0827a());
+                TbadkCoreApplication.getInst().handler.post(new RunnableC0866a());
             } else {
                 e();
             }
@@ -95,7 +95,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-            b.a.q0.m.a.r(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
+            b.a.q0.m.a.s(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
         }
     }
 }

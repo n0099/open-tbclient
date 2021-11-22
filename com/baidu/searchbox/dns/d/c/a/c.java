@@ -30,13 +30,13 @@ public class c extends Exception {
         this.an = -1;
     }
 
-    public int R() {
+    public int P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.am : invokeV.intValue;
     }
 
-    public int S() {
+    public int Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.an : invokeV.intValue;

@@ -14,7 +14,7 @@ public class DevTools {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67980a;
+    public String f68901a;
 
     public DevTools() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class DevTools {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f67980a;
-            this.f67980a = null;
+            String str = this.f68901a;
+            this.f68901a = null;
             return str;
         }
         return (String) invokeV.objValue;
@@ -44,7 +44,7 @@ public class DevTools {
     public void testDemoGame(Context context, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) && !TextUtils.isEmpty(str) && context.getPackageName().equals("com.qq.e.union.demo.union")) {
-            this.f67980a = str;
+            this.f68901a = str;
         }
     }
 }

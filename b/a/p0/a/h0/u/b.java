@@ -11,7 +11,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f5808a;
+    public static int f6144a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            int i2 = f5808a;
+            int i2 = f6144a;
             return i2 != 0 ? i2 : bVar.j("preAppReadyState", 0);
         }
         return invokeL.intValue;
@@ -42,14 +42,14 @@ public class b {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f5808a = 0;
+            f6144a = 0;
         }
     }
 
     public static void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            f5808a = i2;
+            f6144a = i2;
         }
     }
 }

@@ -14,25 +14,25 @@ import java.util.List;
 import tbclient.GetVipInfo.VipBasicList;
 import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes6.dex */
-public class c implements b.a.e.l.e.n {
+public class c implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f27403e;
+    public d f28906e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<VipSpecialItem> f27404f;
+    public List<VipSpecialItem> f28907f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27405g;
+    public int f28908g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27406h;
+    public boolean f28909h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f27407i;
+    public String f28910i;
 
     static {
         InterceptResult invokeClinit;
@@ -65,39 +65,39 @@ public class c implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f27405g = 0;
-        this.f27406h = true;
-        this.f27407i = "";
+        this.f28908g = 0;
+        this.f28909h = true;
+        this.f28910i = "";
         if (vipBasicList == null || vipBasicList.item.size() <= 0) {
             return;
         }
-        this.f27407i = vipBasicList.card_id;
-        this.f27405g = vipBasicList.card_type.intValue();
+        this.f28910i = vipBasicList.card_id;
+        this.f28908g = vipBasicList.card_type.intValue();
         d dVar = new d();
-        this.f27403e = dVar;
+        this.f28906e = dVar;
         dVar.f(5);
-        this.f27403e.e(vipBasicList.class_name);
-        this.f27403e.g(vipBasicList.class_url_name);
-        this.f27403e.h(vipBasicList.class_url);
-        this.f27404f = new ArrayList();
+        this.f28906e.e(vipBasicList.class_name);
+        this.f28906e.g(vipBasicList.class_url_name);
+        this.f28906e.h(vipBasicList.class_url);
+        this.f28907f = new ArrayList();
         for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
-            this.f27404f.add(vipSpecialItem);
+            this.f28907f.add(vipSpecialItem);
         }
     }
 
     public d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27403e : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28906e : (d) invokeV.objValue;
     }
 
     public List<VipSpecialItem> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27404f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28907f : (List) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

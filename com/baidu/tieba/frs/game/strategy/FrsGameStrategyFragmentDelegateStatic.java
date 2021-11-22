@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import b.a.q0.h0.b;
 import b.a.q0.h0.c;
-import b.a.r0.x0.i0;
+import b.a.r0.x0.j0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -59,18 +59,18 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001616 || customResponsedMessage.getData() == null) {
                 return;
             }
-            i0 i0Var = (i0) customResponsedMessage.getData();
+            j0 j0Var = (j0) customResponsedMessage.getData();
             FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
-            i0Var.a(frsGameStrategyFragmentDelegateStatic);
-            if (i0Var.getContext() == null || (fragmentTabStructure = frsGameStrategyFragmentDelegateStatic.getFragmentTabStructure()) == null) {
+            j0Var.a(frsGameStrategyFragmentDelegateStatic);
+            if (j0Var.getContext() == null || (fragmentTabStructure = frsGameStrategyFragmentDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
             Bundle bundle = new Bundle();
-            bundle.putString("name", i0Var.d());
+            bundle.putString("name", j0Var.d());
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-            fragmentTabStructure.f12612a.setArguments(bundle);
+            fragmentTabStructure.f13359a.setArguments(bundle);
         }
     }
 
@@ -110,9 +110,9 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f12612a = new FrsGameStrategyMainFragment();
-            cVar.f12616e = 3;
-            cVar.f12620i = c.k;
+            cVar.f13359a = new FrsGameStrategyMainFragment();
+            cVar.f13363e = 3;
+            cVar.f13367i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;

@@ -39,8 +39,8 @@ public class a extends b.a.l.a<b.a.q0.s.q.a> {
             }
         }
         this.k = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13369c instanceof HomePageAlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13369c.getParent() == null) {
-            this.j = (HomePageAlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13369c;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14149c instanceof HomePageAlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14149c.getParent() == null) {
+            this.j = (HomePageAlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14149c;
         } else {
             this.j = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
         }

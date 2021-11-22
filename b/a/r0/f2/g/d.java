@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -27,38 +27,38 @@ public class d extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<FaceData> f16440e;
+    public List<FaceData> f17940e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f16441f;
+    public Context f17941f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.q0.d0.b f16442g;
+    public b.a.q0.d0.b f17942g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16443h;
+    public int f17943h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f16444i;
+    public int f17944i;
     public c j;
 
     /* loaded from: classes4.dex */
-    public class a extends b.a.e.e.l.c<b.a.e.l.d.a> {
+    public class a extends b.a.e.f.l.c<b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f16445a;
+        public final /* synthetic */ ViewGroup f17945a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ C0843d f16446b;
+        public final /* synthetic */ C0908d f17946b;
 
-        public a(d dVar, ViewGroup viewGroup, C0843d c0843d) {
+        public a(d dVar, ViewGroup viewGroup, C0908d c0908d) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, viewGroup, c0843d};
+                Object[] objArr = {dVar, viewGroup, c0908d};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -68,19 +68,19 @@ public class d extends BaseAdapter {
                     return;
                 }
             }
-            this.f16445a = viewGroup;
-            this.f16446b = c0843d;
+            this.f17945a = viewGroup;
+            this.f17946b = c0908d;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.l.c
-        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
             View findViewWithTag;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null || (findViewWithTag = this.f16445a.findViewWithTag(str)) == null || !(findViewWithTag instanceof TbImageView) || str == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null || (findViewWithTag = this.f17945a.findViewWithTag(str)) == null || !(findViewWithTag instanceof TbImageView) || str == null) {
                 return;
             }
-            aVar.h(this.f16446b.f16448a);
+            aVar.h(this.f17946b.f17948a);
         }
     }
 
@@ -90,7 +90,7 @@ public class d extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f16447e;
+        public final /* synthetic */ ViewGroup f17947e;
 
         public b(d dVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -107,14 +107,14 @@ public class d extends BaseAdapter {
                     return;
                 }
             }
-            this.f16447e = viewGroup;
+            this.f17947e = viewGroup;
         }
 
         @Override // b.a.q0.c0.b
-        public void imageLoaded(b.a.e.l.d.a aVar, String str, boolean z) {
+        public void imageLoaded(b.a.e.m.d.a aVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f16447e.findViewWithTag(str)) == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f17947e.findViewWithTag(str)) == null || aVar == null) {
                 return;
             }
             aVar.h(tbImageView);
@@ -130,18 +130,18 @@ public class d extends BaseAdapter {
 
     /* renamed from: b.a.r0.f2.g.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0843d {
+    public class C0908d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f16448a;
+        public TbImageView f17948a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f16449b;
+        public ImageView f17949b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f16450c;
+        public final /* synthetic */ d f17950c;
 
         /* renamed from: b.a.r0.f2.g.d$d$a */
         /* loaded from: classes4.dex */
@@ -150,14 +150,14 @@ public class d extends BaseAdapter {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0843d f16451e;
+            public final /* synthetic */ C0908d f17951e;
 
-            public a(C0843d c0843d) {
+            public a(C0908d c0908d) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0843d};
+                    Object[] objArr = {c0908d};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -167,14 +167,14 @@ public class d extends BaseAdapter {
                         return;
                     }
                 }
-                this.f16451e = c0843d;
+                this.f17951e = c0908d;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f16451e.f16450c.j != null && view.getTag(view.getId()) != null && (view.getTag(view.getId()) instanceof FaceData) && ((FaceData) view.getTag(view.getId())).type == 4) {
-                    this.f16451e.f16450c.j.onAdd();
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f17951e.f17950c.j != null && view.getTag(view.getId()) != null && (view.getTag(view.getId()) instanceof FaceData) && ((FaceData) view.getTag(view.getId())).type == 4) {
+                    this.f17951e.f17950c.j.onAdd();
                 }
             }
         }
@@ -186,14 +186,14 @@ public class d extends BaseAdapter {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0843d f16452e;
+            public final /* synthetic */ C0908d f17952e;
 
-            public b(C0843d c0843d) {
+            public b(C0908d c0908d) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0843d};
+                    Object[] objArr = {c0908d};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -203,20 +203,20 @@ public class d extends BaseAdapter {
                         return;
                     }
                 }
-                this.f16452e = c0843d;
+                this.f17952e = c0908d;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16452e.f16450c.j == null || view.getTag() == null || !(view.getTag() instanceof FaceData)) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17952e.f17950c.j == null || view.getTag() == null || !(view.getTag() instanceof FaceData)) {
                     return;
                 }
-                this.f16452e.f16450c.j.onDel((FaceData) view.getTag());
+                this.f17952e.f17950c.j.onDel((FaceData) view.getTag());
             }
         }
 
-        public C0843d(d dVar) {
+        public C0908d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -231,20 +231,20 @@ public class d extends BaseAdapter {
                     return;
                 }
             }
-            this.f16450c = dVar;
+            this.f17950c = dVar;
         }
 
         public final void b(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f16448a = (TbImageView) view.findViewById(R.id.image);
-                this.f16449b = (ImageView) view.findViewById(R.id.delete_icon);
-                ViewGroup.LayoutParams layoutParams = this.f16448a.getLayoutParams();
-                layoutParams.width = this.f16450c.f16443h;
-                layoutParams.height = this.f16450c.f16443h;
-                SkinManager.setImageResource(this.f16449b, R.drawable.icon_live_close_n);
-                this.f16448a.setOnClickListener(new a(this));
-                this.f16449b.setOnClickListener(new b(this));
+                this.f17948a = (TbImageView) view.findViewById(R.id.image);
+                this.f17949b = (ImageView) view.findViewById(R.id.delete_icon);
+                ViewGroup.LayoutParams layoutParams = this.f17948a.getLayoutParams();
+                layoutParams.width = this.f17950c.f17943h;
+                layoutParams.height = this.f17950c.f17943h;
+                SkinManager.setImageResource(this.f17949b, R.drawable.icon_live_close_n);
+                this.f17948a.setOnClickListener(new a(this));
+                this.f17949b.setOnClickListener(new b(this));
             }
         }
     }
@@ -264,55 +264,55 @@ public class d extends BaseAdapter {
                 return;
             }
         }
-        this.f16441f = BdBaseApplication.getInst().getApp();
-        this.f16440e = list;
-        this.f16442g = new b.a.q0.d0.b();
-        int k = l.k(this.f16441f);
-        this.f16444i = k;
-        this.f16443h = (k - (l.g(this.f16441f, R.dimen.ds30) * 3)) / 4;
+        this.f17941f = BdBaseApplication.getInst().getApp();
+        this.f17940e = list;
+        this.f17942g = new b.a.q0.d0.b();
+        int k = l.k(this.f17941f);
+        this.f17944i = k;
+        this.f17943h = (k - (l.g(this.f17941f, R.dimen.ds30) * 3)) / 4;
     }
 
-    public final void c(ImageFileInfo imageFileInfo, ViewGroup viewGroup, C0843d c0843d) {
+    public final void c(ImageFileInfo imageFileInfo, ViewGroup viewGroup, C0908d c0908d) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, imageFileInfo, viewGroup, c0843d) == null) || imageFileInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, imageFileInfo, viewGroup, c0908d) == null) || imageFileInfo == null) {
             return;
         }
         imageFileInfo.clearPageActions();
-        int i2 = this.f16443h;
+        int i2 = this.f17943h;
         imageFileInfo.addPageAction(b.a.q0.d0.i.d.g(i2, i2));
-        b.a.e.l.d.a c2 = this.f16442g.c(imageFileInfo, false);
-        c0843d.f16448a.setTag(imageFileInfo.toCachedKey(false));
+        b.a.e.m.d.a c2 = this.f17942g.c(imageFileInfo, false);
+        c0908d.f17948a.setTag(imageFileInfo.toCachedKey(false));
         if (c2 != null) {
-            c2.h(c0843d.f16448a);
-            c0843d.f16448a.setTag(null);
+            c2.h(c0908d.f17948a);
+            c0908d.f17948a.setTag(null);
         } else {
-            this.f16442g.e(imageFileInfo, new b(this, viewGroup), false, false);
+            this.f17942g.e(imageFileInfo, new b(this, viewGroup), false, false);
         }
-        c0843d.f16449b.setVisibility(0);
+        c0908d.f17949b.setVisibility(0);
     }
 
-    public final void d(EmotionImageData emotionImageData, ViewGroup viewGroup, C0843d c0843d) {
+    public final void d(EmotionImageData emotionImageData, ViewGroup viewGroup, C0908d c0908d) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionImageData, viewGroup, c0843d) == null) || emotionImageData == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionImageData, viewGroup, c0908d) == null) || emotionImageData == null) {
             return;
         }
-        Object k = b.a.e.e.l.d.h().k(emotionImageData.getThumbUrl(), 20, new a(this, viewGroup, c0843d), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
-        b.a.e.l.d.a aVar = (k == null || !(k instanceof b.a.e.l.d.a)) ? null : (b.a.e.l.d.a) k;
+        Object k = b.a.e.f.l.d.h().k(emotionImageData.getThumbUrl(), 20, new a(this, viewGroup, c0908d), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
+        b.a.e.m.d.a aVar = (k == null || !(k instanceof b.a.e.m.d.a)) ? null : (b.a.e.m.d.a) k;
         if (aVar != null) {
-            aVar.h(c0843d.f16448a);
-            c0843d.f16448a.setTag(null);
+            aVar.h(c0908d.f17948a);
+            c0908d.f17948a.setTag(null);
         }
-        c0843d.f16449b.setVisibility(0);
+        c0908d.f17949b.setVisibility(0);
     }
 
-    public final void e(EmotionImageData emotionImageData, C0843d c0843d) {
+    public final void e(EmotionImageData emotionImageData, C0908d c0908d) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, emotionImageData, c0843d) == null) || emotionImageData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, emotionImageData, c0908d) == null) || emotionImageData == null) {
             return;
         }
-        c0843d.f16448a.setTag(emotionImageData.getThumbUrl());
-        c0843d.f16448a.startLoad(emotionImageData.getThumbUrl(), 10, false);
-        c0843d.f16449b.setVisibility(0);
+        c0908d.f17948a.setTag(emotionImageData.getThumbUrl());
+        c0908d.f17948a.startLoad(emotionImageData.getThumbUrl(), 10, false);
+        c0908d.f17949b.setVisibility(0);
     }
 
     public void f(c cVar) {
@@ -327,7 +327,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<FaceData> list = this.f16440e;
+            List<FaceData> list = this.f17940e;
             if (list != null) {
                 return list.size();
             }
@@ -341,11 +341,11 @@ public class d extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            List<FaceData> list = this.f16440e;
+            List<FaceData> list = this.f17940e;
             if (list == null || i2 >= list.size()) {
                 return null;
             }
-            return this.f16440e.get(i2);
+            return this.f17940e.get(i2);
         }
         return invokeI.objValue;
     }
@@ -364,38 +364,38 @@ public class d extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         View view2;
-        C0843d c0843d;
+        C0908d c0908d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                c0843d = new C0843d(this);
+                c0908d = new C0908d(this);
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_make_face, (ViewGroup) null);
-                c0843d.b(view2);
-                view2.setTag(c0843d);
+                c0908d.b(view2);
+                view2.setTag(c0908d);
             } else {
                 view2 = view;
-                c0843d = (C0843d) view.getTag();
+                c0908d = (C0908d) view.getTag();
             }
-            FaceData faceData = this.f16440e.get(i2);
+            FaceData faceData = this.f17940e.get(i2);
             if (faceData != null) {
                 int i3 = faceData.type;
                 if (i3 == 4) {
-                    SkinManager.setImageResource(c0843d.f16448a, R.drawable.emotion_icon_add_pic);
-                    c0843d.f16449b.setVisibility(8);
+                    SkinManager.setImageResource(c0908d.f17948a, R.drawable.emotion_icon_add_pic);
+                    c0908d.f17949b.setVisibility(8);
                 } else if (i3 == 1) {
-                    c0843d.f16448a.setImageDrawable(null);
-                    d(faceData.emotionImageData, viewGroup, c0843d);
+                    c0908d.f17948a.setImageDrawable(null);
+                    d(faceData.emotionImageData, viewGroup, c0908d);
                 } else if (i3 == 2) {
-                    c0843d.f16448a.setImageDrawable(null);
-                    e(faceData.emotionImageData, c0843d);
+                    c0908d.f17948a.setImageDrawable(null);
+                    e(faceData.emotionImageData, c0908d);
                 } else {
-                    c0843d.f16448a.setImageDrawable(null);
-                    c(faceData.imageFileInfo, viewGroup, c0843d);
+                    c0908d.f17948a.setImageDrawable(null);
+                    c(faceData.imageFileInfo, viewGroup, c0908d);
                 }
-                TbImageView tbImageView = c0843d.f16448a;
+                TbImageView tbImageView = c0908d.f17948a;
                 tbImageView.setTag(tbImageView.getId(), faceData);
             }
-            c0843d.f16449b.setTag(faceData);
+            c0908d.f17949b.setTag(faceData);
             return view2;
         }
         return (View) invokeILL.objValue;

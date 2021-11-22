@@ -27,6 +27,7 @@ import b.a.c0.a.f;
 import b.a.c0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -263,6 +264,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             if (sapiConfiguration3 != null) {
                 this.realShowBottomBack = sapiConfiguration3.showBottomBack;
             }
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -612,7 +614,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TitleActivity f42527a;
+                    public final /* synthetic */ TitleActivity f43473a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -629,7 +631,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                                 return;
                             }
                         }
-                        this.f42527a = this;
+                        this.f43473a = this;
                     }
 
                     @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
@@ -637,7 +639,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                         View view;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                            TitleActivity titleActivity = this.f42527a;
+                            TitleActivity titleActivity = this.f43473a;
                             if (!titleActivity.realShowBottomBack || (view = titleActivity.bottomBackView) == null) {
                                 return;
                             }
@@ -649,7 +651,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                     public void keyBoardShow(int i2) {
                         View view;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (view = this.f42527a.bottomBackView) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (view = this.f43473a.bottomBackView) == null) {
                             return;
                         }
                         view.setVisibility(8);

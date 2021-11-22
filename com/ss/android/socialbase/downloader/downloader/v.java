@@ -41,12 +41,12 @@ public class v implements c.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.c.a
-    public t a(c.a.InterfaceC2002a interfaceC2002a) {
+    public t a(c.a.InterfaceC2040a interfaceC2040a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC2002a)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC2040a)) == null) {
             com.ss.android.socialbase.downloader.b.f fVar = new com.ss.android.socialbase.downloader.b.f();
-            fVar.a(interfaceC2002a);
+            fVar.a(interfaceC2040a);
             return fVar;
         }
         return (t) invokeL.objValue;

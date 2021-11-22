@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import b.a.q0.d1.r;
+import b.a.q0.c1.r;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
@@ -27,19 +27,19 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f47810e;
+    public NavigationBar f48674e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GifView f47811f;
+    public GifView f48675f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f47812g;
+    public TbImageView f48676g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47813h;
+    public TextView f48677h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47814i;
+    public TextView f48678i;
     public String j;
     public String k;
     public String l;
@@ -58,7 +58,7 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageActivity f47815e;
+        public final /* synthetic */ EmotionImageActivity f48679e;
 
         public a(EmotionImageActivity emotionImageActivity) {
             Interceptable interceptable = $ic;
@@ -75,14 +75,14 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
                     return;
                 }
             }
-            this.f47815e = emotionImageActivity;
+            this.f48679e = emotionImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47815e.finish();
+                this.f48679e.finish();
             }
         }
     }
@@ -93,7 +93,7 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageActivity f47816e;
+        public final /* synthetic */ EmotionImageActivity f48680e;
 
         public b(EmotionImageActivity emotionImageActivity) {
             Interceptable interceptable = $ic;
@@ -110,15 +110,15 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
                     return;
                 }
             }
-            this.f47816e = emotionImageActivity;
+            this.f48680e = emotionImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int i2 = this.f47816e.t;
-                this.f47816e.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f47816e.getPageContext().getPageActivity(), this.f47816e.j, false, i2 != 1 ? i2 != 2 ? i2 != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
+                int i2 = this.f48680e.t;
+                this.f48680e.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f48680e.getPageContext().getPageActivity(), this.f48680e.j, false, i2 != 1 ? i2 != 2 ? i2 != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
             }
         }
     }
@@ -174,16 +174,16 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-            this.f47810e = navigationBar;
+            this.f48674e = navigationBar;
             navigationBar.setTitleText(getString(R.string.emotion_image_title));
-            this.f47810e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.f47811f = (GifView) findViewById(R.id.gifview);
+            this.f48674e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.f48675f = (GifView) findViewById(R.id.gifview);
             if (this.p != 0 && this.q != 0) {
                 layoutParams = new FrameLayout.LayoutParams(this.p, this.q, 17);
             } else {
                 layoutParams = new FrameLayout.LayoutParams(this.r, this.s, 17);
             }
-            this.f47811f.setLayoutParams(layoutParams);
+            this.f48675f.setLayoutParams(layoutParams);
             boolean f2 = r.f();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.o;
@@ -195,21 +195,21 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
             } else {
                 gifInfo.mStaticUrl = this.n;
             }
-            this.f47811f.startLoad(gifInfo);
-            this.f47812g = (TbImageView) findViewById(R.id.emotion_icon);
+            this.f48675f.startLoad(gifInfo);
+            this.f48676g = (TbImageView) findViewById(R.id.emotion_icon);
             if (!TextUtils.isEmpty(this.l)) {
-                this.f47812g.startLoad(this.l, 10, false);
+                this.f48676g.startLoad(this.l, 10, false);
             } else {
                 Bitmap f3 = b.a.r0.s0.b.f(this.j, "panel.png");
                 if (f3 != null) {
-                    new b.a.e.l.d.a(f3, false).h(this.f47812g);
+                    new b.a.e.m.d.a(f3, false).h(this.f48676g);
                 }
             }
             TextView textView = (TextView) findViewById(R.id.emotion_pname);
-            this.f47813h = textView;
+            this.f48677h = textView;
             textView.setText(this.k);
             TextView textView2 = (TextView) findViewById(R.id.emotion_detail);
-            this.f47814i = textView2;
+            this.f48678i = textView2;
             textView2.setOnClickListener(new b(this));
         }
     }
@@ -221,7 +221,7 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
             super.onChangeSkinType(i2);
             getLayoutMode().k(i2 == 1);
             getLayoutMode().j(findViewById(R.id.emotion_image_root));
-            this.f47810e.onChangeSkinType(getPageContext(), i2);
+            this.f48674e.onChangeSkinType(getPageContext(), i2);
         }
     }
 

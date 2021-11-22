@@ -2,7 +2,7 @@ package b.a.r0.n1;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.z2.y;
+import b.a.r0.a3.y;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
@@ -34,31 +34,31 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumData f21294a;
+    public ForumData f22790a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21295b;
+    public int f22791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<c> f21296c;
+    public LinkedList<c> f22792c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdvertAppInfo f21297d;
+    public AdvertAppInfo f22793d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21298e;
+    public String f22794e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21299f;
+    public String f22795f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<AlaInfoData> f21300g;
+    public LinkedList<AlaInfoData> f22796g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21301h;
+    public int f22797h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f21302i;
+    public String f22798i;
     public String j;
     public MetaData k;
     public int l;
@@ -77,17 +77,17 @@ public class e {
                 return;
             }
         }
-        this.f21295b = 0;
-        this.f21296c = null;
-        this.f21297d = null;
-        this.f21296c = new LinkedList<>();
-        this.f21300g = new LinkedList<>();
+        this.f22791b = 0;
+        this.f22792c = null;
+        this.f22793d = null;
+        this.f22792c = new LinkedList<>();
+        this.f22796g = new LinkedList<>();
     }
 
     public AdvertAppInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21297d : (AdvertAppInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22793d : (AdvertAppInfo) invokeV.objValue;
     }
 
     public final void b(JSONObject jSONObject) {
@@ -137,14 +137,14 @@ public class e {
         }
         builder.loc_code = optJSONObject.optString("loc_code");
         App build = builder.build(true);
-        this.f21297d = new AdvertAppInfo();
+        this.f22793d = new AdvertAppInfo();
         App c3 = y.o().c(build, Cmatch.PIC_PAGE);
         if (c3 != null) {
-            this.f21297d.c4 = true;
+            this.f22793d.d4 = true;
             build = c3;
         }
-        this.f21297d.W4(build);
-        this.f21297d.d4 = "c0111";
+        this.f22793d.Y4(build);
+        this.f22793d.e4 = "c0111";
     }
 
     public final GoodsInfo c(JSONObject jSONObject) {
@@ -184,43 +184,43 @@ public class e {
     public LinkedList<AlaInfoData> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21300g : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22796g : (LinkedList) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21298e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22794e : (String) invokeV.objValue;
     }
 
     public ForumData f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21294a : (ForumData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22790a : (ForumData) invokeV.objValue;
     }
 
     public LinkedList<c> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21296c : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22792c : (LinkedList) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21295b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22791b : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21301h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22797h : invokeV.intValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21299f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22795f : (String) invokeV.objValue;
     }
 
     public final void k(JSONObject jSONObject, boolean z) {
@@ -233,14 +233,14 @@ public class e {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 AlaInfoData alaInfoData = new AlaInfoData();
                 alaInfoData.parserJson(optJSONArray.optJSONObject(i2));
-                this.f21300g.addLast(alaInfoData);
+                this.f22796g.addLast(alaInfoData);
             }
             return;
         }
         for (int length = optJSONArray.length() - 1; length >= 0; length--) {
             AlaInfoData alaInfoData2 = new AlaInfoData();
             alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
-            this.f21300g.addFirst(alaInfoData2);
+            this.f22796g.addFirst(alaInfoData2);
         }
     }
 
@@ -264,11 +264,11 @@ public class e {
             JSONObject optJSONObject = jSONObject.optJSONObject("forum");
             if (optJSONObject != null) {
                 ForumData forumData = new ForumData();
-                this.f21294a = forumData;
+                this.f22790a = forumData;
                 forumData.parserJson(optJSONObject);
                 optJSONObject.optString("id");
-                this.f21298e = optJSONObject.optString("frist_class");
-                this.f21299f = optJSONObject.optString("second_class");
+                this.f22794e = optJSONObject.optString("frist_class");
+                this.f22795f = optJSONObject.optString("second_class");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("thread");
             if (optJSONObject2 != null) {
@@ -285,11 +285,11 @@ public class e {
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
             if (optJSONObject4 != null) {
-                this.f21301h = optJSONObject4.optInt("reply_private_flag");
-                this.f21302i = optJSONObject4.optString("voice_message");
+                this.f22797h = optJSONObject4.optInt("reply_private_flag");
+                this.f22798i = optJSONObject4.optString("voice_message");
             }
             this.m = jSONObject.optInt("show_adsense", 0);
-            this.f21295b = jSONObject.optInt("pic_amount", 0);
+            this.f22791b = jSONObject.optInt("pic_amount", 0);
             JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
             if (optJSONArray != null) {
                 if (bool.booleanValue()) {
@@ -297,8 +297,8 @@ public class e {
                         c cVar = new c();
                         cVar.w(optJSONArray.optJSONObject(i2));
                         int h2 = cVar.h();
-                        if (h2 >= 1 && h2 <= this.f21295b) {
-                            this.f21296c.addLast(cVar);
+                        if (h2 >= 1 && h2 <= this.f22791b) {
+                            this.f22792c.addLast(cVar);
                         }
                     }
                 } else {
@@ -306,8 +306,8 @@ public class e {
                         c cVar2 = new c();
                         cVar2.w(optJSONArray.getJSONObject(length));
                         int h3 = cVar2.h();
-                        if (h3 >= 1 && h3 <= this.f21295b) {
-                            this.f21296c.addFirst(cVar2);
+                        if (h3 >= 1 && h3 <= this.f22791b) {
+                            this.f22792c.addFirst(cVar2);
                         }
                     }
                 }

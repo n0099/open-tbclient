@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.g0.n.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,19 +29,19 @@ public class CustomPushPremissionDialogView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f45237e;
+    public TextView f46087e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBLottieAnimationView f45238f;
+    public TBLottieAnimationView f46088f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f45239g;
+    public View f46089g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f45240h;
+    public View f46090h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f45241i;
+    public TBSpecificationBtn f46091i;
     public TBSpecificationBtn j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -78,33 +78,33 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             setBackgroundDrawable(gradientDrawable);
             LinearLayout.inflate(context, R.layout.custom_push_premission_dialog_view, this);
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.custom_push_permission_dialog_animation_view);
-            this.f45238f = tBLottieAnimationView;
+            this.f46088f = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            this.f45238f.setFrame(0);
-            SkinManager.setLottieAnimation(this.f45238f, R.raw.lottie_push_permission_dialog_animation);
-            this.f45238f.playAnimation();
+            this.f46088f.setFrame(0);
+            SkinManager.setLottieAnimation(this.f46088f, R.raw.lottie_push_permission_dialog_animation);
+            this.f46088f.playAnimation();
             TextView textView = (TextView) findViewById(R.id.custom_push_permission_dialog_description_view);
-            this.f45237e = textView;
+            this.f46087e = textView;
             textView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f45239g = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
+            this.f46089g = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                this.f45240h = findViewById(R.id.animation_layout);
-                TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(l.g(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, l.g(getContext(), R.dimen.tbds22)).into(this.f45240h);
-                ViewGroup.LayoutParams layoutParams2 = this.f45239g.getLayoutParams();
+                this.f46090h = findViewById(R.id.animation_layout);
+                TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(l.g(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, l.g(getContext(), R.dimen.tbds22)).into(this.f46090h);
+                ViewGroup.LayoutParams layoutParams2 = this.f46089g.getLayoutParams();
                 layoutParams2.width = l.g(context, R.dimen.tbds774);
-                this.f45239g.setLayoutParams(layoutParams2);
-                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.common_color_10262), SkinManager.getResourceId(R.color.CAM_X0205)).into(this.f45239g);
+                this.f46089g.setLayoutParams(layoutParams2);
+                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.common_color_10262), SkinManager.getResourceId(R.color.CAM_X0205)).into(this.f46089g);
             } else {
-                TBSelector.makeDrawableSelector().setShape(0).radius(l.g(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.f45239g);
+                TBSelector.makeDrawableSelector().setShape(0).radius(l.g(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.f46089g);
             }
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
-            this.f45241i = tBSpecificationBtn;
+            this.f46091i = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            this.f45241i.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
+            this.f46091i.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
             c cVar = new c();
             cVar.r(R.color.CAM_X0105);
-            this.f45241i.setConfig(cVar);
-            this.f45241i.changeSkinType();
+            this.f46091i.setConfig(cVar);
+            this.f46091i.changeSkinType();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
             this.j = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.tbds34);
@@ -118,7 +118,7 @@ public class CustomPushPremissionDialogView extends LinearLayout {
     public TBSpecificationBtn getPushPermissionDialogCancelButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45241i : (TBSpecificationBtn) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46091i : (TBSpecificationBtn) invokeV.objValue;
     }
 
     public TBSpecificationBtn getPushPermissionDialogConfirmButton() {

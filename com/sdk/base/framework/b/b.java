@@ -12,7 +12,7 @@ public abstract class b<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68185a;
+    public int f69105a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public abstract class b<T> {
                 return;
             }
         }
-        this.f68185a = 1000;
+        this.f69105a = 1000;
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f68185a;
+            int i2 = this.f69105a;
             if (i2 < 200) {
                 return 200;
             }

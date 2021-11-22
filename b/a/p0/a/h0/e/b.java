@@ -27,7 +27,7 @@ public class b {
                 return;
             }
         }
-        boolean z = k.f6397a;
+        boolean z = k.f6863a;
     }
 
     public static void a(String str, String str2) {
@@ -35,16 +35,16 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
             HashMap hashMap = new HashMap(1);
             hashMap.put("data", str2);
-            f.T().l(f.T().p().b(), new b.a.p0.a.o0.d.b(str, hashMap));
+            f.U().l(f.U().p().c(), new b.a.p0.a.o0.d.c(str, hashMap));
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            b.a.p0.a.p.e.d A = f.T().A(f.T().C());
+            b.a.p0.a.p.e.d A = f.U().A(f.U().C());
             if (A != null) {
-                b.a.p0.a.e0.d.g("ConsoleMessageHelper", "send full San request");
+                b.a.p0.a.e0.d.i("ConsoleMessageHelper", "send full San request");
                 A.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
             }
         }

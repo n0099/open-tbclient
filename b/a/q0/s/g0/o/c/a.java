@@ -2,9 +2,9 @@ package b.a.q0.s.g0.o.c;
 
 import android.view.View;
 import b.a.e.a.e;
-import b.a.e.e.p.j;
-import b.a.r0.l3.s0.k;
-import b.a.r0.l3.x;
+import b.a.e.f.p.j;
+import b.a.r0.m3.s0.k;
+import b.a.r0.m3.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,34 +24,34 @@ public class a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f12995e;
+    public TbPageContext f13775e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LikeModel f12996f;
+    public LikeModel f13776f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.q0.s.g0.o.b f12997g;
+    public b.a.q0.s.g0.o.b f13777g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.q0.s.g0.o.c.b f12998h;
+    public b.a.q0.s.g0.o.c.b f13778h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f12999i;
+    public View.OnClickListener f13779i;
     public CustomMessageListener j;
     public CustomMessageListener k;
     public e l;
 
     /* renamed from: b.a.q0.s.g0.o.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0678a extends CustomMessageListener {
+    public class C0713a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13000a;
+        public final /* synthetic */ a f13780a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0678a(a aVar, int i2) {
+        public C0713a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -68,7 +68,7 @@ public class a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f13000a = aVar;
+            this.f13780a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,11 +77,11 @@ public class a implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k)) {
                 k kVar = (k) customResponsedMessage.getData();
-                String l = Long.toString(kVar.f20874a);
-                if (this.f13000a.f12998h != null && l.equals(this.f13000a.f12998h.getForumId()) && kVar.f20875b) {
-                    this.f13000a.f12998h.setIsLike(true);
-                    this.f13000a.f12998h.a(true);
-                    this.f13000a.f12997g.updateLikeStatus(true);
+                String l = Long.toString(kVar.f22724a);
+                if (this.f13780a.f13778h != null && l.equals(this.f13780a.f13778h.getForumId()) && kVar.f22725b) {
+                    this.f13780a.f13778h.setIsLike(true);
+                    this.f13780a.f13778h.a(true);
+                    this.f13780a.f13777g.updateLikeStatus(true);
                 }
             }
         }
@@ -93,7 +93,7 @@ public class a implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13001a;
+        public final /* synthetic */ a f13781a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2) {
@@ -113,7 +113,7 @@ public class a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f13001a = aVar;
+            this.f13781a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,11 +122,11 @@ public class a implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k)) {
                 k kVar = (k) customResponsedMessage.getData();
-                String l = Long.toString(kVar.f20874a);
-                if (this.f13001a.f12998h != null && l.equals(this.f13001a.f12998h.getForumId()) && kVar.f20875b) {
-                    this.f13001a.f12998h.setIsLike(false);
-                    this.f13001a.f12998h.a(false);
-                    this.f13001a.f12997g.updateLikeStatus(false);
+                String l = Long.toString(kVar.f22724a);
+                if (this.f13781a.f13778h != null && l.equals(this.f13781a.f13778h.getForumId()) && kVar.f22725b) {
+                    this.f13781a.f13778h.setIsLike(false);
+                    this.f13781a.f13778h.a(false);
+                    this.f13781a.f13777g.updateLikeStatus(false);
                 }
             }
         }
@@ -138,7 +138,7 @@ public class a implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13002a;
+        public final /* synthetic */ a f13782a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -155,17 +155,17 @@ public class a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f13002a = aVar;
+            this.f13782a = aVar;
         }
 
         @Override // b.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof x) && ((x) obj).d() != 0) {
-                if (AntiHelper.m(this.f13002a.f12996f.getErrorCode(), this.f13002a.f12996f.getErrorString())) {
-                    AntiHelper.u(this.f13002a.f12995e.getPageActivity(), this.f13002a.f12996f.getErrorString());
+                if (AntiHelper.m(this.f13782a.f13776f.getErrorCode(), this.f13782a.f13776f.getErrorString())) {
+                    AntiHelper.u(this.f13782a.f13775e.getPageActivity(), this.f13782a.f13776f.getErrorString());
                 } else {
-                    this.f13002a.f12995e.showToast(this.f13002a.f12996f.getErrorString());
+                    this.f13782a.f13775e.showToast(this.f13782a.f13776f.getErrorString());
                 }
             }
         }
@@ -186,14 +186,14 @@ public class a implements View.OnClickListener {
                 return;
             }
         }
-        this.j = new C0678a(this, 2001437);
+        this.j = new C0713a(this, 2001437);
         this.k = new b(this, 2001438);
         this.l = new c(this);
-        this.f12995e = tbPageContext;
+        this.f13775e = tbPageContext;
         LikeModel likeModel = new LikeModel(tbPageContext);
-        this.f12996f = likeModel;
+        this.f13776f = likeModel;
         likeModel.setLoadDataCallBack(this.l);
-        this.f12997g = bVar;
+        this.f13777g = bVar;
         bVar.bindOnClickListener(this);
         tbPageContext.registerListener(this.j);
         tbPageContext.registerListener(this.k);
@@ -202,7 +202,7 @@ public class a implements View.OnClickListener {
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.f12999i = onClickListener;
+            this.f13779i = onClickListener;
         }
     }
 
@@ -211,8 +211,8 @@ public class a implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f12998h = bVar;
-        this.f12997g.updateLikeStatus(bVar.getIsLike());
+        this.f13778h = bVar;
+        this.f13777g.updateLikeStatus(bVar.getIsLike());
     }
 
     public void g(BdUniqueId bdUniqueId) {
@@ -227,22 +227,22 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            b.a.q0.s.g0.o.b bVar = this.f12997g;
+            b.a.q0.s.g0.o.b bVar = this.f13777g;
             if (bVar != null) {
                 bVar.onClickEvent(view);
             }
             if (!j.z()) {
-                this.f12995e.showToast(R.string.neterror);
+                this.f13775e.showToast(R.string.neterror);
                 return;
             }
-            if (ViewHelper.checkUpIsLogin(this.f12995e.getPageActivity())) {
-                b.a.q0.s.g0.o.c.b bVar2 = this.f12998h;
+            if (ViewHelper.checkUpIsLogin(this.f13775e.getPageActivity())) {
+                b.a.q0.s.g0.o.c.b bVar2 = this.f13778h;
                 if (bVar2 == null) {
                     return;
                 }
-                this.f12996f.L(bVar2.getForumName(), this.f12998h.getForumId());
+                this.f13776f.L(bVar2.getForumName(), this.f13778h.getForumId());
             }
-            View.OnClickListener onClickListener = this.f12999i;
+            View.OnClickListener onClickListener = this.f13779i;
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }

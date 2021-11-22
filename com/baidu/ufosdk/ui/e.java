@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class e extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f56947a;
+    public boolean f57869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f56948b;
+    public ImageView f57870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f56949c;
+    public TextView f57871c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f56950d;
+    public Context f57872d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -46,51 +46,51 @@ public final class e extends LinearLayout {
                 return;
             }
         }
-        this.f56947a = false;
-        this.f56950d = context;
+        this.f57869a = false;
+        this.f57872d = context;
         setOrientation(0);
         setGravity(16);
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.f56948b = new ImageView(context);
-        this.f56949c = new TextView(context);
-        this.f56948b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(context, "ufo_checkbox_default.png")));
-        addView(this.f56948b, new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(context, 14.0f), com.baidu.ufosdk.f.i.a(context, 14.0f)));
+        this.f57870b = new ImageView(context);
+        this.f57871c = new TextView(context);
+        this.f57870b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(context, "ufo_checkbox_default.png")));
+        addView(this.f57870b, new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(context, 14.0f), com.baidu.ufosdk.f.i.a(context, 14.0f)));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(com.baidu.ufosdk.f.i.a(context, 10.0f), 0, 0, 0);
-        addView(this.f56949c, layoutParams);
+        addView(this.f57871c, layoutParams);
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f56949c.setTextColor(-13421773);
+            this.f57871c.setTextColor(-13421773);
         }
     }
 
     public final void a(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f56949c.setTextSize(f2);
+            this.f57871c.setTextSize(f2);
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f56949c.setText(str);
+            this.f57871c.setText(str);
         }
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f56948b.setBackgroundDrawable(z ? new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f56950d, "ufo_checkbox_checked.png")) : new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f56950d, "ufo_checkbox_default.png")));
+            this.f57870b.setBackgroundDrawable(z ? new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f57872d, "ufo_checkbox_checked.png")) : new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.f57872d, "ufo_checkbox_default.png")));
         }
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56949c.getText().toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57871c.getText().toString() : (String) invokeV.objValue;
     }
 }

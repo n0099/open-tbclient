@@ -1,0 +1,15 @@
+package b.p.a.a.a.b;
+
+import b.p.a.a.a.a.a;
+/* loaded from: classes6.dex */
+public interface b {
+    void a(a aVar);
+
+    boolean a();
+
+    String b();
+
+    boolean c();
+
+    void d();
+}

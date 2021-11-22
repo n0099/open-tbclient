@@ -1,7 +1,12 @@
 package b.a.r0.b0;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public interface a0 {
-    void a(String str);
+    String from();
 
-    void r(int i2);
+    void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+
+    void setFrom(String str);
 }

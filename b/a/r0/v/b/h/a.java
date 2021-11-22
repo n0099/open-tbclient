@@ -3,10 +3,10 @@ package b.a.r0.v.b.h;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.c2.f.a0;
-import b.a.p0.a.l1.b;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.d2.e;
+import b.a.p0.a.f2.f.z;
+import b.a.p0.a.m1.b;
+import b.a.p0.a.z2.q0;
 import b.a.r0.v.b.i.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,29 +31,29 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a extends a0 {
+public class a extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.r0.v.b.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1182a extends ResponseCallback {
+    public class C1248a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f24184a;
+        public final /* synthetic */ String f25647a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f24185b;
+        public final /* synthetic */ CallbackHandler f25648b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f24186c;
+        public final /* synthetic */ e f25649c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f24187d;
+        public final /* synthetic */ a f25650d;
 
-        public C1182a(a aVar, String str, CallbackHandler callbackHandler, e eVar) {
+        public C1248a(a aVar, String str, CallbackHandler callbackHandler, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,17 +68,17 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f24187d = aVar;
-            this.f24184a = str;
-            this.f24185b = callbackHandler;
-            this.f24186c = eVar;
+            this.f25650d = aVar;
+            this.f25647a = str;
+            this.f25648b = callbackHandler;
+            this.f25649c = eVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f24185b.handleSchemeDispatchCallback(this.f24184a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                this.f25648b.handleSchemeDispatchCallback(this.f25647a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
             }
         }
 
@@ -94,7 +94,7 @@ public class a extends a0 {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f24187d.n(response, this.f24184a, this.f24185b, this.f24186c);
+                this.f25650d.n(response, this.f25647a, this.f25648b, this.f25649c);
                 return response;
             }
             return invokeLI.objValue;
@@ -102,7 +102,7 @@ public class a extends a0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(b.a.p0.a.c2.e eVar) {
+    public a(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/navigateToProgram");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -122,7 +122,7 @@ public class a extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
+    @Override // b.a.p0.a.f2.f.z
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -135,8 +135,8 @@ public class a extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                String U = e.U();
-                if (!TextUtils.isEmpty(U) && !TextUtils.isEmpty(U.trim())) {
+                String f0 = e.f0();
+                if (!TextUtils.isEmpty(f0) && !TextUtils.isEmpty(f0.trim())) {
                     String optString = optParamsAsJo.optString("cb");
                     if (TextUtils.isEmpty(optString)) {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -148,7 +148,7 @@ public class a extends a0 {
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                         return true;
                     }
-                    Request l = l(U, optParamsAsJo);
+                    Request l = l(f0, optParamsAsJo);
                     if (l == null) {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                         return false;
@@ -176,7 +176,7 @@ public class a extends a0 {
                 schemeHead = BaseWebViewActivity.SHOUBAI_SCHEME;
             }
             buildUpon.scheme(schemeHead);
-            if (a0.f4160b) {
+            if (z.f5228b) {
                 buildUpon.build().toString();
             }
             return buildUpon.build();
@@ -195,13 +195,13 @@ public class a extends a0 {
                     jSONObject2.put("app_key", str);
                     jSONObject2.put("srcAppPage", b2);
                     jSONObject2.put("params", jSONObject);
-                    Request build = new Request.Builder().url(b.a.p0.a.c1.a.n().F()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
-                    if (a0.f4160b) {
+                    Request build = new Request.Builder().url(b.a.p0.a.c1.a.o().I()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
+                    if (z.f5228b) {
                         String str2 = "appId :" + str + org.apache.commons.lang3.StringUtils.LF + "request params" + jSONObject2.toString();
                     }
                     return build;
                 } catch (Exception e2) {
-                    if (a0.f4160b) {
+                    if (z.f5228b) {
                         e2.printStackTrace();
                     }
                 }
@@ -214,11 +214,11 @@ public class a extends a0 {
     public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, eVar) == null) {
-            b.a.p0.m.d.a aVar = new b.a.p0.m.d.a(b.a.p0.a.c1.a.n().F(), requestBody, new C1182a(this, str, callbackHandler, eVar));
-            aVar.f11038f = true;
-            aVar.f11039g = false;
-            aVar.f11040h = true;
-            b.a.p0.m.e.a.g().e(aVar);
+            b.a.p0.p.d.a aVar = new b.a.p0.p.d.a(b.a.p0.a.c1.a.o().I(), requestBody, new C1248a(this, str, callbackHandler, eVar));
+            aVar.f11725f = true;
+            aVar.f11726g = false;
+            aVar.f11727h = true;
+            b.a.p0.p.e.a.g().e(aVar);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
@@ -244,7 +244,7 @@ public class a extends a0 {
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(eVar.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
                 }
             } catch (Exception e2) {
-                if (a0.f4160b) {
+                if (z.f5228b) {
                     e2.getMessage();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());

@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.model;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
 import b.a.r0.l1.g.c;
 import b.a.r0.l1.h.l;
 import b.a.r0.l1.k.b;
@@ -178,7 +178,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f50487b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f51399b;
             if (list == null) {
                 list = new LinkedList();
             }
@@ -295,7 +295,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // b.a.q0.d1.i0
+            @Override // b.a.q0.c1.i0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -375,7 +375,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 return false;
             }
             LoadDraftMessage.a aVar = new LoadDraftMessage.a();
-            aVar.f50480a = this.mUser.getUserId();
+            aVar.f51392a = this.mUser.getUserId();
             super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
             return true;
         }
@@ -391,10 +391,10 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f50484c = 10;
-            aVar.f50482a = null;
-            aVar.f50483b = null;
-            aVar.f50485d = this.mUser.getUserIdLong() + "";
+            aVar.f51396c = 10;
+            aVar.f51394a = null;
+            aVar.f51395b = null;
+            aVar.f51397d = this.mUser.getUserIdLong() + "";
             super.sendMessage(new LoadOfficialHistoryMessage(aVar));
             return true;
         }
@@ -411,7 +411,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f50484c = 10;
+            aVar.f51396c = 10;
             MsgPageData msgPageData = this.mDatas;
             long j2 = 0;
             if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
@@ -420,9 +420,9 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 j2 = this.mDatas.getChatMessages().get(0).getMsgId();
                 j = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            aVar.f50482a = String.valueOf(j2);
-            aVar.f50483b = String.valueOf(j);
-            aVar.f50485d = this.mUser.getUserIdLong() + "";
+            aVar.f51394a = String.valueOf(j2);
+            aVar.f51395b = String.valueOf(j);
+            aVar.f51397d = this.mUser.getUserIdLong() + "";
             super.sendMessage(new LoadOfficialHistoryMessage(aVar));
             return true;
         }
@@ -462,7 +462,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // b.a.q0.d1.i0
+            @Override // b.a.q0.c1.i0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -490,8 +490,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             if (userData == null) {
                 return false;
             }
-            aVar.f50508b = String.valueOf(String.valueOf(userData.getUserId()));
-            aVar.f50507a = str;
+            aVar.f51420b = String.valueOf(String.valueOf(userData.getUserId()));
+            aVar.f51419a = str;
             super.sendMessage(new OfficialBarSaveDraftMessage(aVar));
             return true;
         }

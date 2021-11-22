@@ -4,9 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import b.a.q0.s.q.t1;
 import b.a.q0.s.q.u1;
-import b.a.r0.x0.b3.d;
-import b.a.r0.x0.j1;
+import b.a.r0.x0.c3.d;
 import b.a.r0.x0.k;
+import b.a.r0.x0.k1;
 import b.a.r0.x0.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -74,20 +74,20 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: t0 */
     public FrsSchoolRecommendViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.x = new d(this.o, this.f2423i);
+            this.x = new d(this.o, this.f2425i);
             return new FrsSchoolRecommendViewHolder(this, this.x);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     /* renamed from: u0 */
     public View Z(int i2, View view, ViewGroup viewGroup, t1 t1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;
@@ -95,23 +95,23 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, t1Var, frsSchoolRecommendViewHolder})) == null) {
             super.Z(i2, view, viewGroup, t1Var, frsSchoolRecommendViewHolder);
             this.x = frsSchoolRecommendViewHolder.mCardView;
-            ArrayList<u1> P4 = t1Var.P4();
-            if (P4.size() <= 0) {
+            ArrayList<u1> R4 = t1Var.R4();
+            if (R4.size() <= 0) {
                 return null;
             }
             x xVar = new x();
             xVar.showTopDivider = true;
             xVar.mGroupTitle = t1Var.getTitle();
-            for (int i3 = 0; i3 != P4.size(); i3++) {
-                u1 u1Var = P4.get(i3);
+            for (int i3 = 0; i3 != R4.size(); i3++) {
+                u1 u1Var = R4.get(i3);
                 if (u1Var != null) {
-                    j1 j1Var = new j1();
-                    j1Var.f25880a.setUserId(u1Var.d());
-                    j1Var.f25880a.setUserName(u1Var.e());
-                    j1Var.f25880a.setPortrait(u1Var.c());
-                    j1Var.f25880a.getGodUserData().setIsLike(u1Var.b() == 1);
-                    j1Var.f25880a.getGodUserData().setIntro(u1Var.a());
-                    xVar.g(j1Var);
+                    k1 k1Var = new k1();
+                    k1Var.f27475a.setUserId(u1Var.d());
+                    k1Var.f27475a.setUserName(u1Var.e());
+                    k1Var.f27475a.setPortrait(u1Var.c());
+                    k1Var.f27475a.getGodUserData().setIsLike(u1Var.b() == 1);
+                    k1Var.f27475a.getGodUserData().setIntro(u1Var.a());
+                    xVar.g(k1Var);
                 }
             }
             this.x.k(this.o, this.r);

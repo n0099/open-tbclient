@@ -1,8 +1,8 @@
 package b.a.p0.a.y0.h;
 
 import android.content.Context;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.c2.f.a0;
+import b.a.p0.a.f2.e;
+import b.a.p0.a.f2.f.z;
 import b.a.p0.a.g1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d extends a0 {
+public class d extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,38 +42,38 @@ public class d extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (eVar == null) {
-                b.a.p0.a.e0.d.b("setFullscreenOrientationSync", "none swanApp");
+                b.a.p0.a.e0.d.c("setFullscreenOrientationSync", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal runtime");
-                boolean z = a0.f4160b;
+                boolean z = z.f5228b;
                 return false;
             } else if (context == null) {
-                b.a.p0.a.e0.d.b("setFullscreenOrientationSync", "none context");
+                b.a.p0.a.e0.d.c("setFullscreenOrientationSync", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = a0.f4160b;
+                boolean z2 = z.f5228b;
                 return false;
             } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    b.a.p0.a.e0.d.b("setFullscreenOrientationSync", "none params");
+                    b.a.p0.a.e0.d.c("setFullscreenOrientationSync", "none params");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
                 int optInt = optParamsAsJo.optInt("orientationType", -10000);
-                b.a.p0.a.p.e.d A = f.T().A(optParamsAsJo.optString("slaveId"));
+                b.a.p0.a.p.e.d A = f.U().A(optParamsAsJo.optString("slaveId"));
                 if (!(A instanceof SwanAppWebViewManager)) {
-                    b.a.p0.a.e0.d.b("setFullscreenOrientationSync", "no WebView with this slaveId");
+                    b.a.p0.a.e0.d.c("setFullscreenOrientationSync", "no WebView with this slaveId");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
                 }
                 int j = j(optInt);
-                ((SwanAppWebViewManager) A).Y0(j);
-                if (a0.f4160b) {
+                ((SwanAppWebViewManager) A).c1(j);
+                if (z.f5228b) {
                     String str = "orientation set to : " + j;
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);

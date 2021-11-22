@@ -182,7 +182,41 @@ public class SmartLaunchScheduler {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, smartLaunchTask) == null) || smartLaunchTask == null) {
             return;
         }
-        if (smartLaunchTask.isMainThreadIdleTask()) {
+        if (Looper.getMainLooper() != Looper.myLooper()) {
+            getMainHandler().post(new Runnable(this, smartLaunchTask) { // from class: com.baidu.searchbox.launch.SmartLaunchScheduler.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SmartLaunchScheduler this$0;
+                public final /* synthetic */ SmartLaunchTask val$task;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, smartLaunchTask};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$task = smartLaunchTask;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.register(this.val$task);
+                    }
+                }
+            });
+        } else if (smartLaunchTask.isMainThreadIdleTask()) {
             if (DEBUG) {
                 String str = "add " + smartLaunchTask.getId() + " task to idle task queue";
             }
@@ -192,33 +226,33 @@ public class SmartLaunchScheduler {
                 return;
             }
             scheduleIdleTask();
-            return;
-        }
-        int scheduleStrategy = strategy.getScheduleStrategy(smartLaunchTask);
-        if (scheduleStrategy == 0) {
-            if (DEBUG) {
-                String str2 = "add " + smartLaunchTask.getId() + " task to fast task queue";
-            }
-            schedule(smartLaunchTask, 0);
-        } else if (scheduleStrategy == 1) {
-            if (DEBUG) {
-                String str3 = "add " + smartLaunchTask.getId() + " task to idle task queue";
-            }
-            this.mIdleQueue.add(smartLaunchTask);
-            this.idleTaskCount++;
-            if (!sIsIdleScheduling && sIsAllowSchedule) {
-                scheduleIdleTask();
-            }
-        } else if (DEBUG) {
-            String str4 = "do not support strategy: " + scheduleStrategy;
-            return;
         } else {
-            return;
+            int scheduleStrategy = strategy.getScheduleStrategy(smartLaunchTask);
+            if (scheduleStrategy == 0) {
+                if (DEBUG) {
+                    String str2 = "add " + smartLaunchTask.getId() + " task to fast task queue";
+                }
+                schedule(smartLaunchTask, 0);
+            } else if (scheduleStrategy == 1) {
+                if (DEBUG) {
+                    String str3 = "add " + smartLaunchTask.getId() + " task to idle task queue";
+                }
+                this.mIdleQueue.add(smartLaunchTask);
+                this.idleTaskCount++;
+                if (!sIsIdleScheduling && sIsAllowSchedule) {
+                    scheduleIdleTask();
+                }
+            } else if (DEBUG) {
+                String str4 = "do not support strategy: " + scheduleStrategy;
+                return;
+            } else {
+                return;
+            }
+            if (this.mRegisterTaskList.contains(smartLaunchTask)) {
+                return;
+            }
+            this.mRegisterTaskList.add(smartLaunchTask);
         }
-        if (this.mRegisterTaskList.contains(smartLaunchTask)) {
-            return;
-        }
-        this.mRegisterTaskList.add(smartLaunchTask);
     }
 
     public void scheduleIdleTask() {
@@ -229,7 +263,7 @@ public class SmartLaunchScheduler {
                 Collections.sort(this.mIdleQueue);
                 boolean z = DEBUG;
                 sIsIdleScheduling = true;
-                Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(this) { // from class: com.baidu.searchbox.launch.SmartLaunchScheduler.1
+                Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(this) { // from class: com.baidu.searchbox.launch.SmartLaunchScheduler.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SmartLaunchScheduler this$0;
@@ -297,7 +331,7 @@ public class SmartLaunchScheduler {
                 });
                 return;
             }
-            Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(this) { // from class: com.baidu.searchbox.launch.SmartLaunchScheduler.2
+            Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(this) { // from class: com.baidu.searchbox.launch.SmartLaunchScheduler.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SmartLaunchScheduler this$0;

@@ -15,11 +15,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f1476b;
+    public static volatile a f1472b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<String> f1477a;
+    public SparseArray<String> f1473a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,22 +34,22 @@ public class a {
                 return;
             }
         }
-        this.f1477a = null;
-        this.f1477a = new SparseArray<>();
+        this.f1473a = null;
+        this.f1473a = new SparseArray<>();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f1476b == null) {
+            if (f1472b == null) {
                 synchronized (a.class) {
-                    if (f1476b == null) {
-                        f1476b = new a();
+                    if (f1472b == null) {
+                        f1472b = new a();
                     }
                 }
             }
-            return f1476b;
+            return f1472b;
         }
         return (a) invokeV.objValue;
     }
@@ -58,7 +58,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            String str = this.f1477a.get(i2);
+            String str = this.f1473a.get(i2);
             if (str != null) {
                 return str;
             }
@@ -90,10 +90,10 @@ public class a {
                 for (Field field : fields) {
                     int i2 = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.f1477a.get(i2) == null) {
-                        this.f1477a.put(i2, name);
+                    if (this.f1473a.get(i2) == null) {
+                        this.f1473a.put(i2, name);
                     } else {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.f1477a.get(i2) + " 重复");
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.f1473a.get(i2) + " 重复");
                     }
                 }
             } catch (ClassNotFoundException e2) {

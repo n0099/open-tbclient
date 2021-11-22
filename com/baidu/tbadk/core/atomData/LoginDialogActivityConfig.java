@@ -17,6 +17,8 @@ public class LoginDialogActivityConfig extends IntentConfig {
     public static final String LOGIN_DIALOG_DATA_TYPE = "login_dialog_data_type";
     public static final String LOGIN_DIALOG_DATA_URL = "login_dialog_data_url";
     public static final String LOGIN_DIALOG_LOGIN_LISTENER = "login_dialog_login_listener";
+    public static final String MINE_PAGE_LOGIN_DIALOG_DATA_KEY = "mine_page_login_dialog_data_key";
+    public static final String MINE_PAGE_LOGIN_DIALOG_DATA_LOCATE = "mine_page_login_dialog_data_locate";
     public static final String ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM = "one_key_login_encrypt_phone_num";
     public static final String ONE_KEY_LOGIN_OPERATOR = "one_key_login_operator";
     public static final String ONE_KEY_LOGIN_SIGN = "one_key_login_sign";
@@ -88,6 +90,8 @@ public class LoginDialogActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra(LOGIN_DIALOG_DATA_LOCATE, t0Var.a());
+        getIntent().putExtra(MINE_PAGE_LOGIN_DIALOG_DATA_KEY, t0Var.c());
+        getIntent().putExtra(MINE_PAGE_LOGIN_DIALOG_DATA_LOCATE, t0Var.d());
         if (t0Var.b() != null) {
             getIntent().putExtra("login_dialog_login_listener", t0Var.b());
         }
@@ -159,7 +163,7 @@ public class LoginDialogActivityConfig extends IntentConfig {
                 setIntentAction(IntentAction.ActivityForResult);
                 return;
             case 5:
-                getIntent().putExtra(LOGIN_DIALOG_DATA_URL, t0Var.c());
+                getIntent().putExtra(LOGIN_DIALOG_DATA_URL, t0Var.e());
                 return;
             case 6:
                 setRequestCode(25059);

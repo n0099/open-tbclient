@@ -12,8 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.l.e.j;
-import b.a.e.l.e.l;
+import b.a.e.m.e.j;
+import b.a.e.m.e.l;
 import b.a.l.q;
 import b.a.q0.b.d;
 import b.a.q0.n.f;
@@ -41,19 +41,19 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f49442e;
+    public final Context f50353e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49443f;
+    public int f50354f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49444g;
+    public TextView f50355g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView f49445h;
+    public RecyclerView f50356h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ConcernRecommendListAdapter f49446i;
+    public ConcernRecommendListAdapter f50357i;
     public l j;
     public int k;
     public CustomMessageListener l;
@@ -64,7 +64,7 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ConcernRecommendLayout f49447a;
+        public final /* synthetic */ ConcernRecommendLayout f50358a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ConcernRecommendLayout concernRecommendLayout, int i2) {
@@ -84,7 +84,7 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
                     return;
                 }
             }
-            this.f49447a = concernRecommendLayout;
+            this.f50358a = concernRecommendLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,12 +93,12 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    if (this.f49447a.j == null) {
-                        this.f49447a.j = new l(new j());
+                    if (this.f50358a.j == null) {
+                        this.f50358a.j = new l(new j());
                     }
-                    this.f49447a.j.q(this.f49447a.f49445h, 1);
-                } else if (this.f49447a.j != null) {
-                    this.f49447a.j.w();
+                    this.f50358a.j.q(this.f50358a.f50356h, 1);
+                } else if (this.f50358a.j != null) {
+                    this.f50358a.j.w();
                 }
             }
         }
@@ -131,29 +131,29 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
             LayoutInflater.from(getContext()).inflate(R.layout.concern_recommend_layout, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f49444g = (TextView) findViewById(R.id.title);
-            this.f49445h = (RecyclerView) findViewById(R.id.thread_card_list);
-            ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.f49442e);
-            this.f49446i = concernRecommendListAdapter;
-            this.f49445h.setAdapter(concernRecommendListAdapter);
-            this.f49445h.setClipChildren(false);
+            this.f50355g = (TextView) findViewById(R.id.title);
+            this.f50356h = (RecyclerView) findViewById(R.id.thread_card_list);
+            ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.f50353e);
+            this.f50357i = concernRecommendListAdapter;
+            this.f50356h.setAdapter(concernRecommendListAdapter);
+            this.f50356h.setClipChildren(false);
             if (TbSingleton.getInstance().isSlideAnimEnable()) {
                 l lVar = new l(new j());
                 this.j = lVar;
-                lVar.q(this.f49445h, 1);
+                lVar.q(this.f50356h, 1);
             }
-            int g2 = b.a.e.e.p.l.g(this.f49442e, R.dimen.tbds21);
-            int g3 = b.a.e.e.p.l.g(this.f49442e, R.dimen.tbds44);
-            this.f49445h.setLayoutManager(new LinearLayoutManager(this.f49442e, 0, false));
-            this.f49445h.setItemAnimator(new DefaultItemAnimator());
-            this.f49445h.addItemDecoration(new SpaceItemDecoration(g3, g2, g3));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f49445h.getLayoutParams();
-            if (d.l0()) {
-                layoutParams.bottomMargin = b.a.e.e.p.l.g(this.f49442e, R.dimen.tbds39);
+            int g2 = b.a.e.f.p.l.g(this.f50353e, R.dimen.tbds21);
+            int g3 = b.a.e.f.p.l.g(this.f50353e, R.dimen.tbds44);
+            this.f50356h.setLayoutManager(new LinearLayoutManager(this.f50353e, 0, false));
+            this.f50356h.setItemAnimator(new DefaultItemAnimator());
+            this.f50356h.addItemDecoration(new SpaceItemDecoration(g3, g2, g3));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f50356h.getLayoutParams();
+            if (d.p0()) {
+                layoutParams.bottomMargin = b.a.e.f.p.l.g(this.f50353e, R.dimen.tbds39);
             } else {
-                layoutParams.bottomMargin = b.a.e.e.p.l.g(this.f49442e, R.dimen.tbds22);
+                layoutParams.bottomMargin = b.a.e.f.p.l.g(this.f50353e, R.dimen.tbds22);
             }
-            this.f49445h.setLayoutParams(layoutParams);
+            this.f50356h.setLayoutParams(layoutParams);
         }
     }
 
@@ -161,11 +161,11 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-            if (i2 != this.f49443f) {
-                SkinManager.setViewTextColor(this.f49444g, this.k);
-                this.f49446i.onChangeSkinType(i2);
+            if (i2 != this.f50354f) {
+                SkinManager.setViewTextColor(this.f50355g, this.k);
+                this.f50357i.onChangeSkinType(i2);
             }
-            this.f49443f = i2;
+            this.f50354f = i2;
         }
     }
 
@@ -185,41 +185,41 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
                 return;
             }
             setVisibility(0);
-            if (!TextUtils.isEmpty(v1Var.f13463e) && v1Var.f13464f != 0) {
-                this.f49444g.setTextSize(0, b.a.e.e.p.l.g(this.f49442e, R.dimen.tbds37));
-                this.f49444g.setText(v1Var.f13463e);
-                this.f49444g.setTypeface(Typeface.DEFAULT_BOLD);
-                this.k = v1Var.f13464f;
+            if (!TextUtils.isEmpty(v1Var.f14245e) && v1Var.f14246f != 0) {
+                this.f50355g.setTextSize(0, b.a.e.f.p.l.g(this.f50353e, R.dimen.tbds37));
+                this.f50355g.setText(v1Var.f14245e);
+                this.f50355g.setTypeface(Typeface.DEFAULT_BOLD);
+                this.k = v1Var.f14246f;
             } else {
-                this.f49444g.setTextSize(0, b.a.e.e.p.l.g(this.f49442e, R.dimen.tbds37));
-                this.f49444g.setText(R.string.concern_recommend_title);
-                this.f49444g.setTypeface(Typeface.DEFAULT_BOLD);
+                this.f50355g.setTextSize(0, b.a.e.f.p.l.g(this.f50353e, R.dimen.tbds37));
+                this.f50355g.setText(R.string.concern_recommend_title);
+                this.f50355g.setTypeface(Typeface.DEFAULT_BOLD);
                 this.k = R.color.CAM_X0105;
             }
-            this.f49446i.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.f49446i.setData(v1Var.g());
-            this.f49446i.notifyDataSetChanged();
+            this.f50357i.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.f50357i.setData(v1Var.g());
+            this.f50357i.notifyDataSetChanged();
         }
     }
 
     public void setHasBorder(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f49446i.setHasBorder(z);
+            this.f50357i.setHasBorder(z);
         }
     }
 
     public void setOnItemCoverListener(f<MetaData> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f49446i.setOnItemCoverListener(fVar);
+            this.f50357i.setOnItemCoverListener(fVar);
         }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.f49446i.setPageContext(tbPageContext);
+            this.f50357i.setPageContext(tbPageContext);
         }
     }
 
@@ -228,7 +228,7 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
         if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
             this.l.setTag(bdUniqueId);
             MessageManager.getInstance().registerListener(this.l);
-            this.f49446i.setPageUniqueId(bdUniqueId);
+            this.f50357i.setPageUniqueId(bdUniqueId);
         }
     }
 
@@ -251,10 +251,10 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f49443f = 3;
+        this.f50354f = 3;
         this.k = R.color.CAM_X0108;
         this.l = new a(this, 2156674);
-        this.f49442e = context;
+        this.f50353e = context;
         d();
     }
 }

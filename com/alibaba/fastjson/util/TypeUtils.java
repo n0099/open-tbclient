@@ -1,7 +1,6 @@
 package com.alibaba.fastjson.util;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
@@ -31,7 +30,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ABTestConstants;
 import com.vivo.push.PushClientConstants;
 import java.io.InputStream;
 import java.io.Reader;
@@ -521,7 +519,7 @@ public class TypeUtils {
                     }
                     if (!"true".equalsIgnoreCase(str) && !"1".equals(str)) {
                         if (!"false".equalsIgnoreCase(str) && !"0".equals(str)) {
-                            if (!"Y".equalsIgnoreCase(str) && !ExifInterface.GPS_DIRECTION_TRUE.equals(str)) {
+                            if (!"Y".equalsIgnoreCase(str) && !"T".equals(str)) {
                                 if ("F".equalsIgnoreCase(str) || "N".equals(str)) {
                                     return Boolean.FALSE;
                                 }
@@ -1029,7 +1027,7 @@ public class TypeUtils {
                         } else if (cls == Byte.TYPE) {
                             genericArrayType = Class.forName(str + "B");
                         } else if (cls == Short.TYPE) {
-                            genericArrayType = Class.forName(str + ExifInterface.LATITUDE_SOUTH);
+                            genericArrayType = Class.forName(str + "S");
                         } else if (cls == Integer.TYPE) {
                             genericArrayType = Class.forName(str + "I");
                         } else if (cls == Long.TYPE) {
@@ -2141,7 +2139,7 @@ public class TypeUtils {
             if (c2 < '0' || c2 > '9' || c3 < '0' || c3 > '9' || c4 < '0' || c4 > '9' || c5 < '0' || c5 > '9' || c6 < '0' || c6 > '9' || c7 < '0' || c7 > '9' || c8 < '0' || c8 > '9' || c9 < '0' || c9 > '9' || c10 < '0' || c10 > '9') {
                 return -1;
             }
-            return ((c2 - '0') * 100000000) + ((c3 - '0') * ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT) + ((c4 - '0') * 1000000) + ((c5 - '0') * 100000) + ((c6 - '0') * 10000) + ((c7 - '0') * 1000) + ((c8 - '0') * 100) + ((c9 - '0') * 10) + (c10 - '0');
+            return ((c2 - '0') * 100000000) + ((c3 - '0') * 10000000) + ((c4 - '0') * 1000000) + ((c5 - '0') * 100000) + ((c6 - '0') * 10000) + ((c7 - '0') * 1000) + ((c8 - '0') * 100) + ((c9 - '0') * 10) + (c10 - '0');
         }
         return invokeCommon.intValue;
     }

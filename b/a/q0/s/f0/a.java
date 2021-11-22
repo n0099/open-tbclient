@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import b.a.e.a.f;
 import b.a.e.a.j;
-import b.a.e.e.l.c;
-import b.a.e.e.l.d;
-import b.a.e.e.p.l;
+import b.a.e.f.l.c;
+import b.a.e.f.l.d;
+import b.a.e.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,24 +29,24 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12942a;
+    public int f13722a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FragmentTabHost f12943b;
+    public FragmentTabHost f13723b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c<b.a.e.l.d.a> f12944c;
+    public final c<b.a.e.m.d.a> f13724c;
 
     /* renamed from: b.a.q0.s.f0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0676a extends c<b.a.e.l.d.a> {
+    public class C0711a extends c<b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f12945a;
+        public final /* synthetic */ a f13725a;
 
-        public C0676a(a aVar) {
+        public C0711a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,31 +61,31 @@ public class a {
                     return;
                 }
             }
-            this.f12945a = aVar;
+            this.f13725a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.l.c
-        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
-                super.onLoaded((C0676a) aVar, str, i2);
-                if (this.f12945a.f12943b == null || aVar == null || !aVar.w()) {
-                    this.f12945a.f();
+                super.onLoaded((C0711a) aVar, str, i2);
+                if (this.f13725a.f13723b == null || aVar == null || !aVar.w()) {
+                    this.f13725a.f();
                     return;
                 }
-                FragmentTabWidget fragmentTabWidget = this.f12945a.f12943b.getFragmentTabWidget();
-                CustomViewPager fragmentViewPager = this.f12945a.f12943b.getFragmentViewPager();
-                ViewGroup tabWrapper = this.f12945a.f12943b.getTabWrapper();
+                FragmentTabWidget fragmentTabWidget = this.f13725a.f13723b.getFragmentTabWidget();
+                CustomViewPager fragmentViewPager = this.f13725a.f13723b.getFragmentViewPager();
+                ViewGroup tabWrapper = this.f13725a.f13723b.getTabWrapper();
                 if (fragmentTabWidget == null || fragmentViewPager == null) {
                     return;
                 }
-                this.f12945a.f12943b.setNeedShowThemeStyle(false);
+                this.f13725a.f13723b.setNeedShowThemeStyle(false);
                 fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
                 SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
                 SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
-                layoutParams.bottomMargin = l.g(this.f12945a.f12943b.getContext(), R.dimen.tbds100);
+                layoutParams.bottomMargin = l.g(this.f13725a.f13723b.getContext(), R.dimen.tbds100);
                 fragmentViewPager.setLayoutParams(layoutParams);
                 fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(aVar.p()));
             }
@@ -107,10 +107,10 @@ public class a {
                 return;
             }
         }
-        this.f12942a = 0;
-        this.f12944c = new C0676a(this);
-        this.f12943b = fragmentTabHost;
-        this.f12942a = i2;
+        this.f13722a = 0;
+        this.f13724c = new C0711a(this);
+        this.f13723b = fragmentTabHost;
+        this.f13722a = i2;
     }
 
     public final BdUniqueId c() {
@@ -118,8 +118,8 @@ public class a {
         f<?> a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FragmentTabHost fragmentTabHost = this.f12943b;
-            if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = j.a(this.f12943b.getContext())) == null) {
+            FragmentTabHost fragmentTabHost = this.f13723b;
+            if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = j.a(this.f13723b.getContext())) == null) {
                 return null;
             }
             return a2.getUniqueId();
@@ -130,7 +130,7 @@ public class a {
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            d.h().m(str, 10, this.f12944c, c());
+            d.h().m(str, 10, this.f13724c, c());
         }
     }
 
@@ -153,11 +153,11 @@ public class a {
     public final void f() {
         FragmentTabHost fragmentTabHost;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fragmentTabHost = this.f12943b) == null || fragmentTabHost.getFragmentTabWidget() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fragmentTabHost = this.f13723b) == null || fragmentTabHost.getFragmentTabWidget() == null) {
             return;
         }
-        this.f12943b.getFragmentTabWidget().setBackGroundDrawableResId(this.f12942a);
-        SkinManager.setBackgroundColor(this.f12943b.getFragmentTabWidget(), this.f12942a);
-        SkinManager.setBackgroundColor(this.f12943b.getTabWrapper(), this.f12942a);
+        this.f13723b.getFragmentTabWidget().setBackGroundDrawableResId(this.f13722a);
+        SkinManager.setBackgroundColor(this.f13723b.getFragmentTabWidget(), this.f13722a);
+        SkinManager.setBackgroundColor(this.f13723b.getTabWrapper(), this.f13722a);
     }
 }

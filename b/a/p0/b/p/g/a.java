@@ -1,183 +1,246 @@
 package b.a.p0.b.p.g;
 
-import androidx.core.view.InputDeviceCompat;
-import b.a.p0.b.h;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import b.a.p0.a.f2.e;
+import b.a.p0.a.f2.f.z;
+import b.a.p0.a.h2.c.d;
+import b.a.p0.a.h2.c.i;
+import b.a.p0.a.h2.c.j.b;
+import b.a.p0.a.n2.n;
+import b.a.p0.a.z2.g1.c;
+import b.a.p0.a.z2.q0;
+import b.a.p0.a.z2.w;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a {
+public class a extends z {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f9480a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f9481b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f9482c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9483d;
+    public static final Set<String> f10110d;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f9484e;
+    /* renamed from: c  reason: collision with root package name */
+    public String f10111c;
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f9485f;
+    /* renamed from: b.a.p0.b.p.g.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public class C0526a implements c<i<b.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: g  reason: collision with root package name */
-    public String f9486g;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CallbackHandler f10112e;
 
-    public a() {
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ Context f10113f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ String f10114g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ String f10115h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ String f10116i;
+        public final /* synthetic */ String j;
+        public final /* synthetic */ String k;
+        public final /* synthetic */ a l;
+
+        public C0526a(a aVar, CallbackHandler callbackHandler, Context context, String str, String str2, String str3, String str4, String str5) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, callbackHandler, context, str, str2, str3, str4, str5};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.l = aVar;
+            this.f10112e = callbackHandler;
+            this.f10113f = context;
+            this.f10114g = str;
+            this.f10115h = str2;
+            this.f10116i = str3;
+            this.j = str4;
+            this.k = str5;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.c
+        /* renamed from: a */
+        public void onCallback(i<b.e> iVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
+                if (!d.h(iVar)) {
+                    d.q(iVar, this.f10112e, this.l.f10111c);
+                    return;
+                }
+                b.a.p0.a.u2.a a2 = b.a.p0.a.c1.a.F().a(this.f10113f, this.f10114g, this.f10115h, this.f10116i, this.j, this.k);
+                if (a2 != null) {
+                    if (a2.h() != 0) {
+                        b.a.p0.a.e0.d.c("PageTransitionAction", a2.g().toString());
+                        CallbackHandler callbackHandler = this.f10112e;
+                        String str = this.l.f10111c;
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a2.a() + ":" + a2.g().toString()).toString());
+                        return;
+                    }
+                    b.a.p0.a.e0.d.c("PageTransitionAction", "page transition fail");
+                    this.f10112e.handleSchemeDispatchCallback(this.l.f10111c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
+                    return;
+                }
+                b.a.p0.a.e0.d.i("PageTransitionAction", "page transition success");
+                this.f10112e.handleSchemeDispatchCallback(this.l.f10111c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(84402486, "Lb/a/p0/b/p/g/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(84402486, "Lb/a/p0/b/p/g/a;");
+                return;
+            }
+        }
+        HashSet hashSet = new HashSet();
+        f10110d = hashSet;
+        hashSet.add("easybrowse");
+        f10110d.add("live");
+        f10110d.add("appTab");
+        f10110d.add("browser");
+        f10110d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_COMIC);
+        f10110d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL);
+        f10110d.add("imChatHN");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(e eVar) {
+        super(eVar, "/swanAPI/pageTransition");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        char c2;
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f9483d;
-            int hashCode = str.hashCode();
-            if (hashCode == 2154) {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
-                    c2 = 2;
-                }
-                c2 = 65535;
-            } else if (hashCode != 2161) {
-                if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
-                    c2 = 1;
-                }
-                c2 = 65535;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
+            if (eVar == null) {
+                b.a.p0.a.e0.d.c("PageTransitionAction", "runtime exception");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "null swanApp");
+                return false;
+            } else if (eVar.m0()) {
+                boolean z = z.f5228b;
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
             } else {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
-                    c2 = 0;
+                String param = unitedSchemeEntity.getParam("params");
+                if (TextUtils.isEmpty(param)) {
+                    b.a.p0.a.e0.d.c("PageTransitionAction", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
+                    return false;
                 }
-                c2 = 65535;
+                JSONObject d2 = w.d(param);
+                String optString = d2.optString("cb");
+                this.f10111c = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    b.a.p0.a.e0.d.c("PageTransitionAction", "callback is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                String optString2 = d2.optString("authority");
+                String optString3 = d2.optString("path");
+                String optString4 = d2.optString("module");
+                String optString5 = d2.optString("action");
+                String optString6 = d2.optString("scheme");
+                k(eVar, optString4);
+                if (b.a.p0.a.c1.a.E().a(d2)) {
+                    eVar.d0().g(context, "mapp_i_baiduapp_page_trans", new C0526a(this, callbackHandler, context, optString2, optString3, optString4, optString5, optString6));
+                } else {
+                    b.a.p0.a.u2.a a2 = b.a.p0.a.c1.a.F().a(context, optString2, optString3, optString4, optString5, optString6);
+                    if (a2 != null) {
+                        if (a2.h() != 0) {
+                            b.a.p0.a.e0.d.c("PageTransitionAction", a2.g().toString());
+                            String str = this.f10111c;
+                            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a2.a() + ":" + a2.g().toString()).toString());
+                        } else {
+                            b.a.p0.a.e0.d.c("PageTransitionAction", "page transition fail");
+                            callbackHandler.handleSchemeDispatchCallback(this.f10111c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
+                        }
+                    } else {
+                        b.a.p0.a.e0.d.i("PageTransitionAction", "page transition success");
+                        callbackHandler.handleSchemeDispatchCallback(this.f10111c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    }
+                }
+                b.a.p0.a.e0.d.i("PageTransitionAction", "callback success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
-            if (c2 == 0) {
-                this.f9486g = AppRuntime.getAppContext().getString(h.account_onekey_login_dx_agree_text);
-            } else if (c2 == 1) {
-                this.f9486g = AppRuntime.getAppContext().getString(h.account_onekey_login_lt_agree_text);
-            } else if (c2 != 2) {
-                this.f9486g = "";
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void k(@NonNull b.a.p0.a.d2.e eVar, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, str) == null) {
+            b.a.p0.a.n2.s.e eVar2 = new b.a.p0.a.n2.s.e();
+            eVar2.f7381c = eVar.V().T();
+            eVar2.f7379a = "swan";
+            if (q0.G()) {
+                if (f10110d.contains(str)) {
+                    eVar2.f7380b = str.toLowerCase();
+                } else {
+                    eVar2.f7380b = "other";
+                }
             } else {
-                this.f9486g = AppRuntime.getAppContext().getString(h.account_onekey_login_yd_agree_text);
+                eVar2.f7380b = "other";
             }
-            return this.f9486g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f9483d;
-            int hashCode = str.hashCode();
-            if (hashCode == 2154) {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
-                    c2 = 2;
-                }
-                c2 = 65535;
-            } else if (hashCode != 2161) {
-                if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
-                    c2 = 1;
-                }
-                c2 = 65535;
-            } else {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
-                    c2 = 0;
-                }
-                c2 = 65535;
-            }
-            if (c2 == 0) {
-                this.f9485f = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
-            } else if (c2 == 1) {
-                this.f9485f = "https://ms.zzx9.cn/html/oauth/protocol2.html";
-            } else if (c2 == 2) {
-                this.f9485f = "https://wap.cmpassport.com/resources/html/contract.html";
-            }
-            return this.f9485f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9481b : (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9482c : invokeV.booleanValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f9484e : invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9480a : invokeV.booleanValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f9481b = str;
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f9482c = z;
-        }
-    }
-
-    public void i(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f9484e = i2;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f9480a = z;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f9483d = str;
+            eVar2.a(BaseHiidoContent.HOSTID, b.a.p0.a.c1.a.n().a());
+            eVar2.a("appid", eVar.getAppId());
+            n.x("1895", eVar2);
         }
     }
 }

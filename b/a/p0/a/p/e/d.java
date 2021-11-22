@@ -4,26 +4,29 @@ import android.app.Activity;
 import androidx.annotation.UiThread;
 import b.a.p0.a.p.e.c;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
+import com.baidu.swan.apps.core.SwanAppWebViewManager;
 /* loaded from: classes.dex */
 public interface d<T extends c> extends TypedCallbackHandler {
-    @UiThread
-    void N();
+    SwanAppWebViewManager.d I();
 
-    void T(b.a.p0.a.h0.j.c cVar);
+    @UiThread
+    void P();
+
+    void W(b.a.p0.a.h0.j.c cVar);
 
     String a();
 
-    String a0();
+    String c();
 
-    String b();
+    void d(b.a.p0.a.h0.b bVar);
 
-    void c(b.a.p0.a.h0.b bVar);
-
-    void d0();
+    String d0();
 
     void destroy();
 
-    void e(Activity activity);
+    void f(Activity activity);
+
+    void g0();
 
     void loadUrl(String str);
 
@@ -34,9 +37,9 @@ public interface d<T extends c> extends TypedCallbackHandler {
     void onResume();
 
     @UiThread
-    void q();
+    void r();
 
-    T s();
+    T t();
 
-    void t(b.a.p0.a.h0.j.c cVar);
+    void u(b.a.p0.a.h0.j.c cVar);
 }

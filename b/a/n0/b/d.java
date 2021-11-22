@@ -14,13 +14,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f3514a;
+    public SharedPreferences f3604a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f3515b;
+    public SharedPreferences.Editor f3605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f3516c;
+    public Context f3606c;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public class d {
             }
         }
         try {
-            this.f3516c = context;
+            this.f3606c = context;
             SharedPreferences sharedPreferences = context.getSharedPreferences("leroadcfg", 4);
-            this.f3514a = sharedPreferences;
-            this.f3515b = sharedPreferences.edit();
+            this.f3604a = sharedPreferences;
+            this.f3605b = sharedPreferences.edit();
         } catch (Throwable th) {
             b.a.n0.l.c.d(th);
         }
@@ -50,20 +50,20 @@ public class d {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3514a.getString("xyus", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3604a.getString("xyus", "") : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f3515b.putString("xyusec", str);
-            this.f3515b.commit();
+            this.f3605b.putString("xyusec", str);
+            this.f3605b.commit();
         }
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3514a.getString("xyusec", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3604a.getString("xyusec", "") : (String) invokeV.objValue;
     }
 }

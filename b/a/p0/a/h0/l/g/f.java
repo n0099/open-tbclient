@@ -11,7 +11,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5454a;
+    public static final boolean f5735a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,33 +27,40 @@ public class f {
                 return;
             }
         }
-        f5454a = b.a.p0.a.k.f6397a;
+        f5735a = b.a.p0.a.k.f6863a;
     }
 
     public static boolean a(b.a.p0.a.h0.f.a aVar, String str) {
         InterceptResult invokeLL;
-        b.a.p0.a.a2.e P;
+        b.a.p0.a.d2.e a0;
         a a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, aVar, str)) == null) {
+            if (f5735a) {
+                String str2 = "JS CALL - " + str;
+            }
             boolean z = false;
-            if (b.a.p0.a.u1.a.a.C()) {
+            if (b.a.p0.a.x1.a.a.D()) {
                 return false;
             }
             if (aVar != null && !TextUtils.isEmpty(aVar.getContainerId())) {
                 if (b.a.p0.a.h0.l.g.n.a.i().k(aVar.getContainerId())) {
                     return true;
                 }
-                if (!b.a.p0.a.h0.o.e.a.f()) {
+                if (!b.a.p0.a.h0.o.e.a.h()) {
                     return false;
                 }
                 String containerId = aVar.getContainerId();
-                if (!e.a(containerId) || (P = b.a.p0.a.a2.e.P()) == null || !b(aVar) || (a2 = h.b().a()) == null) {
+                if (!e.a(containerId) || (a0 = b.a.p0.a.d2.e.a0()) == null || !b(aVar) || (a2 = h.b().a()) == null) {
                     return false;
                 }
-                z = (TextUtils.equals(a2.i().b(), aVar.getContainerId()) && TextUtils.equals(a2.h(), P.f3961f)) ? true : true;
-                if (f5454a && z) {
-                    String str2 = "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch";
+                String h2 = a2.h();
+                if (TextUtils.isEmpty(h2)) {
+                    return false;
+                }
+                z = (TextUtils.equals(a2.i().c(), aVar.getContainerId()) && TextUtils.equals(h2, a0.f4474f)) ? true : true;
+                if (f5735a && z) {
+                    String str3 = "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch";
                 }
             }
             return z;

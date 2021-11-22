@@ -26,12 +26,12 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.e.l.e.q;
+import b.a.e.f.p.l;
+import b.a.e.m.e.q;
 import b.a.q0.a.p;
 import b.a.q0.a.s;
-import b.a.q0.d1.g0;
-import b.a.q0.d1.j0;
+import b.a.q0.c1.g0;
+import b.a.q0.c1.j0;
 import b.a.q0.g0.g;
 import b.a.q0.g0.h;
 import b.a.q0.j0.i;
@@ -144,7 +144,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public TbPageContext<T> pageContext;
     public b.a.q0.o0.d pageStayDurationItem;
     public List<PopupWindow> popupWindowList;
-    public b.a.e.e.m.c resourcesWrapper;
+    public b.a.e.f.m.c resourcesWrapper;
     public Runnable setNoTranslucentRunnable;
     public final CustomMessageListener skinTypeChangeListener;
 
@@ -543,7 +543,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 this.this$0 = this;
             }
 
-            @Override // b.a.q0.d1.g0.b
+            @Override // b.a.q0.c1.g0.b
             public void onShot(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -830,7 +830,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             return;
         }
         for (Dialog dialog : list) {
-            b.a.e.e.m.g.b(dialog, getPageContext());
+            b.a.e.f.m.g.b(dialog, getPageContext());
         }
         this.dialogList.clear();
     }
@@ -842,7 +842,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             return;
         }
         for (PopupWindow popupWindow : list) {
-            b.a.e.e.m.g.d(popupWindow, getPageContext().getPageActivity());
+            b.a.e.f.m.g.d(popupWindow, getPageContext().getPageActivity());
         }
         this.popupWindowList.clear();
     }
@@ -854,7 +854,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (list != null) {
                 list.remove(dialog);
             }
-            b.a.e.e.m.g.b(dialog, getPageContext());
+            b.a.e.f.m.g.b(dialog, getPageContext());
         }
     }
 
@@ -868,7 +868,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void dismissPopupWindow(PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, popupWindow) == null) {
-            b.a.e.e.m.g.d(popupWindow, getPageContext().getPageActivity());
+            b.a.e.f.m.g.d(popupWindow, getPageContext().getPageActivity());
             List<PopupWindow> list = this.popupWindowList;
             if (list != null) {
                 list.remove(popupWindow);
@@ -882,7 +882,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
             s.a(motionEvent, getPageId(), getMissionTid());
-            b.a.r0.q3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+            b.a.r0.r3.a.getInstance().behaviorRecordEvent(motionEvent, this);
             try {
                 if (this.mProgressBar == null || !this.mProgressBar.isShown()) {
                     return super.dispatchTouchEvent(motionEvent);
@@ -1117,7 +1117,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 return super.getResources();
             }
             if (this.resourcesWrapper == null) {
-                this.resourcesWrapper = new b.a.e.e.m.c(super.getResources());
+                this.resourcesWrapper = new b.a.e.f.m.c(super.getResources());
             }
             return this.resourcesWrapper;
         }
@@ -1444,7 +1444,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 if (configuration.screenWidthDp != this.mLastScreenWidth || configuration.screenHeightDp != this.mLastScreenHeight) {
                     this.mLastScreenWidth = configuration.screenWidthDp;
                     this.mLastScreenHeight = configuration.screenHeightDp;
-                    l.f2041a = false;
+                    l.f2044a = false;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921414, getUniqueId()));
                 }
             } else {
@@ -1528,7 +1528,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             this.mPermissionCallback = null;
             super.onDestroy();
             this.mSafeHandler.removeCallbacksAndMessages(null);
-            b.a.e.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
+            b.a.e.f.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
             TbadkCoreApplication.getInst().getPersonalizeViewData().a();
         }
     }
@@ -1608,7 +1608,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048654, this) == null) {
-            b.a.r0.q3.a.getInstance().onPause(this);
+            b.a.r0.r3.a.getInstance().onPause(this);
             super.onPause();
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -1625,8 +1625,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             TbadkCoreApplication.getInst().setCurrentActivity(null);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, this));
             if (this.isAddSwipeBackLayout) {
-                b.a.e.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
-                b.a.e.e.m.e.a().postDelayed(this.setNoTranslucentRunnable, 1000L);
+                b.a.e.f.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
+                b.a.e.f.m.e.a().postDelayed(this.setNoTranslucentRunnable, 1000L);
             }
         }
     }
@@ -1694,7 +1694,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
             MenuKeyUtils.hideSoftMenuKey(getWindow());
             super.onResume();
-            b.a.r0.q3.a.getInstance().onResume(this);
+            b.a.r0.r3.a.getInstance().onResume(this);
             if (this.isInterceptStimeStat) {
                 setInterceptStimeStat(false);
             } else {
@@ -1727,7 +1727,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 showFloatingWindow();
             }
             if (this.isAddSwipeBackLayout) {
-                b.a.e.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
+                b.a.e.f.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
                 j0.b(this);
             }
         }
@@ -1948,7 +1948,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048686, this, dialog)) == null) {
-            if (b.a.e.e.m.g.j(dialog, getPageContext())) {
+            if (b.a.e.f.m.g.j(dialog, getPageContext())) {
                 if (this.dialogList == null) {
                     this.dialogList = new LinkedList();
                 }
@@ -2047,7 +2047,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048701, this, popupWindow, view)) == null) {
-            if (b.a.e.e.m.g.k(popupWindow, view)) {
+            if (b.a.e.f.m.g.k(popupWindow, view)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -2063,7 +2063,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048703, this, new Object[]{popupWindow, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (b.a.e.e.m.g.m(popupWindow, view, i2, i3, i4)) {
+            if (b.a.e.f.m.g.m(popupWindow, view, i2, i3, i4)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -2373,7 +2373,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048691, this, str, onCancelListener, z) == null) && !isFinishing() && b.a.e.e.m.g.f(getPageContext())) {
+        if ((interceptable == null || interceptable.invokeLLZ(1048691, this, str, onCancelListener, z) == null) && !isFinishing() && b.a.e.f.m.g.f(getPageContext())) {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
             }
@@ -2391,7 +2391,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048702, this, popupWindow, view, i2, i3)) == null) {
-            if (b.a.e.e.m.g.l(popupWindow, view, i2, i3)) {
+            if (b.a.e.f.m.g.l(popupWindow, view, i2, i3)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }

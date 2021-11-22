@@ -1,5 +1,6 @@
 package com.baidu.mobads.sdk.internal;
 
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +61,7 @@ public class XAdSDKProxyVersion {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                return Integer.valueOf("9.042".split("\\.")[0]).intValue();
+                return Integer.valueOf("9.042".split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)[0]).intValue();
             } catch (Exception unused) {
                 return 0;
             }

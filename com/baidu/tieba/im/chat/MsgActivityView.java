@@ -30,8 +30,8 @@ public class MsgActivityView extends e {
     public TextView v;
     public TextView w;
     public int x;
-    public b.a.e.e.h.a y;
-    public b.a.e.e.h.b z;
+    public b.a.e.f.h.a y;
+    public b.a.e.f.h.b z;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -39,7 +39,7 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f50182e;
+        public final /* synthetic */ MsgActivityView f51094e;
 
         public a(MsgActivityView msgActivityView) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class MsgActivityView extends e {
                     return;
                 }
             }
-            this.f50182e = msgActivityView;
+            this.f51094e = msgActivityView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50182e.y == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51094e.y == null) {
                 return;
             }
-            this.f50182e.y.onItemViewClick(view, 8, this.f50182e.x, 0L);
+            this.f51094e.y.onItemViewClick(view, 8, this.f51094e.x, 0L);
         }
     }
 
@@ -75,7 +75,7 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f50183e;
+        public final /* synthetic */ MsgActivityView f51095e;
 
         public b(MsgActivityView msgActivityView) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class MsgActivityView extends e {
                     return;
                 }
             }
-            this.f50183e = msgActivityView;
+            this.f51095e = msgActivityView;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -100,8 +100,8 @@ public class MsgActivityView extends e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f50183e.z != null) {
-                    this.f50183e.z.onItemViewLongClick(view, 8, this.f50183e.x, 0L);
+                if (this.f51095e.z != null) {
+                    this.f51095e.z.onItemViewLongClick(view, 8, this.f51095e.x, 0L);
                     return true;
                 }
                 return true;
@@ -116,13 +116,13 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f50184e;
+        public final /* synthetic */ String f51096e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f50185f;
+        public final /* synthetic */ String f51097f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f50186g;
+        public final /* synthetic */ MsgActivityView f51098g;
 
         public c(MsgActivityView msgActivityView, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -139,16 +139,16 @@ public class MsgActivityView extends e {
                     return;
                 }
             }
-            this.f50186g = msgActivityView;
-            this.f50184e = str;
-            this.f50185f = str2;
+            this.f51098g = msgActivityView;
+            this.f51096e = str;
+            this.f51097f = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f50186g.getPageContext().getPageActivity(), this.f50184e, this.f50185f)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f51098g.getPageContext().getPageActivity(), this.f51096e, this.f51097f)));
             }
         }
     }
@@ -172,7 +172,7 @@ public class MsgActivityView extends e {
                 return;
             }
         }
-        this.f19994h = (TextView) c(R.id.tex_msgitem_time);
+        this.f21516h = (TextView) c(R.id.tex_msgitem_time);
         this.u = (TextView) c(R.id.msg_msgactivity_title);
         this.v = (TextView) c(R.id.msg_msgactivity_time);
         this.w = (TextView) c(R.id.msg_msgactivity_address);
@@ -202,7 +202,7 @@ public class MsgActivityView extends e {
                 String optString6 = optJSONObject.optString("activityUserName");
                 this.u.setText(optString);
                 Calendar calendar = Calendar.getInstance();
-                calendar.setTimeInMillis(b.a.e.e.m.b.g(optString2, 0L) * 1000);
+                calendar.setTimeInMillis(b.a.e.f.m.b.g(optString2, 0L) * 1000);
                 int i2 = calendar.get(11);
                 int i3 = calendar.get(12);
                 int i4 = calendar.get(7) - 1;
@@ -256,7 +256,7 @@ public class MsgActivityView extends e {
     }
 
     @Override // b.a.r0.l1.f.e
-    public void n(b.a.e.e.h.a aVar) {
+    public void n(b.a.e.f.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.y = aVar;
@@ -264,7 +264,7 @@ public class MsgActivityView extends e {
     }
 
     @Override // b.a.r0.l1.f.e
-    public void o(b.a.e.e.h.b bVar) {
+    public void o(b.a.e.f.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.z = bVar;

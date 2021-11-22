@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class Frame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Session f63094a;
+    public final Session f63994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LightEstimate f63095b;
+    public final LightEstimate f63995b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f63096c;
+    public long f63996c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,10 +55,10 @@ public class Frame {
                 return;
             }
         }
-        this.f63096c = 0L;
-        this.f63094a = session;
-        this.f63096c = nativeCreateFrame(session.f63102a);
-        this.f63095b = new LightEstimate(session);
+        this.f63996c = 0L;
+        this.f63994a = session;
+        this.f63996c = nativeCreateFrame(session.f64002a);
+        this.f63995b = new LightEstimate(session);
     }
 
     private native long nativeAcquireCameraImage(long j, long j2);
@@ -73,7 +73,7 @@ public class Frame {
 
     private native long nativeGetAndroidCameraTimestamp(long j, long j2);
 
-    private native b.i.c.a.a nativeGetAndroidSensorPose(long j, long j2);
+    private native b.h.c.a.a nativeGetAndroidSensorPose(long j, long j2);
 
     private native void nativeGetLightEstimate(long j, long j2, long j3);
 
@@ -88,7 +88,7 @@ public class Frame {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f63096c;
+            long j = this.f63996c;
             if (j != 0) {
                 nativeDestroyFrame(j);
             }
@@ -117,7 +117,7 @@ public class Frame {
                 return;
             }
         }
-        this.f63096c = 0L;
-        this.f63096c = 0L;
+        this.f63996c = 0L;
+        this.f63996c = 0L;
     }
 }

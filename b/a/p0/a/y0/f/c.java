@@ -15,7 +15,7 @@ public class c implements ZeusPluginFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9007a;
+    public String f9353a;
 
     public c(@NonNull String str) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class c implements ZeusPluginFactory {
                 return;
             }
         }
-        this.f9007a = str;
+        this.f9353a = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) ? new b(b.a.p0.a.c1.a.z().e(invoker, this.f9007a)) : (ZeusPlugin) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) ? new b(b.a.p0.a.c1.a.D().e(invoker, this.f9353a)) : (ZeusPlugin) invokeL.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory

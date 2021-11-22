@@ -1,10 +1,16 @@
 package b.a.p0.a.p.c;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
 import b.a.p0.a.p.d.w0;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class d0 implements w0 {
     public static /* synthetic */ Interceptable $ic;
@@ -25,9 +31,26 @@ public class d0 implements w0 {
     }
 
     @Override // b.a.p0.a.p.d.w0
-    public void a() {
+    public void a(@NonNull JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+        }
+    }
+
+    @Override // b.a.p0.a.p.d.w0
+    public b.a.p0.a.h0.o.g.b.a b(Context context, File file, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
+            return null;
+        }
+        return (b.a.p0.a.h0.o.g.b.a) invokeCommon.objValue;
+    }
+
+    @Override // b.a.p0.a.p.d.w0
+    public void c(@NonNull JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
         }
     }
 }

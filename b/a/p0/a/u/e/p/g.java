@@ -1,40 +1,62 @@
 package b.a.p0.a.u.e.p;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Configuration;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.k;
-import b.a.p0.a.l;
-import b.a.p0.a.v2.n0;
-import b.a.p0.a.v2.q0;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.pass.face.platform.common.ConstantHelper;
+import b.a.p0.a.z2.q;
+import b.a.p0.a.z2.w;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g {
+public class g extends b.a.p0.a.u.e.p.a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8393a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f8394b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f8913e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ g f8914f;
+
+        public a(g gVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f8914f = gVar;
+            this.f8913e = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f8914f.d(this.f8913e, new b.a.p0.a.u.h.b(0, this.f8914f.y()));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,108 +71,65 @@ public class g {
                 return;
             }
         }
-        f8393a = k.f6397a;
+        boolean z = b.a.p0.a.k.f6863a;
     }
 
-    public static JSONObject a(@NonNull Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(@NonNull b.a.p0.a.u.c.b bVar) {
+        super(bVar);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean z = f8393a;
-            WindowManager windowManager = (WindowManager) context.getSystemService("window");
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-            windowManager.getDefaultDisplay().getSize(new Point());
-            windowManager.getDefaultDisplay().getRectSize(new Rect());
-            Configuration configuration = context.getResources().getConfiguration();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("brand", Build.BRAND);
-                jSONObject.put("model", Build.MODEL);
-                jSONObject.put("pixelRatio", displayMetrics.density);
-                jSONObject.put("devicePixelRatio", displayMetrics.density);
-                jSONObject.put("language", c(configuration));
-                jSONObject.put("version", q0.D());
-                jSONObject.put(ConstantHelper.LOG_OS, "Android " + Build.VERSION.RELEASE);
-                jSONObject.put(Constants.PARAM_PLATFORM, "android");
-                jSONObject.put("fontSizeSetting", b.a.p0.a.c1.a.n().q());
-                jSONObject.put("swanNativeVersion", l.a());
-                jSONObject.put("host", b.a.p0.a.c1.a.m().a());
-                jSONObject.put("statusBarHeight", n0.L(n0.u()));
-                jSONObject.put("navigationBarHeight", n0.L(n0.j()));
-                boolean z2 = f8393a;
-                return jSONObject;
-            } catch (JSONException e2) {
-                if (f8393a) {
-                    e2.printStackTrace();
-                    return null;
-                }
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((b.a.p0.a.u.c.b) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    @Nullable
-    public static synchronized JSONObject b(Context context) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
+    @Override // b.a.p0.a.u.c.d
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (g.class) {
-                if (f8394b == null && context != null) {
-                    boolean z = f8393a;
-                    f8394b = a(context);
-                }
-                boolean z2 = f8393a;
-                jSONObject = f8394b;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetPerformanceLevelApi" : (String) invokeV.objValue;
+    }
+
+    public b.a.p0.a.u.h.b x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#getPerformanceLevel", false);
+            Pair<b.a.p0.a.u.h.b, JSONObject> s = s(str);
+            if (!((b.a.p0.a.u.h.b) s.first).isSuccess()) {
+                return (b.a.p0.a.u.h.b) s.first;
             }
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new b.a.p0.a.u.h.b(202, "cb is empty");
+            }
+            q.k(new a(this, optString), "SWAN_DEVICE_PERFORMANCE_CHECK");
+            return new b.a.p0.a.u.h.b(0);
+        }
+        return (b.a.p0.a.u.h.b) invokeL.objValue;
+    }
+
+    public JSONObject y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String b2 = b.a.p0.a.c1.a.u0().b();
+            b.a.p0.a.e0.d.k("GetPerformanceLevelApi", "getPerformanceLevel: " + b2);
+            JSONObject jSONObject = new JSONObject();
+            w.f(jSONObject, "performanceLevel", b2);
             return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static String c(Configuration configuration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, configuration)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 < 21) {
-                return configuration.locale.toString();
-            }
-            if (i2 < 24) {
-                return configuration.locale.toLanguageTag();
-            }
-            return configuration.getLocales().toLanguageTags();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public static synchronized void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            synchronized (g.class) {
-                boolean z = f8393a;
-                if (b.a.p0.a.c1.a.Z().v()) {
-                    if (f8394b == null && context != null) {
-                        boolean z2 = f8393a;
-                        f8394b = a(context);
-                    }
-                    boolean z3 = f8393a;
-                }
-            }
-        }
-    }
-
-    public static synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            synchronized (g.class) {
-                boolean z = f8393a;
-                f8394b = null;
-            }
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

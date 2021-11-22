@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
 import b.a.e.a.f;
-import b.a.r0.r3.h.e;
+import b.a.r0.s3.h.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -27,19 +27,19 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BubbleGroupActivity f54560e;
+    public BubbleGroupActivity f55480e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f54561f;
+    public e f55481f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<b.a.r0.r3.f.b.b> f54562g;
+    public List<b.a.r0.s3.f.b.b> f55482g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f54563h;
+    public c f55483h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f54564i;
+    public boolean f55484i;
     public b.a.e.c.g.a j;
     public final HttpMessageListener k;
 
@@ -49,7 +49,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleGroupModel f54565a;
+        public final /* synthetic */ BubbleGroupModel f55485a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BubbleGroupModel bubbleGroupModel, int i2, int i3) {
@@ -70,7 +70,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
                     return;
                 }
             }
-            this.f54565a = bubbleGroupModel;
+            this.f55485a = bubbleGroupModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -82,23 +82,23 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             boolean z = responsedMessage instanceof BubbleGroupHttpResponseMessage;
             if (z || (responsedMessage instanceof BubbleGroupSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (this.f54565a.f54563h != null) {
-                        this.f54565a.f54563h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54565a.f54561f, this.f54565a.f54562g);
+                    if (this.f55485a.f55483h != null) {
+                        this.f55485a.f55483h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f55485a.f55481f, this.f55485a.f55482g);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     BubbleGroupHttpResponseMessage bubbleGroupHttpResponseMessage = (BubbleGroupHttpResponseMessage) responsedMessage;
-                    this.f54565a.f54561f = bubbleGroupHttpResponseMessage.getRecommand();
-                    this.f54565a.f54562g = bubbleGroupHttpResponseMessage.getGroupList();
+                    this.f55485a.f55481f = bubbleGroupHttpResponseMessage.getRecommand();
+                    this.f55485a.f55482g = bubbleGroupHttpResponseMessage.getGroupList();
                 } else if (responsedMessage instanceof BubbleGroupSocketResponseMessage) {
                     BubbleGroupSocketResponseMessage bubbleGroupSocketResponseMessage = (BubbleGroupSocketResponseMessage) responsedMessage;
-                    this.f54565a.f54561f = bubbleGroupSocketResponseMessage.getRecommand();
-                    this.f54565a.f54562g = bubbleGroupSocketResponseMessage.getGroupList();
+                    this.f55485a.f55481f = bubbleGroupSocketResponseMessage.getRecommand();
+                    this.f55485a.f55482g = bubbleGroupSocketResponseMessage.getGroupList();
                 }
-                if (this.f54565a.f54563h != null) {
-                    this.f54565a.f54563h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54565a.f54561f, this.f54565a.f54562g);
+                if (this.f55485a.f55483h != null) {
+                    this.f55485a.f55483h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f55485a.f55481f, this.f55485a.f55482g);
                 }
             }
         }
@@ -110,7 +110,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleGroupModel f54566a;
+        public final /* synthetic */ BubbleGroupModel f55486a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(BubbleGroupModel bubbleGroupModel, int i2) {
@@ -130,7 +130,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
                     return;
                 }
             }
-            this.f54566a = bubbleGroupModel;
+            this.f55486a = bubbleGroupModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -140,18 +140,18 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003056) {
                 BubbleSetResponseMessage bubbleSetResponseMessage = (BubbleSetResponseMessage) httpResponsedMessage;
                 if (bubbleSetResponseMessage.getError() != 0) {
-                    this.f54566a.f54560e.showToast(bubbleSetResponseMessage.getErrorString());
+                    this.f55486a.f55480e.showToast(bubbleSetResponseMessage.getErrorString());
                     return;
                 }
-                this.f54566a.H(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
-                this.f54566a.f54563h.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f54566a.f54561f, this.f54566a.f54562g);
+                this.f55486a.H(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
+                this.f55486a.f55483h.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f55486a.f55481f, this.f55486a.f55482g);
             }
         }
     }
 
     /* loaded from: classes9.dex */
     public interface c {
-        void a(int i2, String str, e eVar, List<b.a.r0.r3.f.b.b> list);
+        void a(int i2, String str, e eVar, List<b.a.r0.s3.f.b.b> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -174,8 +174,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         }
         this.j = new a(this, CmdConfigHttp.CMD_BUBBLE_CATEGORY, 309030);
         this.k = new b(this, CmdConfigHttp.CMD_BUBBLE_SET);
-        this.f54560e = bubbleGroupActivity;
-        this.f54564i = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        this.f55480e = bubbleGroupActivity;
+        this.f55484i = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         E();
         registerListener(this.j);
         F();
@@ -185,14 +185,14 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54564i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55484i : invokeV.booleanValue;
     }
 
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.a.r0.l3.f0.a.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            b.a.r0.l3.f0.a.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
+            b.a.r0.m3.f0.a.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            b.a.r0.m3.f0.a.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -209,17 +209,17 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public void G(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f54563h = cVar;
+            this.f55483h = cVar;
         }
     }
 
     public final void H(int i2) {
-        List<b.a.r0.r3.f.b.b> list;
+        List<b.a.r0.s3.f.b.b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (list = this.f54562g) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (list = this.f55482g) == null || list.size() <= 0) {
             return;
         }
-        for (b.a.r0.r3.f.b.b bVar : this.f54562g) {
+        for (b.a.r0.s3.f.b.b bVar : this.f55482g) {
             if (bVar != null && bVar.a() != null) {
                 for (DressItemData dressItemData : bVar.a()) {
                     if (dressItemData != null) {

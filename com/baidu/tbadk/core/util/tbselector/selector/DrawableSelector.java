@@ -11,7 +11,7 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.l3.c;
+import b.a.r0.m3.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;

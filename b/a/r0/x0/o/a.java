@@ -1,6 +1,6 @@
 package b.a.r0.x0.o;
 
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
@@ -14,27 +14,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f26021b;
+    public static a f27592b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsLinkHashMap<String, Long> f26022a;
+    public FrsLinkHashMap<String, Long> f27593a;
 
     /* renamed from: b.a.r0.x0.o.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C1280a extends BdAsyncTask<Void, Void, Void> {
+    /* loaded from: classes6.dex */
+    public class C1352a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26023a;
+        public final /* synthetic */ a f27594a;
 
-        public C1280a(a aVar) {
+        public C1352a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public class a {
                     return;
                 }
             }
-            this.f26023a = aVar;
+            this.f27594a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,7 +64,7 @@ public class a {
                 if (h2 != null) {
                     String str = h2.get("hot_topic_key");
                     if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        this.f26023a.f26022a = frsHotTopicListData.mSceneMap;
+                        this.f27594a.f27593a = frsHotTopicListData.mSceneMap;
                     }
                 }
                 return null;
@@ -73,13 +73,13 @@ public class a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26024a;
+        public final /* synthetic */ a f27595a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class a {
                     return;
                 }
             }
-            this.f26024a = aVar;
+            this.f27595a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public class a {
                     return null;
                 }
                 FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                frsHotTopicListData.mSceneMap = this.f26024a.f26022a;
+                frsHotTopicListData.mSceneMap = this.f27595a.f27593a;
                 String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
                 if (!StringUtils.isNull(jsonStrWithObject)) {
                     h2.g("hot_topic_key", jsonStrWithObject);
@@ -140,14 +140,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f26021b == null) {
+            if (f27592b == null) {
                 synchronized (a.class) {
-                    if (f26021b == null) {
-                        f26021b = new a();
+                    if (f27592b == null) {
+                        f27592b = new a();
                     }
                 }
             }
-            return f26021b;
+            return f27592b;
         }
         return (a) invokeV.objValue;
     }
@@ -157,14 +157,14 @@ public class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            if (this.f26022a == null) {
-                this.f26022a = new FrsLinkHashMap<>();
+            if (this.f27593a == null) {
+                this.f27593a = new FrsLinkHashMap<>();
                 e(str, j);
             }
-            if (StringUtils.isNull(str) || this.f26022a.isEmpty()) {
+            if (StringUtils.isNull(str) || this.f27593a.isEmpty()) {
                 return false;
             }
-            Iterator<Map.Entry<String, Long>> it = this.f26022a.entrySet().iterator();
+            Iterator<Map.Entry<String, Long>> it = this.f27593a.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -176,10 +176,10 @@ public class a {
                     break;
                 }
             }
-            if (z && this.f26022a.get(str).longValue() == j) {
+            if (z && this.f27593a.get(str).longValue() == j) {
                 return false;
             }
-            this.f26022a.put(str, Long.valueOf(j));
+            this.f27593a.put(str, Long.valueOf(j));
             f();
             return true;
         }
@@ -189,9 +189,9 @@ public class a {
     public final void e(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            C1280a c1280a = new C1280a(this);
-            c1280a.setPriority(3);
-            c1280a.execute(new Void[0]);
+            C1352a c1352a = new C1352a(this);
+            c1352a.setPriority(3);
+            c1352a.execute(new Void[0]);
         }
     }
 

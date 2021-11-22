@@ -1,13 +1,10 @@
 package com.baidu.wallet.base.iddetect.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import androidx.room.RoomMasterTable;
 import com.baidu.location.Address;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
-import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -93,14 +90,14 @@ public final class IdcardUtils {
         cityCodes.put("81", "香港");
         cityCodes.put("82", "澳门");
         cityCodes.put("91", "国外");
-        twFirstCode.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, 10);
+        twFirstCode.put("A", 10);
         twFirstCode.put("B", 11);
         twFirstCode.put("C", 12);
         twFirstCode.put("D", 13);
-        twFirstCode.put(ExifInterface.LONGITUDE_EAST, 14);
+        twFirstCode.put("E", 14);
         twFirstCode.put("F", 15);
         twFirstCode.put("G", 16);
-        twFirstCode.put(IEruptionStrategyGroup.STRATEGY_MODIFIER_H, 17);
+        twFirstCode.put("H", 17);
         twFirstCode.put("J", 18);
         twFirstCode.put("K", 19);
         twFirstCode.put("L", 20);
@@ -109,24 +106,24 @@ public final class IdcardUtils {
         twFirstCode.put("P", 23);
         twFirstCode.put("Q", 24);
         twFirstCode.put("R", 25);
-        twFirstCode.put(ExifInterface.LATITUDE_SOUTH, 26);
-        twFirstCode.put(ExifInterface.GPS_DIRECTION_TRUE, 27);
+        twFirstCode.put("S", 26);
+        twFirstCode.put("T", 27);
         twFirstCode.put("U", 28);
-        twFirstCode.put(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 29);
+        twFirstCode.put("V", 29);
         twFirstCode.put("X", 30);
         twFirstCode.put("Y", 31);
-        twFirstCode.put(ExifInterface.LONGITUDE_WEST, 32);
+        twFirstCode.put("W", 32);
         twFirstCode.put("Z", 33);
         twFirstCode.put("I", 34);
         twFirstCode.put("O", 35);
-        hkFirstCode.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, 1);
+        hkFirstCode.put("A", 1);
         hkFirstCode.put("B", 2);
         hkFirstCode.put("C", 3);
         hkFirstCode.put("R", 18);
         hkFirstCode.put("U", 21);
         hkFirstCode.put("Z", 26);
         hkFirstCode.put("X", 24);
-        hkFirstCode.put(ExifInterface.LONGITUDE_WEST, 23);
+        hkFirstCode.put("W", 23);
         hkFirstCode.put("O", 15);
         hkFirstCode.put("N", 14);
     }
@@ -496,7 +493,7 @@ public final class IdcardUtils {
                 String substring = str.substring(6, 12);
                 Date date = null;
                 try {
-                    date = new SimpleDateFormat(FastLoginFeature.SSOLoginType.YY).parse(substring.substring(0, 2));
+                    date = new SimpleDateFormat("yy").parse(substring.substring(0, 2));
                 } catch (ParseException e2) {
                     e2.printStackTrace();
                 }

@@ -2,10 +2,10 @@ package b.a.r0.r2.a;
 
 import android.view.View;
 import android.widget.TextView;
+import b.a.r0.s2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class b extends b.a.q0.k0.f.a<String, b.a.q0.k0.d.b> {
                 return;
             }
         }
-        this.k = (TextView) view.findViewById(R.id.text);
+        this.k = (TextView) view.findViewById(d.text);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,12 +50,12 @@ public class b extends b.a.q0.k0.f.a<String, b.a.q0.k0.d.b> {
         }
     }
 
-    @Override // b.a.r0.l3.u
+    @Override // b.a.r0.m3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2)) == null) {
-            b.a.q0.w0.a.a(tbPageContext, d());
+            b.a.q0.v0.a.a(tbPageContext, d());
             return true;
         }
         return invokeLI.booleanValue;

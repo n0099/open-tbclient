@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.j1.c;
 import b.a.r0.j1.h;
 import b.a.r0.j1.l.j;
@@ -51,7 +51,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotRanklistActivity f49993e;
+        public final /* synthetic */ HotRanklistActivity f50905e;
 
         public a(HotRanklistActivity hotRanklistActivity) {
             Interceptable interceptable = $ic;
@@ -68,18 +68,18 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
                     return;
                 }
             }
-            this.f49993e = hotRanklistActivity;
+            this.f50905e = hotRanklistActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.f49993e.ranklistModel != null) {
-                j jVar = (j) this.f49993e.mHotTopicRanklistDataList.get(this.f49993e.ranklistMainView.h());
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.f50905e.ranklistModel != null) {
+                j jVar = (j) this.f50905e.mHotTopicRanklistDataList.get(this.f50905e.ranklistMainView.h());
                 if (jVar == null || ListUtils.isEmpty(jVar.b())) {
-                    this.f49993e.ranklistMainView.k();
-                    this.f49993e.ranklistMainView.x();
-                    this.f49993e.loadHotTopicRanklistData();
+                    this.f50905e.ranklistMainView.k();
+                    this.f50905e.ranklistMainView.x();
+                    this.f50905e.loadHotTopicRanklistData();
                 }
             }
         }
@@ -91,7 +91,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotRanklistActivity f49994a;
+        public final /* synthetic */ HotRanklistActivity f50906a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(HotRanklistActivity hotRanklistActivity, int i2) {
@@ -111,7 +111,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
                     return;
                 }
             }
-            this.f49994a = hotRanklistActivity;
+            this.f50906a = hotRanklistActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,9 +123,9 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof p) {
-                int j = this.f49994a.ranklistMainView.j((p) data);
+                int j = this.f50906a.ranklistMainView.j((p) data);
                 if (j >= 0) {
-                    this.f49994a.ranklistMainView.s(j);
+                    this.f50906a.ranklistMainView.s(j);
                 }
             }
         }
@@ -164,7 +164,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             showLoadingView(this.ranklistMainView.i(), true);
-            if (!b.a.e.e.p.j.A()) {
+            if (!b.a.e.f.p.j.A()) {
                 hideLoadingView(this.ranklistMainView.i());
                 showNetRefreshView(this.ranklistMainView.i(), getResources().getString(h.refresh_view_title_text), null, getResources().getString(h.refresh_view_button_text), true, getNetRefreshListener());
                 setNetRefreshViewEmotionMarginTop(l.g(getActivity(), c.ds350));
@@ -230,12 +230,12 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     public void loadHotTopicRanklistData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!b.a.e.e.p.j.z()) {
+            if (!b.a.e.f.p.j.z()) {
                 this.ranklistMainView.q();
             } else if (this.ranklistModel != null) {
                 String str = this.isTabListLoaded ? "0" : "1";
                 if (!ListUtils.isEmpty(this.mTopicTabList)) {
-                    this.listType = this.mTopicTabList.get(this.ranklistMainView.h()).f18486f;
+                    this.listType = this.mTopicTabList.get(this.ranklistMainView.h()).f19820f;
                 }
                 this.ranklistModel.y(this.callFrom, this.listType, str, 0L);
             }
@@ -254,12 +254,12 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
             if (this.ranklistMainView == null) {
                 return;
             }
-            if (!ListUtils.isEmpty(jVar.f18461b) && !this.isTabListLoaded) {
-                this.mTopicTabList = jVar.f18461b;
+            if (!ListUtils.isEmpty(jVar.f19795b) && !this.isTabListLoaded) {
+                this.mTopicTabList = jVar.f19795b;
                 this.mHotTopicRanklistDataList = new ArrayList();
-                for (p pVar : jVar.f18461b) {
+                for (p pVar : jVar.f19795b) {
                     j jVar2 = new j();
-                    jVar2.f18460a = pVar.f18486f;
+                    jVar2.f19794a = pVar.f19820f;
                     this.mHotTopicRanklistDataList.add(jVar2);
                 }
             }
@@ -271,7 +271,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
                 while (true) {
                     if (i4 >= this.mHotTopicRanklistDataList.size()) {
                         break;
-                    } else if (this.mHotTopicRanklistDataList.get(i4).f18460a.equals(jVar.f18460a)) {
+                    } else if (this.mHotTopicRanklistDataList.get(i4).f19794a.equals(jVar.f19794a)) {
                         i3 = i4;
                         break;
                     } else {
@@ -279,15 +279,15 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
                     }
                 }
                 if (i3 == 0) {
-                    jVar.f18461b = this.mTopicTabList;
-                } else if (ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f18461b)) {
-                    this.mHotTopicRanklistDataList.get(0).f18461b = this.mTopicTabList;
+                    jVar.f19795b = this.mTopicTabList;
+                } else if (ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f19795b)) {
+                    this.mHotTopicRanklistDataList.get(0).f19795b = this.mTopicTabList;
                 }
                 this.mHotTopicRanklistDataList.add(i3, jVar);
                 this.mHotTopicRanklistDataList.remove(i3 + 1);
             }
             this.ranklistMainView.n(this.mHotTopicRanklistDataList);
-            if (this.isTabListLoaded || ListUtils.isEmpty(this.mHotTopicRanklistDataList) || ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f18461b) || ListUtils.isEmpty(this.mTopicTabList)) {
+            if (this.isTabListLoaded || ListUtils.isEmpty(this.mHotTopicRanklistDataList) || ListUtils.isEmpty(this.mHotTopicRanklistDataList.get(0).f19795b) || ListUtils.isEmpty(this.mTopicTabList)) {
                 return;
             }
             this.isTabListLoaded = true;
@@ -346,7 +346,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && b.a.e.e.p.j.A()) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && b.a.e.f.p.j.A()) {
             hideNetRefreshView(this.ranklistMainView.i());
             firstTimeLoadNetData();
         }
@@ -400,6 +400,6 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || ListUtils.isEmpty(this.mTopicTabList) || (pVar = this.mTopicTabList.get(this.ranklistMainView.h())) == null) {
             return;
         }
-        this.hotTopicShareModel.e(null, pVar.f18488h, pVar.j, pVar.f18487g, pVar.f18489i, false);
+        this.hotTopicShareModel.e(null, pVar.f19822h, pVar.j, pVar.f19821g, pVar.f19823i, false);
     }
 }

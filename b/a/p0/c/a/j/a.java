@@ -1,9 +1,10 @@
 package b.a.p0.c.a.j;
 
-import b.a.p0.c.a.e;
 import b.a.p0.c.a.i.d;
-import b.a.p0.c.a.i.g;
-import b.a.p0.t.f;
+import b.a.p0.c.a.i.e;
+import b.a.p0.c.a.i.h;
+import b.a.p0.d.c;
+import b.a.p0.w.f;
 import com.baidu.swan.bdtls.Certificate;
 import com.baidu.swan.bdtls.DH;
 import com.baidu.swan.bdtls.RSA;
@@ -28,29 +29,29 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static d a(g gVar, byte[] bArr) {
+    public static e a(h hVar, byte[] bArr) {
         InterceptResult invokeLL;
         byte[] decrypt;
         byte[] dHSecretKey;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65536, null, gVar, bArr)) != null) {
-            return (d) invokeLL.objValue;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65536, null, hVar, bArr)) != null) {
+            return (e) invokeLL.objValue;
         }
-        d dVar = null;
-        if (gVar == null || bArr == null || bArr.length == 0) {
+        e eVar = null;
+        if (hVar == null || bArr == null || bArr.length == 0) {
             return null;
         }
         try {
             if (bArr[0] != 2) {
                 return null;
             }
-            d dVar2 = new d();
+            e eVar2 = new e();
             try {
                 Bdtls$ServerHello parseFrom = Bdtls$ServerHello.parseFrom(Arrays.copyOfRange(bArr, 1, bArr.length));
                 if (parseFrom == null) {
                     return null;
                 }
-                dVar2.a(parseFrom);
+                eVar2.a(parseFrom);
                 List<Bdtls$Extension> extensionsList = parseFrom.getExtensionsList();
                 if (extensionsList == null) {
                     return null;
@@ -59,16 +60,16 @@ public class a {
                     int type = bdtls$Extension.getType();
                     byte[] byteArray = bdtls$Extension.getData().toByteArray();
                     if (type == 0) {
-                        int a2 = e.a(RSA.decrypt(byteArray));
-                        gVar.l(DH.getDHSecretKey(a2, gVar.d().intValue(), gVar.f().intValue()));
-                        gVar.p(Integer.valueOf(a2));
-                        if (b.a.p0.c.a.a.f9542a) {
-                            String str = "GroupId=" + gVar.d();
-                            String str2 = "client dh pubkey secret=" + gVar.f();
-                            String str3 = "client dh pubkey=" + gVar.e();
+                        int a2 = b.a.p0.c.a.e.a(RSA.decrypt(byteArray));
+                        hVar.l(DH.getDHSecretKey(a2, hVar.d().intValue(), hVar.f().intValue()));
+                        hVar.p(Integer.valueOf(a2));
+                        if (b.a.p0.c.a.a.f10122a) {
+                            String str = "GroupId=" + hVar.d();
+                            String str2 = "client dh pubkey secret=" + hVar.f();
+                            String str3 = "client dh pubkey=" + hVar.e();
                             String str4 = "server dh pubkey=" + a2;
-                            String str5 = "server dh raw pubkey=" + e.d(decrypt);
-                            String str6 = "aeskey=" + e.d(dHSecretKey);
+                            String str5 = "server dh raw pubkey=" + b.a.p0.c.a.e.d(decrypt);
+                            String str6 = "aeskey=" + b.a.p0.c.a.e.d(dHSecretKey);
                         }
                     }
                 }
@@ -77,41 +78,45 @@ public class a {
                 }
                 Bdtls$ApplicationData.b newBuilder = Bdtls$ApplicationData.newBuilder();
                 newBuilder.v(parseFrom.getSKR());
-                gVar.t(newBuilder.build().toByteArray());
-                if (gVar.c() == null) {
+                Bdtls$ApplicationData build = newBuilder.build();
+                hVar.t(build.toByteArray());
+                if (hVar.c() == null) {
                     return null;
                 }
                 long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();
-                if (b.a.p0.c.a.a.f9542a) {
+                if (b.a.p0.c.a.a.f10122a) {
                     String str7 = "liftTime=" + parseFrom.getLifeTime();
                     String str8 = "expireTime=" + currentTimeMillis;
                 }
-                gVar.r(currentTimeMillis);
+                hVar.r(currentTimeMillis);
                 if (parseFrom.getCipherSuite() != null) {
-                    gVar.q(parseFrom.getCipherSuite().toByteArray());
-                    return dVar2;
+                    hVar.q(parseFrom.getCipherSuite().toByteArray());
                 }
-                return dVar2;
+                if (b.a.p0.a.u1.l.b.c()) {
+                    new d().edit().putString("secretKey", Arrays.toString(hVar.c())).putString("sessionTicket", String.valueOf(build)).putLong("expireTime", currentTimeMillis).apply();
+                    return eVar2;
+                }
+                return eVar2;
             } catch (Exception e2) {
                 e = e2;
-                dVar = dVar2;
-                if (b.a.p0.c.a.a.f9542a) {
+                eVar = eVar2;
+                if (b.a.p0.c.a.a.f10122a) {
                     e.printStackTrace();
                     String str9 = "exception=" + e.getMessage();
                 }
-                return dVar;
+                return eVar;
             }
         } catch (Exception e3) {
             e = e3;
         }
     }
 
-    public static byte[] b(g gVar, d dVar) {
+    public static byte[] b(h hVar, e eVar) {
         InterceptResult invokeLL;
         byte[] encrypt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, gVar, dVar)) == null) {
-            if (dVar == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, hVar, eVar)) == null) {
+            if (eVar == null) {
                 return null;
             }
             int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
@@ -124,14 +129,14 @@ public class a {
             int dHGroupId = DH.getDHGroupId();
             int dHSecret = DH.getDHSecret();
             int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
-            gVar.m(Integer.valueOf(dHGroupId));
-            gVar.o(Integer.valueOf(dHSecret));
-            gVar.n(Integer.valueOf(dHPublicKey));
-            byte[] g2 = e.g(dHPublicKey);
+            hVar.m(Integer.valueOf(dHGroupId));
+            hVar.o(Integer.valueOf(dHSecret));
+            hVar.n(Integer.valueOf(dHPublicKey));
+            byte[] g2 = b.a.p0.c.a.e.g(dHPublicKey);
             if (g2 == null || (encrypt = RSA.encrypt(g2)) == null) {
                 return null;
             }
-            byte[] bytes = f.a(Certificate.getSignature(b.a.p0.a.c1.a.b()), "", false).getBytes(StandardCharsets.UTF_8);
+            byte[] bytes = f.a(Certificate.getSignature(b.a.p0.a.c1.a.c()), "", false).getBytes(StandardCharsets.UTF_8);
             LinkedList linkedList = new LinkedList();
             Bdtls$Extension.b newBuilder2 = Bdtls$Extension.newBuilder();
             newBuilder2.w(0);
@@ -143,26 +148,40 @@ public class a {
             linkedList.offer(newBuilder3.build());
             Bdtls$Extension.b newBuilder4 = Bdtls$Extension.newBuilder();
             newBuilder4.w(2);
-            newBuilder4.v(ByteString.copyFrom(e.g(dHGroupId)));
+            newBuilder4.v(ByteString.copyFrom(b.a.p0.c.a.e.g(dHGroupId)));
             linkedList.offer(newBuilder4.build());
             Bdtls$Extension.b newBuilder5 = Bdtls$Extension.newBuilder();
             newBuilder5.w(3);
             newBuilder5.v(ByteString.copyFrom(bytes));
             linkedList.offer(newBuilder5.build());
-            if (b.a.p0.c.a.a.f9542a) {
+            if (b.a.p0.a.u1.l.b.c()) {
+                if (c.getContext() != null) {
+                    Bdtls$Extension.b newBuilder6 = Bdtls$Extension.newBuilder();
+                    newBuilder6.w(4);
+                    newBuilder6.v(ByteString.copyFrom(c.getContext().b().getBytes()));
+                    linkedList.offer(newBuilder6.build());
+                }
+                if (c.getContext() != null) {
+                    Bdtls$Extension.b newBuilder7 = Bdtls$Extension.newBuilder();
+                    newBuilder7.w(5);
+                    newBuilder7.v(ByteString.copyFrom(b.a.p0.w.a.f().getBytes()));
+                    linkedList.offer(newBuilder7.build());
+                }
+            }
+            if (b.a.p0.c.a.a.f10122a) {
                 String str = "groupId encode=" + dHGroupId;
                 String str2 = "secretC encode=" + dHSecret;
                 String str3 = "pubKey encode=" + dHPublicKey;
                 String str4 = "signature encode=" + new String(bytes);
             }
-            Bdtls$ClientHello.b newBuilder6 = Bdtls$ClientHello.newBuilder();
+            Bdtls$ClientHello.b newBuilder8 = Bdtls$ClientHello.newBuilder();
             Iterator it = linkedList.iterator();
             while (it.hasNext()) {
-                newBuilder6.n((Bdtls$Extension) it.next());
+                newBuilder8.n((Bdtls$Extension) it.next());
             }
-            newBuilder6.C(build);
-            newBuilder6.m(ByteString.copyFrom(b.a.p0.c.a.b.f9545c));
-            byte[] byteArray = newBuilder6.build().toByteArray();
+            newBuilder8.C(build);
+            newBuilder8.m(ByteString.copyFrom(b.a.p0.c.a.b.f10125c));
+            byte[] byteArray = newBuilder8.build().toByteArray();
             ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
             allocate.put((byte) 1);
             allocate.put(byteArray);

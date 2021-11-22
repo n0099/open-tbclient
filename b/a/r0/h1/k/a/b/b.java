@@ -1,7 +1,7 @@
 package b.a.r0.h1.k.a.b;
 
-import b.a.e.l.e.n;
-import b.a.e.l.e.s;
+import b.a.e.m.e.n;
+import b.a.e.m.e.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,22 +16,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f17575a;
+    public TbPageContext f19044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f17576b;
+    public List<b.a.e.m.e.a> f19045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f17577c;
+    public s f19046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f17578d;
+    public c f19047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f17579e;
+    public a f19048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.h1.k.b.b.c f17580f;
+    public b.a.r0.h1.k.b.b.c f19049f;
 
     public b(TbPageContext tbPageContext, s sVar) {
         Interceptable interceptable = $ic;
@@ -48,29 +48,29 @@ public class b {
                 return;
             }
         }
-        this.f17575a = tbPageContext;
-        this.f17577c = sVar;
+        this.f19044a = tbPageContext;
+        this.f19046c = sVar;
         a();
-        this.f17577c.addAdapters(this.f17576b);
+        this.f19046c.addAdapters(this.f19045b);
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f17576b = new ArrayList();
-            this.f17578d = new c(this.f17575a);
-            this.f17579e = new a(this.f17575a);
-            this.f17580f = new b.a.r0.h1.k.b.b.c(this.f17575a);
-            this.f17576b.add(this.f17578d);
-            this.f17576b.add(this.f17579e);
-            this.f17576b.add(this.f17580f);
+            this.f19045b = new ArrayList();
+            this.f19047d = new c(this.f19044a);
+            this.f19048e = new a(this.f19044a);
+            this.f19049f = new b.a.r0.h1.k.b.b.c(this.f19044a);
+            this.f19045b.add(this.f19047d);
+            this.f19045b.add(this.f19048e);
+            this.f19045b.add(this.f19049f);
         }
     }
 
     public void b() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.f17577c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.f19046c) == null) {
             return;
         }
         sVar.getListAdapter().notifyDataSetChanged();
@@ -79,7 +79,7 @@ public class b {
     public void c(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f17577c.setData(list);
+            this.f19046c.setData(list);
         }
     }
 }

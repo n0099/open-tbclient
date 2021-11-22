@@ -1,7 +1,7 @@
 package b.a.p0.a.h0.u;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.landingpage.XDetailPageJavaScript;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class c extends b.a.p0.a.o0.d.b {
+public class c extends b.a.p0.a.o0.d.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<b.a.p0.a.o0.d.a> f5809d;
+    public final List<b.a.p0.a.o0.d.b> f6145d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c() {
@@ -33,57 +33,57 @@ public class c extends b.a.p0.a.o0.d.b {
                 return;
             }
         }
-        this.f5809d = new ArrayList();
+        this.f6145d = new ArrayList();
     }
 
-    @Override // b.a.p0.a.o0.d.a
-    public String b(b.a.p0.a.h0.f.a aVar) {
+    @Override // b.a.p0.a.o0.d.b
+    public String c(b.a.p0.a.h0.f.a aVar) {
         InterceptResult invokeL;
-        String str;
-        String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (aVar == null || this.f5809d.size() <= 0) {
+            if (aVar == null || this.f6145d.size() <= 0) {
                 return null;
             }
             int i2 = 0;
             StringBuilder sb = new StringBuilder();
-            for (b.a.p0.a.o0.d.a aVar2 : this.f5809d) {
-                String str2 = "event" + i2;
-                if (aVar.isWebView()) {
-                    str = "var " + str2 + " = new Event('" + aVar2.f7099a + "');";
-                    c2 = "";
-                } else {
-                    str = "var " + str2 + " = new Object();";
-                    c2 = b.a.p0.a.o0.a.c(str2, "type", aVar2.f7099a);
-                }
-                sb.append(str);
-                sb.append(c2);
-                sb.append(aVar2.f(str2));
-                sb.append(b.a.p0.a.o0.a.e(aVar));
-                sb.append(".dispatchEvent(");
-                sb.append(str2);
-                sb.append(");");
+            for (b.a.p0.a.o0.d.b bVar : this.f6145d) {
+                sb.append(bVar.d("event" + i2, aVar));
                 i2++;
             }
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append("javascript:(function(){");
-            stringBuffer.append((CharSequence) sb);
-            stringBuffer.append(XDetailPageJavaScript.STATIC_JAVASCRIPT_FUNC_OVER);
-            if (b.a.p0.a.o0.d.a.f7098b) {
-                String str3 = "combine msg - " + stringBuffer.toString();
+            if (b.a.p0.a.o0.d.b.f7438b) {
+                String str = "combine msg - " + sb.toString();
             }
-            return stringBuffer.toString();
+            return sb.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public c h(b.a.p0.a.o0.d.a aVar) {
+    @Override // b.a.p0.a.o0.d.b
+    public void h(b.a.p0.a.h0.f.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null || aVar.isWebView() || this.f6145d.size() <= 0) {
+            return;
+        }
+        if (b.a.p0.a.o0.d.b.f7438b) {
+            String str = "dispatch event - " + this.f7439a + " on v8";
+        }
+        for (b.a.p0.a.o0.d.b bVar : this.f6145d) {
+            JSEvent e2 = bVar.e(aVar);
+            if (e2 != null) {
+                j(aVar, e2);
+                if (b.a.p0.a.o0.d.b.f7438b) {
+                    String str2 = "dispatchJSEvent action - " + e2.type + " on v8 : " + e2.data;
+                }
+            }
+        }
+    }
+
+    public c t(b.a.p0.a.o0.d.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (aVar != null && !this.f5809d.contains(aVar)) {
-                this.f5809d.add(aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
+            if (bVar != null && !this.f6145d.contains(bVar)) {
+                this.f6145d.add(bVar);
             }
             return this;
         }

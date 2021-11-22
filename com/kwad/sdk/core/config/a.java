@@ -12,7 +12,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f64303a;
+    public static final String[] f65216a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class a {
                 return;
             }
         }
-        f64303a = new String[]{"gifshow.com", "kuaishou.com", "static.yximgs.com"};
+        f65216a = new String[]{"gifshow.com", "kuaishou.com", "static.yximgs.com"};
     }
 
     public static boolean a(String str) {
@@ -60,7 +60,7 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (String str2 : f64303a) {
+            for (String str2 : f65216a) {
                 if (str.contains(str2)) {
                     return true;
                 }

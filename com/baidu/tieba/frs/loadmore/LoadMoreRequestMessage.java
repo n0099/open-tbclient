@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.loadmore;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.b;
-import b.a.e.e.p.l;
-import b.a.q0.d1.g;
-import b.a.q0.d1.z;
-import b.a.r0.z2.j0.a;
+import b.a.e.f.m.b;
+import b.a.e.f.p.l;
+import b.a.q0.c1.g;
+import b.a.q0.c1.z;
+import b.a.r0.a3.j0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -79,7 +79,7 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.last_click_tid = Long.valueOf(this.mLastClickTid);
             builder.sort_type = Integer.valueOf(this.mSortType);
-            builder.ad_context_list = b.a.r0.z2.l0.b.f().d("FRS");
+            builder.ad_context_list = b.a.r0.a3.l0.b.f().d("FRS");
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.e(this.adFloorInfo);
             builder.ad_ext_params = b2.a();

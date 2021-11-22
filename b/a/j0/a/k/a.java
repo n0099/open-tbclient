@@ -13,14 +13,14 @@ public class a {
 
     /* renamed from: b.a.j0.a.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0083a implements Runnable {
+    public static class RunnableC0085a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f3089e;
+        public final /* synthetic */ Runnable f3182e;
 
-        public RunnableC0083a(Runnable runnable) {
+        public RunnableC0085a(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,14 +35,14 @@ public class a {
                     return;
                 }
             }
-            this.f3089e = runnable;
+            this.f3182e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3089e.run();
+                this.f3182e.run();
             }
         }
     }
@@ -56,7 +56,7 @@ public class a {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 runnable.run();
             } else {
-                new Handler(Looper.getMainLooper()).post(new RunnableC0083a(runnable));
+                new Handler(Looper.getMainLooper()).post(new RunnableC0085a(runnable));
             }
         } catch (Exception e2) {
             b.i().d(e2);

@@ -2,8 +2,9 @@ package b.a.p0.b.p.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.a.p0.a.c2.f.a0;
+import b.a.p0.a.f2.f.z;
 import b.a.p0.b.k;
+import b.a.p0.b.l.a0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -23,12 +24,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g extends a0 {
+public class g extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9437c;
+    public int f10022c;
 
     /* loaded from: classes.dex */
     public class a implements c {
@@ -36,16 +37,16 @@ public class g extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9438a;
+        public final /* synthetic */ CallbackHandler f10023a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9439b;
+        public final /* synthetic */ String f10024b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9440c;
+        public final /* synthetic */ JSONObject f10025c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ g f9441d;
+        public final /* synthetic */ g f10026d;
 
         public a(g gVar, CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -62,10 +63,10 @@ public class g extends a0 {
                     return;
                 }
             }
-            this.f9441d = gVar;
-            this.f9438a = callbackHandler;
-            this.f9439b = str;
-            this.f9440c = jSONObject;
+            this.f10026d = gVar;
+            this.f10023a = callbackHandler;
+            this.f10024b = str;
+            this.f10025c = jSONObject;
         }
 
         @Override // b.a.p0.b.p.a.g.c
@@ -73,12 +74,12 @@ public class g extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 if (jSONObject == null) {
-                    this.f9441d.p(this.f9438a, this.f9439b, this.f9440c);
+                    this.f10026d.p(this.f10023a, this.f10024b, this.f10025c);
                     return;
                 }
-                g gVar = this.f9441d;
-                gVar.f9437c = gVar.m(jSONObject);
-                this.f9441d.p(this.f9438a, this.f9439b, this.f9440c);
+                g gVar = this.f10026d;
+                gVar.f10022c = gVar.m(jSONObject);
+                this.f10026d.p(this.f10023a, this.f10024b, this.f10025c);
             }
         }
     }
@@ -89,7 +90,7 @@ public class g extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f9442a;
+        public final /* synthetic */ c f10027a;
 
         public b(g gVar, c cVar) {
             Interceptable interceptable = $ic;
@@ -106,7 +107,7 @@ public class g extends a0 {
                     return;
                 }
             }
-            this.f9442a = cVar;
+            this.f10027a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -116,10 +117,10 @@ public class g extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 try {
-                    this.f9442a.a(new JSONObject(str));
+                    this.f10027a.a(new JSONObject(str));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
-                    this.f9442a.a(null);
+                    this.f10027a.a(null);
                 }
             }
         }
@@ -128,7 +129,7 @@ public class g extends a0 {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                this.f9442a.a(null);
+                this.f10027a.a(null);
             }
         }
     }
@@ -139,7 +140,7 @@ public class g extends a0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(b.a.p0.a.c2.e eVar) {
+    public g(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/privateGetUserInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -157,11 +158,11 @@ public class g extends a0 {
                 return;
             }
         }
-        this.f9437c = -1;
+        this.f10022c = -1;
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
@@ -204,7 +205,7 @@ public class g extends a0 {
                     if (optJSONArray != null && optJSONArray.length() > 0) {
                         optJSONObject = optJSONArray.getJSONObject(0);
                     } else {
-                        boolean z = a0.f4160b;
+                        boolean z = z.f5228b;
                         optJSONObject = null;
                     }
                 }
@@ -230,19 +231,19 @@ public class g extends a0 {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.a.p0.a.d0.c.v(k.c()))).addParam("data", jSONObject.toString()).cookieManager(b.a.p0.a.c1.a.p().a())).build().executeAsync(new b(this, cVar));
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.a.p0.a.d0.c.v(k.c()))).addParam("data", jSONObject.toString()).cookieManager(b.a.p0.a.c1.a.q().a())).build().executeAsync(new b(this, cVar));
     }
 
-    public final void o(Context context, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar, String str) throws JSONException {
+    public final void o(Context context, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar, String str) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048579, this, context, callbackHandler, eVar, str) == null) {
             String y = b.a.p0.b.l.a.y(context);
             if (!TextUtils.isEmpty(b.a.p0.b.l.a.i(context)) && !TextUtils.isEmpty(y)) {
                 JSONObject jSONObject = new JSONObject();
-                b.a.p0.b.l.a0 g2 = b.a.p0.b.l.a.g(context);
-                jSONObject.put("displayname", g2.f9341a);
-                jSONObject.put("portrait", g2.f9342b);
-                if (this.f9437c != -1) {
+                a0 g2 = b.a.p0.b.l.a.g(context);
+                jSONObject.put("displayname", g2.f9924a);
+                jSONObject.put("portrait", g2.f9925b);
+                if (this.f10022c != -1) {
                     p(callbackHandler, str, jSONObject);
                     return;
                 } else {
@@ -257,7 +258,7 @@ public class g extends a0 {
     public final void p(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, callbackHandler, str, jSONObject) == null) {
-            int i2 = this.f9437c;
+            int i2 = this.f10022c;
             if (i2 != -1) {
                 try {
                     jSONObject.put("gender", String.valueOf(i2));

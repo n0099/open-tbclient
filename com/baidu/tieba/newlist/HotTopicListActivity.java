@@ -2,7 +2,7 @@ package com.baidu.tieba.newlist;
 
 import android.content.Intent;
 import android.os.Bundle;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.r0.h2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;

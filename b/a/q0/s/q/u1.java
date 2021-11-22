@@ -14,19 +14,19 @@ public class u1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13455a;
+    public String f14237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13456b;
+    public String f14238b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13457c;
+    public String f14239c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13458d;
+    public String f14240d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13459e;
+    public int f14241e;
 
     public u1() {
         Interceptable interceptable = $ic;
@@ -41,41 +41,41 @@ public class u1 {
                 return;
             }
         }
-        this.f13455a = "";
-        this.f13456b = "";
-        this.f13457c = "";
-        this.f13458d = "";
-        this.f13459e = -1;
+        this.f14237a = "";
+        this.f14238b = "";
+        this.f14239c = "";
+        this.f14240d = "";
+        this.f14241e = -1;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13458d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14240d : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13459e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14241e : invokeV.intValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13457c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14239c : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13455a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14237a : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13456b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14238b : (String) invokeV.objValue;
     }
 
     public void f(SchoolRecomUserInfo schoolRecomUserInfo) {
@@ -83,10 +83,10 @@ public class u1 {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, schoolRecomUserInfo) == null) || schoolRecomUserInfo == null) {
             return;
         }
-        this.f13455a = StringUtils.string(schoolRecomUserInfo.uid);
-        this.f13456b = schoolRecomUserInfo.uname;
-        this.f13457c = schoolRecomUserInfo.portrait;
-        this.f13458d = schoolRecomUserInfo.institute;
-        this.f13459e = schoolRecomUserInfo.is_liked.intValue();
+        this.f14237a = StringUtils.string(schoolRecomUserInfo.uid);
+        this.f14238b = schoolRecomUserInfo.uname;
+        this.f14239c = schoolRecomUserInfo.portrait;
+        this.f14240d = schoolRecomUserInfo.institute;
+        this.f14241e = schoolRecomUserInfo.is_liked.intValue();
     }
 }

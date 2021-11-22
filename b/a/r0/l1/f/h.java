@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.q0.d1.r;
+import b.a.e.f.p.l;
+import b.a.q0.c1.r;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
@@ -51,7 +51,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f20024a;
+    public static boolean f21546a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -163,7 +163,7 @@ public class h {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void d(Context context, View view, ChatImageWithTailView chatImageWithTailView, ChatMessage chatMessage, long j, String str) {
-        b.a.e.l.d.a m;
+        b.a.e.m.d.a m;
         String optString;
         String[] split;
         Interceptable interceptable = $ic;
@@ -185,9 +185,9 @@ public class h {
                 try {
                     m = b.a.q0.c0.c.k().m(g2);
                     if (m == null) {
-                        Bitmap reSizeBitmap = PicManager.getInstance().getReSizeBitmap(b.a.e.e.p.d.d().c(g2));
+                        Bitmap reSizeBitmap = PicManager.getInstance().getReSizeBitmap(b.a.e.f.p.d.d().c(g2));
                         if (reSizeBitmap != null) {
-                            b.a.e.l.d.a aVar = new b.a.e.l.d.a(reSizeBitmap, false);
+                            b.a.e.m.d.a aVar = new b.a.e.m.d.a(reSizeBitmap, false);
                             try {
                                 if (chatMessage.getWidth() < 1) {
                                     chatMessage.setWidth(aVar.r());
@@ -212,10 +212,10 @@ public class h {
                 if (chatMessage.getWidth() < 1 && (optString = jSONObject.optString("bsize")) != null) {
                     split = optString.split(",");
                     if (split.length > 0) {
-                        chatMessage.setWidth(b.a.e.e.m.b.e(split[0], 0));
+                        chatMessage.setWidth(b.a.e.f.m.b.e(split[0], 0));
                     }
                     if (split.length > 1) {
-                        chatMessage.setHeight(b.a.e.e.m.b.e(split[1], 0));
+                        chatMessage.setHeight(b.a.e.f.m.b.e(split[1], 0));
                     }
                 }
                 LocalViewSize.getInstance();

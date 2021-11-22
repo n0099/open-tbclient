@@ -5,29 +5,27 @@ import com.facebook.cache.common.CacheKey;
 public interface ImageCacheStatsTracker {
     void onBitmapCacheHit(CacheKey cacheKey);
 
-    void onBitmapCacheMiss(CacheKey cacheKey);
+    void onBitmapCacheMiss();
 
-    void onBitmapCachePut(CacheKey cacheKey);
+    void onBitmapCachePut();
 
-    void onDiskCacheGetFail(CacheKey cacheKey);
+    void onDiskCacheGetFail();
 
     void onDiskCacheHit(CacheKey cacheKey);
 
-    void onDiskCacheMiss(CacheKey cacheKey);
-
-    void onDiskCachePut(CacheKey cacheKey);
+    void onDiskCacheMiss();
 
     void onMemoryCacheHit(CacheKey cacheKey);
 
-    void onMemoryCacheMiss(CacheKey cacheKey);
+    void onMemoryCacheMiss();
 
-    void onMemoryCachePut(CacheKey cacheKey);
+    void onMemoryCachePut();
 
     void onStagingAreaHit(CacheKey cacheKey);
 
-    void onStagingAreaMiss(CacheKey cacheKey);
+    void onStagingAreaMiss();
 
-    void registerBitmapMemoryCache(MemoryCache<?, ?> memoryCache);
+    void registerBitmapMemoryCache(CountingMemoryCache<?, ?> countingMemoryCache);
 
-    void registerEncodedMemoryCache(MemoryCache<?, ?> memoryCache);
+    void registerEncodedMemoryCache(CountingMemoryCache<?, ?> countingMemoryCache);
 }

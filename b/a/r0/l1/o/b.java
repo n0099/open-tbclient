@@ -13,11 +13,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f20310b;
+    public static b f21832b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f20311a;
+    public e f21833a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,22 +47,22 @@ public class b {
                 return;
             }
         }
-        this.f20311a = null;
-        this.f20311a = new e(1000, 1000, 1000);
+        this.f21833a = null;
+        this.f21833a = new e(1000, 1000, 1000);
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f20310b == null) {
+            if (f21832b == null) {
                 synchronized (b.class) {
-                    if (f20310b == null) {
-                        f20310b = new b();
+                    if (f21832b == null) {
+                        f21832b = new b();
                     }
                 }
             }
-            return f20310b;
+            return f21832b;
         }
         return (b) invokeV.objValue;
     }
@@ -70,6 +70,6 @@ public class b {
     public e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20311a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21833a : (e) invokeV.objValue;
     }
 }

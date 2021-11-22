@@ -12,7 +12,7 @@ public class e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13769a;
+    public String f14537a;
 
     public e0() {
         Interceptable interceptable = $ic;
@@ -36,10 +36,10 @@ public class e0 {
         jSONObject.optInt("offline");
         jSONObject.optString("title");
         String optString = jSONObject.optString("link");
-        this.f13769a = optString;
+        this.f14537a = optString;
         if (TextUtils.isEmpty(optString)) {
             return;
         }
-        this.f13769a = this.f13769a.replaceFirst("webview:", "http://");
+        this.f14537a = this.f14537a.replaceFirst("webview:", "http://");
     }
 }

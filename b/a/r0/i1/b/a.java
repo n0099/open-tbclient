@@ -17,20 +17,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ArrayList<a> f17890e;
+    public static ArrayList<a> f19343e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17891a;
+    public int f19344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f17892b;
+    public int f19345b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17893c;
+    public int f19346c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f17894d;
+    public int f19347d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class a {
                 return;
             }
         }
-        f17890e = new ArrayList<>(5);
+        f19343e = new ArrayList<>(5);
     }
 
     public a() {
@@ -66,9 +66,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (f17890e) {
-                if (f17890e.size() > 0) {
-                    a remove = f17890e.remove(0);
+            synchronized (f19343e) {
+                if (f19343e.size() > 0) {
+                    a remove = f19343e.remove(0);
                     remove.h();
                     return remove;
                 }
@@ -83,10 +83,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i2, i3, i4, i5)) == null) {
             a b2 = b();
-            b2.f17894d = i2;
-            b2.f17891a = i3;
-            b2.f17892b = i4;
-            b2.f17893c = i5;
+            b2.f19347d = i2;
+            b2.f19344a = i3;
+            b2.f19345b = i4;
+            b2.f19346c = i5;
             return b2;
         }
         return (a) invokeIIII.objValue;
@@ -112,12 +112,12 @@ public class a {
                 return null;
             }
             a b2 = b();
-            b2.f17891a = ExpandableListView.getPackedPositionGroup(j);
+            b2.f19344a = ExpandableListView.getPackedPositionGroup(j);
             if (ExpandableListView.getPackedPositionType(j) == 1) {
-                b2.f17894d = 1;
-                b2.f17892b = ExpandableListView.getPackedPositionChild(j);
+                b2.f19347d = 1;
+                b2.f19345b = ExpandableListView.getPackedPositionChild(j);
             } else {
-                b2.f17894d = 2;
+                b2.f19347d = 2;
             }
             return b2;
         }
@@ -127,15 +127,15 @@ public class a {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17894d == 1 ? ExpandableListView.getPackedPositionForChild(this.f17891a, this.f17892b) : ExpandableListView.getPackedPositionForGroup(this.f17891a) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19347d == 1 ? ExpandableListView.getPackedPositionForChild(this.f19344a, this.f19345b) : ExpandableListView.getPackedPositionForGroup(this.f19344a) : invokeV.longValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (f17890e) {
-                if (f17890e.size() < 5) {
-                    f17890e.add(this);
+            synchronized (f19343e) {
+                if (f19343e.size() < 5) {
+                    f19343e.add(this);
                 }
             }
         }
@@ -144,10 +144,10 @@ public class a {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f17891a = 0;
-            this.f17892b = 0;
-            this.f17893c = 0;
-            this.f17894d = 0;
+            this.f19344a = 0;
+            this.f19345b = 0;
+            this.f19346c = 0;
+            this.f19347d = 0;
         }
     }
 }

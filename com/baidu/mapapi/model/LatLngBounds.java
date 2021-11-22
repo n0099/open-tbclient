@@ -26,19 +26,19 @@ public final class LatLngBounds implements Parcelable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public double f39614a;
+        public double f40446a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f39615b;
+        public double f40447b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f39616c;
+        public double f40448c;
 
         /* renamed from: d  reason: collision with root package name */
-        public double f39617d;
+        public double f40449d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f39618e;
+        public boolean f40450e;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -53,13 +53,13 @@ public final class LatLngBounds implements Parcelable {
                     return;
                 }
             }
-            this.f39618e = true;
+            this.f40450e = true;
         }
 
         public LatLngBounds build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.f39615b, this.f39617d), new LatLng(this.f39614a, this.f39616c)) : (LatLngBounds) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.f40447b, this.f40449d), new LatLng(this.f40446a, this.f40448c)) : (LatLngBounds) invokeV.objValue;
         }
 
         public Builder include(LatLng latLng) {
@@ -69,28 +69,28 @@ public final class LatLngBounds implements Parcelable {
                 if (latLng == null) {
                     return this;
                 }
-                if (this.f39618e) {
-                    this.f39618e = false;
+                if (this.f40450e) {
+                    this.f40450e = false;
                     double d2 = latLng.latitude;
-                    this.f39614a = d2;
-                    this.f39615b = d2;
+                    this.f40446a = d2;
+                    this.f40447b = d2;
                     double d3 = latLng.longitude;
-                    this.f39616c = d3;
-                    this.f39617d = d3;
+                    this.f40448c = d3;
+                    this.f40449d = d3;
                 }
                 double d4 = latLng.latitude;
                 double d5 = latLng.longitude;
-                if (d4 < this.f39614a) {
-                    this.f39614a = d4;
+                if (d4 < this.f40446a) {
+                    this.f40446a = d4;
                 }
-                if (d4 > this.f39615b) {
-                    this.f39615b = d4;
+                if (d4 > this.f40447b) {
+                    this.f40447b = d4;
                 }
-                if (d5 < this.f39616c) {
-                    this.f39616c = d5;
+                if (d5 < this.f40448c) {
+                    this.f40448c = d5;
                 }
-                if (d5 > this.f39617d) {
-                    this.f39617d = d5;
+                if (d5 > this.f40449d) {
+                    this.f40449d = d5;
                 }
                 return this;
             }

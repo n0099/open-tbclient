@@ -7,9 +7,9 @@ public interface a {
 
     String e();
 
-    String h();
+    String g();
 
-    String i();
+    String h();
 
     boolean isDebug();
 }

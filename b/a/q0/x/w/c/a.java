@@ -13,13 +13,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final View f14230a;
+    public final View f14997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f14231b;
+    public boolean f14998b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f14232c;
+    public View f14999c;
 
     public a(View view) {
         Interceptable interceptable = $ic;
@@ -36,21 +36,21 @@ public class a {
                 return;
             }
         }
-        this.f14230a = view;
+        this.f14997a = view;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f14231b = z;
-            if (!z && this.f14230a.getVisibility() == 4) {
-                this.f14230a.setVisibility(8);
+            this.f14998b = z;
+            if (!z && this.f14997a.getVisibility() == 4) {
+                this.f14997a.setVisibility(8);
             }
-            if (z || this.f14232c == null) {
+            if (z || this.f14999c == null) {
                 return;
             }
             c();
-            this.f14232c = null;
+            this.f14999c = null;
         }
     }
 
@@ -60,7 +60,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, window) == null) || (currentFocus = window.getCurrentFocus()) == null) {
             return;
         }
-        if (this.f14231b) {
+        if (this.f14998b) {
             d(currentFocus);
         } else {
             currentFocus.clearFocus();
@@ -70,17 +70,17 @@ public class a {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f14230a.setVisibility(4);
-            b.a.q0.x.w.d.b.j(this.f14232c);
+            this.f14997a.setVisibility(4);
+            b.a.q0.x.w.d.b.j(this.f14999c);
         }
     }
 
     public final void d(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f14232c = view;
+            this.f14999c = view;
             view.clearFocus();
-            this.f14230a.setVisibility(8);
+            this.f14997a.setVisibility(8);
         }
     }
 }

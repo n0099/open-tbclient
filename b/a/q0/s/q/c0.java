@@ -14,13 +14,13 @@ public class c0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13251a;
+    public String f14031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13252b;
+    public String f14032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public y f13253c;
+    public y f14033c;
 
     public c0() {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public class c0 {
                 return;
             }
         }
-        this.f13251a = "";
-        this.f13252b = "";
+        this.f14031a = "";
+        this.f14032b = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13251a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14031a : (String) invokeV.objValue;
     }
 
     public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
@@ -55,18 +55,18 @@ public class c0 {
         String str = forumHeadlineImgInfo.thread_user_name;
         forumHeadlineImgInfo.img_user_id.longValue();
         String str2 = forumHeadlineImgInfo.img_user_name;
-        this.f13251a = forumHeadlineImgInfo.img_url;
-        this.f13252b = forumHeadlineImgInfo.headline_url;
-        this.f13253c = new y();
+        this.f14031a = forumHeadlineImgInfo.img_url;
+        this.f14032b = forumHeadlineImgInfo.headline_url;
+        this.f14033c = new y();
         ArrayList<b0> arrayList = new ArrayList<>();
-        String str3 = this.f13251a;
+        String str3 = this.f14031a;
         if (str3 == null) {
             str3 = "";
         }
-        String str4 = this.f13252b;
+        String str4 = this.f14032b;
         b0 b0Var = new b0(str3, str4 != null ? str4 : "", null);
         b0Var.p(true);
         arrayList.add(b0Var);
-        this.f13253c.g(arrayList);
+        this.f14033c.g(arrayList);
     }
 }

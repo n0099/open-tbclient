@@ -34,11 +34,10 @@ public class ImagePerfImageOriginListener implements ImageOriginListener {
     }
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImageOriginListener
-    public void onImageLoaded(String str, int i2, boolean z, String str2) {
+    public void onImageLoaded(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             this.mImagePerfState.setImageOrigin(i2);
-            this.mImagePerfState.setUltimateProducerName(str2);
             this.mImagePerfMonitor.notifyStatusUpdated(this.mImagePerfState, 1);
         }
     }

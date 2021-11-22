@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.MemberGroupInfo;
 /* loaded from: classes5.dex */
-public class j implements b.a.e.l.e.n {
+public class j implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f24281g;
+    public static final BdUniqueId f25744g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MemberGroupInfo f24282e;
+    public MemberGroupInfo f25745e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24283f;
+    public String f25746f;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class j implements b.a.e.l.e.n {
                 return;
             }
         }
-        f24281g = BdUniqueId.gen();
+        f25744g = BdUniqueId.gen();
     }
 
     public j() {
@@ -57,19 +57,19 @@ public class j implements b.a.e.l.e.n {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24283f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25746f : (String) invokeV.objValue;
     }
 
     public MemberGroupInfo d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24282e : (MemberGroupInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25745e : (MemberGroupInfo) invokeV.objValue;
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f24283f = str;
+            this.f25746f = str;
         }
     }
 
@@ -79,17 +79,17 @@ public class j implements b.a.e.l.e.n {
         }
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f24281g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f25744g : (BdUniqueId) invokeV.objValue;
     }
 
     public void h(MemberGroupInfo memberGroupInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, memberGroupInfo) == null) {
-            this.f24282e = memberGroupInfo;
+            this.f25745e = memberGroupInfo;
         }
     }
 

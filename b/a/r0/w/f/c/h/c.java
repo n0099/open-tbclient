@@ -3,7 +3,7 @@ package b.a.r0.w.f.c.h;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -104,10 +104,10 @@ public class c extends b.a.r0.b0.b<b.a.r0.w.f.c.e.f> {
         SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || fVar == null || fVar.f24607e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || fVar == null || fVar.f26124e == null) {
             return;
         }
-        int k = l.k(this.f14738g);
+        int k = l.k(this.f16225g);
         if (k != this.o) {
             int[] b2 = b.a.r0.w.f.c.c.b(getContext());
             int i2 = b2[0];
@@ -118,12 +118,12 @@ public class c extends b.a.r0.b0.b<b.a.r0.w.f.c.e.f> {
             this.n.setLayoutParams(layoutParams);
             this.o = k;
         }
-        this.n.setData(fVar.f24607e.f24608a, 101);
+        this.n.setData(fVar.f26124e.f26125a, 101);
         StatisticItem statisticItem = new StatisticItem("c13551");
-        b.a.r0.w.f.c.e.g gVar = fVar.f24607e;
-        if (gVar != null && (sdkLiveInfoData = gVar.f24608a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null) {
+        b.a.r0.w.f.c.e.g gVar = fVar.f26124e;
+        if (gVar != null && (sdkLiveInfoData = gVar.f26125a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null) {
             int a2 = b.a.r0.w.f.c.c.a(alaLiveInfo);
-            SdkLiveInfoData sdkLiveInfoData2 = fVar.f24607e.f24608a;
+            SdkLiveInfoData sdkLiveInfoData2 = fVar.f26124e.f26125a;
             SdkLiveInfoData.YYExt yYExt = sdkLiveInfoData2.liveInfo.yyExt;
             if (yYExt != null) {
                 TiebaStaticHelper.addYYParam(statisticItem, b.a.r0.w.f.c.c.k(yYExt, sdkLiveInfoData2.roomId));
@@ -135,8 +135,8 @@ public class c extends b.a.r0.b0.b<b.a.r0.w.f.c.e.f> {
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
         }
         statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
-        statisticItem.param("nid", fVar.f24607e.f24608a.nid);
-        statisticItem.param(TiebaStatic.Params.LOGID, fVar.f24607e.f24608a.logid);
+        statisticItem.param("nid", fVar.f26124e.f26125a.nid);
+        statisticItem.param(TiebaStatic.Params.LOGID, fVar.f26124e.f26125a.logid);
         TiebaStatic.log(statisticItem);
     }
 }

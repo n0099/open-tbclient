@@ -5,5 +5,5 @@ public interface b {
 
     void b();
 
-    void c();
+    void c(boolean z);
 }

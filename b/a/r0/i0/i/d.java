@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.f;
-import b.a.q0.d1.q;
+import b.a.e.f.m.f;
+import b.a.q0.c1.q;
 import b.a.r0.i0.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,23 +29,23 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f17868f;
+    public static d f19321f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BroadcastReceiver f17869a;
+    public BroadcastReceiver f19322a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f17870b;
+    public Object f19323b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, b.a.r0.i0.i.a> f17871c;
+    public Map<String, b.a.r0.i0.i.a> f19324c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a.r0.i0.i.a f17872d;
+    public b.a.r0.i0.i.a f19325d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17873e;
+    public boolean f19326e;
 
     /* loaded from: classes4.dex */
     public class a extends BroadcastReceiver {
@@ -97,7 +97,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f17874a;
+        public final /* synthetic */ d f19327a;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -105,10 +105,10 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ WriteHistroyDataReqIdl f17875e;
+            public final /* synthetic */ WriteHistroyDataReqIdl f19328e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f17876f;
+            public final /* synthetic */ b f19329f;
 
             public a(b bVar, WriteHistroyDataReqIdl writeHistroyDataReqIdl) {
                 Interceptable interceptable = $ic;
@@ -125,8 +125,8 @@ public class d {
                         return;
                     }
                 }
-                this.f17876f = bVar;
-                this.f17875e = writeHistroyDataReqIdl;
+                this.f19329f = bVar;
+                this.f19328e = writeHistroyDataReqIdl;
             }
 
             @Override // java.lang.Runnable
@@ -134,33 +134,33 @@ public class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    WriteHistroyDataReqIdl writeHistroyDataReqIdl = this.f17875e;
+                    WriteHistroyDataReqIdl writeHistroyDataReqIdl = this.f19328e;
                     if (writeHistroyDataReqIdl != null) {
                         for (ConnectPointData connectPointData : writeHistroyDataReqIdl.connect_point_list) {
                             b.a.r0.i0.i.a a2 = b.a.r0.i0.i.a.a(connectPointData);
                             if (a2 != null) {
-                                hashMap.put(a2.f17853e, a2);
+                                hashMap.put(a2.f19306e, a2);
                             }
                         }
                     }
-                    synchronized (this.f17876f.f17874a.f17870b) {
-                        if (this.f17876f.f17874a.f17871c == null) {
-                            this.f17876f.f17874a.f17871c = new ConcurrentHashMap();
+                    synchronized (this.f19329f.f19327a.f19323b) {
+                        if (this.f19329f.f19327a.f19324c == null) {
+                            this.f19329f.f19327a.f19324c = new ConcurrentHashMap();
                         }
-                        this.f17876f.f17874a.f17871c.clear();
-                        this.f17876f.f17874a.f17871c.putAll(hashMap);
+                        this.f19329f.f19327a.f19324c.clear();
+                        this.f19329f.f19327a.f19324c.putAll(hashMap);
                     }
-                    this.f17876f.f17874a.f17873e = true;
-                    this.f17876f.f17874a.s();
+                    this.f19329f.f19327a.f19326e = true;
+                    this.f19329f.f19327a.s();
                     ArrayList<b.a.r0.i0.i.a> arrayList = new ArrayList();
-                    for (Map.Entry entry : this.f17876f.f17874a.f17871c.entrySet()) {
-                        if (this.f17876f.f17874a.f17872d != entry.getValue() && System.currentTimeMillis() - ((b.a.r0.i0.i.a) entry.getValue()).f17851c > 604800000) {
+                    for (Map.Entry entry : this.f19329f.f19327a.f19324c.entrySet()) {
+                        if (this.f19329f.f19327a.f19325d != entry.getValue() && System.currentTimeMillis() - ((b.a.r0.i0.i.a) entry.getValue()).f19304c > 604800000) {
                             arrayList.add(entry.getValue());
                             b.a.r0.i0.d.c().b("conpoint_remove", "out_time", (String) entry.getKey());
                         }
                     }
                     for (b.a.r0.i0.i.a aVar : arrayList) {
-                        this.f17876f.f17874a.f17871c.remove(aVar.f17853e);
+                        this.f19329f.f19327a.f19324c.remove(aVar.f19306e);
                     }
                 }
             }
@@ -181,11 +181,11 @@ public class d {
                     return;
                 }
             }
-            this.f17874a = dVar;
+            this.f19327a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.q
+        @Override // b.a.q0.c1.q
         /* renamed from: a */
         public void onReturnDataInUI(WriteHistroyDataReqIdl writeHistroyDataReqIdl) {
             Interceptable interceptable = $ic;
@@ -201,16 +201,16 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17877e;
+        public final /* synthetic */ String f19330e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f17878f;
+        public final /* synthetic */ boolean f19331f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f17879g;
+        public final /* synthetic */ boolean f19332g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f17880h;
+        public final /* synthetic */ d f19333h;
 
         public c(d dVar, String str, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
@@ -227,10 +227,10 @@ public class d {
                     return;
                 }
             }
-            this.f17880h = dVar;
-            this.f17877e = str;
-            this.f17878f = z;
-            this.f17879g = z2;
+            this.f19333h = dVar;
+            this.f19330e = str;
+            this.f19331f = z;
+            this.f19332g = z2;
         }
 
         @Override // java.lang.Runnable
@@ -238,24 +238,24 @@ public class d {
             HashMap hashMap;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f17880h.f17872d != null) {
-                    b.a.r0.i0.i.b bVar = this.f17880h.f17872d.f17849a.get(this.f17877e);
+                if (this.f19333h.f19325d != null) {
+                    b.a.r0.i0.i.b bVar = this.f19333h.f19325d.f19302a.get(this.f19330e);
                     if (bVar == null) {
                         bVar = new b.a.r0.i0.i.b();
-                        bVar.f17854a = this.f17877e;
-                        this.f17880h.f17872d.f17849a.put(this.f17877e, bVar);
+                        bVar.f19307a = this.f19330e;
+                        this.f19333h.f19325d.f19302a.put(this.f19330e, bVar);
                     }
-                    bVar.a(this.f17878f ? 1 : 0);
-                    synchronized (this.f17880h.f17870b) {
-                        hashMap = new HashMap(this.f17880h.f17871c);
+                    bVar.a(this.f19331f ? 1 : 0);
+                    synchronized (this.f19333h.f19323b) {
+                        hashMap = new HashMap(this.f19333h.f19324c);
                     }
                     b.a.r0.i0.i.c.h().j(hashMap);
                 }
-                if (this.f17879g) {
+                if (this.f19332g) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
                     intent.setPackage(TbadkCoreApplication.getInst().getApp().getPackageName());
-                    intent.putExtra("ip", this.f17877e);
-                    intent.putExtra("result", this.f17878f);
+                    intent.putExtra("ip", this.f19330e);
+                    intent.putExtra("result", this.f19331f);
                     f.a(TbadkCoreApplication.getInst().getContext(), intent);
                 }
             }
@@ -264,26 +264,26 @@ public class d {
 
     /* renamed from: b.a.r0.i0.i.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC0912d implements Runnable {
+    public class RunnableC0977d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17881e;
+        public final /* synthetic */ String f19334e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f17882f;
+        public final /* synthetic */ boolean f19335f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f17883g;
+        public final /* synthetic */ int f19336g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f17884h;
+        public final /* synthetic */ boolean f19337h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ d f17885i;
+        public final /* synthetic */ d f19338i;
 
-        public RunnableC0912d(d dVar, String str, boolean z, int i2, boolean z2) {
+        public RunnableC0977d(d dVar, String str, boolean z, int i2, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -298,11 +298,11 @@ public class d {
                     return;
                 }
             }
-            this.f17885i = dVar;
-            this.f17881e = str;
-            this.f17882f = z;
-            this.f17883g = i2;
-            this.f17884h = z2;
+            this.f19338i = dVar;
+            this.f19334e = str;
+            this.f19335f = z;
+            this.f19336g = i2;
+            this.f19337h = z2;
         }
 
         @Override // java.lang.Runnable
@@ -310,43 +310,43 @@ public class d {
             HashMap hashMap;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f17885i.f17872d == null) {
+                if (this.f19338i.f19325d == null) {
                     String b2 = b.a.r0.i0.i.a.b();
                     if (!TextUtils.isEmpty(b2)) {
                         b.a.r0.i0.i.a aVar = new b.a.r0.i0.i.a();
-                        aVar.f17853e = b2;
-                        this.f17885i.f17872d = aVar;
-                        this.f17885i.f17871c.put(b2, aVar);
+                        aVar.f19306e = b2;
+                        this.f19338i.f19325d = aVar;
+                        this.f19338i.f19324c.put(b2, aVar);
                     }
                 }
-                if (this.f17885i.f17872d != null) {
-                    b.a.r0.i0.i.b bVar = this.f17885i.f17872d.f17849a.get(this.f17881e);
+                if (this.f19338i.f19325d != null) {
+                    b.a.r0.i0.i.b bVar = this.f19338i.f19325d.f19302a.get(this.f19334e);
                     if (bVar == null) {
                         bVar = new b.a.r0.i0.i.b();
-                        bVar.f17854a = this.f17881e;
-                        this.f17885i.f17872d.f17849a.put(this.f17881e, bVar);
+                        bVar.f19307a = this.f19334e;
+                        this.f19338i.f19325d.f19302a.put(this.f19334e, bVar);
                     }
-                    bVar.a(this.f17882f ? 1 : 0);
-                    if (this.f17882f) {
-                        b.a.r0.i0.i.b bVar2 = this.f17885i.f17872d.f17850b.get(this.f17881e);
+                    bVar.a(this.f19335f ? 1 : 0);
+                    if (this.f19335f) {
+                        b.a.r0.i0.i.b bVar2 = this.f19338i.f19325d.f19303b.get(this.f19334e);
                         if (bVar2 == null) {
                             bVar2 = new b.a.r0.i0.i.b();
-                            bVar2.f17854a = this.f17881e;
-                            this.f17885i.f17872d.f17850b.put(this.f17881e, bVar2);
+                            bVar2.f19307a = this.f19334e;
+                            this.f19338i.f19325d.f19303b.put(this.f19334e, bVar2);
                         }
-                        bVar2.a(this.f17883g);
+                        bVar2.a(this.f19336g);
                     }
-                    synchronized (this.f17885i.f17870b) {
-                        hashMap = new HashMap(this.f17885i.f17871c);
+                    synchronized (this.f19338i.f19323b) {
+                        hashMap = new HashMap(this.f19338i.f19324c);
                     }
                     b.a.r0.i0.i.c.h().j(hashMap);
                 }
-                if (this.f17884h) {
+                if (this.f19337h) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
                     intent.setPackage(TbadkCoreApplication.getInst().getApp().getPackageName());
-                    intent.putExtra("ip", this.f17881e);
-                    intent.putExtra("result", this.f17882f);
-                    intent.putExtra("speed", this.f17883g);
+                    intent.putExtra("ip", this.f19334e);
+                    intent.putExtra("result", this.f19335f);
+                    intent.putExtra("speed", this.f19336g);
                     f.a(TbadkCoreApplication.getInst().getContext(), intent);
                 }
             }
@@ -381,25 +381,25 @@ public class d {
                 return;
             }
         }
-        this.f17869a = new a(this);
-        this.f17870b = new Object();
-        this.f17871c = null;
-        this.f17872d = null;
-        this.f17873e = false;
+        this.f19322a = new a(this);
+        this.f19323b = new Object();
+        this.f19324c = null;
+        this.f19325d = null;
+        this.f19326e = false;
     }
 
     public static final d m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f17868f == null) {
+            if (f19321f == null) {
                 synchronized (d.class) {
-                    if (f17868f == null) {
-                        f17868f = new d();
+                    if (f19321f == null) {
+                        f19321f = new d();
                     }
                 }
             }
-            return f17868f;
+            return f19321f;
         }
         return (d) invokeV.objValue;
     }
@@ -407,7 +407,7 @@ public class d {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbadkCoreApplication.getInst().unregisterReceiver(this.f17869a);
+            TbadkCoreApplication.getInst().unregisterReceiver(this.f19322a);
         }
     }
 
@@ -417,10 +417,10 @@ public class d {
         b.a.r0.i0.i.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (!this.f17873e || (aVar = this.f17872d) == null || (bVar = aVar.f17849a.get(str2)) == null) {
+            if (!this.f19326e || (aVar = this.f19325d) == null || (bVar = aVar.f19302a.get(str2)) == null) {
                 return 0.0f;
             }
-            return bVar.f17856c;
+            return bVar.f19309c;
         }
         return invokeLL.floatValue;
     }
@@ -431,10 +431,10 @@ public class d {
         b.a.r0.i0.i.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (!this.f17873e || (aVar = this.f17872d) == null || (bVar = aVar.f17850b.get(str2)) == null) {
+            if (!this.f19326e || (aVar = this.f19325d) == null || (bVar = aVar.f19303b.get(str2)) == null) {
                 return 10000.0f;
             }
-            return bVar.f17856c;
+            return bVar.f19309c;
         }
         return invokeLL.floatValue;
     }
@@ -448,8 +448,8 @@ public class d {
 
     public final void o(String str, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f17873e && !TextUtils.isEmpty(str)) {
-            e.i().o(new RunnableC0912d(this, str, z, i2, z2));
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f19326e && !TextUtils.isEmpty(str)) {
+            e.i().o(new RunnableC0977d(this, str, z, i2, z2));
         }
     }
 
@@ -462,7 +462,7 @@ public class d {
 
     public final void q(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f17873e && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f19326e && !TextUtils.isEmpty(str)) {
             e.i().o(new c(this, str, z, z2));
         }
     }
@@ -476,24 +476,24 @@ public class d {
 
     public final void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f17873e) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f19326e) {
             String b2 = b.a.r0.i0.i.a.b();
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            if (!this.f17871c.containsKey(b2)) {
+            if (!this.f19324c.containsKey(b2)) {
                 e.i().g(false);
                 return;
             }
-            b.a.r0.i0.i.a aVar = this.f17871c.get(b2);
-            this.f17872d = aVar;
+            b.a.r0.i0.i.a aVar = this.f19324c.get(b2);
+            this.f19325d = aVar;
             if (aVar == null) {
                 e.i().g(false);
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            b.a.r0.i0.i.a aVar2 = this.f17872d;
-            if (currentTimeMillis - aVar2.f17852d <= 3600000 || currentTimeMillis - aVar2.f17851c >= 3600000) {
+            b.a.r0.i0.i.a aVar2 = this.f19325d;
+            if (currentTimeMillis - aVar2.f19305d <= 3600000 || currentTimeMillis - aVar2.f19304c >= 3600000) {
                 return;
             }
             e.i().g(false);
@@ -504,13 +504,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                TbadkCoreApplication.getInst().unregisterReceiver(this.f17869a);
-                TbadkCoreApplication.getInst().registerReceiver(this.f17869a, new IntentFilter("action_sub_process_ip_data_change"));
+                TbadkCoreApplication.getInst().unregisterReceiver(this.f19322a);
+                TbadkCoreApplication.getInst().registerReceiver(this.f19322a, new IntentFilter("action_sub_process_ip_data_change"));
             } else {
-                TbadkCoreApplication.getInst().unregisterReceiver(this.f17869a);
-                TbadkCoreApplication.getInst().registerReceiver(this.f17869a, new IntentFilter("action_main_process_ip_data_change"));
+                TbadkCoreApplication.getInst().unregisterReceiver(this.f19322a);
+                TbadkCoreApplication.getInst().registerReceiver(this.f19322a, new IntentFilter("action_main_process_ip_data_change"));
             }
-            if (this.f17873e) {
+            if (this.f19326e) {
                 return;
             }
             b.a.r0.i0.i.c.h().i(new b(this));

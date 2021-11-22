@@ -1,10 +1,12 @@
 package b.a.p0.a.u.i;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import b.a.p0.a.k;
 import b.a.p0.a.p.e.d;
+import b.a.p0.a.u.h.b;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,10 +18,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8430a;
+    public static final boolean f8966a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f8431b;
+    public static final String[] f8967b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +37,8 @@ public class a {
                 return;
             }
         }
-        f8430a = k.f6397a;
-        f8431b = new String[]{"swan", "swanAPI", "utils"};
+        f8966a = k.f6863a;
+        f8967b = new String[]{"swan", "swanAPI", "utils"};
     }
 
     @NonNull
@@ -44,42 +46,43 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, aVar, str)) == null) {
-            b.a.p0.a.u.h.b bVar = new b.a.p0.a.u.h.b();
-            boolean b2 = b(str, aVar.a().g());
+            b bVar = new b();
+            boolean b2 = b(str, aVar.a().h());
             if (b2) {
-                bVar.f8426b = 402;
+                bVar.f8958b = 402;
             }
             return new Pair<>(Boolean.valueOf(b2), bVar);
         }
         return (Pair) invokeLL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static boolean b(String str, CallbackHandler callbackHandler) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
             if (!(callbackHandler instanceof d)) {
-                boolean z2 = f8430a;
+                boolean z2 = f8966a;
                 return false;
             } else if (TextUtils.isEmpty(str)) {
-                if (f8430a) {
+                if (f8966a) {
                     throw new RuntimeException("whitelistName is empty");
                 }
                 return false;
             } else {
-                String a0 = ((d) callbackHandler).a0();
-                if ("ai_apps_widget".equals(a0)) {
+                String d0 = ((d) callbackHandler).d0();
+                if ("ai_apps_widget".equals(d0)) {
                     z = c(str);
-                } else if ("ai_apps_ad_landing".equals(a0)) {
-                    z = !b.a.p0.a.b2.a.b.a(str);
-                } else if ("swan_app_alliance_login_widget".equals(a0) || "swan_app_alliance_choose_address_widget".equals(a0)) {
+                } else if ("ai_apps_ad_landing".equals(d0)) {
+                    z = !b.a.p0.a.e2.a.b.a(str);
+                } else if ("swan_app_alliance_login_widget".equals(d0) || "swan_app_alliance_choose_address_widget".equals(d0)) {
                     return false;
                 } else {
-                    boolean z3 = f8430a;
+                    boolean z3 = f8966a;
                     return false;
                 }
-                if (f8430a) {
+                if (f8966a) {
                     String str2 = "intercept: result=" + z + ", path=" + str;
                 }
                 return z;
@@ -99,14 +102,14 @@ public class a {
             }
             if (str.startsWith("swan")) {
                 String substring = str.substring(indexOf + 1);
-                for (String str2 : f8431b) {
-                    if (b.a.p0.a.b2.a.b.g(str2 + "/" + substring)) {
+                for (String str2 : f8967b) {
+                    if (b.a.p0.a.e2.a.b.g(str2 + "/" + substring)) {
                         return false;
                     }
                 }
                 return true;
             }
-            return !b.a.p0.a.b2.a.b.g(str);
+            return !b.a.p0.a.e2.a.b.g(str);
         }
         return invokeL.booleanValue;
     }

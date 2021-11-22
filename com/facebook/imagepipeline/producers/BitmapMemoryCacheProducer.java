@@ -12,7 +12,6 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.image.HasImageMetadata;
 import com.facebook.imagepipeline.image.QualityInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
@@ -20,7 +19,6 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 public class BitmapMemoryCacheProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
-    public static final String ORIGIN_SUBCATEGORY = "pipe_bg";
     public static final String PRODUCER_NAME = "BitmapMemoryCacheProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
@@ -47,23 +45,10 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
         this.mInputProducer = producer;
     }
 
-    public static void maybeSetExtrasFromCloseableImage(HasImageMetadata hasImageMetadata, ProducerContext producerContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, hasImageMetadata, producerContext) == null) {
-            producerContext.putExtras(hasImageMetadata.getExtras());
-        }
-    }
-
-    public String getOriginSubcategory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ORIGIN_SUBCATEGORY : (String) invokeV.objValue;
-    }
-
     public String getProducerName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
@@ -71,22 +56,21 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
     public void produceResults(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext) {
         boolean isTracing;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, consumer, producerContext) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext) == null) {
             try {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("BitmapMemoryCacheProducer#produceResults");
                 }
-                ProducerListener2 producerListener = producerContext.getProducerListener();
-                producerListener.onProducerStart(producerContext, getProducerName());
+                ProducerListener listener = producerContext.getListener();
+                String id = producerContext.getId();
+                listener.onProducerStart(id, getProducerName());
                 CacheKey bitmapCacheKey = this.mCacheKeyFactory.getBitmapCacheKey(producerContext.getImageRequest(), producerContext.getCallerContext());
                 CloseableReference<CloseableImage> closeableReference = this.mMemoryCache.get(bitmapCacheKey);
                 if (closeableReference != null) {
-                    maybeSetExtrasFromCloseableImage(closeableReference.get(), producerContext);
                     boolean isOfFullQuality = closeableReference.get().getQualityInfo().isOfFullQuality();
                     if (isOfFullQuality) {
-                        producerListener.onProducerFinishWithSuccess(producerContext, getProducerName(), producerListener.requiresExtraMap(producerContext, getProducerName()) ? ImmutableMap.of("cached_value_found", "true") : null);
-                        producerListener.onUltimateProducerReached(producerContext, getProducerName(), true);
-                        producerContext.putOriginExtra("memory_bitmap", getOriginSubcategory());
+                        listener.onProducerFinishWithSuccess(id, getProducerName(), listener.requiresExtraMap(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+                        listener.onUltimateProducerReached(id, getProducerName(), true);
                         consumer.onProgressUpdate(1.0f);
                     }
                     consumer.onNewResult(closeableReference, BaseConsumer.simpleStatusForIsLast(isOfFullQuality));
@@ -99,9 +83,8 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
                     }
                 }
                 if (producerContext.getLowestPermittedRequestLevel().getValue() >= ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE.getValue()) {
-                    producerListener.onProducerFinishWithSuccess(producerContext, getProducerName(), producerListener.requiresExtraMap(producerContext, getProducerName()) ? ImmutableMap.of("cached_value_found", "false") : null);
-                    producerListener.onUltimateProducerReached(producerContext, getProducerName(), false);
-                    producerContext.putOriginExtra("memory_bitmap", getOriginSubcategory());
+                    listener.onProducerFinishWithSuccess(id, getProducerName(), listener.requiresExtraMap(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+                    listener.onUltimateProducerReached(id, getProducerName(), false);
                     consumer.onNewResult(null, 1);
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
@@ -110,7 +93,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
                     return;
                 }
                 Consumer<CloseableReference<CloseableImage>> wrapConsumer = wrapConsumer(consumer, bitmapCacheKey, producerContext.getImageRequest().isMemoryCacheEnabled());
-                producerListener.onProducerFinishWithSuccess(producerContext, getProducerName(), producerListener.requiresExtraMap(producerContext, getProducerName()) ? ImmutableMap.of("cached_value_found", "false") : null);
+                listener.onProducerFinishWithSuccess(id, getProducerName(), listener.requiresExtraMap(id) ? ImmutableMap.of("cached_value_found", "false") : null);
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("mInputProducer.produceResult");
                 }
@@ -132,7 +115,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
     public Consumer<CloseableReference<CloseableImage>> wrapConsumer(Consumer<CloseableReference<CloseableImage>> consumer, CacheKey cacheKey, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, consumer, cacheKey, z)) == null) ? new DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>>(this, consumer, cacheKey, z) { // from class: com.facebook.imagepipeline.producers.BitmapMemoryCacheProducer.1
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, consumer, cacheKey, z)) == null) ? new DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>>(this, consumer, cacheKey, z) { // from class: com.facebook.imagepipeline.producers.BitmapMemoryCacheProducer.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BitmapMemoryCacheProducer this$0;

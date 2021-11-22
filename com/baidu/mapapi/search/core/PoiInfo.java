@@ -50,7 +50,7 @@ public class PoiInfo implements Parcelable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f39652a;
+        public int f40484a;
 
         static {
             InterceptResult invokeClinit;
@@ -92,7 +92,7 @@ public class PoiInfo implements Parcelable {
                     return;
                 }
             }
-            this.f39652a = i3;
+            this.f40484a = i3;
         }
 
         public static POITYPE fromInt(int i2) {
@@ -134,7 +134,7 @@ public class PoiInfo implements Parcelable {
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39652a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40484a : invokeV.intValue;
         }
     }
 

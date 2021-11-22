@@ -1,7 +1,7 @@
 package b.a.r0.h1.l.c;
 
 import android.util.SparseArray;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(List<ThreadPersonalized> list, List<n> list2) {
-        b.a.r0.b0.e0.b bVar;
+        b.a.r0.b0.f0.b bVar;
         d2 threadData;
         ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public class a {
         int count = ListUtils.getCount(list2);
         for (int i2 = 0; i2 < count; i2++) {
             n nVar = (n) ListUtils.getItem(list2, i2);
-            if ((nVar instanceof b.a.r0.b0.e0.b) && (threadData = (bVar = (b.a.r0.b0.e0.b) nVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(threadData.s1())) != null) {
+            if ((nVar instanceof b.a.r0.b0.f0.b) && (threadData = (bVar = (b.a.r0.b0.f0.b) nVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(threadData.t1())) != null) {
                 bVar.L(threadPersonalized.source);
                 bVar.O(threadPersonalized.weight);
                 bVar.H(threadPersonalized.abtest_tag);
                 threadData.Z0 = threadPersonalized.abtest_tag;
                 threadData.X0 = threadPersonalized.source;
                 threadData.Y0 = threadPersonalized.weight;
-                if (threadData.q1() != null) {
-                    bVar.J(threadData.q1().is_vertical);
+                if (threadData.r1() != null) {
+                    bVar.J(threadData.r1().is_vertical);
                 }
                 List<DislikeReason> list3 = threadPersonalized.dislike_resource;
                 if (list3 != null) {

@@ -4,13 +4,13 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.f1.n.e;
-import b.a.q0.f1.p.a;
+import b.a.q0.e1.n.e;
+import b.a.q0.e1.p.a;
 import b.a.q0.s.q.c1;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.m2;
 import b.a.q0.s.q.r0;
-import b.a.q0.t0.b;
+import b.a.q0.s0.b;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -52,31 +52,31 @@ public class OriginalThreadInfo {
     public boolean G;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f45035a;
+    public int f45884a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45036b;
+    public String f45885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45037c;
+    public String f45886c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f45038d;
+    public String f45887d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f45039e;
+    public long f45888e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45040f;
+    public String f45889f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45041g;
+    public String f45890g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<MediaData> f45042h;
+    public ArrayList<MediaData> f45891h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<AbstractData> f45043i;
+    public List<AbstractData> f45892i;
     public AlaInfoData j;
     public int k;
     public String l;
@@ -126,34 +126,34 @@ public class OriginalThreadInfo {
             }
             OriginalThreadInfo originalThreadInfo2 = new OriginalThreadInfo();
             originalThreadInfo2.r(d2Var);
-            originalThreadInfo2.f45038d = d2Var.Z();
-            originalThreadInfo2.f45039e = d2Var.T();
-            originalThreadInfo2.f45040f = d2Var.s1();
-            originalThreadInfo2.f45041g = d2Var.getTitle();
-            originalThreadInfo2.k = d2Var.o1();
+            originalThreadInfo2.f45887d = d2Var.Z();
+            originalThreadInfo2.f45888e = d2Var.T();
+            originalThreadInfo2.f45889f = d2Var.t1();
+            originalThreadInfo2.f45890g = d2Var.getTitle();
+            originalThreadInfo2.k = d2Var.p1();
             ArrayList arrayList = new ArrayList();
             AbstractData abstractData = new AbstractData();
             abstractData.text = d2Var.o();
             arrayList.add(abstractData);
-            originalThreadInfo2.f45043i = arrayList;
+            originalThreadInfo2.f45892i = arrayList;
             ArrayList<MediaData> arrayList2 = new ArrayList<>();
             MediaData mediaData = new MediaData();
             arrayList2.add(mediaData);
-            originalThreadInfo2.f45042h = arrayList2;
-            originalThreadInfo2.r = d2Var.q1();
-            if (d2Var.e2() && d2Var.B0() != null) {
+            originalThreadInfo2.f45891h = arrayList2;
+            originalThreadInfo2.r = d2Var.r1();
+            if (d2Var.g2() && d2Var.B0() != null) {
                 r0 B0 = d2Var.B0();
-                originalThreadInfo2.f45041g = B0.d();
+                originalThreadInfo2.f45890g = B0.d();
                 abstractData.text = B0.a();
                 mediaData.setPic(B0.b());
-            } else if (d2Var.d2() && d2Var.j1() != null) {
-                mediaData.setPic(d2Var.j1().i());
+            } else if (d2Var.f2() && d2Var.k1() != null) {
+                mediaData.setPic(d2Var.k1().i());
             } else if (ListUtils.getCount(d2Var.E0()) > 0) {
-                originalThreadInfo2.f45042h = d2Var.E0();
-            } else if (d2Var.q1() != null && !StringUtils.isNull(d2Var.q1().thumbnail_url)) {
-                mediaData.setPic(d2Var.q1().thumbnail_url);
+                originalThreadInfo2.f45891h = d2Var.E0();
+            } else if (d2Var.r1() != null && !StringUtils.isNull(d2Var.r1().thumbnail_url)) {
+                mediaData.setPic(d2Var.r1().thumbnail_url);
             }
-            originalThreadInfo2.j = d2Var.l1();
+            originalThreadInfo2.j = d2Var.m1();
             originalThreadInfo2.q();
             originalThreadInfo2.C = d2Var.z2;
             originalThreadInfo2.E = d2Var.B2;
@@ -169,19 +169,19 @@ public class OriginalThreadInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             d2 d2Var = new d2();
-            d2Var.B4(this.f45041g);
-            if (this.f45042h != null) {
-                d2Var.i4(new ArrayList<>(this.f45042h));
+            d2Var.D4(this.f45890g);
+            if (this.f45891h != null) {
+                d2Var.k4(new ArrayList<>(this.f45891h));
             }
-            d2Var.I3(this.f45038d);
-            d2Var.A4(this.f45040f);
-            d2Var.x4(this.j);
-            d2Var.E3(this.f45039e);
-            d2Var.z4(this.k);
+            d2Var.K3(this.f45887d);
+            d2Var.C4(this.f45889f);
+            d2Var.z4(this.j);
+            d2Var.G3(this.f45888e);
+            d2Var.B4(this.k);
             d2Var.z1 = true;
-            d2Var.y3(this.p);
-            d2Var.G4(this.r);
-            d2Var.w3(this.f45037c);
+            d2Var.A3(this.p);
+            d2Var.I4(this.r);
+            d2Var.y3(this.f45886c);
             d2Var.y1 = this;
             return d2Var;
         }
@@ -225,10 +225,10 @@ public class OriginalThreadInfo {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!StringUtils.isNull(this.f45041g)) {
-                str = this.f45041g;
+            if (!StringUtils.isNull(this.f45890g)) {
+                str = this.f45890g;
             } else {
-                str = (ListUtils.getItem(this.f45043i, 0) == null || StringUtils.isNull(((AbstractData) ListUtils.getItem(this.f45043i, 0)).text)) ? null : ((AbstractData) ListUtils.getItem(this.f45043i, 0)).text;
+                str = (ListUtils.getItem(this.f45892i, 0) == null || StringUtils.isNull(((AbstractData) ListUtils.getItem(this.f45892i, 0)).text)) ? null : ((AbstractData) ListUtils.getItem(this.f45892i, 0)).text;
             }
             return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title) : str;
         }
@@ -307,10 +307,10 @@ public class OriginalThreadInfo {
                 return;
             }
             r(d2Var);
-            this.f45038d = originThreadInfo.fname;
-            this.f45039e = originThreadInfo.fid.longValue();
-            this.f45040f = originThreadInfo.tid;
-            this.f45041g = originThreadInfo.title;
+            this.f45887d = originThreadInfo.fname;
+            this.f45888e = originThreadInfo.fid.longValue();
+            this.f45889f = originThreadInfo.tid;
+            this.f45890g = originThreadInfo.title;
             this.k = originThreadInfo.thread_type.intValue();
             this.s = originThreadInfo.content;
             this.x = originThreadInfo.author;
@@ -318,28 +318,28 @@ public class OriginalThreadInfo {
             this.z = originThreadInfo.reply_num;
             this.A = originThreadInfo.shared_num;
             if (!ListUtils.isEmpty(originThreadInfo.media)) {
-                this.f45042h = new ArrayList<>();
+                this.f45891h = new ArrayList<>();
                 for (Media media : originThreadInfo.media) {
                     if (media != null) {
                         MediaData mediaData = new MediaData();
                         mediaData.parserProtobuf(media);
-                        this.f45042h.add(mediaData);
+                        this.f45891h.add(mediaData);
                     }
                 }
             } else {
-                this.f45042h = null;
+                this.f45891h = null;
             }
             if (!ListUtils.isEmpty(originThreadInfo._abstract)) {
-                this.f45043i = new ArrayList();
+                this.f45892i = new ArrayList();
                 for (Abstract r1 : originThreadInfo._abstract) {
                     if (r1 != null) {
                         AbstractData abstractData = new AbstractData();
                         abstractData.parser(r1);
-                        this.f45043i.add(abstractData);
+                        this.f45892i.add(abstractData);
                     }
                 }
             } else {
-                this.f45043i = null;
+                this.f45892i = null;
             }
             if (originThreadInfo.ala_info != null) {
                 AlaInfoData alaInfoData = new AlaInfoData();
@@ -410,10 +410,10 @@ public class OriginalThreadInfo {
                 return;
             }
             try {
-                this.f45038d = jSONObject.optString("fname");
-                this.f45039e = jSONObject.optLong("fid", 0L);
-                this.f45040f = jSONObject.optString("tid");
-                this.f45041g = jSONObject.optString("title");
+                this.f45887d = jSONObject.optString("fname");
+                this.f45888e = jSONObject.optLong("fid", 0L);
+                this.f45889f = jSONObject.optString("tid");
+                this.f45890g = jSONObject.optString("title");
                 this.k = jSONObject.optInt("thread_type");
                 this.s = c1.a(jSONObject.optJSONArray("content"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
@@ -424,27 +424,27 @@ public class OriginalThreadInfo {
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray(VodClient.PATH_MEDIA);
                 if (optJSONArray != null) {
-                    this.f45042h = new ArrayList<>();
+                    this.f45891h = new ArrayList<>();
                     int length = optJSONArray.length();
                     for (int i2 = 0; i2 < length; i2++) {
                         MediaData mediaData = new MediaData();
                         mediaData.parserJson(optJSONArray.getJSONObject(i2));
-                        this.f45042h.add(mediaData);
+                        this.f45891h.add(mediaData);
                     }
                 } else {
-                    this.f45042h = null;
+                    this.f45891h = null;
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("abstract");
                 if (optJSONArray2 != null) {
-                    this.f45043i = new ArrayList();
+                    this.f45892i = new ArrayList();
                     int length2 = optJSONArray2.length();
                     for (int i3 = 0; i3 < length2; i3++) {
                         AbstractData abstractData = new AbstractData();
                         abstractData.parserJson(optJSONArray2.getJSONObject(i3));
-                        this.f45043i.add(abstractData);
+                        this.f45892i.add(abstractData);
                     }
                 } else {
-                    this.f45043i = null;
+                    this.f45892i = null;
                 }
                 boolean z = true;
                 this.m = jSONObject.optInt("is_deleted") == 1;
@@ -481,9 +481,9 @@ public class OriginalThreadInfo {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f45035a = 0;
-            this.f45036b = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
-            this.f45037c = null;
+            this.f45884a = 0;
+            this.f45885b = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
+            this.f45886c = null;
         }
     }
 
@@ -493,37 +493,37 @@ public class OriginalThreadInfo {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             int i2 = this.k;
             if (i2 == 40) {
-                this.f45035a = 3;
+                this.f45884a = 3;
             } else if (i2 == 54) {
-                this.f45035a = 2;
+                this.f45884a = 2;
             } else if (i2 != 60 && i2 != 69 && i2 != 49 && i2 != 50) {
-                this.f45035a = 0;
+                this.f45884a = 0;
             } else {
-                this.f45035a = 4;
+                this.f45884a = 4;
             }
-            if (ListUtils.getItem(this.f45042h, 0) != null) {
-                String str = ((MediaData) ListUtils.getItem(this.f45042h, 0)).small_pic_url;
-                this.f45037c = str;
+            if (ListUtils.getItem(this.f45891h, 0) != null) {
+                String str = ((MediaData) ListUtils.getItem(this.f45891h, 0)).small_pic_url;
+                this.f45886c = str;
                 if (StringUtils.isNull(str)) {
-                    this.f45037c = ((MediaData) ListUtils.getItem(this.f45042h, 0)).getPicUrl();
+                    this.f45886c = ((MediaData) ListUtils.getItem(this.f45891h, 0)).getPicUrl();
                 }
             }
-            if (StringUtils.isNull(this.f45037c) && (videoInfo = this.r) != null) {
-                this.f45037c = videoInfo.thumbnail_url;
+            if (StringUtils.isNull(this.f45886c) && (videoInfo = this.r) != null) {
+                this.f45886c = videoInfo.thumbnail_url;
             }
-            if (this.f45035a == 0) {
-                if (StringUtils.isNull(this.f45037c)) {
-                    this.f45035a = 0;
+            if (this.f45884a == 0) {
+                if (StringUtils.isNull(this.f45886c)) {
+                    this.f45884a = 0;
                 } else {
-                    this.f45035a = 1;
+                    this.f45884a = 1;
                 }
             }
-            if (ListUtils.getItem(this.f45043i, 0) != null && !StringUtils.isNull(((AbstractData) ListUtils.getItem(this.f45043i, 0)).text)) {
-                this.f45036b = ((AbstractData) ListUtils.getItem(this.f45043i, 0)).text;
-            } else if (!StringUtils.isNull(this.f45041g)) {
-                this.f45036b = this.f45041g;
+            if (ListUtils.getItem(this.f45892i, 0) != null && !StringUtils.isNull(((AbstractData) ListUtils.getItem(this.f45892i, 0)).text)) {
+                this.f45885b = ((AbstractData) ListUtils.getItem(this.f45892i, 0)).text;
+            } else if (!StringUtils.isNull(this.f45890g)) {
+                this.f45885b = this.f45890g;
             } else {
-                this.f45036b = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
+                this.f45885b = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
             }
         }
     }
@@ -568,10 +568,10 @@ public class OriginalThreadInfo {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, originalThreadInfo)) == null) {
                 ShareInfo shareInfo = new ShareInfo();
-                shareInfo.threadId = originalThreadInfo.f45040f;
-                shareInfo.showType = originalThreadInfo.f45035a;
-                shareInfo.showText = originalThreadInfo.f45036b;
-                shareInfo.showPicUrl = originalThreadInfo.f45037c;
+                shareInfo.threadId = originalThreadInfo.f45889f;
+                shareInfo.showType = originalThreadInfo.f45884a;
+                shareInfo.showText = originalThreadInfo.f45885b;
+                shareInfo.showPicUrl = originalThreadInfo.f45886c;
                 shareInfo.videoId = originalThreadInfo.l;
                 shareInfo.oriUgcInfo = originalThreadInfo.p;
                 shareInfo.itemData = originalThreadInfo.C;

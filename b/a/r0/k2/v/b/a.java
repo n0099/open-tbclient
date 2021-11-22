@@ -20,10 +20,10 @@ public class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ExcContent f19650e;
+    public ExcContent f21187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpannableString f19651f;
+    public SpannableString f21188f;
 
     public a(ExcContent excContent) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class a implements c {
                 return;
             }
         }
-        this.f19650e = excContent;
+        this.f21187e = excContent;
     }
 
     @Override // b.a.r0.k2.v.b.c
@@ -57,29 +57,29 @@ public class a implements c {
     public CharSequence b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f19650e) : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f21187e) : (CharSequence) invokeV.objValue;
     }
 
     public final SpannableString c(ExcContent excContent) {
         InterceptResult invokeL;
         String str;
         int b2;
-        a.C0639a c2;
+        a.C0674a c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
-            if (this.f19651f == null && (b2 = TbFaceManager.e().b((str = excContent.text))) != 0) {
+            if (this.f21188f == null && (b2 = TbFaceManager.e().b((str = excContent.text))) != 0) {
                 String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.e().f(str) + SmallTailInfo.EMOTION_SUFFIX;
-                this.f19651f = new SpannableString(str2 + " ");
-                b.a.q0.f1.n.d dVar = new b.a.q0.f1.n.d(TbadkCoreApplication.getInst().getContext(), b2);
+                this.f21188f = new SpannableString(str2 + " ");
+                b.a.q0.e1.n.d dVar = new b.a.q0.e1.n.d(TbadkCoreApplication.getInst().getContext(), b2);
                 if (TbFaceManager.e().c(str) != null) {
                     int a2 = (int) (c2.a() * 0.6d);
                     dVar.setBounds(new Rect(0, 0, a2, a2));
                 } else {
                     dVar.setBounds(new Rect(0, 0, 0, 0));
                 }
-                this.f19651f.setSpan(new ImageSpan(dVar, 0), 0, str2.length(), 33);
+                this.f21188f.setSpan(new ImageSpan(dVar, 0), 0, str2.length(), 33);
             }
-            return this.f19651f;
+            return this.f21188f;
         }
         return (SpannableString) invokeL.objValue;
     }

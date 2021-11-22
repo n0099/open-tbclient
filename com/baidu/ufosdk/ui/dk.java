@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class dk implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f56926a;
+    public final /* synthetic */ FeedbackListActivity f57848a;
 
     public dk(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -28,18 +28,18 @@ public final class dk implements View.OnClickListener {
                 return;
             }
         }
-        this.f56926a = feedbackListActivity;
+        this.f57848a = feedbackListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f56926a.setResult(0);
-            this.f56926a.finish();
+            this.f57848a.setResult(0);
+            this.f57848a.finish();
             try {
                 com.baidu.ufosdk.f.c.d("执行动画...");
-                this.f56926a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f56926a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f56926a.getApplicationContext(), "ufo_slide_out_to_right"));
+                this.f57848a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f57848a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f57848a.getApplicationContext(), "ufo_slide_out_to_right"));
             } catch (Exception unused) {
                 com.baidu.ufosdk.f.c.d("执行动画失败！！");
             }

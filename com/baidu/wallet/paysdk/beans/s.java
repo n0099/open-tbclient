@@ -29,13 +29,13 @@ public class s extends BaseBean<DirectPayContentResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayRequest f59609a;
+    public PayRequest f60531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59610b;
+    public String f60532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59611c;
+    public String f60533c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> s(Context context) {
@@ -55,16 +55,16 @@ public class s extends BaseBean<DirectPayContentResponse> {
                 return;
             }
         }
-        this.f59609a = null;
-        this.f59610b = null;
-        this.f59611c = null;
-        this.f59609a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f60531a = null;
+        this.f60532b = null;
+        this.f60533c = null;
+        this.f60531a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f59610b = str;
+            this.f60532b = str;
         }
     }
 
@@ -72,7 +72,7 @@ public class s extends BaseBean<DirectPayContentResponse> {
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (BeanConstants.API_GET_PAY_ORDER.equals(this.f59611c)) {
+            if (BeanConstants.API_GET_PAY_ORDER.equals(this.f60533c)) {
                 List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getSpNo());
                 HashMap hashMap = new HashMap();
                 hashMap.put("sp_no", StatHelper.getSpNo());
@@ -126,32 +126,32 @@ public class s extends BaseBean<DirectPayContentResponse> {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            this.f59611c = BeanConstants.API_GET_PAY_ORDER;
-            if (this.f59609a.hasCashDeskCode()) {
-                this.f59611c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
-            } else if (BaiduPay.PAY_FROM_HUA_ZHUAN_ZHANG.equals(this.f59609a.getPayFrom())) {
-                this.f59611c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
-            } else if (BaiduPay.PAY_FROM_HUA_FEI.equals(this.f59609a.getPayFrom())) {
-                this.f59611c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
-            } else if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f59609a.getPayFrom())) {
-                this.f59611c = BeanConstants.API_CARD_ADD;
-            } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f59609a.getPayFrom())) {
-                this.f59611c = BeanConstants.API_AUTHORIZE_ORDER;
+            this.f60533c = BeanConstants.API_GET_PAY_ORDER;
+            if (this.f60531a.hasCashDeskCode()) {
+                this.f60533c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
+            } else if (BaiduPay.PAY_FROM_HUA_ZHUAN_ZHANG.equals(this.f60531a.getPayFrom())) {
+                this.f60533c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
+            } else if (BaiduPay.PAY_FROM_HUA_FEI.equals(this.f60531a.getPayFrom())) {
+                this.f60533c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
+            } else if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f60531a.getPayFrom())) {
+                this.f60533c = BeanConstants.API_CARD_ADD;
+            } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f60531a.getPayFrom())) {
+                this.f60533c = BeanConstants.API_AUTHORIZE_ORDER;
             } else if (PayDataCache.getInstance().isFromPreCashier()) {
-                this.f59611c = BeanConstants.API_GET_PRE_PAY_ORDER;
+                this.f60533c = BeanConstants.API_GET_PRE_PAY_ORDER;
             }
             if (PayDataCache.getInstance().isFromPreCashier()) {
-                str = DomainConfig.getInstance().getAppPayHost() + this.f59611c + "?" + this.f59609a.mParams + "&" + this.f59610b;
+                str = DomainConfig.getInstance().getAppPayHost() + this.f60533c + "?" + this.f60531a.mParams + "&" + this.f60532b;
             } else {
-                str = DomainConfig.getInstance().getAppPayHost() + this.f59611c + "?" + this.f59609a.mParams;
+                str = DomainConfig.getInstance().getAppPayHost() + this.f60533c + "?" + this.f60531a.mParams;
             }
             if (WalletFingerprint.getInstance(this.mContext).hasEnrollFingerprint()) {
                 str = str + "&enroll_fingerprint=1";
             }
-            if (TextUtils.isEmpty(this.f59609a.mSecurityParams)) {
+            if (TextUtils.isEmpty(this.f60531a.mSecurityParams)) {
                 return str;
             }
-            return str + "&security_sdk_param=" + this.f59609a.mSecurityParams;
+            return str + "&security_sdk_param=" + this.f60531a.mSecurityParams;
         }
         return (String) invokeV.objValue;
     }

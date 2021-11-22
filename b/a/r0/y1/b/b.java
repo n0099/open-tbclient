@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,12 +40,12 @@ public class b extends m {
             BdLog.e(e2.getMessage());
             i2 = 0;
         }
-        this.f14211d = i2;
-        this.f14213f = R.drawable.icon_pure_post_more_bubble64;
-        this.f14212e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f14978d = i2;
+        this.f14980f = R.drawable.icon_pure_post_more_bubble64;
+        this.f14979e = R.drawable.icon_mask_post_keyboard24_selection;
         this.p = R.drawable.icon_pure_pic_vip64;
-        this.f14214g = false;
-        this.f14215h = true;
+        this.f14981g = false;
+        this.f14982h = true;
         this.m = true;
         CommonTabHost commonTabHost = new CommonTabHost(context);
         this.k = commonTabHost;

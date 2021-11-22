@@ -3,8 +3,8 @@ package b.a.q0.s.g0.p.d;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -47,26 +47,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f13015c;
+    public static a f13795c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashSet<String> f13016a;
+    public final HashSet<String> f13796a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, String> f13017b;
+    public final HashMap<String, String> f13797b;
 
     /* renamed from: b.a.q0.s.g0.p.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0679a extends HttpMessageListener {
+    public class C0714a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13018a;
+        public final /* synthetic */ a f13798a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0679a(a aVar, int i2) {
+        public C0714a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -83,7 +83,7 @@ public class a {
                     return;
                 }
             }
-            this.f13018a = aVar;
+            this.f13798a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,13 +98,13 @@ public class a {
                 BdUniqueId buttonTag = ((ItemFetchUrlHttpMsg) itemFetchUrlHttpResponsedMsg.getOrginalMessage()).getButtonTag();
                 if (downloadData != null) {
                     if (itemFetchUrlHttpResponsedMsg.getError() != 0 || !itemFetchUrlHttpResponsedMsg.isSuccess() || k.isEmpty(itemFetchUrlHttpResponsedMsg.getDownloadUrl())) {
-                        this.f13018a.l(pkgName, downloadData.getUrl());
+                        this.f13798a.l(pkgName, downloadData.getUrl());
                         if (b.a.q0.e0.a.l(downloadData)) {
                             b.a.q0.s.g0.p.d.b.a(downloadData, 300);
                         }
                     } else {
                         downloadData.setUrl(itemFetchUrlHttpResponsedMsg.getDownloadUrl());
-                        this.f13018a.l(pkgName, itemFetchUrlHttpResponsedMsg.getDownloadUrl());
+                        this.f13798a.l(pkgName, itemFetchUrlHttpResponsedMsg.getDownloadUrl());
                         if (downloadData.getExtra() instanceof ItemDownloadExtraData) {
                             itemDownloadExtraData = (ItemDownloadExtraData) downloadData.getExtra();
                         } else {
@@ -129,7 +129,7 @@ public class a {
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
                 }
-                this.f13018a.f13016a.remove(pkgName);
+                this.f13798a.f13796a.remove(pkgName);
             }
         }
     }
@@ -140,7 +140,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13019a;
+        public final /* synthetic */ a f13799a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2) {
@@ -160,7 +160,7 @@ public class a {
                     return;
                 }
             }
-            this.f13019a = aVar;
+            this.f13799a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -173,7 +173,7 @@ public class a {
                     Intent intent = (Intent) data;
                     String g2 = b.a.q0.e0.a.g(intent);
                     if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) || "android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
-                        this.f13019a.k(g2);
+                        this.f13799a.k(g2);
                     }
                 }
             }
@@ -237,13 +237,13 @@ public class a {
                         } catch (Exception e2) {
                             e = e2;
                             e.printStackTrace();
-                            b.a.e.e.m.a.e(httpURLConnection);
+                            b.a.e.f.m.a.e(httpURLConnection);
                             return null;
                         }
                     } catch (Throwable th) {
                         th = th;
                         httpURLConnection2 = httpURLConnection;
-                        b.a.e.e.m.a.e(httpURLConnection2);
+                        b.a.e.f.m.a.e(httpURLConnection2);
                         throw th;
                     }
                 } catch (Exception e3) {
@@ -251,10 +251,10 @@ public class a {
                     httpURLConnection = null;
                 } catch (Throwable th2) {
                     th = th2;
-                    b.a.e.e.m.a.e(httpURLConnection2);
+                    b.a.e.f.m.a.e(httpURLConnection2);
                     throw th;
                 }
-                b.a.e.e.m.a.e(httpURLConnection);
+                b.a.e.f.m.a.e(httpURLConnection);
                 return null;
             }
             return (Integer) invokeL.objValue;
@@ -274,8 +274,8 @@ public class a {
                 return;
             }
         }
-        this.f13016a = new HashSet<>();
-        this.f13017b = new HashMap<>();
+        this.f13796a = new HashSet<>();
+        this.f13797b = new HashMap<>();
         j();
         h();
         i();
@@ -286,10 +286,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f13015c == null) {
-                f13015c = new a();
+            if (f13795c == null) {
+                f13795c = new a();
             }
-            return f13015c;
+            return f13795c;
         }
         return (a) invokeV.objValue;
     }
@@ -314,11 +314,11 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, itemData, downloadData, str, bdUniqueId) == null) || itemData == null || downloadData == null) {
             return;
         }
-        if (this.f13016a.contains(itemData.pkgName)) {
+        if (this.f13796a.contains(itemData.pkgName)) {
             l.M(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getResources().getString(R.string.item_downloading_tip));
             return;
         }
-        this.f13016a.add(itemData.pkgName);
+        this.f13796a.add(itemData.pkgName);
         MessageManager.getInstance().sendMessage(new ItemFetchUrlHttpMsg(downloadData, itemData, str, bdUniqueId));
     }
 
@@ -327,11 +327,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             String str2 = "url_" + str;
-            if (this.f13017b.containsKey(str2)) {
-                return this.f13017b.get(str2);
+            if (this.f13797b.containsKey(str2)) {
+                return this.f13797b.get(str2);
             }
             String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str2, "");
-            this.f13017b.put(str2, string);
+            this.f13797b.put(str2, string);
             return string;
         }
         return (String) invokeL.objValue;
@@ -340,7 +340,7 @@ public class a {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(new C0679a(this, CmdConfigHttp.CMD_ITEM_FETCH_URL));
+            MessageManager.getInstance().registerListener(new C0714a(this, CmdConfigHttp.CMD_ITEM_FETCH_URL));
         }
     }
 
@@ -368,7 +368,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             String str2 = "url_" + str;
-            this.f13017b.remove(str2);
+            this.f13797b.remove(str2);
             SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
             edit.remove(str2);
             edit.commit();
@@ -379,10 +379,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             String str3 = "url_" + str;
-            if (StringHelper.equals(this.f13017b.get(str3), str2)) {
+            if (StringHelper.equals(this.f13797b.get(str3), str2)) {
                 return;
             }
-            this.f13017b.put(str3, str2);
+            this.f13797b.put(str3, str2);
             SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
             edit.putString(str3, str2);
             edit.commit();

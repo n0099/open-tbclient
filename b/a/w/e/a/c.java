@@ -9,7 +9,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f29284a;
+    public static final int[] f30153a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +37,7 @@ public class c {
                 return;
             }
         }
-        f29284a = new int[]{16843848};
+        f30153a = new int[]{16843848};
     }
 
     public static void a(View view) {
@@ -54,9 +53,9 @@ public class c {
             int integer = view.getResources().getInteger(R.integer.app_bar_elevation_anim_duration);
             StateListAnimator stateListAnimator = new StateListAnimator();
             long j = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.state_liftable, -R.attr.state_lifted}, ObjectAnimator.ofFloat(view, Key.ELEVATION, 0.0f).setDuration(j));
-            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view, Key.ELEVATION, f2).setDuration(j));
-            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view, Key.ELEVATION, 0.0f).setDuration(0L));
+            stateListAnimator.addState(new int[]{16842766, R.attr.state_liftable, -R.attr.state_lifted}, ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(j));
+            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view, "elevation", f2).setDuration(j));
+            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(0L));
             view.setStateListAnimator(stateListAnimator);
         }
     }
@@ -65,7 +64,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65539, null, view, attributeSet, i2, i3) == null) {
             Context context = view.getContext();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f29284a, i2, i3);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f30153a, i2, i3);
             try {
                 if (obtainStyledAttributes.hasValue(0)) {
                     view.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));

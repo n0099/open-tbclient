@@ -1,8 +1,7 @@
 package b.a.p0.a.q;
 
-import android.content.Context;
 import b.a.p0.a.k;
-import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +9,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d extends SwanAppSimpleH5Widget {
+public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f7882a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f7883b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f7884c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f7885d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f7886e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f7887f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f7888g;
 
     static {
         InterceptResult invokeClinit;
@@ -28,33 +50,64 @@ public class d extends SwanAppSimpleH5Widget {
                 return;
             }
         }
-        boolean z = k.f6397a;
+        boolean z = k.f6863a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(Context context) {
-        super(context);
+    public d(String str, String str2, String str3, int i2, int i3, int i4, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.f7882a = str;
+        this.f7883b = str2;
+        this.f7884c = str3;
+        this.f7885d = i2;
+        this.f7886e = i3;
+        this.f7887f = i4;
+        this.f7888g = z;
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d
-    public String a0() {
+    public b.a.p0.a.j1.g.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ai_apps_ad_landing" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("showMuteBtn", true);
+                jSONObject.put("showCenterPlayBtn", true);
+                b.a.p0.a.j1.g.c cVar = new b.a.p0.a.j1.g.c();
+                cVar.n = "SwanAdPlayer";
+                cVar.f4196f = "SwanAdPlayer";
+                cVar.s = true;
+                cVar.o = false;
+                cVar.B = !this.f7888g;
+                cVar.M = false;
+                cVar.p = this.f7882a;
+                cVar.C = this.f7883b;
+                cVar.f4197g = this.f7884c;
+                b.a.p0.a.m1.e.a.a aVar = new b.a.p0.a.m1.e.a.a(0, 0, this.f7885d, this.f7886e);
+                cVar.l = aVar;
+                aVar.j(true);
+                cVar.q = this.f7887f;
+                if (this.f7888g) {
+                    cVar.u = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
+                }
+                return b.a.p0.a.j1.g.c.i(jSONObject, cVar);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (b.a.p0.a.j1.g.c) invokeV.objValue;
     }
 }

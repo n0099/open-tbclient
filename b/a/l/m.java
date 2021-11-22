@@ -24,7 +24,7 @@ public class m extends b.a.l.a<b.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f3256e;
+        public final /* synthetic */ m f3347e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class m extends b.a.l.a<b.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3256e = mVar;
+            this.f3347e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3256e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3347e.c() == null) {
                 return;
             }
-            this.f3256e.c().a(view, this.f3256e.k);
+            this.f3347e.c().a(view, this.f3347e.k);
         }
     }
 
@@ -72,8 +72,8 @@ public class m extends b.a.l.a<b.a.q0.s.q.a> {
                 return;
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13372f instanceof CardForumHeadLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13372f.getParent() == null) {
-            this.j = (CardForumHeadLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13372f;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14152f instanceof CardForumHeadLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14152f.getParent() == null) {
+            this.j = (CardForumHeadLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14152f;
         } else {
             this.j = new CardForumHeadLayout(context);
         }

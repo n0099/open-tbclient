@@ -23,25 +23,25 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f18702a;
+    public View f20238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f18703b;
+    public View f20239b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f18704c;
+    public TextView f20240c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f18705d;
+    public b f20241d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18706e;
+    public b f20242e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f18707f;
+    public b f20243f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18708g;
+    public View f20244g;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -64,13 +64,13 @@ public class c {
             }
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.chosen_pb_comment_layout, (ViewGroup) null);
-        this.f18703b = inflate;
-        this.f18704c = (TextView) inflate.findViewById(R.id.chosen_pb_comment_title);
-        this.f18708g = this.f18703b.findViewById(R.id.chosen_pb_comment_line);
-        this.f18702a = this.f18703b.findViewById(R.id.comment_layout_blank_view);
-        this.f18705d = new b((ViewStub) this.f18703b.findViewById(R.id.chosen_pb_commrnt_first), aVar);
-        this.f18706e = new b((ViewStub) this.f18703b.findViewById(R.id.chosen_pb_commrnt_second), aVar);
-        this.f18707f = new b((ViewStub) this.f18703b.findViewById(R.id.chosen_pb_commrnt_third), aVar);
+        this.f20239b = inflate;
+        this.f20240c = (TextView) inflate.findViewById(R.id.chosen_pb_comment_title);
+        this.f20244g = this.f20239b.findViewById(R.id.chosen_pb_comment_line);
+        this.f20238a = this.f20239b.findViewById(R.id.comment_layout_blank_view);
+        this.f20241d = new b((ViewStub) this.f20239b.findViewById(R.id.chosen_pb_commrnt_first), aVar);
+        this.f20242e = new b((ViewStub) this.f20239b.findViewById(R.id.chosen_pb_commrnt_second), aVar);
+        this.f20243f = new b((ViewStub) this.f20239b.findViewById(R.id.chosen_pb_commrnt_third), aVar);
     }
 
     public final User a(Post post, List<User> list) {
@@ -96,19 +96,19 @@ public class c {
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18703b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20239b : (View) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.f18703b, R.color.common_color_10187);
-            SkinManager.setBackgroundColor(this.f18702a, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f18704c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundColor(this.f18708g, R.color.CAM_X0204);
-            this.f18705d.c();
-            this.f18706e.c();
-            this.f18707f.c();
+            SkinManager.setBackgroundResource(this.f20239b, R.color.common_color_10187);
+            SkinManager.setBackgroundColor(this.f20238a, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f20240c, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundColor(this.f20244g, R.color.CAM_X0204);
+            this.f20241d.c();
+            this.f20242e.c();
+            this.f20243f.c();
         }
     }
 
@@ -119,47 +119,47 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, context, list, list2) == null) {
             if (list != null && !list.isEmpty()) {
-                this.f18708g.setVisibility(0);
+                this.f20244g.setVisibility(0);
                 int size = list.size();
                 if (size != 1) {
                     if (size == 2) {
-                        boolean update3 = this.f18705d.update(context, list.get(0), a(list.get(0), list2));
-                        boolean update4 = this.f18706e.update(context, list.get(1), a(list.get(1), list2));
-                        this.f18707f.d(false);
+                        boolean update3 = this.f20241d.update(context, list.get(0), a(list.get(0), list2));
+                        boolean update4 = this.f20242e.update(context, list.get(1), a(list.get(1), list2));
+                        this.f20243f.d(false);
                         update = update4;
                         z = update3;
                         update2 = false;
                     } else if (size >= 3) {
-                        boolean update5 = this.f18705d.update(context, list.get(0), a(list.get(0), list2));
-                        update = this.f18706e.update(context, list.get(1), a(list.get(1), list2));
-                        update2 = this.f18707f.update(context, list.get(2), a(list.get(2), list2));
+                        boolean update5 = this.f20241d.update(context, list.get(0), a(list.get(0), list2));
+                        update = this.f20242e.update(context, list.get(1), a(list.get(1), list2));
+                        update2 = this.f20243f.update(context, list.get(2), a(list.get(2), list2));
                         z = update5;
                     } else {
                         z = false;
                     }
                     if (z && !update && !update2) {
-                        this.f18704c.setVisibility(8);
+                        this.f20240c.setVisibility(8);
                         return;
                     } else {
-                        this.f18704c.setVisibility(0);
+                        this.f20240c.setVisibility(0);
                         return;
                     }
                 }
-                z = this.f18705d.update(context, list.get(0), a(list.get(0), list2));
-                this.f18706e.d(false);
-                this.f18707f.d(false);
+                z = this.f20241d.update(context, list.get(0), a(list.get(0), list2));
+                this.f20242e.d(false);
+                this.f20243f.d(false);
                 update2 = false;
                 update = false;
                 if (z) {
                 }
-                this.f18704c.setVisibility(0);
+                this.f20240c.setVisibility(0);
                 return;
             }
-            this.f18704c.setVisibility(8);
-            this.f18705d.d(false);
-            this.f18706e.d(false);
-            this.f18707f.d(false);
-            this.f18708g.setVisibility(8);
+            this.f20240c.setVisibility(8);
+            this.f20241d.d(false);
+            this.f20242e.d(false);
+            this.f20243f.d(false);
+            this.f20244g.setVisibility(8);
         }
     }
 }

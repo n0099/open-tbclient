@@ -15,11 +15,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f24203b;
+    public static volatile c f25666b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IWXAPI f24204a;
+    public IWXAPI f25667a;
 
     static {
         InterceptResult invokeClinit;
@@ -54,14 +54,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f24203b == null) {
+            if (f25666b == null) {
                 synchronized (c.class) {
-                    if (f24203b == null) {
-                        f24203b = new c();
+                    if (f25666b == null) {
+                        f25666b = new c();
                     }
                 }
             }
-            return f24203b;
+            return f25666b;
         }
         return (c) invokeV.objValue;
     }
@@ -70,7 +70,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
-            this.f24204a = createWXAPI;
+            this.f25667a = createWXAPI;
             createWXAPI.registerApp("wx7088ea0f777314d2");
         }
     }

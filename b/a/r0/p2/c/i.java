@@ -3,8 +3,8 @@ package b.a.r0.p2.c;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.r0.b0.c0;
-import b.a.r0.b0.s;
+import b.a.r0.b0.d0;
+import b.a.r0.b0.t;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -26,21 +26,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s>> {
+public class i extends b.a.e.m.e.a<CardPersonDynamicThreadData, CardViewHolder<t>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
     public boolean n;
-    public b.a.e.e.k.b<ConstrainImageLayout> o;
-    public b.a.e.e.k.b<TbImageView> p;
+    public b.a.e.f.k.b<ConstrainImageLayout> o;
+    public b.a.e.f.k.b<TbImageView> p;
 
     /* loaded from: classes5.dex */
-    public class a extends c0<CardPersonDynamicThreadData> {
+    public class a extends d0<CardPersonDynamicThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ i f22155b;
+        public final /* synthetic */ i f23632b;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -57,27 +57,27 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
                     return;
                 }
             }
-            this.f22155b = iVar;
+            this.f23632b = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
         public void a(View view, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, cardPersonDynamicThreadData) == null) {
-                TiebaStatic.log(new StatisticItem("c12042").param("obj_type", this.f22155b.n ? 1 : 2));
+                TiebaStatic.log(new StatisticItem("c12042").param("obj_type", this.f23632b.n ? 1 : 2));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements b.a.e.e.k.c<ConstrainImageLayout> {
+    public class b implements b.a.e.f.k.c<ConstrainImageLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f22156a;
+        public final /* synthetic */ i f23633a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -94,12 +94,12 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
                     return;
                 }
             }
-            this.f22156a = iVar;
+            this.f23633a = iVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ ConstrainImageLayout a(ConstrainImageLayout constrainImageLayout) {
             ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
             e(constrainImageLayout2);
@@ -108,7 +108,7 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ ConstrainImageLayout c(ConstrainImageLayout constrainImageLayout) {
             ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
             h(constrainImageLayout2);
@@ -122,7 +122,7 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: f */
         public void b(ConstrainImageLayout constrainImageLayout) {
             Interceptable interceptable = $ic;
@@ -132,12 +132,12 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: g */
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f22156a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f23633a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
         }
 
         public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
@@ -148,12 +148,12 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
     }
 
     /* loaded from: classes5.dex */
-    public class c implements b.a.e.e.k.c<TbImageView> {
+    public class c implements b.a.e.f.k.c<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f22157a;
+        public final /* synthetic */ i f23634a;
 
         public c(i iVar) {
             Interceptable interceptable = $ic;
@@ -170,12 +170,12 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
                     return;
                 }
             }
-            this.f22157a = iVar;
+            this.f23634a = iVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -184,7 +184,7 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -198,7 +198,7 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -209,13 +209,13 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.f22157a.m.getPageActivity());
+                TbImageView tbImageView = new TbImageView(this.f23634a.m.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
@@ -255,45 +255,45 @@ public class i extends b.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<s
                 return;
             }
         }
-        this.o = new b.a.e.e.k.b<>(new b(this), 6, 0);
-        this.p = new b.a.e.e.k.b<>(new c(this), 12, 0);
+        this.o = new b.a.e.f.k.b<>(new b(this), 6, 0);
+        this.p = new b.a.e.f.k.b<>(new c(this), 12, 0);
         this.m = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
-    public CardViewHolder<s> T(ViewGroup viewGroup) {
+    public CardViewHolder<t> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            s sVar = new s(this.m);
-            sVar.S(this.o);
-            sVar.R(this.p);
-            sVar.l = 4;
-            ThreadViewAndCommentInfoLayout threadViewAndCommentInfoLayout = sVar.n;
+            t tVar = new t(this.m);
+            tVar.S(this.o);
+            tVar.R(this.p);
+            tVar.l = 4;
+            ThreadViewAndCommentInfoLayout threadViewAndCommentInfoLayout = tVar.n;
             if (threadViewAndCommentInfoLayout != null) {
                 threadViewAndCommentInfoLayout.sourceFromForPb = 4;
             }
-            ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout = sVar.U;
+            ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout = tVar.U;
             if (threadCardBottomOpSegmentLayout != null) {
                 threadCardBottomOpSegmentLayout.sourceFromForPb = 4;
             }
-            OriginalThreadCardView originalThreadCardView = sVar.R;
+            OriginalThreadCardView originalThreadCardView = tVar.R;
             if (originalThreadCardView != null) {
                 originalThreadCardView.setUsePlaceHolder(false);
-                sVar.R.sourceFormForPb = 4;
+                tVar.R.sourceFormForPb = 4;
             }
-            sVar.l(new a(this));
-            return new CardViewHolder<>(sVar);
+            tVar.l(new a(this));
+            return new CardViewHolder<>(tVar);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, CardViewHolder<s> cardViewHolder) {
+    public View Z(int i2, View view, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, CardViewHolder<t> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, cardPersonDynamicThreadData, cardViewHolder})) == null) {

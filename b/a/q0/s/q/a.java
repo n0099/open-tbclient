@@ -132,7 +132,7 @@ public abstract class a extends BaseCardInfo implements b.a.q0.b.f.n {
             if (threadData == null) {
                 return false;
             }
-            return threadData.b2 || threadData.e2 || threadData.I2();
+            return threadData.b2 || threadData.e2 || threadData.K2();
         }
         return invokeV.booleanValue;
     }
@@ -158,12 +158,12 @@ public abstract class a extends BaseCardInfo implements b.a.q0.b.f.n {
             if (threadData == null || threadData.J() == null || ThreadCardUtils.isSelf(threadData)) {
                 return false;
             }
-            boolean z = threadData.R1() || threadData.M1() || threadData.P1();
-            if ((!threadData.a2 || (!z && !threadData.I2())) && ((!threadData.c2 || (!z && !threadData.I2())) && (!threadData.isFromFrs() || (!z && !threadData.I2())))) {
+            boolean z = threadData.T1() || threadData.O1() || threadData.R1();
+            if ((!threadData.a2 || (!z && !threadData.K2())) && ((!threadData.c2 || (!z && !threadData.K2())) && (!threadData.isFromFrs() || (!z && !threadData.K2())))) {
                 if (!threadData.d2) {
                     return false;
                 }
-                if (!z && !threadData.I2()) {
+                if (!z && !threadData.K2()) {
                     return false;
                 }
             }
@@ -175,13 +175,13 @@ public abstract class a extends BaseCardInfo implements b.a.q0.b.f.n {
     public boolean showNewPicCut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? b.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(b.a.q0.b.f.l.f11915c), "11_7_index_b") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? b.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(b.a.q0.b.f.l.f12668c), "11_7_index_b") : invokeV.booleanValue;
     }
 
     public boolean showNewUI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? b.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(b.a.q0.b.f.l.f11915c), "11_7_index_a") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? b.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(b.a.q0.b.f.l.f12668c), "11_7_index_a") : invokeV.booleanValue;
     }
 
     public boolean showNoName() {
@@ -196,7 +196,7 @@ public abstract class a extends BaseCardInfo implements b.a.q0.b.f.n {
     public boolean showNoReadState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? b.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(b.a.q0.b.f.l.f11915c), "11_7_index_e") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? b.a.q0.b.d.d(getCurUsbAbTestSwitchByKey(b.a.q0.b.f.l.f12668c), "11_7_index_e") : invokeV.booleanValue;
     }
 
     public boolean showWeakenName() {

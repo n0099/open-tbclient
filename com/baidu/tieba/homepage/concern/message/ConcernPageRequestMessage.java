@@ -1,10 +1,10 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import android.text.TextUtils;
-import b.a.q0.d1.e;
-import b.a.q0.d1.z;
+import b.a.q0.c1.e;
+import b.a.q0.c1.z;
+import b.a.r0.a3.l0.b;
 import b.a.r0.h1.c.d;
-import b.a.r0.z2.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -54,7 +54,7 @@ public class ConcernPageRequestMessage extends NetMessage {
             String d2 = isEmpty ? "" : b.f().d("CONCERN");
             e eVar = this.adInfo;
             if (eVar != null && !isEmpty) {
-                str = eVar.f12090b;
+                str = eVar.f12764b;
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(e2);

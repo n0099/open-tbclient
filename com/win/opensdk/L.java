@@ -14,25 +14,25 @@ public final class L {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final L f70451a;
+    public static final L f71371a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final L f70452b;
+    public static final L f71372b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final L f70453c;
+    public static final L f71373c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final L f70454d;
+    public static final L f71374d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final L f70455e;
+    public static final L f71375e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final L f70456f;
+    public static final L f71376f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ L[] f70457g;
+    public static final /* synthetic */ L[] f71377g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,14 +48,14 @@ public final class L {
                 return;
             }
         }
-        f70451a = new L("BANNER", 0);
-        f70452b = new L("INTERSTITIAL", 1);
-        f70453c = new L(Constant.TYPE_NATIVE, 2);
-        f70454d = new L("Video", 3);
-        f70455e = new L("SPLASH", 4);
+        f71371a = new L("BANNER", 0);
+        f71372b = new L("INTERSTITIAL", 1);
+        f71373c = new L(Constant.TYPE_NATIVE, 2);
+        f71374d = new L("Video", 3);
+        f71375e = new L("SPLASH", 4);
         L l = new L("DRAW_VIDEO", 5);
-        f70456f = l;
-        f70457g = new L[]{f70451a, f70452b, f70453c, f70454d, f70455e, l};
+        f71376f = l;
+        f71377g = new L[]{f71371a, f71372b, f71373c, f71374d, f71375e, l};
     }
 
     public L(String str, int i2) {
@@ -86,6 +86,6 @@ public final class L {
     public static L[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (L[]) f70457g.clone() : (L[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (L[]) f71377g.clone() : (L[]) invokeV.objValue;
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.themeCenter.background;
 
 import android.os.Bundle;
-import b.a.r0.r3.e.b;
-import b.a.r0.r3.e.c;
-import b.a.r0.r3.e.d;
-import b.a.r0.r3.h.e;
+import b.a.r0.s3.e.b;
+import b.a.r0.s3.e.c;
+import b.a.r0.s3.e.d;
+import b.a.r0.s3.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -32,7 +32,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundGroupActivity f54521a;
+        public final /* synthetic */ BackgroundGroupActivity f55441a;
 
         public a(BackgroundGroupActivity backgroundGroupActivity) {
             Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     return;
                 }
             }
-            this.f54521a = backgroundGroupActivity;
+            this.f55441a = backgroundGroupActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
         public void a(int i2, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                BackgroundGroupActivity backgroundGroupActivity = this.f54521a;
+                BackgroundGroupActivity backgroundGroupActivity = this.f55441a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.mView.d());
-                this.f54521a.mView.i();
+                this.f55441a.mView.i();
                 if (i2 == 0) {
-                    this.f54521a.mView.k(eVar, list, this.f54521a.mModel.F());
+                    this.f55441a.mView.k(eVar, list, this.f55441a.mModel.F());
                     return;
                 }
-                this.f54521a.showToast(str);
-                this.f54521a.mView.j();
+                this.f55441a.showToast(str);
+                this.f55441a.mView.j();
             }
         }
     }
@@ -99,7 +99,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b.a.q0.o0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f12779a = true;
+                pageStayDurationItem.f13529a = true;
             }
             return pageStayDurationItem;
         }

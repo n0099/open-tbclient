@@ -10,6 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NetRequestSettings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean mEnableEncodingInNetThread;
+    public boolean mEnableEncodingUsingGURLLibrary;
     public boolean mLoadDoNotSendCookies;
     public boolean mShouldNeverClearReferer;
     public int mTimeout;
@@ -32,5 +34,7 @@ public class NetRequestSettings {
         this.mUploadDataLimit = 10485760L;
         this.mLoadDoNotSendCookies = false;
         this.mShouldNeverClearReferer = false;
+        this.mEnableEncodingInNetThread = false;
+        this.mEnableEncodingUsingGURLLibrary = false;
     }
 }

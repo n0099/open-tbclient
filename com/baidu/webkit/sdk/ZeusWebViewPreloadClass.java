@@ -194,6 +194,7 @@ public class ZeusWebViewPreloadClass {
                         file.delete();
                     }
                 } catch (Exception e2) {
+                    WebKitFactory.getLoadErrorCode().addDownloadInfo(1018);
                     Log.i(LOG_TAG, "deleteSavingClassesFile path: " + savingClassesFilePath + ", hit error=" + e2.getMessage());
                 }
             }

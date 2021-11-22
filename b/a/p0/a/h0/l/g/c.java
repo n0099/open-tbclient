@@ -5,7 +5,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 public interface c<T> {
     T a();
 
-    void b(d<T> dVar);
+    void c(d<T> dVar);
 
     T e(PMSAppInfo pMSAppInfo);
 

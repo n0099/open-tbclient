@@ -6,9 +6,9 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import b.a.r0.b4.g;
-import b.a.r0.b4.h;
-import b.a.r0.b4.i;
+import b.a.r0.c4.g;
+import b.a.r0.c4.h;
+import b.a.r0.c4.i;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -38,13 +38,13 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f55072a;
+    public MessageRedDotView f55994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f55073b;
+    public CustomMessageListener f55995b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.e.c.g.a f55074c;
+    public b.a.e.c.g.a f55996c;
 
     /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
@@ -163,7 +163,7 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelDelegateStatic f55075a;
+        public final /* synthetic */ VideoChannelDelegateStatic f55997a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(VideoChannelDelegateStatic videoChannelDelegateStatic, int i2) {
@@ -183,7 +183,7 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
                     return;
                 }
             }
-            this.f55075a = videoChannelDelegateStatic;
+            this.f55997a = videoChannelDelegateStatic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -191,7 +191,7 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.f55075a.e((String) customResponsedMessage.getData());
+                this.f55997a.e((String) customResponsedMessage.getData());
             }
         }
     }
@@ -202,7 +202,7 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelDelegateStatic f55076a;
+        public final /* synthetic */ VideoChannelDelegateStatic f55998a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(VideoChannelDelegateStatic videoChannelDelegateStatic, int i2, int i3) {
@@ -223,7 +223,7 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
                     return;
                 }
             }
-            this.f55076a = videoChannelDelegateStatic;
+            this.f55998a = videoChannelDelegateStatic;
         }
 
         @Override // b.a.e.c.g.a
@@ -241,7 +241,7 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
                 }
                 TbSingleton.getInstance().setVideoChannelRecommendRedIcon(null);
                 TbSingleton.getInstance().setVideoChannelAttentionRedIcon(redIcon);
-                this.f55076a.d(redIcon);
+                this.f55998a.d(redIcon);
             }
         }
     }
@@ -295,13 +295,13 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
             Bundle bundle = new Bundle();
             VideoChannelFragment videoChannelFragment = new VideoChannelFragment();
             videoChannelFragment.setActivityPageUniqueId(BdUniqueId.gen());
-            cVar.f12612a = videoChannelFragment;
+            cVar.f13359a = videoChannelFragment;
             videoChannelFragment.setArguments(bundle);
-            cVar.f12616e = 22;
-            cVar.f12613b = i.video_channel;
-            cVar.f12620i = b.a.q0.h0.c.l;
-            cVar.f12617f = h.lottie_tab_video_channel;
-            cVar.f12619h = b.a.q0.h0.e.c.d().c("channel");
+            cVar.f13363e = 22;
+            cVar.f13360b = i.video_channel;
+            cVar.f13367i = b.a.q0.h0.c.l;
+            cVar.f13364f = h.lottie_tab_video_channel;
+            cVar.f13366h = b.a.q0.h0.e.c.d().c("channel");
             return cVar;
         }
         return (b.a.q0.h0.c) invokeV.objValue;
@@ -311,8 +311,8 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, redIcon) == null) {
             b.a.q0.h0.c cVar = new b.a.q0.h0.c();
-            cVar.f12618g = redIcon.image;
-            cVar.f12616e = 22;
+            cVar.f13365g = redIcon.image;
+            cVar.f13363e = 22;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, cVar));
         }
     }
@@ -320,11 +320,11 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
     public final void e(String str) {
         MessageRedDotView messageRedDotView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (messageRedDotView = this.f55072a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (messageRedDotView = this.f55994a) == null) {
             return;
         }
         messageRedDotView.refresh(str, false);
-        this.f55072a.setVisibility(TextUtils.isEmpty(str) ? 8 : 0);
+        this.f55994a.setVisibility(TextUtils.isEmpty(str) ? 8 : 0);
     }
 
     @Override // b.a.q0.h0.b
@@ -333,13 +333,13 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(g.maintab_bottom_indicator, (ViewGroup) null);
-            this.f55072a = new MessageRedDotView(context);
+            this.f55994a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
-            aVar.f45978f = tbFragmentTabIndicator;
-            aVar.f45973a = this.f55072a;
+            aVar.f46828f = tbFragmentTabIndicator;
+            aVar.f46823a = this.f55994a;
             tbFragmentTabIndicator.addTipWrapContent("video_msg", aVar);
-            this.f55072a.setVisibility(4);
+            this.f55994a.setVisibility(4);
             return this.mIndicator;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
@@ -356,10 +356,10 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f55073b = new d(this, 2921577);
-            this.f55074c = new e(this, CmdConfigHttp.CMD_VIDEO_TAB_RED_ICON, 309708);
-            MessageManager.getInstance().registerListener(this.f55074c);
-            MessageManager.getInstance().registerListener(this.f55073b);
+            this.f55995b = new d(this, 2921577);
+            this.f55996c = new e(this, CmdConfigHttp.CMD_VIDEO_TAB_RED_ICON, 309708);
+            MessageManager.getInstance().registerListener(this.f55996c);
+            MessageManager.getInstance().registerListener(this.f55995b);
         }
     }
 
@@ -368,12 +368,12 @@ public class VideoChannelDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onRemove();
-            MessageManager.getInstance().unRegisterListener(this.f55074c);
-            MessageManager.getInstance().unRegisterListener(this.f55073b);
-            if (getFragmentTabStructure() == null || getFragmentTabStructure().f12612a == null) {
+            MessageManager.getInstance().unRegisterListener(this.f55996c);
+            MessageManager.getInstance().unRegisterListener(this.f55995b);
+            if (getFragmentTabStructure() == null || getFragmentTabStructure().f13359a == null) {
                 return;
             }
-            getFragmentTabStructure().f12612a.onDestroy();
+            getFragmentTabStructure().f13359a.onDestroy();
         }
     }
 }

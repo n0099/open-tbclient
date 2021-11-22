@@ -26,7 +26,7 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<SubTagsStatus> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        b.l.a.a.a.d("AbstractMessageHandler", "start SubScribeTagsStatusHandler match");
+        b.j.a.a.a.d("AbstractMessageHandler", "start SubScribeTagsStatusHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SUBTAGS_STATUS.equals(i(intent));
     }
 

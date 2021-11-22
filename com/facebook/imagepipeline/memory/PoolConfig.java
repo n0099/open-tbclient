@@ -24,7 +24,6 @@ public class PoolConfig {
     public final PoolStatsTracker mBitmapPoolStatsTracker;
     public final String mBitmapPoolType;
     public final PoolParams mFlexByteArrayPoolParams;
-    public final boolean mIgnoreBitmapPoolHardCap;
     public final PoolParams mMemoryChunkPoolParams;
     public final PoolStatsTracker mMemoryChunkPoolStatsTracker;
     public final MemoryTrimmableRegistry mMemoryTrimmableRegistry;
@@ -49,7 +48,6 @@ public class PoolConfig {
         public PoolStatsTracker mBitmapPoolStatsTracker;
         public String mBitmapPoolType;
         public PoolParams mFlexByteArrayPoolParams;
-        public boolean mIgnoreBitmapPoolHardCap;
         public PoolParams mMemoryChunkPoolParams;
         public PoolStatsTracker mMemoryChunkPoolStatsTracker;
         public MemoryTrimmableRegistry mMemoryTrimmableRegistry;
@@ -127,20 +125,10 @@ public class PoolConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setIgnoreBitmapPoolHardCap(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.mIgnoreBitmapPoolHardCap = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
         public Builder setMemoryTrimmableRegistry(MemoryTrimmableRegistry memoryTrimmableRegistry) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, memoryTrimmableRegistry)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, memoryTrimmableRegistry)) == null) {
                 this.mMemoryTrimmableRegistry = memoryTrimmableRegistry;
                 return this;
             }
@@ -150,7 +138,7 @@ public class PoolConfig {
         public Builder setNativeMemoryChunkPoolParams(PoolParams poolParams) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, poolParams)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, poolParams)) == null) {
                 this.mMemoryChunkPoolParams = (PoolParams) Preconditions.checkNotNull(poolParams);
                 return this;
             }
@@ -160,27 +148,24 @@ public class PoolConfig {
         public Builder setNativeMemoryChunkPoolStatsTracker(PoolStatsTracker poolStatsTracker) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, poolStatsTracker)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, poolStatsTracker)) == null) {
                 this.mMemoryChunkPoolStatsTracker = (PoolStatsTracker) Preconditions.checkNotNull(poolStatsTracker);
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setRegisterLruBitmapPoolAsMemoryTrimmable(boolean z) {
-            InterceptResult invokeZ;
+        public void setRegisterLruBitmapPoolAsMemoryTrimmable(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
+            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
                 this.mRegisterLruBitmapPoolAsMemoryTrimmable = z;
-                return this;
             }
-            return (Builder) invokeZ.objValue;
         }
 
         public Builder setSmallByteArrayPoolParams(PoolParams poolParams) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, poolParams)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, poolParams)) == null) {
                 this.mSmallByteArrayPoolParams = (PoolParams) Preconditions.checkNotNull(poolParams);
                 return this;
             }
@@ -190,7 +175,7 @@ public class PoolConfig {
         public Builder setSmallByteArrayPoolStatsTracker(PoolStatsTracker poolStatsTracker) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, poolStatsTracker)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, poolStatsTracker)) == null) {
                 this.mSmallByteArrayPoolStatsTracker = (PoolStatsTracker) Preconditions.checkNotNull(poolStatsTracker);
                 return this;
             }
@@ -288,16 +273,10 @@ public class PoolConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mSmallByteArrayPoolStatsTracker : (PoolStatsTracker) invokeV.objValue;
     }
 
-    public boolean isIgnoreBitmapPoolHardCap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mIgnoreBitmapPoolHardCap : invokeV.booleanValue;
-    }
-
     public boolean isRegisterLruBitmapPoolAsMemoryTrimmable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRegisterLruBitmapPoolAsMemoryTrimmable : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mRegisterLruBitmapPoolAsMemoryTrimmable : invokeV.booleanValue;
     }
 
     public PoolConfig(Builder builder) {
@@ -381,6 +360,5 @@ public class PoolConfig {
         if (FrescoSystrace.isTracing()) {
             FrescoSystrace.endSection();
         }
-        this.mIgnoreBitmapPoolHardCap = builder.mIgnoreBitmapPoolHardCap;
     }
 }

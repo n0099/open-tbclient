@@ -10,8 +10,9 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.g1.f;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.l0;
-import b.a.p0.t.d;
+import b.a.p0.a.o0.d.c;
+import b.a.p0.a.z2.l0;
+import b.a.p0.w.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.camera.view.CameraPreview;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
@@ -37,28 +38,28 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f9093c;
+    public static final boolean f9523c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Timer f9094a;
+    public Timer f9524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.p0.a.z.c.b f9095b;
+    public b.a.p0.a.z.c.b f9525b;
 
     /* renamed from: b.a.p0.a.z.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0470a extends TimerTask {
+    public class C0491a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.z.c.b f9096e;
+        public final /* synthetic */ b.a.p0.a.z.c.b f9526e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9097f;
+        public final /* synthetic */ a f9527f;
 
-        public C0470a(a aVar, b.a.p0.a.z.c.b bVar) {
+        public C0491a(a aVar, b.a.p0.a.z.c.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,19 +74,19 @@ public class a {
                     return;
                 }
             }
-            this.f9097f = aVar;
-            this.f9096e = bVar;
+            this.f9527f = aVar;
+            this.f9526e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.p0.a.z.c.b bVar = this.f9096e;
+                b.a.p0.a.z.c.b bVar = this.f9526e;
                 if (bVar != null) {
                     bVar.a();
                 }
-                this.f9097f.j();
+                this.f9527f.j();
             }
         }
     }
@@ -95,7 +96,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f9098a;
+        public static final a f9528a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -111,7 +112,7 @@ public class a {
                     return;
                 }
             }
-            f9098a = new a(null);
+            f9528a = new a(null);
         }
     }
 
@@ -128,23 +129,23 @@ public class a {
                 return;
             }
         }
-        f9093c = k.f6397a;
+        f9523c = k.f6863a;
     }
 
-    public /* synthetic */ a(C0470a c0470a) {
+    public /* synthetic */ a(C0491a c0491a) {
         this();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f9098a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f9528a : (a) invokeV.objValue;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b.a.p0.a.z.c.b bVar = this.f9095b;
+            b.a.p0.a.z.c.b bVar = this.f9525b;
             if (bVar != null) {
                 bVar.cancel();
             }
@@ -174,7 +175,7 @@ public class a {
                 hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
                 hashMap.put("cameraId", str2);
                 hashMap.put("eType", z ? "error" : IntentConfig.STOP);
-                f.T().u(new b.a.p0.a.o0.d.b("camera", hashMap));
+                f.U().u(new c("camera", hashMap));
                 return;
             }
             JSONObject jSONObject = new JSONObject();
@@ -186,11 +187,11 @@ public class a {
                 }
                 jSONObject.put("eType", str3);
             } catch (JSONException e2) {
-                if (f9093c) {
+                if (f9523c) {
                     e2.printStackTrace();
                 }
             }
-            b.a.p0.a.w2.g.c.a.d(str, str2, "camera", jSONObject.optString("eType"), jSONObject);
+            b.a.p0.a.a3.g.c.a.d(str, str2, "camera", jSONObject.optString("eType"), jSONObject);
         }
     }
 
@@ -200,7 +201,7 @@ public class a {
             try {
                 CameraPreview.releaseCamera();
             } catch (Exception e2) {
-                if (f9093c) {
+                if (f9523c) {
                     e2.printStackTrace();
                 }
             }
@@ -225,18 +226,18 @@ public class a {
                 File file = new File(str);
                 if (file.exists()) {
                     boolean delete = file.delete();
-                    if (f9093c) {
+                    if (f9523c) {
                         String str2 = "delete = " + delete;
                     }
                 }
                 if (file.getParentFile() != null) {
                     boolean mkdirs = file.getParentFile().mkdirs();
-                    if (f9093c) {
+                    if (f9523c) {
                         String str3 = "mkdirs = " + mkdirs;
                     }
                 }
                 boolean createNewFile = file.createNewFile();
-                if (f9093c) {
+                if (f9523c) {
                     String str4 = "createNewFile = " + createNewFile;
                 }
                 Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
@@ -257,13 +258,13 @@ public class a {
                 d.d(bufferedOutputStream);
                 return true;
             } catch (Exception e2) {
-                if (f9093c) {
+                if (f9523c) {
                     e2.printStackTrace();
                     return false;
                 }
                 return false;
             } catch (OutOfMemoryError e3) {
-                if (f9093c) {
+                if (f9523c) {
                     e3.printStackTrace();
                     return false;
                 }
@@ -276,18 +277,18 @@ public class a {
     public void i(int i2, b.a.p0.a.z.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, bVar) == null) {
-            this.f9095b = bVar;
+            this.f9525b = bVar;
             Timer timer = new Timer();
-            this.f9094a = timer;
-            timer.schedule(new C0470a(this, bVar), i2);
+            this.f9524a = timer;
+            timer.schedule(new C0491a(this, bVar), i2);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f9095b = null;
-            Timer timer = this.f9094a;
+            this.f9525b = null;
+            Timer timer = this.f9524a;
             if (timer != null) {
                 timer.cancel();
             }

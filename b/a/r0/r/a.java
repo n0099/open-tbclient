@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.e;
-import b.a.r0.z2.l;
+import b.a.e.f.m.e;
+import b.a.r0.a3.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlManager;
@@ -28,34 +28,34 @@ public final class a implements l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f22926d;
+    public static final Pattern f24458d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f22927e;
+    public static a f24459e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<l.a> f22928a;
+    public final List<l.a> f24460a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConcurrentHashMap<String, l.b> f22929b;
+    public final ConcurrentHashMap<String, l.b> f24461b;
 
     /* renamed from: c  reason: collision with root package name */
-    public l.c f22930c;
+    public l.c f24462c;
 
     /* renamed from: b.a.r0.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC1119a implements Runnable {
+    public class RunnableC1187a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l.a f22931e;
+        public final /* synthetic */ l.a f24463e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f22932f;
+        public final /* synthetic */ a f24464f;
 
-        public RunnableC1119a(a aVar, l.a aVar2) {
+        public RunnableC1187a(a aVar, l.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,15 +70,15 @@ public final class a implements l {
                     return;
                 }
             }
-            this.f22932f = aVar;
-            this.f22931e = aVar2;
+            this.f24464f = aVar;
+            this.f24463e = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f22932f.f(this.f22931e);
+                this.f24464f.f(this.f24463e);
             }
         }
     }
@@ -96,8 +96,8 @@ public final class a implements l {
                 return;
             }
         }
-        f22926d = Pattern.compile(UrlManager.patternText, 2);
-        f22927e = new a();
+        f24458d = Pattern.compile(UrlManager.patternText, 2);
+        f24459e = new a();
     }
 
     public a() {
@@ -113,25 +113,25 @@ public final class a implements l {
                 return;
             }
         }
-        this.f22928a = new LinkedList();
-        this.f22929b = new ConcurrentHashMap<>();
-        this.f22930c = null;
+        this.f24460a = new LinkedList();
+        this.f24461b = new ConcurrentHashMap<>();
+        this.f24462c = null;
     }
 
     public static a l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f22927e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f24459e : (a) invokeV.objValue;
     }
 
-    @Override // b.a.r0.z2.l
+    @Override // b.a.r0.a3.l
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f22926d.matcher(str).find() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f24458d.matcher(str).find() : invokeL.booleanValue;
     }
 
-    @Override // b.a.r0.z2.l
+    @Override // b.a.r0.a3.l
     public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
@@ -139,7 +139,7 @@ public final class a implements l {
         }
     }
 
-    @Override // b.a.r0.z2.l
+    @Override // b.a.r0.a3.l
     public boolean c(Context context, String[] strArr, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -149,20 +149,20 @@ public final class a implements l {
     public void e(l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (b.a.e.e.p.l.C()) {
+            if (b.a.e.f.p.l.C()) {
                 f(aVar);
             } else {
-                e.a().post(new RunnableC1119a(this, aVar));
+                e.a().post(new RunnableC1187a(this, aVar));
             }
         }
     }
 
     public final void f(l.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || this.f22928a.contains(aVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || this.f24460a.contains(aVar)) {
             return;
         }
-        this.f22928a.add(aVar);
+        this.f24460a.add(aVar);
     }
 
     public boolean g(Context context, String str, String[] strArr, boolean z, l.d dVar, boolean z2, Bundle bundle) {
@@ -174,12 +174,12 @@ public final class a implements l {
                 return false;
             }
             String str2 = strArr[0];
-            l.b bVar = this.f22929b.get(m(str2));
+            l.b bVar = this.f24461b.get(m(str2));
             if (bVar != null) {
                 bVar.a(context, j(k(str2)));
                 return true;
             }
-            Iterator<l.a> it = this.f22928a.iterator();
+            Iterator<l.a> it = this.f24460a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z3 = false;
@@ -191,7 +191,7 @@ public final class a implements l {
                     break;
                 }
             }
-            if (!z3 && this.f22930c != null) {
+            if (!z3 && this.f24462c != null) {
                 if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                     return true;
                 }
@@ -214,7 +214,7 @@ public final class a implements l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
             if (strArr != null && strArr.length != 0) {
-                for (l.a aVar : this.f22928a) {
+                for (l.a aVar : this.f24460a) {
                     if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
                         return a2;
                     }
@@ -276,15 +276,15 @@ public final class a implements l {
 
     public final void n(Context context, String str, String str2, boolean z, l.d dVar, boolean z2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && f22926d.matcher(str2).find()) {
-            this.f22930c.a(context, str, str2, z, dVar, z2, bundle);
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && f24458d.matcher(str2).find()) {
+            this.f24462c.a(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
     public void o(l.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.f22930c = cVar;
+            this.f24462c = cVar;
         }
     }
 }

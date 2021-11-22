@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ProductInfo f72346a;
+    public ProductInfo f73265a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72347b;
+    public int f73266b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f72348c;
+    public boolean f73267c;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -37,15 +37,15 @@ public class c {
                 return;
             }
         }
-        this.f72347b = Integer.MIN_VALUE;
-        this.f72348c = z;
+        this.f73266b = Integer.MIN_VALUE;
+        this.f73267c = z;
     }
 
     public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProductInfo productInfo = this.f72346a;
+            ProductInfo productInfo = this.f73265a;
             if (productInfo != null) {
                 return productInfo.destAmount / 100.0d;
             }
@@ -58,7 +58,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ProductInfo productInfo = this.f72346a;
+            ProductInfo productInfo = this.f73265a;
             if (productInfo != null) {
                 return productInfo.srcAmount;
             }
@@ -73,12 +73,12 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("PayAmount{currencyType=");
-            sb.append(this.f72347b);
+            sb.append(this.f73266b);
             sb.append(", srcAmount=");
-            ProductInfo productInfo = this.f72346a;
+            ProductInfo productInfo = this.f73265a;
             sb.append(productInfo != null ? productInfo.srcAmount : 0.0d);
             sb.append(", dstAmount=");
-            ProductInfo productInfo2 = this.f72346a;
+            ProductInfo productInfo2 = this.f73265a;
             sb.append(productInfo2 != null ? productInfo2.destAmount : 0L);
             sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
@@ -101,8 +101,8 @@ public class c {
                 return;
             }
         }
-        this.f72347b = Integer.MIN_VALUE;
-        this.f72346a = productInfo;
+        this.f73266b = Integer.MIN_VALUE;
+        this.f73265a = productInfo;
     }
 
     public c(ProductInfo productInfo, int i2) {
@@ -120,8 +120,8 @@ public class c {
                 return;
             }
         }
-        this.f72347b = Integer.MIN_VALUE;
-        this.f72346a = productInfo;
-        this.f72347b = i2;
+        this.f73266b = Integer.MIN_VALUE;
+        this.f73265a = productInfo;
+        this.f73266b = i2;
     }
 }

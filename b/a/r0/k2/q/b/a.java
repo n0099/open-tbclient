@@ -18,16 +18,16 @@ public class a implements b.a.r0.k2.q.c.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public UserInfo f18683e;
+    public UserInfo f20219e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ExcellentPbThreadInfo f18684f;
+    public ExcellentPbThreadInfo f20220f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Post> f18685g;
+    public List<Post> f20221g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<User> f18686h;
+    public List<User> f20222h;
 
     public a(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class a implements b.a.r0.k2.q.c.a {
                 return;
             }
         }
-        this.f18683e = userInfo;
-        this.f18684f = excellentPbThreadInfo;
-        this.f18685g = list;
-        this.f18686h = list2;
+        this.f20219e = userInfo;
+        this.f20220f = excellentPbThreadInfo;
+        this.f20221g = list;
+        this.f20222h = list2;
     }
 
     @Override // b.a.r0.k2.q.c.a
@@ -74,28 +74,28 @@ public class a implements b.a.r0.k2.q.c.a {
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18685g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20221g : (List) invokeV.objValue;
     }
 
     @Override // b.a.r0.k2.q.c.a
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18684f : (ExcellentPbThreadInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20220f : (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
     @Override // b.a.r0.k2.q.c.a
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18683e : (UserInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20219e : (UserInfo) invokeV.objValue;
     }
 
     @Override // b.a.r0.k2.q.c.a
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f18686h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20222h : (List) invokeV.objValue;
     }
 
     @Override // b.a.r0.k2.q.c.a
@@ -104,7 +104,7 @@ public class a implements b.a.r0.k2.q.c.a {
         List<ExcContent> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ExcellentPbThreadInfo excellentPbThreadInfo = this.f18684f;
+            ExcellentPbThreadInfo excellentPbThreadInfo = this.f20220f;
             return excellentPbThreadInfo == null || (list = excellentPbThreadInfo.content) == null || list.size() <= 0;
         }
         return invokeV.booleanValue;

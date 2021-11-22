@@ -13,19 +13,19 @@ public final class PanoStateError {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final PanoStateError f42045a;
+    public static final PanoStateError f42893a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final PanoStateError f42046b;
+    public static final PanoStateError f42894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final PanoStateError f42047c;
+    public static final PanoStateError f42895c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PanoStateError f42048d;
+    public static final PanoStateError f42896d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ PanoStateError[] f42049e;
+    public static final /* synthetic */ PanoStateError[] f42897e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,12 +41,12 @@ public final class PanoStateError {
                 return;
             }
         }
-        f42045a = new PanoStateError("PANO_NO_ERROR", 0);
-        f42046b = new PanoStateError("PANO_UID_ERROR", 1);
-        f42047c = new PanoStateError("PANO_NOT_FOUND", 2);
+        f42893a = new PanoStateError("PANO_NO_ERROR", 0);
+        f42894b = new PanoStateError("PANO_UID_ERROR", 1);
+        f42895c = new PanoStateError("PANO_NOT_FOUND", 2);
         PanoStateError panoStateError = new PanoStateError("PANO_NO_TOKEN", 3);
-        f42048d = panoStateError;
-        f42049e = new PanoStateError[]{f42045a, f42046b, f42047c, panoStateError};
+        f42896d = panoStateError;
+        f42897e = new PanoStateError[]{f42893a, f42894b, f42895c, panoStateError};
     }
 
     public PanoStateError(String str, int i2) {
@@ -77,6 +77,6 @@ public final class PanoStateError {
     public static PanoStateError[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) f42049e.clone() : (PanoStateError[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) f42897e.clone() : (PanoStateError[]) invokeV.objValue;
     }
 }

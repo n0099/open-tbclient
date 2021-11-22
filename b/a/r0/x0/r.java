@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class r extends k<s, FrsNoListItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,23 +40,23 @@ public class r extends k<s, FrsNoListItemViewHolder> {
                 return;
             }
         }
-        this.x = (b.a.e.e.p.l.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c1.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c1.ds90);
+        this.x = (b.a.e.f.p.l.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d1.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d1.ds90);
     }
 
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         u0(i2, view, viewGroup, (s) obj, (FrsNoListItemViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: t0 */
     public FrsNoListItemViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f2419e).inflate(f1.frs_no_list_item_view, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f2421e).inflate(g1.frs_no_list_item_view, viewGroup, false);
             ViewGroup.LayoutParams u = u(viewGroup);
             u.width = -1;
             u.height = this.x;
@@ -72,12 +72,12 @@ public class r extends k<s, FrsNoListItemViewHolder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, sVar, frsNoListItemViewHolder})) == null) {
             super.Z(i2, view, viewGroup, sVar, frsNoListItemViewHolder);
             if (sVar.a() == 6) {
-                frsNoListItemViewHolder.mNodataTextView.setText(h1.attention_no_post_tip);
+                frsNoListItemViewHolder.mNodataTextView.setText(i1.attention_no_post_tip);
             } else {
-                frsNoListItemViewHolder.mNodataTextView.setText(h1.no_data_common_txt);
+                frsNoListItemViewHolder.mNodataTextView.setText(i1.no_data_common_txt);
             }
-            SkinManager.setViewTextColor(frsNoListItemViewHolder.mNodataTextView, b1.CAM_X0107, 1);
-            SkinManager.setImageResource(frsNoListItemViewHolder.mEmotionView, d1.new_pic_emotion_06);
+            SkinManager.setViewTextColor(frsNoListItemViewHolder.mNodataTextView, c1.CAM_X0107, 1);
+            SkinManager.setImageResource(frsNoListItemViewHolder.mEmotionView, e1.new_pic_emotion_06);
             return view;
         }
         return (View) invokeCommon.objValue;

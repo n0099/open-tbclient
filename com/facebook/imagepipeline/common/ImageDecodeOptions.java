@@ -1,7 +1,6 @@
 package com.facebook.imagepipeline.common;
 
 import android.graphics.Bitmap;
-import android.graphics.ColorSpace;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Objects;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import javax.annotation.Nullable;
@@ -25,14 +23,12 @@ public class ImageDecodeOptions {
     @Nullable
     public final BitmapTransformation bitmapTransformation;
     @Nullable
-    public final ColorSpace colorSpace;
-    @Nullable
     public final ImageDecoder customImageDecoder;
     public final boolean decodeAllFrames;
     public final boolean decodePreviewFrame;
     public final boolean forceStaticImage;
-    public final int maxDimensionPx;
     public final int minDecodeIntervalMs;
+    public final boolean transformToSRGB;
     public final boolean useLastFrameForPreview;
 
     static {
@@ -67,15 +63,14 @@ public class ImageDecodeOptions {
             }
         }
         this.minDecodeIntervalMs = imageDecodeOptionsBuilder.getMinDecodeIntervalMs();
-        this.maxDimensionPx = imageDecodeOptionsBuilder.getMaxDimensionPx();
         this.decodePreviewFrame = imageDecodeOptionsBuilder.getDecodePreviewFrame();
         this.useLastFrameForPreview = imageDecodeOptionsBuilder.getUseLastFrameForPreview();
         this.decodeAllFrames = imageDecodeOptionsBuilder.getDecodeAllFrames();
         this.forceStaticImage = imageDecodeOptionsBuilder.getForceStaticImage();
         this.bitmapConfig = imageDecodeOptionsBuilder.getBitmapConfig();
         this.customImageDecoder = imageDecodeOptionsBuilder.getCustomImageDecoder();
+        this.transformToSRGB = imageDecodeOptionsBuilder.getTransformToSRGB();
         this.bitmapTransformation = imageDecodeOptionsBuilder.getBitmapTransformation();
-        this.colorSpace = imageDecodeOptionsBuilder.getColorSpace();
     }
 
     public static ImageDecodeOptions defaults() {
@@ -101,7 +96,7 @@ public class ImageDecodeOptions {
                 return false;
             }
             ImageDecodeOptions imageDecodeOptions = (ImageDecodeOptions) obj;
-            return this.minDecodeIntervalMs == imageDecodeOptions.minDecodeIntervalMs && this.maxDimensionPx == imageDecodeOptions.maxDimensionPx && this.decodePreviewFrame == imageDecodeOptions.decodePreviewFrame && this.useLastFrameForPreview == imageDecodeOptions.useLastFrameForPreview && this.decodeAllFrames == imageDecodeOptions.decodeAllFrames && this.forceStaticImage == imageDecodeOptions.forceStaticImage && this.bitmapConfig == imageDecodeOptions.bitmapConfig && this.customImageDecoder == imageDecodeOptions.customImageDecoder && this.bitmapTransformation == imageDecodeOptions.bitmapTransformation && this.colorSpace == imageDecodeOptions.colorSpace;
+            return this.decodePreviewFrame == imageDecodeOptions.decodePreviewFrame && this.useLastFrameForPreview == imageDecodeOptions.useLastFrameForPreview && this.decodeAllFrames == imageDecodeOptions.decodeAllFrames && this.forceStaticImage == imageDecodeOptions.forceStaticImage && this.transformToSRGB == imageDecodeOptions.transformToSRGB && this.bitmapConfig == imageDecodeOptions.bitmapConfig && this.customImageDecoder == imageDecodeOptions.customImageDecoder && this.bitmapTransformation == imageDecodeOptions.bitmapTransformation;
         }
         return invokeL.booleanValue;
     }
@@ -110,13 +105,11 @@ public class ImageDecodeOptions {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int ordinal = ((((((((((((this.minDecodeIntervalMs * 31) + this.maxDimensionPx) * 31) + (this.decodePreviewFrame ? 1 : 0)) * 31) + (this.useLastFrameForPreview ? 1 : 0)) * 31) + (this.decodeAllFrames ? 1 : 0)) * 31) + (this.forceStaticImage ? 1 : 0)) * 31) + this.bitmapConfig.ordinal()) * 31;
+            int ordinal = ((((((((((((this.minDecodeIntervalMs * 31) + (this.decodePreviewFrame ? 1 : 0)) * 31) + (this.useLastFrameForPreview ? 1 : 0)) * 31) + (this.decodeAllFrames ? 1 : 0)) * 31) + (this.forceStaticImage ? 1 : 0)) * 31) + (this.transformToSRGB ? 1 : 0)) * 31) + this.bitmapConfig.ordinal()) * 31;
             ImageDecoder imageDecoder = this.customImageDecoder;
             int hashCode = (ordinal + (imageDecoder != null ? imageDecoder.hashCode() : 0)) * 31;
             BitmapTransformation bitmapTransformation = this.bitmapTransformation;
-            int hashCode2 = (hashCode + (bitmapTransformation != null ? bitmapTransformation.hashCode() : 0)) * 31;
-            ColorSpace colorSpace = this.colorSpace;
-            return hashCode2 + (colorSpace != null ? colorSpace.hashCode() : 0);
+            return hashCode + (bitmapTransformation != null ? bitmapTransformation.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -124,15 +117,6 @@ public class ImageDecodeOptions {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ImageDecodeOptions{" + toStringHelper().toString() + "}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Objects.ToStringHelper toStringHelper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.toStringHelper(this).add("minDecodeIntervalMs", this.minDecodeIntervalMs).add("maxDimensionPx", this.maxDimensionPx).add("decodePreviewFrame", this.decodePreviewFrame).add("useLastFrameForPreview", this.useLastFrameForPreview).add("decodeAllFrames", this.decodeAllFrames).add("forceStaticImage", this.forceStaticImage).add("bitmapConfigName", this.bitmapConfig.name()).add("customImageDecoder", this.customImageDecoder).add("bitmapTransformation", this.bitmapTransformation).add("colorSpace", this.colorSpace) : (Objects.ToStringHelper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.format(null, "%d-%b-%b-%b-%b-%b-%s-%s-%s", Integer.valueOf(this.minDecodeIntervalMs), Boolean.valueOf(this.decodePreviewFrame), Boolean.valueOf(this.useLastFrameForPreview), Boolean.valueOf(this.decodeAllFrames), Boolean.valueOf(this.forceStaticImage), Boolean.valueOf(this.transformToSRGB), this.bitmapConfig.name(), this.customImageDecoder, this.bitmapTransformation) : (String) invokeV.objValue;
     }
 }

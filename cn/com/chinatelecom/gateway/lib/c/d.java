@@ -35,7 +35,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f33807a = "d";
+    public static final String f34641a = "d";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -133,7 +133,7 @@ public class d {
                                         th = th;
                                         bufferedReader = bufferedReader3;
                                         try {
-                                            CtAuth.warn(f33807a, "doGet error", th);
+                                            CtAuth.warn(f34641a, "doGet error", th);
                                             if (bufferedReader != null) {
                                                 bufferedReader.close();
                                             }
@@ -167,7 +167,7 @@ public class d {
                             } catch (Throwable th3) {
                                 th = th3;
                                 bufferedReader = null;
-                                CtAuth.warn(f33807a, "doGet error", th);
+                                CtAuth.warn(f34641a, "doGet error", th);
                                 if (bufferedReader != null) {
                                 }
                                 if (inputStreamReader != null) {
@@ -180,7 +180,7 @@ public class d {
                             th = th4;
                             inputStreamReader = null;
                             bufferedReader = null;
-                            CtAuth.warn(f33807a, "doGet error", th);
+                            CtAuth.warn(f34641a, "doGet error", th);
                             if (bufferedReader != null) {
                             }
                             if (inputStreamReader != null) {
@@ -215,34 +215,34 @@ public class d {
         return (String) invokeLLL.objValue;
     }
 
-    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02da */
-    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02db */
-    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02e7 */
-    /* JADX WARN: Code restructure failed: missing block: B:100:0x0203, code lost:
+    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02de */
+    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02df */
+    /* JADX DEBUG: Null dom frontier in handler: all -> 0x02eb */
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x0204, code lost:
         if (r1 == null) goto L94;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:113:0x0248, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:113:0x024a, code lost:
         if (r1 == null) goto L94;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:126:0x028d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x0290, code lost:
         if (r1 == null) goto L94;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:139:0x02d1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:139:0x02d5, code lost:
         if (r1 == null) goto L94;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:140:0x02d3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:140:0x02d7, code lost:
         r16 = r1;
         r0 = r2;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x0245 A[Catch: all -> 0x02da, TRY_ENTER, TRY_LEAVE, TryCatch #11 {all -> 0x02da, blocks: (B:99:0x0200, B:112:0x0245, B:125:0x028a, B:138:0x02ce), top: B:160:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x028a A[Catch: all -> 0x02da, TRY_ENTER, TRY_LEAVE, TryCatch #11 {all -> 0x02da, blocks: (B:99:0x0200, B:112:0x0245, B:125:0x028a, B:138:0x02ce), top: B:160:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x02ce A[Catch: all -> 0x02da, TRY_ENTER, TRY_LEAVE, TryCatch #11 {all -> 0x02da, blocks: (B:99:0x0200, B:112:0x0245, B:125:0x028a, B:138:0x02ce), top: B:160:0x0020 }] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x0200 A[Catch: all -> 0x02da, TRY_ENTER, TRY_LEAVE, TryCatch #11 {all -> 0x02da, blocks: (B:99:0x0200, B:112:0x0245, B:125:0x028a, B:138:0x02ce), top: B:160:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x0247 A[Catch: all -> 0x02de, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x02de, blocks: (B:99:0x0201, B:112:0x0247, B:125:0x028d, B:138:0x02d2), top: B:158:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x028d A[Catch: all -> 0x02de, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x02de, blocks: (B:99:0x0201, B:112:0x0247, B:125:0x028d, B:138:0x02d2), top: B:158:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:138:0x02d2 A[Catch: all -> 0x02de, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x02de, blocks: (B:99:0x0201, B:112:0x0247, B:125:0x028d, B:138:0x02d2), top: B:158:0x0020 }] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x0201 A[Catch: all -> 0x02de, TRY_ENTER, TRY_LEAVE, TryCatch #14 {all -> 0x02de, blocks: (B:99:0x0201, B:112:0x0247, B:125:0x028d, B:138:0x02d2), top: B:158:0x0020 }] */
     /* JADX WARN: Type inference failed for: r0v44 */
     /* JADX WARN: Type inference failed for: r0v51 */
     /* JADX WARN: Type inference failed for: r23v0, types: [java.lang.Object, android.net.Network, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.io.BufferedReader, int] */
+    /* JADX WARN: Type inference failed for: r9v0, types: [int, java.io.BufferedReader] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -337,7 +337,7 @@ public class d {
                                         e = e2;
                                         bufferedReader4 = bufferedReader6;
                                         str5 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
-                                        String str6 = f33807a;
+                                        String str6 = f34641a;
                                         StringBuilder sb2 = new StringBuilder();
                                         sb2.append("sendRequest SocketTimeoutException-preauth-");
                                         sb2.append(e.getMessage());
@@ -353,7 +353,7 @@ public class d {
                                         e = e3;
                                         bufferedReader3 = bufferedReader6;
                                         str5 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
-                                        String str7 = f33807a;
+                                        String str7 = f34641a;
                                         StringBuilder sb4 = new StringBuilder();
                                         sb4.append("sendRequest UnknownHostException-preauth-");
                                         sb4.append(e.getMessage());
@@ -369,7 +369,7 @@ public class d {
                                         e = e4;
                                         bufferedReader2 = bufferedReader6;
                                         str5 = "{\"result\":80007,\"msg\":\"IO异常\"}";
-                                        String str8 = f33807a;
+                                        String str8 = f34641a;
                                         StringBuilder sb6 = new StringBuilder();
                                         sb6.append("sendRequest IOException-preauth-");
                                         sb6.append(e.getMessage());
@@ -385,7 +385,7 @@ public class d {
                                         th = th;
                                         bufferedReader = bufferedReader6;
                                         str5 = "{\"result\":80001,\"msg\":\"请求异常\"}";
-                                        String str9 = f33807a;
+                                        String str9 = f34641a;
                                         StringBuilder sb8 = new StringBuilder();
                                         sb8.append("sendRequest Throwable-preauth-");
                                         sb8.append(th.getMessage());
@@ -407,7 +407,7 @@ public class d {
                                 e = e5;
                                 bufferedReader4 = null;
                                 str5 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
-                                String str62 = f33807a;
+                                String str62 = f34641a;
                                 StringBuilder sb22 = new StringBuilder();
                                 sb22.append("sendRequest SocketTimeoutException-preauth-");
                                 sb22.append(e.getMessage());
@@ -424,7 +424,7 @@ public class d {
                                 e = e6;
                                 bufferedReader3 = null;
                                 str5 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
-                                String str72 = f33807a;
+                                String str72 = f34641a;
                                 StringBuilder sb42 = new StringBuilder();
                                 sb42.append("sendRequest UnknownHostException-preauth-");
                                 sb42.append(e.getMessage());
@@ -441,7 +441,7 @@ public class d {
                                 e = e7;
                                 bufferedReader2 = null;
                                 str5 = "{\"result\":80007,\"msg\":\"IO异常\"}";
-                                String str82 = f33807a;
+                                String str82 = f34641a;
                                 StringBuilder sb62 = new StringBuilder();
                                 sb62.append("sendRequest IOException-preauth-");
                                 sb62.append(e.getMessage());
@@ -458,7 +458,7 @@ public class d {
                                 th = th2;
                                 bufferedReader = null;
                                 str5 = "{\"result\":80001,\"msg\":\"请求异常\"}";
-                                String str92 = f33807a;
+                                String str92 = f34641a;
                                 StringBuilder sb82 = new StringBuilder();
                                 sb82.append("sendRequest Throwable-preauth-");
                                 sb82.append(th.getMessage());
@@ -487,21 +487,21 @@ public class d {
                         if (inputStream2 == null) {
                             return str4;
                         }
-                    } catch (Throwable unused2) {
-                        return str5;
-                    }
-                } catch (Throwable th3) {
-                    if (r9 != 0) {
-                        try {
-                            r9.close();
-                        } catch (Throwable unused3) {
-                            throw th3;
+                    } catch (Throwable th3) {
+                        if (r9 != 0) {
+                            try {
+                                r9.close();
+                            } catch (Throwable unused2) {
+                                throw th3;
+                            }
                         }
+                        if (network != 0) {
+                            network.close();
+                        }
+                        throw th3;
                     }
-                    if (network != 0) {
-                        network.close();
-                    }
-                    throw th3;
+                } catch (Throwable unused3) {
+                    return str5;
                 }
             } catch (SocketTimeoutException e8) {
                 e = e8;

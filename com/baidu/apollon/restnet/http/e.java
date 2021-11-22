@@ -24,7 +24,7 @@ public class e extends CookieHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final CookieManager f36164a;
+    public final CookieManager f36993a;
 
     /* renamed from: com.baidu.apollon.restnet.http.e$1  reason: invalid class name */
     /* loaded from: classes6.dex */
@@ -38,7 +38,7 @@ public class e extends CookieHandler {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f36165a;
+        public static final e f36994a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public class e extends CookieHandler {
                     return;
                 }
             }
-            f36165a = new e(null);
+            f36994a = new e(null);
         }
 
         public a() {
@@ -79,7 +79,7 @@ public class e extends CookieHandler {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36165a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36994a : (e) invokeV.objValue;
     }
 
     @Override // java.net.CookieHandler
@@ -90,7 +90,7 @@ public class e extends CookieHandler {
             if (uri == null) {
                 return Collections.emptyMap();
             }
-            String cookie = this.f36164a.getCookie(uri.toString());
+            String cookie = this.f36993a.getCookie(uri.toString());
             HashMap hashMap = new HashMap();
             if (!TextUtils.isEmpty(cookie)) {
                 hashMap.put("Cookie", Collections.singletonList(cookie));
@@ -110,12 +110,12 @@ public class e extends CookieHandler {
         List<String> list2 = map.get(SM.SET_COOKIE2);
         if (list != null) {
             for (String str : list) {
-                this.f36164a.setCookie(uri.toString(), str);
+                this.f36993a.setCookie(uri.toString(), str);
             }
         }
         if (list2 != null) {
             for (String str2 : list2) {
-                this.f36164a.setCookie(uri.toString(), str2);
+                this.f36993a.setCookie(uri.toString(), str2);
             }
         }
     }
@@ -134,10 +134,10 @@ public class e extends CookieHandler {
             }
         }
         CookieManager cookieManager = CookieManager.getInstance();
-        this.f36164a = cookieManager;
+        this.f36993a = cookieManager;
         if (cookieManager.acceptCookie()) {
             return;
         }
-        this.f36164a.setAcceptCookie(true);
+        this.f36993a.setAcceptCookie(true);
     }
 }

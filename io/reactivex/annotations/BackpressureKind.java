@@ -1,5 +1,6 @@
 package io.reactivex.annotations;
 
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class BackpressureKind {
     public static final /* synthetic */ BackpressureKind[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +35,7 @@ public final class BackpressureKind {
             }
         }
         PASS_THROUGH = new BackpressureKind("PASS_THROUGH", 0);
-        FULL = new BackpressureKind("FULL", 1);
+        FULL = new BackpressureKind(PolyActivity.FULL_PANEL_TYPE, 1);
         SPECIAL = new BackpressureKind("SPECIAL", 2);
         UNBOUNDED_IN = new BackpressureKind("UNBOUNDED_IN", 3);
         ERROR = new BackpressureKind("ERROR", 4);

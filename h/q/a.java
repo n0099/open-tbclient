@@ -9,21 +9,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h.e<Object> f72120a;
+    public static final h.e<Object> f73039a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h.q.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C2066a implements h.e<Object> {
+    /* loaded from: classes2.dex */
+    public static class C2102a implements h.e<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2066a() {
+        public C2102a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,12 +73,12 @@ public final class a {
                 return;
             }
         }
-        f72120a = new C2066a();
+        f73039a = new C2102a();
     }
 
     public static <T> h.e<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (h.e<T>) f72120a : (h.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (h.e<T>) f73039a : (h.e) invokeV.objValue;
     }
 }

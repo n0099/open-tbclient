@@ -3,7 +3,7 @@ package b.a.r0.c0.a.c;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -43,7 +43,7 @@ public class c extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f15110e;
+        public final /* synthetic */ c f16548e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class c extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f15110e = cVar;
+            this.f16548e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -69,9 +69,9 @@ public class c extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Object tag = view.getTag();
                 if (tag instanceof Integer) {
-                    b.a.q0.k0.c.b bVar = new b.a.q0.k0.c.b(4096, new d(((Integer) tag).intValue(), this.f15110e.a()), null, null);
-                    bVar.i(this.f15110e.g());
-                    this.f15110e.b().dispatchMvcEvent(bVar);
+                    b.a.q0.k0.c.b bVar = new b.a.q0.k0.c.b(4096, new d(((Integer) tag).intValue(), this.f16548e.a()), null, null);
+                    bVar.i(this.f16548e.g());
+                    this.f16548e.b().dispatchMvcEvent(bVar);
                 }
             }
         }
@@ -83,10 +83,10 @@ public class c extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f15111e;
+        public final /* synthetic */ tinfo f16549e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f15112f;
+        public final /* synthetic */ c f16550f;
 
         public b(c cVar, tinfo tinfoVar) {
             Interceptable interceptable = $ic;
@@ -103,18 +103,18 @@ public class c extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f15112f = cVar;
-            this.f15111e = tinfoVar;
+            this.f16550f = cVar;
+            this.f16549e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String str = this.f15111e.forum_name;
+                String str = this.f16549e.forum_name;
                 if (k.isForumName(str)) {
-                    TiebaStatic.eventStat(this.f15112f.getActivity(), "kantie_6", null, 1, new Object[0]);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15112f.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                    TiebaStatic.eventStat(this.f16550f.getActivity(), "kantie_6", null, 1, new Object[0]);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f16550f.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                 }
             }
         }
@@ -227,7 +227,7 @@ public class c extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
         }
     }
 
-    @Override // b.a.r0.l3.u
+    @Override // b.a.r0.m3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

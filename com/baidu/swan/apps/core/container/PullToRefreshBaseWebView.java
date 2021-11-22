@@ -8,7 +8,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
-import b.a.p0.o.a.d.f;
+import b.a.p0.r.a.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean A;
@@ -26,7 +26,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
     public a y;
     public boolean z;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void b(int i2, int i3, int i4, int i5);
     }
@@ -44,11 +44,11 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
                 return;
             }
         }
-        A = k.f6397a;
+        A = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBaseWebView(Context context, @NonNull b.a.p0.a.z1.a.d.a<T> aVar) {
+    public PullToRefreshBaseWebView(Context context, @NonNull b.a.p0.a.c2.a.d.a<T> aVar) {
         super(context, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,7 +60,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (b.a.p0.a.z1.a.d.a) objArr2[1]);
+                super((Context) objArr2[0], (b.a.p0.a.c2.a.d.a) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -73,7 +73,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
     public T createRefreshableView(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, attributeSet)) == null) ? getRefreshableFactory().R(context) : (T) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, attributeSet)) == null) ? getRefreshableFactory().U(context) : (T) invokeLL.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -154,7 +154,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBaseWebView(Context context, b.a.p0.a.z1.a.d.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
+    public PullToRefreshBaseWebView(Context context, b.a.p0.a.c2.a.d.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
         super(context, aVar, headertype);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -166,7 +166,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (b.a.p0.a.z1.a.d.a) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
+                super((Context) objArr2[0], (b.a.p0.a.c2.a.d.a) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;

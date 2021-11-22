@@ -13,7 +13,7 @@ public class u0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Integer> f13454a;
+    public List<Integer> f14236a;
 
     public u0() {
         Interceptable interceptable = $ic;
@@ -33,10 +33,10 @@ public class u0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, lotteryRegular) == null) {
             String str = lotteryRegular.regular;
-            this.f13454a = new ArrayList();
+            this.f14236a = new ArrayList();
             int size = lotteryRegular.chance.size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.f13454a.add(lotteryRegular.chance.get(i2));
+                this.f14236a.add(lotteryRegular.chance.get(i2));
             }
         }
     }

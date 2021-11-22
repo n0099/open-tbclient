@@ -1,7 +1,7 @@
 package com.baidu.tieba.person;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import b.a.q0.s.r.a;
 import b.a.r0.d1.b;
 import b.a.r0.m2.c;
@@ -324,14 +324,14 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                 if (h2 == null || !this.isSelf) {
                     return;
                 }
-                List<f.a> list = this.ucCardData.f21174a;
+                List<f.a> list = this.ucCardData.f22329a;
                 if (ListUtils.getCount(list) > 4) {
-                    list.get(4).f21176b = 8L;
+                    list.get(4).f22331b = 8L;
                     for (f.a aVar : list) {
-                        if (aVar.f21176b > b.a.e.e.m.b.g(h2.get(aVar.f21175a), 0L)) {
-                            aVar.f21177c = true;
+                        if (aVar.f22331b > b.a.e.f.m.b.g(h2.get(aVar.f22330a), 0L)) {
+                            aVar.f22332c = true;
                         } else {
-                            aVar.f21177c = false;
+                            aVar.f22332c = false;
                         }
                     }
                 }

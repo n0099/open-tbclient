@@ -2,8 +2,8 @@ package com.dxmpay.apollon.utils.reflect;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.f.a.h.a.a;
-import b.f.a.h.a.b;
+import b.e.a.h.a.a;
+import b.e.a.h.a.b;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +21,7 @@ public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Field> f62238a;
+    public static Map<String, Field> f63139a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class FieldUtils {
                 return;
             }
         }
-        f62238a = new HashMap();
+        f63139a = new HashMap();
     }
 
     public FieldUtils() {
@@ -72,8 +72,8 @@ public class FieldUtils {
             b.a(cls != null, "The class must not be null", new Object[0]);
             b.a(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             String a2 = a(cls, str);
-            synchronized (f62238a) {
-                field = f62238a.get(a2);
+            synchronized (f63139a) {
+                field = f63139a.get(a2);
             }
             if (field != null) {
                 if (z && !field.isAccessible()) {
@@ -93,8 +93,8 @@ public class FieldUtils {
                         continue;
                     }
                 }
-                synchronized (f62238a) {
-                    f62238a.put(a2, declaredField);
+                synchronized (f63139a) {
+                    f63139a.put(a2, declaredField);
                 }
                 return declaredField;
             }
@@ -107,8 +107,8 @@ public class FieldUtils {
                 } catch (NoSuchFieldException unused2) {
                 }
             }
-            synchronized (f62238a) {
-                f62238a.put(a2, field2);
+            synchronized (f63139a) {
+                f63139a.put(a2, field2);
             }
             return field2;
         }

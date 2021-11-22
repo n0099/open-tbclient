@@ -14,22 +14,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f29960a;
+    public boolean f30829a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f29961b;
+    public boolean f30830b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29962c;
+    public String f30831c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29963d;
+    public String f30832d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29964e;
+    public String f30833e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29965f;
+    public int f30834f;
 
     public a(boolean z, boolean z2, String str, String str2, String str3, int i2) {
         Interceptable interceptable = $ic;
@@ -46,22 +46,22 @@ public class a {
                 return;
             }
         }
-        this.f29960a = z;
-        this.f29961b = z2;
-        this.f29962c = str;
-        this.f29963d = str2;
-        this.f29964e = str3;
-        this.f29965f = i2;
+        this.f30829a = z;
+        this.f30830b = z2;
+        this.f30831c = str;
+        this.f30832d = str2;
+        this.f30833e = str3;
+        this.f30834f = i2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f29962c)) {
-                return this.f29962c;
+            if (TextUtils.isEmpty(this.f30831c)) {
+                return this.f30831c;
             }
-            return new b.a.y0.e.h.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f29962c.getBytes());
+            return new b.a.y0.e.h.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f30831c.getBytes());
         }
         return (String) invokeV.objValue;
     }
@@ -70,7 +70,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "UnionIDInfo{isTrackLimited=" + this.f29960a + ", isSupport=" + this.f29961b + ", OAID='" + this.f29962c + ExtendedMessageFormat.QUOTE + ", EncodedOAID='" + a() + ExtendedMessageFormat.QUOTE + ", AAID='" + this.f29963d + ExtendedMessageFormat.QUOTE + ", VAID='" + this.f29964e + ExtendedMessageFormat.QUOTE + ", StatusCode='" + this.f29965f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "UnionIDInfo{isTrackLimited=" + this.f30829a + ", isSupport=" + this.f30830b + ", OAID='" + this.f30831c + ExtendedMessageFormat.QUOTE + ", EncodedOAID='" + a() + ExtendedMessageFormat.QUOTE + ", AAID='" + this.f30832d + ExtendedMessageFormat.QUOTE + ", VAID='" + this.f30833e + ExtendedMessageFormat.QUOTE + ", StatusCode='" + this.f30834f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

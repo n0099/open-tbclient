@@ -19,7 +19,7 @@ public abstract class a<W extends d> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8958a;
+    public static final boolean f9304a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public abstract class a<W extends d> {
                 return;
             }
         }
-        f8958a = k.f6397a;
+        f9304a = k.f6863a;
     }
 
     public a() {
@@ -65,13 +65,13 @@ public abstract class a<W extends d> {
 
     public void d(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{w, str, str2, Boolean.valueOf(z)}) == null) && f8958a) {
-            String str3 = ("【" + w.j0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{w, str, str2, Boolean.valueOf(z)}) == null) && f9304a) {
+            String str3 = ("【" + w.k0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
             if (!TextUtils.isEmpty(str2)) {
                 str3 = str3 + "\t【" + str2 + "】";
             }
             if (z) {
-                b.a.p0.a.e0.d.g("【InlineCommand】", str3);
+                b.a.p0.a.e0.d.i("【InlineCommand】", str3);
             }
         }
     }

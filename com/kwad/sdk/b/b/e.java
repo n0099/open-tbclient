@@ -12,10 +12,10 @@ public class e extends com.kwad.sdk.b.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f64059b;
+    public KsNativeAd.VideoPlayListener f64972b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f64060c;
+    public com.kwad.sdk.contentalliance.detail.video.d f64973c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -30,12 +30,12 @@ public class e extends com.kwad.sdk.b.a.a {
                 return;
             }
         }
-        this.f64060c = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.b.b.e.1
+        this.f64973c = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.b.b.e.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f64061a;
+            public final /* synthetic */ e f64974a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -52,34 +52,34 @@ public class e extends com.kwad.sdk.b.a.a {
                         return;
                     }
                 }
-                this.f64061a = this;
+                this.f64974a = this;
             }
 
             @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
             public void a(int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeII(1048576, this, i4, i5) == null) || this.f64061a.f64059b == null) {
+                if (!(interceptable2 == null || interceptable2.invokeII(1048576, this, i4, i5) == null) || this.f64974a.f64972b == null) {
                     return;
                 }
-                this.f64061a.f64059b.onVideoPlayError(i4, i5);
+                this.f64974a.f64972b.onVideoPlayError(i4, i5);
             }
 
             @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
             public void c() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f64061a.f64059b == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f64974a.f64972b == null) {
                     return;
                 }
-                this.f64061a.f64059b.onVideoPlayStart();
+                this.f64974a.f64972b.onVideoPlayStart();
             }
 
             @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
             public void f() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f64061a.f64059b == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f64974a.f64972b == null) {
                     return;
                 }
-                this.f64061a.f64059b.onVideoPlayComplete();
+                this.f64974a.f64972b.onVideoPlayComplete();
             }
         };
     }
@@ -89,9 +89,9 @@ public class e extends com.kwad.sdk.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            com.kwad.sdk.b.a.b bVar = ((com.kwad.sdk.b.a.a) this).f64022a;
-            this.f64059b = bVar.f64024b;
-            bVar.f64028f.a(this.f64060c);
+            com.kwad.sdk.b.a.b bVar = ((com.kwad.sdk.b.a.a) this).f64935a;
+            this.f64972b = bVar.f64937b;
+            bVar.f64941f.a(this.f64973c);
         }
     }
 
@@ -100,7 +100,7 @@ public class e extends com.kwad.sdk.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.c();
-            ((com.kwad.sdk.b.a.a) this).f64022a.f64028f.b(this.f64060c);
+            ((com.kwad.sdk.b.a.a) this).f64935a.f64941f.b(this.f64973c);
         }
     }
 }

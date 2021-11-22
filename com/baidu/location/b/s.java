@@ -10,7 +10,7 @@ public class s extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ o f39064a;
+    public final /* synthetic */ o f39896a;
 
     public s(o oVar) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class s extends Thread {
                 return;
             }
         }
-        this.f39064a = oVar;
+        this.f39896a = oVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -35,9 +35,9 @@ public class s extends Thread {
         boolean g2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g2 = this.f39064a.g();
+            g2 = this.f39896a.g();
             if (g2) {
-                this.f39064a.h();
+                this.f39896a.h();
             }
         }
     }

@@ -14,25 +14,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f24527a;
+    public int f26044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24528b;
+    public String f26045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24529c;
+    public String f26046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24530d;
+    public String f26047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<ThreadInfo> f24531e;
+    public List<ThreadInfo> f26048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24532f;
+    public int f26049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<String> f24533g;
+    public List<String> f26050g;
 
     public a(HotLiveWithCategory hotLiveWithCategory) {
         Interceptable interceptable = $ic;
@@ -49,12 +49,12 @@ public class a {
                 return;
             }
         }
-        this.f24527a = hotLiveWithCategory.tab_id.intValue();
-        this.f24528b = hotLiveWithCategory.entry_name;
-        this.f24529c = hotLiveWithCategory.label_name;
-        this.f24530d = hotLiveWithCategory.bitmap_wh_ratio;
-        this.f24531e = new ArrayList(hotLiveWithCategory.live);
-        this.f24532f = hotLiveWithCategory.live_tab_type.intValue();
-        this.f24533g = hotLiveWithCategory.sub_type_list;
+        this.f26044a = hotLiveWithCategory.tab_id.intValue();
+        this.f26045b = hotLiveWithCategory.entry_name;
+        this.f26046c = hotLiveWithCategory.label_name;
+        this.f26047d = hotLiveWithCategory.bitmap_wh_ratio;
+        this.f26048e = new ArrayList(hotLiveWithCategory.live);
+        this.f26049f = hotLiveWithCategory.live_tab_type.intValue();
+        this.f26050g = hotLiveWithCategory.sub_type_list;
     }
 }

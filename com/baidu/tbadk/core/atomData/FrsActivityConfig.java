@@ -6,14 +6,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.b;
-import b.a.e.e.p.l;
+import b.a.e.f.m.b;
+import b.a.e.f.p.l;
 import b.a.q0.b.d;
 import b.a.q0.b.g.a;
-import b.a.q0.d1.f0;
+import b.a.q0.c1.f0;
 import b.a.q0.s.q.d2;
-import b.a.r0.x0.x2.k;
-import b.a.r0.z2.y;
+import b.a.r0.a3.y;
+import b.a.r0.x0.y2.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -199,7 +199,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.q() && a.f11959c != a.d()) {
+            if (d.q() && a.f12712c != a.d()) {
                 frsRequestData.H(k.d(a.d()));
             }
             frsRequestData.setSortType(k.d(i2));
@@ -208,7 +208,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else {
                 frsRequestData.K(0);
             }
-            frsRequestData.w("forum_name", b.a.e.e.p.k.getUrlEncode(stringExtra));
+            frsRequestData.w("forum_name", b.a.e.f.p.k.getUrlEncode(stringExtra));
             frsRequestData.w("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
@@ -235,7 +235,7 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.I(longExtra);
             k.e(i2, frsRequestData);
             frsRequestData.Q(1);
-            if (d2.N3.get() && y.o().b() != null) {
+            if (d2.P3.get() && y.o().b() != null) {
                 int d2 = y.o().b().d(stringExtra, false);
                 int e2 = y.o().b().e(stringExtra, false);
                 if (frsRequestData.A() == 1) {

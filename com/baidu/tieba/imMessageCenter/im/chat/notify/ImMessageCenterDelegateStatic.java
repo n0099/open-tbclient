@@ -33,10 +33,10 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f50659a;
+    public MessageRedDotView f51571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f50660b;
+    public CustomMessageListener f51572b;
 
     /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
@@ -80,7 +80,7 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterDelegateStatic f50661a;
+        public final /* synthetic */ ImMessageCenterDelegateStatic f51573a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, int i2) {
@@ -100,7 +100,7 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
                     return;
                 }
             }
-            this.f50661a = imMessageCenterDelegateStatic;
+            this.f51573a = imMessageCenterDelegateStatic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -120,7 +120,7 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
                 } catch (Exception unused2) {
                     i2 = 0;
                 }
-                this.f50661a.b(z, i2);
+                this.f51573a.b(z, i2);
             }
         }
     }
@@ -160,22 +160,22 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
     public final void b(boolean z, int i2) {
         MessageRedDotView messageRedDotView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (messageRedDotView = this.f50659a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (messageRedDotView = this.f51571a) == null) {
             return;
         }
         if (z) {
             messageRedDotView.setThreeDotMode(2);
-            this.f50659a.refresh(i2);
-            this.f50659a.setVisibility(0);
+            this.f51571a.refresh(i2);
+            this.f51571a.setVisibility(0);
             if (TbSingleton.getInstance().isShowVivoBadge()) {
-                c(this.f50659a.getContext(), i2);
+                c(this.f51571a.getContext(), i2);
                 return;
             }
             return;
         }
         messageRedDotView.setVisibility(8);
         if (TbSingleton.getInstance().isShowVivoBadge()) {
-            c(this.f50659a.getContext(), 0);
+            c(this.f51571a.getContext(), 0);
         }
     }
 
@@ -198,12 +198,12 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c cVar = new c();
-            cVar.f12612a = new MessageCenterFragment();
-            cVar.f12616e = 3;
-            cVar.f12613b = R.string.my_message;
-            cVar.f12617f = R.raw.lottie_tab_msg;
-            cVar.f12620i = c.l;
-            cVar.f12619h = b.a.q0.h0.e.c.d().c("message");
+            cVar.f13359a = new MessageCenterFragment();
+            cVar.f13363e = 3;
+            cVar.f13360b = R.string.my_message;
+            cVar.f13364f = R.raw.lottie_tab_msg;
+            cVar.f13367i = c.l;
+            cVar.f13366h = b.a.q0.h0.e.c.d().c("message");
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -215,16 +215,16 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-            this.f50659a = new MessageRedDotView(context);
+            this.f51571a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
-            aVar.f45978f = tbFragmentTabIndicator;
-            aVar.f45973a = this.f50659a;
-            aVar.f45974b = true;
+            aVar.f46828f = tbFragmentTabIndicator;
+            aVar.f46823a = this.f51571a;
+            aVar.f46824b = true;
             tbFragmentTabIndicator.addTipWrapContent("msg", aVar);
-            this.f50659a.setVisibility(4);
+            this.f51571a.setVisibility(4);
             if (!TbSingleton.getInstance().isShowVivoBadge()) {
-                c(this.f50659a.getContext(), 0);
+                c(this.f51571a.getContext(), 0);
             }
             return this.mIndicator;
         }
@@ -242,8 +242,8 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f50660b = new b(this, 2921002);
-            MessageManager.getInstance().registerListener(this.f50660b);
+            this.f51572b = new b(this, 2921002);
+            MessageManager.getInstance().registerListener(this.f51572b);
         }
     }
 
@@ -252,7 +252,7 @@ public class ImMessageCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onRemove();
-            MessageManager.getInstance().unRegisterListener(this.f50660b);
+            MessageManager.getInstance().unRegisterListener(this.f51572b);
         }
     }
 }

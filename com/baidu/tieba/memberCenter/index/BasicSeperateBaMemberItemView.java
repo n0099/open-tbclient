@@ -21,19 +21,19 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51446e;
+    public Context f52358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51447f;
+    public View f52359f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f51448g;
+    public View f52360g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f51449h;
+    public TbImageView f52361h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f51450i;
+    public TextView f52362i;
     public TextView j;
     public TbImageView k;
 
@@ -55,20 +55,20 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51446e = context;
+        this.f52358e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f51446e).inflate(R.layout.index_seperate_ba_item, this);
-            this.f51447f = inflate;
-            this.f51448g = inflate.findViewById(R.id.ly_desc);
-            this.f51449h = (TbImageView) this.f51447f.findViewById(R.id.task_icon);
-            this.f51450i = (TextView) this.f51447f.findViewById(R.id.txt_title);
-            this.j = (TextView) this.f51447f.findViewById(R.id.txt_desc);
-            this.k = (TbImageView) this.f51447f.findViewById(R.id.privilege_spread_icon);
+            View inflate = LayoutInflater.from(this.f52358e).inflate(R.layout.index_seperate_ba_item, this);
+            this.f52359f = inflate;
+            this.f52360g = inflate.findViewById(R.id.ly_desc);
+            this.f52361h = (TbImageView) this.f52359f.findViewById(R.id.task_icon);
+            this.f52362i = (TextView) this.f52359f.findViewById(R.id.txt_title);
+            this.j = (TextView) this.f52359f.findViewById(R.id.txt_desc);
+            this.k = (TbImageView) this.f52359f.findViewById(R.id.privilege_spread_icon);
         }
     }
 
@@ -77,9 +77,9 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar) == null) || oVar == null) {
             return;
         }
-        this.f51448g.setTag(oVar);
-        this.f51449h.startLoad(oVar.b(), 10, false);
-        this.f51450i.setText(oVar.f());
+        this.f52360g.setTag(oVar);
+        this.f52361h.startLoad(oVar.b(), 10, false);
+        this.f52362i.setText(oVar.f());
         if (StringUtils.isNull(oVar.e())) {
             this.k.setVisibility(4);
         } else {
@@ -107,7 +107,7 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51446e = context;
+        this.f52358e = context;
         a();
     }
 
@@ -130,7 +130,7 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51446e = context;
+        this.f52358e = context;
         a();
     }
 }

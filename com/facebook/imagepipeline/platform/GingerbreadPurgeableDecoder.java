@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ByteStreams;
 import com.facebook.common.internal.Closeables;
-import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Throwables;
 import com.facebook.common.memory.PooledByteBuffer;
@@ -27,7 +26,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
-@DoNotStrip
 /* loaded from: classes11.dex */
 public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +34,6 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     @Nullable
     public final WebpBitmapFactory mWebpBitmapFactory;
 
-    @DoNotStrip
     public GingerbreadPurgeableDecoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

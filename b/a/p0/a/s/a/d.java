@@ -1,6 +1,6 @@
 package b.a.p0.a.s.a;
 
-import b.a.p0.a.v2.o0;
+import b.a.p0.a.z2.o0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +17,7 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f7767a;
+    public static final d f8288a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class d {
             }
         }
         d dVar = new d();
-        f7767a = dVar;
+        f8288a = dVar;
         Intrinsics.checkNotNullExpressionValue(dVar.getClass().getSimpleName(), "SwanAppAllianceLoginBdus…ager.javaClass.simpleName");
     }
 
@@ -61,7 +61,7 @@ public final class d {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.b(b.a.p0.a.c1.a.b(), "");
+            a.b(b.a.p0.a.c1.a.c(), "");
         }
     }
 }

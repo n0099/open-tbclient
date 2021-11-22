@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.f1.f.a.b;
+import b.a.q0.e1.f.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R$styleable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,16 +19,16 @@ public class XGridLayout extends AdapterLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46189f;
+    public int f47047f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46190g;
+    public int f47048g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46191h;
+    public int f47049h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46192i;
+    public int f47050i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public XGridLayout(Context context) {
@@ -54,7 +54,7 @@ public class XGridLayout extends AdapterLayout {
     public void adjustGridSpan(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f46189f = i2;
+            this.f47047f = i2;
             invalidate();
         }
     }
@@ -62,7 +62,7 @@ public class XGridLayout extends AdapterLayout {
     public void adjustMaxItem(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f46192i = i2;
+            this.f47050i = i2;
             resetLayout();
         }
     }
@@ -80,7 +80,7 @@ public class XGridLayout extends AdapterLayout {
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         int min;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (min = Math.min(getChildCount(), this.f46192i)) <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (min = Math.min(getChildCount(), this.f47050i)) <= 0) {
             return;
         }
         int paddingLeft = getPaddingLeft();
@@ -91,10 +91,10 @@ public class XGridLayout extends AdapterLayout {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 childAt.layout(paddingLeft, paddingTop, paddingLeft + measuredWidth, paddingTop + measuredHeight);
-                paddingLeft += measuredWidth + this.f46190g;
-                if ((i6 + 1) % this.f46189f == 0) {
+                paddingLeft += measuredWidth + this.f47048g;
+                if ((i6 + 1) % this.f47047f == 0) {
                     paddingLeft = getPaddingLeft();
-                    paddingTop += measuredHeight + this.f46191h;
+                    paddingTop += measuredHeight + this.f47049h;
                 }
             }
         }
@@ -108,10 +108,10 @@ public class XGridLayout extends AdapterLayout {
             super.onMeasure(i2, i3);
             int size = View.MeasureSpec.getSize(i2);
             int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
-            int i4 = this.f46190g;
-            int i5 = this.f46189f;
+            int i4 = this.f47048g;
+            int i5 = this.f47047f;
             int i6 = (paddingLeft - (i4 * (i5 - 1))) / i5;
-            int min = Math.min(getChildCount(), this.f46192i);
+            int min = Math.min(getChildCount(), this.f47050i);
             if (min <= 0) {
                 setMeasuredDimension(0, 0);
                 return;
@@ -121,8 +121,8 @@ public class XGridLayout extends AdapterLayout {
                 View childAt = getChildAt(i8);
                 measureChild(childAt, View.MeasureSpec.makeMeasureSpec(i6, 1073741824), i3);
                 if (i8 != 0) {
-                    if (i8 % this.f46189f == 0) {
-                        measuredHeight = childAt.getMeasuredHeight() + this.f46191h;
+                    if (i8 % this.f47047f == 0) {
+                        measuredHeight = childAt.getMeasuredHeight() + this.f47049h;
                     }
                 } else {
                     measuredHeight = childAt.getMeasuredHeight();
@@ -140,7 +140,7 @@ public class XGridLayout extends AdapterLayout {
             return;
         }
         removeAllViews();
-        int min = Math.min(this.mAdapter.a(), this.f46192i);
+        int min = Math.min(this.mAdapter.a(), this.f47050i);
         for (int i2 = 0; i2 < min; i2++) {
             addView(this.mAdapter.b(i2, this));
         }
@@ -152,35 +152,35 @@ public class XGridLayout extends AdapterLayout {
             if (list.size() < i2) {
                 i2 = list.size() % i2;
             }
-            this.f46189f = i2;
+            this.f47047f = i2;
         }
     }
 
     public void setGridSpan(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f46189f = i2;
+            this.f47047f = i2;
         }
     }
 
     public void setHorizontalSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f46190g = i2;
+            this.f47048g = i2;
         }
     }
 
     public void setMaxItem(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f46192i = i2;
+            this.f47050i = i2;
         }
     }
 
     public void setVerticalSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f46191h = i2;
+            this.f47049h = i2;
         }
     }
 
@@ -224,15 +224,15 @@ public class XGridLayout extends AdapterLayout {
                 return;
             }
         }
-        this.f46189f = 1;
-        this.f46190g = 0;
-        this.f46191h = 0;
-        this.f46192i = 9;
+        this.f47047f = 1;
+        this.f47048g = 0;
+        this.f47049h = 0;
+        this.f47050i = 9;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.XGridLayout);
-        this.f46189f = obtainStyledAttributes.getInteger(R$styleable.XGridLayout_gridSpan, this.f46189f);
-        this.f46190g = (int) obtainStyledAttributes.getDimension(R$styleable.XGridLayout_gridHorizontalSpace, this.f46190g);
-        this.f46191h = (int) obtainStyledAttributes.getDimension(R$styleable.XGridLayout_gridVerticalSpace, this.f46191h);
-        this.f46192i = obtainStyledAttributes.getInteger(R$styleable.XGridLayout_gridMaxItem, this.f46192i);
+        this.f47047f = obtainStyledAttributes.getInteger(R$styleable.XGridLayout_gridSpan, this.f47047f);
+        this.f47048g = (int) obtainStyledAttributes.getDimension(R$styleable.XGridLayout_gridHorizontalSpace, this.f47048g);
+        this.f47049h = (int) obtainStyledAttributes.getDimension(R$styleable.XGridLayout_gridVerticalSpace, this.f47049h);
+        this.f47050i = obtainStyledAttributes.getInteger(R$styleable.XGridLayout_gridMaxItem, this.f47050i);
         obtainStyledAttributes.recycle();
     }
 }

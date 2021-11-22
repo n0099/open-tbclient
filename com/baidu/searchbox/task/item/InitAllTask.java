@@ -1,23 +1,19 @@
 package com.baidu.searchbox.task.item;
 
-import android.app.ActivityManager;
 import android.content.Context;
-import android.os.Process;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.a0;
+import b.a.q0.c1.a0;
 import b.a.q0.s.k;
 import b.a.q0.s.q.z0;
 import b.a.q0.t.j.c;
-import b.a.q0.z0.a;
-import b.a.r0.q3.d;
-import b.a.r0.z3.h;
+import b.a.q0.y0.a;
+import b.a.r0.a4.h;
+import b.a.r0.r3.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.Plugin;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -32,7 +28,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class InitAllTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -98,19 +93,19 @@ public class InitAllTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             try {
-                b.a.e.e.i.a.n().q();
+                b.a.e.f.i.a.n().q();
                 if (PermissionUtil.checkLocationForGoogle(TbadkCoreApplication.getInst())) {
-                    b.a.e.e.i.a.n().j(false);
+                    b.a.e.f.i.a.n().j(false);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
             if (PermissionUtil.checkLocationForGoogle(AppRuntime.getAppContext())) {
-                b.a.e.e.i.a.n().j(false);
+                b.a.e.f.i.a.n().j(false);
             }
             try {
                 a0.b().e();
-                if (isMainProcess(false)) {
+                if (TbadkCoreApplication.getInst().isMainProcess(false, AppRuntime.getAppContext())) {
                     b.a.q0.g.a.d().f();
                 }
             } catch (Exception e2) {
@@ -134,61 +129,6 @@ public class InitAllTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             k.c().f();
         }
-    }
-
-    private boolean isMainProcess(boolean z) {
-        InterceptResult invokeZ;
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            ActivityManager activityManager = (ActivityManager) appContext.getSystemService("activity");
-            if (activityManager == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
-                return z;
-            }
-            String packageName = appContext.getPackageName();
-            String str = packageName + ":cdnTachometer";
-            String str2 = packageName + ":daemon";
-            String str3 = packageName + ":remote";
-            String str4 = packageName + ":third";
-            String str5 = packageName + ":xiaoying";
-            String[] strArr = {str3, str, packageName + ":bdservice_v1", packageName + ":live", packageName + ":cdnTachometer", str2, str5, packageName + ":pluginInstaller", packageName + ":media", packageName + ":kmyas__"};
-            String str6 = packageName + ":guardService";
-            String str7 = packageName + ":warkup";
-            String str8 = packageName + ":swan";
-            String str9 = packageName + ":bdservice_v1";
-            int myPid = Process.myPid();
-            int i2 = 0;
-            while (true) {
-                if (i2 >= runningAppProcesses.size()) {
-                    break;
-                } else if (runningAppProcesses.get(i2).pid == myPid) {
-                    String str10 = runningAppProcesses.get(i2).processName;
-                    if (str10 == null) {
-                        return z;
-                    }
-                    if (str10.equalsIgnoreCase(packageName)) {
-                        Plugin.mProcessName = "mainProcess";
-                        return true;
-                    }
-                    if (str10.contains(packageName)) {
-                        Plugin.mProcessName = str10.replace(packageName, "");
-                    }
-                    if (str10.equalsIgnoreCase(str6) || str10.equalsIgnoreCase(str7) || str10.contains(str8)) {
-                        return false;
-                    }
-                    for (int i3 = 0; i3 < 10; i3++) {
-                        if (str10.equalsIgnoreCase(strArr[i3])) {
-                            return false;
-                        }
-                    }
-                } else {
-                    i2++;
-                }
-            }
-            return z;
-        }
-        return invokeZ.booleanValue;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

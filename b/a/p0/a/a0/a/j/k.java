@@ -32,45 +32,45 @@ public class k extends b.a.p0.a.a0.a.j.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3838a;
+    public String f3932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3839b;
+    public int f3933b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3840c;
+    public int f3934c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f3841d;
+    public Rect f3935d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Rect f3842e;
+    public Rect f3936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f3843f;
+    public Bitmap f3937f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3844g;
+    public int f3938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Uri f3845h;
+    public Uri f3939h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f3846i;
+    public String f3940i;
 
     /* loaded from: classes.dex */
     public class a extends BaseBitmapDataSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DataSource f3847a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ DataSource f3941e;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f3848b;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ b f3942f;
 
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ k f3849c;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ k f3943g;
 
         public a(k kVar, DataSource dataSource, b bVar) {
             Interceptable interceptable = $ic;
@@ -87,9 +87,9 @@ public class k extends b.a.p0.a.a0.a.j.a {
                     return;
                 }
             }
-            this.f3849c = kVar;
-            this.f3847a = dataSource;
-            this.f3848b = bVar;
+            this.f3943g = kVar;
+            this.f3941e = dataSource;
+            this.f3942f = bVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.DataSource] */
@@ -100,7 +100,7 @@ public class k extends b.a.p0.a.a0.a.j.a {
                 if (dataSource != null) {
                     dataSource.close();
                 }
-                this.f3849c.f3844g = 3;
+                this.f3943g.f3938g = 3;
             }
         }
 
@@ -108,15 +108,15 @@ public class k extends b.a.p0.a.a0.a.j.a {
         public void onNewResultImpl(@Nullable Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                if (this.f3847a.isFinished() && bitmap != null) {
-                    this.f3849c.f3843f = Bitmap.createBitmap(bitmap);
-                    this.f3847a.close();
-                    CanvasView canvasView = this.f3848b.l;
+                if (this.f3941e.isFinished() && bitmap != null) {
+                    this.f3943g.f3937f = Bitmap.createBitmap(bitmap);
+                    this.f3941e.close();
+                    CanvasView canvasView = this.f3942f.l;
                     if (canvasView != null) {
                         canvasView.postInvalidate();
                     }
                 }
-                this.f3849c.f3844g = 2;
+                this.f3943g.f3938g = 2;
             }
         }
     }
@@ -134,7 +134,7 @@ public class k extends b.a.p0.a.a0.a.j.a {
                 return;
             }
         }
-        this.f3844g = 0;
+        this.f3938g = 0;
     }
 
     @Override // b.a.p0.a.a0.a.j.a
@@ -142,21 +142,21 @@ public class k extends b.a.p0.a.a0.a.j.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) {
             if (h(bVar)) {
-                int alpha = bVar.f3801h.getAlpha();
-                bVar.c(bVar.f3801h);
-                Rect rect = this.f3842e;
+                int alpha = bVar.f3895h.getAlpha();
+                bVar.c(bVar.f3895h);
+                Rect rect = this.f3936e;
                 if (rect != null) {
-                    canvas.drawBitmap(this.f3843f, this.f3841d, rect, bVar.f3801h);
+                    canvas.drawBitmap(this.f3937f, this.f3935d, rect, bVar.f3895h);
                 } else {
-                    canvas.drawBitmap(this.f3843f, this.f3839b, this.f3840c, bVar.f3801h);
+                    canvas.drawBitmap(this.f3937f, this.f3933b, this.f3934c, bVar.f3895h);
                 }
-                bVar.f3801h.setAlpha(alpha);
+                bVar.f3895h.setAlpha(alpha);
                 return;
             }
             try {
                 j(bVar);
             } catch (Exception e2) {
-                if (b.a.p0.a.k.f6397a) {
+                if (b.a.p0.a.k.f6863a) {
                     e2.printStackTrace();
                 }
             }
@@ -167,26 +167,26 @@ public class k extends b.a.p0.a.a0.a.j.a {
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            b.a.p0.a.a2.e P = b.a.p0.a.a2.e.P();
+            b.a.p0.a.d2.e a0 = b.a.p0.a.d2.e.a0();
             try {
                 int length = jSONArray.length();
                 if (length > 0) {
-                    this.f3846i = this.f3838a;
+                    this.f3940i = this.f3932a;
                     String optString = jSONArray.optString(0);
-                    this.f3838a = optString;
-                    this.f3838a = f(P, optString);
+                    this.f3932a = optString;
+                    this.f3932a = f(a0, optString);
                 }
                 if (length > 2) {
-                    this.f3839b = i(jSONArray, 1);
-                    this.f3840c = i(jSONArray, 2);
+                    this.f3933b = i(jSONArray, 1);
+                    this.f3934c = i(jSONArray, 2);
                 }
                 if (length > 4) {
-                    int i2 = this.f3839b;
-                    int i3 = this.f3840c;
+                    int i2 = this.f3933b;
+                    int i3 = this.f3934c;
                     int i4 = i(jSONArray, 3);
                     int i5 = i(jSONArray, 4);
                     if (i4 > 0 && i5 > 0) {
-                        this.f3842e = new Rect(i2, i3, i4 + i2, i5 + i3);
+                        this.f3936e = new Rect(i2, i3, i4 + i2, i5 + i3);
                     }
                 }
                 if (length > 8) {
@@ -195,22 +195,22 @@ public class k extends b.a.p0.a.a0.a.j.a {
                     int optInt3 = jSONArray.optInt(7);
                     int optInt4 = jSONArray.optInt(8);
                     if (optInt3 > 0 && optInt4 > 0) {
-                        this.f3841d = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
+                        this.f3935d = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
                     }
                 }
-                if (P != null) {
-                    String g2 = g(this.f3838a, P);
+                if (a0 != null) {
+                    String g2 = g(this.f3932a, a0);
                     if (!TextUtils.isEmpty(g2)) {
-                        this.f3843f = BitmapFactory.decodeFile(g2);
-                    } else if (TextUtils.isEmpty(this.f3838a)) {
+                        this.f3937f = BitmapFactory.decodeFile(g2);
+                    } else if (TextUtils.isEmpty(this.f3932a)) {
                     } else {
-                        if (this.f3845h == null || !TextUtils.equals(this.f3838a, this.f3846i)) {
-                            this.f3845h = Uri.parse(this.f3838a);
+                        if (this.f3939h == null || !TextUtils.equals(this.f3932a, this.f3940i)) {
+                            this.f3939h = Uri.parse(this.f3932a);
                         }
                     }
                 }
             } catch (Exception e2) {
-                if (b.a.p0.a.k.f6397a) {
+                if (b.a.p0.a.k.f6863a) {
                     e2.printStackTrace();
                 }
             }
@@ -219,19 +219,19 @@ public class k extends b.a.p0.a.a0.a.j.a {
 
     public void e(HashMap<String, Bitmap> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) || hashMap == null || TextUtils.isEmpty(this.f3838a) || this.f3843f == null || hashMap.containsKey(this.f3838a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) || hashMap == null || TextUtils.isEmpty(this.f3932a) || this.f3937f == null || hashMap.containsKey(this.f3932a)) {
             return;
         }
-        hashMap.put(this.f3838a, this.f3843f);
+        hashMap.put(this.f3932a, this.f3937f);
     }
 
-    public final String f(b.a.p0.a.a2.e eVar, String str) {
+    public final String f(b.a.p0.a.d2.e eVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, eVar, str)) == null) {
             if (!TextUtils.isEmpty(str) && eVar != null) {
                 try {
-                    return ("bdfile".equalsIgnoreCase(URI.create(str).getScheme()) || str.startsWith(b.a.p0.a.v2.q0.x(eVar).getPath())) ? str : b.a.p0.a.v2.q0.w(eVar, str);
+                    return ("bdfile".equalsIgnoreCase(URI.create(str).getScheme()) || str.startsWith(b.a.p0.a.z2.q0.x(eVar).getPath())) ? str : b.a.p0.a.z2.q0.w(eVar, str);
                 } catch (Exception unused) {
                 }
             }
@@ -240,14 +240,14 @@ public class k extends b.a.p0.a.a0.a.j.a {
         return (String) invokeLL.objValue;
     }
 
-    public final String g(String str, b.a.p0.a.a2.e eVar) {
+    public final String g(String str, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, eVar)) == null) {
             if (!TextUtils.isEmpty(str) && eVar != null) {
                 try {
                     if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
-                        str = b.a.p0.a.k2.b.M(str, eVar.f3961f);
+                        str = b.a.p0.a.o2.b.M(str, eVar.f4474f);
                     }
                     if (TextUtils.isEmpty(str)) {
                         return null;
@@ -269,19 +269,19 @@ public class k extends b.a.p0.a.a0.a.j.a {
         CanvasView canvasView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            if (this.f3843f != null) {
+            if (this.f3937f != null) {
                 return true;
             }
-            if (this.f3845h == null || bVar == null || (canvasView = bVar.l) == null) {
+            if (this.f3939h == null || bVar == null || (canvasView = bVar.l) == null) {
                 return false;
             }
-            Bitmap bitmapByUrlKey = canvasView.getBitmapByUrlKey(this.f3838a);
-            this.f3843f = bitmapByUrlKey;
+            Bitmap bitmapByUrlKey = canvasView.getBitmapByUrlKey(this.f3932a);
+            this.f3937f = bitmapByUrlKey;
             if (bitmapByUrlKey != null) {
                 return true;
             }
-            Bitmap c2 = b.a.p0.a.v2.t.c(this.f3845h, bVar.l.getContext());
-            this.f3843f = c2;
+            Bitmap c2 = b.a.p0.a.z2.t.c(this.f3939h, bVar.l.getContext());
+            this.f3937f = c2;
             return c2 != null;
         }
         return invokeL.booleanValue;
@@ -290,18 +290,18 @@ public class k extends b.a.p0.a.a0.a.j.a {
     public final int i(JSONArray jSONArray, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, jSONArray, i2)) == null) ? b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(i2)) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, jSONArray, i2)) == null) ? b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(i2)) : invokeLI.intValue;
     }
 
     @UiThread
     public final void j(b bVar) {
         CanvasView canvasView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || this.f3844g != 0 || (canvasView = bVar.l) == null || canvasView.getContext() == null || TextUtils.isEmpty(this.f3838a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || this.f3938g != 0 || (canvasView = bVar.l) == null || canvasView.getContext() == null || TextUtils.isEmpty(this.f3932a)) {
             return;
         }
-        this.f3844g = 1;
-        DataSource<CloseableReference<CloseableImage>> fetchDecodedImage = Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.f3838a)).build(), bVar.l.getContext());
+        this.f3938g = 1;
+        DataSource<CloseableReference<CloseableImage>> fetchDecodedImage = Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.f3932a)).build(), bVar.l.getContext());
         fetchDecodedImage.subscribe(new a(this, fetchDecodedImage, bVar), UiThreadImmediateExecutorService.getInstance());
     }
 }

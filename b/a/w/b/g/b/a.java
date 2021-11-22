@@ -15,31 +15,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29254a;
+    public int f30123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29255b;
+    public int f30124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29256c;
+    public int f30125c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29257d;
+    public int f30126d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29258e;
+    public int f30127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29259f;
+    public int f30128f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29260g;
+    public int f30129g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29261h;
+    public int f30130h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f29262i;
+    public float f30131i;
     public float j;
     public int k;
     public int l;
@@ -56,11 +56,11 @@ public class a {
 
     /* renamed from: b.a.w.b.g.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1412a {
+    public static class C1454a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f29263a;
+        public static final a f30132a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -76,7 +76,7 @@ public class a {
                     return;
                 }
             }
-            f29263a = new a();
+            f30132a = new a();
         }
     }
 
@@ -99,7 +99,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (w == null) {
-                w = C1412a.f29263a;
+                w = C1454a.f30132a;
             }
             return w;
         }
@@ -109,11 +109,11 @@ public class a {
     public void b(int i2, int i3, int i4, int i5, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f29258e = i2;
-            this.f29259f = i3;
-            this.f29260g = i4;
-            this.f29261h = i5;
-            this.f29262i = f2;
+            this.f30127e = i2;
+            this.f30128f = i3;
+            this.f30129g = i4;
+            this.f30130h = i5;
+            this.f30131i = f2;
             this.j = f3;
         }
     }
@@ -145,10 +145,10 @@ public class a {
     public void e(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
-            this.f29254a = i2;
-            this.f29255b = i3;
-            this.f29256c = i4;
-            this.f29257d = i5;
+            this.f30123a = i2;
+            this.f30124b = i3;
+            this.f30125c = i4;
+            this.f30126d = i5;
         }
     }
 }

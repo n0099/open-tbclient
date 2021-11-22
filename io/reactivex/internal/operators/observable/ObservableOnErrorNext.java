@@ -13,14 +13,14 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ObservableOnErrorNext<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean allowFatal;
     public final Function<? super Throwable, ? extends ObservableSource<? extends T>> nextSupplier;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class OnErrorNextObserver<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

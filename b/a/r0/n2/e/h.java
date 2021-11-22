@@ -18,19 +18,19 @@ public class h extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21455e;
+    public int f22951e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21456f;
+    public int f22952f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21457g;
+    public boolean f22953g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21458h;
+    public boolean f22954h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f21459i;
+    public String f22955i;
     public boolean j;
     public String k;
     public UserData l;
@@ -70,7 +70,7 @@ public class h extends BaseCardInfo {
         this.j = false;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

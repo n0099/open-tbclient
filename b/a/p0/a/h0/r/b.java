@@ -2,14 +2,14 @@ package b.a.p0.a.h0.r;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a1.e;
-import b.a.p0.a.a1.h.a;
+import b.a.p0.a.a1.d;
+import b.a.p0.a.a1.g.a;
 import b.a.p0.a.k;
-import b.a.p0.a.r1.h;
-import b.a.p0.a.v2.j0;
-import b.a.p0.a.v2.q;
-import b.a.p0.a.v2.w;
-import b.a.p0.t.g;
+import b.a.p0.a.u1.h;
+import b.a.p0.a.z2.j0;
+import b.a.p0.a.z2.q;
+import b.a.p0.a.z2.w;
+import b.a.p0.w.g;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
@@ -32,7 +32,7 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5741a;
+    public static final boolean f6067a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -41,16 +41,16 @@ public abstract class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f5742e;
+        public final /* synthetic */ HybridUbcFlow f6068e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f5743f;
+        public final /* synthetic */ c f6069f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f5744g;
+        public final /* synthetic */ d f6070g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f5745h;
+        public final /* synthetic */ b f6071h;
 
         public a(b bVar, HybridUbcFlow hybridUbcFlow, c cVar, d dVar) {
             Interceptable interceptable = $ic;
@@ -67,67 +67,67 @@ public abstract class b {
                     return;
                 }
             }
-            this.f5745h = bVar;
-            this.f5742e = hybridUbcFlow;
-            this.f5743f = cVar;
-            this.f5744g = dVar;
+            this.f6071h = bVar;
+            this.f6068e = hybridUbcFlow;
+            this.f6069f = cVar;
+            this.f6070g = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HybridUbcFlow hybridUbcFlow = this.f5742e;
+                HybridUbcFlow hybridUbcFlow = this.f6068e;
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("loadPresetApp#run-start");
                 ubcFlowEvent.a(true);
-                hybridUbcFlow.C(ubcFlowEvent);
-                String f2 = this.f5745h.f(this.f5743f.f11076g);
+                hybridUbcFlow.F(ubcFlowEvent);
+                String f2 = this.f6071h.f(this.f6069f.f11774g);
                 if (TextUtils.isEmpty(f2)) {
-                    this.f5744g.onFailed(0);
+                    this.f6070g.onFailed(0);
                     return;
                 }
                 JSONObject d2 = w.d(f2);
-                HybridUbcFlow hybridUbcFlow2 = this.f5742e;
+                HybridUbcFlow hybridUbcFlow2 = this.f6068e;
                 UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("loadPresetApp#run-appInfoJson");
                 ubcFlowEvent2.a(true);
-                hybridUbcFlow2.C(ubcFlowEvent2);
-                PMSAppInfo l = this.f5745h.l(this.f5743f, d2);
+                hybridUbcFlow2.F(ubcFlowEvent2);
+                PMSAppInfo l = this.f6071h.l(this.f6069f, d2);
                 if (l == null) {
-                    this.f5744g.onFailed(1);
+                    this.f6070g.onFailed(1);
                     return;
                 }
-                HybridUbcFlow hybridUbcFlow3 = this.f5742e;
+                HybridUbcFlow hybridUbcFlow3 = this.f6068e;
                 UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("loadPresetApp#run-PMSAppInfo");
                 ubcFlowEvent3.a(true);
-                hybridUbcFlow3.C(ubcFlowEvent3);
-                this.f5744g.a(l);
+                hybridUbcFlow3.F(ubcFlowEvent3);
+                this.f6070g.a(l);
                 long currentTimeMillis = System.currentTimeMillis();
-                boolean e2 = this.f5745h.e(this.f5743f);
-                if (b.f5741a) {
+                boolean e2 = this.f6071h.e(this.f6069f);
+                if (b.f6067a) {
                     String str = "签名+解压 耗时：" + (System.currentTimeMillis() - currentTimeMillis);
                 }
-                HybridUbcFlow hybridUbcFlow4 = this.f5742e;
+                HybridUbcFlow hybridUbcFlow4 = this.f6068e;
                 UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("loadPresetApp#run-doUnzipBundle");
                 ubcFlowEvent4.a(true);
-                hybridUbcFlow4.C(ubcFlowEvent4);
+                hybridUbcFlow4.F(ubcFlowEvent4);
                 if (e2) {
-                    b bVar = this.f5745h;
-                    c cVar = this.f5743f;
-                    l.setOrientation(bVar.g(cVar.f11077h, cVar.f11076g, cVar.f11078i));
+                    b bVar = this.f6071h;
+                    c cVar = this.f6069f;
+                    l.setOrientation(bVar.g(cVar.f11775h, cVar.f11774g, cVar.f11776i));
                     l.updateInstallSrc(3);
-                    b.a.p0.n.g.a.h().a(this.f5743f, l);
-                    HybridUbcFlow hybridUbcFlow5 = this.f5742e;
+                    b.a.p0.q.g.a.i().a(this.f6069f, l);
+                    HybridUbcFlow hybridUbcFlow5 = this.f6068e;
                     UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("loadPresetApp#run-bulkInsert");
                     ubcFlowEvent5.a(true);
-                    hybridUbcFlow5.C(ubcFlowEvent5);
-                    this.f5744g.b(l);
+                    hybridUbcFlow5.F(ubcFlowEvent5);
+                    this.f6070g.b(l);
                 } else {
-                    this.f5744g.onFailed(2);
+                    this.f6070g.onFailed(2);
                 }
-                HybridUbcFlow hybridUbcFlow6 = this.f5742e;
+                HybridUbcFlow hybridUbcFlow6 = this.f6068e;
                 UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("loadPresetApp#run-return");
                 ubcFlowEvent6.a(true);
-                hybridUbcFlow6.C(ubcFlowEvent6);
+                hybridUbcFlow6.F(ubcFlowEvent6);
             }
         }
     }
@@ -145,7 +145,7 @@ public abstract class b {
                 return;
             }
         }
-        f5741a = k.f6397a;
+        f6067a = k.f6863a;
     }
 
     public b() {
@@ -171,18 +171,18 @@ public abstract class b {
                     if (!TextUtils.isEmpty(str)) {
                         long currentTimeMillis = System.currentTimeMillis();
                         boolean c2 = j0.c(readableByteChannel, str);
-                        if (f5741a) {
+                        if (f6067a) {
                             String str2 = "签名校验结果：" + c2 + " ,耗时：" + (System.currentTimeMillis() - currentTimeMillis);
                         }
                         return c2;
                     }
                 } catch (IOException e2) {
-                    if (f5741a) {
+                    if (f6067a) {
                         e2.printStackTrace();
                     }
                     return false;
                 } finally {
-                    b.a.p0.t.d.d(readableByteChannel);
+                    b.a.p0.w.d.d(readableByteChannel);
                 }
             }
             return false;
@@ -219,7 +219,7 @@ public abstract class b {
             for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                 c m = m(optJSONArray.optJSONObject(i3));
                 if (m != null) {
-                    hashMap.put(m.f11076g, m);
+                    hashMap.put(m.f11774g, m);
                 }
             }
             return hashMap;
@@ -234,7 +234,7 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)})) == null) {
             if (i2 == 0) {
-                return e.C0109e.i(str, String.valueOf(j));
+                return d.e.i(str, String.valueOf(j));
             }
             if (i2 == 1) {
                 return b.a.p0.a.c1.b.g().a(str, String.valueOf(j));
@@ -250,7 +250,7 @@ public abstract class b {
             HybridUbcFlow p = h.p("startup");
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("loadPresetApp-start");
             ubcFlowEvent.a(true);
-            p.C(ubcFlowEvent);
+            p.F(ubcFlowEvent);
             if (dVar == null) {
                 return;
             }
@@ -258,10 +258,10 @@ public abstract class b {
                 dVar.onFailed(0);
                 return;
             }
-            q.j(new a(this, p, cVar, dVar), "加载小程序预置包");
+            q.k(new a(this, p, cVar, dVar), "加载小程序预置包");
             UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("loadPresetApp-return");
             ubcFlowEvent2.a(true);
-            p.C(ubcFlowEvent2);
+            p.F(ubcFlowEvent2);
         }
     }
 
@@ -270,7 +270,7 @@ public abstract class b {
         PMSAppInfo a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar, jSONObject)) == null) {
-            if (jSONObject == null || cVar == null || (a2 = b.a.p0.n.o.e.a(jSONObject)) == null) {
+            if (jSONObject == null || cVar == null || (a2 = b.a.p0.q.p.f.a(jSONObject)) == null) {
                 return null;
             }
             a2.copyMainPkgInfo(cVar);
@@ -285,7 +285,7 @@ public abstract class b {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jSONObject)) == null) {
-            if (jSONObject == null || (cVar = (c) b.a.p0.n.o.e.i(jSONObject, new c())) == null) {
+            if (jSONObject == null || (cVar = (c) b.a.p0.q.p.f.j(jSONObject, new c())) == null) {
                 return null;
             }
             cVar.o = jSONObject.optInt("pkg_type");
@@ -305,19 +305,19 @@ public abstract class b {
             if (bufferedInputStream != null) {
                 try {
                     if (file != null) {
-                        a.b h2 = b.a.p0.a.a1.h.a.h(bufferedInputStream);
-                        if ((h2 == null || h2.f3927b == -1) ? false : true) {
-                            return b.a.p0.a.a1.h.a.c(bufferedInputStream, file, h2.f3927b).f3924a;
+                        a.c i2 = b.a.p0.a.a1.g.a.i(bufferedInputStream);
+                        if ((i2 == null || i2.f4025b == -1) ? false : true) {
+                            return b.a.p0.a.a1.g.a.d(bufferedInputStream, file, i2.f4025b).f4022a;
                         }
                         return g.d(bufferedInputStream, file.getPath());
                     }
                 } catch (IOException e2) {
-                    if (f5741a) {
+                    if (f6067a) {
                         e2.printStackTrace();
                     }
                     return false;
                 } finally {
-                    b.a.p0.t.d.d(bufferedInputStream);
+                    b.a.p0.w.d.d(bufferedInputStream);
                 }
             }
             return false;

@@ -2,6 +2,7 @@ package b.a.p0.a.y0.k;
 
 import androidx.annotation.NonNull;
 import b.a.p0.a.k;
+import b.a.p0.a.u.e.n.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ public class c implements ZeusPluginFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9068a;
+    public String f9415a;
 
     public c(@NonNull String str) {
         Interceptable interceptable = $ic;
@@ -33,7 +34,7 @@ public class c implements ZeusPluginFactory {
                 return;
             }
         }
-        this.f9068a = str;
+        this.f9415a = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -41,11 +42,11 @@ public class c implements ZeusPluginFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            b.a.p0.a.y0.k.g.a c2 = b.a.p0.a.c1.a.z().c(invoker, this.f9068a);
-            if (k.f6397a) {
+            b.a.p0.a.y0.k.g.a c2 = b.a.p0.a.c1.a.D().c(invoker, this.f9415a);
+            if (k.f6863a) {
                 String str = "Factory 「Hash:" + hashCode() + "」 is creating inline live「Hash:" + c2.hashCode() + "」";
             }
-            b.a.p0.a.u.e.o.k.e().b(c2);
+            l.e().b(c2);
             return new a(c2);
         }
         return (ZeusPlugin) invokeL.objValue;

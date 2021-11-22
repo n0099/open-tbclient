@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Hottopic.HotThread;
 /* loaded from: classes4.dex */
-public class g implements b.a.e.l.e.n {
+public class g implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f18452f;
+    public static final BdUniqueId f19786f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18453e;
+    public String f19787e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class g implements b.a.e.l.e.n {
                 return;
             }
         }
-        f18452f = BdUniqueId.gen();
+        f19786f = BdUniqueId.gen();
     }
 
     public g() {
@@ -56,13 +56,13 @@ public class g implements b.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, hotThread) == null) || hotThread == null) {
             return;
         }
-        this.f18453e = hotThread.hot_title;
+        this.f19787e = hotThread.hot_title;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f18452f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19786f : (BdUniqueId) invokeV.objValue;
     }
 }

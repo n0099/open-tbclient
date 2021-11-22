@@ -16,9 +16,9 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.g;
-import b.a.e.e.p.l;
-import b.a.q0.d1.o;
+import b.a.e.f.m.g;
+import b.a.e.f.p.l;
+import b.a.q0.c1.o;
 import b.a.r0.o0.d.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -36,42 +36,42 @@ public class a extends PopupWindow {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f21838a;
+    public Context f23337a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f21839b;
+    public ViewGroup f23338b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f21840c;
+    public d f23339c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f21841d;
+    public View f23340d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f21842e;
+    public TextView f23341e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f21843f;
+    public TextView f23342f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21844g;
+    public int f23343g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f21845h;
+    public View.OnClickListener f23344h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View.OnClickListener f21846i;
+    public final View.OnClickListener f23345i;
 
     /* renamed from: b.a.r0.o0.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1068a implements View.OnClickListener {
+    public class View$OnClickListenerC1136a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21847e;
+        public final /* synthetic */ a f23346e;
 
-        public View$OnClickListenerC1068a(a aVar) {
+        public View$OnClickListenerC1136a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,21 +86,21 @@ public class a extends PopupWindow {
                     return;
                 }
             }
-            this.f21847e = aVar;
+            this.f23346e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f21847e.f21842e) {
-                    if (this.f21847e.f21840c != null) {
-                        this.f21847e.f21840c.onItemClick(1);
+                if (view == this.f23346e.f23341e) {
+                    if (this.f23346e.f23339c != null) {
+                        this.f23346e.f23339c.onItemClick(1);
                     }
-                } else if (view == this.f21847e.f21843f && this.f21847e.f21840c != null) {
-                    this.f21847e.f21840c.onItemClick(2);
+                } else if (view == this.f23346e.f23342f && this.f23346e.f23339c != null) {
+                    this.f23346e.f23339c.onItemClick(2);
                 }
-                this.f21847e.i();
+                this.f23346e.i();
             }
         }
     }
@@ -111,7 +111,7 @@ public class a extends PopupWindow {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21848e;
+        public final /* synthetic */ a f23347e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -128,14 +128,14 @@ public class a extends PopupWindow {
                     return;
                 }
             }
-            this.f21848e = aVar;
+            this.f23347e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21848e.i();
+                this.f23347e.i();
             }
         }
     }
@@ -146,7 +146,7 @@ public class a extends PopupWindow {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f21849a;
+        public final /* synthetic */ a f23348a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -163,14 +163,14 @@ public class a extends PopupWindow {
                     return;
                 }
             }
-            this.f21849a = aVar;
+            this.f23348a = aVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f21849a.g();
+                this.f23348a.g();
             }
         }
 
@@ -212,9 +212,9 @@ public class a extends PopupWindow {
                 return;
             }
         }
-        this.f21845h = new View$OnClickListenerC1068a(this);
-        this.f21846i = new b(this);
-        this.f21838a = context;
+        this.f23344h = new View$OnClickListenerC1136a(this);
+        this.f23345i = new b(this);
+        this.f23337a = context;
         setFocusable(true);
         setTouchable(true);
         setOutsideTouchable(true);
@@ -233,16 +233,16 @@ public class a extends PopupWindow {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.f21838a).inflate(R.layout.layout_sort_select, (ViewGroup) null);
-            this.f21841d = inflate;
+            View inflate = LayoutInflater.from(this.f23337a).inflate(R.layout.layout_sort_select, (ViewGroup) null);
+            this.f23340d = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.sort_type_level_text);
-            this.f21842e = textView;
+            this.f23341e = textView;
             b.a.q0.s.u.c.d(textView).A(R.string.F_X01);
-            TextView textView2 = (TextView) this.f21841d.findViewById(R.id.sort_type_update_text);
-            this.f21843f = textView2;
+            TextView textView2 = (TextView) this.f23340d.findViewById(R.id.sort_type_update_text);
+            this.f23342f = textView2;
             b.a.q0.s.u.c.d(textView2).A(R.string.F_X01);
-            this.f21842e.setOnClickListener(this.f21845h);
-            this.f21843f.setOnClickListener(this.f21845h);
+            this.f23341e.setOnClickListener(this.f23344h);
+            this.f23342f.setOnClickListener(this.f23344h);
         }
     }
 
@@ -251,13 +251,13 @@ public class a extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             e();
-            FrameLayout frameLayout = new FrameLayout(this.f21838a);
-            FrameLayout frameLayout2 = new FrameLayout(this.f21838a);
-            this.f21839b = frameLayout2;
+            FrameLayout frameLayout = new FrameLayout(this.f23337a);
+            FrameLayout frameLayout2 = new FrameLayout(this.f23337a);
+            this.f23338b = frameLayout2;
             frameLayout.addView(frameLayout2);
-            frameLayout.addView(this.f21841d);
-            this.f21839b.setOnClickListener(this.f21846i);
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f21838a, R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowRadius(l.g(this.f21838a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f21838a, R.dimen.tbds4)).into(this.f21841d);
+            frameLayout.addView(this.f23340d);
+            this.f23338b.setOnClickListener(this.f23345i);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f23337a, R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowRadius(l.g(this.f23337a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f23337a, R.dimen.tbds4)).into(this.f23340d);
             return frameLayout;
         }
         return (View) invokeV.objValue;
@@ -283,8 +283,8 @@ public class a extends PopupWindow {
         alphaAnimation.setDuration(240L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
         alphaAnimation.setAnimationListener(new c(this));
-        this.f21841d.startAnimation(translateAnimation);
-        this.f21839b.startAnimation(alphaAnimation);
+        this.f23340d.startAnimation(translateAnimation);
+        this.f23338b.startAnimation(alphaAnimation);
     }
 
     public void i() {
@@ -297,14 +297,14 @@ public class a extends PopupWindow {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f21844g == 1) {
-                SkinManager.setViewTextColor(this.f21842e, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f21843f, R.color.CAM_X0108);
+            if (this.f23343g == 1) {
+                SkinManager.setViewTextColor(this.f23341e, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f23342f, R.color.CAM_X0108);
             } else {
-                SkinManager.setViewTextColor(this.f21843f, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f21842e, R.color.CAM_X0108);
+                SkinManager.setViewTextColor(this.f23342f, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f23341e, R.color.CAM_X0108);
             }
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f21838a, R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowRadius(l.g(this.f21838a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f21838a, R.dimen.tbds4)).into(this.f21841d);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(this.f23337a, R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowRadius(l.g(this.f23337a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(l.g(this.f23337a, R.dimen.tbds4)).into(this.f23340d);
         }
     }
 
@@ -313,20 +313,20 @@ public class a extends PopupWindow {
         if (!(interceptable == null || interceptable.invokeLI(1048583, this, list, i2) == null) || list == null) {
             return;
         }
-        this.f21844g = i2;
+        this.f23343g = i2;
         View f2 = f();
         for (h hVar : list) {
-            if (hVar.f21580b == 1) {
-                this.f21842e.setText(hVar.f21579a);
+            if (hVar.f23079b == 1) {
+                this.f23341e.setText(hVar.f23078a);
             } else {
-                this.f21843f.setText(hVar.f21579a);
+                this.f23342f.setText(hVar.f23078a);
             }
             if (i2 == 1) {
-                SkinManager.setViewTextColor(this.f21842e, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f21843f, R.color.CAM_X0108);
+                SkinManager.setViewTextColor(this.f23341e, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f23342f, R.color.CAM_X0108);
             } else {
-                SkinManager.setViewTextColor(this.f21843f, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f21842e, R.color.CAM_X0108);
+                SkinManager.setViewTextColor(this.f23342f, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f23341e, R.color.CAM_X0108);
             }
         }
         setContentView(f2);
@@ -335,7 +335,7 @@ public class a extends PopupWindow {
     public void l(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
-            this.f21840c = dVar;
+            this.f23339c = dVar;
         }
     }
 
@@ -354,8 +354,8 @@ public class a extends PopupWindow {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setDuration(350L);
             alphaAnimation.setInterpolator(new LinearInterpolator());
-            this.f21841d.startAnimation(translateAnimation);
-            this.f21839b.startAnimation(alphaAnimation);
+            this.f23340d.startAnimation(translateAnimation);
+            this.f23338b.startAnimation(alphaAnimation);
         }
     }
 
@@ -373,7 +373,7 @@ public class a extends PopupWindow {
         }
         int[] iArr = new int[2];
         view.getLocationInWindow(iArr);
-        if (g.m(this, view, 0, iArr[0] - this.f21838a.getResources().getDimensionPixelOffset(R.dimen.tbds44), iArr[1] + view.getHeight() + this.f21838a.getResources().getDimensionPixelOffset(R.dimen.tbds20))) {
+        if (g.m(this, view, 0, iArr[0] - this.f23337a.getResources().getDimensionPixelOffset(R.dimen.tbds44), iArr[1] + view.getHeight() + this.f23337a.getResources().getDimensionPixelOffset(R.dimen.tbds20))) {
             n();
         }
     }

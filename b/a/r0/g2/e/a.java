@@ -20,16 +20,16 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final C0867a f16790a;
+    public static final C0934a f18304a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.r0.g2.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0867a {
+    public static final class C0934a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0867a() {
+        public C0934a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public final class a {
             }
         }
 
-        public /* synthetic */ C0867a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0934a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -111,14 +111,14 @@ public final class a {
                 return;
             }
         }
-        f16790a = new C0867a(null);
+        f18304a = new C0934a(null);
     }
 
     @JvmStatic
     public static final void a(int i2, int i3, int i4, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2}) == null) {
-            f16790a.a(i2, i3, i4, str, str2);
+            f18304a.a(i2, i3, i4, str, str2);
         }
     }
 
@@ -126,7 +126,7 @@ public final class a {
     public static final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            f16790a.b(str);
+            f18304a.b(str);
         }
     }
 
@@ -134,7 +134,7 @@ public final class a {
     public static final void c(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65539, null, i2, i3) == null) {
-            f16790a.c(i2, i3);
+            f18304a.c(i2, i3);
         }
     }
 }

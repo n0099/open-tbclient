@@ -1,5 +1,6 @@
 package b.a.p0.a.h0.l.g;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,17 +19,17 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f5455d;
+    public static final boolean f5736d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<k> f5456a;
+    public final List<k> f5737a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f5457b;
+    public final Object f5738b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f5458c;
+    public final int f5739c;
 
     static {
         InterceptResult invokeClinit;
@@ -43,9 +44,10 @@ public class g {
                 return;
             }
         }
-        f5455d = b.a.p0.a.k.f6397a;
+        f5736d = b.a.p0.a.k.f6863a;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,21 +64,21 @@ public class g {
             }
         }
         if (i2 < 1) {
-            if (f5455d) {
+            if (f5736d) {
                 throw new RuntimeException("MasterPool size can not less than 1");
             }
             i2 = 1;
         }
-        this.f5458c = i2;
-        this.f5457b = new Object();
-        this.f5456a = new LinkedList();
+        this.f5739c = i2;
+        this.f5738b = new Object();
+        this.f5737a = new LinkedList();
     }
 
     public void a(Collection<k> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
             boolean z = collection == null || collection.size() <= 0;
-            if (f5455d) {
+            if (f5736d) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("master pool clear, excludes size - ");
                 sb.append(collection != null ? collection.size() : 0);
@@ -84,15 +86,15 @@ public class g {
                 if (collection != null) {
                     for (k kVar : collection) {
                         if (kVar.i() != null) {
-                            String str = "excludes  - " + kVar.i().b();
+                            String str = "excludes  - " + kVar.i().c();
                         }
                     }
                 }
             }
-            synchronized (this.f5457b) {
+            synchronized (this.f5738b) {
                 ArrayList arrayList = new ArrayList();
-                for (k kVar2 : this.f5456a) {
-                    if (z || !collection.contains(kVar2)) {
+                for (k kVar2 : this.f5737a) {
+                    if (z || (collection != null && !collection.contains(kVar2))) {
                         arrayList.add(kVar2);
                     }
                 }
@@ -106,20 +108,20 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) || collection.size() <= 0) {
             return;
         }
-        long currentTimeMillis = f5455d ? System.currentTimeMillis() : 0L;
-        this.f5456a.removeAll(collection);
-        if (f5455d) {
+        long currentTimeMillis = f5736d ? System.currentTimeMillis() : 0L;
+        this.f5737a.removeAll(collection);
+        if (f5736d) {
             String str = "remove no use master in pool, size - " + collection.size();
         }
         for (k kVar : collection) {
             if (kVar.i() != null) {
                 kVar.i().destroy();
-                if (f5455d) {
-                    String str2 = "master destroy, id - " + kVar.i().b() + ", isReady - " + kVar.n() + ", is Default - " + kVar.l() + ", is Prefetch - " + kVar.j();
+                if (f5736d) {
+                    String str2 = "master destroy, id - " + kVar.i().c() + ", isReady - " + kVar.n() + ", is Default - " + kVar.l() + ", is Prefetch - " + kVar.j();
                 }
             }
         }
-        if (f5455d) {
+        if (f5736d) {
             long currentTimeMillis2 = System.currentTimeMillis();
             String str3 = "destroy masters cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
         }
@@ -130,9 +132,9 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || TextUtils.equals(str, "_default_id_")) {
             return;
         }
-        synchronized (this.f5457b) {
+        synchronized (this.f5738b) {
             ArrayList arrayList = new ArrayList();
-            for (k kVar : this.f5456a) {
+            for (k kVar : this.f5737a) {
                 if (TextUtils.equals(kVar.h(), str)) {
                     arrayList.add(kVar);
                 }
@@ -147,25 +149,25 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             k kVar = null;
             if (TextUtils.isEmpty(str)) {
-                boolean z = f5455d;
+                boolean z = f5736d;
                 return null;
             }
-            synchronized (this.f5457b) {
+            synchronized (this.f5738b) {
                 if (TextUtils.equals(str, "_default_id_")) {
-                    if (f5455d) {
+                    if (f5736d) {
                         String str2 = "get default master manger for id - " + str;
                     }
                     return e();
                 }
-                int size = this.f5456a.size() - 1;
+                int size = this.f5737a.size() - 1;
                 int i2 = size;
                 while (true) {
                     if (i2 < 0) {
                         break;
                     }
-                    k kVar2 = this.f5456a.get(i2);
+                    k kVar2 = this.f5737a.get(i2);
                     if (TextUtils.equals(kVar2.h(), str)) {
-                        if (f5455d) {
+                        if (f5736d) {
                             String str3 = "get master in pool for id - " + str;
                         }
                         kVar = kVar2;
@@ -174,10 +176,10 @@ public class g {
                     }
                 }
                 if (kVar != null && i2 != size) {
-                    this.f5456a.remove(i2);
-                    this.f5456a.add(kVar);
+                    this.f5737a.remove(i2);
+                    this.f5737a.add(kVar);
                 }
-                if (f5455d) {
+                if (f5736d) {
                     if (kVar == null) {
                         String str4 = "find no master for id - " + str;
                     } else {
@@ -190,16 +192,17 @@ public class g {
         return (k) invokeL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public final k e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            for (k kVar : this.f5456a) {
+            for (k kVar : this.f5737a) {
                 if (kVar.l()) {
                     return kVar;
                 }
             }
-            if (f5455d) {
+            if (f5736d) {
                 throw new RuntimeException("there must be one default master in pool, you should add default one first");
             }
             return null;
@@ -212,9 +215,9 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) || kVar == null) {
             return;
         }
-        synchronized (this.f5457b) {
-            if (!this.f5456a.contains(kVar)) {
-                this.f5456a.add(kVar);
+        synchronized (this.f5738b) {
+            if (!this.f5737a.contains(kVar)) {
+                this.f5737a.add(kVar);
             }
             h();
         }
@@ -223,20 +226,20 @@ public class g {
     public void g(Collection<k> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
-            if (this.f5458c >= 3) {
+            if (this.f5739c >= 3) {
                 boolean z = true;
-                if (this.f5456a.size() > 1) {
+                if (this.f5737a.size() > 1) {
                     if (collection != null && collection.size() > 0) {
                         z = false;
                     }
-                    synchronized (this.f5457b) {
+                    synchronized (this.f5738b) {
                         ArrayList arrayList = new ArrayList();
-                        for (k kVar : this.f5456a) {
+                        for (k kVar : this.f5737a) {
                             if (!kVar.l() && kVar.j() && (z || !collection.contains(kVar))) {
                                 arrayList.add(kVar);
                             }
                         }
-                        if (f5455d) {
+                        if (f5736d) {
                             String str = "remove all prefetch event master, size - " + arrayList.size();
                         }
                         b(arrayList);
@@ -244,9 +247,9 @@ public class g {
                     return;
                 }
             }
-            if (f5455d) {
-                String str2 = "max size - " + this.f5458c;
-                String str3 = "current cache size - " + this.f5456a.size();
+            if (f5736d) {
+                String str2 = "max size - " + this.f5739c;
+                String str3 = "current cache size - " + this.f5737a.size();
             }
         }
     }
@@ -254,19 +257,19 @@ public class g {
     public final void h() {
         int size;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (size = this.f5456a.size()) <= this.f5458c) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (size = this.f5737a.size()) <= this.f5739c) {
             return;
         }
-        if (f5455d) {
-            String str = "resize, current - " + size + ", target - " + this.f5458c;
+        if (f5736d) {
+            String str = "resize, current - " + size + ", target - " + this.f5739c;
         }
         ArrayList arrayList = new ArrayList();
         boolean z = false;
         for (int i2 = 0; i2 < size; i2++) {
-            k kVar = this.f5456a.get(i2);
+            k kVar = this.f5737a.get(i2);
             if (!kVar.l() || z) {
                 arrayList.add(kVar);
-                if (arrayList.size() >= size - this.f5458c) {
+                if (arrayList.size() >= size - this.f5739c) {
                     break;
                 }
             } else {

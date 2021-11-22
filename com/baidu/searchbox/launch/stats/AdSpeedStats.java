@@ -162,21 +162,25 @@ public final class AdSpeedStats extends AbstractSpeedStats {
             long j11 = j9 - j10;
             long j12 = this.mTbAdloadEndTimeStamp;
             long j13 = j12 - j10;
-            long j14 = j9;
-            long j15 = this.mAdShowStartTimeStamp;
-            if (j15 > 0) {
-                long j16 = this.mSdkAdWillShowTimeStamp;
-                j8 = j16 - j12;
-                long j17 = j15 - j16;
-                j3 = j14 - j15;
-                j2 = j11 - j3;
-                j7 = 0;
-                j6 = this.mSdkAdDoShowTimeStamp - j16;
-                j5 = (j14 - j10) - j3;
-                j4 = j17;
+            long j14 = this.mAdShowStartTimeStamp;
+            if (j14 > 0) {
+                long j15 = this.mSdkAdWillShowTimeStamp;
+                long j16 = j15 - j12;
+                long j17 = this.mSdkAdDoShowTimeStamp;
+                long j18 = j17 - j15;
+                j3 = j14 - j17;
+                long j19 = j9 - j14;
+                long j20 = j14 - j12;
+                long j21 = j11 - j19;
+                j8 = j19;
+                j6 = 0;
+                j7 = j16;
+                j2 = j21;
+                j5 = j20;
+                j4 = j18;
                 j = 0;
             } else {
-                j = j14 - j12;
+                j = j9 - j12;
                 j2 = j11;
                 j3 = 0;
                 j4 = 0;
@@ -185,7 +189,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                 j7 = 0;
                 j8 = 0;
             }
-            if (j11 < j7 || j11 > 60000 || j13 < j7 || j13 > 60000 || j8 < j7 || j8 > 60000 || j6 < j7 || j6 > 60000 || j4 < j7 || j4 > 60000 || j3 < j7 || j3 > 60000 || j5 < j7 || j5 > 60000 || j < j7 || j > 60000) {
+            if (j11 < j6 || j11 > 60000 || j13 < j6 || j13 > 60000 || j7 < j6 || j7 > 60000 || j4 < j6 || j4 > 60000 || j3 < j6 || j3 > 60000 || j8 < j6 || j8 > 60000 || j5 < j6 || j5 > 60000 || j < j6 || j > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
@@ -193,17 +197,17 @@ public final class AdSpeedStats extends AbstractSpeedStats {
             hashMap.put(AD_TB_LOADAD_DURATION, String.valueOf(j13));
             hashMap.put(AD_NO_SHOW_DURATION, String.valueOf(j2));
             if (this.mAdShowStartTimeStamp > 0) {
-                hashMap.put(SDK_AD_LOAD_DURATION, String.valueOf(j8));
-                hashMap.put(AD_WILL_SHOW_DURATION, String.valueOf(j6));
-                hashMap.put(AD_DO_SHOW_DURATION, String.valueOf(j4));
-                hashMap.put(AD_SHOW_DURATION, String.valueOf(j3));
+                hashMap.put(SDK_AD_LOAD_DURATION, String.valueOf(j7));
+                hashMap.put(AD_WILL_SHOW_DURATION, String.valueOf(j4));
+                hashMap.put(AD_DO_SHOW_DURATION, String.valueOf(j3));
+                hashMap.put(AD_SHOW_DURATION, String.valueOf(j8));
                 hashMap.put(HAS_AD_DURATION, String.valueOf(j5));
             } else {
                 hashMap.put(NO_AD_DURATION, String.valueOf(j));
             }
-            long j18 = this.mSdkAdDoShowTimeStamp - this.mSecondDrawDispatchedTimeStamp;
-            if (j18 > 0 && j18 < 60000) {
-                hashMap.put(DRAW_DONE_2_AD_SHOW_GAP, String.valueOf(j18));
+            long j22 = this.mSdkAdDoShowTimeStamp - this.mSecondDrawDispatchedTimeStamp;
+            if (j22 > 0 && j22 < 60000) {
+                hashMap.put(DRAW_DONE_2_AD_SHOW_GAP, String.valueOf(j22));
             }
             JSONObject jsonData = SpeedStatsUtils.getJsonData(j2, hashMap);
             if (jsonData != null) {

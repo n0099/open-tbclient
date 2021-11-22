@@ -2,7 +2,7 @@ package com.duxiaoman.dxmpay.statistics.internal;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.d.a.a.a.e;
+import b.c.a.a.a.e;
 import com.alipay.sdk.widget.d;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,7 +23,7 @@ public class StatService {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f62025a;
+    public ConcurrentHashMap<String, Long> f62926a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes11.dex */
@@ -94,7 +94,7 @@ public class StatService {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f62026a;
+        public static StatService f62927a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -110,7 +110,7 @@ public class StatService {
                     return;
                 }
             }
-            f62026a = new StatService(null);
+            f62927a = new StatService(null);
         }
     }
 
@@ -127,13 +127,13 @@ public class StatService {
     public static StatService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62026a : (StatService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62927a : (StatService) invokeV.objValue;
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a().f62025a.put(str, Long.valueOf(System.currentTimeMillis()));
+            a().f62926a.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
@@ -212,12 +212,12 @@ public class StatService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            Long l = a().f62025a.get(str);
+            Long l = a().f62926a.get(str);
             if (l == null) {
                 return -1L;
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f62025a.remove(str);
+            a().f62926a.remove(str);
             return valueOf.longValue();
         }
         return invokeL.longValue;
@@ -273,6 +273,6 @@ public class StatService {
                 return;
             }
         }
-        this.f62025a = new ConcurrentHashMap<>();
+        this.f62926a = new ConcurrentHashMap<>();
     }
 }

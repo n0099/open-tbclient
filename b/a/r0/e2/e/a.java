@@ -5,8 +5,8 @@ import com.baidu.adp.BdUniqueId;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final BdUniqueId f16285a = BdUniqueId.gen();
+    public static final BdUniqueId f17298a = BdUniqueId.gen();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BdUniqueId f16286b = BdUniqueId.gen();
+    public static final BdUniqueId f17299b = BdUniqueId.gen();
 }

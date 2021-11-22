@@ -18,19 +18,19 @@ public class e implements d, PreLoadImageProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19656e;
+    public String f21193e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19657f;
+    public int f21194f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19658g;
+    public int f21195g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<PreLoadImageInfo> f19659h;
+    public ArrayList<PreLoadImageInfo> f21196h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f19660i;
+    public String f21197i;
 
     public e(ExcContent excContent) {
         Long l;
@@ -51,36 +51,36 @@ public class e implements d, PreLoadImageProvider {
         if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
             return;
         }
-        this.f19659h = new ArrayList<>(1);
-        this.f19656e = excContent.src;
+        this.f21196h = new ArrayList<>(1);
+        this.f21193e = excContent.src;
         String str = excContent.bsize;
-        this.f19660i = str;
+        this.f21197i = str;
         if (str != null) {
             try {
                 String[] split = str.split(",");
-                this.f19657f = b.a.e.e.m.b.e(split[0], 0);
-                this.f19658g = b.a.e.e.m.b.e(split[1], 0);
+                this.f21194f = b.a.e.f.m.b.e(split[0], 0);
+                this.f21195g = b.a.e.f.m.b.e(split[1], 0);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f19657f <= 0) {
-            this.f19657f = 1;
+        if (this.f21194f <= 0) {
+            this.f21194f = 1;
         }
-        if (this.f19658g <= 0) {
-            this.f19658g = 1;
+        if (this.f21195g <= 0) {
+            this.f21195g = 1;
         }
         String str2 = excContent.cdn_src;
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
         preLoadImageInfo.procType = 17;
-        preLoadImageInfo.height = this.f19658g;
-        preLoadImageInfo.width = this.f19657f;
+        preLoadImageInfo.height = this.f21195g;
+        preLoadImageInfo.width = this.f21194f;
         if (StringUtils.isNull(str2)) {
-            preLoadImageInfo.imgUrl = this.f19656e;
+            preLoadImageInfo.imgUrl = this.f21193e;
         } else {
             preLoadImageInfo.imgUrl = str2;
         }
-        this.f19659h.add(preLoadImageInfo);
+        this.f21196h.add(preLoadImageInfo);
     }
 
     public int c(int i2) {
@@ -90,7 +90,7 @@ public class e implements d, PreLoadImageProvider {
             if (i2 <= 0) {
                 return 0;
             }
-            return (i2 * this.f19658g) / this.f19657f;
+            return (i2 * this.f21195g) / this.f21194f;
         }
         return invokeI.intValue;
     }
@@ -98,14 +98,14 @@ public class e implements d, PreLoadImageProvider {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19656e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21193e : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
     public ArrayList<PreLoadImageInfo> getImages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19659h : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21196h : (ArrayList) invokeV.objValue;
     }
 
     @Override // b.a.r0.k2.v.b.d

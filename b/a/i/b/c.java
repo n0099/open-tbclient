@@ -36,9 +36,9 @@ public class c extends m {
                 return;
             }
         }
-        this.f14211d = R.drawable.icon_pure_post_voice_n_svg;
-        this.f14212e = R.drawable.icon_mask_post_voice24_selection_svg;
-        this.f14214g = true;
+        this.f14978d = R.drawable.icon_pure_post_voice_n_svg;
+        this.f14979e = R.drawable.icon_mask_post_voice24_selection_svg;
+        this.f14981g = true;
         this.l = 6;
         this.m = true;
         this.k = VoiceRecordButton.instance(context);

@@ -13,25 +13,25 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f12796a;
+    public BdUniqueId f13546a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12797b;
+    public int f13547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12798c;
+    public String f13548c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f12799d;
+    public Activity f13549d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f12800e;
+    public Map<String, String> f13550e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f12801f;
+    public Map<String, String> f13551f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12802g;
+    public boolean f13552g;
 
     public e() {
         Interceptable interceptable = $ic;

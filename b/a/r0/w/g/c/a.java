@@ -19,7 +19,7 @@ public class a extends b.a.q0.h0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaFrsLiveFragment f24993a;
+    public AlaFrsLiveFragment f26510a;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -37,15 +37,15 @@ public class a extends b.a.q0.h0.b {
             }
         }
         AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
-        this.f24993a = alaFrsLiveFragment;
+        this.f26510a = alaFrsLiveFragment;
         alaFrsLiveFragment.setIsNeedScrollDispatch(z);
-        getFragmentTabStructure().f12612a = this.f24993a;
+        getFragmentTabStructure().f13359a = this.f26510a;
     }
 
     public void a(String str) {
         AlaFrsLiveFragment alaFrsLiveFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (alaFrsLiveFragment = this.f24993a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (alaFrsLiveFragment = this.f26510a) == null) {
             return;
         }
         alaFrsLiveFragment.setForumGameLabel(str);
@@ -54,7 +54,7 @@ public class a extends b.a.q0.h0.b {
     public void b(String str) {
         AlaFrsLiveFragment alaFrsLiveFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (alaFrsLiveFragment = this.f24993a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (alaFrsLiveFragment = this.f26510a) == null) {
             return;
         }
         alaFrsLiveFragment.setForumId(str);
@@ -63,7 +63,7 @@ public class a extends b.a.q0.h0.b {
     public void c(String str) {
         AlaFrsLiveFragment alaFrsLiveFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (alaFrsLiveFragment = this.f24993a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (alaFrsLiveFragment = this.f26510a) == null) {
             return;
         }
         alaFrsLiveFragment.setForumName(str);
@@ -75,9 +75,9 @@ public class a extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             b.a.q0.h0.c cVar = new b.a.q0.h0.c();
-            cVar.f12616e = 2;
-            cVar.f12613b = R.string.ala_live;
-            cVar.f12620i = b.a.q0.h0.c.k;
+            cVar.f13363e = 2;
+            cVar.f13360b = R.string.ala_live;
+            cVar.f13367i = b.a.q0.h0.c.k;
             return cVar;
         }
         return (b.a.q0.h0.c) invokeV.objValue;
@@ -86,7 +86,7 @@ public class a extends b.a.q0.h0.b {
     public void d(int i2) {
         AlaFrsLiveFragment alaFrsLiveFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (alaFrsLiveFragment = this.f24993a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (alaFrsLiveFragment = this.f26510a) == null) {
             return;
         }
         alaFrsLiveFragment.setFromType(i2);
@@ -95,7 +95,7 @@ public class a extends b.a.q0.h0.b {
     public void e(boolean z) {
         AlaFrsLiveFragment alaFrsLiveFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alaFrsLiveFragment = this.f24993a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alaFrsLiveFragment = this.f26510a) == null) {
             return;
         }
         alaFrsLiveFragment.setIsShowNavi(z);

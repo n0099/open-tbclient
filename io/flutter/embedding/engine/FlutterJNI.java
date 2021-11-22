@@ -32,7 +32,7 @@ import java.nio.ByteBuffer;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FlutterJNI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterJNI";
@@ -55,14 +55,14 @@ public class FlutterJNI {
     @Nullable
     public PlatformMessageHandler platformMessageHandler;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface AccessibilityDelegate {
         void updateCustomAccessibilityActions(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr);
 
         void updateSemantics(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface AsyncWaitForVsyncDelegate {
         void asyncWaitForVsync(long j);
     }

@@ -12,22 +12,22 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public short f35780a;
+    public short f36609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f35781b;
+    public byte[] f36610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f35782c;
+    public boolean f36611c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f35783d;
+    public boolean f36612d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f35784e;
+    public boolean f36613e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f35785f;
+    public k f36614f;
 
     public e(short s) {
         Interceptable interceptable = $ic;
@@ -44,52 +44,52 @@ public class e {
                 return;
             }
         }
-        this.f35783d = false;
-        this.f35780a = s;
+        this.f36612d = false;
+        this.f36609a = s;
     }
 
     public short a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35780a : invokeV.shortValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36609a : invokeV.shortValue;
     }
 
     public void a(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) {
-            this.f35785f = kVar;
+            this.f36614f = kVar;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f35784e = z;
+            this.f36613e = z;
         }
     }
 
     public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35781b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36610b : (byte[]) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35782c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36611c : invokeV.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35784e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36613e : invokeV.booleanValue;
     }
 
     public k e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35785f : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36614f : (k) invokeV.objValue;
     }
 
     public String toString() {
@@ -98,9 +98,9 @@ public class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("type : ");
-            stringBuffer.append((int) this.f35780a);
+            stringBuffer.append((int) this.f36609a);
             stringBuffer.append(", needReply: ");
-            stringBuffer.append(this.f35782c);
+            stringBuffer.append(this.f36611c);
             return stringBuffer.toString();
         }
         return (String) invokeV.objValue;

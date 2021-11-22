@@ -23,8 +23,10 @@ public class NetRequestResult {
     public static final int STATUS_CODE_EXECUTE_FAILED_V8_TASK = 8;
     public static final int STATUS_CODE_EXECUTE_SUCCEEDED_V8_TASK = 7;
     public static final int STATUS_CODE_INTERCEPT_NET_REQUEST = -301;
+    public static final int STATUS_CODE_INTERCEPT_NET_REQUEST_FINISH = 14;
     public static final int STATUS_CODE_INTERPRET_NET_REQUEST_PARAM_FINISH = 4;
     public static final int STATUS_CODE_INTERPRET_NET_REQUEST_PARAM_START = 3;
+    public static final int STATUS_CODE_NA_RECEIVE_NET_REQUEST_RAW_OBJECT = 12;
     public static final int STATUS_CODE_NA_REQUEST_DATA_ERROR = -108;
     public static final int STATUS_CODE_NA_REQUEST_DATA_TRANSFORM_FAILED_ERROR = -109;
     public static final int STATUS_CODE_NA_REQUEST_DATA_TYPE_ERROR = -106;
@@ -45,6 +47,8 @@ public class NetRequestResult {
     public static final int STATUS_CODE_NET_REQUEST_CALLBACK_EXECUTE_ERROR = 1001;
     public static final int STATUS_CODE_NET_REQUEST_CALLBACK_SCHEME_ERROR = 202;
     public static final int STATUS_CODE_PREPARE_ABORT_ACTIVELY_TRIGGER = 10;
+    public static final int STATUS_CODE_READY_TO_EXECUTE_V8_TASK = 15;
+    public static final int STATUS_CODE_READY_TO_ISSUE_NET_REQUEST = 13;
     public static final int STATUS_CODE_REINTERPRET_NET_REQUEST_PARAM_FINISH = 5;
     public static final int STATUS_CODE_V8NET_RESULT_ENV_NOT_READY = -3;
     public static final int STATUS_CODE_V8NET_RESULT_ENV_SHUTDOWN = -8;

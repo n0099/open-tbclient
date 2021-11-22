@@ -12,7 +12,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f40639a;
+    public c f41471a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             a aVar = new a();
             c cVar = new c();
-            aVar.f40639a = cVar;
+            aVar.f41471a = cVar;
             cVar.a("PKCS1Padding");
             return aVar;
         }
@@ -44,7 +44,7 @@ public class a {
     public void a(int i2, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, dVar) == null) {
-            this.f40639a.a(i2, dVar, b.f40640a);
+            this.f41471a.a(i2, dVar, b.f41472a);
         }
     }
 
@@ -53,7 +53,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
             if (bArr != null) {
-                return this.f40639a.a(bArr, 0, bArr.length);
+                return this.f41471a.a(bArr, 0, bArr.length);
             }
             throw new IllegalArgumentException("Null input buffer");
         }

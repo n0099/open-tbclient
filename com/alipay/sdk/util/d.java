@@ -11,7 +11,7 @@ public class d implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34192a;
+    public String f35026a;
 
     public d(String str) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class d implements Serializable {
                 return;
             }
         }
-        this.f34192a = "";
-        this.f34192a = str;
+        this.f35026a = "";
+        this.f35026a = str;
     }
 }

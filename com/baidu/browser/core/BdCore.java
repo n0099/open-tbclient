@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BdCore {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdCore f36554c;
+    public static BdCore f37383c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36555a;
+    public Context f37384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36556b;
+    public boolean f37385b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class EditTextType {
         public static final /* synthetic */ EditTextType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,7 +104,7 @@ public final class BdCore {
             }
         }
         EditTextType editTextType = EditTextType.DEFAULT;
-        this.f36556b = false;
+        this.f37385b = false;
     }
 
     public static synchronized BdCore a() {
@@ -113,10 +113,10 @@ public final class BdCore {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (BdCore.class) {
-                if (f36554c == null) {
-                    f36554c = new BdCore();
+                if (f37383c == null) {
+                    f37383c = new BdCore();
                 }
-                bdCore = f36554c;
+                bdCore = f37383c;
             }
             return bdCore;
         }
@@ -125,19 +125,19 @@ public final class BdCore {
 
     public void b(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) || this.f36556b) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) || this.f37385b) {
             return;
         }
         BdLog.f(z);
-        this.f36555a = context.getApplicationContext();
-        this.f36556b = true;
+        this.f37384a = context.getApplicationContext();
+        this.f37385b = true;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Context context = this.f36555a;
+            Context context = this.f37384a;
             if (context != null) {
                 return context;
             }

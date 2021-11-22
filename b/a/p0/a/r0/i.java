@@ -20,17 +20,17 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7590c;
+    public static final boolean f8105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile i f7591d;
+    public static volatile i f8106d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<h> f7592a;
+    public ArrayList<h> f8107a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f7593b;
+    public g f8108b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -38,7 +38,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Semaphore f7594e;
+        public final /* synthetic */ Semaphore f8109e;
 
         public a(i iVar, Semaphore semaphore) {
             Interceptable interceptable = $ic;
@@ -55,14 +55,14 @@ public class i {
                     return;
                 }
             }
-            this.f7594e = semaphore;
+            this.f8109e = semaphore;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7594e.release();
+                this.f8109e.release();
             }
         }
     }
@@ -80,7 +80,7 @@ public class i {
                 return;
             }
         }
-        f7590c = b.a.p0.a.k.f6397a;
+        f8105c = b.a.p0.a.k.f6863a;
     }
 
     public i() {
@@ -96,22 +96,22 @@ public class i {
                 return;
             }
         }
-        this.f7592a = new ArrayList<>();
-        this.f7593b = new g();
+        this.f8107a = new ArrayList<>();
+        this.f8108b = new g();
     }
 
     public static i d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f7591d == null) {
+            if (f8106d == null) {
                 synchronized (i.class) {
-                    if (f7591d == null) {
-                        f7591d = new i();
+                    if (f8106d == null) {
+                        f8106d = new i();
                     }
                 }
             }
-            return f7591d;
+            return f8106d;
         }
         return (i) invokeV.objValue;
     }
@@ -120,9 +120,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (i.class) {
-                if (f7591d != null) {
-                    f7591d.f();
-                    f7591d = null;
+                if (f8106d != null) {
+                    f8106d.f();
+                    f8106d = null;
                 }
             }
         }
@@ -131,8 +131,8 @@ public class i {
     public final void a(@NonNull h hVar, @NonNull ArrayList<h> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hVar, arrayList) == null) {
-            if (f7590c) {
-                String str = "addToWaitList: " + hVar + "," + arrayList.size() + "," + this.f7592a.size();
+            if (f8105c) {
+                String str = "addToWaitList: " + hVar + "," + arrayList.size() + "," + this.f8107a.size();
             }
             Iterator<h> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -140,7 +140,7 @@ public class i {
                 next.i();
                 hVar.a(next);
             }
-            this.f7592a.add(hVar);
+            this.f8107a.add(hVar);
         }
     }
 
@@ -155,7 +155,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, semaphore, strArr)) == null) {
             synchronized (this) {
-                ArrayList<h> c2 = this.f7593b.c(strArr);
+                ArrayList<h> c2 = this.f8108b.c(strArr);
                 if (c2 != null && c2.size() != 0) {
                     a(b(semaphore), c2);
                     return true;
@@ -176,15 +176,15 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                this.f7593b.b();
-                Iterator<h> it = this.f7592a.iterator();
+                this.f8108b.b();
+                Iterator<h> it = this.f8107a.iterator();
                 while (it.hasNext()) {
                     h next = it.next();
                     if (e(next)) {
                         next.h();
                     }
                 }
-                this.f7592a.clear();
+                this.f8107a.clear();
             }
         }
     }
@@ -196,16 +196,16 @@ public class i {
                 if (hVar == null) {
                     return;
                 }
-                this.f7593b.d(hVar, hVar.b());
+                this.f8108b.d(hVar, hVar.b());
                 if (hVar.e()) {
-                    if (f7590c) {
-                        String str = "onTaskComplete: " + hVar + "," + this.f7592a.size();
+                    if (f8105c) {
+                        String str = "onTaskComplete: " + hVar + "," + this.f8107a.size();
                     }
-                    for (int size = this.f7592a.size() - 1; size >= 0; size--) {
-                        h hVar2 = this.f7592a.get(size);
+                    for (int size = this.f8107a.size() - 1; size >= 0; size--) {
+                        h hVar2 = this.f8107a.get(size);
                         hVar2.g(hVar);
                         if (hVar2.d()) {
-                            this.f7592a.remove(size);
+                            this.f8107a.remove(size);
                             hVar2.f();
                         }
                     }
@@ -219,8 +219,8 @@ public class i {
         if (interceptable == null || interceptable.invokeLLL(1048582, this, runnable, str, strArr) == null) {
             synchronized (this) {
                 h hVar = new h(this, runnable, str, strArr);
-                ArrayList<h> c2 = this.f7593b.c(strArr);
-                this.f7593b.a(hVar, strArr);
+                ArrayList<h> c2 = this.f8108b.c(strArr);
+                this.f8108b.a(hVar, strArr);
                 if (c2 != null && c2.size() != 0) {
                     a(hVar, c2);
                 }
@@ -235,7 +235,7 @@ public class i {
             try {
                 semaphore.tryAcquire(10L, TimeUnit.SECONDS);
             } catch (Exception e2) {
-                if (f7590c) {
+                if (f8105c) {
                     String str = "semaphore.acquire: " + e2;
                 }
             }
@@ -247,7 +247,7 @@ public class i {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, strArr) == null) {
             Semaphore semaphore = new Semaphore(0);
             if (c(semaphore, strArr)) {
-                if (f7590c) {
+                if (f8105c) {
                     String str = "waitIfHasPathDependence: " + Arrays.toString(strArr);
                 }
                 j(semaphore);

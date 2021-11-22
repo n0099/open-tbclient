@@ -1,6 +1,6 @@
 package com.baidu.ala.gift;
 
-import b.a.e.e.n.a;
+import b.a.e.f.n.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;

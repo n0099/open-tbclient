@@ -12,13 +12,13 @@ public class s extends ContentObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62919a;
+    public String f63819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62920b;
+    public int f63820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q f62921c;
+    public q f63821c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(q qVar, int i2, String str) {
@@ -38,18 +38,18 @@ public class s extends ContentObserver {
                 return;
             }
         }
-        this.f62921c = qVar;
-        this.f62920b = i2;
-        this.f62919a = str;
+        this.f63821c = qVar;
+        this.f63820b = i2;
+        this.f63819a = str;
     }
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (qVar = this.f62921c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (qVar = this.f63821c) == null) {
             return;
         }
-        qVar.a(this.f62920b, this.f62919a);
+        qVar.a(this.f63820b, this.f63819a);
     }
 }

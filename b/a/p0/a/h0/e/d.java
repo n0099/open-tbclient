@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.e0.e;
 import b.a.p0.a.k;
 import b.a.p0.a.p.b.a.f;
-import b.a.p0.a.v2.x;
+import b.a.p0.a.z2.x;
+import b.a.p0.q.j.m.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.swan.apps.core.container.NgWebView;
@@ -47,7 +47,7 @@ public class d extends SwanAppWebViewManager implements b.a.p0.a.p.e.a<NgWebView
                 return;
             }
         }
-        C = k.f6397a;
+        C = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,54 +70,54 @@ public class d extends SwanAppWebViewManager implements b.a.p0.a.p.e.a<NgWebView
         }
         this.B = false;
         this.A = context;
-        e1();
+        i1();
     }
 
     @Override // b.a.p0.a.p.e.a
-    public void E() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b.a.p0.a.e0.d.k(false);
-            ViewParent parent = s().getParent();
+            b.a.p0.a.e0.d.n(false);
+            ViewParent parent = t().getParent();
             if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(s());
+                ((ViewGroup) parent).removeView(t());
             }
             destroy();
         }
     }
 
     @Override // b.a.p0.a.p.e.a
-    public void F(ViewGroup viewGroup) {
+    public void G(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        j(viewGroup, s());
+        k(viewGroup, t());
     }
 
     @Override // b.a.p0.a.p.e.a
-    public void G(View view) {
+    public void H(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
         }
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void J0() {
+    public void N0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
     @Override // b.a.p0.a.p.e.a
-    public void P(boolean z) {
+    public void R(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            s().setVisibility(z ? 0 : 8);
+            t().setVisibility(z ? 0 : 8);
         }
     }
 
-    public final void S() {
+    public final void V() {
         Context context;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (context = this.A) != null && (context instanceof Activity)) {
@@ -126,47 +126,56 @@ public class d extends SwanAppWebViewManager implements b.a.p0.a.p.e.a<NgWebView
     }
 
     @Override // b.a.p0.a.p.e.a
-    public void U() {
+    public void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            P(s().getVisibility() != 0);
+            R(t().getVisibility() != 0);
         }
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d
-    public String b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "console" : (String) invokeV.objValue;
     }
 
-    public final void c1(boolean z) {
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d
+    public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            V();
+            super.destroy();
+        }
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d
+    public void g0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.g0();
+        }
+    }
+
+    public final void g1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             if (C) {
                 String str = "call downloadConsoleCore: " + z;
             }
             if (!this.B || z) {
-                b.a.p0.n.i.m.d dVar = new b.a.p0.n.i.m.d("sconsole-core", e.c(), e.b(), 2);
+                e eVar = new e("sconsole-core", b.a.p0.a.e0.e.c(), b.a.p0.a.e0.e.b(), 2);
                 f h2 = b.a.p0.a.c1.b.h();
-                b.a.p0.n.b.e(dVar, h2 != null ? h2.d() : null);
+                b.a.p0.q.b.g(eVar, h2 != null ? h2.d() : null);
                 this.B = true;
             }
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d
-    public void d0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.d0();
-        }
-    }
-
-    public final boolean d1(ViewGroup viewGroup, View view) {
+    public final boolean h1(ViewGroup viewGroup, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, viewGroup, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, viewGroup, view)) == null) {
             int childCount = viewGroup.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 if (viewGroup.getChildAt(i2) == view) {
@@ -178,17 +187,8 @@ public class d extends SwanAppWebViewManager implements b.a.p0.a.p.e.a<NgWebView
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            S();
-            super.destroy();
-        }
-    }
-
     @Override // b.a.p0.a.p.e.a
-    public void e0(String str, String str2) {
+    public void i0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
             JSONArray jSONArray = new JSONArray();
@@ -198,30 +198,30 @@ public class d extends SwanAppWebViewManager implements b.a.p0.a.p.e.a<NgWebView
             HashMap hashMap = new HashMap();
             hashMap.put("logType", str);
             hashMap.put("logs", jSONArray.toString());
-            b.a.p0.a.g1.f.T().l("console", new b.a.p0.a.o0.d.b("searchboxSConsole", hashMap));
+            b.a.p0.a.g1.f.U().l("console", new b.a.p0.a.o0.d.c("searchboxSConsole", hashMap));
         }
     }
 
-    public void e1() {
+    public void i1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            s().setVisibility(8);
-            s().setBackgroundColor(0);
-            File file = new File(e.a(), "index.html");
+            t().setVisibility(8);
+            t().setBackgroundColor(0);
+            File file = new File(b.a.p0.a.e0.e.a(), "index.html");
             if (file.exists() && file.isFile()) {
                 loadUrl(Uri.fromFile(file).toString());
-                c1(false);
+                g1(false);
                 return;
             }
             loadUrl("file:///android_asset/aiapps/sConsole.html");
-            e.d();
-            c1(true);
+            b.a.p0.a.e0.e.d();
+            g1(true);
         }
     }
 
-    public final void j(ViewGroup viewGroup, View view) {
+    public final void k(ViewGroup viewGroup, View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048590, this, viewGroup, view) == null) || viewGroup == null || view == null || d1(viewGroup, view)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048590, this, viewGroup, view) == null) || viewGroup == null || view == null || h1(viewGroup, view)) {
             return;
         }
         viewGroup.addView(view, new FrameLayout.LayoutParams(-1, -1));

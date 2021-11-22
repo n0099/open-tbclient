@@ -107,7 +107,7 @@ public class ReportAction extends c {
     public String az;
 
     /* renamed from: b  reason: collision with root package name */
-    public transient SceneImpl f64958b;
+    public transient SceneImpl f65871b;
     public long ba;
     public int bb;
     public String bc;
@@ -137,25 +137,25 @@ public class ReportAction extends c {
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public transient AdTemplate f64959c;
+    public transient AdTemplate f65872c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f64960d;
+    public long f65873d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f64961e;
+    public String f65874e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f64962f;
+    public long f65875f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64963g;
+    public int f65876g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f64964h;
+    public long f65877h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f64965i;
+    public long f65878i;
     public long j;
     public JSONObject k;
     public JSONObject l;
@@ -203,10 +203,10 @@ public class ReportAction extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f64966a;
+        public int f65879a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f64967b;
+        public int f65880b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -227,8 +227,8 @@ public class ReportAction extends c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 a aVar = new a();
-                aVar.f64966a = b.f64968a;
-                aVar.f64967b = b.f64969b;
+                aVar.f65879a = b.f65881a;
+                aVar.f65880b = b.f65882b;
                 return aVar;
             }
             return (a) invokeV.objValue;
@@ -240,10 +240,10 @@ public class ReportAction extends c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f64968a;
+        public static int f65881a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f64969b;
+        public static int f65882b;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
@@ -262,7 +262,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f64963g = -1;
+        this.f65876g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -282,7 +282,7 @@ public class ReportAction extends c {
         this.aV = 0;
         this.aW = -1;
         this.aX = 0;
-        this.f64965i = j;
+        this.f65878i = j;
     }
 
     public ReportAction(long j, @NonNull AdTemplate adTemplate) {
@@ -300,7 +300,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f64963g = -1;
+        this.f65876g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -320,8 +320,8 @@ public class ReportAction extends c {
         this.aV = 0;
         this.aW = -1;
         this.aX = 0;
-        this.f64965i = j;
-        this.f64959c = adTemplate;
+        this.f65878i = j;
+        this.f65872c = adTemplate;
     }
 
     public ReportAction(String str) {
@@ -339,7 +339,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f64963g = -1;
+        this.f65876g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -387,19 +387,19 @@ public class ReportAction extends c {
         if (bVar != null) {
             this.aV = bVar.e();
         }
-        this.f65005a = UUID.randomUUID().toString();
-        this.f64960d = System.currentTimeMillis();
-        this.f64961e = l.b();
+        this.f65918a = UUID.randomUUID().toString();
+        this.f65873d = System.currentTimeMillis();
+        this.f65874e = l.b();
         try {
-            this.f64962f = l.c();
+            this.f65875f = l.c();
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
-        this.f64964h = l.e();
-        SceneImpl sceneImpl2 = this.f64958b;
+        this.f65877h = l.e();
+        SceneImpl sceneImpl2 = this.f65871b;
         if (sceneImpl2 == null) {
             if (adTemplate != null && (sceneImpl2 = adTemplate.mAdScene) != null) {
-                this.f64958b = sceneImpl2;
+                this.f65871b = sceneImpl2;
             }
             if (adTemplate != null) {
                 this.q = adTemplate.getShowPosition() + 1;
@@ -450,7 +450,7 @@ public class ReportAction extends c {
                         this.aD.expTag = com.kwad.sdk.live.mode.a.c(q);
                         b2 = com.kwad.sdk.live.mode.a.b(q);
                     } else if (i2 == 5) {
-                        this.bz = com.kwad.sdk.core.response.b.d.c(com.kwad.sdk.core.response.b.c.k(this.f64959c));
+                        this.bz = com.kwad.sdk.core.response.b.d.c(com.kwad.sdk.core.response.b.c.k(this.f65872c));
                     }
                     this.N = b2;
                 }
@@ -464,13 +464,13 @@ public class ReportAction extends c {
                 this.F = com.kwad.sdk.core.response.b.c.p(adTemplate);
             }
             this.ai = a.a();
-            if (this.f64958b == null && adTemplate != null) {
-                this.f64958b = adTemplate.mAdScene;
+            if (this.f65871b == null && adTemplate != null) {
+                this.f65871b = adTemplate.mAdScene;
             }
-            sceneImpl = this.f64958b;
+            sceneImpl = this.f65871b;
             if (sceneImpl != null) {
                 this.m = sceneImpl.getPosId();
-                this.L = this.f64958b.getUrlPackage();
+                this.L = this.f65871b.getUrlPackage();
             }
             if (this.L == null) {
                 EntryPackage b3 = com.kwad.sdk.core.scene.a.a().b(this.L.identity);
@@ -482,15 +482,15 @@ public class ReportAction extends c {
             return;
         }
         this.m = sceneImpl2.getPosId();
-        this.L = this.f64958b.getUrlPackage();
-        this.f64963g = this.f64958b.getAdStyle();
+        this.L = this.f65871b.getUrlPackage();
+        this.f65876g = this.f65871b.getAdStyle();
         if (adTemplate != null) {
         }
         this.ai = a.a();
-        if (this.f64958b == null) {
-            this.f64958b = adTemplate.mAdScene;
+        if (this.f65871b == null) {
+            this.f65871b = adTemplate.mAdScene;
         }
-        sceneImpl = this.f64958b;
+        sceneImpl = this.f65871b;
         if (sceneImpl != null) {
         }
         if (this.L == null) {
@@ -506,7 +506,7 @@ public class ReportAction extends c {
                 return;
             }
             this.ak = 3;
-            this.f64963g = jSONObject.optInt("adStyle", -1);
+            this.f65876g = jSONObject.optInt("adStyle", -1);
             this.V = jSONObject.optInt("reportType");
             this.I = jSONObject.optInt("playerControlledType", -1);
             this.aG = jSONObject.optInt("num");
@@ -519,7 +519,7 @@ public class ReportAction extends c {
             this.bo = jSONObject.optLong("loadingDurationLimt");
             this.aW = jSONObject.optInt("playerTypeInfo", -1);
             if (jSONObject.has("actionId")) {
-                this.f65005a = jSONObject.optString("actionId");
+                this.f65918a = jSONObject.optString("actionId");
             }
         }
     }
@@ -529,8 +529,8 @@ public class ReportAction extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             super.afterToJson(jSONObject);
-            q.a(jSONObject, "actionId", this.f65005a);
-            int i2 = this.f64963g;
+            q.a(jSONObject, "actionId", this.f65918a);
+            int i2 = this.f65876g;
             if (i2 > 0) {
                 q.a(jSONObject, "adStyle", i2);
             }
@@ -582,7 +582,7 @@ public class ReportAction extends c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a(this.f64959c);
+            a(this.f65872c);
             return this;
         }
         return (ReportAction) invokeV.objValue;

@@ -1,42 +1,84 @@
 package b.a.d0;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 /* loaded from: classes.dex */
-public class d {
-    public static /* synthetic */ Interceptable $ic;
+public final class d {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_action_bar_home_description = 2131689529;
+    public static final int abc_action_bar_up_description = 2131689530;
+    public static final int abc_action_menu_overflow_description = 2131689531;
+    public static final int abc_action_mode_done = 2131689532;
+    public static final int abc_activity_chooser_view_see_all = 2131689533;
+    public static final int abc_activitychooserview_choose_application = 2131689534;
+    public static final int abc_capital_off = 2131689535;
+    public static final int abc_capital_on = 2131689536;
+    public static final int abc_menu_alt_shortcut_label = 2131689537;
+    public static final int abc_menu_ctrl_shortcut_label = 2131689538;
+    public static final int abc_menu_delete_shortcut_label = 2131689539;
+    public static final int abc_menu_enter_shortcut_label = 2131689540;
+    public static final int abc_menu_function_shortcut_label = 2131689541;
+    public static final int abc_menu_meta_shortcut_label = 2131689542;
+    public static final int abc_menu_shift_shortcut_label = 2131689543;
+    public static final int abc_menu_space_shortcut_label = 2131689544;
+    public static final int abc_menu_sym_shortcut_label = 2131689545;
+    public static final int abc_prepend_shortcut_label = 2131689546;
+    public static final int abc_search_hint = 2131689547;
+    public static final int abc_searchview_description_clear = 2131689548;
+    public static final int abc_searchview_description_query = 2131689549;
+    public static final int abc_searchview_description_search = 2131689550;
+    public static final int abc_searchview_description_submit = 2131689551;
+    public static final int abc_searchview_description_voice = 2131689552;
+    public static final int abc_shareactionprovider_share_with = 2131689553;
+    public static final int abc_shareactionprovider_share_with_application = 2131689554;
+    public static final int abc_toolbar_collapse_description = 2131689555;
+    public static final int activity_not_found = 2131689592;
+    public static final int alipay_result_tiitle = 2131690053;
+    public static final int app_name = 2131690142;
+    public static final int baifubao_pay_result_title = 2131690157;
+    public static final int calculate_price_default_error = 2131690402;
+    public static final int chinapay_pay_result_title = 2131690489;
+    public static final int commission = 2131690563;
+    public static final int common_error_tips = 2131690569;
+    public static final int coupon_calculate_error = 2131690638;
+    public static final int finish = 2131691399;
+    public static final int finish_already = 2131691400;
+    public static final int get_channel_fail = 2131691761;
+    public static final int host_market_calculate_error = 2131691972;
+    public static final int installment_total = 2131692128;
+    public static final int open_channel_list = 2131692889;
+    public static final int order_info_error = 2131692914;
+    public static final int order_tracking = 2131692915;
+    public static final int pay_confirm = 2131693014;
+    public static final int pay_confirm_sub_text = 2131693015;
+    public static final int pay_fail_please_tran_again = 2131693017;
+    public static final int pay_failed = 2131693018;
+    public static final int pay_failed_sub_text = 2131693019;
+    public static final int pay_first_interface_fail = 2131693020;
+    public static final int pay_meet_problems = 2131693022;
+    public static final int pay_second_interface_fail = 2131693032;
+    public static final int paying = 2131693063;
+    public static final int paying_4_no_pwd = 2131693064;
+    public static final int poly_error_tips = 2131693366;
+    public static final int poly_fast_pay_loading = 2131693367;
+    public static final int quick_pay_result_title = 2131693509;
+    public static final int repayment = 2131693609;
+    public static final int search_menu_title = 2131694043;
+    public static final int status_bar_notification_info_overflow = 2131694330;
+    public static final int teenager_no_pay = 2131694762;
+    public static final int united_scheme_err_message_action_acl_check_fail = 2131694991;
+    public static final int united_scheme_err_message_action_allow_close = 2131694992;
+    public static final int united_scheme_err_message_action_notfound = 2131694993;
+    public static final int united_scheme_err_message_action_sec_check_fail = 2131694994;
+    public static final int united_scheme_err_message_module_notfound = 2131694995;
+    public static final int united_scheme_err_message_not_support = 2131694996;
+    public static final int united_scheme_err_message_ok = 2131694997;
+    public static final int united_scheme_err_message_params_parse_fail = 2131694998;
+    public static final int united_scheme_err_message_parse_fail = 2131694999;
+    public static final int unknow_pay_channel = 2131695004;
+    public static final int user_know = 2131695047;
+    public static final int wechat_not_available = 2131695485;
+    public static final int wx_h5_trade_fail = 2131695580;
+    public static final int wx_pay_result_title = 2131695582;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
-            if (bundle == null) {
-                a.h(3, "闪付返回信息为空");
-                return;
-            }
-            String string = bundle.getString(EnterDxmPayServiceAction.SERVICE_STATUS_CODE);
-            try {
-                a.h(Integer.parseInt(string), bundle.getString("payInfo"));
-            } catch (NumberFormatException e2) {
-                a.h(3, e2.getMessage());
-            }
-        }
-    }
-
-    public static void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
-            b.a().g(bundle);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
-            b.a().h("");
-        }
-    }
 }

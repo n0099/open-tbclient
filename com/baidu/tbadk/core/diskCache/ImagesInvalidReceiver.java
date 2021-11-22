@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.diskCache;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import b.a.e.e.m.f;
+import b.a.e.f.m.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

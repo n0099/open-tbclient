@@ -14,15 +14,15 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f43176a;
+    public static final String[] f44122a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f43177b;
+    public static final String[] f44123b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,8 +38,8 @@ public final class i {
                 return;
             }
         }
-        f43176a = new String[]{"java.lang.UnsatisfiedLinkError"};
-        f43177b = new String[]{"space left"};
+        f44122a = new String[]{"java.lang.UnsatisfiedLinkError"};
+        f44123b = new String[]{"space left"};
     }
 
     public static String a(Context context, String str, String str2) {
@@ -50,10 +50,10 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
             try {
-                if (str.contains(f43176a[0])) {
+                if (str.contains(f44122a[0])) {
                     c2 = 1;
                 } else {
-                    c2 = str.contains(f43177b[0]) ? (char) 2 : (char) 0;
+                    c2 = str.contains(f44123b[0]) ? (char) 2 : (char) 0;
                 }
                 if (c2 != 1) {
                     return c2 != 2 ? str : a(context, str);

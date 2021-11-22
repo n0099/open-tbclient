@@ -15,10 +15,10 @@ public class b extends b.a.r0.k0.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public ScaleGestureDetector f18604h;
+    public ScaleGestureDetector f20140h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC0942b f18605i;
+    public InterfaceC1011b f20141i;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -28,7 +28,7 @@ public class b extends b.a.r0.k0.a {
 
     /* renamed from: b.a.r0.k0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0942b {
+    public interface InterfaceC1011b {
         void a(boolean z);
     }
 
@@ -47,7 +47,7 @@ public class b extends b.a.r0.k0.a {
                 return;
             }
         }
-        this.f18604h = new ScaleGestureDetector(context, new c(this, null));
+        this.f20140h = new ScaleGestureDetector(context, new c(this, null));
     }
 
     @Override // b.a.r0.k0.a
@@ -56,7 +56,7 @@ public class b extends b.a.r0.k0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             try {
-                this.f18604h.onTouchEvent(motionEvent);
+                this.f20140h.onTouchEvent(motionEvent);
                 return super.c(motionEvent);
             } catch (Exception unused) {
                 return false;
@@ -65,10 +65,10 @@ public class b extends b.a.r0.k0.a {
         return invokeL.booleanValue;
     }
 
-    public void i(InterfaceC0942b interfaceC0942b) {
+    public void i(InterfaceC1011b interfaceC1011b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0942b) == null) {
-            this.f18605i = interfaceC0942b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1011b) == null) {
+            this.f20141i = interfaceC1011b;
         }
     }
 
@@ -78,10 +78,10 @@ public class b extends b.a.r0.k0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f18606e;
+        public boolean f20142e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f18607f;
+        public final /* synthetic */ b f20143f;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -98,8 +98,8 @@ public class b extends b.a.r0.k0.a {
                     return;
                 }
             }
-            this.f18607f = bVar;
-            this.f18606e = false;
+            this.f20143f = bVar;
+            this.f20142e = false;
         }
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
@@ -107,14 +107,14 @@ public class b extends b.a.r0.k0.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
-                if (scaleGestureDetector != null && this.f18607f.f18605i != null) {
+                if (scaleGestureDetector != null && this.f20143f.f20141i != null) {
                     float scaleFactor = scaleGestureDetector.getScaleFactor();
-                    if (!this.f18606e && scaleFactor > 1.0f) {
-                        this.f18606e = true;
-                        this.f18607f.f18605i.a(true);
-                    } else if (!this.f18606e && scaleFactor > 0.0f && scaleFactor < 1.0f) {
-                        this.f18606e = true;
-                        this.f18607f.f18605i.a(false);
+                    if (!this.f20142e && scaleFactor > 1.0f) {
+                        this.f20142e = true;
+                        this.f20143f.f20141i.a(true);
+                    } else if (!this.f20142e && scaleFactor > 0.0f && scaleFactor < 1.0f) {
+                        this.f20142e = true;
+                        this.f20143f.f20141i.a(false);
                     }
                 }
                 return true;
@@ -127,7 +127,7 @@ public class b extends b.a.r0.k0.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scaleGestureDetector)) == null) {
-                this.f18606e = false;
+                this.f20142e = false;
                 return true;
             }
             return invokeL.booleanValue;
@@ -137,7 +137,7 @@ public class b extends b.a.r0.k0.a {
         public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaleGestureDetector) == null) {
-                this.f18606e = true;
+                this.f20142e = true;
             }
         }
 

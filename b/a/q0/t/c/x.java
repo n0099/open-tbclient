@@ -10,28 +10,28 @@ public class x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f13880a;
+    public long f14653a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13881b;
+    public String f14654b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13882c;
+    public String f14655c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13883d;
+    public int f14656d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13884e;
+    public int f14657e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13885f;
+    public int f14658f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13886g;
+    public int f14659g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13887h;
+    public int f14660h;
 
     public x() {
         Interceptable interceptable = $ic;

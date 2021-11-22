@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.g;
 import b.a.e.a.j;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -143,7 +143,7 @@ public class c {
                 return null;
             }
             StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("tid", d2Var.f0()).param("fid", d2Var.T()).param("thread_type", d2Var.o1()).param("card_type", d2Var.Q0()).param("nid", d2Var.F0());
+            statisticItem.param("tid", d2Var.f0()).param("fid", d2Var.T()).param("thread_type", d2Var.p1()).param("card_type", d2Var.Q0()).param("nid", d2Var.F0());
             if (d2Var.L() != null && !k.isEmpty(d2Var.L().oriUgcVid)) {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
             }

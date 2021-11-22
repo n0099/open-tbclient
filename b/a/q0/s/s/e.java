@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.m0;
+import b.a.q0.c1.m0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
@@ -25,19 +25,19 @@ public class e implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f13547e;
+    public Activity f14329e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f13548f;
+    public View f14330f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f13549g;
+    public ViewGroup f14331g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f13550h;
+    public View f14332h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f13551i;
+    public TextView f14333i;
     public WindowManager j;
     public WindowManager.LayoutParams k;
     public int l;
@@ -57,7 +57,7 @@ public class e implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f13552e;
+        public final /* synthetic */ e f14334e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -74,14 +74,14 @@ public class e implements View.OnClickListener {
                     return;
                 }
             }
-            this.f13552e = eVar;
+            this.f14334e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13552e.e();
+                this.f14334e.e();
             }
         }
     }
@@ -107,29 +107,29 @@ public class e implements View.OnClickListener {
         if (activity == null) {
             return;
         }
-        this.f13547e = activity;
-        this.r = b.a.e.e.p.l.g(activity, R.dimen.tbds114);
-        this.p = b.a.e.e.p.l.g(activity, R.dimen.tbds84);
-        this.q = b.a.e.e.p.l.g(activity, R.dimen.tbds44);
-        this.m = b.a.e.e.p.l.g(activity, R.dimen.tbds222);
-        this.l = b.a.e.e.p.l.g(activity, R.dimen.tbds29);
+        this.f14329e = activity;
+        this.r = b.a.e.f.p.l.g(activity, R.dimen.tbds114);
+        this.p = b.a.e.f.p.l.g(activity, R.dimen.tbds84);
+        this.q = b.a.e.f.p.l.g(activity, R.dimen.tbds44);
+        this.m = b.a.e.f.p.l.g(activity, R.dimen.tbds222);
+        this.l = b.a.e.f.p.l.g(activity, R.dimen.tbds29);
         View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
-        this.f13549g = (ViewGroup) inflate.findViewById(R.id.layout_container);
-        this.f13550h = inflate.findViewById(R.id.background);
-        this.f13551i = (TextView) inflate.findViewById(R.id.toast_tv);
-        this.f13548f = inflate;
-        this.f13550h.setBackgroundDrawable(b());
-        this.f13551i.setMaxLines(1);
-        this.f13551i.setGravity(17);
-        this.f13551i.setTextSize(0, b.a.e.e.p.l.g(activity, R.dimen.tbfontsize40));
-        this.f13551i.setTextColor(this.f13547e.getResources().getColor(R.color.CAM_X0101));
-        TextView textView = this.f13551i;
+        this.f14331g = (ViewGroup) inflate.findViewById(R.id.layout_container);
+        this.f14332h = inflate.findViewById(R.id.background);
+        this.f14333i = (TextView) inflate.findViewById(R.id.toast_tv);
+        this.f14330f = inflate;
+        this.f14332h.setBackgroundDrawable(b());
+        this.f14333i.setMaxLines(1);
+        this.f14333i.setGravity(17);
+        this.f14333i.setTextSize(0, b.a.e.f.p.l.g(activity, R.dimen.tbfontsize40));
+        this.f14333i.setTextColor(this.f14329e.getResources().getColor(R.color.CAM_X0101));
+        TextView textView = this.f14333i;
         int i4 = this.q;
         textView.setPadding(i4, 0, i4, 0);
-        this.j = (WindowManager) this.f13547e.getSystemService("window");
+        this.j = (WindowManager) this.f14329e.getSystemService("window");
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         this.k = layoutParams;
-        layoutParams.width = b.a.e.e.p.l.k(this.f13547e) - (this.l * 2);
+        layoutParams.width = b.a.e.f.p.l.k(this.f14329e) - (this.l * 2);
         WindowManager.LayoutParams layoutParams2 = this.k;
         layoutParams2.height = this.r;
         layoutParams2.type = 1000;
@@ -156,13 +156,13 @@ public class e implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f13547e != null && !TextUtils.isEmpty(str)) {
+            if (this.f14329e != null && !TextUtils.isEmpty(str)) {
                 String e2 = m0.e(str, 34);
-                int t = b.a.e.e.p.l.t(this.f13551i.getPaint(), e2);
-                ViewGroup.LayoutParams layoutParams = this.f13549g.getLayoutParams();
+                int t = b.a.e.f.p.l.t(this.f14333i.getPaint(), e2);
+                ViewGroup.LayoutParams layoutParams = this.f14331g.getLayoutParams();
                 layoutParams.width = t + (this.q * 2);
-                this.f13549g.setLayoutParams(layoutParams);
-                this.f13551i.setText(e2);
+                this.f14331g.setLayoutParams(layoutParams);
+                this.f14333i.setText(e2);
             }
             return this;
         }
@@ -195,15 +195,15 @@ public class e implements View.OnClickListener {
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m + UtilHelper.getNavigationBarHeight(this.f13547e) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m + UtilHelper.getNavigationBarHeight(this.f14329e) : invokeV.intValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b.a.e.e.m.e.a().removeCallbacks(this.u);
-            if (this.f13548f.getWindowToken() != null) {
-                this.j.removeView(this.f13548f);
+            b.a.e.f.m.e.a().removeCallbacks(this.u);
+            if (this.f14330f.getWindowToken() != null) {
+                this.j.removeView(this.f14330f);
             }
         }
     }
@@ -230,8 +230,8 @@ public class e implements View.OnClickListener {
     public void i(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-            this.f13549g.setTag(obj);
-            this.f13549g.setOnClickListener(this);
+            this.f14331g.setTag(obj);
+            this.f14331g.setOnClickListener(this);
         }
     }
 
@@ -239,13 +239,13 @@ public class e implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            b.a.e.e.m.e.a().removeCallbacks(this.u);
-            View view = this.f13548f;
+            b.a.e.f.m.e.a().removeCallbacks(this.u);
+            View view = this.f14330f;
             if (view != null && view.getWindowToken() != null) {
-                this.j.removeView(this.f13548f);
+                this.j.removeView(this.f14330f);
             }
-            this.j.addView(this.f13548f, this.k);
-            b.a.e.e.m.e.a().postDelayed(this.u, this.o);
+            this.j.addView(this.f14330f, this.k);
+            b.a.e.f.m.e.a().postDelayed(this.u, this.o);
             return this;
         }
         return (e) invokeV.objValue;

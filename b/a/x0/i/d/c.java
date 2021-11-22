@@ -14,13 +14,13 @@ public class c implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f29584a;
+    public float f30453a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f29585b;
+    public byte[] f30454b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29586c;
+    public boolean f30455c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -41,15 +41,15 @@ public class c implements h {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i2)) == null) {
-            float f2 = this.f29584a;
+            float f2 = this.f30453a;
             if (f2 != 1.0d) {
                 if (bArr != null) {
-                    this.f29585b = c(bArr, f2);
+                    this.f30454b = c(bArr, f2);
                 }
                 return i2;
             }
-            this.f29585b = bArr;
-            this.f29586c = true;
+            this.f30454b = bArr;
+            this.f30455c = true;
             return i2;
         }
         return invokeLI.intValue;
@@ -60,7 +60,7 @@ public class c implements h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            float f2 = this.f29584a;
+            float f2 = this.f30453a;
             return f2 >= 0.0f && f2 <= 1.0f;
         }
         return invokeV.booleanValue;
@@ -81,9 +81,9 @@ public class c implements h {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (this.f29586c) {
-                this.f29586c = false;
-                return this.f29585b;
+            if (this.f30455c) {
+                this.f30455c = false;
+                return this.f30454b;
             }
             return null;
         }
@@ -93,7 +93,7 @@ public class c implements h {
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.f29584a = f2;
+            this.f30453a = f2;
         }
     }
 
@@ -111,8 +111,8 @@ public class c implements h {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f29586c = false;
-            this.f29585b = null;
+            this.f30455c = false;
+            this.f30454b = null;
         }
     }
 
@@ -143,8 +143,8 @@ public class c implements h {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f29586c = false;
-            this.f29585b = null;
+            this.f30455c = false;
+            this.f30454b = null;
         }
     }
 

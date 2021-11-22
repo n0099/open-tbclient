@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import b.a.p0.a.e2.c.j.b;
+import b.a.p0.a.h2.c.j.b;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.util.BdZeusUtil;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class o extends b.a.p0.a.e2.c.j.b {
+public class o extends b.a.p0.a.h2.c.j.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String v;
@@ -31,20 +31,20 @@ public class o extends b.a.p0.a.e2.c.j.b {
     }
 
     /* loaded from: classes.dex */
-    public class b extends b.a.p0.a.e2.c.e {
+    public class b extends b.a.p0.a.h2.c.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ o f9349g;
+        public final /* synthetic */ o f9932g;
 
         /* loaded from: classes.dex */
-        public class a implements b.a.p0.a.v2.e1.b<b.a.p0.a.e2.c.f> {
+        public class a implements b.a.p0.a.z2.g1.c<b.a.p0.a.h2.c.f> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f9350e;
+            public final /* synthetic */ b f9933e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -61,34 +61,34 @@ public class o extends b.a.p0.a.e2.c.j.b {
                         return;
                     }
                 }
-                this.f9350e = bVar;
+                this.f9933e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.p0.a.v2.e1.b
+            @Override // b.a.p0.a.z2.g1.c
             /* renamed from: a */
-            public void onCallback(b.a.p0.a.e2.c.f fVar) {
+            public void onCallback(b.a.p0.a.h2.c.f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                    if (b.a.p0.a.e2.c.c.f4884f) {
+                    if (b.a.p0.a.h2.c.c.f6362f) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("ListPreparation result: ");
                         sb.append(fVar == null ? StringUtil.NULL_STRING : fVar);
                         sb.toString();
                     }
-                    this.f9350e.f9349g.r = fVar;
+                    this.f9933e.f9932g.r = fVar;
                     if (fVar == null) {
-                        this.f9350e.e(new Exception("no such scope"));
+                        this.f9933e.e(new Exception("no such scope"));
                         return;
                     }
-                    if (fVar.c() && !this.f9350e.f9349g.q) {
-                        o oVar = this.f9350e.f9349g;
+                    if (fVar.e() && !this.f9933e.f9932g.q) {
+                        o oVar = this.f9933e.f9932g;
                         oVar.h(new c(oVar, null));
                     } else {
-                        o oVar2 = this.f9350e.f9349g;
-                        oVar2.h(new b.C0170b(oVar2));
+                        o oVar2 = this.f9933e.f9932g;
+                        oVar2.h(new b.C0276b(oVar2));
                     }
-                    this.f9350e.d();
+                    this.f9933e.d();
                 }
             }
         }
@@ -108,17 +108,17 @@ public class o extends b.a.p0.a.e2.c.j.b {
                     return;
                 }
             }
-            this.f9349g = oVar;
+            this.f9932g = oVar;
         }
 
-        @Override // b.a.p0.a.e2.c.e
+        @Override // b.a.p0.a.h2.c.e
         public boolean f() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (TextUtils.isEmpty(this.f9349g.s)) {
-                    if (this.f9349g.m.length <= 1) {
-                        b.a.p0.a.n1.q.c.a.i(this.f9349g.m[0], new a(this));
+                if (TextUtils.isEmpty(this.f9932g.s)) {
+                    if (this.f9932g.m.length <= 1) {
+                        b.a.p0.a.p1.r.c.a.i(this.f9932g.m[0], new a(this));
                         return false;
                     }
                     d();
@@ -136,12 +136,12 @@ public class o extends b.a.p0.a.e2.c.j.b {
     }
 
     /* loaded from: classes.dex */
-    public class c extends b.a.p0.a.e2.c.e implements b.a.p0.a.m.a {
+    public class c extends b.a.p0.a.h2.c.e implements b.a.p0.a.m.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ o f9351g;
+        public final /* synthetic */ o f9934g;
 
         public c(o oVar) {
             Interceptable interceptable = $ic;
@@ -158,32 +158,32 @@ public class o extends b.a.p0.a.e2.c.j.b {
                     return;
                 }
             }
-            this.f9351g = oVar;
+            this.f9934g = oVar;
         }
 
-        @Override // b.a.p0.a.e2.c.e
+        @Override // b.a.p0.a.h2.c.e
         public boolean f() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f9351g.q = true;
-                if (this.f9351g.M().j().e(this.f9351g.n)) {
-                    b.a.p0.a.e2.c.d.j("LoginPreparation: isLogin true", Boolean.FALSE);
-                    o oVar = this.f9351g;
+                this.f9934g.q = true;
+                if (this.f9934g.M().M().e(this.f9934g.n)) {
+                    b.a.p0.a.h2.c.d.k("LoginPreparation: isLogin true", Boolean.FALSE);
+                    o oVar = this.f9934g;
                     oVar.h(new d(oVar, null));
                     return true;
                 }
-                b.a.p0.a.a2.e M = this.f9351g.M();
-                if (!M.c0()) {
-                    if (this.f9351g.n instanceof Activity) {
-                        M.j().f((Activity) this.f9351g.n, null, this);
+                b.a.p0.a.d2.e M = this.f9934g.M();
+                if (!M.m0()) {
+                    if (this.f9934g.n instanceof Activity) {
+                        M.M().f((Activity) this.f9934g.n, null, this);
                         return false;
                     }
-                    b.a.p0.a.e2.c.d.j("login error context is not activity.", Boolean.TRUE);
+                    b.a.p0.a.h2.c.d.k("login error context is not activity.", Boolean.TRUE);
                     e(new OAuthException(10004));
                     return true;
                 }
-                b.a.p0.a.e2.c.d.j("this operation does not supported when app is invisible.", Boolean.TRUE);
+                b.a.p0.a.h2.c.d.k("this operation does not supported when app is invisible.", Boolean.TRUE);
                 e(new OAuthException(10004));
                 return true;
             }
@@ -194,16 +194,16 @@ public class o extends b.a.p0.a.e2.c.j.b {
         public void onResult(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                b.a.p0.a.e2.c.d.j("onResult :: " + i2, Boolean.FALSE);
+                b.a.p0.a.h2.c.d.k("onResult :: " + i2, Boolean.FALSE);
                 if (i2 == -2) {
-                    b.a.p0.a.e2.c.d.j("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
+                    b.a.p0.a.h2.c.d.k("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
                     e(new OAuthException(10004));
                 } else if (i2 != 0) {
-                    b.a.p0.a.e2.c.d.j("login error ERR_BY_LOGIN", Boolean.TRUE);
+                    b.a.p0.a.h2.c.d.k("login error ERR_BY_LOGIN", Boolean.TRUE);
                     e(new OAuthException(10004));
                 } else {
-                    b.a.p0.a.e2.c.d.j("Login Preparation ok, is already login", Boolean.FALSE);
-                    o oVar = this.f9351g;
+                    b.a.p0.a.h2.c.d.k("Login Preparation ok, is already login", Boolean.FALSE);
+                    o oVar = this.f9934g;
                     oVar.h(new d(oVar, null));
                     d();
                 }
@@ -216,20 +216,20 @@ public class o extends b.a.p0.a.e2.c.j.b {
     }
 
     /* loaded from: classes.dex */
-    public class d extends b.a.p0.a.e2.c.e {
+    public class d extends b.a.p0.a.h2.c.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ o f9352g;
+        public final /* synthetic */ o f9935g;
 
         /* loaded from: classes.dex */
-        public class a implements b.a.p0.a.v2.e1.b<Bundle> {
+        public class a implements b.a.p0.a.z2.g1.c<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f9353e;
+            public final /* synthetic */ d f9936e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -246,28 +246,28 @@ public class o extends b.a.p0.a.e2.c.j.b {
                         return;
                     }
                 }
-                this.f9353e = dVar;
+                this.f9936e = dVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.p0.a.v2.e1.b
+            @Override // b.a.p0.a.z2.g1.c
             /* renamed from: a */
             public void onCallback(Bundle bundle) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                     if (bundle == null) {
-                        this.f9353e.e(new OAuthException("null stoken", 10001));
+                        this.f9936e.e(new OAuthException("null stoken", 10001));
                         return;
                     }
                     String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
                     if (!TextUtils.isEmpty(string)) {
-                        this.f9353e.f9352g.v = string;
-                        o oVar = this.f9353e.f9352g;
+                        this.f9936e.f9935g.v = string;
+                        o oVar = this.f9936e.f9935g;
                         oVar.h(new b(oVar, null));
-                        this.f9353e.d();
+                        this.f9936e.d();
                         return;
                     }
-                    this.f9353e.e(new OAuthException("empty stoken", 10001));
+                    this.f9936e.e(new OAuthException("empty stoken", 10001));
                 }
             }
         }
@@ -287,15 +287,15 @@ public class o extends b.a.p0.a.e2.c.j.b {
                     return;
                 }
             }
-            this.f9352g = oVar;
+            this.f9935g = oVar;
         }
 
-        @Override // b.a.p0.a.e2.c.e
+        @Override // b.a.p0.a.h2.c.e
         public boolean f() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b.a.p0.b.l.a.t(this.f9352g.n, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                b.a.p0.b.l.a.t(this.f9935g.n, new a(this), BdZeusUtil.URL_KEY_MACHINE);
                 return false;
             }
             return invokeV.booleanValue;
@@ -330,7 +330,7 @@ public class o extends b.a.p0.a.e2.c.j.b {
         }
     }
 
-    @Override // b.a.p0.a.e2.c.j.b, b.a.p0.a.e2.c.j.h
+    @Override // b.a.p0.a.h2.c.j.b, b.a.p0.a.h2.c.j.h
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -339,7 +339,7 @@ public class o extends b.a.p0.a.e2.c.j.b {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.p0.a.e2.c.j.b, b.a.p0.a.e2.c.c
+    @Override // b.a.p0.a.h2.c.j.b, b.a.p0.a.h2.c.c
     /* renamed from: Z */
     public b.e m(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
@@ -347,8 +347,8 @@ public class o extends b.a.p0.a.e2.c.j.b {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             Context context = this.n;
             if (context instanceof Activity) {
-                b.a.p0.b.l.a.E((Activity) context, jSONObject);
-            } else if (b.a.p0.a.e2.c.c.f4884f) {
+                b.a.p0.b.l.a.D((Activity) context, jSONObject);
+            } else if (b.a.p0.a.h2.c.c.f6362f) {
                 Log.getStackTraceString(new Exception("context is not activity."));
             }
             return super.m(jSONObject);
@@ -356,7 +356,7 @@ public class o extends b.a.p0.a.e2.c.j.b {
         return (b.e) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.e2.c.j.b, b.a.p0.a.e2.c.c
+    @Override // b.a.p0.a.h2.c.j.b, b.a.p0.a.h2.c.c
     public boolean j() {
         InterceptResult invokeV;
         String[] strArr;
@@ -364,13 +364,13 @@ public class o extends b.a.p0.a.e2.c.j.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", M().k());
+                jSONObject.put("ma_id", M().N());
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("app_key", M().k());
+                jSONObject2.put("app_key", M().N());
                 jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject2.put("host_key_hash", b.a.p0.a.e2.c.d.g());
+                jSONObject2.put("host_key_hash", b.a.p0.a.h2.c.d.g());
                 jSONObject2.put("stoken", this.v);
-                String l = b.a.p0.a.c1.a.n().l();
+                String l = b.a.p0.a.c1.a.o().l();
                 if (!TextUtils.isEmpty(l)) {
                     jSONObject2.put("host_api_key", l);
                 }
@@ -394,12 +394,12 @@ public class o extends b.a.p0.a.e2.c.j.b {
         return invokeV.booleanValue;
     }
 
-    @Override // b.a.p0.a.e2.c.j.b, b.a.p0.a.e2.c.c
+    @Override // b.a.p0.a.h2.c.j.b, b.a.p0.a.h2.c.c
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (M().j().e(this.n)) {
+            if (M().M().e(this.n)) {
                 h(new d(this, null));
                 return true;
             }

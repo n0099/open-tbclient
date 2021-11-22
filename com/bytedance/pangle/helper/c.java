@@ -22,10 +22,10 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f61430a;
+    public static String f62329a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f61431b;
+    public static List<String> f62330b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public final class c {
                 return;
             }
         }
-        f61431b = new CopyOnWriteArrayList();
+        f62330b = new CopyOnWriteArrayList();
     }
 
     public static String a() {
@@ -99,14 +99,14 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (!TextUtils.isEmpty(f61430a)) {
-                return f61430a;
+            if (!TextUtils.isEmpty(f62329a)) {
+                return f62329a;
             }
             try {
                 int myPid = Process.myPid();
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
                     if (runningAppProcessInfo.pid == myPid) {
-                        f61430a = runningAppProcessInfo.processName;
+                        f62329a = runningAppProcessInfo.processName;
                         return runningAppProcessInfo.processName;
                     }
                 }
@@ -114,7 +114,7 @@ public final class c {
                 e2.printStackTrace();
             }
             String a2 = a();
-            f61430a = a2;
+            f62329a = a2;
             return a2;
         }
         return (String) invokeL.objValue;

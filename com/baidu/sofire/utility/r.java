@@ -20,12 +20,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class r {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43198a = "";
+    public static String f44144a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,11 +61,11 @@ public final class r {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f43198a)) {
+            if (TextUtils.isEmpty(f44144a)) {
                 new r();
-                f43198a = b(context);
+                f44144a = b(context);
             }
-            return f43198a;
+            return f44144a;
         }
         return (String) invokeL.objValue;
     }
@@ -196,7 +196,7 @@ public final class r {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 String o = a2.o();
                 if (TextUtils.isEmpty(o)) {
-                    String string = a2.f43072c.getString("rpnewuid", "");
+                    String string = a2.f44018c.getString("rpnewuid", "");
                     if (TextUtils.isEmpty(string)) {
                         return "";
                     }

@@ -11,7 +11,7 @@ public /* synthetic */ class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f40220a;
+    public static final /* synthetic */ int[] f41052a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,25 +28,25 @@ public /* synthetic */ class c {
             }
         }
         int[] iArr = new int[c.a.values().length];
-        f40220a = iArr;
+        f41052a = iArr;
         try {
-            iArr[c.a.f40253a.ordinal()] = 1;
+            iArr[c.a.f41085a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f40220a[c.a.f40255c.ordinal()] = 2;
+            f41052a[c.a.f41087c.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f40220a[c.a.f40257e.ordinal()] = 3;
+            f41052a[c.a.f41089e.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f40220a[c.a.f40254b.ordinal()] = 4;
+            f41052a[c.a.f41086b.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f40220a[c.a.f40256d.ordinal()] = 5;
+            f41052a[c.a.f41088d.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
     }

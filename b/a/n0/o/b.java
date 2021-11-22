@@ -13,7 +13,7 @@ public class b implements b.a.n0.n.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f3732a;
+    public a f3822a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class b implements b.a.n0.n.a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3732a.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3822a.a() : (String) invokeV.objValue;
     }
 
     @Override // b.a.n0.n.a
@@ -41,7 +41,7 @@ public class b implements b.a.n0.n.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             a aVar = new a(context);
-            this.f3732a = aVar;
+            this.f3822a = aVar;
             aVar.b();
         }
     }

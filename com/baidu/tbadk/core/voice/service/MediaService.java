@@ -42,7 +42,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaService f45652e;
+        public final /* synthetic */ MediaService f46502e;
 
         public a(MediaService mediaService) {
             Interceptable interceptable = $ic;
@@ -59,23 +59,23 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     return;
                 }
             }
-            this.f45652e = mediaService;
+            this.f46502e = mediaService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45652e.mHandler == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46502e.mHandler == null) {
                 return;
             }
-            int g2 = this.f45652e.mPlayer.g() + this.f45652e.mCurBeginSecond;
-            if (g2 != this.f45652e.mElapsedTime) {
-                this.f45652e.mElapsedTime = g2;
+            int g2 = this.f46502e.mPlayer.g() + this.f46502e.mCurBeginSecond;
+            if (g2 != this.f46502e.mElapsedTime) {
+                this.f46502e.mElapsedTime = g2;
                 Intent intent = new Intent("com.baidu.playElapsedTime");
-                intent.putExtra("com.baidu.msg.playElapsedTime", this.f45652e.mElapsedTime);
-                this.f45652e.sendBroadcast(intent);
+                intent.putExtra("com.baidu.msg.playElapsedTime", this.f46502e.mElapsedTime);
+                this.f46502e.sendBroadcast(intent);
             }
-            this.f45652e.mHandler.postDelayed(this.f45652e.mPlayTimeThread, 100L);
+            this.f46502e.mHandler.postDelayed(this.f46502e.mPlayTimeThread, 100L);
         }
     }
 
@@ -85,7 +85,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaService f45653e;
+        public final /* synthetic */ MediaService f46503e;
 
         public b(MediaService mediaService) {
             Interceptable interceptable = $ic;
@@ -102,21 +102,21 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     return;
                 }
             }
-            this.f45653e = mediaService;
+            this.f46503e = mediaService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int currentTimeMillis = (int) (System.currentTimeMillis() - this.f45653e.mStartRecorderTime);
-                if (this.f45653e.mElapsedTime != currentTimeMillis) {
-                    this.f45653e.mElapsedTime = currentTimeMillis / 1000;
+                int currentTimeMillis = (int) (System.currentTimeMillis() - this.f46503e.mStartRecorderTime);
+                if (this.f46503e.mElapsedTime != currentTimeMillis) {
+                    this.f46503e.mElapsedTime = currentTimeMillis / 1000;
                     Intent intent = new Intent("com.baidu.recordElapsedTime");
-                    intent.putExtra("com.baidu.msg.recordElapsedTime", this.f45653e.mElapsedTime);
-                    this.f45653e.sendBroadcast(intent);
+                    intent.putExtra("com.baidu.msg.recordElapsedTime", this.f46503e.mElapsedTime);
+                    this.f46503e.sendBroadcast(intent);
                 }
-                this.f45653e.mHandler.postDelayed(this.f45653e.mRecordTimeThread, 200L);
+                this.f46503e.mHandler.postDelayed(this.f46503e.mRecordTimeThread, 200L);
             }
         }
     }
@@ -127,7 +127,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaService f45654e;
+        public final /* synthetic */ MediaService f46504e;
 
         public c(MediaService mediaService) {
             Interceptable interceptable = $ic;
@@ -144,17 +144,17 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     return;
                 }
             }
-            this.f45654e = mediaService;
+            this.f46504e = mediaService;
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.f45654e.mPlayer == null || this.f45654e.mVoice == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.f46504e.mPlayer == null || this.f46504e.mVoice == null) {
                 return;
             }
-            this.f45654e.mPlayer.a();
-            this.f45654e.stopVoice(null);
+            this.f46504e.mPlayer.a();
+            this.f46504e.stopVoice(null);
         }
     }
 

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
                         d2 d2Var = new d2();
-                        d2Var.X2(optJSONObject2);
+                        d2Var.Z2(optJSONObject2);
                         this.followList.add(d2Var);
                     }
                 }
@@ -91,7 +91,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i5);
                     if (optJSONObject4 != null) {
                         d2 d2Var2 = new d2();
-                        d2Var2.X2(optJSONObject4);
+                        d2Var2.Z2(optJSONObject4);
                         this.recommendList.add(d2Var2);
                     }
                 }

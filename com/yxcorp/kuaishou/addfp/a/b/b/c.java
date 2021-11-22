@@ -5,39 +5,40 @@ import android.os.Build;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.text.TextUtils;
-import b.r.a.a.a.a.a;
-import b.r.a.a.a.b.b;
+import b.p.a.a.a.a.a;
+import b.p.a.a.a.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.ads.identifier.AdvertisingIdClient;
 /* loaded from: classes2.dex */
 public final class c implements b, com.yxcorp.kuaishou.addfp.a.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f71547a;
+    public Context f72467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71548b;
+    public String f72468b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f71549c;
+    public String f72469c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f71550d;
+    public String f72470d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f71551e;
+    public boolean f72471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f71552f;
+    public a f72472f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.r.a.a.a.b.c.a f71553g;
+    public b.p.a.a.a.b.c.a f72473g;
 
     public c(Context context, a aVar) {
         Interceptable interceptable = $ic;
@@ -54,33 +55,33 @@ public final class c implements b, com.yxcorp.kuaishou.addfp.a.b.b {
                 return;
             }
         }
-        this.f71548b = "";
-        this.f71549c = "";
-        this.f71550d = "";
-        this.f71551e = false;
-        this.f71547a = context;
-        this.f71552f = aVar;
-        this.f71553g = new b.r.a.a.a.b.c.a(context);
+        this.f72468b = "";
+        this.f72469c = "";
+        this.f72470d = "";
+        this.f72471e = false;
+        this.f72467a = context;
+        this.f72472f = aVar;
+        this.f72473g = new b.p.a.a.a.b.c.a(context);
     }
 
-    @Override // b.r.a.a.a.b.b
+    @Override // b.p.a.a.a.b.b
     public final void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
-                    String string = Settings.Global.getString(this.f71547a.getContentResolver(), "pps_oaid");
+                    String string = Settings.Global.getString(this.f72467a.getContentResolver(), AdvertisingIdClient.SETTINGS_AD_ID);
                     if (!TextUtils.isEmpty(string)) {
-                        this.f71548b = string;
-                        this.f71551e = true;
-                        if (this.f71552f != null) {
-                            this.f71552f.a(true, this);
+                        this.f72468b = string;
+                        this.f72471e = true;
+                        if (this.f72472f != null) {
+                            this.f72472f.a(true, this);
                         }
                     }
                 } catch (Throwable unused) {
                 }
             }
-            this.f71553g.d(this);
+            this.f72473g.d(this);
         }
     }
 
@@ -89,27 +90,27 @@ public final class c implements b, com.yxcorp.kuaishou.addfp.a.b.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             try {
-                if (TextUtils.isEmpty(str) || !str.equals(this.f71548b)) {
-                    this.f71548b = str;
+                if (TextUtils.isEmpty(str) || !str.equals(this.f72468b)) {
+                    this.f72468b = str;
                     if (TextUtils.isEmpty(str)) {
-                        if (this.f71552f != null) {
-                            this.f71552f.a(false, null);
+                        if (this.f72472f != null) {
+                            this.f72472f.a(false, null);
                             return;
                         }
                         return;
                     }
-                    this.f71551e = true;
-                    if (this.f71552f != null) {
-                        this.f71552f.a(true, this);
+                    this.f72471e = true;
+                    if (this.f72472f != null) {
+                        this.f72472f.a(true, this);
                     }
                 }
             } catch (Throwable th) {
-                b.r.a.a.c.b.c.c(th);
+                b.p.a.a.c.b.c.c(th);
             }
         }
     }
 
-    @Override // b.r.a.a.a.b.b
+    @Override // b.p.a.a.a.b.b
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -129,25 +130,25 @@ public final class c implements b, com.yxcorp.kuaishou.addfp.a.b.b {
         return (IBinder) invokeV.objValue;
     }
 
-    @Override // b.r.a.a.a.b.b
+    @Override // b.p.a.a.a.b.b
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f71548b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72468b : (String) invokeV.objValue;
     }
 
-    @Override // b.r.a.a.a.b.b
+    @Override // b.p.a.a.a.b.b
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f71551e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f72471e : invokeV.booleanValue;
     }
 
-    @Override // b.r.a.a.a.b.b
+    @Override // b.p.a.a.a.b.b
     public final void d() {
-        b.r.a.a.a.b.c.a aVar;
+        b.p.a.a.a.b.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f71553g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f72473g) == null) {
             return;
         }
         aVar.c();
@@ -157,7 +158,7 @@ public final class c implements b, com.yxcorp.kuaishou.addfp.a.b.b {
     public final void e() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f71552f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f72472f) == null) {
             return;
         }
         aVar.a(false, this);

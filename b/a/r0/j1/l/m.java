@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class m implements b.a.e.l.e.n {
+public class m implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId p;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18472e;
+    public boolean f19806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18473f;
+    public String f19807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18474g;
+    public String f19808g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18475h;
+    public String f19809h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f18476i;
+    public long f19810i;
     public String j;
     public long k;
     public String l;
@@ -65,16 +65,16 @@ public class m implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f18472e = false;
+        this.f19806e = false;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18472e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19806e : invokeV.booleanValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

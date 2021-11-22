@@ -21,27 +21,27 @@ public final class DeviceId {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g.a f40500b = null;
+    public static g.a f41332b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static g.a f40501c = null;
+    public static g.a f41333c = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile DeviceId f40502f = null;
+    public static volatile DeviceId f41334f = null;
     public static boolean sDataCuidInfoShable = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f40503a;
+    public final Context f41335a;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f40504d;
+    public g f41336d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f40505e;
+    public f f41337e;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f40506g;
+    public c f41338g;
 
     static {
         InterceptResult invokeClinit;
@@ -73,10 +73,10 @@ public final class DeviceId {
                 return;
             }
         }
-        this.f40503a = context.getApplicationContext();
-        this.f40506g = new c();
-        this.f40504d = new g(this.f40503a, new a(this.f40503a), this.f40506g);
-        this.f40505e = new f(this.f40503a, this.f40506g);
+        this.f41335a = context.getApplicationContext();
+        this.f41338g = new c();
+        this.f41336d = new g(this.f41335a, new a(this.f41335a), this.f41338g);
+        this.f41337e = new f(this.f41335a, this.f41338g);
     }
 
     public static DeviceId a(Context context) {
@@ -85,10 +85,10 @@ public final class DeviceId {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (e.class) {
-                if (f40502f == null) {
-                    f40502f = new DeviceId(context);
+                if (f41334f == null) {
+                    f41334f = new DeviceId(context);
                 }
-                deviceId = f40502f;
+                deviceId = f41334f;
             }
             return deviceId;
         }
@@ -100,7 +100,7 @@ public final class DeviceId {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             g.a a2 = a((String) null);
-            return a2 == null ? this.f40504d.a() : a2;
+            return a2 == null ? this.f41336d.a() : a2;
         }
         return (g.a) invokeV.objValue;
     }
@@ -109,7 +109,7 @@ public final class DeviceId {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-            g.a b2 = this.f40504d.b();
+            g.a b2 = this.f41336d.b();
             return b2 == null ? b(str) : b2;
         }
         return (g.a) invokeL.objValue;
@@ -119,16 +119,16 @@ public final class DeviceId {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (f40500b == null) {
+            if (f41332b == null) {
                 synchronized (e.class) {
-                    if (f40500b == null) {
+                    if (f41332b == null) {
                         SystemClock.uptimeMillis();
-                        f40500b = a(context).a();
+                        f41332b = a(context).a();
                         SystemClock.uptimeMillis();
                     }
                 }
             }
-            return f40500b;
+            return f41332b;
         }
         return (g.a) invokeL.objValue;
     }
@@ -137,9 +137,9 @@ public final class DeviceId {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
-            e a2 = this.f40505e.a(str);
+            e a2 = this.f41337e.a(str);
             if (a2 != null) {
-                return this.f40504d.a(a2);
+                return this.f41336d.a(a2);
             }
             return null;
         }
@@ -150,16 +150,16 @@ public final class DeviceId {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (f40501c == null) {
+            if (f41333c == null) {
                 synchronized (e.class) {
-                    if (f40501c == null) {
+                    if (f41333c == null) {
                         SystemClock.uptimeMillis();
-                        f40501c = a(context).f40504d.c();
+                        f41333c = a(context).f41336d.c();
                         SystemClock.uptimeMillis();
                     }
                 }
             }
-            return f40501c;
+            return f41333c;
         }
         return (g.a) invokeL.objValue;
     }

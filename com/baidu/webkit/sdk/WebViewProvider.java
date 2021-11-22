@@ -172,6 +172,8 @@ public interface WebViewProvider {
 
     Picture capturePicture(int i2, int i3, boolean z);
 
+    void capturePicture(int i2, int i3, ValueCallback<Picture> valueCallback);
+
     void clearCache(boolean z);
 
     boolean clearDiskJsCodeCache(String str);
@@ -207,6 +209,8 @@ public interface WebViewProvider {
     void enableMedia();
 
     void evaluateJavaScript(String str, ValueCallback<String> valueCallback);
+
+    void evaluateJavaScriptMethod(String str, String str2, String str3, ValueCallback<String> valueCallback);
 
     void evaluateJavaScriptOnPrerender(String str, ValueCallback<String> valueCallback);
 
@@ -365,6 +369,8 @@ public interface WebViewProvider {
     void postMessageToMainFrame(WebMessage webMessage, Uri uri);
 
     void postUrl(String str, byte[] bArr);
+
+    void reinjectJavascriptInterface();
 
     void reload();
 

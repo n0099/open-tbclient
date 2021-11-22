@@ -17,14 +17,14 @@ public abstract class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7995c;
+    public static final boolean f8485c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7996a;
+    public String f8486a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f7997b;
+    public d f8487b;
 
     /* loaded from: classes.dex */
     public class a implements b {
@@ -32,10 +32,10 @@ public abstract class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f7998a;
+        public final /* synthetic */ String f8488a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f7999b;
+        public final /* synthetic */ c f8489b;
 
         public a(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -52,18 +52,18 @@ public abstract class c {
                     return;
                 }
             }
-            this.f7999b = cVar;
-            this.f7998a = str;
+            this.f8489b = cVar;
+            this.f8488a = str;
         }
 
         @Override // b.a.p0.a.u.c.c.b
         public void a(b.a.p0.a.u.h.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                if (c.f7995c) {
-                    String str = this.f7999b.f7996a + " async callback: " + bVar.toString();
+                if (c.f8485c) {
+                    String str = this.f8489b.f8486a + " async callback: " + bVar.toString();
                 }
-                this.f7999b.f7997b.d(this.f7998a, bVar);
+                this.f8489b.f8487b.d(this.f8488a, bVar);
             }
         }
     }
@@ -86,7 +86,7 @@ public abstract class c {
                 return;
             }
         }
-        f7995c = k.f6397a;
+        f8485c = k.f6863a;
     }
 
     public c(@NonNull String str) {
@@ -104,7 +104,7 @@ public abstract class c {
                 return;
             }
         }
-        this.f7996a = str;
+        this.f8486a = str;
     }
 
     @NonNull
@@ -117,9 +117,9 @@ public abstract class c {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, dVar)) == null) {
-            this.f7997b = dVar;
-            if (f7995c) {
-                String str2 = this.f7996a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str;
+            this.f8487b = dVar;
+            if (f8485c) {
+                String str2 = this.f8486a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str;
             }
             return i() ? h(jSONObject) : g(jSONObject, str);
         }
@@ -130,18 +130,18 @@ public abstract class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
-            if (f7995c) {
-                String str2 = this.f7996a + " start handle async";
+            if (f8485c) {
+                String str2 = this.f8486a + " start handle async";
             }
             b.a.p0.a.u.h.b d2 = d(jSONObject, new a(this, str));
-            if (!d2.d("isSync", Boolean.FALSE)) {
-                if (f7995c) {
-                    String str3 = this.f7996a + " handleAsync encounter error, json exception";
+            if (!d2.h("isSync", Boolean.FALSE)) {
+                if (f8485c) {
+                    String str3 = this.f8486a + " handleAsync encounter error, json exception";
                 }
                 return new b.a.p0.a.u.h.b(1001, "make result json error");
             }
-            if (f7995c) {
-                String str4 = this.f7996a + " end handle async, processing in other thread, sync result: " + d2.toString();
+            if (f8485c) {
+                String str4 = this.f8486a + " end handle async, processing in other thread, sync result: " + d2.toString();
             }
             return d2;
         }
@@ -152,18 +152,18 @@ public abstract class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            if (f7995c) {
-                String str = this.f7996a + " start handle sync";
+            if (f8485c) {
+                String str = this.f8486a + " start handle sync";
             }
             b.a.p0.a.u.h.b e2 = e(jSONObject);
-            if (!e2.d("isSync", Boolean.TRUE)) {
-                if (f7995c) {
-                    String str2 = this.f7996a + " handleSync encounter error, json exception";
+            if (!e2.h("isSync", Boolean.TRUE)) {
+                if (f8485c) {
+                    String str2 = this.f8486a + " handleSync encounter error, json exception";
                 }
                 return new b.a.p0.a.u.h.b(1001, "make result json error");
             }
-            if (f7995c) {
-                String str3 = this.f7996a + " end handle sync, result: " + e2.toString();
+            if (f8485c) {
+                String str3 = this.f8486a + " end handle sync, result: " + e2.toString();
             }
             return e2;
         }

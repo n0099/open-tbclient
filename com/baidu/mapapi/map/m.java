@@ -12,7 +12,7 @@ public class m implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MapView f39585a;
+    public final /* synthetic */ MapView f40417a;
 
     public m(MapView mapView) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class m implements View.OnClickListener {
                 return;
             }
         }
-        this.f39585a = mapView;
+        this.f40417a = mapView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,18 +39,18 @@ public class m implements View.OnClickListener {
         com.baidu.mapsdkplatform.comapi.map.j jVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            jVar = this.f39585a.f39415e;
-            float f2 = jVar.a().f40115b;
-            jVar2 = this.f39585a.f39415e;
+            jVar = this.f40417a.f40247e;
+            float f2 = jVar.a().f40947b;
+            jVar2 = this.f40417a.f40247e;
             ab E = jVar2.a().E();
-            float f3 = E.f40067a - 1.0f;
-            E.f40067a = f3;
+            float f3 = E.f40899a - 1.0f;
+            E.f40899a = f3;
             if (f3 >= f2) {
                 f2 = f3;
             }
-            E.f40067a = f2;
+            E.f40899a = f2;
             BaiduMap.mapStatusReason |= 16;
-            jVar3 = this.f39585a.f39415e;
+            jVar3 = this.f40417a.f40247e;
             jVar3.a().a(E, 300);
         }
     }

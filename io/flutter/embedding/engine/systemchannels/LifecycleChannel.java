@@ -10,7 +10,7 @@ import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.StringCodec;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LifecycleChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LifecycleChannel";

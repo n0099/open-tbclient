@@ -14,7 +14,7 @@ public class c extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f30003h;
+    public static boolean f30872h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class c extends d {
                 return;
             }
         }
-        f30003h = b.a.y0.e.a.e();
+        f30872h = b.a.y0.e.a.e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,11 +51,11 @@ public class c extends d {
                 return;
             }
         }
-        boolean z = f30003h;
-        this.f29996d = "";
-        this.f29994b = false;
-        this.f29995c = false;
-        this.f29999g = -200;
+        boolean z = f30872h;
+        this.f30865d = "";
+        this.f30863b = false;
+        this.f30864c = false;
+        this.f30868g = -200;
     }
 
     @Override // b.a.y0.e.f.c
@@ -64,11 +64,11 @@ public class c extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                this.f29995c = b.m.b.a.b();
-                this.f29996d = b.m.b.a.a(this.f29993a);
-                this.f29999g = 0;
+                this.f30864c = b.k.b.a.b();
+                this.f30865d = b.k.b.a.a(this.f30862a);
+                this.f30868g = 0;
             } catch (Exception unused) {
-                boolean z = f30003h;
+                boolean z = f30872h;
             }
             return this;
         }

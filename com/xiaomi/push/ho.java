@@ -21,16 +21,16 @@ public class ho implements iq<ho, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f71118a;
+    public static final iy f72038a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f71119b;
+    public static final iy f72039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f71120c;
+    public static final iy f72040c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -59,9 +59,9 @@ public class ho implements iq<ho, Object>, Serializable, Cloneable {
             }
         }
         f508a = new jg("NormalConfig");
-        f71118a = new iy("", (byte) 8, (short) 1);
-        f71119b = new iy("", (byte) 15, (short) 2);
-        f71120c = new iy("", (byte) 8, (short) 3);
+        f72038a = new iy("", (byte) 8, (short) 1);
+        f72039b = new iy("", (byte) 15, (short) 2);
+        f72040c = new iy("", (byte) 8, (short) 3);
     }
 
     public ho() {
@@ -147,7 +147,7 @@ public class ho implements iq<ho, Object>, Serializable, Cloneable {
             jbVar.m527a();
             while (true) {
                 iy m523a = jbVar.m523a();
-                byte b2 = m523a.f71328a;
+                byte b2 = m523a.f72248a;
                 if (b2 == 0) {
                     break;
                 }
@@ -235,11 +235,11 @@ public class ho implements iq<ho, Object>, Serializable, Cloneable {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jbVar) == null) {
             m392a();
             jbVar.a(f508a);
-            jbVar.a(f71118a);
+            jbVar.a(f72038a);
             jbVar.a(this.f509a);
             jbVar.b();
             if (this.f512a != null) {
-                jbVar.a(f71119b);
+                jbVar.a(f72039b);
                 jbVar.a(new iz(StandardMessageCodec.LIST, this.f512a.size()));
                 for (hq hqVar : this.f512a) {
                     hqVar.b(jbVar);
@@ -248,7 +248,7 @@ public class ho implements iq<ho, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f510a != null && c()) {
-                jbVar.a(f71120c);
+                jbVar.a(f72040c);
                 jbVar.a(this.f510a.a());
                 jbVar.b();
             }

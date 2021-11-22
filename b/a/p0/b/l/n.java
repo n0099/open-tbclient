@@ -3,7 +3,7 @@ package b.a.p0.b.l;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import b.a.p0.a.e2.c.j.a;
+import b.a.p0.a.h2.c.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class n extends b.a.p0.a.e2.c.j.a {
+public class n extends b.a.p0.a.h2.c.j.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String q;
@@ -28,20 +28,20 @@ public class n extends b.a.p0.a.e2.c.j.a {
     }
 
     /* loaded from: classes.dex */
-    public class b extends b.a.p0.a.e2.c.e {
+    public class b extends b.a.p0.a.h2.c.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ n f9347g;
+        public final /* synthetic */ n f9930g;
 
         /* loaded from: classes.dex */
-        public class a implements b.a.p0.a.v2.e1.b<Bundle> {
+        public class a implements b.a.p0.a.z2.g1.c<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f9348e;
+            public final /* synthetic */ b f9931e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -58,26 +58,26 @@ public class n extends b.a.p0.a.e2.c.j.a {
                         return;
                     }
                 }
-                this.f9348e = bVar;
+                this.f9931e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.p0.a.v2.e1.b
+            @Override // b.a.p0.a.z2.g1.c
             /* renamed from: a */
             public void onCallback(Bundle bundle) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                     if (bundle == null) {
-                        this.f9348e.e(new OAuthException("null stoken", 10001));
+                        this.f9931e.e(new OAuthException("null stoken", 10001));
                         return;
                     }
                     String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
                     if (!TextUtils.isEmpty(string)) {
-                        this.f9348e.f9347g.q = string;
-                        this.f9348e.d();
+                        this.f9931e.f9930g.q = string;
+                        this.f9931e.d();
                         return;
                     }
-                    this.f9348e.e(new OAuthException("empty stoken", 10001));
+                    this.f9931e.e(new OAuthException("empty stoken", 10001));
                 }
             }
         }
@@ -97,15 +97,15 @@ public class n extends b.a.p0.a.e2.c.j.a {
                     return;
                 }
             }
-            this.f9347g = nVar;
+            this.f9930g = nVar;
         }
 
-        @Override // b.a.p0.a.e2.c.e
+        @Override // b.a.p0.a.h2.c.e
         public boolean f() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b.a.p0.b.l.a.t(this.f9347g.n, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                b.a.p0.b.l.a.t(this.f9930g.n, new a(this), BdZeusUtil.URL_KEY_MACHINE);
                 return false;
             }
             return invokeV.booleanValue;
@@ -140,42 +140,42 @@ public class n extends b.a.p0.a.e2.c.j.a {
         }
     }
 
-    @Override // b.a.p0.a.e2.c.j.a, b.a.p0.a.e2.c.j.h
+    @Override // b.a.p0.a.h2.c.j.a, b.a.p0.a.h2.c.j.h
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.I();
-            b.a.p0.a.n1.q.c.a.f();
+            b.a.p0.a.p1.r.c.a.f();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.p0.a.e2.c.j.a, b.a.p0.a.e2.c.c
+    @Override // b.a.p0.a.h2.c.j.a, b.a.p0.a.h2.c.c
     /* renamed from: P */
     public a.b m(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            b.a.p0.b.l.a.E(this.n, jSONObject);
+            b.a.p0.b.l.a.D(this.n, jSONObject);
             return super.m(jSONObject);
         }
         return (a.b) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.e2.c.j.a, b.a.p0.a.e2.c.c
+    @Override // b.a.p0.a.h2.c.j.a, b.a.p0.a.h2.c.c
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", M().k());
+                jSONObject.put("ma_id", M().N());
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("app_key", M().k());
+                jSONObject2.put("app_key", M().N());
                 jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject2.put("host_key_hash", b.a.p0.a.e2.c.d.g());
+                jSONObject2.put("host_key_hash", b.a.p0.a.h2.c.d.g());
                 jSONObject2.put("stoken", this.q);
-                String l = b.a.p0.a.c1.a.n().l();
+                String l = b.a.p0.a.c1.a.o().l();
                 if (!TextUtils.isEmpty(l)) {
                     jSONObject2.put("host_api_key", l);
                 }
@@ -194,7 +194,7 @@ public class n extends b.a.p0.a.e2.c.j.a {
         return invokeV.booleanValue;
     }
 
-    @Override // b.a.p0.a.e2.c.c
+    @Override // b.a.p0.a.h2.c.c
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

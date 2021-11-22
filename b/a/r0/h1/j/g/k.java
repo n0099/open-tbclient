@@ -3,7 +3,7 @@ package b.a.r0.h1.j.g;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.s;
+import b.a.e.m.e.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class k extends b.a.e.l.e.a<b.a.r0.h1.j.h.b, AdapterViewHolder<HotTopicRankLayout>> implements b.a.r0.h1.j.d {
+public class k extends b.a.e.m.e.a<b.a.r0.h1.j.h.b, AdapterViewHolder<HotTopicRankLayout>> implements b.a.r0.h1.j.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
@@ -24,7 +24,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.h1.j.h.b, AdapterViewHolder<HotTopicRa
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.h1.f.a.e.a.f17210a);
+        super(tbPageContext.getPageActivity(), b.a.r0.h1.f.a.e.a.f18678a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +45,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.h1.j.h.b, AdapterViewHolder<HotTopicRa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public AdapterViewHolder<HotTopicRankLayout> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -54,7 +54,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.h1.j.h.b, AdapterViewHolder<HotTopicRa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.h1.j.h.b bVar, AdapterViewHolder<HotTopicRankLayout> adapterViewHolder) {
         InterceptResult invokeCommon;

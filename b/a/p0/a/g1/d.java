@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Pair;
-import android.widget.AbsoluteLayout;
+import android.view.View;
 import androidx.annotation.NonNull;
 import b.a.p0.a.g1.e;
 import b.a.p0.a.p.b.a.k;
@@ -19,18 +19,18 @@ import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 public interface d extends e.b {
     b.a.p0.a.p.e.d A(String str);
 
-    AbsoluteLayout B(String str);
+    View B(String str);
 
     String C();
 
-    b.a.p0.a.a2.e D();
+    b.a.p0.a.d2.e D();
 
     void E(b.a.p0.a.f1.e.b bVar, b.a.p0.a.a1.b bVar2);
 
     k F();
 
     @NonNull
-    b.a.p0.a.k2.f.d G();
+    b.a.p0.a.o2.f.d G();
 
     b.a.p0.a.h0.g.f H();
 
@@ -38,15 +38,17 @@ public interface d extends e.b {
 
     SwanAppPropertyWindow J(Activity activity);
 
-    n K();
+    void K(String str);
 
-    SwanCoreVersion L();
+    n L();
 
-    boolean M();
+    SwanCoreVersion M();
 
-    void N();
+    boolean N();
 
-    n O();
+    void O();
+
+    n P();
 
     String a();
 
@@ -55,10 +57,10 @@ public interface d extends e.b {
     void c(b.a.p0.a.f1.e.b bVar, b.a.p0.a.a1.b bVar2);
 
     @NonNull
-    b.a.p0.a.a2.n.g d(String str, SwanAppConfigData swanAppConfigData, String str2);
+    b.a.p0.a.d2.n.g d(String str, SwanAppConfigData swanAppConfigData, String str2);
 
     @NonNull
-    b.a.p0.a.a2.n.g e(String str);
+    b.a.p0.a.d2.n.g e(String str);
 
     void exit();
 
@@ -69,13 +71,13 @@ public interface d extends e.b {
     b.a.p0.a.p.e.c h();
 
     @NonNull
-    b.a.p0.a.a2.n.g i(String str);
+    b.a.p0.a.d2.n.g i(String str);
 
     boolean j();
 
     void k(SwanAppActivity swanAppActivity);
 
-    void l(String str, b.a.p0.a.o0.d.a aVar);
+    void l(String str, b.a.p0.a.o0.d.b bVar);
 
     FullScreenFloatView m(Activity activity);
 
@@ -97,7 +99,7 @@ public interface d extends e.b {
 
     void t();
 
-    void u(b.a.p0.a.o0.d.a aVar);
+    void u(b.a.p0.a.o0.d.b bVar);
 
     void unregisterReceiver(Context context);
 
@@ -108,7 +110,7 @@ public interface d extends e.b {
     @NonNull
     Pair<Integer, Integer> x();
 
-    void y(b.a.p0.a.o0.d.d dVar, boolean z);
+    void y(b.a.p0.a.o0.d.e eVar, boolean z);
 
     String z();
 }

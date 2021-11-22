@@ -13,10 +13,10 @@ public class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDns.a f2969e;
+    public final /* synthetic */ BDHttpDns.a f3062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ ArrayList f2970f;
+    public final /* synthetic */ ArrayList f3063f;
 
     public a(BDHttpDns bDHttpDns, BDHttpDns.a aVar, ArrayList arrayList) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f2969e = aVar;
-        this.f2970f = arrayList;
+        this.f3062e = aVar;
+        this.f3063f = arrayList;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f2969e.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f2970f, null));
+            this.f3062e.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f3063f, null));
         }
     }
 }

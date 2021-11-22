@@ -3,11 +3,11 @@ package b.a.r0.p2.d;
 import b.a.r0.p2.j.p;
 /* loaded from: classes5.dex */
 public interface b {
-    p a();
+    p b();
 
-    void c(String str);
+    void d(String str);
 
-    void d();
+    void e();
 
-    void e(String str);
+    void f(String str);
 }

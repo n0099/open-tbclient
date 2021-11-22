@@ -19,6 +19,7 @@ import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
@@ -27,7 +28,6 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -61,7 +61,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f34304a;
+    public static b f35138a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -77,7 +77,7 @@ public final class b {
                 return;
             }
         }
-        f34304a = new b();
+        f35138a = new b();
     }
 
     public b() {
@@ -137,7 +137,7 @@ public final class b {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f34304a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f35138a : (b) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0024  */
@@ -347,7 +347,7 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0054 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0055 A[ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -522,7 +522,7 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
             try {
                 DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-                return Integer.toString(displayMetrics.widthPixels) + "*" + Integer.toString(displayMetrics.heightPixels);
+                return Integer.toString(displayMetrics.widthPixels) + ProxyConfig.MATCH_ALL_SCHEMES + Integer.toString(displayMetrics.heightPixels);
             } catch (Throwable unused) {
                 return "";
             }
@@ -963,8 +963,8 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x002e  */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0031  */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x002f  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0032  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -975,7 +975,7 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
             try {
                 Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-                int intExtra = registerReceiver.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, -1);
+                int intExtra = registerReceiver.getIntExtra("level", -1);
                 int intExtra2 = registerReceiver.getIntExtra("status", -1);
                 if (intExtra2 != 2 && intExtra2 != 5) {
                     z = false;

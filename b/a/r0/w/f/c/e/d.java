@@ -14,7 +14,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<SdkLiveInfoData> f24601a;
+    public ArrayList<SdkLiveInfoData> f26118a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -36,13 +36,13 @@ public class d {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) || jSONObject == null || (optJSONArray = jSONObject.optJSONArray("live_list")) == null || optJSONArray.length() <= 0) {
             return;
         }
-        this.f24601a = new ArrayList<>(optJSONArray.length());
+        this.f26118a = new ArrayList<>(optJSONArray.length());
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
                 sdkLiveInfoData.fromJson(optJSONObject, str);
-                this.f24601a.add(sdkLiveInfoData);
+                this.f26118a.add(sdkLiveInfoData);
             }
         }
     }

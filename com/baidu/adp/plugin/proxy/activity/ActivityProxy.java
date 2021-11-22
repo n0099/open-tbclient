@@ -42,9 +42,9 @@ import b.a.e.a.f;
 import b.a.e.a.g;
 import b.a.e.a.h;
 import b.a.e.a.i;
-import b.a.e.h.f.a;
-import b.a.e.h.k.d;
-import b.a.e.l.e.q;
+import b.a.e.i.f.a;
+import b.a.e.i.k.d;
+import b.a.e.m.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -53,6 +53,7 @@ import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -307,7 +308,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -576,7 +577,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         return invokeL.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public PluginBaseActivity getTarget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1513,7 +1514,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048684, this, view, layoutParams) == null) {
@@ -1521,14 +1522,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048685, this, intent, serviceConnection, i2)) == null) ? super.bindService(intent, serviceConnection, i2) : invokeLLI.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyCloseContextMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048686, this) == null) {
@@ -1536,7 +1537,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyCloseOptionsMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048687, this) == null) {
@@ -1544,63 +1545,63 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public PendingIntent proxyCreatePendingResult(int i2, Intent intent, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048688, this, new Object[]{Integer.valueOf(i2), intent, Integer.valueOf(i3)})) == null) ? super.createPendingResult(i2, intent, i3) : (PendingIntent) invokeCommon.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048689, this, motionEvent)) == null) ? super.dispatchGenericMotionEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyDispatchKeyEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048690, this, keyEvent)) == null) ? super.dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyDispatchKeyShortcutEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048691, this, keyEvent)) == null) ? super.dispatchKeyShortcutEvent(keyEvent) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyDispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048692, this, accessibilityEvent)) == null) ? super.dispatchPopulateAccessibilityEvent(accessibilityEvent) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyDispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, motionEvent)) == null) ? super.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyDispatchTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048694, this, motionEvent)) == null) ? super.dispatchTrackballEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public View proxyFindViewById(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048695, this, i2)) == null) ? super.findViewById(i2) : (View) invokeI.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048696, this) == null) {
@@ -1608,7 +1609,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyFinishActivity(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048697, this, i2) == null) {
@@ -1616,7 +1617,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyFinishActivityFromChild(Activity activity, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048698, this, activity, i2) == null) {
@@ -1624,7 +1625,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyFinishFromChild(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048699, this, activity) == null) {
@@ -1632,14 +1633,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public Context proxyGetApplicationContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) ? super.getApplicationContext() : (Context) invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public ComponentName proxyGetCallingActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1649,28 +1650,28 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         return (ComponentName) invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public String proxyGetCallingPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048702, this)) == null) ? super.getCallingPackage() : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public int proxyGetChangingConfigurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048703, this)) == null) ? super.getChangingConfigurations() : invokeV.intValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public View proxyGetCurrentFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048704, this)) == null) ? super.getCurrentFocus() : (View) invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public Intent proxyGetIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1683,126 +1684,126 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         return (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) ? super.getLastNonConfigurationInstance() : invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public LayoutInflater proxyGetLayoutInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048707, this)) == null) ? super.getLayoutInflater() : (LayoutInflater) invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public String proxyGetLocalClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) ? super.getLocalClassName() : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public MenuInflater proxyGetMenuInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048709, this)) == null) ? super.getMenuInflater() : (MenuInflater) invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public PackageManager proxyGetPackageManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048710, this)) == null) ? super.getPackageManager() : (PackageManager) invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public SharedPreferences proxyGetPreferences(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048711, this, i2)) == null) ? super.getPreferences(i2) : (SharedPreferences) invokeI.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public int proxyGetRequestedOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048712, this)) == null) ? super.getRequestedOrientation() : invokeV.intValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public SharedPreferences proxyGetSharedPreferences(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048713, this, str, i2)) == null) ? super.getSharedPreferences(str, i2) : (SharedPreferences) invokeLI.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public Object proxyGetSystemService(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048714, this, str)) == null) ? super.getSystemService(str) : invokeL.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public int proxyGetTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048715, this)) == null) ? super.getTaskId() : invokeV.intValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public int proxyGetWallpaperDesiredMinimumHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048716, this)) == null) ? super.getWallpaperDesiredMinimumHeight() : invokeV.intValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public int proxyGetWallpaperDesiredMinimumWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048717, this)) == null) ? super.getWallpaperDesiredMinimumWidth() : invokeV.intValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public Window proxyGetWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048718, this)) == null) ? super.getWindow() : (Window) invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public WindowManager proxyGetWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048719, this)) == null) ? super.getWindowManager() : (WindowManager) invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyHasWindowFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048720, this)) == null) ? super.hasWindowFocus() : invokeV.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyIsFinishing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) ? super.isFinishing() : invokeV.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyIsTaskRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048722, this)) == null) ? super.isTaskRoot() : invokeV.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyMoveTaskToBack(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeZ = interceptable.invokeZ(1048723, this, z)) == null) ? super.moveTaskToBack(z) : invokeZ.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048724, this, i2, i3, intent) == null) {
@@ -1810,7 +1811,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnApplyThemeResource(Resources.Theme theme, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048725, this, new Object[]{theme, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
@@ -1818,7 +1819,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048726, this) == null) {
@@ -1826,7 +1827,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048727, this) == null) {
@@ -1834,7 +1835,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnChildTitleChanged(Activity activity, CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048728, this, activity, charSequence) == null) {
@@ -1842,7 +1843,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048729, this, configuration) == null) {
@@ -1850,7 +1851,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnContentChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048730, this) == null) {
@@ -1858,14 +1859,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnContextItemSelected(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048731, this, menuItem)) == null) ? super.onContextItemSelected(menuItem) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnContextMenuClosed(Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048732, this, menu) == null) {
@@ -1873,7 +1874,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048733, this, bundle) == null) {
@@ -1881,7 +1882,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048734, this, contextMenu, view, contextMenuInfo) == null) {
@@ -1889,28 +1890,28 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnCreatePanelMenu(int i2, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048735, this, i2, menu)) == null) ? super.onCreatePanelMenu(i2, menu) : invokeIL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnCreateThumbnail(Bitmap bitmap, Canvas canvas) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048736, this, bitmap, canvas)) == null) ? super.onCreateThumbnail(bitmap, canvas) : invokeLL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public View proxyOnCreateView(String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048738, this, str, context, attributeSet)) == null) ? super.onCreateView(str, context, attributeSet) : (View) invokeLLL.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048739, this) == null) {
@@ -1918,7 +1919,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048740, this) == null) {
@@ -1926,35 +1927,35 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048741, this, i2, keyEvent)) == null) ? super.onKeyDown(i2, keyEvent) : invokeIL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnKeyLongPress(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048742, this, i2, keyEvent)) == null) ? super.onKeyLongPress(i2, keyEvent) : invokeIL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnKeyMultiple(int i2, int i3, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048743, this, i2, i3, keyEvent)) == null) ? super.onKeyMultiple(i2, i3, keyEvent) : invokeIIL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnKeyUp(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048744, this, i2, keyEvent)) == null) ? super.onKeyUp(i2, keyEvent) : invokeIL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnLowMemory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048745, this) == null) {
@@ -1962,28 +1963,28 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnMenuItemSelected(int i2, MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048746, this, i2, menuItem)) == null) ? super.onMenuItemSelected(i2, menuItem) : invokeIL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnMenuOpened(int i2, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048747, this, i2, menu)) == null) ? super.onMenuOpened(i2, menu) : invokeIL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnOptionsItemSelected(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048748, this, menuItem)) == null) ? super.onOptionsItemSelected(menuItem) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnOptionsMenuClosed(Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048749, this, menu) == null) {
@@ -1991,7 +1992,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnPanelClosed(int i2, Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048750, this, i2, menu) == null) {
@@ -1999,7 +2000,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048751, this) == null) {
@@ -2007,7 +2008,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnPostCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048752, this, bundle) == null) {
@@ -2015,7 +2016,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnPostResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048753, this) == null) {
@@ -2023,7 +2024,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnPrepareDialog(int i2, Dialog dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048754, this, i2, dialog) == null) {
@@ -2031,21 +2032,21 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnPrepareOptionsMenu(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048755, this, menu)) == null) ? super.onPrepareOptionsMenu(menu) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnPreparePanel(int i2, View view, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeILL = interceptable.invokeILL(1048756, this, i2, view, menu)) == null) ? super.onPreparePanel(i2, view, menu) : invokeILL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnRestart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048757, this) == null) {
@@ -2053,7 +2054,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnRestoreInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048758, this, bundle) == null) {
@@ -2061,7 +2062,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048759, this) == null) {
@@ -2069,14 +2070,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public Object proxyOnRetainNonConfigurationInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048760, this)) == null) ? super.onRetainNonConfigurationInstance() : invokeV.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048761, this, bundle) == null) {
@@ -2084,14 +2085,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnSearchRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048762, this)) == null) ? super.onSearchRequested() : invokeV.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048763, this) == null) {
@@ -2099,7 +2100,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048764, this) == null) {
@@ -2107,7 +2108,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnTitleChanged(CharSequence charSequence, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048765, this, charSequence, i2) == null) {
@@ -2115,21 +2116,21 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048766, this, motionEvent)) == null) ? super.onTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyOnTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048767, this, motionEvent)) == null) ? super.onTrackballEvent(motionEvent) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnUserInteraction() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048768, this) == null) {
@@ -2137,7 +2138,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048769, this, layoutParams) == null) {
@@ -2145,7 +2146,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOnWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048770, this, z) == null) {
@@ -2153,7 +2154,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOpenContextMenu(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048771, this, view) == null) {
@@ -2161,7 +2162,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOpenOptionsMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048772, this) == null) {
@@ -2169,7 +2170,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyOverridePendingTransition(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048773, this, i2, i3) == null) {
@@ -2177,7 +2178,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyRegisterForContextMenu(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048774, this, view) == null) {
@@ -2185,7 +2186,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxySetContentView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048775, this, i2) == null) {
@@ -2193,7 +2194,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxySetIntent(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048778, this, intent) == null) {
@@ -2201,7 +2202,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxySetRequestedOrientation(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048779, this, i2) == null) {
@@ -2209,7 +2210,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxySetTitle(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048780, this, i2) == null) {
@@ -2217,7 +2218,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxySetTitleColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048782, this, i2) == null) {
@@ -2225,7 +2226,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxySetVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048783, this, z) == null) {
@@ -2233,7 +2234,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyStartActivity(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048784, this, intent) == null) {
@@ -2241,7 +2242,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyStartActivityForResult(Intent intent, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048785, this, intent, i2) == null) {
@@ -2249,7 +2250,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyStartActivityFromChild(Activity activity, Intent intent, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048786, this, activity, intent, i2) == null) {
@@ -2257,14 +2258,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyStartActivityIfNeeded(Intent intent, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048787, this, intent, i2)) == null) ? super.startActivityIfNeeded(intent, i2) : invokeLI.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048788, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -2272,7 +2273,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyStartIntentSenderForResult(IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048789, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
@@ -2287,7 +2288,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyStartManagingCursor(Cursor cursor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048791, this, cursor) == null) {
@@ -2295,14 +2296,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyStartNextMatchingActivity(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048792, this, intent)) == null) ? super.startNextMatchingActivity(intent) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyStartSearch(String str, boolean z, Bundle bundle, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048793, this, new Object[]{str, Boolean.valueOf(z), bundle, Boolean.valueOf(z2)}) == null) {
@@ -2310,14 +2311,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public ComponentName proxyStartService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048794, this, intent)) == null) ? super.startService(intent) : (ComponentName) invokeL.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyStopManagingCursor(Cursor cursor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048795, this, cursor) == null) {
@@ -2325,14 +2326,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public boolean proxyStopService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048796, this, intent)) == null) ? super.stopService(intent) : invokeL.booleanValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyTakeKeyEvents(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048797, this, z) == null) {
@@ -2340,7 +2341,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxyUnregisterForContextMenu(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048798, this, view) == null) {
@@ -2368,7 +2369,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context, b.a.e.h.f.a
+    @Override // android.content.ContextWrapper, android.content.Context, b.a.e.i.f.a
     public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -2662,7 +2663,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context, b.a.e.h.f.a
+    @Override // android.content.ContextWrapper, android.content.Context, b.a.e.i.f.a
     public void unregisterReceiver(BroadcastReceiver broadcastReceiver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048827, this, broadcastReceiver) == null) {
@@ -2670,14 +2671,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048737, this, view, str, context, attributeSet)) == null) ? super.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxySetContentView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048776, this, view) == null) {
@@ -2685,7 +2686,7 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxySetTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048781, this, charSequence) == null) {
@@ -2706,10 +2707,11 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
             } else {
                 super.onCreate(bundle);
             }
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 
-    @Override // b.a.e.h.f.a
+    @Override // b.a.e.i.f.a
     public void proxySetContentView(View view, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048777, this, view, layoutParams) == null) {

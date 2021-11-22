@@ -16,31 +16,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20169a;
+    public String f21691a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20170b;
+    public String f21692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f20171c;
+    public String f21693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f20172d;
+    public long f21694d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20173e;
+    public int f21695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f20174f;
+    public long f21696f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20175g;
+    public int f21697g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f20176h;
+    public String f21698h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20177i;
+    public int f21699i;
     public RecommendForumInfo j;
     public ThreadInfo k;
 
@@ -61,25 +61,25 @@ public class b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20177i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21699i : invokeV.intValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20174f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21696f : invokeV.longValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20170b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21692b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20176h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21698h : (String) invokeV.objValue;
     }
 
     public RecommendForumInfo e() {
@@ -91,25 +91,25 @@ public class b {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20171c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21693c : (String) invokeV.objValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20172d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21694d : invokeV.longValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20173e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21695e : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20175g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21697g : invokeV.intValue;
     }
 
     public ThreadInfo j() {
@@ -121,7 +121,7 @@ public class b {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f20169a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f21691a : (String) invokeV.objValue;
     }
 
     public void l(BroadcastInfo broadcastInfo) {
@@ -129,16 +129,16 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, broadcastInfo) == null) || broadcastInfo == null) {
             return;
         }
-        this.f20174f = broadcastInfo.bcast_id.longValue();
-        this.f20169a = broadcastInfo.title;
-        this.f20170b = broadcastInfo.content;
-        this.f20171c = broadcastInfo.pic_url;
-        this.f20172d = broadcastInfo.publish_time.intValue();
-        this.f20173e = broadcastInfo.pushuser_cnt.intValue();
+        this.f21696f = broadcastInfo.bcast_id.longValue();
+        this.f21691a = broadcastInfo.title;
+        this.f21692b = broadcastInfo.content;
+        this.f21693c = broadcastInfo.pic_url;
+        this.f21694d = broadcastInfo.publish_time.intValue();
+        this.f21695e = broadcastInfo.pushuser_cnt.intValue();
         this.j = broadcastInfo.forum_info;
         this.k = broadcastInfo.thread_infos;
-        this.f20176h = broadcastInfo.ctr;
-        this.f20175g = broadcastInfo.pv.intValue();
-        this.f20177i = broadcastInfo.audit_status.intValue();
+        this.f21698h = broadcastInfo.ctr;
+        this.f21697g = broadcastInfo.pv.intValue();
+        this.f21699i = broadcastInfo.audit_status.intValue();
     }
 }

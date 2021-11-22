@@ -1,9 +1,9 @@
 package com.google.common.base;
 
-import b.i.d.a.g;
-import b.i.d.a.h;
-import b.i.d.a.n;
-import b.i.d.a.o;
+import b.h.d.a.g;
+import b.h.d.a.h;
+import b.h.d.a.n;
+import b.h.d.a.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class Functions$PredicateFunction<T> implements g<T, Boolean>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -26,12 +26,12 @@ public class Functions$PredicateFunction<T> implements g<T, Boolean>, Serializab
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // b.i.d.a.g
+    @Override // b.h.d.a.g
     public /* bridge */ /* synthetic */ Boolean apply(Object obj) {
         return apply((Functions$PredicateFunction<T>) obj);
     }
 
-    @Override // b.i.d.a.g
+    @Override // b.h.d.a.g
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class Functions$PredicateFunction<T> implements g<T, Boolean>, Serializab
     }
 
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // b.i.d.a.g
+    @Override // b.h.d.a.g
     public Boolean apply(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

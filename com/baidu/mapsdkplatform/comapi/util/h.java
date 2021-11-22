@@ -28,23 +28,23 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile h f40409a;
+    public static volatile h f41241a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40410b;
+    public boolean f41242b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40411c;
+    public boolean f41243c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<g> f40412d;
+    public final List<g> f41244d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f40413e;
+    public g f41245e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40414f;
+    public String f41246f;
 
     static {
         InterceptResult invokeClinit;
@@ -74,24 +74,24 @@ public final class h {
                 return;
             }
         }
-        this.f40410b = false;
-        this.f40411c = true;
-        this.f40412d = new ArrayList();
-        this.f40413e = null;
+        this.f41242b = false;
+        this.f41243c = true;
+        this.f41244d = new ArrayList();
+        this.f41245e = null;
     }
 
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f40409a == null) {
+            if (f41241a == null) {
                 synchronized (h.class) {
-                    if (f40409a == null) {
-                        f40409a = new h();
+                    if (f41241a == null) {
+                        f41241a = new h();
                     }
                 }
             }
-            return f40409a;
+            return f41241a;
         }
         return (h) invokeV.objValue;
     }
@@ -152,10 +152,10 @@ public final class h {
                             if ("mounted".equals(method2.invoke(storageManager, objArr3))) {
                                 boolean z2 = !((Boolean) method3.invoke(obj, new Object[0])).booleanValue();
                                 if (Build.VERSION.SDK_INT <= 19 && a(str)) {
-                                    this.f40412d.add(new g(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
+                                    this.f41244d.add(new g(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
                                 } else if (Build.VERSION.SDK_INT >= 19) {
                                     if (new File(str + File.separator + "BaiduMapSDKNew").exists() && str.equals(context.getSharedPreferences("map_pref", 0).getString("PREFFERED_SD_CARD", ""))) {
-                                        this.f40414f = str + File.separator + "BaiduMapSDKNew";
+                                        this.f41246f = str + File.separator + "BaiduMapSDKNew";
                                     }
                                 }
                             }
@@ -167,10 +167,10 @@ public final class h {
                     if (Build.VERSION.SDK_INT >= 19) {
                         File[] externalFilesDirs = context.getExternalFilesDirs(null);
                         ArrayList arrayList = new ArrayList();
-                        arrayList.addAll(this.f40412d);
+                        arrayList.addAll(this.f41244d);
                         for (int i4 = 0; i4 < externalFilesDirs.length && externalFilesDirs[i4] != null; i4++) {
                             String absolutePath = externalFilesDirs[i4].getAbsolutePath();
-                            Iterator<g> it = this.f40412d.iterator();
+                            Iterator<g> it = this.f41244d.iterator();
                             while (true) {
                                 if (it.hasNext()) {
                                     if (absolutePath.startsWith(it.next().a())) {
@@ -187,8 +187,8 @@ public final class h {
                                 arrayList.add(new g(absolutePath, true, "外置存储卡", context));
                             }
                         }
-                        this.f40412d.clear();
-                        this.f40412d.addAll(arrayList);
+                        this.f41244d.clear();
+                        this.f41244d.addAll(arrayList);
                     }
                 }
             } catch (Exception e2) {
@@ -255,12 +255,12 @@ public final class h {
                     scanner.close();
                 }
                 String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                this.f40412d.add(new g(absolutePath, false, "Auto", context));
+                this.f41244d.add(new g(absolutePath, false, "Auto", context));
                 for (String str2 : arrayList) {
                     if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
                         File file3 = new File(str2);
                         if (file3.exists() && file3.isDirectory() && file3.canWrite()) {
-                            this.f40412d.add(new g(str2, false, "Auto", context));
+                            this.f41244d.add(new g(str2, false, "Auto", context));
                         }
                     }
                 }
@@ -278,10 +278,10 @@ public final class h {
     */
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f40410b) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f41242b) {
             return;
         }
-        this.f40410b = true;
+        this.f41242b = true;
         try {
             if (Build.VERSION.SDK_INT >= 14) {
                 c(context);
@@ -295,10 +295,10 @@ public final class h {
         } catch (Exception e3) {
             e3.printStackTrace();
         }
-        if (this.f40412d.size() > 0) {
+        if (this.f41244d.size() > 0) {
             r2 = null;
             int i2 = 0;
-            for (g gVar : this.f40412d) {
+            for (g gVar : this.f41244d) {
                 if (new File(gVar.b()).exists()) {
                     i2++;
                     r2 = gVar;
@@ -306,43 +306,43 @@ public final class h {
             }
             if (i2 == 0) {
                 g b2 = b(context);
-                this.f40413e = b2;
+                this.f41245e = b2;
                 if (b2 == null) {
-                    for (g gVar2 : this.f40412d) {
+                    for (g gVar2 : this.f41244d) {
                         if (a(context, gVar2)) {
-                            this.f40413e = gVar2;
+                            this.f41245e = gVar2;
                             break;
                         }
                     }
                 }
-                if (this.f40413e == null) {
-                    this.f40413e = this.f40412d.get(0);
+                if (this.f41245e == null) {
+                    this.f41245e = this.f41244d.get(0);
                 }
             } else {
                 if (i2 != 1) {
-                    this.f40413e = b(context);
+                    this.f41245e = b(context);
                 } else if (a(context, gVar2)) {
-                    this.f40413e = gVar2;
+                    this.f41245e = gVar2;
                     break;
                 }
-                if (this.f40413e == null) {
+                if (this.f41245e == null) {
                 }
             }
             e3.printStackTrace();
         }
         try {
-            if (this.f40413e == null || !a(this.f40413e.a())) {
-                this.f40411c = false;
-                this.f40413e = new g(context);
-                this.f40412d.clear();
-                this.f40412d.add(this.f40413e);
+            if (this.f41245e == null || !a(this.f41245e.a())) {
+                this.f41243c = false;
+                this.f41245e = new g(context);
+                this.f41244d.clear();
+                this.f41244d.add(this.f41245e);
                 return;
             }
-            File file = new File(this.f40413e.b());
+            File file = new File(this.f41245e.b());
             if (!file.exists()) {
                 file.mkdirs();
             }
-            File file2 = new File(this.f40413e.c());
+            File file2 = new File(this.f41245e.c());
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -374,7 +374,7 @@ public final class h {
     public g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40413e : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41245e : (g) invokeV.objValue;
     }
 
     public g b(Context context) {
@@ -385,7 +385,7 @@ public final class h {
             if (string == null || string.length() <= 0) {
                 return null;
             }
-            for (g gVar : this.f40412d) {
+            for (g gVar : this.f41244d) {
                 if (gVar.a().equals(string)) {
                     return gVar;
                 }

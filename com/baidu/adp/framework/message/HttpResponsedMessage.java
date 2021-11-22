@@ -1,7 +1,7 @@
 package com.baidu.adp.framework.message;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.j.a.e;
+import b.a.e.f.j.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

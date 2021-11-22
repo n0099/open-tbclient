@@ -1,7 +1,7 @@
 package b.a.q0.d0.i;
 
 import android.graphics.Bitmap;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ public class g extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12067a;
+    public String f12945a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class g extends b {
                 return;
             }
         }
-        this.f12067a = "";
+        this.f12945a = "";
     }
 
     @Override // b.a.q0.d0.i.b
@@ -51,7 +51,7 @@ public class g extends b {
                 return null;
             }
             b.a.q0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.loadResizedBitmap(this.f12067a, l.k(TbadkCoreApplication.getInst()), l.i(TbadkCoreApplication.getInst()));
+            return BitmapHelper.loadResizedBitmap(this.f12945a, l.k(TbadkCoreApplication.getInst()), l.i(TbadkCoreApplication.getInst()));
         }
         return (Bitmap) invokeLZ.objValue;
     }
@@ -73,7 +73,7 @@ public class g extends b {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f12067a = str;
+            this.f12945a = str;
         }
     }
 }

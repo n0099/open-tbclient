@@ -1,7 +1,6 @@
 package b.a.r0.w.l.d;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,7 @@ public class a extends b.a.q0.s.q.p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25171a;
+    public String f26688a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,7 +32,7 @@ public class a extends b.a.q0.s.q.p {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25171a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26688a : (String) invokeV.objValue;
     }
 
     @Override // b.a.q0.s.q.p
@@ -42,6 +41,6 @@ public class a extends b.a.q0.s.q.p {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f25171a = jSONObject.optString(LoginConstants.QQ_LOGIN, "");
+        this.f26688a = jSONObject.optString("qq", "");
     }
 }

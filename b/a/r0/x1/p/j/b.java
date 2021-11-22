@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,30 +40,30 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
     public RTCCommStatesReport v;
     public String w;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements BRTCPlayerEvents {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f27068a;
+        public final /* synthetic */ b f28600a;
 
         /* renamed from: b.a.r0.x1.p.j.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC1331a implements Runnable {
+        /* loaded from: classes6.dex */
+        public class RunnableC1400a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f27069e;
+            public final /* synthetic */ int f28601e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f27070f;
+            public final /* synthetic */ String f28602f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f27071g;
+            public final /* synthetic */ a f28603g;
 
-            public RunnableC1331a(a aVar, int i2, String str) {
+            public RunnableC1400a(a aVar, int i2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,33 +78,33 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
                         return;
                     }
                 }
-                this.f27071g = aVar;
-                this.f27069e = i2;
-                this.f27070f = str;
+                this.f28603g = aVar;
+                this.f28601e = i2;
+                this.f28602f = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 IVideoPlayerCallback iVideoPlayerCallback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVideoPlayerCallback = this.f27071g.f27068a.f27062i) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVideoPlayerCallback = this.f28603g.f28600a.f28594i) == null) {
                     return;
                 }
-                int i2 = this.f27069e;
-                iVideoPlayerCallback.onError(i2, 0, this.f27070f + this.f27071g.f27068a.w);
+                int i2 = this.f28601e;
+                iVideoPlayerCallback.onError(i2, 0, this.f28602f + this.f28603g.f28600a.w);
             }
         }
 
         /* renamed from: b.a.r0.x1.p.j.b$a$b  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC1332b implements Runnable {
+        /* loaded from: classes6.dex */
+        public class RunnableC1401b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f27072e;
+            public final /* synthetic */ a f28604e;
 
-            public RunnableC1332b(a aVar) {
+            public RunnableC1401b(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,36 +119,36 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
                         return;
                     }
                 }
-                this.f27072e = aVar;
+                this.f28604e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 IVideoPlayerCallback iVideoPlayerCallback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVideoPlayerCallback = this.f27072e.f27068a.f27062i) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVideoPlayerCallback = this.f28604e.f28600a.f28594i) == null) {
                     return;
                 }
                 iVideoPlayerCallback.onInfo(904, 0);
-                this.f27072e.f27068a.f27062i.onInfo(3, 0);
-                this.f27072e.f27068a.f27062i.onInfo(CyberPlayerManager.MEDIA_INFO_PROCESS, 0);
-                this.f27072e.f27068a.f27062i.onInfo(702, 0);
+                this.f28604e.f28600a.f28594i.onInfo(3, 0);
+                this.f28604e.f28600a.f28594i.onInfo(CyberPlayerManager.MEDIA_INFO_PROCESS, 0);
+                this.f28604e.f28600a.f28594i.onInfo(702, 0);
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f27073e;
+            public final /* synthetic */ int f28605e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Object f27074f;
+            public final /* synthetic */ Object f28606f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f27075g;
+            public final /* synthetic */ a f28607g;
 
             public c(a aVar, int i2, Object obj) {
                 Interceptable interceptable = $ic;
@@ -165,53 +165,53 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
                         return;
                     }
                 }
-                this.f27075g = aVar;
-                this.f27073e = i2;
-                this.f27074f = obj;
+                this.f28607g = aVar;
+                this.f28605e = i2;
+                this.f28606f = obj;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 IVideoPlayerCallback iVideoPlayerCallback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVideoPlayerCallback = this.f27075g.f27068a.f27062i) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVideoPlayerCallback = this.f28607g.f28600a.f28594i) == null) {
                     return;
                 }
-                iVideoPlayerCallback.onInfo(this.f27073e, 0);
-                if (this.f27073e == 1003 && this.f27075g.f27068a.s.isPlaying()) {
-                    Object obj = this.f27074f;
+                iVideoPlayerCallback.onInfo(this.f28605e, 0);
+                if (this.f28605e == 1003 && this.f28607g.f28600a.s.isPlaying()) {
+                    Object obj = this.f28606f;
                     if (obj instanceof RTCCommStatesReport) {
-                        this.f27075g.f27068a.v = (RTCCommStatesReport) obj;
+                        this.f28607g.f28600a.v = (RTCCommStatesReport) obj;
                     }
-                    this.f27075g.f27068a.f27062i.onInfo(CyberPlayerManager.MEDIA_INFO_PROCESS, 0);
+                    this.f28607g.f28600a.f28594i.onInfo(CyberPlayerManager.MEDIA_INFO_PROCESS, 0);
                     return;
                 }
-                int i2 = this.f27073e;
+                int i2 = this.f28605e;
                 if (i2 == 1004) {
-                    this.f27075g.f27068a.f27062i.onBufferStart();
-                    this.f27075g.f27068a.f27062i.onInfo(701, 0);
+                    this.f28607g.f28600a.f28594i.onBufferStart();
+                    this.f28607g.f28600a.f28594i.onInfo(701, 0);
                 } else if (i2 == 1005) {
-                    this.f27075g.f27068a.f27062i.onBufferEnd();
-                    this.f27075g.f27068a.f27062i.onInfo(702, 0);
+                    this.f28607g.f28600a.f28594i.onBufferEnd();
+                    this.f28607g.f28600a.f28594i.onInfo(702, 0);
                 } else if (i2 == 1008) {
-                    this.f27075g.f27068a.j(this.f27074f);
+                    this.f28607g.f28600a.j(this.f28606f);
                 }
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class d implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f27076e;
+            public final /* synthetic */ int f28608e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f27077f;
+            public final /* synthetic */ int f28609f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f27078g;
+            public final /* synthetic */ a f28610g;
 
             public d(a aVar, int i2, int i3) {
                 Interceptable interceptable = $ic;
@@ -228,19 +228,19 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
                         return;
                     }
                 }
-                this.f27078g = aVar;
-                this.f27076e = i2;
-                this.f27077f = i3;
+                this.f28610g = aVar;
+                this.f28608e = i2;
+                this.f28609f = i3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 IVideoPlayerCallback iVideoPlayerCallback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVideoPlayerCallback = this.f27078g.f27068a.f27062i) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVideoPlayerCallback = this.f28610g.f28600a.f28594i) == null) {
                     return;
                 }
-                iVideoPlayerCallback.onVideoSizeChanged(this.f27076e, this.f27077f);
+                iVideoPlayerCallback.onVideoSizeChanged(this.f28608e, this.f28609f);
             }
         }
 
@@ -259,7 +259,7 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
                     return;
                 }
             }
-            this.f27068a = bVar;
+            this.f28600a = bVar;
         }
 
         @Override // com.baidu.rtc.player.BRTCPlayerEvents
@@ -267,23 +267,23 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
             b bVar;
             TbBRTCPlayerView tbBRTCPlayerView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || (tbBRTCPlayerView = (bVar = this.f27068a).s) == null || bVar.f27062i == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || (tbBRTCPlayerView = (bVar = this.f28600a).s) == null || bVar.f28594i == null) {
                 return;
             }
-            tbBRTCPlayerView.post(new RunnableC1331a(this, i2, str));
+            tbBRTCPlayerView.post(new RunnableC1400a(this, i2, str));
         }
 
         @Override // com.baidu.rtc.player.BRTCPlayerEvents
         public void onFirstFrameRendered() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f27068a.a("onFirstFrameRendered invoked");
-                b bVar = this.f27068a;
+                this.f28600a.a("onFirstFrameRendered invoked");
+                b bVar = this.f28600a;
                 TbBRTCPlayerView tbBRTCPlayerView = bVar.s;
-                if (tbBRTCPlayerView == null || bVar.f27062i == null) {
+                if (tbBRTCPlayerView == null || bVar.f28594i == null) {
                     return;
                 }
-                tbBRTCPlayerView.post(new RunnableC1332b(this));
+                tbBRTCPlayerView.post(new RunnableC1401b(this));
             }
         }
 
@@ -291,11 +291,11 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
         public void onInfoUpdated(int i2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, obj) == null) {
-                b bVar = this.f27068a;
+                b bVar = this.f28600a;
                 bVar.f("onInfoUpdated i= " + i2 + " s= " + obj);
-                b bVar2 = this.f27068a;
+                b bVar2 = this.f28600a;
                 TbBRTCPlayerView tbBRTCPlayerView = bVar2.s;
-                if (tbBRTCPlayerView == null || bVar2.f27062i == null) {
+                if (tbBRTCPlayerView == null || bVar2.f28594i == null) {
                     return;
                 }
                 tbBRTCPlayerView.post(new c(this, i2, obj));
@@ -306,7 +306,7 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
         public void onPlayerStateChanged(BRTCPlayer.PlayerState playerState) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, playerState) == null) {
-                b bVar = this.f27068a;
+                b bVar = this.f28600a;
                 bVar.f("onPlayerStateChanged " + playerState.name());
             }
         }
@@ -315,7 +315,7 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
         public void onRemoteData(ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
-                b bVar = this.f27068a;
+                b bVar = this.f28600a;
                 bVar.f("onRemoteData " + byteBuffer);
             }
         }
@@ -324,7 +324,7 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
         public void onRemoteStreamStats(boolean z, boolean z2, BigInteger bigInteger) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), bigInteger}) == null) {
-                b bVar = this.f27068a;
+                b bVar = this.f28600a;
                 bVar.f("onRemoteStreamStats hasVideo: " + z + "hasAudio: " + z2 + " handleID: " + bigInteger);
             }
         }
@@ -333,11 +333,11 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
         public void onResolutionChanged(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-                b bVar = this.f27068a;
+                b bVar = this.f28600a;
                 bVar.f("onResolutionChanged " + i2 + " " + i3);
-                b bVar2 = this.f27068a;
+                b bVar2 = this.f28600a;
                 TbBRTCPlayerView tbBRTCPlayerView = bVar2.s;
-                if (tbBRTCPlayerView == null || bVar2.f27062i == null) {
+                if (tbBRTCPlayerView == null || bVar2.f28594i == null) {
                     return;
                 }
                 tbBRTCPlayerView.post(new d(this, i2, i3));
@@ -348,9 +348,9 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
         public void onSEIRecv(ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, byteBuffer) == null) {
-                b bVar = this.f27068a;
+                b bVar = this.f28600a;
                 bVar.f("onSEIRecv " + byteBuffer);
-                this.f27068a.e(10103, 0, byteBuffer);
+                this.f28600a.e(10103, 0, byteBuffer);
             }
         }
     }
@@ -624,7 +624,7 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
             TbBRTCPlayerView tbBRTCPlayerView = this.s;
             if (tbBRTCPlayerView != null) {
                 tbBRTCPlayerView.pause();
-                IVideoPlayerCallback iVideoPlayerCallback = this.f27062i;
+                IVideoPlayerCallback iVideoPlayerCallback = this.f28594i;
                 if (iVideoPlayerCallback != null) {
                     iVideoPlayerCallback.onPause();
                 }
@@ -676,7 +676,7 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
             a("BRTCPlayer release");
             TbBRTCPlayerView tbBRTCPlayerView = this.s;
             if (tbBRTCPlayerView != null) {
-                this.f27062i = null;
+                this.f28594i = null;
                 tbBRTCPlayerView.release();
                 this.s = null;
             }
@@ -848,7 +848,7 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
             TbBRTCPlayerView tbBRTCPlayerView = this.s;
             if (tbBRTCPlayerView != null) {
                 tbBRTCPlayerView.start();
-                IVideoPlayerCallback iVideoPlayerCallback = this.f27062i;
+                IVideoPlayerCallback iVideoPlayerCallback = this.f28594i;
                 if (iVideoPlayerCallback != null) {
                     iVideoPlayerCallback.onStart();
                 }
@@ -881,7 +881,7 @@ public class b extends b.a.r0.x1.p.j.a implements LivePlayer, IPlayerViewable {
         if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && isPause()) {
             a("resume no force");
             this.s.resume();
-            IVideoPlayerCallback iVideoPlayerCallback = this.f27062i;
+            IVideoPlayerCallback iVideoPlayerCallback = this.f28594i;
             if (iVideoPlayerCallback != null) {
                 iVideoPlayerCallback.onResume();
             }

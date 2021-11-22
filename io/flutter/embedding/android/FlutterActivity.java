@@ -20,6 +20,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +33,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FlutterActivity extends Activity implements FlutterActivityAndFragmentDelegate.Host, LifecycleOwner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterActivity";
@@ -42,7 +43,7 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
     @NonNull
     public LifecycleRegistry lifecycle;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CachedEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +102,7 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class NewEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -445,6 +446,7 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
             configureWindowForTransparency();
             setContentView(createFlutterView());
             configureStatusBarForFullscreenFlutterExperience();
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

@@ -21,6 +21,7 @@ public final class NetWorkUtils implements INoProGuard {
     public static final int CELL_2G = 2;
     public static final int CELL_3G = 3;
     public static final int CELL_4G = 4;
+    public static final int CELL_5G = 5;
     public static final int CELL_UNKNOWN = 1;
     public static final int CHINA_MOBILE = 1;
     public static final int CHINA_TELECOM = 2;
@@ -97,11 +98,11 @@ public final class NetWorkUtils implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? sOperatorType : invokeV.intValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(6:3|(1:5)(2:47|(1:49)(7:51|(6:53|54|56|9|10|(2:12|13)(5:15|(2:19|(1:21)(4:22|23|24|(3:26|(2:31|(1:33)(2:34|(1:36)(1:37)))|38)))|(1:42)|43|44))(2:61|(1:63)(2:64|(1:66)(1:67)))|58|56|9|10|(0)(0)))|8|9|10|(0)(0)) */
+    /* JADX WARN: Can't wrap try/catch for region: R(6:3|(1:5)(2:47|(1:49)(7:51|(2:53|(5:55|57|9|10|(2:12|13)(5:15|(2:19|(1:21)(4:22|23|24|(3:26|(2:31|(1:33)(2:34|(1:36)(1:37)))|38)))|(1:42)|43|44))(1:62))(2:63|(1:65)(2:66|(1:68)(1:69)))|59|57|9|10|(0)(0)))|8|9|10|(0)(0)) */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0022, code lost:
         if (com.baidu.webkit.internal.utils.NetWorkUtils.sIsOnline == true) goto L7;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x00b3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x00b9, code lost:
         com.baidu.webkit.internal.utils.NetWorkUtils.sOperatorType = 99;
      */
     /* JADX WARN: Code restructure failed: missing block: B:7:0x000e, code lost:
@@ -113,8 +114,8 @@ public final class NetWorkUtils implements INoProGuard {
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0012, code lost:
         r7 = false;
      */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0064 A[Catch: all -> 0x00b3, TRY_ENTER, TryCatch #1 {all -> 0x00b3, blocks: (B:35:0x0064, B:37:0x0067, B:39:0x006b, B:41:0x0071, B:45:0x007d, B:49:0x0086, B:51:0x008e, B:54:0x0097, B:56:0x009f, B:57:0x00a2, B:59:0x00aa, B:60:0x00ad, B:61:0x00b0, B:47:0x0082), top: B:73:0x0062, inners: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0067 A[Catch: all -> 0x00b3, TryCatch #1 {all -> 0x00b3, blocks: (B:35:0x0064, B:37:0x0067, B:39:0x006b, B:41:0x0071, B:45:0x007d, B:49:0x0086, B:51:0x008e, B:54:0x0097, B:56:0x009f, B:57:0x00a2, B:59:0x00aa, B:60:0x00ad, B:61:0x00b0, B:47:0x0082), top: B:73:0x0062, inners: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x006a A[Catch: all -> 0x00b9, TRY_ENTER, TryCatch #1 {all -> 0x00b9, blocks: (B:37:0x006a, B:39:0x006d, B:41:0x0071, B:43:0x0077, B:47:0x0083, B:51:0x008c, B:53:0x0094, B:56:0x009d, B:58:0x00a5, B:59:0x00a8, B:61:0x00b0, B:62:0x00b3, B:63:0x00b6, B:49:0x0088), top: B:75:0x0068, inners: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x006d A[Catch: all -> 0x00b9, TryCatch #1 {all -> 0x00b9, blocks: (B:37:0x006a, B:39:0x006d, B:41:0x0071, B:43:0x0077, B:47:0x0083, B:51:0x008c, B:53:0x0094, B:56:0x009d, B:58:0x00a5, B:59:0x00a8, B:61:0x00b0, B:62:0x00b3, B:63:0x00b6, B:49:0x0088), top: B:75:0x0068, inners: #0 }] */
     @SuppressLint({"HardwareIds"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -136,68 +137,72 @@ public final class NetWorkUtils implements INoProGuard {
             if (networkInfo.getType() == 0) {
                 int subtype = networkInfo.getSubtype();
                 sNetTypeMobile = true;
-                switch (subtype) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        sConnectionType = 2;
-                        break;
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        sConnectionType = 3;
-                        break;
-                    case 13:
-                        i2 = 4;
-                        break;
-                    default:
-                        sConnectionType = 1;
-                        break;
-                }
-                boolean z2 = z;
-                if (context == null) {
-                    sOperatorType = 99;
-                    return;
-                }
-                if (sLaunchState && CommonUtils.checkPhonePermission(context)) {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null) {
+                if (subtype != 20) {
+                    switch (subtype) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            sConnectionType = 2;
+                            break;
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            sConnectionType = 3;
+                            break;
+                        case 13:
+                            i2 = 4;
+                            break;
+                        default:
+                            sConnectionType = 1;
+                            break;
+                    }
+                    boolean z2 = z;
+                    if (context == null) {
+                        sOperatorType = 99;
                         return;
                     }
-                    String str = null;
-                    try {
-                        str = telephonyManager.getSubscriberId();
-                    } catch (SecurityException unused) {
-                        sOperatorType = 99;
-                    }
-                    if (str != null) {
-                        if (!str.startsWith("46000") && !str.startsWith("46002")) {
-                            if (str.startsWith("46001")) {
-                                sOperatorType = 3;
-                            } else if (str.startsWith("46003")) {
-                                sOperatorType = 2;
-                            } else {
-                                sOperatorType = 99;
-                            }
+                    if (sLaunchState && CommonUtils.checkPhonePermission(context)) {
+                        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                        if (telephonyManager == null) {
+                            return;
                         }
-                        sOperatorType = 1;
+                        String str = null;
+                        try {
+                            str = telephonyManager.getSubscriberId();
+                        } catch (SecurityException unused) {
+                            sOperatorType = 99;
+                        }
+                        if (str != null) {
+                            if (!str.startsWith("46000") && !str.startsWith("46002")) {
+                                if (str.startsWith("46001")) {
+                                    sOperatorType = 3;
+                                } else if (str.startsWith("46003")) {
+                                    sOperatorType = 2;
+                                } else {
+                                    sOperatorType = 99;
+                                }
+                            }
+                            sOperatorType = 1;
+                        }
                     }
+                    if (z2) {
+                        doNetworkConnectionChanged(context);
+                    }
+                    Log.d("linhua01", "network changed: " + sConnectionType + "_" + sOperatorType);
+                    return;
                 }
-                if (z2) {
-                    doNetworkConnectionChanged(context);
-                }
-                Log.d("linhua01", "network changed: " + sConnectionType + "_" + sOperatorType);
-                return;
+                i2 = 5;
+            } else {
+                i2 = networkInfo.getType() == 1 ? 100 : networkInfo.getType() == 9 ? 101 : 999;
             }
-            i2 = networkInfo.getType() == 1 ? 100 : networkInfo.getType() == 9 ? 101 : 999;
             sConnectionType = i2;
             boolean z22 = z;
             if (context == null) {

@@ -11,13 +11,13 @@ public class h extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f69013a;
+    public Throwable f69933a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f69014b;
+    public int f69934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f69015c;
+    public int f69935c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -60,27 +60,27 @@ public class h extends Exception {
             str4 = "caused by: " + th;
         }
         sb.append(str4);
-        this.f69014b = -1;
-        this.f69015c = -1;
+        this.f69934b = -1;
+        this.f69935c = -1;
         if (gVar != null) {
-            this.f69014b = gVar.c();
-            this.f69015c = gVar.f();
+            this.f69934b = gVar.c();
+            this.f69935c = gVar.f();
         }
-        this.f69013a = th;
+        this.f69933a = th;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f69013a == null) {
+            if (this.f69933a == null) {
                 super.printStackTrace();
                 return;
             }
             synchronized (System.err) {
                 PrintStream printStream = System.err;
                 printStream.println(super.getMessage() + "; nested exception is:");
-                this.f69013a.printStackTrace();
+                this.f69933a.printStackTrace();
             }
         }
     }

@@ -26,13 +26,13 @@ import tbclient.ThreadInfo;
 public class d extends d2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<b.a.r0.b0.e0.b> X3;
-    public b1 Y3;
-    public long Z3;
-    public int a4;
-    public List<b.a.e.l.e.n> b4;
+    public List<b.a.r0.b0.f0.b> Y3;
+    public b1 Z3;
+    public long a4;
+    public int b4;
+    public List<b.a.e.m.e.n> c4;
     @Nullable
-    public Map<String, Object> c4;
+    public Map<String, Object> d4;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -47,56 +47,56 @@ public class d extends d2 {
                 return;
             }
         }
-        this.a4 = 1;
-        this.b4 = new ArrayList();
-        this.a4 = 1;
+        this.b4 = 1;
+        this.c4 = new ArrayList();
+        this.b4 = 1;
     }
 
-    public final void P4(@NonNull List<ThreadInfo> list) {
+    public final void R4(@NonNull List<ThreadInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             for (ThreadInfo threadInfo : list) {
                 d2 d2Var = new d2();
-                d2Var.Y2(threadInfo);
-                d2Var.G1();
-                this.b4.add(d2Var);
+                d2Var.a3(threadInfo);
+                d2Var.I1();
+                this.c4.add(d2Var);
             }
         }
     }
 
-    public ArrayList<b.a.e.l.e.n> Q4(r1 r1Var) {
+    public ArrayList<b.a.e.m.e.n> S4(r1 r1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r1Var)) == null) {
-            ArrayList<b.a.e.l.e.n> arrayList = new ArrayList<>(this.b4);
-            T4(arrayList, r1Var);
-            ArrayList<b.a.e.l.e.n> arrayList2 = new ArrayList<>();
-            Iterator<b.a.e.l.e.n> it = arrayList.iterator();
+            ArrayList<b.a.e.m.e.n> arrayList = new ArrayList<>(this.c4);
+            V4(arrayList, r1Var);
+            ArrayList<b.a.e.m.e.n> arrayList2 = new ArrayList<>();
+            Iterator<b.a.e.m.e.n> it = arrayList.iterator();
             int i2 = 0;
             while (it.hasNext()) {
-                b.a.e.l.e.n next = it.next();
+                b.a.e.m.e.n next = it.next();
                 if (next instanceof d2) {
                     d2 d2Var = (d2) next;
                     int[] g0 = d2Var.g0();
-                    if (d2Var.getType() == d2.a3) {
+                    if (d2Var.getType() == d2.b3) {
                         c2 c2Var = new c2();
                         c2Var.w = d2Var;
                         c2Var.position = i2;
-                        c2Var.f13254e = true;
+                        c2Var.f14034e = true;
                         arrayList2.add(c2Var);
                         c2 c2Var2 = new c2();
                         c2Var2.w = d2Var;
                         c2Var2.position = i2;
-                        if (d2Var.N1()) {
+                        if (d2Var.P1()) {
                             c2Var2.j = true;
-                        } else if (d2Var.d3() == 1) {
-                            c2Var2.f13257h = true;
+                        } else if (d2Var.f3() == 1) {
+                            c2Var2.f14037h = true;
                             c2Var2.x = g0[0];
                             c2Var2.y = g0[1];
-                        } else if (d2Var.d3() >= 2) {
-                            c2Var2.f13258i = true;
+                        } else if (d2Var.f3() >= 2) {
+                            c2Var2.f14038i = true;
                         } else {
-                            c2Var2.f13255f = true;
+                            c2Var2.f14035f = true;
                         }
                         arrayList2.add(c2Var2);
                         if (d2Var.s0() != null) {
@@ -116,11 +116,11 @@ public class d extends d2 {
                         c2Var5.w = d2Var;
                         c2Var5.position = i2;
                         arrayList2.add(c2Var5);
-                    } else if (d2Var.getType() == d2.x3) {
+                    } else if (d2Var.getType() == d2.z3) {
                         c2 c2Var6 = new c2();
                         c2Var6.w = d2Var;
                         c2Var6.position = i2;
-                        c2Var6.f13254e = true;
+                        c2Var6.f14034e = true;
                         arrayList2.add(c2Var6);
                         c2 c2Var7 = new c2();
                         c2Var7.w = d2Var;
@@ -144,12 +144,12 @@ public class d extends d2 {
                         c2Var10.w = d2Var;
                         c2Var10.position = i2;
                         arrayList2.add(c2Var10);
-                    } else if (d2Var.getType() == d2.p3 && d2Var.M1()) {
+                    } else if (d2Var.getType() == d2.r3 && d2Var.O1()) {
                         d2Var.position = i2;
                         arrayList2.add(d2Var);
-                    } else if (b.a.r0.b0.e0.j.Y(d2Var)) {
-                        b.a.r0.b0.e0.j jVar = new b.a.r0.b0.e0.j(d2Var);
-                        jVar.l = d2Var.s1();
+                    } else if (b.a.r0.b0.f0.j.Y(d2Var)) {
+                        b.a.r0.b0.f0.j jVar = new b.a.r0.b0.f0.j(d2Var);
+                        jVar.l = d2Var.t1();
                         arrayList2.add(jVar);
                     } else {
                         c2 c2Var11 = new c2();
@@ -172,24 +172,24 @@ public class d extends d2 {
     }
 
     @Nullable
-    public Map<String, Object> R4() {
+    public Map<String, Object> T4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c4 : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d4 : (Map) invokeV.objValue;
     }
 
-    public final void S4(List<b.a.r0.b0.e0.b> list) {
+    public final void U4(List<b.a.r0.b0.f0.b> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        b.a.r0.b0.e0.b bVar = list.get(list.size() - 1);
+        b.a.r0.b0.f0.b bVar = list.get(list.size() - 1);
         if (bVar.getThreadData() != null) {
-            this.Z3 = b.a.e.e.m.b.g(bVar.getThreadData().s1(), 0L);
+            this.a4 = b.a.e.f.m.b.g(bVar.getThreadData().t1(), 0L);
         }
     }
 
-    public final void T4(ArrayList<b.a.e.l.e.n> arrayList, r1 r1Var) {
+    public final void V4(ArrayList<b.a.e.m.e.n> arrayList, r1 r1Var) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, arrayList, r1Var) == null) || r1Var == null || ListUtils.isEmpty(r1Var.k())) {
             return;
@@ -215,77 +215,77 @@ public class d extends d2 {
         }
     }
 
-    public void U4(DataRes dataRes) {
+    public void W4(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.c4 = DataExt.h(dataRes);
+        this.d4 = DataExt.h(dataRes);
         if (dataRes.thread_list != null) {
-            this.X3 = new ArrayList();
+            this.Y3 = new ArrayList();
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 if (threadInfo != null) {
                     d2 d2Var = new d2();
-                    d2Var.Y2(threadInfo);
-                    d2Var.o4(5);
-                    b.a.r0.b0.e0.b bVar = null;
-                    if (b.a.r0.b0.e0.l.T(d2Var)) {
-                        bVar = new b.a.r0.b0.e0.l(d2Var);
-                    } else if (b.a.r0.b0.e0.k.Y(d2Var)) {
-                        bVar = new b.a.r0.b0.e0.k();
-                        bVar.f14748e = d2Var;
+                    d2Var.a3(threadInfo);
+                    d2Var.q4(5);
+                    b.a.r0.b0.f0.b bVar = null;
+                    if (b.a.r0.b0.f0.l.T(d2Var)) {
+                        bVar = new b.a.r0.b0.f0.l(d2Var);
+                    } else if (b.a.r0.b0.f0.k.Y(d2Var)) {
+                        bVar = new b.a.r0.b0.f0.k();
+                        bVar.f16235e = d2Var;
                     }
                     if (bVar != null && bVar.isValid()) {
                         bVar.N("c10816");
-                        this.X3.add(bVar);
+                        this.Y3.add(bVar);
                     }
                 }
             }
-            S4(this.X3);
-            P4(dataRes.thread_list);
+            U4(this.Y3);
+            R4(dataRes.thread_list);
         }
         if (dataRes.page != null) {
             b1 b1Var = new b1();
-            this.Y3 = b1Var;
+            this.Z3 = b1Var;
             b1Var.j(dataRes.page);
         }
     }
 
-    public void V4(HotThread hotThread) {
+    public void X4(HotThread hotThread) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, hotThread) == null) || hotThread == null) {
             return;
         }
         String str = hotThread.hot_title;
         if (hotThread.thread_list != null) {
-            this.X3 = new ArrayList();
+            this.Y3 = new ArrayList();
             for (ThreadInfo threadInfo : hotThread.thread_list) {
                 if (threadInfo != null) {
                     d2 d2Var = new d2();
-                    d2Var.Y2(threadInfo);
-                    d2Var.o4(5);
-                    b.a.r0.b0.e0.b bVar = null;
+                    d2Var.a3(threadInfo);
+                    d2Var.q4(5);
+                    b.a.r0.b0.f0.b bVar = null;
                     if (d2Var.z1) {
-                        bVar = new b.a.r0.b0.e0.k();
-                        bVar.f14748e = d2Var;
-                    } else if (b.a.r0.b0.e0.l.T(d2Var)) {
-                        bVar = new b.a.r0.b0.e0.l(d2Var);
-                    } else if (b.a.r0.b0.e0.k.Y(d2Var)) {
-                        bVar = new b.a.r0.b0.e0.k();
-                        bVar.f14748e = d2Var;
+                        bVar = new b.a.r0.b0.f0.k();
+                        bVar.f16235e = d2Var;
+                    } else if (b.a.r0.b0.f0.l.T(d2Var)) {
+                        bVar = new b.a.r0.b0.f0.l(d2Var);
+                    } else if (b.a.r0.b0.f0.k.Y(d2Var)) {
+                        bVar = new b.a.r0.b0.f0.k();
+                        bVar.f16235e = d2Var;
                     }
                     if (bVar != null && bVar.isValid()) {
                         bVar.N("c10816");
-                        this.X3.add(bVar);
+                        this.Y3.add(bVar);
                     }
                 }
             }
-            S4(this.X3);
-            P4(hotThread.thread_list);
+            U4(this.Y3);
+            R4(hotThread.thread_list);
         }
         if (hotThread.page != null) {
             b1 b1Var = new b1();
-            this.Y3 = b1Var;
+            this.Z3 = b1Var;
             b1Var.j(hotThread.page);
         }
     }
@@ -305,8 +305,8 @@ public class d extends d2 {
                 return;
             }
         }
-        this.a4 = 1;
-        this.b4 = new ArrayList();
-        this.a4 = i2;
+        this.b4 = 1;
+        this.c4 = new ArrayList();
+        this.b4 = i2;
     }
 }

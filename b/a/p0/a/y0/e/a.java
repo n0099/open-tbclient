@@ -16,18 +16,18 @@ public class a extends b.a.p0.a.y0.b<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.f f8969h;
+    public final c.f f9315h;
 
     /* renamed from: b.a.p0.a.y0.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0454a implements c.f {
+    public class C0469a implements c.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f8970a;
+        public final /* synthetic */ a f9316a;
 
-        public C0454a(a aVar) {
+        public C0469a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,43 +42,43 @@ public class a extends b.a.p0.a.y0.b<c> {
                     return;
                 }
             }
-            this.f8970a = aVar;
+            this.f9316a = aVar;
         }
 
         @Override // b.a.p0.a.y0.e.c.f
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8970a.f8961b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9316a.f9307b == null) {
                 return;
             }
-            this.f8970a.f8961b.onCallback(this.f8970a, "onCustomKeyboardHide", null);
+            this.f9316a.f9307b.onCallback(this.f9316a, "onCustomKeyboardHide", null);
         }
 
         @Override // b.a.p0.a.y0.e.c.f
         public void b(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f8970a.f8961b == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f9316a.f9307b == null) {
                 return;
             }
-            this.f8970a.f8961b.onCallback(this.f8970a, "onCustomKeyboardShow", Integer.valueOf(i2));
+            this.f9316a.f9307b.onCallback(this.f9316a, "onCustomKeyboardShow", Integer.valueOf(i2));
         }
 
         @Override // b.a.p0.a.y0.e.c.f
         public void c(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f8970a.f8961b == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f9316a.f9307b == null) {
                 return;
             }
-            this.f8970a.f8961b.onCallback(this.f8970a, "committext", str);
+            this.f9316a.f9307b.onCallback(this.f9316a, "committext", str);
         }
 
         @Override // b.a.p0.a.y0.e.c.f
         public void d() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f8970a.f8961b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f9316a.f9307b == null) {
                 return;
             }
-            this.f8970a.f8961b.onCallback(this.f8970a, "deletebutton", new KeyEvent(0, 67));
+            this.f9316a.f9307b.onCallback(this.f9316a, "deletebutton", new KeyEvent(0, 67));
         }
     }
 
@@ -100,13 +100,13 @@ public class a extends b.a.p0.a.y0.b<c> {
                 return;
             }
         }
-        C0454a c0454a = new C0454a(this);
-        this.f8969h = c0454a;
-        cVar.C0(c0454a);
-        this.f8960a.a(new e());
-        this.f8960a.a(new b.a.p0.a.y0.e.d.a());
-        this.f8960a.a(new b.a.p0.a.y0.e.d.d());
-        this.f8960a.a(new b.a.p0.a.y0.e.d.c());
-        this.f8960a.a(new b.a.p0.a.y0.e.d.b());
+        C0469a c0469a = new C0469a(this);
+        this.f9315h = c0469a;
+        cVar.D0(c0469a);
+        this.f9306a.a(new e());
+        this.f9306a.a(new b.a.p0.a.y0.e.d.a());
+        this.f9306a.a(new b.a.p0.a.y0.e.d.d());
+        this.f9306a.a(new b.a.p0.a.y0.e.d.c());
+        this.f9306a.a(new b.a.p0.a.y0.e.d.b());
     }
 }

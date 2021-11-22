@@ -13,7 +13,7 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseFragment f18301e;
+    public BaseFragment f19635e;
 
     public a(BaseFragment baseFragment, int i2) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f18301e = baseFragment;
+        this.f19635e = baseFragment;
     }
 
     public abstract void a();
@@ -38,7 +38,7 @@ public abstract class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f18301e.getUniqueId());
+            MessageManager.getInstance().unRegisterListener(this.f19635e.getUniqueId());
         }
     }
 

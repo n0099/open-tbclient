@@ -4,8 +4,8 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import b.a.e.e.p.k;
-import b.a.e.e.p.q;
+import b.a.e.f.p.k;
+import b.a.e.f.p.q;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -34,21 +34,21 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f14188c;
+    public static f f14955c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static DownloadData f14189d;
+    public static DownloadData f14956d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<DownloadData> f14190e;
+    public static List<DownloadData> f14957e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f14191a;
+    public b f14958a;
     @SuppressLint({"HandlerLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f14192b;
+    public Handler f14959b;
 
     /* loaded from: classes4.dex */
     public class a extends Handler {
@@ -80,14 +80,14 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                if (message.what != 900002 || message.arg2 <= 0 || f.f14189d == null) {
+                if (message.what != 900002 || message.arg2 <= 0 || f.f14956d == null) {
                     return;
                 }
-                f.f14189d.setLength(message.arg1);
-                f.f14189d.setSize(message.arg2);
-                f.f14189d.setStatus(1);
-                if (f.f14189d.getCallback() != null) {
-                    f.f14189d.getCallback().onFileUpdateProgress(f.f14189d);
+                f.f14956d.setLength(message.arg1);
+                f.f14956d.setSize(message.arg2);
+                f.f14956d.setStatus(1);
+                if (f.f14956d.getCallback() != null) {
+                    f.f14956d.getCallback().onFileUpdateProgress(f.f14956d);
                 }
             }
         }
@@ -100,10 +100,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14193a;
+        public NetWork f14960a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f14194b;
+        public final /* synthetic */ f f14961b;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -120,14 +120,14 @@ public class f {
                     return;
                 }
             }
-            this.f14194b = fVar;
-            this.f14193a = new NetWork();
+            this.f14961b = fVar;
+            this.f14960a = new NetWork();
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NetWork netWork = this.f14193a;
+                NetWork netWork = this.f14960a;
                 if (netWork != null) {
                     netWork.setCancel();
                 }
@@ -154,9 +154,9 @@ public class f {
                     file.delete();
                 }
                 if (!file.exists()) {
-                    this.f14193a.setUrl(downloadDataArr[0].getUrl());
-                    NetWork netWork = this.f14193a;
-                    if (Boolean.valueOf(netWork.downloadFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", this.f14194b.f14192b, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
+                    this.f14960a.setUrl(downloadDataArr[0].getUrl());
+                    NetWork netWork = this.f14960a;
+                    if (Boolean.valueOf(netWork.downloadFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", this.f14961b.f14959b, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
                         File GetFileInCache = FileHelper.GetFileInCache(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
                         if (GetFileInCache == null) {
                             return 1;
@@ -168,11 +168,11 @@ public class f {
                                 if (parent.equals(parent2)) {
                                     GetFileInCache.renameTo(new File(parent2, file.getName()));
                                 } else {
-                                    b.a.e.e.p.f.f(GetFileInCache, file);
-                                    b.a.e.e.p.f.n(GetFileInCache);
+                                    b.a.e.f.p.f.f(GetFileInCache, file);
+                                    b.a.e.f.p.f.n(GetFileInCache);
                                 }
                             } catch (IOException unused) {
-                                b.a.e.e.p.f.n(file);
+                                b.a.e.f.p.f.n(file);
                                 return 7;
                             }
                         } catch (Exception e2) {
@@ -196,7 +196,7 @@ public class f {
                     }
                     try {
                         if (!q.b(fileInputStream).equalsIgnoreCase(downloadDataArr[0].getCheck())) {
-                            b.a.e.e.p.f.n(new File(downloadDataArr[0].getPath()));
+                            b.a.e.f.p.f.n(new File(downloadDataArr[0].getPath()));
                             try {
                                 fileInputStream.close();
                             } catch (IOException e4) {
@@ -247,20 +247,20 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 super.onCancelled();
-                this.f14193a.setCancel();
-                if (f.f14189d == null) {
+                this.f14960a.setCancel();
+                if (f.f14956d == null) {
                     return;
                 }
-                f.f14189d.setStatus(4);
-                f.f14189d.setStatusMsg(null);
-                if (f.f14189d.getCallback() != null) {
-                    f.f14189d.getCallback().onFileUpdateProgress(f.f14189d);
+                f.f14956d.setStatus(4);
+                f.f14956d.setStatusMsg(null);
+                if (f.f14956d.getCallback() != null) {
+                    f.f14956d.getCallback().onFileUpdateProgress(f.f14956d);
                 }
-                if (!f.f14190e.isEmpty()) {
-                    f.f14190e.remove(0);
+                if (!f.f14957e.isEmpty()) {
+                    f.f14957e.remove(0);
                 }
-                DownloadData unused = f.f14189d = null;
-                this.f14194b.n();
+                DownloadData unused = f.f14956d = null;
+                this.f14961b.n();
             }
         }
 
@@ -271,16 +271,16 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
                 super.onPostExecute((b) num);
-                if (f.f14189d == null || num == null) {
+                if (f.f14956d == null || num == null) {
                     return;
                 }
                 if (num.intValue() == 0) {
-                    f.f14189d.setStatus(0);
-                    if (f.f14189d.getCallback() != null) {
-                        f.f14189d.getCallback().onFileUpdateProgress(f.f14189d);
+                    f.f14956d.setStatus(0);
+                    if (f.f14956d.getCallback() != null) {
+                        f.f14956d.getCallback().onFileUpdateProgress(f.f14956d);
                     }
-                    if (f.f14189d.getCallback() != null) {
-                        f.f14189d.getCallback().onFileDownloadSucceed(f.f14189d);
+                    if (f.f14956d.getCallback() != null) {
+                        f.f14956d.getCallback().onFileDownloadSucceed(f.f14956d);
                     }
                 } else {
                     int intValue = num.intValue();
@@ -297,22 +297,22 @@ public class f {
                     } else {
                         string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
                     }
-                    f.f14189d.setStatusMsg(string);
-                    f.f14189d.setErrorCode(num.intValue());
-                    f.f14189d.setStatus(2);
-                    if (f.f14189d.getCallback() != null) {
-                        f.f14189d.getCallback().onFileUpdateProgress(f.f14189d);
+                    f.f14956d.setStatusMsg(string);
+                    f.f14956d.setErrorCode(num.intValue());
+                    f.f14956d.setStatus(2);
+                    if (f.f14956d.getCallback() != null) {
+                        f.f14956d.getCallback().onFileUpdateProgress(f.f14956d);
                     }
-                    if (f.f14189d.getCallback() != null) {
-                        f.f14189d.getCallback().onFileDownloadFailed(f.f14189d, num.intValue(), string);
+                    if (f.f14956d.getCallback() != null) {
+                        f.f14956d.getCallback().onFileDownloadFailed(f.f14956d, num.intValue(), string);
                     }
                 }
-                DownloadData unused = f.f14189d = null;
-                if (f.f14190e.isEmpty()) {
+                DownloadData unused = f.f14956d = null;
+                if (f.f14957e.isEmpty()) {
                     return;
                 }
-                f.f14190e.remove(0);
-                this.f14194b.n();
+                f.f14957e.remove(0);
+                this.f14961b.n();
             }
         }
     }
@@ -330,9 +330,9 @@ public class f {
                 return;
             }
         }
-        f14188c = new f();
-        f14189d = null;
-        f14190e = new LinkedList();
+        f14955c = new f();
+        f14956d = null;
+        f14957e = new LinkedList();
     }
 
     public f() {
@@ -348,26 +348,26 @@ public class f {
                 return;
             }
         }
-        this.f14191a = null;
-        this.f14192b = new a(this, Looper.getMainLooper());
+        this.f14958a = null;
+        this.f14959b = new a(this, Looper.getMainLooper());
     }
 
     public static f k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f14188c : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f14955c : (f) invokeV.objValue;
     }
 
     public void f(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-            DownloadData downloadData = f14189d;
-            if (downloadData != null && downloadData.getId().equals(str) && f14189d.getType() == i2) {
-                this.f14191a.cancel(true);
+            DownloadData downloadData = f14956d;
+            if (downloadData != null && downloadData.getId().equals(str) && f14956d.getType() == i2) {
+                this.f14958a.cancel(true);
                 return;
             }
             LinkedList<DownloadData> linkedList = new LinkedList();
-            Iterator<DownloadData> it = f14190e.iterator();
+            Iterator<DownloadData> it = f14957e.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -383,7 +383,7 @@ public class f {
                 }
             }
             for (DownloadData downloadData2 : linkedList) {
-                f14190e.remove(downloadData2);
+                f14957e.remove(downloadData2);
             }
         }
     }
@@ -398,18 +398,18 @@ public class f {
     public void h(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            DownloadData downloadData = f14189d;
+            DownloadData downloadData = f14956d;
             if (downloadData != null && downloadData.getUrl().equals(str)) {
                 if (z) {
-                    this.f14191a.b();
+                    this.f14958a.b();
                     return;
                 } else {
-                    this.f14191a.cancel(true);
+                    this.f14958a.cancel(true);
                     return;
                 }
             }
             LinkedList<DownloadData> linkedList = new LinkedList();
-            Iterator<DownloadData> it = f14190e.iterator();
+            Iterator<DownloadData> it = f14957e.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -424,7 +424,7 @@ public class f {
                 }
             }
             for (DownloadData downloadData2 : linkedList) {
-                f14190e.remove(downloadData2);
+                f14957e.remove(downloadData2);
             }
         }
     }
@@ -432,12 +432,12 @@ public class f {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            DownloadData downloadData = f14189d;
+            DownloadData downloadData = f14956d;
             if (downloadData != null && downloadData.getType() == i2) {
-                this.f14191a.cancel(true);
+                this.f14958a.cancel(true);
             }
             LinkedList<DownloadData> linkedList = new LinkedList();
-            for (DownloadData downloadData2 : f14190e) {
+            for (DownloadData downloadData2 : f14957e) {
                 if (downloadData2.getType() == i2) {
                     downloadData2.setStatus(4);
                     downloadData2.setStatusMsg(null);
@@ -448,7 +448,7 @@ public class f {
                 }
             }
             for (DownloadData downloadData3 : linkedList) {
-                f14190e.remove(downloadData3);
+                f14957e.remove(downloadData3);
             }
         }
     }
@@ -456,7 +456,7 @@ public class f {
     public List<DownloadData> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f14190e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f14957e : (List) invokeV.objValue;
     }
 
     public void l(DownloadData downloadData) {
@@ -475,10 +475,10 @@ public class f {
             }
             return;
         }
-        for (int i2 = 0; i2 < f14190e.size(); i2++) {
+        for (int i2 = 0; i2 < f14957e.size(); i2++) {
             DownloadData downloadData2 = null;
             try {
-                downloadData2 = f14190e.get(i2);
+                downloadData2 = f14957e.get(i2);
             } catch (Exception unused) {
             }
             if (downloadData2 != null && downloadData2.getUrl() != null && downloadData.getUrl() != null && downloadData2.getUrl().equals(downloadData.getUrl()) && downloadData2.getId() != null && downloadData.getId() != null && downloadData2.getId().equals(downloadData.getId())) {
@@ -486,7 +486,7 @@ public class f {
             }
         }
         downloadData.setStatus(5);
-        f14190e.add(downloadData);
+        f14957e.add(downloadData);
         n();
     }
 
@@ -495,7 +495,7 @@ public class f {
         if (interceptable == null || interceptable.invokeLI(1048582, this, downloadData, i2) == null) {
             int type = downloadData.getType();
             int i3 = 0;
-            for (DownloadData downloadData2 : f14190e) {
+            for (DownloadData downloadData2 : f14957e) {
                 if (downloadData2.getType() == type) {
                     i3++;
                 }
@@ -515,16 +515,16 @@ public class f {
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && f14189d == null && !f14190e.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && f14956d == null && !f14957e.isEmpty()) {
             try {
-                f14189d = f14190e.get(0);
+                f14956d = f14957e.get(0);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            if (f14189d != null) {
+            if (f14956d != null) {
                 b bVar = new b(this);
-                this.f14191a = bVar;
-                bVar.execute(f14189d);
+                this.f14958a = bVar;
+                bVar.execute(f14956d);
             }
         }
     }

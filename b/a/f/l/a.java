@@ -5,12 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import b.a.f.d;
+import b.a.r0.a3.l0.e;
+import b.a.r0.a3.l0.g;
 import b.a.r0.q1.o.l.f;
 import b.a.r0.q1.o.l.h;
 import b.a.r0.q1.o.l.j;
-import b.a.r0.x0.z2.c;
-import b.a.r0.z2.l0.e;
-import b.a.r0.z2.l0.g;
+import b.a.r0.x0.a3.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.afd.adapter.AdCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
@@ -25,13 +25,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends b.a.e.l.e.a<d, AdCardViewHolder> implements f {
+public class a extends b.a.e.m.e.a<d, AdCardViewHolder> implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ICardInfo m;
     public d n;
     public TbPageContext o;
-    public b.a.r0.x0.r1.a p;
+    public b.a.r0.x0.s1.a p;
     public c q;
     public j r;
     public List<j> s;
@@ -39,14 +39,14 @@ public class a extends b.a.e.l.e.a<d, AdCardViewHolder> implements f {
 
     /* renamed from: b.a.f.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0062a implements b.a.r0.q1.o.a {
+    public class C0064a implements b.a.r0.q1.o.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f2736a;
+        public final /* synthetic */ a f2829a;
 
-        public C0062a(a aVar) {
+        public C0064a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,21 +61,21 @@ public class a extends b.a.e.l.e.a<d, AdCardViewHolder> implements f {
                     return;
                 }
             }
-            this.f2736a = aVar;
+            this.f2829a = aVar;
         }
 
         @Override // b.a.r0.q1.o.a
         public void a(int i2, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, hashMap) == null) {
-                a aVar = this.f2736a;
-                aVar.k0(aVar.n, this.f2736a.n.k());
+                a aVar = this.f2829a;
+                aVar.k0(aVar.n, this.f2829a.n.k());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, b.a.r0.x0.r1.a aVar, c cVar, f fVar) {
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, b.a.r0.x0.s1.a aVar, c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -113,15 +113,15 @@ public class a extends b.a.e.l.e.a<d, AdCardViewHolder> implements f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
-    public View J(int i2, View view, ViewGroup viewGroup, d dVar) {
+    public View L(int i2, View view, ViewGroup viewGroup, d dVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, dVar})) == null) {
             this.n = dVar;
             this.m = dVar.o();
-            return super.J(i2, view, viewGroup, dVar);
+            return super.L(i2, view, viewGroup, dVar);
         }
         return (View) invokeCommon.objValue;
     }
@@ -147,7 +147,7 @@ public class a extends b.a.e.l.e.a<d, AdCardViewHolder> implements f {
         }
         AdvertAppInfo w = dVar.w();
         int i3 = 2;
-        if (w != null && (iLegoAdvert = w.f4) != null && iLegoAdvert.forFree()) {
+        if (w != null && (iLegoAdvert = w.g4) != null && iLegoAdvert.forFree()) {
             i3 = 102;
         }
         e.b().d(g.b(w, i3, i2));
@@ -155,7 +155,7 @@ public class a extends b.a.e.l.e.a<d, AdCardViewHolder> implements f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: l0 */
     public AdCardViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -168,14 +168,14 @@ public class a extends b.a.e.l.e.a<d, AdCardViewHolder> implements f {
             if (a2 instanceof j) {
                 this.s.add((j) a2);
             }
-            a2.setAfterClickSchemeListener(new C0062a(this));
+            a2.setAfterClickSchemeListener(new C0064a(this));
             return new AdCardViewHolder(a2);
         }
         return (AdCardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: m0 */
     public AdCardViewHolder U(ViewGroup viewGroup, d dVar) {
         InterceptResult invokeLL;
@@ -203,7 +203,7 @@ public class a extends b.a.e.l.e.a<d, AdCardViewHolder> implements f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: o0 */
     public View Z(int i2, View view, ViewGroup viewGroup, d dVar, AdCardViewHolder adCardViewHolder) {
         InterceptResult invokeCommon;

@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.view.Surface;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.PeerConnectionClient;
@@ -814,7 +815,7 @@ public class MediaCodecVideoDecoder {
                     }
                 }
             }
-            throw new RuntimeException("Unexpected size change. Configured " + this.width + "*" + this.height + ". New " + integer + "*" + integer2);
+            throw new RuntimeException("Unexpected size change. Configured " + this.width + ProxyConfig.MATCH_ALL_SCHEMES + this.height + ". New " + integer + ProxyConfig.MATCH_ALL_SCHEMES + integer2);
         }
         return (DecodedOutputBuffer) invokeI.objValue;
     }

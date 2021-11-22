@@ -12,10 +12,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.q0.t.f.b f20906a;
+    public b.a.q0.t.f.b f22061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f20907b;
+    public long f22062b;
 
     public a(b.a.q0.t.f.b bVar, long j) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public class a {
                 return;
             }
         }
-        this.f20906a = bVar;
-        this.f20907b = j;
+        this.f22061a = bVar;
+        this.f22062b = j;
     }
 
     public b.a.q0.t.f.b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20906a : (b.a.q0.t.f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22061a : (b.a.q0.t.f.b) invokeV.objValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20907b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22062b : invokeV.longValue;
     }
 }

@@ -10,10 +10,10 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6397a;
+    public static final boolean f6863a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6398b;
+    public static final boolean f6864b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class k {
                 return;
             }
         }
-        f6397a = b.a.p0.a.c1.a.n().isDebug();
-        f6398b = b.a.p0.a.c1.a.n().G();
+        f6863a = b.a.p0.a.c1.a.o().isDebug();
+        f6864b = b.a.p0.a.c1.a.o().J();
     }
 }

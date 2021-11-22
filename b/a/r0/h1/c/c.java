@@ -24,41 +24,41 @@ public class c {
     public static void a(d2 d2Var, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65536, null, d2Var, i2) == null) {
-            TiebaStatic.log(i2 != 1 ? null : b.a.r0.k3.a.n("c13692", d2Var, 3));
+            TiebaStatic.log(i2 != 1 ? null : b.a.r0.l3.a.n("c13692", d2Var, 3));
         }
     }
 
     public static void b(View view, b.a.q0.s.q.a aVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65537, null, view, aVar, i2) == null) || view == null || aVar == null || aVar.getThreadData() == null || StringUtils.isNull(aVar.getThreadData().s1())) {
+        if (!(interceptable == null || interceptable.invokeLLI(65537, null, view, aVar, i2) == null) || view == null || aVar == null || aVar.getThreadData() == null || StringUtils.isNull(aVar.getThreadData().t1())) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
         d2 threadData = aVar.getThreadData();
-        if (threadData.e2()) {
+        if (threadData.g2()) {
             statisticItem.param("obj_type", 4);
         } else if (threadData.z1) {
             statisticItem.param("obj_type", 5);
-        } else if (threadData.M1()) {
-            statisticItem.param("obj_type", 6);
-        } else if (threadData.N1()) {
-            statisticItem.param("obj_type", 7);
-        } else if (threadData.P1()) {
-            statisticItem.param("obj_type", 8);
         } else if (threadData.O1()) {
+            statisticItem.param("obj_type", 6);
+        } else if (threadData.P1()) {
+            statisticItem.param("obj_type", 7);
+        } else if (threadData.R1()) {
+            statisticItem.param("obj_type", 8);
+        } else if (threadData.Q1()) {
             statisticItem.param("obj_type", 9);
-        } else if (threadData.getType() == d2.a3) {
+        } else if (threadData.getType() == d2.b3) {
             statisticItem.param("obj_type", 1);
-        } else if (threadData.E2()) {
+        } else if (threadData.G2()) {
             statisticItem.param("obj_type", 2);
         }
         statisticItem.param("obj_locate", i2);
-        statisticItem.param("tid", aVar.getThreadData().s1());
+        statisticItem.param("tid", aVar.getThreadData().t1());
         statisticItem.param("fid", aVar.getThreadData().T());
         statisticItem.param("fname", aVar.getThreadData().Z());
         statisticItem.param("obj_source", 1);
-        if (aVar instanceof b.a.r0.b0.e0.b) {
-            statisticItem.param("obj_param1", ((b.a.r0.b0.e0.b) aVar).F() ? 2 : 1);
+        if (aVar instanceof b.a.r0.b0.f0.b) {
+            statisticItem.param("obj_param1", ((b.a.r0.b0.f0.b) aVar).F() ? 2 : 1);
         }
         if (aVar.getThreadData().J() != null) {
             statisticItem.param("uid", aVar.getThreadData().J().getUserId());
@@ -66,12 +66,12 @@ public class c {
         if (threadData.L() != null) {
             statisticItem.param("obj_id", threadData.L().oriUgcNid);
         } else {
-            statisticItem.param("obj_id", threadData.s1());
+            statisticItem.param("obj_id", threadData.t1());
         }
-        if (aVar.getThreadData().l1() != null) {
-            int calculateLiveType = YYLiveUtil.calculateLiveType(aVar.getThreadData().l1());
-            if (aVar.getThreadData().l1().mYyExtData != null) {
-                TiebaStaticHelper.addYYParam(statisticItem, aVar.getThreadData().l1().mYyExtData);
+        if (aVar.getThreadData().m1() != null) {
+            int calculateLiveType = YYLiveUtil.calculateLiveType(aVar.getThreadData().m1());
+            if (aVar.getThreadData().m1().mYyExtData != null) {
+                TiebaStaticHelper.addYYParam(statisticItem, aVar.getThreadData().m1().mYyExtData);
             }
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
         }

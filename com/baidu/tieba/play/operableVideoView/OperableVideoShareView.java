@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
-import b.a.q0.d1.o;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
+import b.a.q0.c1.o;
 import b.a.q0.s.q.d2;
 import b.a.r0.q2.r.d;
 import com.baidu.adp.framework.MessageManager;
@@ -42,19 +42,19 @@ public class OperableVideoShareView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f53314e;
+    public d f54231e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f53315f;
+    public View f54232f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f53316g;
+    public ImageView f54233g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f53317h;
+    public View f54234h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f53318i;
+    public ImageView f54235i;
     public View j;
     public ImageView k;
     public View l;
@@ -70,7 +70,7 @@ public class OperableVideoShareView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OperableVideoShareView f53319e;
+        public final /* synthetic */ OperableVideoShareView f54236e;
 
         public a(OperableVideoShareView operableVideoShareView) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class OperableVideoShareView extends LinearLayout {
                     return;
                 }
             }
-            this.f53319e = operableVideoShareView;
+            this.f54236e = operableVideoShareView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -96,12 +96,12 @@ public class OperableVideoShareView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || o.a()) {
                 return;
             }
-            if (view == this.f53319e.f53315f) {
-                this.f53319e.h(3);
-            } else if (view == this.f53319e.f53317h) {
-                this.f53319e.h(2);
-            } else if (view == this.f53319e.j) {
-                this.f53319e.h(8);
+            if (view == this.f54236e.f54232f) {
+                this.f54236e.h(3);
+            } else if (view == this.f54236e.f54234h) {
+                this.f54236e.h(2);
+            } else if (view == this.f54236e.j) {
+                this.f54236e.h(8);
             }
         }
     }
@@ -134,8 +134,8 @@ public class OperableVideoShareView extends LinearLayout {
         int g3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f53317h.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f53315f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54234h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f54232f.getLayoutParams();
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.j.getLayoutParams();
             LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.l.getLayoutParams();
             LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.m.getLayoutParams();
@@ -189,13 +189,13 @@ public class OperableVideoShareView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var)) == null) {
             if (d2Var != null) {
-                if (d2Var.q2()) {
+                if (d2Var.s2()) {
                     return 4;
                 }
                 if (d2Var.j0() == 1) {
                     return 3;
                 }
-                return d2Var.r2() ? 2 : 1;
+                return d2Var.t2() ? 2 : 1;
             }
             return 0;
         }
@@ -206,21 +206,21 @@ public class OperableVideoShareView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.f53315f = findViewById(R.id.share_weixin);
-            this.f53316g = (ImageView) findViewById(R.id.share_weixin_img);
-            this.f53317h = findViewById(R.id.share_weixin_timeline);
-            this.f53318i = (ImageView) findViewById(R.id.share_weixin_timeline_img);
+            this.f54232f = findViewById(R.id.share_weixin);
+            this.f54233g = (ImageView) findViewById(R.id.share_weixin_img);
+            this.f54234h = findViewById(R.id.share_weixin_timeline);
+            this.f54235i = (ImageView) findViewById(R.id.share_weixin_timeline_img);
             this.j = findViewById(R.id.share_qq);
             this.k = (ImageView) findViewById(R.id.share_qq_img);
             this.l = findViewById(R.id.divider_line);
             this.m = findViewById(R.id.video_replay);
             this.n = (ImageView) findViewById(R.id.replay_img);
-            this.f53315f.setOnClickListener(this.q);
-            this.f53317h.setOnClickListener(this.q);
+            this.f54232f.setOnClickListener(this.q);
+            this.f54234h.setOnClickListener(this.q);
             this.j.setOnClickListener(this.q);
             setOnClickListener(this.q);
-            this.f53316g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_wechat40_svg, 1, false));
-            this.f53318i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_circle40_svg, 1, false));
+            this.f54233g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_wechat40_svg, 1, false));
+            this.f54235i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_circle40_svg, 1, false));
             this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.icon_mask_share_qq40_svg, 1, false));
             this.n.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_replay44_svg, R.color.CAM_X0105, null, false));
             this.n.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(getContext(), R.dimen.tbds52), getResources().getColor(R.color.CAM_X0622)));
@@ -247,8 +247,8 @@ public class OperableVideoShareView extends LinearLayout {
             Z = originalForumInfo.ori_fname;
         }
         String title = this.o.getTitle();
-        String s1 = this.o.s1();
-        String str = "http://tieba.baidu.com/p/" + s1 + "?share=9105&fr=share";
+        String t1 = this.o.t1();
+        String str = "http://tieba.baidu.com/p/" + t1 + "?share=9105&fr=share";
         String e2 = e(this.o);
         Uri parse = e2 == null ? null : Uri.parse(e2);
         String o = this.o.o();
@@ -256,15 +256,15 @@ public class OperableVideoShareView extends LinearLayout {
         ShareItem shareItem = new ShareItem();
         shareItem.r = title;
         shareItem.s = format;
-        if (!this.o.D2() && this.o.r2() && this.o.q1() != null) {
-            shareItem.R = this.o.q1().play_count.intValue();
+        if (!this.o.F2() && this.o.t2() && this.o.r1() != null) {
+            shareItem.R = this.o.r1().play_count.intValue();
         }
         shareItem.D = o;
         shareItem.t = str;
         shareItem.o = this.p;
-        shareItem.q = s1;
+        shareItem.q = t1;
         shareItem.F = 3;
-        shareItem.G = this.o.I2() ? 11 : 2;
+        shareItem.G = this.o.K2() ? 11 : 2;
         if (i2 == 3) {
             shareItem.H = 1;
         } else if (i2 == 2) {
@@ -276,9 +276,9 @@ public class OperableVideoShareView extends LinearLayout {
         }
         shareItem.J = valueOf;
         shareItem.p = Z;
-        shareItem.K = s1;
+        shareItem.K = t1;
         shareItem.L = this.o.F0();
-        shareItem.f45695h = true;
+        shareItem.f46545h = true;
         shareItem.E = 3;
         shareItem.M = f(this.o);
         if (parse != null) {
@@ -288,7 +288,7 @@ public class OperableVideoShareView extends LinearLayout {
         shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(this.o);
         shareItem.I = 1;
         TbadkCoreApplication.getInst().setShareItem(shareItem);
-        shareItem.i0 = this.o.Z0();
+        shareItem.i0 = this.o.a1();
         Bundle bundle = new Bundle();
         bundle.putString("tid", shareItem.K);
         bundle.putString("fid", shareItem.J);
@@ -317,16 +317,16 @@ public class OperableVideoShareView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, d2Var) == null) {
             this.o = d2Var;
-            if (d2Var != null && !d2Var.D2()) {
+            if (d2Var != null && !d2Var.F2()) {
                 this.j.setVisibility(0);
-                this.f53315f.setVisibility(0);
-                this.f53317h.setVisibility(0);
+                this.f54232f.setVisibility(0);
+                this.f54234h.setVisibility(0);
                 this.l.setVisibility(0);
                 return;
             }
             this.j.setVisibility(8);
-            this.f53315f.setVisibility(8);
-            this.f53317h.setVisibility(8);
+            this.f54232f.setVisibility(8);
+            this.f54234h.setVisibility(8);
             this.l.setVisibility(8);
         }
     }
@@ -341,7 +341,7 @@ public class OperableVideoShareView extends LinearLayout {
     public void setVideoContainer(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
-            this.f53314e = dVar;
+            this.f54231e = dVar;
             this.m.setOnClickListener(dVar);
         }
     }

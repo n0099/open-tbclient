@@ -26,13 +26,13 @@ public class UserBlockInfoModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f54625e;
+    public long f55545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.q0.n.a f54626f;
+    public b.a.q0.n.a f55546f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.e.c.g.a f54627g;
+    public b.a.e.c.g.a f55547g;
 
     /* loaded from: classes9.dex */
     public class a extends b.a.e.c.g.a {
@@ -40,7 +40,7 @@ public class UserBlockInfoModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserBlockInfoModel f54628a;
+        public final /* synthetic */ UserBlockInfoModel f55548a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(UserBlockInfoModel userBlockInfoModel, int i2, int i3) {
@@ -61,14 +61,14 @@ public class UserBlockInfoModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54628a = userBlockInfoModel;
+            this.f55548a = userBlockInfoModel;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UserBlockInfoRequestMessage userBlockInfoRequestMessage;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.f54628a.f54626f == null || responsedMessage == null || (userBlockInfoRequestMessage = (UserBlockInfoRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockInfoRequestMessage.getBlockUserId() != this.f54628a.f54625e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.f55548a.f55546f == null || responsedMessage == null || (userBlockInfoRequestMessage = (UserBlockInfoRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockInfoRequestMessage.getBlockUserId() != this.f55548a.f55545e) {
                 return;
             }
             int error = responsedMessage.getError();
@@ -78,14 +78,14 @@ public class UserBlockInfoModel extends BdBaseModel {
                 if (responsedMessage instanceof UserBlockInfoHttpResponseMessage) {
                     data = ((UserBlockInfoHttpResponseMessage) responsedMessage).getData();
                 }
-                this.f54628a.f54626f.onSuccess(data);
-                this.f54628a.f54625e = -1L;
+                this.f55548a.f55546f.onSuccess(data);
+                this.f55548a.f55545e = -1L;
                 return;
             }
             if (StringUtils.isNull(errorString)) {
-                errorString = this.f54628a.A(R.string.error_unkown_try_again);
+                errorString = this.f55548a.A(R.string.error_unkown_try_again);
             }
-            this.f54628a.f54626f.onError(error, errorString);
+            this.f55548a.f55546f.onError(error, errorString);
         }
     }
 
@@ -107,7 +107,7 @@ public class UserBlockInfoModel extends BdBaseModel {
                 return;
             }
         }
-        this.f54627g = new a(this, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, 309698);
+        this.f55547g = new a(this, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, 309698);
         setUniqueId(bdUniqueId);
         B();
     }
@@ -121,18 +121,18 @@ public class UserBlockInfoModel extends BdBaseModel {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.a.r0.l3.f0.a.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
-            b.a.r0.l3.f0.a.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
-            this.f54627g.getHttpMessageListener().setSelfListener(true);
-            this.f54627g.getSocketMessageListener().setSelfListener(true);
-            registerListener(this.f54627g);
+            b.a.r0.m3.f0.a.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
+            b.a.r0.m3.f0.a.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
+            this.f55547g.getHttpMessageListener().setSelfListener(true);
+            this.f55547g.getSocketMessageListener().setSelfListener(true);
+            registerListener(this.f55547g);
         }
     }
 
     public void C(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f54625e = j;
+            this.f55545e = j;
             UserBlockInfoRequestMessage userBlockInfoRequestMessage = new UserBlockInfoRequestMessage();
             userBlockInfoRequestMessage.setBlockUserId(j);
             sendMessage(userBlockInfoRequestMessage);
@@ -142,7 +142,7 @@ public class UserBlockInfoModel extends BdBaseModel {
     public void D(b.a.q0.n.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f54626f = aVar;
+            this.f55546f = aVar;
         }
     }
 
@@ -169,8 +169,8 @@ public class UserBlockInfoModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f54625e = -1L;
-            MessageManager.getInstance().unRegisterListener(this.f54627g);
+            this.f55545e = -1L;
+            MessageManager.getInstance().unRegisterListener(this.f55547g);
         }
     }
 }

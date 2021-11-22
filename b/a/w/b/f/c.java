@@ -31,7 +31,7 @@ public class c {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final b f29249a;
+            public static final b f30118a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -47,7 +47,7 @@ public class c {
                         return;
                     }
                 }
-                f29249a = new b(LiveFeedPageSdk.e().a(), "live_feed_page_sp", null);
+                f30118a = new b(LiveFeedPageSdk.e().a(), "live_feed_page_sp", null);
             }
         }
 
@@ -55,10 +55,10 @@ public class c {
             this(context, str);
         }
 
-        public static b h() {
+        public static b g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f29249a : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f30118a : (b) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -86,33 +86,33 @@ public class c {
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) ? b.h().getString(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) ? b.g().getString(str, str2) : (String) invokeLL.objValue;
     }
 
     public static long b(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j)) == null) ? b.h().getLong(str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j)) == null) ? b.g().getLong(str, j) : invokeLJ.longValue;
     }
 
     public static void c(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65538, null, str, j) == null) {
-            b.h().e(str, j);
+            b.g().d(str, j);
         }
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            b.h().f(str, str2);
+            b.g().e(str, str2);
         }
     }
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            b.h().g(str);
+            b.g().f(str);
         }
     }
 }

@@ -14,14 +14,13 @@ import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
-import b.a.e.e.q.h;
+import b.a.e.f.p.k;
+import b.a.e.f.q.h;
 import b.a.q0.t.d.b;
 import b.a.q0.t.d.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -261,7 +260,7 @@ public class NotificationHelper {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 if (Build.VERSION.SDK_INT >= 26) {
                     NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, h.a(R.string.notify_channel_primary), 3);
-                    notificationChannel.setLightColor(BaseAnimatedElement.DEBUG_PAINT_COLOR);
+                    notificationChannel.setLightColor(-16776961);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(false);
                     notificationChannel.setSound(null, null);
@@ -300,7 +299,7 @@ public class NotificationHelper {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 if (Build.VERSION.SDK_INT >= 26) {
                     NotificationChannel notificationChannel = new NotificationChannel(switchData.isSound ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, h.a(R.string.notify_channel_primary), 3);
-                    notificationChannel.setLightColor(BaseAnimatedElement.DEBUG_PAINT_COLOR);
+                    notificationChannel.setLightColor(-16776961);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(switchData.isVibrate);
                     if (!switchData.isSound) {
@@ -373,7 +372,7 @@ public class NotificationHelper {
             }
             if (switchData.isLight) {
                 notif_excption.defaults &= -5;
-                notif_excption.ledARGB = BaseAnimatedElement.DEBUG_PAINT_COLOR;
+                notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = 400;
                 notif_excption.ledOffMS = 700;
                 notif_excption.flags = 1 | notif_excption.flags;

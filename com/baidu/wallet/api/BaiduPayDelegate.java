@@ -95,32 +95,32 @@ public class BaiduPayDelegate implements IWalletPayFacade {
     public static final int RNAUTH_MEDIUM_GRADE = 2;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f57121b = "BaiduPayDelegate";
+    public static final String f58043b = "BaiduPayDelegate";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f57122c;
+    public static final String f58044c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f57123d;
+    public static final String f58045d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f57124e;
+    public static String f58046e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f57125a;
+    public boolean f58047a;
 
     /* renamed from: f  reason: collision with root package name */
-    public HandlePassLoginResult f57126f;
+    public HandlePassLoginResult f58048f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LoginBackListenerProxy f57127g;
+    public LoginBackListenerProxy f58049g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PayCallBack f57128h;
+    public PayCallBack f58050h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f57129i;
+    public long f58051i;
 
     /* loaded from: classes10.dex */
     public class HandlePassLoginResult extends LoginBackListenerProxy {
@@ -128,10 +128,10 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaiduPayDelegate f57210a;
+        public final /* synthetic */ BaiduPayDelegate f58132a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f57211b;
+        public boolean f58133b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public HandlePassLoginResult(BaiduPayDelegate baiduPayDelegate, Context context, boolean z, ILoginBackListener iLoginBackListener) {
@@ -152,15 +152,15 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     return;
                 }
             }
-            this.f57210a = baiduPayDelegate;
-            this.f57211b = z;
+            this.f58132a = baiduPayDelegate;
+            this.f58133b = z;
         }
 
         @Override // com.dxmpay.wallet.passport.LoginBackListenerProxy, com.baidu.wallet.api.ILoginBackListener
         public void onFail(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                if (this.f57211b) {
+                if (this.f58133b) {
                     List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), "0");
                     HashMap hashMap = new HashMap();
                     hashMap.put("sp_no", StatHelper.getSpNo());
@@ -181,7 +181,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 if (StatHelper.getPassLoginStatus().equals("0")) {
-                    if (this.f57211b) {
+                    if (this.f58133b) {
                         List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), "1");
                         HashMap hashMap = new HashMap();
                         hashMap.put("sp_no", StatHelper.getSpNo());
@@ -204,7 +204,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.baidu.wallet.paysdk.securitycenter.a f57212a;
+        public com.baidu.wallet.paysdk.securitycenter.a f58134a;
 
         public a(com.baidu.wallet.paysdk.securitycenter.a aVar) {
             Interceptable interceptable = $ic;
@@ -221,14 +221,14 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     return;
                 }
             }
-            this.f57212a = aVar;
+            this.f58134a = aVar;
         }
 
         @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i2, int i3, String str) {
             com.baidu.wallet.paysdk.securitycenter.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || (aVar = this.f57212a) == null) {
+            if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || (aVar = this.f58134a) == null) {
                 return;
             }
             aVar.a(i3, str);
@@ -238,7 +238,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         public void onBeanExecSuccess(int i2, Object obj, String str) {
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) || this.f57212a == null) {
+            if (!(interceptable == null || interceptable.invokeILL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) || this.f58134a == null) {
                 return;
             }
             int i3 = 10011;
@@ -257,7 +257,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     str2 = e2.toString();
                 }
             }
-            this.f57212a.a(i3, str2);
+            this.f58134a.a(i3, str2);
         }
     }
 
@@ -266,7 +266,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BaiduPayDelegate f57213a;
+        public static final BaiduPayDelegate f58135a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -282,7 +282,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     return;
                 }
             }
-            f57213a = new BaiduPayDelegate();
+            f58135a = new BaiduPayDelegate();
         }
     }
 
@@ -299,15 +299,15 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 return;
             }
         }
-        f57122c = f57121b + ".getPayMethod";
-        f57123d = f57121b + ".getSecurityCenter";
-        f57124e = "wallet_interface_unlogindata";
+        f58044c = f58043b + ".getPayMethod";
+        f58045d = f58043b + ".getSecurityCenter";
+        f58046e = "wallet_interface_unlogindata";
     }
 
     public static BaiduPayDelegate getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? b.f57213a : (BaiduPayDelegate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? b.f58135a : (BaiduPayDelegate) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade
@@ -334,7 +334,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57209a;
+                public final /* synthetic */ BaiduPayDelegate f58131a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -351,7 +351,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57209a = this;
+                    this.f58131a = this;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -380,7 +380,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 jSONObject.put("result", z ? 0 : 1);
                 jSONObject.put(BeanConstants.DXM_OCR_KEY_CNT, new JSONObject(map));
             } catch (JSONException e2) {
-                LogUtil.e(f57121b, "error", e2);
+                LogUtil.e(f58043b, "error", e2);
             }
             return jSONObject.toString();
         }
@@ -430,13 +430,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f57184a;
+                public final /* synthetic */ Activity f58106a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Map f57185b;
+                public final /* synthetic */ Map f58107b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57186c;
+                public final /* synthetic */ BaiduPayDelegate f58108c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -453,16 +453,16 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57186c = this;
-                    this.f57184a = activity;
-                    this.f57185b = map;
+                    this.f58108c = this;
+                    this.f58106a = activity;
+                    this.f58107b = map;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        PrecashierModifyPayTypeManager.getInstance().getModifyPayType(this.f57184a, this.f57185b);
+                        PrecashierModifyPayTypeManager.getInstance().getModifyPayType(this.f58106a, this.f58107b);
                     }
                 }
 
@@ -470,7 +470,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 public void onSuccess(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                        PrecashierModifyPayTypeManager.getInstance().getModifyPayType(this.f57184a, this.f57185b);
+                        PrecashierModifyPayTypeManager.getInstance().getModifyPayType(this.f58106a, this.f58107b);
                     }
                 }
             }));
@@ -481,15 +481,15 @@ public class BaiduPayDelegate implements IWalletPayFacade {
     public void checkPwd(Context context, CheckCallBack checkCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, checkCallBack) == null) {
-            this.f57127g = new LoginBackListenerProxy(context, new ILoginBackListener(this, checkCallBack) { // from class: com.baidu.wallet.api.BaiduPayDelegate.7
+            this.f58049g = new LoginBackListenerProxy(context, new ILoginBackListener(this, checkCallBack) { // from class: com.baidu.wallet.api.BaiduPayDelegate.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CheckCallBack f57204a;
+                public final /* synthetic */ CheckCallBack f58126a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57205b;
+                public final /* synthetic */ BaiduPayDelegate f58127b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -506,8 +506,8 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57205b = this;
-                    this.f57204a = checkCallBack;
+                    this.f58127b = this;
+                    this.f58126a = checkCallBack;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
@@ -515,13 +515,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                         if (i2 == 603) {
-                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f57205b.f57127g);
+                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f58127b.f58049g);
                             return;
                         }
-                        CheckCallBack checkCallBack2 = this.f57204a;
+                        CheckCallBack checkCallBack2 = this.f58126a;
                         if (checkCallBack2 != null) {
                             checkCallBack2.onCheckResult(2, "cancle");
-                            this.f57205b.f57127g = null;
+                            this.f58127b.f58049g = null;
                         }
                     }
                 }
@@ -529,31 +529,31 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onSuccess(int i2, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f57205b.f57127g.getContext() == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f58127b.f58049g.getContext() == null) {
                         return;
                     }
-                    BaiduPay.getInstance().checkPwd(this.f57205b.f57127g.getContext(), this.f57204a);
+                    BaiduPay.getInstance().checkPwd(this.f58127b.f58049g.getContext(), this.f58126a);
                 }
             });
-            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f57127g);
+            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f58049g);
         }
     }
 
     public void checkPwdFromH5(Context context, String str, CheckCallBack checkCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, context, str, checkCallBack) == null) {
-            this.f57127g = new LoginBackListenerProxy(context, new ILoginBackListener(this, str, checkCallBack) { // from class: com.baidu.wallet.api.BaiduPayDelegate.8
+            this.f58049g = new LoginBackListenerProxy(context, new ILoginBackListener(this, str, checkCallBack) { // from class: com.baidu.wallet.api.BaiduPayDelegate.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f57206a;
+                public final /* synthetic */ String f58128a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ CheckCallBack f57207b;
+                public final /* synthetic */ CheckCallBack f58129b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57208c;
+                public final /* synthetic */ BaiduPayDelegate f58130c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -570,9 +570,9 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57208c = this;
-                    this.f57206a = str;
-                    this.f57207b = checkCallBack;
+                    this.f58130c = this;
+                    this.f58128a = str;
+                    this.f58129b = checkCallBack;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
@@ -580,13 +580,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
                         if (i2 == 603) {
-                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f57208c.f57127g);
+                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f58130c.f58049g);
                             return;
                         }
-                        CheckCallBack checkCallBack2 = this.f57207b;
+                        CheckCallBack checkCallBack2 = this.f58129b;
                         if (checkCallBack2 != null) {
                             checkCallBack2.onCheckResult(2, QueryResponse.Options.CANCEL);
-                            this.f57208c.f57127g = null;
+                            this.f58130c.f58049g = null;
                         }
                     }
                 }
@@ -594,13 +594,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onSuccess(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f57208c.f57127g.getContext() == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f58130c.f58049g.getContext() == null) {
                         return;
                     }
-                    BaiduPay.getInstance().checkPwdFromH5(this.f57208c.f57127g.getContext(), this.f57206a, this.f57207b);
+                    BaiduPay.getInstance().checkPwdFromH5(this.f58130c.f58049g.getContext(), this.f58128a, this.f58129b);
                 }
             });
-            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f57127g);
+            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f58049g);
         }
     }
 
@@ -687,18 +687,18 @@ public class BaiduPayDelegate implements IWalletPayFacade {
     public void doCheckPwd(Context context, Map<String, String> map, CheckCallBack checkCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, context, map, checkCallBack) == null) {
-            this.f57127g = new LoginBackListenerProxy(context, new ILoginBackListener(this, map, checkCallBack) { // from class: com.baidu.wallet.api.BaiduPayDelegate.6
+            this.f58049g = new LoginBackListenerProxy(context, new ILoginBackListener(this, map, checkCallBack) { // from class: com.baidu.wallet.api.BaiduPayDelegate.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Map f57201a;
+                public final /* synthetic */ Map f58123a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ CheckCallBack f57202b;
+                public final /* synthetic */ CheckCallBack f58124b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57203c;
+                public final /* synthetic */ BaiduPayDelegate f58125c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -715,9 +715,9 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57203c = this;
-                    this.f57201a = map;
-                    this.f57202b = checkCallBack;
+                    this.f58125c = this;
+                    this.f58123a = map;
+                    this.f58124b = checkCallBack;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
@@ -725,13 +725,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                         if (i2 == 603) {
-                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f57203c.f57127g);
+                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f58125c.f58049g);
                             return;
                         }
-                        CheckCallBack checkCallBack2 = this.f57202b;
+                        CheckCallBack checkCallBack2 = this.f58124b;
                         if (checkCallBack2 != null) {
                             checkCallBack2.onCheckResult(2, "");
-                            this.f57203c.f57127g = null;
+                            this.f58125c.f58049g = null;
                         }
                     }
                 }
@@ -739,38 +739,38 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onSuccess(int i2, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f57203c.f57127g.getContext() == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f58125c.f58049g.getContext() == null) {
                         return;
                     }
-                    BaiduPay.getInstance().doCheckPwd(this.f57203c.f57127g.getContext(), this.f57201a, this.f57202b);
+                    BaiduPay.getInstance().doCheckPwd(this.f58125c.f58049g.getContext(), this.f58123a, this.f58124b);
                 }
             });
-            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f57127g);
+            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f58049g);
         }
     }
 
     public void doInnerBind(Context context, BindBack bindBack, Map<String, String> map, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048587, this, context, bindBack, map, str) == null) {
-            this.f57127g = null;
-            this.f57127g = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, bindBack, map, str) { // from class: com.baidu.wallet.api.BaiduPayDelegate.14
+            this.f58049g = null;
+            this.f58049g = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, bindBack, map, str) { // from class: com.baidu.wallet.api.BaiduPayDelegate.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f57153a;
+                public final /* synthetic */ Context f58075a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BindBack f57154b;
+                public final /* synthetic */ BindBack f58076b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Map f57155c;
+                public final /* synthetic */ Map f58077c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f57156d;
+                public final /* synthetic */ String f58078d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57157e;
+                public final /* synthetic */ BaiduPayDelegate f58079e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -787,11 +787,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57157e = this;
-                    this.f57153a = context;
-                    this.f57154b = bindBack;
-                    this.f57155c = map;
-                    this.f57156d = str;
+                    this.f58079e = this;
+                    this.f58075a = context;
+                    this.f58076b = bindBack;
+                    this.f58077c = map;
+                    this.f58078d = str;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
@@ -799,11 +799,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
                         if (i2 == 603) {
-                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f57157e.f57127g);
-                        } else if (this.f57154b != null) {
+                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f58079e.f58049g);
+                        } else if (this.f58076b != null) {
                             StatisticManager.onEvent("#onBindResult");
-                            this.f57154b.onBindResult(-5, null);
-                            this.f57157e.f57127g = null;
+                            this.f58076b.onBindResult(-5, null);
+                            this.f58079e.f58049g = null;
                         }
                     }
                 }
@@ -811,13 +811,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onSuccess(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f57157e.f57127g.getContext() == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f58079e.f58049g.getContext() == null) {
                         return;
                     }
-                    BaiduPay.getInstance().doBindCardExt(this.f57153a, this.f57154b, this.f57155c, this.f57156d);
+                    BaiduPay.getInstance().doBindCardExt(this.f58075a, this.f58076b, this.f58077c, this.f58078d);
                 }
             });
-            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f57127g);
+            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f58049g);
         }
     }
 
@@ -835,18 +835,18 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             return;
         }
         StatisticManager.onEventWithValue(PayStatServiceEvent.PAY_RNAUTH_ENTER, StatHelper.getOrderNo());
-        this.f57127g = new LoginBackListenerProxy(context, new ILoginBackListener(this, str, rNAuthCallBack) { // from class: com.baidu.wallet.api.BaiduPayDelegate.2
+        this.f58049g = new LoginBackListenerProxy(context, new ILoginBackListener(this, str, rNAuthCallBack) { // from class: com.baidu.wallet.api.BaiduPayDelegate.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f57181a;
+            public final /* synthetic */ String f58103a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RNAuthCallBack f57182b;
+            public final /* synthetic */ RNAuthCallBack f58104b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ BaiduPayDelegate f57183c;
+            public final /* synthetic */ BaiduPayDelegate f58105c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -863,9 +863,9 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                         return;
                     }
                 }
-                this.f57183c = this;
-                this.f57181a = str;
-                this.f57182b = rNAuthCallBack;
+                this.f58105c = this;
+                this.f58103a = str;
+                this.f58104b = rNAuthCallBack;
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
@@ -873,13 +873,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
                     if (i2 == 603) {
-                        com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f57183c.f57127g);
+                        com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f58105c.f58049g);
                         return;
                     }
-                    RNAuthCallBack rNAuthCallBack2 = this.f57182b;
+                    RNAuthCallBack rNAuthCallBack2 = this.f58104b;
                     if (rNAuthCallBack2 != null) {
                         rNAuthCallBack2.onRNAuthResult(-5, null);
-                        this.f57183c.f57127g = null;
+                        this.f58105c.f58049g = null;
                     }
                 }
             }
@@ -887,13 +887,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onSuccess(int i2, String str2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f57183c.f57127g.getContext() == null) {
+                if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f58105c.f58049g.getContext() == null) {
                     return;
                 }
-                BaiduPay.getInstance().doPayRNAuth(this.f57183c.f57127g.getContext(), this.f57181a, this.f57182b);
+                BaiduPay.getInstance().doPayRNAuth(this.f58105c.f58049g.getContext(), this.f58103a, this.f58104b);
             }
         });
-        com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f57127g);
+        com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f58049g);
     }
 
     public void doPrecashierPay(Context context, String str, PayCallBack payCallBack, Map<String, String> map, PrecashierCreateOrderResponse precashierCreateOrderResponse, IModifyPayTypeCallback iModifyPayTypeCallback) {
@@ -909,19 +909,19 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f57170a;
+                    public final /* synthetic */ Context f58092a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f57171b;
+                    public final /* synthetic */ String f58093b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ PayCallBack f57172c;
+                    public final /* synthetic */ PayCallBack f58094c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ Map f57173d;
+                    public final /* synthetic */ Map f58095d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ BaiduPayDelegate f57174e;
+                    public final /* synthetic */ BaiduPayDelegate f58096e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -938,11 +938,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                 return;
                             }
                         }
-                        this.f57174e = this;
-                        this.f57170a = context;
-                        this.f57171b = str;
-                        this.f57172c = payCallBack;
-                        this.f57173d = map;
+                        this.f58096e = this;
+                        this.f58092a = context;
+                        this.f58093b = str;
+                        this.f58094c = payCallBack;
+                        this.f58095d = map;
                     }
 
                     @Override // com.baidu.wallet.paysdk.precashier.IModifyPayTypeCallback
@@ -950,7 +950,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, precashierModifyPayTypeDefaultData) == null) {
                             PayDataCache.getInstance().resetFromPrecashier();
-                            this.f57174e.doPay(this.f57170a, this.f57171b, this.f57172c, this.f57173d);
+                            this.f58096e.doPay(this.f58092a, this.f58093b, this.f58094c, this.f58095d);
                         }
                     }
 
@@ -975,27 +975,27 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             StatHelper.cachePayFrom("1");
             StatisticManager.onEventStart(PayStatServiceEvent.PAY_DURATION);
             cashierEnterSensor(PayStatServiceEvent.PERCASHIER_PAY_ENTER, str);
-            this.f57127g = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, str, payCallBack, map, precashierCreateOrderResponse) { // from class: com.baidu.wallet.api.BaiduPayDelegate.19
+            this.f58049g = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, str, payCallBack, map, precashierCreateOrderResponse) { // from class: com.baidu.wallet.api.BaiduPayDelegate.19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f57175a;
+                public final /* synthetic */ Context f58097a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f57176b;
+                public final /* synthetic */ String f58098b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ PayCallBack f57177c;
+                public final /* synthetic */ PayCallBack f58099c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Map f57178d;
+                public final /* synthetic */ Map f58100d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PrecashierCreateOrderResponse f57179e;
+                public final /* synthetic */ PrecashierCreateOrderResponse f58101e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57180f;
+                public final /* synthetic */ BaiduPayDelegate f58102f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1012,19 +1012,19 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57180f = this;
-                    this.f57175a = context;
-                    this.f57176b = str;
-                    this.f57177c = payCallBack;
-                    this.f57178d = map;
-                    this.f57179e = precashierCreateOrderResponse;
+                    this.f58102f = this;
+                    this.f58097a = context;
+                    this.f58098b = str;
+                    this.f58099c = payCallBack;
+                    this.f58100d = map;
+                    this.f58101e = precashierCreateOrderResponse;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) && i2 == 603) {
-                        com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f57180f.f57127g);
+                        com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f58102f.f58049g);
                     }
                 }
 
@@ -1032,11 +1032,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 public void onSuccess(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                        BaiduPay.getInstance().doPrecashierPay(this.f57175a, this.f57176b, this.f57177c, this.f57178d, this.f57179e);
+                        BaiduPay.getInstance().doPrecashierPay(this.f58097a, this.f58098b, this.f58099c, this.f58100d, this.f58101e);
                     }
                 }
             });
-            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f57127g);
+            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f58049g);
         }
     }
 
@@ -1046,18 +1046,18 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         if (!(interceptable == null || interceptable.invokeLLL(1048592, this, context, map, rNAuthCallBack) == null) || context == null || map == null) {
             return;
         }
-        this.f57127g = new LoginBackListenerProxy(context, new ILoginBackListener(this, map, rNAuthCallBack) { // from class: com.baidu.wallet.api.BaiduPayDelegate.25
+        this.f58049g = new LoginBackListenerProxy(context, new ILoginBackListener(this, map, rNAuthCallBack) { // from class: com.baidu.wallet.api.BaiduPayDelegate.25
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Map f57190a;
+            public final /* synthetic */ Map f58112a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RNAuthCallBack f57191b;
+            public final /* synthetic */ RNAuthCallBack f58113b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ BaiduPayDelegate f57192c;
+            public final /* synthetic */ BaiduPayDelegate f58114c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1074,9 +1074,9 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                         return;
                     }
                 }
-                this.f57192c = this;
-                this.f57190a = map;
-                this.f57191b = rNAuthCallBack;
+                this.f58114c = this;
+                this.f58112a = map;
+                this.f58113b = rNAuthCallBack;
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
@@ -1084,13 +1084,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                     if (i2 == 603) {
-                        com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f57192c.f57127g);
+                        com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f58114c.f58049g);
                         return;
                     }
-                    RNAuthCallBack rNAuthCallBack2 = this.f57191b;
+                    RNAuthCallBack rNAuthCallBack2 = this.f58113b;
                     if (rNAuthCallBack2 != null) {
                         rNAuthCallBack2.onRNAuthResult(-5, null);
-                        this.f57192c.f57127g = null;
+                        this.f58114c.f58049g = null;
                     }
                 }
             }
@@ -1098,13 +1098,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onSuccess(int i2, String str) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f57192c.f57127g.getContext() == null) {
+                if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f58114c.f58049g.getContext() == null) {
                     return;
                 }
-                BaiduPay.getInstance().doRNAuth(this.f57192c.f57127g.getContext(), this.f57190a, this.f57191b);
+                BaiduPay.getInstance().doRNAuth(this.f58114c.f58049g.getContext(), this.f58112a, this.f58113b);
             }
         });
-        com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f57127g);
+        com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f58049g);
     }
 
     public void doRemotePay(Context context, String str, PayCallBack payCallBack, Map<String, String> map) {
@@ -1112,10 +1112,10 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         if (!(interceptable == null || interceptable.invokeLLLL(1048593, this, context, str, payCallBack, map) == null) || context == null || TextUtils.isEmpty(str)) {
             return;
         }
-        if (!this.f57125a) {
+        if (!this.f58047a) {
             StatHelper.clearSensor();
         }
-        this.f57125a = false;
+        this.f58047a = false;
         StatHelper.cachePayFrom("3");
         StatisticManager.onEventStart(PayStatServiceEvent.PAY_DURATION);
         ArrayList<String> a2 = a(str, map, context);
@@ -1201,16 +1201,16 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f57193a;
+                public final /* synthetic */ Context f58115a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f57194b;
+                public final /* synthetic */ String f58116b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ IDefaultPayMethodCallback f57195c;
+                public final /* synthetic */ IDefaultPayMethodCallback f58117c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57196d;
+                public final /* synthetic */ BaiduPayDelegate f58118d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1227,17 +1227,17 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57196d = this;
-                    this.f57193a = context;
-                    this.f57194b = str;
-                    this.f57195c = iDefaultPayMethodCallback;
+                    this.f58118d = this;
+                    this.f58115a = context;
+                    this.f58116b = str;
+                    this.f58117c = iDefaultPayMethodCallback;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                        this.f57196d.a(this.f57193a, this.f57194b, this.f57195c);
+                        this.f58118d.a(this.f58115a, this.f58116b, this.f58117c);
                     }
                 }
 
@@ -1245,7 +1245,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 public void onSuccess(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                        this.f57196d.a(this.f57193a, this.f57194b, this.f57195c);
+                        this.f58118d.a(this.f58115a, this.f58116b, this.f58117c);
                     }
                 }
             }));
@@ -1259,21 +1259,21 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 aVar.a(10004, "功能未实现");
                 return;
             }
-            this.f57127g = new LoginBackListenerProxy(context, new ILoginBackListener(this, str, context, aVar) { // from class: com.baidu.wallet.api.BaiduPayDelegate.15
+            this.f58049g = new LoginBackListenerProxy(context, new ILoginBackListener(this, str, context, aVar) { // from class: com.baidu.wallet.api.BaiduPayDelegate.15
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f57158a;
+                public final /* synthetic */ String f58080a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f57159b;
+                public final /* synthetic */ Context f58081b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.baidu.wallet.paysdk.securitycenter.a f57160c;
+                public final /* synthetic */ com.baidu.wallet.paysdk.securitycenter.a f58082c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57161d;
+                public final /* synthetic */ BaiduPayDelegate f58083d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1290,10 +1290,10 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57161d = this;
-                    this.f57158a = str;
-                    this.f57159b = context;
-                    this.f57160c = aVar;
+                    this.f58083d = this;
+                    this.f58080a = str;
+                    this.f58081b = context;
+                    this.f58082c = aVar;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
@@ -1301,14 +1301,14 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
                         if (i2 == 603) {
-                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f57161d.f57127g);
+                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f58083d.f58049g);
                         } else {
-                            com.baidu.wallet.paysdk.securitycenter.a aVar2 = this.f57160c;
+                            com.baidu.wallet.paysdk.securitycenter.a aVar2 = this.f58082c;
                             if (aVar2 != null) {
                                 aVar2.a(-5, "未登录");
                             }
                         }
-                        this.f57161d.f57127g = null;
+                        this.f58083d.f58049g = null;
                     }
                 }
 
@@ -1316,12 +1316,12 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 public void onSuccess(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                        this.f57161d.a(this.f57158a, this.f57159b, this.f57160c);
-                        this.f57161d.f57127g = null;
+                        this.f58083d.a(this.f58080a, this.f58081b, this.f58082c);
+                        this.f58083d.f58049g = null;
                     }
                 }
             });
-            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f57127g);
+            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f58049g);
         }
     }
 
@@ -1335,13 +1335,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f57133a;
+                public final /* synthetic */ Context f58055a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IWalletOuterInterfaceListener f57134b;
+                public final /* synthetic */ IWalletOuterInterfaceListener f58056b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57135c;
+                public final /* synthetic */ BaiduPayDelegate f58057c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1358,16 +1358,16 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57135c = this;
-                    this.f57133a = context;
-                    this.f57134b = iWalletOuterInterfaceListener;
+                    this.f58057c = this;
+                    this.f58055a = context;
+                    this.f58056b = iWalletOuterInterfaceListener;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.f57135c.a(this.f57133a, this.f57134b);
+                        this.f58057c.a(this.f58055a, this.f58056b);
                     }
                 }
 
@@ -1375,7 +1375,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 public void onSuccess(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                        this.f57135c.a(this.f57133a, this.f57134b);
+                        this.f58057c.a(this.f58055a, this.f58056b);
                     }
                 }
             }));
@@ -1395,7 +1395,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 }
                 return "";
             }
-            String walletInterfaceData2 = PayPreferenceManager.getWalletInterfaceData(context, f57124e, "");
+            String walletInterfaceData2 = PayPreferenceManager.getWalletInterfaceData(context, f58046e, "");
             return !TextUtils.isEmpty(walletInterfaceData2) ? walletInterfaceData2 : "";
         }
         return (String) invokeLL.objValue;
@@ -1486,10 +1486,10 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ IPrecashierCallback f57146a;
+                    public final /* synthetic */ IPrecashierCallback f58068a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaiduPayDelegate f57147b;
+                    public final /* synthetic */ BaiduPayDelegate f58069b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1506,8 +1506,8 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                 return;
                             }
                         }
-                        this.f57147b = this;
-                        this.f57146a = iPrecashierCallback;
+                        this.f58069b = this;
+                        this.f58068a = iPrecashierCallback;
                     }
 
                     @Override // com.baidu.android.pay.PayCallBack
@@ -1527,12 +1527,12 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             if (i2 != 0 && i2 != 1) {
                                 StatHelper.statServiceEvent(PayStatServiceEvent.PERCASHIER_PAY);
                                 StatHelper.statServiceEvent(PayStatServiceEvent.PERCASHIER_PAY_FAILED);
-                                this.f57146a.onResult(this.f57147b.a(String.valueOf(i2), str3));
+                                this.f58068a.onResult(this.f58069b.a(String.valueOf(i2), str3));
                                 return;
                             }
                             HashMap hashMap = new HashMap();
                             hashMap.put("data", Base64Utils.encodeToString(str3.getBytes()));
-                            this.f57146a.onResult(this.f57147b.assembleResult(hashMap, true));
+                            this.f58068a.onResult(this.f58069b.assembleResult(hashMap, true));
                         }
                     }
                 };
@@ -1541,10 +1541,10 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayCallBack f57162a;
+                    public final /* synthetic */ PayCallBack f58084a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaiduPayDelegate f57163b;
+                    public final /* synthetic */ BaiduPayDelegate f58085b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1561,15 +1561,15 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                 return;
                             }
                         }
-                        this.f57163b = this;
-                        this.f57162a = payCallBack;
+                        this.f58085b = this;
+                        this.f58084a = payCallBack;
                     }
 
                     @Override // com.baidu.wallet.paysdk.precashier.IModifyPayTypeCallback
                     public void onPayTypeModified(PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, precashierModifyPayTypeDefaultData) == null) {
-                            this.f57162a.onPayResult(10000, "默认支付方式变更");
+                            this.f58084a.onPayResult(10000, "默认支付方式变更");
                         }
                     }
 
@@ -1608,7 +1608,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             PayCallBack payBack = BaiduPay.getInstance().getPayBack();
             PayRequestCache.getInstance().clearPaySdkRequestCache();
             PayBaseBeanActivity.exitEbpay();
-            this.f57125a = true;
+            this.f58047a = true;
             String str2 = "orderinfo=" + str + " ==============callback=" + payBack;
             HashMap hashMap = new HashMap();
             hashMap.put("pay_from", payFrom);
@@ -1647,8 +1647,8 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 return;
             }
         }
-        this.f57125a = false;
-        this.f57128h = null;
+        this.f58047a = false;
+        this.f58050h = null;
     }
 
     private IRemoteServiceCallback b() {
@@ -1696,13 +1696,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ int f57130a;
+                        public final /* synthetic */ int f58052a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f57131b;
+                        public final /* synthetic */ String f58053b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f57132c;
+                        public final /* synthetic */ AnonymousClass1 f58054c;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -1719,19 +1719,19 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                     return;
                                 }
                             }
-                            this.f57132c = this;
-                            this.f57130a = i2;
-                            this.f57131b = str;
+                            this.f58054c = this;
+                            this.f58052a = i2;
+                            this.f58053b = str;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
-                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f57132c.this$0.f57128h == null) {
+                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f58054c.this$0.f58050h == null) {
                                 return;
                             }
-                            this.f57132c.this$0.f57128h.onPayResult(this.f57130a, this.f57131b);
-                            this.f57132c.this$0.f57128h = null;
+                            this.f58054c.this$0.f58050h.onPayResult(this.f58052a, this.f58053b);
+                            this.f58054c.this$0.f58050h = null;
                         }
                     });
                 }
@@ -1762,24 +1762,24 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 StatHelper.payLoginSeneor(PayStatServiceEvent.LCL_LOGIN_ENTER, strArr2);
             }
             StatHelper.cachePassLoginStatus(com.dxmpay.wallet.api.WalletLoginHelper.getInstance().isPassLogin() ? "1" : "0");
-            this.f57126f = new HandlePassLoginResult(this, context, false, new ILoginBackListener(this, payCallBack, context, map, str) { // from class: com.baidu.wallet.api.BaiduPayDelegate.13
+            this.f58048f = new HandlePassLoginResult(this, context, false, new ILoginBackListener(this, payCallBack, context, map, str) { // from class: com.baidu.wallet.api.BaiduPayDelegate.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayCallBack f57148a;
+                public final /* synthetic */ PayCallBack f58070a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f57149b;
+                public final /* synthetic */ Context f58071b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Map f57150c;
+                public final /* synthetic */ Map f58072c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f57151d;
+                public final /* synthetic */ String f58073d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57152e;
+                public final /* synthetic */ BaiduPayDelegate f58074e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1796,11 +1796,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57152e = this;
-                    this.f57148a = payCallBack;
-                    this.f57149b = context;
-                    this.f57150c = map;
-                    this.f57151d = str;
+                    this.f58074e = this;
+                    this.f58070a = payCallBack;
+                    this.f58071b = context;
+                    this.f58072c = map;
+                    this.f58073d = str;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
@@ -1808,7 +1808,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
                         if (i2 == 603) {
-                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f57152e.f57126f);
+                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f58074e.f58048f);
                             return;
                         }
                         List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), new String[0]);
@@ -1823,17 +1823,17 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                 StatHelper.payLoginSeneor(PayStatServiceEvent.LCL_OPENBDUSS_RESULT, "0");
                             }
                         }
-                        if (this.f57148a != null) {
+                        if (this.f58070a != null) {
                             PayDataCache.getInstance().isRemotePay();
-                            this.f57148a.onPayResult(2, "");
+                            this.f58070a.onPayResult(2, "");
                             if (PayDataCache.getInstance().isRemotePay()) {
                                 try {
-                                    this.f57152e.a(this.f57149b, this.f57150c);
+                                    this.f58074e.a(this.f58071b, this.f58072c);
                                 } catch (ActivityNotFoundException e2) {
                                     e2.printStackTrace();
                                 }
                             }
-                            this.f57152e.f57126f = null;
+                            this.f58074e.f58048f = null;
                         }
                     }
                 }
@@ -1847,22 +1847,22 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                         } else {
                             StatHelper.payLoginSeneor(PayStatServiceEvent.LCL_OPENBDUSS_RESULT, "1");
                         }
-                        if (this.f57152e.f57126f.getContext() != null) {
-                            BaiduPayDelegate baiduPayDelegate = this.f57152e;
-                            baiduPayDelegate.b(baiduPayDelegate.f57126f.getContext(), this.f57151d, this.f57148a, this.f57150c);
+                        if (this.f58074e.f58048f.getContext() != null) {
+                            BaiduPayDelegate baiduPayDelegate = this.f58074e;
+                            baiduPayDelegate.b(baiduPayDelegate.f58048f.getContext(), this.f58073d, this.f58070a, this.f58072c);
                             return;
                         }
                         StatHelper.cacheBankCode("-1");
                         StatHelper.cacheCardType("-1");
                         StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY_CANCEL);
-                        PayCallBack payCallBack2 = this.f57148a;
+                        PayCallBack payCallBack2 = this.f58070a;
                         if (payCallBack2 != null) {
                             payCallBack2.onPayResult(2, "");
                         }
                     }
                 }
             });
-            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f57126f);
+            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f58048f);
         }
     }
 
@@ -1887,10 +1887,10 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048589, this, context, str, payCallBack, map) == null) {
             if (!"2".equals(StatHelper.getPayFrom())) {
-                if (!this.f57125a) {
+                if (!this.f58047a) {
                     StatHelper.clearSensor();
                 }
-                this.f57125a = false;
+                this.f58047a = false;
                 String pureSign = StatHelper.getPureSign(str);
                 if (TextUtils.isEmpty(pureSign)) {
                     StatHelper.cachePayFrom("0");
@@ -1907,7 +1907,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 StatHelper.cacheCardType("-1");
                 StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY_FAILED);
             } else if (BeanConstants.CHANNEL_ID.equals(com.baidu.wallet.paysdk.beans.BeanConstants.CHANNEL_ID_CHE_LIAN_WANG)) {
-                this.f57128h = payCallBack;
+                this.f58050h = payCallBack;
                 Intent intent = new Intent();
                 intent.setClassName(context.getPackageName(), "com.baidu.wallet.remotepay.RemotePayEnterActivity");
                 intent.putExtra("caller", a(str, (Map<String, String>) null, map));
@@ -1953,10 +1953,10 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ IPrecashierCallback f57199a;
+                        public final /* synthetic */ IPrecashierCallback f58121a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ BaiduPayDelegate f57200b;
+                        public final /* synthetic */ BaiduPayDelegate f58122b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1973,8 +1973,8 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                     return;
                                 }
                             }
-                            this.f57200b = this;
-                            this.f57199a = iPrecashierCallback;
+                            this.f58122b = this;
+                            this.f58121a = iPrecashierCallback;
                         }
 
                         @Override // com.baidu.wallet.paysdk.precashier.IDefaultPayMethodCallback
@@ -1985,11 +1985,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                 if (i2 == 0) {
                                     HashMap hashMap = new HashMap();
                                     hashMap.put("data", Base64Utils.encodeToString(str2.getBytes()));
-                                    a2 = this.f57200b.assembleResult(hashMap, true);
+                                    a2 = this.f58122b.assembleResult(hashMap, true);
                                 } else {
-                                    a2 = this.f57200b.a(String.valueOf(i2), str2);
+                                    a2 = this.f58122b.a(String.valueOf(i2), str2);
                                 }
-                                this.f57199a.onResult(a2);
+                                this.f58121a.onResult(a2);
                             }
                         }
                     });
@@ -2027,13 +2027,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f57187a;
+                        public final /* synthetic */ String f58109a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ IPrecashierCallback f57188b;
+                        public final /* synthetic */ IPrecashierCallback f58110b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ BaiduPayDelegate f57189c;
+                        public final /* synthetic */ BaiduPayDelegate f58111c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -2050,9 +2050,9 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                     return;
                                 }
                             }
-                            this.f57189c = this;
-                            this.f57187a = r7;
-                            this.f57188b = iPrecashierCallback;
+                            this.f58111c = this;
+                            this.f58109a = r7;
+                            this.f58110b = iPrecashierCallback;
                         }
 
                         @Override // com.baidu.wallet.paysdk.precashier.IModifyPayTypeCallback
@@ -2061,7 +2061,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, precashierModifyPayTypeDefaultData) == null) {
                                 HashMap hashMap2 = new HashMap();
-                                if ("1".equals(this.f57187a)) {
+                                if ("1".equals(this.f58109a)) {
                                     localizedMessage = precashierModifyPayTypeDefaultData.getOriginalHttpResponse();
                                 } else {
                                     JSONObject jSONObject4 = new JSONObject();
@@ -2087,18 +2087,18 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                     }
                                 }
                                 hashMap2.put("data", Base64Utils.encodeToString(localizedMessage.getBytes()));
-                                this.f57188b.onResult(this.f57189c.assembleResult(hashMap2, true));
+                                this.f58110b.onResult(this.f58111c.assembleResult(hashMap2, true));
                             }
                         }
 
                         @Override // com.baidu.wallet.paysdk.precashier.IModifyPayTypeCallback
                         public void onPayTypeModifiedFailed(int i2, String str2) {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f57188b == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f58110b == null) {
                                 return;
                             }
-                            BaiduPayDelegate baiduPayDelegate = this.f57189c;
-                            this.f57188b.onResult(baiduPayDelegate.a(i2 + "", str2));
+                            BaiduPayDelegate baiduPayDelegate = this.f58111c;
+                            this.f58110b.onResult(baiduPayDelegate.a(i2 + "", str2));
                         }
 
                         @Override // com.baidu.wallet.paysdk.precashier.IModifyPayTypeCallback
@@ -2148,10 +2148,10 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - this.f57129i;
+            long j = currentTimeMillis - this.f58051i;
             com.dxmpay.apollon.utils.LogUtil.logd("timeD=" + j);
             if (0 >= j || j >= 800) {
-                this.f57129i = currentTimeMillis;
+                this.f58051i = currentTimeMillis;
                 return false;
             }
             return true;
@@ -2186,27 +2186,27 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             strArr[0] = com.dxmpay.wallet.api.WalletLoginHelper.getInstance().isPassLogin() ? "1" : "0";
             StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_PAY_LOGIN, StatHelper.collectData(orderNo, strArr), hashMap);
             StatHelper.cachePassLoginStatus(com.dxmpay.wallet.api.WalletLoginHelper.getInstance().isPassLogin() ? "1" : "0");
-            this.f57126f = new HandlePassLoginResult(this, context, true, new ILoginBackListener(this, hashMap, payCallBack, context, str, sb2) { // from class: com.baidu.wallet.api.BaiduPayDelegate.17
+            this.f58048f = new HandlePassLoginResult(this, context, true, new ILoginBackListener(this, hashMap, payCallBack, context, str, sb2) { // from class: com.baidu.wallet.api.BaiduPayDelegate.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Map f57164a;
+                public final /* synthetic */ Map f58086a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PayCallBack f57165b;
+                public final /* synthetic */ PayCallBack f58087b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Context f57166c;
+                public final /* synthetic */ Context f58088c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f57167d;
+                public final /* synthetic */ String f58089d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f57168e;
+                public final /* synthetic */ String f58090e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57169f;
+                public final /* synthetic */ BaiduPayDelegate f58091f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2223,12 +2223,12 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57169f = this;
-                    this.f57164a = hashMap;
-                    this.f57165b = payCallBack;
-                    this.f57166c = context;
-                    this.f57167d = str;
-                    this.f57168e = sb2;
+                    this.f58091f = this;
+                    this.f58086a = hashMap;
+                    this.f58087b = payCallBack;
+                    this.f58088c = context;
+                    this.f58089d = str;
+                    this.f58090e = sb2;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
@@ -2236,13 +2236,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str3) == null) {
                         if (i2 == 603) {
-                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f57169f.f57126f);
+                            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().onlyLogin(this.f58091f.f58048f);
                             return;
                         }
                         if (StatHelper.getPassLoginStatus().equals("1")) {
-                            StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_OPENBDUSS_RESULT, StatHelper.collectData(StatHelper.getOrderNo(), "0"), this.f57164a);
+                            StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_OPENBDUSS_RESULT, StatHelper.collectData(StatHelper.getOrderNo(), "0"), this.f58086a);
                         }
-                        PayCallBack payCallBack2 = this.f57165b;
+                        PayCallBack payCallBack2 = this.f58087b;
                         if (payCallBack2 != null) {
                             payCallBack2.onPayResult(2, "");
                         }
@@ -2253,12 +2253,12 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 public void onSuccess(int i2, String str3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
-                        StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_OPENBDUSS_RESULT, StatHelper.collectData(StatHelper.getOrderNo(), "1"), this.f57164a);
-                        BaiduPay.getInstance().preOrderPay(this.f57166c, this.f57167d, this.f57168e, this.f57165b, new HashMap());
+                        StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_OPENBDUSS_RESULT, StatHelper.collectData(StatHelper.getOrderNo(), "1"), this.f58086a);
+                        BaiduPay.getInstance().preOrderPay(this.f58088c, this.f58089d, this.f58090e, this.f58087b, new HashMap());
                     }
                 }
             });
-            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f57126f);
+            com.dxmpay.wallet.api.WalletLoginHelper.getInstance().login(this.f58048f);
         }
     }
 
@@ -2266,19 +2266,19 @@ public class BaiduPayDelegate implements IWalletPayFacade {
     public void a(Context context, String str, IDefaultPayMethodCallback iDefaultPayMethodCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65551, this, context, str, iDefaultPayMethodCallback) == null) {
-            BeanManager.getInstance().removeAllBeans(f57122c);
+            BeanManager.getInstance().removeAllBeans(f58044c);
             new Handler(context.getMainLooper()).removeCallbacksAndMessages(null);
-            PrecashierDefaultPayTypeBean precashierDefaultPayTypeBean = (PrecashierDefaultPayTypeBean) PrecashierBeanFactory.getInstance().getBean(context, 1, f57122c);
+            PrecashierDefaultPayTypeBean precashierDefaultPayTypeBean = (PrecashierDefaultPayTypeBean) PrecashierBeanFactory.getInstance().getBean(context, 1, f58044c);
             precashierDefaultPayTypeBean.setParams(str);
             precashierDefaultPayTypeBean.setResponseCallback(new IBeanResponseCallback(this, iDefaultPayMethodCallback) { // from class: com.baidu.wallet.api.BaiduPayDelegate.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IDefaultPayMethodCallback f57197a;
+                public final /* synthetic */ IDefaultPayMethodCallback f58119a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57198b;
+                public final /* synthetic */ BaiduPayDelegate f58120b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2295,15 +2295,15 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57198b = this;
-                    this.f57197a = iDefaultPayMethodCallback;
+                    this.f58120b = this;
+                    this.f58119a = iDefaultPayMethodCallback;
                 }
 
                 @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
                 public void onBeanExecFailure(int i2, int i3, String str2) {
                     IDefaultPayMethodCallback iDefaultPayMethodCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, str2) == null) || (iDefaultPayMethodCallback2 = this.f57197a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, str2) == null) || (iDefaultPayMethodCallback2 = this.f58119a) == null) {
                         return;
                     }
                     iDefaultPayMethodCallback2.onReceived(i3, str2);
@@ -2312,7 +2312,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
                 public void onBeanExecSuccess(int i2, Object obj, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str2) == null) || this.f57197a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeILL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str2) == null) || this.f58119a == null) {
                         return;
                     }
                     JSONObject jSONObject = null;
@@ -2322,7 +2322,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             JSONObject jSONObject2 = new JSONObject(str3);
                             try {
                                 if (jSONObject2.getInt(Constants.KEYS.RET) == 0) {
-                                    this.f57197a.onReceived(0, str3);
+                                    this.f58119a.onReceived(0, str3);
                                     return;
                                 }
                             } catch (JSONException unused) {
@@ -2340,7 +2340,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                         } catch (Exception unused3) {
                         }
                     }
-                    this.f57197a.onReceived(i3, str4);
+                    this.f58119a.onReceived(i3, str4);
                 }
             });
             precashierDefaultPayTypeBean.execBean();
@@ -2351,25 +2351,25 @@ public class BaiduPayDelegate implements IWalletPayFacade {
     public void a(Context context, IWalletOuterInterfaceListener iWalletOuterInterfaceListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, this, context, iWalletOuterInterfaceListener) == null) {
-            BeanManager.getInstance().removeAllBeans(f57121b);
+            BeanManager.getInstance().removeAllBeans(f58043b);
             Handler handler = new Handler(context.getMainLooper());
             handler.removeCallbacksAndMessages(null);
-            t tVar = (t) PayBeanFactory.getInstance().getBean(context, PayBeanFactory.BEAN_ID_GET_WALLET_INTERFACE, f57121b);
+            t tVar = (t) PayBeanFactory.getInstance().getBean(context, PayBeanFactory.BEAN_ID_GET_WALLET_INTERFACE, f58043b);
             tVar.setResponseCallback(new IBeanResponseCallback(this, context, handler, iWalletOuterInterfaceListener) { // from class: com.baidu.wallet.api.BaiduPayDelegate.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f57136a;
+                public final /* synthetic */ Context f58058a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Handler f57137b;
+                public final /* synthetic */ Handler f58059b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ IWalletOuterInterfaceListener f57138c;
+                public final /* synthetic */ IWalletOuterInterfaceListener f58060c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayDelegate f57139d;
+                public final /* synthetic */ BaiduPayDelegate f58061d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2386,28 +2386,28 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                             return;
                         }
                     }
-                    this.f57139d = this;
-                    this.f57136a = context;
-                    this.f57137b = handler;
-                    this.f57138c = iWalletOuterInterfaceListener;
+                    this.f58061d = this;
+                    this.f58058a = context;
+                    this.f58059b = handler;
+                    this.f58060c = iWalletOuterInterfaceListener;
                 }
 
                 @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
                 public void onBeanExecFailure(int i2, int i3, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, str) == null) {
-                        this.f57137b.post(new Runnable(this, i3, str) { // from class: com.baidu.wallet.api.BaiduPayDelegate.11.3
+                        this.f58059b.post(new Runnable(this, i3, str) { // from class: com.baidu.wallet.api.BaiduPayDelegate.11.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ int f57143a;
+                            public final /* synthetic */ int f58065a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f57144b;
+                            public final /* synthetic */ String f58066b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass11 f57145c;
+                            public final /* synthetic */ AnonymousClass11 f58067c;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -2424,19 +2424,19 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                         return;
                                     }
                                 }
-                                this.f57145c = this;
-                                this.f57143a = i3;
-                                this.f57144b = str;
+                                this.f58067c = this;
+                                this.f58065a = i3;
+                                this.f58066b = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 IWalletOuterInterfaceListener iWalletOuterInterfaceListener2;
                                 Interceptable interceptable3 = $ic;
-                                if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (iWalletOuterInterfaceListener2 = this.f57145c.f57138c) == null) {
+                                if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (iWalletOuterInterfaceListener2 = this.f58067c.f58060c) == null) {
                                     return;
                                 }
-                                iWalletOuterInterfaceListener2.onReceived(this.f57143a, this.f57144b);
+                                iWalletOuterInterfaceListener2.onReceived(this.f58065a, this.f58066b);
                             }
                         });
                     }
@@ -2451,19 +2451,19 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                         if (walletInterfaceResponse != null && (jSONObject = walletInterfaceResponse.login_data) != null) {
                             String jSONObject2 = jSONObject.toString();
                             String encodeBytes = Base64.encodeBytes(jSONObject2.getBytes());
-                            String newPpKey = PayPreferenceManager.getNewPpKey(this.f57136a);
+                            String newPpKey = PayPreferenceManager.getNewPpKey(this.f58058a);
                             if (!TextUtils.isEmpty(newPpKey) && !TextUtils.isEmpty(encodeBytes)) {
-                                PayPreferenceManager.setWalletInterfaceData(this.f57136a, newPpKey, encodeBytes);
+                                PayPreferenceManager.setWalletInterfaceData(this.f58058a, newPpKey, encodeBytes);
                             }
-                            this.f57137b.post(new Runnable(this, jSONObject2) { // from class: com.baidu.wallet.api.BaiduPayDelegate.11.1
+                            this.f58059b.post(new Runnable(this, jSONObject2) { // from class: com.baidu.wallet.api.BaiduPayDelegate.11.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ String f57140a;
+                                public final /* synthetic */ String f58062a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass11 f57141b;
+                                public final /* synthetic */ AnonymousClass11 f58063b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -2480,27 +2480,27 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                             return;
                                         }
                                     }
-                                    this.f57141b = this;
-                                    this.f57140a = jSONObject2;
+                                    this.f58063b = this;
+                                    this.f58062a = jSONObject2;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     IWalletOuterInterfaceListener iWalletOuterInterfaceListener2;
                                     Interceptable interceptable3 = $ic;
-                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (iWalletOuterInterfaceListener2 = this.f57141b.f57138c) == null) {
+                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (iWalletOuterInterfaceListener2 = this.f58063b.f58060c) == null) {
                                         return;
                                     }
-                                    iWalletOuterInterfaceListener2.onReceived(0, this.f57140a);
+                                    iWalletOuterInterfaceListener2.onReceived(0, this.f58062a);
                                 }
                             });
                         } else {
-                            this.f57137b.post(new Runnable(this) { // from class: com.baidu.wallet.api.BaiduPayDelegate.11.2
+                            this.f58059b.post(new Runnable(this) { // from class: com.baidu.wallet.api.BaiduPayDelegate.11.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass11 f57142a;
+                                public final /* synthetic */ AnonymousClass11 f58064a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -2517,14 +2517,14 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                                             return;
                                         }
                                     }
-                                    this.f57142a = this;
+                                    this.f58064a = this;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     IWalletOuterInterfaceListener iWalletOuterInterfaceListener2;
                                     Interceptable interceptable3 = $ic;
-                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (iWalletOuterInterfaceListener2 = this.f57142a.f57138c) == null) {
+                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (iWalletOuterInterfaceListener2 = this.f58064a.f58060c) == null) {
                                         return;
                                     }
                                     iWalletOuterInterfaceListener2.onReceived(-1, "");
@@ -2534,7 +2534,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                         if (walletInterfaceResponse == null || walletInterfaceResponse.unlogin_data == null) {
                             return;
                         }
-                        PayPreferenceManager.setWalletInterfaceData(this.f57136a, BaiduPayDelegate.f57124e, walletInterfaceResponse.unlogin_data.toString());
+                        PayPreferenceManager.setWalletInterfaceData(this.f58058a, BaiduPayDelegate.f58046e, walletInterfaceResponse.unlogin_data.toString());
                     }
                 }
             });
@@ -2638,7 +2638,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     jSONObject.put("errCode", str);
                     jSONObject.put("des", str2);
                 } catch (JSONException e2) {
-                    LogUtil.e(f57121b, "error", e2);
+                    LogUtil.e(f58043b, "error", e2);
                 }
             }
             hashMap.put("data", Base64Utils.encodeToString(jSONObject != null ? jSONObject.toString().getBytes() : str2.getBytes()));
@@ -2651,14 +2651,14 @@ public class BaiduPayDelegate implements IWalletPayFacade {
     public void a(String str, Context context, com.baidu.wallet.paysdk.securitycenter.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65558, this, str, context, aVar) == null) {
-            BeanManager.getInstance().removeAllBeans(f57123d);
+            BeanManager.getInstance().removeAllBeans(f58045d);
             new Handler(context.getMainLooper()).removeCallbacksAndMessages(null);
             if (EnterWalletDxmPayServiceAction.GET_SECURITY_CENTER_DATA.equals(str)) {
-                SecurityCenterBean securityCenterBean = (SecurityCenterBean) SecurityCenterFactory.getInstance().getBean(context, 0, f57123d);
+                SecurityCenterBean securityCenterBean = (SecurityCenterBean) SecurityCenterFactory.getInstance().getBean(context, 0, f58045d);
                 securityCenterBean.setResponseCallback(new a(aVar));
                 securityCenterBean.execBean();
             } else if (EnterWalletDxmPayServiceAction.GET_PAY_SETTING_DATA.equals(str)) {
-                PaySetListBean paySetListBean = (PaySetListBean) SecurityCenterFactory.getInstance().getBean(context, 1, f57123d);
+                PaySetListBean paySetListBean = (PaySetListBean) SecurityCenterFactory.getInstance().getBean(context, 1, f58045d);
                 paySetListBean.setResponseCallback(new a(aVar));
                 paySetListBean.execBean();
             } else {

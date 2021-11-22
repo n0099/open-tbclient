@@ -32,13 +32,13 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20118a;
+    public String f21640a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<? extends ChatMessage> f20119b;
+    public Class<? extends ChatMessage> f21641b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f20120c;
+    public List<String> f21642c;
 
     public a(String str, Class<? extends ChatMessage> cls) {
         Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public abstract class a {
                 return;
             }
         }
-        this.f20120c = null;
-        this.f20118a = str;
-        this.f20119b = cls;
+        this.f21642c = null;
+        this.f21640a = str;
+        this.f21641b = cls;
     }
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0071: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:38:0x0071 */
@@ -90,7 +90,7 @@ public abstract class a {
                             e = e2;
                             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.createMsgTable", new Object[0]);
                             e.printStackTrace();
-                            b.a.e.e.p.m.a(cursor);
+                            b.a.e.f.p.m.a(cursor);
                             it = linkedList.iterator();
                             while (it.hasNext()) {
                             }
@@ -100,7 +100,7 @@ public abstract class a {
                 } catch (Throwable th) {
                     th = th;
                     cursor3 = cursor2;
-                    b.a.e.e.p.m.a(cursor3);
+                    b.a.e.f.p.m.a(cursor3);
                     throw th;
                 }
             } catch (Exception e3) {
@@ -108,10 +108,10 @@ public abstract class a {
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                b.a.e.e.p.m.a(cursor3);
+                b.a.e.f.p.m.a(cursor3);
                 throw th;
             }
-            b.a.e.e.p.m.a(cursor);
+            b.a.e.f.p.m.a(cursor);
             it = linkedList.iterator();
             while (it.hasNext()) {
                 String next = it.next();
@@ -131,7 +131,7 @@ public abstract class a {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                h.d().c("CREATE TABLE IF NOT EXISTS " + (this.f20118a + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1, read_count LONG default -1);");
+                h.d().c("CREATE TABLE IF NOT EXISTS " + (this.f21640a + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1, read_count LONG default -1);");
             }
         }
     }
@@ -144,7 +144,7 @@ public abstract class a {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                h.d().delete(this.f20118a + str, "mid=?", new String[]{str2});
+                h.d().delete(this.f21640a + str, "mid=?", new String[]{str2});
                 return true;
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.deleteMsgByMid", new Object[0]);
@@ -161,24 +161,24 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (this.f20120c == null) {
-                this.f20120c = h();
+            if (this.f21642c == null) {
+                this.f21642c = h();
             }
-            List<String> list = this.f20120c;
+            List<String> list = this.f21642c;
             if (list != null && list.contains(str)) {
-                Iterator<String> it = this.f20120c.iterator();
+                Iterator<String> it = this.f21642c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String next = it.next();
                     if (next.equals(str)) {
-                        this.f20120c.remove(next);
+                        this.f21642c.remove(next);
                         break;
                     }
                 }
             }
-            String str2 = this.f20118a + str;
+            String str2 = this.f21640a + str;
             return h.d().c("delete from " + str2);
         }
         return invokeL.booleanValue;
@@ -191,24 +191,24 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (this.f20120c == null) {
-                this.f20120c = h();
+            if (this.f21642c == null) {
+                this.f21642c = h();
             }
-            List<String> list = this.f20120c;
+            List<String> list = this.f21642c;
             if (list != null && list.contains(str)) {
-                Iterator<String> it = this.f20120c.iterator();
+                Iterator<String> it = this.f21642c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String next = it.next();
                     if (next.equals(str)) {
-                        this.f20120c.remove(next);
+                        this.f21642c.remove(next);
                         break;
                     }
                 }
             }
-            String str2 = this.f20118a + str;
+            String str2 = this.f21640a + str;
             return h.d().c("DROP TABLE IF EXISTS " + str2);
         }
         return invokeL.booleanValue;
@@ -226,7 +226,7 @@ public abstract class a {
             }
             int i4 = i3 <= 0 ? 20 : i3;
             LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
-            String str3 = this.f20118a + str;
+            String str3 = this.f21640a + str;
             try {
                 try {
                     if (TextUtils.isEmpty(str2)) {
@@ -244,20 +244,20 @@ public abstract class a {
                                 TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getAllByMsgType" + i2, new Object[0]);
                                 e.printStackTrace();
                                 b(str);
-                                b.a.e.e.p.m.a(cursor);
+                                b.a.e.f.p.m.a(cursor);
                                 return linkedHashMap;
                             } catch (Exception e4) {
                                 e = e4;
                                 TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getAllByMsgType" + i2, new Object[0]);
                                 e.printStackTrace();
-                                b.a.e.e.p.m.a(cursor);
+                                b.a.e.f.p.m.a(cursor);
                                 return linkedHashMap;
                             }
                         }
                     }
                 } catch (Throwable th) {
                     th = th;
-                    b.a.e.e.p.m.a(cursor2);
+                    b.a.e.f.p.m.a(cursor2);
                     throw th;
                 }
             } catch (SQLiteException e5) {
@@ -269,10 +269,10 @@ public abstract class a {
             } catch (Throwable th2) {
                 th = th2;
                 cursor2 = null;
-                b.a.e.e.p.m.a(cursor2);
+                b.a.e.f.p.m.a(cursor2);
                 throw th;
             }
-            b.a.e.e.p.m.a(cursor);
+            b.a.e.f.p.m.a(cursor);
             return linkedHashMap;
         }
         return (LinkedHashMap) invokeCommon.objValue;
@@ -295,12 +295,12 @@ public abstract class a {
             String valueOf = String.valueOf(j);
             int i3 = i2 <= 0 ? 20 : i2;
             LinkedList<ChatMessage> linkedList = new LinkedList<>();
-            String str3 = this.f20118a + valueOf;
+            String str3 = this.f21640a + valueOf;
             try {
                 try {
                 } catch (Throwable th) {
                     th = th;
-                    b.a.e.e.p.m.a(cursor2);
+                    b.a.e.f.p.m.a(cursor2);
                     throw th;
                 }
             } catch (SQLiteException e3) {
@@ -312,7 +312,7 @@ public abstract class a {
             } catch (Throwable th2) {
                 th = th2;
                 cursor2 = null;
-                b.a.e.e.p.m.a(cursor2);
+                b.a.e.f.p.m.a(cursor2);
                 throw th;
             }
             if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
@@ -321,8 +321,8 @@ public abstract class a {
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
-                            ChatMessage newInstance = this.f20119b.newInstance();
-                            newInstance.setGroupId(String.valueOf(b.a.r0.l1.s.a.f20346i));
+                            ChatMessage newInstance = this.f21641b.newInstance();
+                            newInstance.setGroupId(String.valueOf(b.a.r0.l1.s.a.f21868i));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
                             newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
@@ -348,18 +348,18 @@ public abstract class a {
                             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getAll", new Object[0]);
                             e.printStackTrace();
                             b(valueOf);
-                            b.a.e.e.p.m.a(cursor);
+                            b.a.e.f.p.m.a(cursor);
                             return linkedList;
                         } catch (Exception e6) {
                             e = e6;
                             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getAll", new Object[0]);
                             e.printStackTrace();
-                            b.a.e.e.p.m.a(cursor);
+                            b.a.e.f.p.m.a(cursor);
                             return linkedList;
                         }
                     }
                 }
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 return linkedList;
             }
             if (TextUtils.isEmpty(str)) {
@@ -370,7 +370,7 @@ public abstract class a {
             cursor = e2;
             if (cursor != null) {
             }
-            b.a.e.e.p.m.a(cursor);
+            b.a.e.f.p.m.a(cursor);
             return linkedList;
         }
         return (LinkedList) invokeCommon.objValue;
@@ -389,8 +389,8 @@ public abstract class a {
                         cursor.moveToFirst();
                         while (cursor.moveToNext()) {
                             String string = cursor.getString(cursor.getColumnIndex("name"));
-                            if (string.startsWith(this.f20118a)) {
-                                linkedList.add(string.subSequence(this.f20118a.length(), string.length()).toString());
+                            if (string.startsWith(this.f21640a)) {
+                                linkedList.add(string.subSequence(this.f21640a.length(), string.length()).toString());
                             }
                         }
                     }
@@ -400,7 +400,7 @@ public abstract class a {
                 }
                 return linkedList;
             } finally {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
             }
         }
         return (LinkedList) invokeV.objValue;
@@ -416,7 +416,7 @@ public abstract class a {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = h.d().e("select max(mid) from " + (this.f20118a + str), null);
+                    cursor = h.d().e("select max(mid) from " + (this.f21640a + str), null);
                     if (cursor != null && cursor.moveToNext()) {
                         return cursor.getLong(0);
                     }
@@ -430,7 +430,7 @@ public abstract class a {
                 }
                 return 0L;
             } finally {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
             }
         }
         return invokeL.longValue;
@@ -445,7 +445,7 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String str2 = this.f20118a + str;
+            String str2 = this.f21640a + str;
             try {
                 try {
                     cursor = h.d().e("select * from " + str2 + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
@@ -467,7 +467,7 @@ public abstract class a {
                             commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
                             commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
                             commonMsgPojo.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
-                            b.a.e.e.p.m.a(cursor);
+                            b.a.e.f.p.m.a(cursor);
                             return commonMsgPojo;
                         }
                     } catch (SQLiteException e2) {
@@ -475,19 +475,19 @@ public abstract class a {
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getNewestMsgContext", new Object[0]);
                         e.printStackTrace();
                         b(str);
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                         return null;
                     } catch (Exception e3) {
                         e = e3;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getNewestMsgContext", new Object[0]);
                         e.printStackTrace();
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                         return null;
                     }
                 } catch (Throwable th) {
                     th = th;
                     cursor2 = str2;
-                    b.a.e.e.p.m.a(cursor2);
+                    b.a.e.f.p.m.a(cursor2);
                     throw th;
                 }
             } catch (SQLiteException e4) {
@@ -498,10 +498,10 @@ public abstract class a {
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                b.a.e.e.p.m.a(cursor2);
+                b.a.e.f.p.m.a(cursor2);
                 throw th;
             }
-            b.a.e.e.p.m.a(cursor);
+            b.a.e.f.p.m.a(cursor);
             return null;
         }
         return (CommonMsgPojo) invokeL.objValue;
@@ -522,7 +522,7 @@ public abstract class a {
             int i3 = 0;
             while (it.hasNext()) {
                 sb.append("SELECT * FROM ");
-                sb.append(this.f20118a + it.next());
+                sb.append(this.f21640a + it.next());
                 sb.append(" WHERE ");
                 sb.append("msg_type");
                 sb.append(" = 7");
@@ -545,7 +545,7 @@ public abstract class a {
                     cursor = h.d().e(sb.toString(), new String[]{String.valueOf(i2)});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
-                            ChatMessage newInstance = this.f20119b.newInstance();
+                            ChatMessage newInstance = this.f21641b.newInstance();
                             newInstance.setObjContent(map.get(cursor.getString(cursor.getColumnIndex("uid"))));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
@@ -577,7 +577,7 @@ public abstract class a {
                 }
                 return linkedList;
             } finally {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
             }
         }
         return (LinkedList) invokeLI.objValue;
@@ -594,7 +594,7 @@ public abstract class a {
             try {
                 try {
                     try {
-                        cursor = h.d().e("select count(*) from " + (this.f20118a + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
+                        cursor = h.d().e("select count(*) from " + (this.f21640a + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
                         if (cursor != null && cursor.moveToNext()) {
                             return cursor.getInt(0);
                         }
@@ -608,7 +608,7 @@ public abstract class a {
                 }
                 return 0;
             } finally {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
             }
         }
         return invokeL.intValue;
@@ -639,13 +639,13 @@ public abstract class a {
             return false;
         }
         String valueOf = String.valueOf(j);
-        String str6 = this.f20118a + valueOf;
-        if (this.f20120c == null) {
-            this.f20120c = h();
+        String str6 = this.f21640a + valueOf;
+        if (this.f21642c == null) {
+            this.f21642c = h();
         }
-        if (!this.f20120c.contains(valueOf)) {
+        if (!this.f21642c.contains(valueOf)) {
             b(valueOf);
-            this.f20120c.add(valueOf);
+            this.f21642c.add(valueOf);
         }
         try {
             StringBuilder sb = new StringBuilder();
@@ -744,22 +744,22 @@ public abstract class a {
                                                 try {
                                                     TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.insertOrUpdate", new Object[0]);
                                                     e.printStackTrace();
-                                                    b.a.e.e.p.m.a(null);
-                                                    b.a.e.e.p.m.c(sQLiteStatement);
+                                                    b.a.e.f.p.m.a(null);
+                                                    b.a.e.f.p.m.c(sQLiteStatement);
                                                     return true;
                                                 } catch (Throwable th) {
                                                     th = th;
                                                     cursor = null;
-                                                    b.a.e.e.p.m.a(cursor);
-                                                    b.a.e.e.p.m.c(sQLiteStatement);
+                                                    b.a.e.f.p.m.a(cursor);
+                                                    b.a.e.f.p.m.c(sQLiteStatement);
                                                     throw th;
                                                 }
                                             } catch (Throwable th2) {
                                                 th = th2;
                                                 sQLiteStatement = sQLiteStatement3;
                                                 cursor = null;
-                                                b.a.e.e.p.m.a(cursor);
-                                                b.a.e.e.p.m.c(sQLiteStatement);
+                                                b.a.e.f.p.m.a(cursor);
+                                                b.a.e.f.p.m.c(sQLiteStatement);
                                                 throw th;
                                             }
                                         } else {
@@ -777,15 +777,15 @@ public abstract class a {
                                         sQLiteStatement = sQLiteStatement2;
                                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.insertOrUpdate", new Object[0]);
                                         e.printStackTrace();
-                                        b.a.e.e.p.m.a(null);
-                                        b.a.e.e.p.m.c(sQLiteStatement);
+                                        b.a.e.f.p.m.a(null);
+                                        b.a.e.f.p.m.c(sQLiteStatement);
                                         return true;
                                     } catch (Throwable th3) {
                                         th = th3;
                                         sQLiteStatement = sQLiteStatement2;
                                         cursor = null;
-                                        b.a.e.e.p.m.a(cursor);
-                                        b.a.e.e.p.m.c(sQLiteStatement);
+                                        b.a.e.f.p.m.a(cursor);
+                                        b.a.e.f.p.m.c(sQLiteStatement);
                                         throw th;
                                     }
                                 }
@@ -834,8 +834,8 @@ public abstract class a {
                     sQLiteStatement2 = sQLiteStatement;
                     str2 = str7;
                 }
-                b.a.e.e.p.m.a(null);
-                b.a.e.e.p.m.c(sQLiteStatement);
+                b.a.e.f.p.m.a(null);
+                b.a.e.f.p.m.c(sQLiteStatement);
                 return true;
             } catch (Exception e6) {
                 e = e6;
@@ -849,8 +849,8 @@ public abstract class a {
             th = th7;
             cursor = null;
             sQLiteStatement = null;
-            b.a.e.e.p.m.a(cursor);
-            b.a.e.e.p.m.c(sQLiteStatement);
+            b.a.e.f.p.m.a(cursor);
+            b.a.e.f.p.m.c(sQLiteStatement);
             throw th;
         }
     }
@@ -865,7 +865,7 @@ public abstract class a {
                 }
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("is_delete", (Integer) 1);
-                h.d().update(this.f20118a + str, contentValues, "mid=?", new String[]{str2});
+                h.d().update(this.f21640a + str, contentValues, "mid=?", new String[]{str2});
                 return true;
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.markDeleteMsgByMid", new Object[0]);
@@ -893,7 +893,7 @@ public abstract class a {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f20120c = null;
+            this.f21642c = null;
         }
     }
 
@@ -907,7 +907,7 @@ public abstract class a {
             cursor = null;
             try {
                 try {
-                    str2 = this.f20118a + str;
+                    str2 = this.f21640a + str;
                     if (i2 < 1000) {
                         i2 = 1000;
                     }
@@ -920,23 +920,23 @@ public abstract class a {
             }
             try {
                 String string = e2.moveToNext() ? e2.getString(e2.getColumnIndex("mid")) : null;
-                b.a.e.e.p.m.a(e2);
+                b.a.e.f.p.m.a(e2);
                 if (string != null) {
                     h.d().delete(str2, "mid<?", new String[]{string});
                 }
-                b.a.e.e.p.m.a(e2);
+                b.a.e.f.p.m.a(e2);
                 return true;
             } catch (Exception e4) {
                 e = e4;
                 cursor = e2;
                 e.printStackTrace();
                 TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 cursor = e2;
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 throw th;
             }
         }
@@ -946,7 +946,7 @@ public abstract class a {
     public void r(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            String str = this.f20118a + j;
+            String str = this.f21640a + j;
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("is_delete", Integer.valueOf(z ? 1 : 0));
@@ -971,7 +971,7 @@ public abstract class a {
             if (TbadkCoreApplication.getCurrentAccount().equals(valueOf)) {
                 valueOf = String.valueOf(j2);
             }
-            String str3 = this.f20118a + valueOf;
+            String str3 = this.f21640a + valueOf;
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("mid", str2);

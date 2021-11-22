@@ -28,17 +28,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f20321d;
+    public static b f21843d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20322a;
+    public String f21844a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f20323b;
+    public c f21845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f20324c;
+    public CustomMessageListener f21846c;
 
     /* loaded from: classes5.dex */
     public class a extends c {
@@ -46,7 +46,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f20325a;
+        public final /* synthetic */ b f21847a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -66,7 +66,7 @@ public class b {
                     return;
                 }
             }
-            this.f20325a = bVar;
+            this.f21847a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,19 +74,19 @@ public class b {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 202006 && (socketResponsedMessage instanceof PushNotifyMessage)) {
-                this.f20325a.e((PushNotifyMessage) socketResponsedMessage);
+                this.f21847a.e((PushNotifyMessage) socketResponsedMessage);
             }
         }
     }
 
     /* renamed from: b.a.r0.l1.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1009b extends CustomMessageListener {
+    public class C1077b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1009b(b bVar, int i2) {
+        public C1077b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -114,9 +114,9 @@ public class b {
                 return;
             }
             if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                MessageManager.getInstance().dispatchResponsedMessage(new RequestGetGroupInfoMessage(Long.valueOf(b.a.e.e.m.b.g(imMessageCenterPojo.getGid(), 0L))));
+                MessageManager.getInstance().dispatchResponsedMessage(new RequestGetGroupInfoMessage(Long.valueOf(b.a.e.f.m.b.g(imMessageCenterPojo.getGid(), 0L))));
             }
-            b.a.r0.l1.m.b.l().s(b.a.e.e.m.b.g(imMessageCenterPojo.getGid(), 0L), b.a.r0.l1.w.b.c(imMessageCenterPojo.getPulled_msgId()), 0L, true);
+            b.a.r0.l1.m.b.l().s(b.a.e.f.m.b.g(imMessageCenterPojo.getGid(), 0L), b.a.r0.l1.w.b.c(imMessageCenterPojo.getPulled_msgId()), 0L, true);
         }
     }
 
@@ -149,8 +149,8 @@ public class b {
             }
         }
         new ArrayList();
-        this.f20323b = new a(this, 202006);
-        this.f20324c = new C1009b(this, 0);
+        this.f21845b = new a(this, 202006);
+        this.f21846c = new C1077b(this, 0);
     }
 
     public static synchronized b b() {
@@ -159,10 +159,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (b.class) {
-                if (f20321d == null) {
-                    f20321d = new b();
+                if (f21843d == null) {
+                    f21843d = new b();
                 }
-                bVar = f20321d;
+                bVar = f21843d;
             }
             return bVar;
         }
@@ -172,7 +172,7 @@ public class b {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20322a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21844a : (String) invokeV.objValue;
     }
 
     public void d() {
@@ -216,15 +216,15 @@ public class b {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.f20323b);
-            MessageManager.getInstance().registerListener(2016014, this.f20324c);
+            MessageManager.getInstance().registerListener(this.f21845b);
+            MessageManager.getInstance().registerListener(2016014, this.f21846c);
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f20322a = str;
+            this.f21844a = str;
         }
     }
 

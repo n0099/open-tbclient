@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class n<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a<T, V> {
+public abstract class n<T, V extends TypeAdapter.ViewHolder> extends b.a.e.m.e.a<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b.a.r0.k2.y.b m;
@@ -54,13 +54,13 @@ public abstract class n<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a
         h0(bVar);
     }
 
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public View Z(int i2, View view, ViewGroup viewGroup, T t, V v) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), view, viewGroup, t, v})) == null) {
             this.p = TbadkCoreApplication.getInst().getSkinType();
-            b.a.e.l.e.p pVar = (b.a.e.l.e.p) viewGroup;
+            b.a.e.m.e.p pVar = (b.a.e.m.e.p) viewGroup;
             return null;
         }
         return (View) invokeCommon.objValue;
@@ -92,11 +92,11 @@ public abstract class n<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a
         this.o = videoPbFragment;
         PbFragment pbFragment = this.n;
         if (pbFragment != null) {
-            this.f2419e = pbFragment.getActivity();
+            this.f2421e = pbFragment.getActivity();
         } else if (videoPbFragment != null) {
-            this.f2419e = videoPbFragment.getActivity();
+            this.f2421e = videoPbFragment.getActivity();
         } else {
-            this.f2419e = null;
+            this.f2421e = null;
         }
     }
 

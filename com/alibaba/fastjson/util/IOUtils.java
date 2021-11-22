@@ -1,7 +1,6 @@
 package com.alibaba.fastjson.util;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSONException;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.video.VideoItemModel;
@@ -336,7 +335,7 @@ public class IOUtils {
                             byte b3 = bArr[i6];
                             int i8 = i7 + 1;
                             byte b4 = bArr[i7];
-                            if ((b2 != -32 || (b3 & 224) != 128) && (b3 & ExifInterface.MARKER_SOF0) == 128 && (b4 & ExifInterface.MARKER_SOF0) == 128) {
+                            if ((b2 != -32 || (b3 & 224) != 128) && (b3 & 192) == 128 && (b4 & 192) == 128) {
                                 char c2 = (char) (((b2 << StandardMessageCodec.LIST) ^ (b3 << 6)) ^ ((-123008) ^ b4));
                                 if (c2 >= 55296 && c2 < 57344) {
                                     return -1;
@@ -356,7 +355,7 @@ public class IOUtils {
                         int i11 = i10 + 1;
                         byte b7 = bArr[i10];
                         int i12 = (((b2 << 18) ^ (b5 << StandardMessageCodec.LIST)) ^ (b6 << 6)) ^ (3678080 ^ b7);
-                        if ((b5 & ExifInterface.MARKER_SOF0) == 128 && (b6 & ExifInterface.MARKER_SOF0) == 128 && (b7 & ExifInterface.MARKER_SOF0) == 128 && i12 >= 65536 && i12 < 1114112) {
+                        if ((b5 & 192) == 128 && (b6 & 192) == 128 && (b7 & 192) == 128 && i12 >= 65536 && i12 < 1114112) {
                             int i13 = i5 + 1;
                             cArr[i5] = (char) ((i12 >>> 10) + 55232);
                             i5 = i13 + 1;
@@ -370,7 +369,7 @@ public class IOUtils {
                 } else {
                     int i14 = i6 + 1;
                     byte b8 = bArr[i6];
-                    if ((b8 & ExifInterface.MARKER_SOF0) != 128) {
+                    if ((b8 & 192) != 128) {
                         return -1;
                     }
                     cArr[i5] = (char) (((b2 << 6) ^ b8) ^ 3968);

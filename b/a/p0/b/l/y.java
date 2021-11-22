@@ -3,7 +3,7 @@ package b.a.p0.b.l;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.v2.o0;
+import b.a.p0.a.z2.o0;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,7 +25,7 @@ public class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9360a;
+    public static final boolean f9943a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class y {
                 return;
             }
         }
-        f9360a = b.a.p0.a.k.f6397a;
+        f9943a = b.a.p0.a.k.f6863a;
     }
 
     public static String a(String str, String str2) {
@@ -118,7 +118,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, list) == null) {
             if (list == null) {
-                boolean z = f9360a;
+                boolean z = f9943a;
                 return;
             }
             for (String str2 : list) {
@@ -155,7 +155,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, list) == null) {
             if (list == null) {
-                boolean z = f9360a;
+                boolean z = f9943a;
                 return;
             }
             for (String str2 : list) {

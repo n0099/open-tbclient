@@ -32,7 +32,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
-import com.baidu.webkit.internal.ABTestConstants;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -116,7 +115,7 @@ public class YYLiveNPSPluginManager {
     private int compareVersion(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65561, this, i2, i3)) == null) ? (i2 / ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT) - (i3 / ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65561, this, i2, i3)) == null) ? (i2 / 10000000) - (i3 / 10000000) : invokeII.intValue;
     }
 
     private String getEntry(String str) {

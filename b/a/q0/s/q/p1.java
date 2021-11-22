@@ -14,9 +14,9 @@ import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class p1 extends d2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId Y3;
+    public static final BdUniqueId Z3;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<RecommendForumData> X3;
+    public ArrayList<RecommendForumData> Y3;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +31,7 @@ public class p1 extends d2 {
                 return;
             }
         }
-        Y3 = BdUniqueId.gen();
+        Z3 = BdUniqueId.gen();
     }
 
     public p1() {
@@ -47,19 +47,19 @@ public class p1 extends d2 {
                 return;
             }
         }
-        this.X3 = new ArrayList<>();
+        this.Y3 = new ArrayList<>();
     }
 
-    public ArrayList<RecommendForumData> P4() {
+    public ArrayList<RecommendForumData> R4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.X3 : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.Y3 : (ArrayList) invokeV.objValue;
     }
 
-    @Override // b.a.q0.s.q.d2, com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // b.a.q0.s.q.d2, com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Y3 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Z3 : (BdUniqueId) invokeV.objValue;
     }
 }

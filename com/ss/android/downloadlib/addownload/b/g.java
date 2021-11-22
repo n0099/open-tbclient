@@ -12,13 +12,13 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68524a;
+    public int f69444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68525b;
+    public int f69445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68526c;
+    public String f69446c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public g(int i2) {
@@ -44,19 +44,19 @@ public class g {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68525b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69445b : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68526c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69446c : (String) invokeV.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68524a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69444a : invokeV.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -116,8 +116,8 @@ public class g {
                 return;
             }
         }
-        this.f68524a = i2;
-        this.f68525b = i3;
-        this.f68526c = str;
+        this.f69444a = i2;
+        this.f69445b = i3;
+        this.f69446c = str;
     }
 }

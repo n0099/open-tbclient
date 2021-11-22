@@ -13,8 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import b.a.r0.b0.m;
-import b.a.r0.b0.u;
-import b.a.r0.l3.w;
+import b.a.r0.b0.v;
+import b.a.r0.m3.w;
 import b.a.r0.q1.o.a;
 import b.a.r0.q1.o.c;
 import b.a.r0.q1.o.k.b;
@@ -49,7 +49,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public c downloadAppCallback;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51113e;
+    public boolean f52025e;
     public int mBusinessType;
     public TbPageContext mContext;
     public String mFrom;
@@ -81,7 +81,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             }
         }
         this.mSkinType = 3;
-        this.f51113e = true;
+        this.f52025e = true;
         this.mContext = tbPageContext;
         setOrientation(1);
     }
@@ -133,7 +133,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             initCardView();
             postInit();
-            this.f51113e = false;
+            this.f52025e = false;
         }
     }
 
@@ -213,7 +213,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void handleClickEvent(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-            u.b().d(true);
+            v.b().d(true);
             openCardScheme(t);
         }
     }
@@ -331,7 +331,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
         statisticItem.param("obj_locate", getStatPosition());
         statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, m.e());
-        u.b().a(statisticItem);
+        v.b().a(statisticItem);
     }
 
     public abstract void onChangeSkinType(T t, int i2);
@@ -531,7 +531,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
         BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) updateCard;
         logShowStatistics(baseLegoCardInfo);
-        if (this.f51113e) {
+        if (this.f52025e) {
             b();
         }
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {

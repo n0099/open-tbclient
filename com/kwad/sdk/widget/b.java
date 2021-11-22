@@ -25,22 +25,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f66796a;
+    public float[] f67709a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f66797b;
+    public float f67710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Path f66798c;
+    public Path f67711c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f66799d;
+    public Paint f67712d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f66800e;
+    public RectF f67713e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f66801f;
+    public boolean f67714f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -55,15 +55,15 @@ public class b {
                 return;
             }
         }
-        this.f66796a = new float[8];
+        this.f67709a = new float[8];
     }
 
     private float[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            float[] fArr = this.f66796a;
-            float f2 = this.f66797b;
+            float[] fArr = this.f67709a;
+            float f2 = this.f67710b;
             fArr[0] = f2;
             fArr[1] = f2;
             fArr[2] = f2;
@@ -82,11 +82,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             try {
-                this.f66798c.reset();
+                this.f67711c.reset();
             } catch (Exception unused) {
             }
-            this.f66798c.addRoundRect(this.f66800e, a(), Path.Direction.CW);
-            return this.f66798c;
+            this.f67711c.addRoundRect(this.f67713e, a(), Path.Direction.CW);
+            return this.f67711c;
         }
         return (Path) invokeV.objValue;
     }
@@ -94,14 +94,14 @@ public class b {
     public void a(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-            this.f66797b = f2;
+            this.f67710b = f2;
         }
     }
 
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.f66800e.set(0.0f, 0.0f, i2, i3);
+            this.f67713e.set(0.0f, 0.0f, i2, i3);
         }
     }
 
@@ -114,22 +114,22 @@ public class b {
                 int[] iArr = {i2, i3};
                 Arrays.sort(iArr);
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-                this.f66797b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i2), 0);
-                this.f66801f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i3), true);
+                this.f67710b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i2), 0);
+                this.f67714f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i3), true);
                 obtainStyledAttributes.recycle();
             }
-            this.f66798c = new Path();
-            this.f66799d = new Paint(1);
-            this.f66800e = new RectF();
-            this.f66799d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            this.f67711c = new Path();
+            this.f67712d = new Paint(1);
+            this.f67713e = new RectF();
+            this.f67712d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
     }
 
     public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) && this.f66801f) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) && this.f67714f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.saveLayer(this.f66800e, null, 31);
+                canvas.saveLayer(this.f67713e, null, 31);
                 return;
             }
             canvas.save();
@@ -139,9 +139,9 @@ public class b {
 
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) && this.f66801f) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) && this.f67714f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.drawPath(b(), this.f66799d);
+                canvas.drawPath(b(), this.f67712d);
             }
             canvas.restore();
         }
@@ -151,7 +151,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.saveLayer(this.f66800e, null, 31);
+                canvas.saveLayer(this.f67713e, null, 31);
                 return;
             }
             canvas.save();
@@ -163,7 +163,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.drawPath(b(), this.f66799d);
+                canvas.drawPath(b(), this.f67712d);
             }
             canvas.restore();
         }

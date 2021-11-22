@@ -13,13 +13,13 @@ import java.util.HashMap;
 import tv.athena.revenue.api.MiddleReportConfig;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.model.PayFlowType;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MiddleRevenueConfig f72359a;
+    public MiddleRevenueConfig f73278a;
 
     public g(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class g implements b {
                 return;
             }
         }
-        this.f72359a = middleRevenueConfig;
+        this.f73278a = middleRevenueConfig;
     }
 
     @Override // i.a.a.e.l.b
@@ -45,11 +45,11 @@ public class g implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
-            getBannerConfigReqParams.setAppId(this.f72359a.getAppId());
-            getBannerConfigReqParams.setUsedChannel(this.f72359a.getUseChannel());
-            getBannerConfigReqParams.setUid(this.f72359a.getUid());
-            getBannerConfigReqParams.setToken(this.f72359a.getToken());
-            getBannerConfigReqParams.setTokenCallback(this.f72359a.getTokenCallback());
+            getBannerConfigReqParams.setAppId(this.f73278a.getAppId());
+            getBannerConfigReqParams.setUsedChannel(this.f73278a.getUseChannel());
+            getBannerConfigReqParams.setUid(this.f73278a.getUid());
+            getBannerConfigReqParams.setToken(this.f73278a.getToken());
+            getBannerConfigReqParams.setTokenCallback(this.f73278a.getTokenCallback());
             return getBannerConfigReqParams;
         }
         return (GetBannerConfigReqParams) invokeV.objValue;
@@ -61,13 +61,13 @@ public class g implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType)) == null) {
             i.a.a.b.b.a.a aVar = new i.a.a.b.b.a.a();
-            aVar.z(this.f72359a.getUid());
-            aVar.w(this.f72359a.getToken());
-            aVar.A(this.f72359a.getUseChannel());
-            aVar.r(this.f72359a.getCurrencyType());
-            aVar.x(this.f72359a.getTokenCallback());
-            String deviceId = this.f72359a.getDeviceId();
-            MiddleReportConfig reportConfig = this.f72359a.getReportConfig();
+            aVar.z(this.f73278a.getUid());
+            aVar.w(this.f73278a.getToken());
+            aVar.A(this.f73278a.getUseChannel());
+            aVar.r(this.f73278a.getCurrencyType());
+            aVar.x(this.f73278a.getTokenCallback());
+            String deviceId = this.f73278a.getDeviceId();
+            MiddleReportConfig reportConfig = this.f73278a.getReportConfig();
             if (TextUtils.isEmpty(deviceId) && reportConfig != null && !TextUtils.isEmpty(reportConfig.getDeviceId())) {
                 deviceId = reportConfig.getDeviceId();
             }
@@ -88,12 +88,12 @@ public class g implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.f72359a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.f72359a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.f72359a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.f72359a.getUid());
-            queryCurrencyReqParams.setToken(this.f72359a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.f72359a.getTokenCallback());
+            queryCurrencyReqParams.setCurrencyType(this.f73278a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.f73278a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.f73278a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.f73278a.getUid());
+            queryCurrencyReqParams.setToken(this.f73278a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.f73278a.getTokenCallback());
             queryCurrencyReqParams.setReturnYb(true);
             return queryCurrencyReqParams;
         }
@@ -106,12 +106,12 @@ public class g implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.f72359a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.f72359a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.f72359a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.f72359a.getUid());
-            queryCurrencyReqParams.setToken(this.f72359a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.f72359a.getTokenCallback());
+            queryCurrencyReqParams.setCurrencyType(this.f73278a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.f73278a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.f73278a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.f73278a.getUid());
+            queryCurrencyReqParams.setToken(this.f73278a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.f73278a.getTokenCallback());
             return queryCurrencyReqParams;
         }
         return (QueryCurrencyReqParams) invokeV.objValue;

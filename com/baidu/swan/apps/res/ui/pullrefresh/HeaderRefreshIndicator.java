@@ -6,7 +6,7 @@ import android.view.animation.TranslateAnimation;
 import b.a.p0.a.c;
 import b.a.p0.a.c1.a;
 import b.a.p0.a.e;
-import b.a.p0.a.v2.n0;
+import b.a.p0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +53,7 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
             return;
         }
         this.isInited = true;
-        this.r = a.H().a();
+        this.r = a.M().a();
         initResources();
         setTextSize(1, 11.0f);
         setCompoundDrawablePadding(n0.f(getContext(), 5.0f));
@@ -89,7 +89,7 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public void resetTheme() {
         boolean a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.r == (a2 = a.H().a())) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.r == (a2 = a.M().a())) {
             return;
         }
         initResources();

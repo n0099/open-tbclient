@@ -27,37 +27,37 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements b.a.r0.y.c.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27195a;
+    public int f28698a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27196b;
+    public int f28699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27197c;
+    public int f28700c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f27198d;
+    public AtomicBoolean f28701d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f27199e;
+    public AtomicBoolean f28702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f27200f;
+    public Context f28703f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Camera f27201g;
+    public Camera f28704g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Camera.Parameters f27202h;
+    public Camera.Parameters f28705h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.y.c.e f27203i;
+    public b.a.r0.y.c.e f28706i;
     public Rect j;
     public f k;
     public View l;
@@ -72,27 +72,27 @@ public class b implements b.a.r0.y.c.d {
     public TextureView.SurfaceTextureListener u;
     public Comparator<Camera.Size> v;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b f27204e;
+        public final /* synthetic */ d.b f28707e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f27205f;
+        public final /* synthetic */ b f28708f;
 
         /* renamed from: b.a.r0.y.c.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C1338a implements Camera.PictureCallback {
+        /* loaded from: classes6.dex */
+        public class C1405a implements Camera.PictureCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f27206a;
+            public final /* synthetic */ a f28709a;
 
-            public C1338a(a aVar) {
+            public C1405a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,16 +107,16 @@ public class b implements b.a.r0.y.c.d {
                         return;
                     }
                 }
-                this.f27206a = aVar;
+                this.f28709a = aVar;
             }
 
             @Override // android.hardware.Camera.PictureCallback
             public void onPictureTaken(byte[] bArr, Camera camera) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) {
-                    this.f27206a.f27205f.J(false);
-                    this.f27206a.f27205f.f27198d.set(false);
-                    d.b bVar = this.f27206a.f27204e;
+                    this.f28709a.f28708f.J(false);
+                    this.f28709a.f28708f.f28701d.set(false);
+                    d.b bVar = this.f28709a.f28707e;
                     if (bVar != null) {
                         bVar.a(bArr);
                     }
@@ -139,8 +139,8 @@ public class b implements b.a.r0.y.c.d {
                     return;
                 }
             }
-            this.f27205f = bVar;
-            this.f27204e = bVar2;
+            this.f28708f = bVar;
+            this.f28707e = bVar2;
         }
 
         @Override // java.lang.Runnable
@@ -148,43 +148,43 @@ public class b implements b.a.r0.y.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f27205f.f27201g.takePicture(null, null, new C1338a(this));
+                    this.f28708f.f28704g.takePicture(null, null, new C1405a(this));
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    this.f27205f.J(false);
-                    this.f27205f.f27198d.set(false);
+                    this.f28708f.J(false);
+                    this.f28708f.f28701d.set(false);
                 }
             }
         }
     }
 
     /* renamed from: b.a.r0.y.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C1339b implements Camera.PreviewCallback {
+    /* loaded from: classes6.dex */
+    public class C1406b implements Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27207e;
+        public final /* synthetic */ b f28710e;
 
         /* renamed from: b.a.r0.y.c.b$b$a */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ byte[] f27208e;
+            public final /* synthetic */ byte[] f28711e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ C1339b f27209f;
+            public final /* synthetic */ C1406b f28712f;
 
-            public a(C1339b c1339b, byte[] bArr) {
+            public a(C1406b c1406b, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1339b, bArr};
+                    Object[] objArr = {c1406b, bArr};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -194,20 +194,20 @@ public class b implements b.a.r0.y.c.d {
                         return;
                     }
                 }
-                this.f27209f = c1339b;
-                this.f27208e = bArr;
+                this.f28712f = c1406b;
+                this.f28711e = bArr;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f27209f.f27207e.D(this.f27208e);
+                    this.f28712f.f28710e.D(this.f28711e);
                 }
             }
         }
 
-        public C1339b(b bVar) {
+        public C1406b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,26 +222,26 @@ public class b implements b.a.r0.y.c.d {
                     return;
                 }
             }
-            this.f27207e = bVar;
+            this.f28710e = bVar;
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && !this.f27207e.f27199e.get() && b.s(this.f27207e) % 5 == 0 && bArr.length == this.f27207e.f27202h.getPreviewSize().width * this.f27207e.f27202h.getPreviewSize().height * 1.5d) {
-                camera.addCallbackBuffer(this.f27207e.s);
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && !this.f28710e.f28702e.get() && b.s(this.f28710e) % 5 == 0 && bArr.length == this.f28710e.f28705h.getPreviewSize().width * this.f28710e.f28705h.getPreviewSize().height * 1.5d) {
+                camera.addCallbackBuffer(this.f28710e.s);
                 b.a.r0.y.c.c.c(new a(this, bArr));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements TextureView.SurfaceTextureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27210e;
+        public final /* synthetic */ b f28713e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -258,15 +258,15 @@ public class b implements b.a.r0.y.c.d {
                     return;
                 }
             }
-            this.f27210e = bVar;
+            this.f28713e = bVar;
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, surfaceTexture, i2, i3) == null) {
-                this.f27210e.r = surfaceTexture;
-                this.f27210e.C();
+                this.f28713e.r = surfaceTexture;
+                this.f28713e.C();
             }
         }
 
@@ -284,10 +284,10 @@ public class b implements b.a.r0.y.c.d {
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture, i2, i3) == null) {
-                b bVar = this.f27210e;
-                bVar.E(bVar.k.getWidth(), this.f27210e.k.getHeight());
-                this.f27210e.J(false);
-                this.f27210e.G();
+                b bVar = this.f28713e;
+                bVar.E(bVar.k.getWidth(), this.f28713e.k.getHeight());
+                this.f28713e.J(false);
+                this.f28713e.G();
             }
         }
 
@@ -295,20 +295,20 @@ public class b implements b.a.r0.y.c.d {
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, surfaceTexture) == null) {
-                this.f27210e.G();
+                this.f28713e.G();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27211e;
+        public final /* synthetic */ b f28714e;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a implements Camera.AutoFocusCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -352,17 +352,17 @@ public class b implements b.a.r0.y.c.d {
                     return;
                 }
             }
-            this.f27211e = bVar;
+            this.f28714e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f27211e) {
-                    if (this.f27211e.f27201g != null && !this.f27211e.f27198d.get()) {
+                synchronized (this.f28714e) {
+                    if (this.f28714e.f28704g != null && !this.f28714e.f28701d.get()) {
                         try {
-                            this.f27211e.f27201g.autoFocus(new a(this));
+                            this.f28714e.f28704g.autoFocus(new a(this));
                         } catch (Throwable unused) {
                         }
                     }
@@ -371,7 +371,7 @@ public class b implements b.a.r0.y.c.d {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e implements Comparator<Camera.Size> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -402,19 +402,19 @@ public class b implements b.a.r0.y.c.d {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class f extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextureView f27212e;
+        public TextureView f28715e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f27213f;
+        public float f28716f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f27214g;
+        public final /* synthetic */ b f28717g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(b bVar, Context context) {
@@ -434,31 +434,31 @@ public class b implements b.a.r0.y.c.d {
                     return;
                 }
             }
-            this.f27214g = bVar;
-            this.f27213f = 0.75f;
+            this.f28717g = bVar;
+            this.f28716f = 0.75f;
         }
 
         public final void d(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
                 if (i2 < i3) {
-                    i3 = (int) (i2 * this.f27213f);
+                    i3 = (int) (i2 * this.f28716f);
                 } else {
-                    i2 = (int) (i3 * this.f27213f);
+                    i2 = (int) (i3 * this.f28716f);
                 }
                 int width = (getWidth() - i2) / 2;
                 int height = (getHeight() - i3) / 2;
-                this.f27214g.j.left = width;
-                this.f27214g.j.top = height;
-                this.f27214g.j.right = width + i2;
-                this.f27214g.j.bottom = height + i3;
+                this.f28717g.j.left = width;
+                this.f28717g.j.top = height;
+                this.f28717g.j.right = width + i2;
+                this.f28717g.j.bottom = height + i3;
             }
         }
 
         public void e(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-                this.f27213f = f2;
+                this.f28716f = f2;
                 requestLayout();
                 d(getWidth(), getHeight());
             }
@@ -467,7 +467,7 @@ public class b implements b.a.r0.y.c.d {
         public void f(TextureView textureView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, textureView) == null) {
-                this.f27212e = textureView;
+                this.f28715e = textureView;
                 removeAllViews();
                 addView(textureView);
             }
@@ -478,7 +478,7 @@ public class b implements b.a.r0.y.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
                 super.onLayout(z, i2, i3, i4, i5);
-                this.f27212e.layout(this.f27214g.j.left, this.f27214g.j.top, this.f27214g.j.right, this.f27214g.j.bottom);
+                this.f28715e.layout(this.f28717g.j.left, this.f28717g.j.top, this.f28717g.j.right, this.f28717g.j.bottom);
             }
         }
 
@@ -507,19 +507,19 @@ public class b implements b.a.r0.y.c.d {
                 return;
             }
         }
-        this.f27195a = 0;
-        this.f27196b = 0;
-        this.f27198d = new AtomicBoolean(false);
-        this.f27199e = new AtomicBoolean(false);
+        this.f28698a = 0;
+        this.f28699b = 0;
+        this.f28701d = new AtomicBoolean(false);
+        this.f28702e = new AtomicBoolean(false);
         this.j = new Rect();
         this.m = 0;
         this.o = 0;
         this.q = 0;
         this.s = null;
-        this.t = new C1339b(this);
+        this.t = new C1406b(this);
         this.u = new c(this);
         this.v = new e(this);
-        this.f27200f = context;
+        this.f28703f = context;
         this.k = new f(this, context);
         F();
     }
@@ -536,9 +536,9 @@ public class b implements b.a.r0.y.c.d {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            int width = this.k.f27212e.getWidth();
-            int height = this.k.f27212e.getHeight();
-            float f2 = this.k.f27213f;
+            int width = this.k.f28715e.getWidth();
+            int height = this.k.f28715e.getHeight();
+            float f2 = this.k.f28716f;
             Camera.Size size = list.get(0);
             ArrayList arrayList = new ArrayList();
             for (Camera.Size size2 : list) {
@@ -574,7 +574,7 @@ public class b implements b.a.r0.y.c.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.f27195a;
+            int i2 = this.f28698a;
             if (i2 != 90) {
                 return i2 != 270 ? 90 : 180;
             }
@@ -587,23 +587,23 @@ public class b implements b.a.r0.y.c.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                if (this.f27201g == null) {
+                if (this.f28704g == null) {
                     Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
                     for (int i2 = 0; i2 < Camera.getNumberOfCameras(); i2++) {
                         Camera.getCameraInfo(i2, cameraInfo);
                         if (cameraInfo.facing == 0) {
-                            this.f27196b = i2;
+                            this.f28699b = i2;
                         }
                     }
-                    this.f27201g = Camera.open(this.f27196b);
+                    this.f28704g = Camera.open(this.f28699b);
                 }
-                if (this.f27202h == null) {
-                    Camera.Parameters parameters = this.f27201g.getParameters();
-                    this.f27202h = parameters;
+                if (this.f28705h == null) {
+                    Camera.Parameters parameters = this.f28704g.getParameters();
+                    this.f28705h = parameters;
                     parameters.setPreviewFormat(17);
                 }
                 E(this.k.getWidth(), this.k.getHeight());
-                this.f27201g.setPreviewTexture(this.r);
+                this.f28704g.setPreviewTexture(this.r);
                 G();
                 J(false);
             } catch (IOException e2) {
@@ -616,7 +616,7 @@ public class b implements b.a.r0.y.c.d {
     public final void D(byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) || this.f27201g == null || bArr == null || this.p == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) || this.f28704g == null || bArr == null || this.p == null) {
             return;
         }
         Camera.Size size = this.p;
@@ -660,17 +660,17 @@ public class b implements b.a.r0.y.c.d {
     public final void E(int i2, int i3) {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || this.f27202h == null || (camera = this.f27201g) == null || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || this.f28705h == null || (camera = this.f28704g) == null || i2 <= 0) {
             return;
         }
         try {
             Camera.Size A = A(camera.getParameters().getSupportedPreviewSizes());
             this.p = A;
-            this.f27202h.setPreviewSize(A.width, A.height);
+            this.f28705h.setPreviewSize(A.width, A.height);
             this.k.e((this.p.width * 1.0f) / this.p.height);
-            this.f27201g.setDisplayOrientation(B());
+            this.f28704g.setDisplayOrientation(B());
             K();
-            this.f27201g.setParameters(this.f27202h);
+            this.f28704g.setParameters(this.f28705h);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -689,20 +689,20 @@ public class b implements b.a.r0.y.c.d {
             if (this.s == null) {
                 this.s = new byte[((this.l.getWidth() * this.l.getHeight()) * ImageFormat.getBitsPerPixel(17)) / 8];
             }
-            Camera camera = this.f27201g;
+            Camera camera = this.f28704g;
             if (camera == null || this.q != 1) {
                 return;
             }
             camera.addCallbackBuffer(this.s);
-            this.f27201g.setPreviewCallback(this.t);
+            this.f28704g.setPreviewCallback(this.t);
         }
     }
 
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            TextureView textureView = new TextureView(this.f27200f);
-            this.k.f27212e = textureView;
+            TextureView textureView = new TextureView(this.f28703f);
+            this.k.f28715e = textureView;
             this.k.f(textureView);
             this.l = this.k;
             textureView.setSurfaceTextureListener(this.u);
@@ -720,14 +720,14 @@ public class b implements b.a.r0.y.c.d {
         b.a.r0.y.c.e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (ContextCompat.checkSelfPermission(this.f27200f, PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
-                if (!z || (eVar = this.f27203i) == null) {
+            if (ContextCompat.checkSelfPermission(this.f28703f, PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
+                if (!z || (eVar = this.f28706i) == null) {
                     return;
                 }
                 eVar.a();
                 return;
             }
-            Camera camera = this.f27201g;
+            Camera camera = this.f28704g;
             if (camera == null) {
                 C();
                 return;
@@ -740,7 +740,7 @@ public class b implements b.a.r0.y.c.d {
     public final void K() {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (camera = this.f27201g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (camera = this.f28704g) == null) {
             return;
         }
         camera.stopPreview();
@@ -750,15 +750,15 @@ public class b implements b.a.r0.y.c.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             if (i2 == 0) {
-                this.f27202h.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_OFF);
+                this.f28705h.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_OFF);
             } else if (i2 == 1) {
-                this.f27202h.setFlashMode("torch");
+                this.f28705h.setFlashMode("torch");
             } else if (i2 != 2) {
-                this.f27202h.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
+                this.f28705h.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
             } else {
-                this.f27202h.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
+                this.f28705h.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
             }
-            this.f27201g.setParameters(this.f27202h);
+            this.f28704g.setParameters(this.f28705h);
         }
     }
 
@@ -772,28 +772,28 @@ public class b implements b.a.r0.y.c.d {
     @Override // b.a.r0.y.c.d
     public void b(d.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) || this.f27198d.get()) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) || this.f28701d.get()) {
             return;
         }
-        int i2 = this.f27195a;
+        int i2 = this.f28698a;
         if (i2 == 0) {
-            this.f27202h.setRotation(90);
+            this.f28705h.setRotation(90);
         } else if (i2 == 90) {
-            this.f27202h.setRotation(0);
+            this.f28705h.setRotation(0);
         } else if (i2 == 270) {
-            this.f27202h.setRotation(180);
+            this.f28705h.setRotation(180);
         }
         try {
-            Camera.Size A = A(this.f27201g.getParameters().getSupportedPictureSizes());
-            this.f27202h.setPictureSize(A.width, A.height);
-            this.f27201g.setParameters(this.f27202h);
-            this.f27198d.set(true);
+            Camera.Size A = A(this.f28704g.getParameters().getSupportedPictureSizes());
+            this.f28705h.setPictureSize(A.width, A.height);
+            this.f28704g.setParameters(this.f28705h);
+            this.f28701d.set(true);
             x();
             b.a.r0.y.c.c.c(new a(this, bVar));
         } catch (RuntimeException e2) {
             e2.printStackTrace();
             J(false);
-            this.f27198d.set(false);
+            this.f28701d.set(false);
         }
     }
 
@@ -801,7 +801,7 @@ public class b implements b.a.r0.y.c.d {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f27195a = i2;
+            this.f28698a = i2;
             if (i2 == 0) {
                 this.m = 90;
             } else if (i2 == 90) {
@@ -819,14 +819,14 @@ public class b implements b.a.r0.y.c.d {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f27197c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f28700c : invokeV.intValue;
     }
 
     @Override // b.a.r0.y.c.d
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f27198d.set(false);
+            this.f28701d.set(false);
         }
     }
 
@@ -848,10 +848,10 @@ public class b implements b.a.r0.y.c.d {
     @Override // b.a.r0.y.c.d
     public void h(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || this.f27197c == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || this.f28700c == i2) {
             return;
         }
-        this.f27197c = i2;
+        this.f28700c = i2;
         L(i2);
     }
 
@@ -859,7 +859,7 @@ public class b implements b.a.r0.y.c.d {
     public void i(b.a.r0.y.c.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, eVar) == null) {
-            this.f27203i = eVar;
+            this.f28706i = eVar;
         }
     }
 
@@ -867,7 +867,7 @@ public class b implements b.a.r0.y.c.d {
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            if (this.f27201g != null) {
+            if (this.f28704g != null) {
                 K();
             }
             h(0);
@@ -878,10 +878,10 @@ public class b implements b.a.r0.y.c.d {
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.f27198d.set(false);
-            if (this.f27201g != null) {
-                this.k.f27212e.setSurfaceTextureListener(this.u);
-                if (this.k.f27212e.isAvailable()) {
+            this.f28701d.set(false);
+            if (this.f28704g != null) {
+                this.k.f28715e.setSurfaceTextureListener(this.u);
+                if (this.k.f28715e.isAvailable()) {
                     J(false);
                     return;
                 }
@@ -903,22 +903,22 @@ public class b implements b.a.r0.y.c.d {
     public void stop() {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (camera = this.f27201g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (camera = this.f28704g) == null) {
             return;
         }
         camera.setPreviewCallback(null);
         K();
-        Camera camera2 = this.f27201g;
-        this.f27201g = null;
+        Camera camera2 = this.f28704g;
+        this.f28704g = null;
         camera2.release();
-        this.f27201g = null;
+        this.f28704g = null;
         this.s = null;
     }
 
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.f27201g.cancelAutoFocus();
+            this.f28704g.cancelAutoFocus();
             b.a.r0.y.c.c.a();
         }
     }
@@ -926,7 +926,7 @@ public class b implements b.a.r0.y.c.d {
     public final void y() {
         Camera camera;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (camera = this.f27201g) != null && this.q == 1) {
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (camera = this.f28704g) != null && this.q == 1) {
             camera.setPreviewCallback(null);
             K();
         }

@@ -1,6 +1,6 @@
 package b.a.q0.s.g0.p.d;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
@@ -69,11 +69,11 @@ public class b {
                                         try {
                                             dataOutputStream.write(strArr[0].getBytes("UTF-8"));
                                             dataOutputStream.flush();
-                                            b.a.e.e.m.a.d(dataOutputStream);
+                                            b.a.e.f.m.a.d(dataOutputStream);
                                             httpURLConnection.getResponseCode();
                                         } catch (Throwable th) {
                                             th = th;
-                                            b.a.e.e.m.a.d(dataOutputStream);
+                                            b.a.e.f.m.a.d(dataOutputStream);
                                             throw th;
                                         }
                                     } catch (Throwable th2) {
@@ -83,7 +83,7 @@ public class b {
                                 } catch (Exception e2) {
                                     e = e2;
                                     e.printStackTrace();
-                                    b.a.e.e.m.a.e(httpURLConnection);
+                                    b.a.e.f.m.a.e(httpURLConnection);
                                     return null;
                                 }
                             } catch (Exception e3) {
@@ -91,10 +91,10 @@ public class b {
                                 httpURLConnection = null;
                             } catch (Throwable th3) {
                                 th = th3;
-                                b.a.e.e.m.a.e(httpURLConnection2);
+                                b.a.e.f.m.a.e(httpURLConnection2);
                                 throw th;
                             }
-                            b.a.e.e.m.a.e(httpURLConnection);
+                            b.a.e.f.m.a.e(httpURLConnection);
                             return null;
                         }
                     } catch (Throwable th4) {

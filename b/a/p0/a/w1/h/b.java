@@ -1,28 +1,28 @@
 package b.a.p0.a.w1.h;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import b.a.p0.a.d2.e;
+import b.a.p0.a.d2.n.d;
+import b.a.p0.a.g1.f;
+import b.a.p0.a.h0.g.g;
+import b.a.p0.a.h0.g.h;
 import b.a.p0.a.k;
-import b.a.p0.a.w1.j.f;
-import com.baidu.android.imsdk.internal.Constants;
+import b.a.p0.a.w1.g.c;
+import b.a.p0.a.z2.w;
+import b.a.p0.q.i.i;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,21 +30,9 @@ import org.json.JSONObject;
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: d  reason: collision with root package name */
-    public static final boolean f8770d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static b f8771e;
-    public transient /* synthetic */ FieldHolder $fh;
-
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f8772a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, c> f8773b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<String> f8774c;
+    public static final boolean f9256a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
@@ -59,159 +47,262 @@ public class b {
                 return;
             }
         }
-        f8770d = k.f6397a;
+        f9256a = k.f6863a;
     }
 
-    public b() {
+    public static void a(Map<String, String> map, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, map, str) == null) || map == null) {
+            return;
         }
-        this.f8773b = new HashMap<>();
-        this.f8774c = new ArrayList();
-    }
-
-    public static b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f8771e == null) {
-                synchronized (b.class) {
-                    if (f8771e == null) {
-                        f8771e = new b();
-                    }
-                }
-            }
-            return f8771e;
+        String b2 = b(map, "dynamicLibPath", 3);
+        String b3 = b(map, "dynamicLibConfig", 3);
+        String b4 = b(map, "pluginPath", 4);
+        String b5 = b(map, "dependenciesPath", 6);
+        String b6 = b(map, "dependenciesConfig", 6);
+        if (TextUtils.isEmpty(str) || !f9256a) {
+            return;
         }
-        return (b) invokeV.objValue;
+        b.a.p0.a.w1.e.a.b(str + ", dynamicLibPath = " + b2 + "; dynamicLibConfig = " + b3 + "; pluginPath = " + b4 + "; dependenciesPath = " + b5 + "; dependenciesConfig = " + b6);
     }
 
-    public Bitmap a(String str) {
-        InterceptResult invokeL;
-        c cVar;
+    public static String b(Map<String, String> map, String str, int i2) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, c> hashMap = this.f8773b;
-            if (hashMap == null || (cVar = hashMap.get(str)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, map, str, i2)) == null) {
+            if (map == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return cVar.a();
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public List<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8774c : (List) invokeV.objValue;
-    }
-
-    public Bitmap d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8772a : (Bitmap) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.f8774c;
-            return list != null && list.size() > 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (f8770d) {
-                String str2 = "get emoji info from " + str;
+            e L = e.L();
+            String e2 = L != null ? L.T().e(str, null) : null;
+            if (!TextUtils.isEmpty(e2)) {
+                map.put(str, e2);
+                return e2;
             }
-            File file = new File(str);
-            if (file.exists() && file.isDirectory()) {
-                String D = b.a.p0.t.d.D(new File(str + File.separator + "emoji.json"));
-                if (TextUtils.isEmpty(D)) {
-                    boolean z = f8770d;
-                    return;
+            SwanAppConfigData P = L != null ? L.P() : null;
+            if (i2 == 3) {
+                b.a.p0.a.w1.c.a.m(P, false);
+                e2 = i(str, null);
+            } else if (i2 == 4) {
+                e2 = l(P);
+            } else if (i2 == 6) {
+                b.a.p0.a.w1.a.a(P);
+                e2 = i(str, null);
+            }
+            map.put(str, e2);
+            return e2;
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public static void c(String str, String str2) {
+        e L;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || TextUtils.isEmpty(str) || (L = e.L()) == null) {
+            return;
+        }
+        L.T().j(str, str2);
+    }
+
+    public static String d(List<c> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            int size = list.size();
+            StringBuilder sb = new StringBuilder();
+            sb.append("select * from (SELECT * from ");
+            sb.append("swan_plugin");
+            sb.append(" ORDER BY update_time) group by bundle_id having bundle_id in ");
+            sb.append("(");
+            for (int i2 = 0; i2 < size; i2++) {
+                sb.append("'");
+                sb.append(list.get(i2).f9250e);
+                sb.append("'");
+                if (i2 == size - 1) {
+                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                } else {
+                    sb.append(",");
                 }
-                try {
-                    JSONArray optJSONArray = new JSONObject(D).optJSONArray("packages");
-                    if (optJSONArray == null) {
-                        return;
+            }
+            sb.append(";");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            SwanAppConfigData b2 = d.b(str);
+            if (b2 == null) {
+                b.a.p0.a.w1.e.a.b("getDownloadKey, app.json is null");
+                return null;
+            }
+            SwanAppConfigData.m mVar = b2.f45029d;
+            if (mVar == null) {
+                b.a.p0.a.w1.e.a.b("getDownloadKey, sub pkg obj is null");
+                return null;
+            }
+            Map<String, String> map = mVar.f45074a;
+            if (map == null) {
+                b.a.p0.a.w1.e.a.b("getDownloadKey, sub pkg map is null");
+                return null;
+            }
+            return map.get(str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            i g2 = g(str);
+            if ((g2 == null || TextUtils.isEmpty(g2.r)) ? false : true) {
+                return g2.r;
+            }
+            b.a.p0.a.w1.e.a.b("get plugin appKey form db, but empty, plugin appId = " + str);
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static i g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return b.a.p0.a.w1.c.a.p(str, "0.0.0", 0L);
+        }
+        return (i) invokeL.objValue;
+    }
+
+    public static i h(String str) {
+        InterceptResult invokeL;
+        SwanAppConfigData P;
+        List<i> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (!b.a.p0.a.e0.f.e.e.d() && !b.a.p0.a.x1.a.a.H() && !b.a.p0.a.x1.a.a.D()) {
+                return g(str);
+            }
+            e L = e.L();
+            if (L != null && (P = L.P()) != null && (list = P.l) != null) {
+                for (i iVar : list) {
+                    if (TextUtils.equals(str, iVar.f11774g)) {
+                        return iVar;
                     }
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
-                    if (optJSONObject == null) {
-                        return;
-                    }
-                    String optString = optJSONObject.optString("package_icon");
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.f8772a = BitmapFactory.decodeFile(str + File.separator + optString);
-                    }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
-                    this.f8774c.clear();
-                    this.f8773b.clear();
-                    if (optJSONArray2 != null) {
-                        int length = optJSONArray2.length();
-                        for (int i2 = 0; i2 < length; i2++) {
-                            JSONObject jSONObject = (JSONObject) optJSONArray2.get(i2);
-                            String optString2 = jSONObject.optString("id");
-                            String optString3 = jSONObject.optString("text");
-                            Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + jSONObject.optString("icon"));
-                            if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
-                                this.f8774c.add(optString3);
-                                this.f8773b.put(optString3, new c(optString2, optString3, decodeFile));
+                }
+            }
+            return null;
+        }
+        return (i) invokeL.objValue;
+    }
+
+    public static String i(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+            e L = e.L();
+            if (L == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return L.T().e(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void j() {
+        g V;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && (V = f.U().V()) != null && (V.m() instanceof h)) {
+            f.U().getActivity().onBackPressed();
+        }
+    }
+
+    public static List<i> k(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, str, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                if (length == 0) {
+                    return null;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (int i2 = 0; i2 < length; i2++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("plugin_id");
+                        if (!TextUtils.isEmpty(optString)) {
+                            i iVar = new i();
+                            iVar.f11774g = optString;
+                            iVar.f11776i = optJSONObject.optLong("version_code", 0L);
+                            iVar.j = optJSONObject.optString("version_name", "0.0.0");
+                            iVar.p = optJSONObject.optString("token");
+                            iVar.q = optJSONObject.optString("domains");
+                            iVar.f11775h = 4;
+                            iVar.r = optJSONObject.optString("app_key");
+                            iVar.s = optJSONObject.optString("app_name");
+                            iVar.l = "";
+                            iVar.m = "";
+                            iVar.n = "";
+                            arrayList.add(iVar);
+                            if (z) {
+                                b.a.p0.q.g.a.i().m(iVar);
                             }
                         }
-                        return;
                     }
-                    return;
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    return;
                 }
+                return arrayList;
+            } catch (JSONException e2) {
+                b.a.p0.a.w1.e.a.b(Log.getStackTraceString(e2));
+                return null;
             }
-            boolean z2 = f8770d;
         }
+        return (List) invokeLZ.objValue;
     }
 
-    public SpannableString g(Context context, CharSequence charSequence, TextView textView) {
-        InterceptResult invokeLLL;
-        Object aVar;
+    public static String l(SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
-            boolean z = f8770d;
-            SpannableString spannableString = new SpannableString(charSequence);
-            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-            while (matcher.find()) {
-                String group = matcher.group();
-                int start = matcher.start();
-                Bitmap a2 = c().a(group);
-                if (a2 == null) {
-                    break;
-                }
-                int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(a2, textSize, textSize, true);
-                if (createScaledBitmap != null) {
-                    if (textView instanceof EditText) {
-                        aVar = new f.b(context.getApplicationContext(), createScaledBitmap);
-                    } else {
-                        aVar = new f.a(context.getApplicationContext(), createScaledBitmap);
-                    }
-                    spannableString.setSpan(aVar, start, group.length() + start, 33);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, swanAppConfigData)) == null) {
+            if (swanAppConfigData == null) {
+                b.a.p0.a.w1.e.a.b("parse app.json is null");
+                return null;
             }
-            return spannableString;
+            List<c> i2 = swanAppConfigData.i(4);
+            if (i2 != null && !i2.isEmpty()) {
+                JSONObject jSONObject = new JSONObject();
+                for (c cVar : i2) {
+                    if (cVar != null && cVar.a()) {
+                        w.f(jSONObject, cVar.f9250e, cVar.f9254i);
+                    }
+                }
+                String jSONObject2 = jSONObject.toString();
+                c("pluginPath", jSONObject2);
+                return jSONObject2;
+            }
+            c("pluginPath", null);
+            b.a.p0.a.w1.e.a.b("this swan app not apply on someone plugin");
+            return null;
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (String) invokeL.objValue;
     }
 }

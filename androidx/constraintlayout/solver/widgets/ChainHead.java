@@ -19,19 +19,14 @@ public class ChainHead {
     public ConstraintWidget mFirstVisibleWidget;
     public boolean mHasComplexMatchWeights;
     public boolean mHasDefinedWeights;
-    public boolean mHasRatio;
     public boolean mHasUndefinedWeights;
     public ConstraintWidget mHead;
     public boolean mIsRtl;
     public ConstraintWidget mLast;
     public ConstraintWidget mLastMatchConstraintWidget;
     public ConstraintWidget mLastVisibleWidget;
-    public boolean mOptimizable;
     public int mOrientation;
-    public int mTotalMargins;
-    public int mTotalSize;
     public float mTotalWeight;
-    public int mVisibleWidgets;
     public ArrayList<ConstraintWidget> mWeightedMatchConstraintsWidgets;
     public int mWidgetsCount;
     public int mWidgetsMatchCount;
@@ -63,8 +58,7 @@ public class ChainHead {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             int i2 = this.mOrientation * 2;
             ConstraintWidget constraintWidget = this.mFirst;
-            boolean z = true;
-            this.mOptimizable = true;
+            boolean z = false;
             ConstraintWidget constraintWidget2 = constraintWidget;
             boolean z2 = false;
             while (!z2) {
@@ -75,32 +69,21 @@ public class ChainHead {
                 constraintWidgetArr[i3] = null;
                 constraintWidget.mListNextMatchConstraintsWidget[i3] = null;
                 if (constraintWidget.getVisibility() != 8) {
-                    this.mVisibleWidgets++;
-                    if (constraintWidget.getDimensionBehaviour(this.mOrientation) != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
-                        this.mTotalSize += constraintWidget.getLength(this.mOrientation);
-                    }
-                    int margin = this.mTotalSize + constraintWidget.mListAnchors[i2].getMargin();
-                    this.mTotalSize = margin;
-                    int i4 = i2 + 1;
-                    this.mTotalSize = margin + constraintWidget.mListAnchors[i4].getMargin();
-                    int margin2 = this.mTotalMargins + constraintWidget.mListAnchors[i2].getMargin();
-                    this.mTotalMargins = margin2;
-                    this.mTotalMargins = margin2 + constraintWidget.mListAnchors[i4].getMargin();
                     if (this.mFirstVisibleWidget == null) {
                         this.mFirstVisibleWidget = constraintWidget;
                     }
                     this.mLastVisibleWidget = constraintWidget;
                     ConstraintWidget.DimensionBehaviour[] dimensionBehaviourArr = constraintWidget.mListDimensionBehaviors;
-                    int i5 = this.mOrientation;
-                    if (dimensionBehaviourArr[i5] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+                    int i4 = this.mOrientation;
+                    if (dimensionBehaviourArr[i4] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
                         int[] iArr = constraintWidget.mResolvedMatchConstraintDefault;
-                        if (iArr[i5] == 0 || iArr[i5] == 3 || iArr[i5] == 2) {
+                        if (iArr[i4] == 0 || iArr[i4] == 3 || iArr[i4] == 2) {
                             this.mWidgetsMatchCount++;
                             float[] fArr = constraintWidget.mWeight;
-                            int i6 = this.mOrientation;
-                            float f2 = fArr[i6];
+                            int i5 = this.mOrientation;
+                            float f2 = fArr[i5];
                             if (f2 > 0.0f) {
-                                this.mTotalWeight += fArr[i6];
+                                this.mTotalWeight += fArr[i5];
                             }
                             if (isMatchConstraintEqualityCandidate(constraintWidget, this.mOrientation)) {
                                 if (f2 < 0.0f) {
@@ -122,21 +105,6 @@ public class ChainHead {
                             }
                             this.mLastMatchConstraintWidget = constraintWidget;
                         }
-                        if (this.mOrientation == 0) {
-                            if (constraintWidget.mMatchConstraintDefaultWidth != 0) {
-                                this.mOptimizable = false;
-                            } else if (constraintWidget.mMatchConstraintMinWidth != 0 || constraintWidget.mMatchConstraintMaxWidth != 0) {
-                                this.mOptimizable = false;
-                            }
-                        } else if (constraintWidget.mMatchConstraintDefaultHeight != 0) {
-                            this.mOptimizable = false;
-                        } else if (constraintWidget.mMatchConstraintMinHeight != 0 || constraintWidget.mMatchConstraintMaxHeight != 0) {
-                            this.mOptimizable = false;
-                        }
-                        if (constraintWidget.mDimensionRatio != 0.0f) {
-                            this.mOptimizable = false;
-                            this.mHasRatio = true;
-                        }
                     }
                 }
                 if (constraintWidget2 != constraintWidget) {
@@ -157,21 +125,16 @@ public class ChainHead {
                 constraintWidget2 = constraintWidget;
                 constraintWidget = constraintWidget3;
             }
-            ConstraintWidget constraintWidget6 = this.mFirstVisibleWidget;
-            if (constraintWidget6 != null) {
-                this.mTotalSize -= constraintWidget6.mListAnchors[i2].getMargin();
-            }
-            ConstraintWidget constraintWidget7 = this.mLastVisibleWidget;
-            if (constraintWidget7 != null) {
-                this.mTotalSize -= constraintWidget7.mListAnchors[i2 + 1].getMargin();
-            }
             this.mLast = constraintWidget;
             if (this.mOrientation == 0 && this.mIsRtl) {
                 this.mHead = constraintWidget;
             } else {
                 this.mHead = this.mFirst;
             }
-            this.mHasComplexMatchWeights = (this.mHasDefinedWeights && this.mHasUndefinedWeights) ? false : false;
+            if (this.mHasDefinedWeights && this.mHasUndefinedWeights) {
+                z = true;
+            }
+            this.mHasComplexMatchWeights = z;
         }
     }
 

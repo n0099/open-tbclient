@@ -88,11 +88,7 @@ public abstract class WrappedClipboardManager {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
                 ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
                 sClipData = newPlainText;
-                try {
-                    sInstance.setPrimaryClip(newPlainText);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
+                sInstance.setPrimaryClip(newPlainText);
             }
         }
     }

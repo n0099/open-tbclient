@@ -16,11 +16,11 @@ public abstract class b<T> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static HandlerC0084b f3098f;
+    public static HandlerC0086b f3191f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Future<T> f3099e;
+    public Future<T> f3192e;
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -28,10 +28,10 @@ public abstract class b<T> implements Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f3100a;
+        public final b f3193a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f3101b;
+        public final T f3194b;
 
         public a(b bVar, T t) {
             Interceptable interceptable = $ic;
@@ -48,19 +48,19 @@ public abstract class b<T> implements Runnable {
                     return;
                 }
             }
-            this.f3100a = bVar;
-            this.f3101b = t;
+            this.f3193a = bVar;
+            this.f3194b = t;
         }
     }
 
     /* renamed from: b.a.j0.a.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class HandlerC0084b extends Handler {
+    public static class HandlerC0086b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0084b(Looper looper) {
+        public HandlerC0086b(Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -86,12 +86,12 @@ public abstract class b<T> implements Runnable {
                 a aVar = (a) message.obj;
                 int i2 = message.what;
                 if (i2 == 1) {
-                    aVar.f3100a.g(aVar.f3101b);
+                    aVar.f3193a.g(aVar.f3194b);
                 } else if (i2 == 2) {
-                    aVar.f3100a.f((Throwable) aVar.f3101b);
+                    aVar.f3193a.f((Throwable) aVar.f3194b);
                 } else if (i2 != 3) {
                 } else {
-                    aVar.f3100a.e();
+                    aVar.f3193a.e();
                 }
             }
         }
@@ -113,16 +113,16 @@ public abstract class b<T> implements Runnable {
 
     public static Handler d() {
         InterceptResult invokeV;
-        HandlerC0084b handlerC0084b;
+        HandlerC0086b handlerC0086b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                if (f3098f == null) {
-                    f3098f = new HandlerC0084b(Looper.getMainLooper());
+                if (f3191f == null) {
+                    f3191f = new HandlerC0086b(Looper.getMainLooper());
                 }
-                handlerC0084b = f3098f;
+                handlerC0086b = f3191f;
             }
-            return handlerC0084b;
+            return handlerC0086b;
         }
         return (Handler) invokeV.objValue;
     }
@@ -130,7 +130,7 @@ public abstract class b<T> implements Runnable {
     public void a(boolean z) {
         Future<T> future;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (future = this.f3099e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (future = this.f3192e) == null) {
             return;
         }
         future.cancel(z);
@@ -186,7 +186,7 @@ public abstract class b<T> implements Runnable {
     public void h(Future future) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, future) == null) {
-            this.f3099e = future;
+            this.f3192e = future;
         }
     }
 

@@ -2,7 +2,7 @@ package b.a.r0.g.b;
 
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.o0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,14 +21,14 @@ public class b implements n, b.a.r0.g.c, o0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SparseArray<BdUniqueId> f16601g;
+    public static SparseArray<BdUniqueId> f18115g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object f16602e;
+    public Object f18116e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16603f;
+    public int f18117f;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class b implements n, b.a.r0.g.c, o0 {
                 return;
             }
         }
-        f16601g = new SparseArray<>();
+        f18115g = new SparseArray<>();
     }
 
     public b() {
@@ -62,11 +62,11 @@ public class b implements n, b.a.r0.g.c, o0 {
 
     public static void d(List<Integer> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || f16601g.size() > 0 || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || f18115g.size() > 0 || list == null) {
             return;
         }
         for (Integer num : list) {
-            f16601g.put(num.intValue(), BdUniqueId.gen());
+            f18115g.put(num.intValue(), BdUniqueId.gen());
         }
     }
 
@@ -75,8 +75,8 @@ public class b implements n, b.a.r0.g.c, o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < f16601g.size(); i2++) {
-                arrayList.add(f16601g.valueAt(i2));
+            for (int i2 = 0; i2 < f18115g.size(); i2++) {
+                arrayList.add(f18115g.valueAt(i2));
             }
             return arrayList;
         }
@@ -88,10 +88,10 @@ public class b implements n, b.a.r0.g.c, o0 {
         int indexOfValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdUniqueId)) == null) {
-            if (f16601g.size() == 0 || (indexOfValue = f16601g.indexOfValue(bdUniqueId)) == -1 || f16601g.size() <= indexOfValue) {
+            if (f18115g.size() == 0 || (indexOfValue = f18115g.indexOfValue(bdUniqueId)) == -1 || f18115g.size() <= indexOfValue) {
                 return -1;
             }
-            return f16601g.keyAt(indexOfValue);
+            return f18115g.keyAt(indexOfValue);
         }
         return invokeL.intValue;
     }
@@ -100,7 +100,7 @@ public class b implements n, b.a.r0.g.c, o0 {
     public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16602e : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18116e : invokeV.objValue;
     }
 
     @Override // b.a.q0.s.q.o0
@@ -129,27 +129,27 @@ public class b implements n, b.a.r0.g.c, o0 {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16603f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18117f : invokeV.intValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f16601g.get(this.f16603f) : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f18115g.get(this.f18117f) : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-            this.f16602e = obj;
+            this.f18116e = obj;
         }
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f16603f = i2;
+            this.f18117f = i2;
         }
     }
 

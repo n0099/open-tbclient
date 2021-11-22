@@ -48,10 +48,10 @@ public class i extends b.a.r0.b0.b<b.a.r0.p2.e.k> {
     @Override // b.a.r0.b0.b
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f14736e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f16223e == i2) {
             return;
         }
-        this.f14736e = i2;
+        this.f16223e = i2;
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
         SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
     }
@@ -64,8 +64,8 @@ public class i extends b.a.r0.b0.b<b.a.r0.p2.e.k> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || kVar == null) {
             return;
         }
-        this.m.setPadding(kVar.f22313f, kVar.f22314g, 0, kVar.f22315h);
-        this.m.setText(this.f14738g.getString(kVar.f22312e));
+        this.m.setPadding(kVar.f23790f, kVar.f23791g, 0, kVar.f23792h);
+        this.m.setText(this.f16225g.getString(kVar.f23789e));
     }
 
     @Override // android.view.View.OnClickListener

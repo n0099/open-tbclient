@@ -13,10 +13,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f16609a;
+    public Object f18123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f16610b;
+    public Activity f18124b;
 
     public c(Object obj) {
         Interceptable interceptable = $ic;
@@ -33,18 +33,18 @@ public class c {
                 return;
             }
         }
-        this.f16609a = obj;
+        this.f18123a = obj;
     }
 
     public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16609a : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18123a : invokeV.objValue;
     }
 
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16610b : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18124b : (Activity) invokeV.objValue;
     }
 }

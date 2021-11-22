@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.x0.a;
-import b.a.r0.d4.k.e;
+import b.a.q0.w0.a;
+import b.a.r0.e4.k.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -130,7 +130,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             super.onResume();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.I();
+                eVar.K();
             }
         }
     }
@@ -142,7 +142,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             super.onStart();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.K();
+                eVar.M();
             }
         }
     }
@@ -154,7 +154,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             super.onStop();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.M();
+                eVar.N();
             }
         }
     }

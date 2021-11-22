@@ -17,14 +17,14 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Integer, Integer> f6822a;
+    public final Map<Integer, Integer> f7151a;
 
     /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f6823a;
+        public static final b f7152a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,7 +40,7 @@ public class b {
                     return;
                 }
             }
-            f6823a = new b();
+            f7152a = new b();
         }
     }
 
@@ -57,20 +57,20 @@ public class b {
                 return;
             }
         }
-        this.f6822a = new ConcurrentHashMap();
+        this.f7151a = new ConcurrentHashMap();
     }
 
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f6823a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f7152a : (b) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f6822a.put(Integer.valueOf(i2), Integer.valueOf(c(i2) + 1));
-            d.h("SwanRecoveryCounter", "addRecoveryCount level=" + i2);
+            this.f7151a.put(Integer.valueOf(i2), Integer.valueOf(c(i2) + 1));
+            d.k("SwanRecoveryCounter", "addRecoveryCount level=" + i2);
         }
     }
 
@@ -78,9 +78,9 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            Integer num = this.f6822a.get(Integer.valueOf(i2));
+            Integer num = this.f7151a.get(Integer.valueOf(i2));
             int intValue = num != null ? num.intValue() : 0;
-            d.h("SwanRecoveryCounter", "getRecoveryCount level=" + i2 + ";count=" + intValue);
+            d.k("SwanRecoveryCounter", "getRecoveryCount level=" + i2 + ";count=" + intValue);
             return intValue;
         }
         return invokeI.intValue;

@@ -1,7 +1,6 @@
 package com.alibaba.fastjson.util;
 
 import com.baidu.sapi2.result.OneKeyLoginResult;
-import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -353,7 +352,7 @@ public final class RyuDouble {
                             i38 = 11;
                         } else if (j3 >= 1000000000) {
                             i38 = 10;
-                        } else if (j3 >= CoolPraiseView.BILLION) {
+                        } else if (j3 >= 100000000) {
                             i38 = 9;
                         } else if (j3 >= 10000000) {
                             i38 = 8;

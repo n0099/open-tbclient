@@ -10,10 +10,10 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f13094a;
+    public static final int f13874a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f13095b;
+    public static final int f13875b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class h {
                 return;
             }
         }
-        f13094a = (-100000000) - 2002;
-        f13095b = (-100000000) - 3000;
+        f13874a = (-100000000) - 2002;
+        f13875b = (-100000000) - 3000;
     }
 }

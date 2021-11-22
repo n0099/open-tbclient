@@ -17,13 +17,13 @@ public class f0 implements b.a.t0.n0.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.t0.o0.a f28769a;
+    public b.a.t0.o0.a f29638a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IPCService f28770b;
+    public IPCService f29639b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.t0.o0.b f28771c;
+    public b.a.t0.o0.b f29640c;
 
     public f0() {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class f0 implements b.a.t0.n0.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f28769a == null) {
-                this.f28769a = new b.a.t0.o0.a();
+            if (this.f29638a == null) {
+                this.f29638a = new b.a.t0.o0.a();
             }
-            return this.f28769a;
+            return this.f29638a;
         }
         return (b.a.t0.n0.a) invokeV.objValue;
     }
@@ -57,10 +57,10 @@ public class f0 implements b.a.t0.n0.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f28770b == null) {
-                this.f28770b = new IPCService();
+            if (this.f29639b == null) {
+                this.f29639b = new IPCService();
             }
-            return this.f28770b;
+            return this.f29639b;
         }
         return (b.a.t0.n0.c) invokeV.objValue;
     }
@@ -84,10 +84,10 @@ public class f0 implements b.a.t0.n0.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f28771c == null) {
-                this.f28771c = new b.a.t0.o0.b();
+            if (this.f29640c == null) {
+                this.f29640c = new b.a.t0.o0.b();
             }
-            return this.f28771c;
+            return this.f29640c;
         }
         return (b.a.t0.n0.b) invokeV.objValue;
     }

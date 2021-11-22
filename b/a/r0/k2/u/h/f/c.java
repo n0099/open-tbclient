@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c extends b.a.e.l.e.a<b.a.r0.k2.u.h.g.a, a> {
+public class c extends b.a.e.m.e.a<b.a.r0.k2.u.h.g.a, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,10 +29,10 @@ public class c extends b.a.e.l.e.a<b.a.r0.k2.u.h.g.a, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f19644a;
+        public TextView f21181a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19645b;
+        public int f21182b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(View view) {
@@ -52,17 +52,17 @@ public class c extends b.a.e.l.e.a<b.a.r0.k2.u.h.g.a, a> {
                     return;
                 }
             }
-            this.f19645b = 3;
-            this.f19644a = (TextView) view.findViewById(i.no_reply_list_view);
+            this.f21182b = 3;
+            this.f21181a = (TextView) view.findViewById(i.no_reply_list_view);
         }
 
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f19645b != TbadkApplication.getInst().getSkinType()) {
-                    SkinManager.setViewTextColor(this.f19644a, R.color.CAM_X0109);
+                if (this.f21182b != TbadkApplication.getInst().getSkinType()) {
+                    SkinManager.setViewTextColor(this.f21181a, R.color.CAM_X0109);
                 }
-                this.f19645b = TbadkApplication.getInst().getSkinType();
+                this.f21182b = TbadkApplication.getInst().getSkinType();
             }
         }
     }
@@ -89,16 +89,16 @@ public class c extends b.a.e.l.e.a<b.a.r0.k2.u.h.g.a, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public a T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.f2419e).inflate(j.sub_pb_no_reply_layout, viewGroup, false)) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.f2421e).inflate(j.sub_pb_no_reply_layout, viewGroup, false)) : (a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.k2.u.h.g.a aVar, a aVar2) {
         InterceptResult invokeCommon;

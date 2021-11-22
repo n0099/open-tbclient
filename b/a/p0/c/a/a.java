@@ -15,7 +15,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9542a;
+    public static final boolean f10122a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class a {
                 return;
             }
         }
-        f9542a = k.f6397a;
+        f10122a = k.f6863a;
     }
 
     public a() {
@@ -52,9 +52,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b.a.p0.a.c1.a.Z().getSwitch("game_bdtls_switcher", false);
-            if (f9542a) {
-                b.a.p0.a.e0.d.g("BDTLS", "isBdtlsSwitch=false");
+            b.a.p0.a.c1.a.g0().getSwitch("game_bdtls_switcher", false);
+            if (f10122a) {
+                b.a.p0.a.e0.d.i("BDTLS", "isBdtlsSwitch=false");
             }
             return false;
         }

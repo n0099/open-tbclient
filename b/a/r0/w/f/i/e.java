@@ -9,9 +9,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
-import b.a.q0.d1.m0;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
+import b.a.q0.c1.m0;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -80,7 +80,7 @@ public class e extends b.a.r0.b0.b<b.a.r0.w.f.a.e> {
         }
         this.m = 3;
         this.G = AlaLiveRoomActivityConfig.FROM_TYPE_SQUARE_RECOMMEND;
-        this.H = (l.k(this.f14738g) - this.f14738g.getResources().getDimensionPixelSize(R.dimen.ds16)) / 2;
+        this.H = (l.k(this.f16225g) - this.f16225g.getResources().getDimensionPixelSize(R.dimen.ds16)) / 2;
         o();
     }
 
@@ -151,7 +151,7 @@ public class e extends b.a.r0.b0.b<b.a.r0.w.f.a.e> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == i()) {
             if (!j.z()) {
-                Context context = this.f14738g;
+                Context context = this.f16225g;
                 l.J(context, context.getString(R.string.no_network_guide));
                 return;
             }
@@ -160,7 +160,7 @@ public class e extends b.a.r0.b0.b<b.a.r0.w.f.a.e> {
                 dVar.a(view, this.I);
             }
             b.a.r0.w.f.e.a.c().h(true);
-            p(this.f14737f, this.F);
+            p(this.f16224f, this.F);
         }
     }
 
@@ -168,7 +168,7 @@ public class e extends b.a.r0.b0.b<b.a.r0.w.f.a.e> {
         String str;
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, tbPageContext, d2Var) == null) || tbPageContext == null || d2Var == null || d2Var.J() == null || d2Var.l1() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, tbPageContext, d2Var) == null) || tbPageContext == null || d2Var == null || d2Var.J() == null || d2Var.m1() == null) {
             return;
         }
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -181,7 +181,7 @@ public class e extends b.a.r0.b0.b<b.a.r0.w.f.a.e> {
             z = false;
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(d2Var.l1());
+        alaLiveInfoCoreData.fillWithInfoData(d2Var.m1());
         alaLiveInfoCoreData.userName = d2Var.J().getUserName();
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, this.G, str, z, "")));
     }
@@ -192,10 +192,10 @@ public class e extends b.a.r0.b0.b<b.a.r0.w.f.a.e> {
     public void j(b.a.r0.w.f.a.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
-            if (eVar != null && eVar.f24510h != null) {
+            if (eVar != null && eVar.f26027h != null) {
                 i().setVisibility(0);
                 this.I = eVar;
-                this.F = eVar.f24510h;
+                this.F = eVar.f26027h;
                 this.p.setVisibility(0);
                 this.q.setVisibility(8);
                 this.s.setVisibility(0);
@@ -206,14 +206,14 @@ public class e extends b.a.r0.b0.b<b.a.r0.w.f.a.e> {
                 layoutParams.height = i2;
                 this.t.setLayoutParams(layoutParams);
                 this.o.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_video_direct_seeding, 0, 0, 0);
-                this.o.setText(this.f14738g.getResources().getString(R.string.square_live_tip));
-                this.n.startLoad(this.F.l1().cover, 10, false);
-                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(this.F.l1().audience_count);
-                this.r.setText(this.f14738g.getResources().getString(R.string.square_audience_label, numberUniformFormatExtra));
+                this.o.setText(this.f16225g.getResources().getString(R.string.square_live_tip));
+                this.n.startLoad(this.F.m1().cover, 10, false);
+                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(this.F.m1().audience_count);
+                this.r.setText(this.f16225g.getResources().getString(R.string.square_audience_label, numberUniformFormatExtra));
                 this.u.setData(this.F);
                 this.y.setText(this.F.getTitle());
                 if (this.F.J() != null) {
-                    String name_show = eVar.f24510h.J().getName_show();
+                    String name_show = eVar.f26027h.J().getName_show();
                     if (m0.d(name_show) > 10) {
                         name_show = m0.m(name_show, 10) + "...";
                     }
@@ -222,9 +222,9 @@ public class e extends b.a.r0.b0.b<b.a.r0.w.f.a.e> {
                 }
                 this.w.setText(StringHelper.getFormatTime(this.F.P()));
                 this.A.setData(this.F, false);
-                this.C.setText(this.f14738g.getResources().getString(R.string.square_audience_label, numberUniformFormatExtra));
+                this.C.setText(this.f16225g.getResources().getString(R.string.square_audience_label, numberUniformFormatExtra));
                 this.D.setText(this.F.getTitle());
-                k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+                k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             i().setVisibility(4);
@@ -297,7 +297,7 @@ public class e extends b.a.r0.b0.b<b.a.r0.w.f.a.e> {
         }
         this.m = 3;
         this.G = AlaLiveRoomActivityConfig.FROM_TYPE_SQUARE_RECOMMEND;
-        this.H = (l.k(this.f14738g) - this.f14738g.getResources().getDimensionPixelSize(R.dimen.ds16)) / 2;
+        this.H = (l.k(this.f16225g) - this.f16225g.getResources().getDimensionPixelSize(R.dimen.ds16)) / 2;
         this.K = i2;
         o();
     }

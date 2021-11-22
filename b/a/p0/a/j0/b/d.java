@@ -11,7 +11,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Uri f6247a;
+    public static Uri f6549a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
@@ -20,7 +20,7 @@ public class d {
             try {
                 sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
             } catch (Exception e2) {
-                b.a.p0.a.e0.d.c("SwanLaunchBehaviorTable", "createTable", e2);
+                b.a.p0.a.e0.d.d("SwanLaunchBehaviorTable", "createTable", e2);
             }
         }
     }
@@ -32,10 +32,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (d.class) {
-                if (f6247a == null) {
-                    f6247a = b.f6245c.buildUpon().appendPath("user_behavior").build();
+                if (f6549a == null) {
+                    f6549a = b.f6547c.buildUpon().appendPath("user_behavior").build();
                 }
-                uri = f6247a;
+                uri = f6549a;
             }
             return uri;
         }

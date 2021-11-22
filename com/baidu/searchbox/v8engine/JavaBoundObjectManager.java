@@ -32,30 +32,43 @@ public class JavaBoundObjectManager {
         this.mJavaBoundObjectMap = new HashMap();
     }
 
-    public void clear() {
+    public synchronized void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mJavaBoundObjectMap.clear();
+            synchronized (this) {
+                this.mJavaBoundObjectMap.clear();
+            }
         }
     }
 
-    public Object getJavaBoundObject(long j) {
+    public synchronized Object getJavaBoundObject(long j) {
         InterceptResult invokeJ;
+        Object obj;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.mJavaBoundObjectMap.get(Long.valueOf(j)) : invokeJ.objValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            synchronized (this) {
+                obj = this.mJavaBoundObjectMap.get(Long.valueOf(j));
+            }
+            return obj;
+        }
+        return invokeJ.objValue;
     }
 
-    public void putJavaBoundObject(long j, Object obj) {
+    public synchronized void putJavaBoundObject(long j, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, obj) == null) {
-            this.mJavaBoundObjectMap.put(Long.valueOf(j), obj);
+            synchronized (this) {
+                this.mJavaBoundObjectMap.put(Long.valueOf(j), obj);
+            }
         }
     }
 
-    public void removeJavaBoundObject(long j) {
+    public synchronized void removeJavaBoundObject(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.mJavaBoundObjectMap.remove(Long.valueOf(j));
+            synchronized (this) {
+                this.mJavaBoundObjectMap.remove(Long.valueOf(j));
+            }
         }
     }
 }

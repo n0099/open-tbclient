@@ -12,25 +12,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.TopicList.MediaTopic;
 import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
-public class o implements b.a.e.l.e.n {
+public class o implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f18480e;
+    public long f19814e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18481f;
+    public String f19815f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18482g;
+    public String f19816g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18483h;
+    public String f19817h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18484i;
+    public int f19818i;
     public String j;
 
     static {
@@ -68,9 +68,9 @@ public class o implements b.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaTopic) == null) || mediaTopic == null) {
             return;
         }
-        this.f18480e = mediaTopic.topic_id.longValue();
-        this.f18481f = mediaTopic.topic_name;
-        this.f18482g = mediaTopic.pic_url;
+        this.f19814e = mediaTopic.topic_id.longValue();
+        this.f19815f = mediaTopic.topic_name;
+        this.f19816g = mediaTopic.pic_url;
         VideoInfo videoInfo = mediaTopic.video_info;
         if (videoInfo == null || videoInfo.video_duration.intValue() <= 0) {
             return;
@@ -82,8 +82,8 @@ public class o implements b.a.e.l.e.n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
             String str = videoInfo.video_md5;
-            this.f18483h = videoInfo.video_url;
-            this.f18484i = videoInfo.video_duration.intValue();
+            this.f19817h = videoInfo.video_url;
+            this.f19818i = videoInfo.video_duration.intValue();
             videoInfo.video_width.intValue();
             videoInfo.video_height.intValue();
             this.j = videoInfo.thumbnail_url;
@@ -94,7 +94,7 @@ public class o implements b.a.e.l.e.n {
         }
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

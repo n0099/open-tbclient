@@ -24,19 +24,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f16892a;
+    public boolean f18359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<d2> f16893b;
+    public ArrayList<d2> f18360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public n f16894c;
+    public n f18361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public l0 f16895d;
+    public l0 f18362d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f16896e;
+    public b f18363e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,37 +51,37 @@ public class a {
                 return;
             }
         }
-        this.f16892a = true;
+        this.f18359a = true;
     }
 
     public n a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16894c : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18361c : (n) invokeV.objValue;
     }
 
     public l0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16895d : (l0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18362d : (l0) invokeV.objValue;
     }
 
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16896e : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18363e : (b) invokeV.objValue;
     }
 
     public ArrayList<d2> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16893b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18360b : (ArrayList) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16892a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18359a : invokeV.booleanValue;
     }
 
     public void f(JSONObject jSONObject) {
@@ -93,20 +93,20 @@ public class a {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
-                this.f16893b = new ArrayList<>(optJSONArray.length());
+                this.f18360b = new ArrayList<>(optJSONArray.length());
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
                     if (jSONObject2 != null) {
                         d2 d2Var = new d2();
-                        d2Var.X2(jSONObject2);
-                        d2Var.G1();
-                        this.f16893b.add(d2Var);
+                        d2Var.Z2(jSONObject2);
+                        d2Var.I1();
+                        this.f18360b.add(d2Var);
                     }
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("banner_list");
             if (optJSONArray2 != null) {
-                this.f16894c = new n();
+                this.f18361c = new n();
                 ArrayList arrayList = new ArrayList();
                 for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
                     JSONObject optJSONObject = optJSONArray2.optJSONObject(i4);
@@ -118,11 +118,11 @@ public class a {
                         arrayList.add(builder.build(true));
                     }
                 }
-                this.f16894c.parserProtobuf(arrayList);
+                this.f18361c.parserProtobuf(arrayList);
             }
             JSONArray optJSONArray3 = jSONObject.optJSONArray("grid");
             if (optJSONArray3 != null && optJSONArray3.length() >= 4) {
-                this.f16895d = new l0();
+                this.f18362d = new l0();
                 ArrayList arrayList2 = new ArrayList();
                 for (int i5 = 0; i5 < optJSONArray3.length(); i5++) {
                     JSONObject optJSONObject2 = optJSONArray3.optJSONObject(i5);
@@ -134,7 +134,7 @@ public class a {
                         arrayList2.add(builder2.build(true));
                     }
                 }
-                this.f16895d.parserProtobuf(arrayList2);
+                this.f18362d.parserProtobuf(arrayList2);
             }
             JSONArray optJSONArray4 = jSONObject.optJSONArray("module_list");
             JSONArray jSONArray = null;
@@ -160,17 +160,17 @@ public class a {
                 JSONObject optJSONObject4 = jSONArray.optJSONObject(i7);
                 if (optJSONObject4 != null && i7 < 6) {
                     RecomTopicList.Builder builder3 = new RecomTopicList.Builder();
-                    builder3.topic_id = Long.valueOf(b.a.e.e.m.b.g(optJSONObject4.optString("topic_id"), 0L));
+                    builder3.topic_id = Long.valueOf(b.a.e.f.m.b.g(optJSONObject4.optString("topic_id"), 0L));
                     builder3.topic_name = optJSONObject4.optString(IntentConfig.TOPIC_NAME);
                     builder3.topic_desc = optJSONObject4.optString("topic_desc");
                     builder3.tag = Integer.valueOf(optJSONObject4.optInt("tag"));
                     builder3.topic_pic = optJSONObject4.optString("topic_pic");
                     builder3.type = Integer.valueOf(optJSONObject4.optInt("type"));
-                    builder3.discuss_num = Long.valueOf(b.a.e.e.m.b.g(optJSONObject4.optString("discuss_num"), 0L));
+                    builder3.discuss_num = Long.valueOf(b.a.e.f.m.b.g(optJSONObject4.optString("discuss_num"), 0L));
                     arrayList3.add(builder3.build(true));
                 }
                 b bVar = new b();
-                this.f16896e = bVar;
+                this.f18363e = bVar;
                 bVar.floorPosition = i2;
                 bVar.parserProtobuf(arrayList3);
             }

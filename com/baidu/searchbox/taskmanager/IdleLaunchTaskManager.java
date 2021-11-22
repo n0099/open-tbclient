@@ -1,6 +1,8 @@
 package com.baidu.searchbox.taskmanager;
 
 import android.content.Context;
+import b.a.e.e.a;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.IdleLaunchTask;
 import com.baidu.searchbox.launch.SmartLaunchScheduler;
@@ -19,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class IdleLaunchTaskManager {
+public class IdleLaunchTaskManager implements a.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String TAG = "IdleLaunchTaskManager";
@@ -109,8 +111,58 @@ public class IdleLaunchTaskManager {
     public void addIdleLaunchTask(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            context.getApplicationContext();
             addSmartLaunchStatsTask();
+        }
+    }
+
+    @Override // b.a.e.e.a.b
+    public void scheduleIdleTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SmartLaunchScheduler.getInstance().scheduleIdleTask();
+        }
+    }
+
+    @Override // b.a.e.e.a.b
+    public void registerIdleTask(String str, Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, runnable) == null) {
+            registerIdleTask(new IdleLaunchTask(this, str, runnable) { // from class: com.baidu.searchbox.taskmanager.IdleLaunchTaskManager.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ IdleLaunchTaskManager this$0;
+                public final /* synthetic */ Runnable val$task;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(str);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, runnable};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            super((String) newInitContext.callArgs[0]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$task = runnable;
+                }
+
+                @Override // com.baidu.searchbox.launch.SmartLaunchTask
+                public void execute() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.val$task.run();
+                    }
+                }
+            });
         }
     }
 }

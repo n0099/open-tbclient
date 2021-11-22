@@ -25,7 +25,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f41604a;
+    public static final e f42436a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class e {
                 return;
             }
         }
-        f41604a = new e();
+        f42436a = new e();
     }
 
     public e() {
@@ -100,7 +100,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        k.f41624b.a(System.currentTimeMillis(), str);
+        k.f42456b.a(System.currentTimeMillis(), str);
     }
 
     public synchronized void a(Context context, boolean z) {

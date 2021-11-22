@@ -18,17 +18,17 @@ public class PassportViewManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static SapiConfiguration f42254c;
+    public static SapiConfiguration f43200c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static PassportViewManager f42255d;
+    public static PassportViewManager f43201d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TitleBtnCallback f42256a;
+    public TitleBtnCallback f43202a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TitleViewModule f42257b;
+    public TitleViewModule f43203b;
 
     /* loaded from: classes7.dex */
     public static class TitleViewModule implements NoProguard {
@@ -76,7 +76,7 @@ public class PassportViewManager implements NoProguard {
                     return;
                 }
             }
-            DEFAULT_TEXT_COLOR = PassportViewManager.f42254c.context.getResources().getColor(b.sapi_sdk_edit_text_color);
+            DEFAULT_TEXT_COLOR = PassportViewManager.f43200c.context.getResources().getColor(b.sapi_sdk_edit_text_color);
         }
 
         public TitleViewModule() {
@@ -99,7 +99,7 @@ public class PassportViewManager implements NoProguard {
             this.leftBtnTextColor = DEFAULT_TEXT_COLOR;
             this.leftBtnText = null;
             this.leftBtnTextVisible = 4;
-            this.leftBtnTextSize = PassportViewManager.f42254c.context.getResources().getDimension(c.sapi_sdk_title_left_btn_text_size);
+            this.leftBtnTextSize = PassportViewManager.f43200c.context.getResources().getDimension(c.sapi_sdk_title_left_btn_text_size);
             this.leftBtnDrawableLeft = null;
             this.leftBtnDrawableTop = null;
             this.leftBtnDrawableRight = null;
@@ -107,7 +107,7 @@ public class PassportViewManager implements NoProguard {
             this.titleTextColor = DEFAULT_TEXT_COLOR;
             this.titleText = null;
             this.titleVisible = 0;
-            this.titleTextSize = PassportViewManager.f42254c.context.getResources().getDimension(c.sapi_sdk_title_text_size);
+            this.titleTextSize = PassportViewManager.f43200c.context.getResources().getDimension(c.sapi_sdk_title_text_size);
             this.titleTextBold = false;
             this.useWebviewTitle = true;
             this.titleDrawableLeft = null;
@@ -117,7 +117,7 @@ public class PassportViewManager implements NoProguard {
             this.rightBtnTextColor = DEFAULT_TEXT_COLOR;
             this.rightBtnText = null;
             this.rightBtnVisible = 4;
-            this.rightBtnTextSize = PassportViewManager.f42254c.context.getResources().getDimension(c.sapi_sdk_title_right_btn_text_size);
+            this.rightBtnTextSize = PassportViewManager.f43200c.context.getResources().getDimension(c.sapi_sdk_title_right_btn_text_size);
             this.dividerLineVisible = 0;
         }
     }
@@ -135,8 +135,8 @@ public class PassportViewManager implements NoProguard {
                 return;
             }
         }
-        this.f42257b = null;
-        f42254c = SapiAccountManager.getInstance().getSapiConfiguration();
+        this.f43203b = null;
+        f43200c = SapiAccountManager.getInstance().getSapiConfiguration();
     }
 
     public static synchronized PassportViewManager getInstance() {
@@ -145,10 +145,10 @@ public class PassportViewManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (PassportViewManager.class) {
-                if (f42255d == null) {
-                    f42255d = new PassportViewManager();
+                if (f43201d == null) {
+                    f43201d = new PassportViewManager();
                 }
-                passportViewManager = f42255d;
+                passportViewManager = f43201d;
             }
             return passportViewManager;
         }
@@ -158,7 +158,7 @@ public class PassportViewManager implements NoProguard {
     public void configTitle(TitleViewModule titleViewModule) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, titleViewModule) == null) {
-            this.f42257b = titleViewModule;
+            this.f43203b = titleViewModule;
             if (titleViewModule.bgColor == Integer.MAX_VALUE) {
                 titleViewModule.bgColor = -1;
             }
@@ -171,20 +171,20 @@ public class PassportViewManager implements NoProguard {
     public TitleBtnCallback getTitleBtnCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42256a : (TitleBtnCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43202a : (TitleBtnCallback) invokeV.objValue;
     }
 
     public TitleViewModule getTitleViewModule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42257b : (TitleViewModule) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43203b : (TitleViewModule) invokeV.objValue;
     }
 
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f42256a = null;
-            this.f42257b = null;
+            this.f43202a = null;
+            this.f43203b = null;
             SapiWebView.statLoadLogin = null;
         }
     }
@@ -192,7 +192,7 @@ public class PassportViewManager implements NoProguard {
     public void setTitleBtnCallback(TitleBtnCallback titleBtnCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, titleBtnCallback) == null) {
-            this.f42256a = titleBtnCallback;
+            this.f43202a = titleBtnCallback;
         }
     }
 }

@@ -30,7 +30,7 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str) {
-        b.a.r0.l3.p0.d readThreadHistory;
+        b.a.r0.m3.p0.d readThreadHistory;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || readThreadHistory.b(str)) {
             return;
@@ -40,11 +40,11 @@ public class m {
 
     public static void b(d2 d2Var, SpannableStringBuilder spannableStringBuilder, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65537, null, d2Var, spannableStringBuilder, z) == null) || spannableStringBuilder == null || b.a.e.e.p.k.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || d2Var == null || d2Var.r0() != 0) {
+        if (!(interceptable == null || interceptable.invokeLLZ(65537, null, d2Var, spannableStringBuilder, z) == null) || spannableStringBuilder == null || b.a.e.f.p.k.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || d2Var == null || d2Var.r0() != 0) {
             return;
         }
         if (z || d2Var.n0() == 1 || StringUtils.isNull(d2Var.getTitle())) {
-            ArrayList<b.a.q0.f1.n.b> M0 = d2Var.M0();
+            ArrayList<b.a.q0.e1.n.b> M0 = d2Var.M0();
             if (ListUtils.isEmpty(M0)) {
                 return;
             }
@@ -67,14 +67,14 @@ public class m {
         }
     }
 
-    public static void c(SpannableString spannableString, b.a.q0.f1.n.b bVar, int i2, int i3) {
+    public static void c(SpannableString spannableString, b.a.q0.e1.n.b bVar, int i2, int i3) {
         int i4;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLII(65538, null, spannableString, bVar, i2, i3) == null) || spannableString == null || bVar == null || (i4 = i3 + i2) > spannableString.length()) {
             return;
         }
-        spannableString.setSpan(new b.a.q0.f1.n.c(bVar), i2, i4, 33);
-        spannableString.setSpan(new AbsoluteSizeSpan(bVar.f12417i), i2, i4, 33);
+        spannableString.setSpan(new b.a.q0.e1.n.c(bVar), i2, i4, 33);
+        spannableString.setSpan(new AbsoluteSizeSpan(bVar.f13125i), i2, i4, 33);
     }
 
     public static SpannableStringBuilder d(String str, String str2) {
@@ -124,24 +124,24 @@ public class m {
             for (int i2 = 0; i2 != arrayList.size(); i2++) {
                 a aVar = arrayList.get(i2);
                 if (aVar != null) {
-                    int i3 = aVar.f14819a;
+                    int i3 = aVar.f16306a;
                     if (i3 > 0) {
-                        aVar.f14820b = context.getString(i3);
+                        aVar.f16307b = context.getString(i3);
                     }
-                    if (!b.a.e.e.p.k.isEmpty(aVar.f14820b)) {
+                    if (!b.a.e.f.p.k.isEmpty(aVar.f16307b)) {
                         int length = spannableStringBuilder.length();
-                        spannableStringBuilder.append((CharSequence) aVar.f14820b);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f14821c)), length, spannableStringBuilder.length(), 17);
+                        spannableStringBuilder.append((CharSequence) aVar.f16307b);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f16308c)), length, spannableStringBuilder.length(), 17);
                         if (i2 == arrayList.size() - 1 && !z2) {
                             break;
                         }
-                        Bitmap bitmap = SkinManager.getBitmap(aVar.f14822d);
+                        Bitmap bitmap = SkinManager.getBitmap(aVar.f16309d);
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
                         if (bitmap != null) {
                             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                         }
                         b.a.q0.s.g0.j jVar = new b.a.q0.s.g0.j(bitmapDrawable);
-                        int i4 = aVar.f14823e;
+                        int i4 = aVar.f16310e;
                         if (i4 != 0) {
                             jVar.b(i4);
                         }
@@ -164,11 +164,11 @@ public class m {
     public static void j(d2 d2Var, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, d2Var, textView) == null) {
-            if ((StringUtils.isNull(d2Var.getTitle()) && (d2Var.W0() == null || d2Var.W0().size() == 0)) || d2Var.n0() == 1) {
-                d2Var.Z2(false, true);
-                if (d2Var.g1() != null && !StringUtils.isNull(d2Var.g1().toString())) {
+            if ((StringUtils.isNull(d2Var.getTitle()) && (d2Var.X0() == null || d2Var.X0().size() == 0)) || d2Var.n0() == 1) {
+                d2Var.b3(false, true);
+                if (d2Var.h1() != null && !StringUtils.isNull(d2Var.h1().toString())) {
                     textView.setVisibility(0);
-                    textView.setText(d2Var.g1());
+                    textView.setText(d2Var.h1());
                     return;
                 }
                 textView.setVisibility(8);
@@ -176,17 +176,17 @@ public class m {
             }
             textView.setVisibility(0);
             d2Var.q = 0;
-            d2Var.Z2(false, true);
-            SpannableStringBuilder g1 = d2Var.g1();
-            textView.setOnTouchListener(new b.a.r0.c4.h(g1));
-            textView.setText(g1);
+            d2Var.b3(false, true);
+            SpannableStringBuilder h1 = d2Var.h1();
+            textView.setOnTouchListener(new b.a.r0.d4.h(h1));
+            textView.setText(h1);
             l(textView, d2Var.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
     public static boolean k(String str) {
         InterceptResult invokeL;
-        b.a.r0.l3.p0.d readThreadHistory;
+        b.a.r0.m3.p0.d readThreadHistory;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.d(str)) ? false : true : invokeL.booleanValue;
     }
@@ -208,19 +208,19 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f14819a;
+        public int f16306a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f14820b;
+        public String f16307b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f14821c;
+        public int f16308c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f14822d;
+        public int f16309d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f14823e;
+        public int f16310e;
 
         public a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -237,14 +237,14 @@ public class m {
                     return;
                 }
             }
-            this.f14819a = -1;
-            this.f14820b = "";
-            this.f14821c = R.color.CAM_X0304;
-            this.f14822d = R.drawable.pic_dot_title;
-            this.f14823e = 0;
-            this.f14819a = i2;
-            this.f14821c = i3;
-            this.f14822d = i4;
+            this.f16306a = -1;
+            this.f16307b = "";
+            this.f16308c = R.color.CAM_X0304;
+            this.f16309d = R.drawable.pic_dot_title;
+            this.f16310e = 0;
+            this.f16306a = i2;
+            this.f16308c = i3;
+            this.f16309d = i4;
         }
 
         public a(int i2) {
@@ -262,12 +262,12 @@ public class m {
                     return;
                 }
             }
-            this.f14819a = -1;
-            this.f14820b = "";
-            this.f14821c = R.color.CAM_X0304;
-            this.f14822d = R.drawable.pic_dot_title;
-            this.f14823e = 0;
-            this.f14819a = i2;
+            this.f16306a = -1;
+            this.f16307b = "";
+            this.f16308c = R.color.CAM_X0304;
+            this.f16309d = R.drawable.pic_dot_title;
+            this.f16310e = 0;
+            this.f16306a = i2;
         }
 
         public a(String str) {
@@ -285,12 +285,12 @@ public class m {
                     return;
                 }
             }
-            this.f14819a = -1;
-            this.f14820b = "";
-            this.f14821c = R.color.CAM_X0304;
-            this.f14822d = R.drawable.pic_dot_title;
-            this.f14823e = 0;
-            this.f14820b = str;
+            this.f16306a = -1;
+            this.f16307b = "";
+            this.f16308c = R.color.CAM_X0304;
+            this.f16309d = R.drawable.pic_dot_title;
+            this.f16310e = 0;
+            this.f16307b = str;
         }
 
         public a(String str, int i2) {
@@ -308,13 +308,13 @@ public class m {
                     return;
                 }
             }
-            this.f14819a = -1;
-            this.f14820b = "";
-            this.f14821c = R.color.CAM_X0304;
-            this.f14822d = R.drawable.pic_dot_title;
-            this.f14823e = 0;
-            this.f14820b = str;
-            this.f14822d = i2;
+            this.f16306a = -1;
+            this.f16307b = "";
+            this.f16308c = R.color.CAM_X0304;
+            this.f16309d = R.drawable.pic_dot_title;
+            this.f16310e = 0;
+            this.f16307b = str;
+            this.f16309d = i2;
         }
     }
 }

@@ -23,29 +23,29 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f15693d;
+    public static a f16808d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f15694a;
+    public long f16809a;
     @SuppressLint({"HandlerLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f15695b;
+    public final Handler f16810b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f15696c;
+    public final c f16811c;
 
     /* renamed from: b.a.r0.d2.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class HandlerC0796a extends Handler {
+    public class HandlerC0842a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f15697a;
+        public final /* synthetic */ a f16812a;
 
-        public HandlerC0796a(a aVar) {
+        public HandlerC0842a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,16 +60,16 @@ public class a {
                     return;
                 }
             }
-            this.f15697a = aVar;
+            this.f16812a = aVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                this.f15697a.f15694a = System.currentTimeMillis();
+                this.f16812a.f16809a = System.currentTimeMillis();
                 MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
-                this.f15697a.f15695b.sendMessageDelayed(this.f15697a.f15695b.obtainMessage(1), 1800000L);
+                this.f16812a.f16810b.sendMessageDelayed(this.f16812a.f16810b.obtainMessage(1), 1800000L);
             }
         }
     }
@@ -122,8 +122,8 @@ public class a {
                 return;
             }
         }
-        b.a.r0.l3.f0.a.g(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        f15693d = null;
+        b.a.r0.m3.f0.a.g(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
+        f16808d = null;
     }
 
     public a() {
@@ -139,10 +139,10 @@ public class a {
                 return;
             }
         }
-        this.f15694a = 0L;
-        this.f15695b = new HandlerC0796a(this);
-        this.f15696c = new b(this, 303005);
-        MessageManager.getInstance().registerListener(this.f15696c);
+        this.f16809a = 0L;
+        this.f16810b = new HandlerC0842a(this);
+        this.f16811c = new b(this, 303005);
+        MessageManager.getInstance().registerListener(this.f16811c);
     }
 
     public static synchronized a d() {
@@ -151,10 +151,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (a.class) {
-                if (f15693d == null) {
-                    f15693d = new a();
+                if (f16808d == null) {
+                    f16808d = new a();
                 }
-                aVar = f15693d;
+                aVar = f16808d;
             }
             return aVar;
         }
@@ -164,15 +164,15 @@ public class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f15695b.removeMessages(1);
-            this.f15695b.removeMessages(2);
+            this.f16810b.removeMessages(1);
+            this.f16810b.removeMessages(2);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f15694a = 0L;
+            this.f16809a = 0L;
             c();
             f();
         }
@@ -181,19 +181,19 @@ public class a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f15694a;
+            long currentTimeMillis = System.currentTimeMillis() - this.f16809a;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = 0;
             }
             if (currentTimeMillis >= 1800000) {
-                Handler handler = this.f15695b;
+                Handler handler = this.f16810b;
                 handler.sendMessageDelayed(handler.obtainMessage(1), 10000L);
             } else {
                 long j = 1800000 - currentTimeMillis;
-                Handler handler2 = this.f15695b;
+                Handler handler2 = this.f16810b;
                 handler2.sendMessageDelayed(handler2.obtainMessage(1), j);
             }
-            this.f15694a = System.currentTimeMillis();
+            this.f16809a = System.currentTimeMillis();
         }
     }
 }

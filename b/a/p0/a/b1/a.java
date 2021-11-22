@@ -24,7 +24,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4016a;
+    public static final boolean f4148a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class a {
                 return;
             }
         }
-        f4016a = k.f6397a;
+        f4148a = k.f6863a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:51:0x009d A[Catch: all -> 0x00c8, TryCatch #7 {, blocks: (B:6:0x0007, B:8:0x0012, B:12:0x0018, B:22:0x006a, B:23:0x006d, B:49:0x0095, B:51:0x009d, B:52:0x00b3, B:26:0x0072, B:57:0x00bc, B:58:0x00bf, B:62:0x00c7, B:61:0x00c4, B:44:0x008c, B:45:0x008f), top: B:76:0x0007, inners: #4 }] */
@@ -57,7 +57,7 @@ public class a {
             synchronized (a.class) {
                 long currentTimeMillis = System.currentTimeMillis();
                 FileLock fileLock = null;
-                if (TextUtils.isEmpty(str) && f4016a) {
+                if (TextUtils.isEmpty(str) && f4148a) {
                     return null;
                 }
                 StringBuffer stringBuffer = new StringBuffer();
@@ -85,14 +85,14 @@ public class a {
                                             e = e3;
                                             Log.getStackTraceString(e);
                                             long currentTimeMillis2 = System.currentTimeMillis();
-                                            if (f4016a) {
+                                            if (f4148a) {
                                             }
                                             return stringBuffer.toString();
                                         }
                                     }
-                                    b.a.p0.t.d.d(bufferedReader);
+                                    b.a.p0.w.d.d(bufferedReader);
                                     long currentTimeMillis22 = System.currentTimeMillis();
-                                    if (f4016a) {
+                                    if (f4148a) {
                                     }
                                     return stringBuffer.toString();
                                 } catch (Throwable th) {
@@ -105,7 +105,7 @@ public class a {
                                             throw th;
                                         }
                                     }
-                                    b.a.p0.t.d.d(bufferedReader);
+                                    b.a.p0.w.d.d(bufferedReader);
                                     throw th;
                                 }
                             } catch (Throwable th2) {
@@ -113,11 +113,11 @@ public class a {
                                 fileLock = lock;
                                 if (fileLock != null) {
                                 }
-                                b.a.p0.t.d.d(bufferedReader);
+                                b.a.p0.w.d.d(bufferedReader);
                                 throw th;
                             }
                         }
-                        if (f4016a) {
+                        if (f4148a) {
                             String str2 = "Read file: " + stringBuffer.toString();
                         }
                         if (lock != null) {
@@ -127,12 +127,12 @@ public class a {
                                 e = e5;
                                 Log.getStackTraceString(e);
                                 long currentTimeMillis222 = System.currentTimeMillis();
-                                if (f4016a) {
+                                if (f4148a) {
                                 }
                                 return stringBuffer.toString();
                             }
                         }
-                        b.a.p0.t.d.d(bufferedReader);
+                        b.a.p0.w.d.d(bufferedReader);
                     } catch (IOException e6) {
                         e = e6;
                         bufferedReader = null;
@@ -148,7 +148,7 @@ public class a {
                     bufferedReader = null;
                 }
                 long currentTimeMillis2222 = System.currentTimeMillis();
-                if (f4016a) {
+                if (f4148a) {
                     String str3 = "Read file done: cost time = " + (currentTimeMillis2222 - currentTimeMillis) + "ms";
                 }
                 return stringBuffer.toString();
@@ -172,7 +172,7 @@ public class a {
             synchronized (a.class) {
                 long currentTimeMillis = System.currentTimeMillis();
                 boolean z2 = false;
-                if (TextUtils.isEmpty(str) && f4016a) {
+                if (TextUtils.isEmpty(str) && f4148a) {
                     return false;
                 }
                 FileLock fileLock = null;
@@ -200,7 +200,7 @@ public class a {
                     }
                     channel.write(ByteBuffer.wrap(str2.getBytes()));
                     z2 = true;
-                    if (f4016a) {
+                    if (f4148a) {
                         String str3 = "Write file：" + str2;
                     }
                     if (fileLock != null) {
@@ -210,7 +210,7 @@ public class a {
                             Log.getStackTraceString(e3);
                         }
                     }
-                    b.a.p0.t.d.d(channel);
+                    b.a.p0.w.d.d(channel);
                 } catch (IOException e4) {
                     fileChannel = channel;
                     e = e4;
@@ -223,9 +223,9 @@ public class a {
                                 Log.getStackTraceString(e5);
                             }
                         }
-                        b.a.p0.t.d.d(fileChannel);
+                        b.a.p0.w.d.d(fileChannel);
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (f4016a) {
+                        if (f4148a) {
                         }
                         return z2;
                     } catch (Throwable th2) {
@@ -237,7 +237,7 @@ public class a {
                                 Log.getStackTraceString(e6);
                             }
                         }
-                        b.a.p0.t.d.d(fileChannel);
+                        b.a.p0.w.d.d(fileChannel);
                         throw th;
                     }
                 } catch (Throwable th3) {
@@ -245,11 +245,11 @@ public class a {
                     th = th3;
                     if (fileLock != null) {
                     }
-                    b.a.p0.t.d.d(fileChannel);
+                    b.a.p0.w.d.d(fileChannel);
                     throw th;
                 }
                 long currentTimeMillis22 = System.currentTimeMillis();
-                if (f4016a) {
+                if (f4148a) {
                     String str4 = "Write file done: cost time =" + (currentTimeMillis22 - currentTimeMillis) + "ms";
                 }
                 return z2;

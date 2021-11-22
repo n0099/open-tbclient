@@ -13,7 +13,7 @@ public class e0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3817a;
+    public int f3911a;
 
     public e0() {
         Interceptable interceptable = $ic;
@@ -28,17 +28,17 @@ public class e0 extends a {
                 return;
             }
         }
-        this.f3817a = -1;
+        this.f3911a = -1;
     }
 
     @Override // b.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (i2 = this.f3817a) < 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (i2 = this.f3911a) < 0) {
             return;
         }
-        bVar.f3800g.setStrokeMiter(i2);
+        bVar.f3894g.setStrokeMiter(i2);
     }
 
     @Override // b.a.p0.a.a0.a.j.a
@@ -47,6 +47,6 @@ public class e0 extends a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
             return;
         }
-        this.f3817a = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
+        this.f3911a = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(0));
     }
 }

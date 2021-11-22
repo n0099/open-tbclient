@@ -14,7 +14,7 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<l> f18454a;
+    public List<l> f19788a;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -34,12 +34,12 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, joinUser) == null) {
             joinUser.join_user_num.longValue();
-            this.f18454a = new ArrayList();
+            this.f19788a = new ArrayList();
             for (UserInfo userInfo : joinUser.join_user) {
                 if (userInfo != null) {
                     l lVar = new l();
                     lVar.a(userInfo);
-                    this.f18454a.add(lVar);
+                    this.f19788a.add(lVar);
                 }
             }
         }

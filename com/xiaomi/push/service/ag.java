@@ -26,7 +26,7 @@ public class ag {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f71403a;
+    public static long f72323a;
 
     /* renamed from: a  reason: collision with other field name */
     public static ThreadPoolExecutor f890a;
@@ -49,7 +49,7 @@ public class ag {
             }
         }
         f891a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
-        f71403a = 0L;
+        f72323a = 0L;
         f890a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
@@ -96,8 +96,8 @@ public class ag {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if ((f890a.getActiveCount() <= 0 || currentTimeMillis - f71403a >= 1800000) && gx.m366a().m371a() && (m619a = bi.a().m619a()) != null && m619a.e() > 0) {
-                f71403a = currentTimeMillis;
+            if ((f890a.getActiveCount() <= 0 || currentTimeMillis - f72323a >= 1800000) && gx.m366a().m371a() && (m619a = bi.a().m619a()) != null && m619a.e() > 0) {
+                f72323a = currentTimeMillis;
                 a(m619a.a(), true);
             }
         }

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g extends b.a.e.l.e.a<b.a.r0.j1.l.i, HotTopicPkItemHolder> {
+public class g extends b.a.e.m.e.a<b.a.r0.j1.l.i, HotTopicPkItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int m;
@@ -47,7 +47,7 @@ public class g extends b.a.e.l.e.a<b.a.r0.j1.l.i, HotTopicPkItemHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.j1.l.i iVar, HotTopicPkItemHolder hotTopicPkItemHolder) {
         j0(i2, view, viewGroup, iVar, hotTopicPkItemHolder);
         return view;
@@ -58,12 +58,12 @@ public class g extends b.a.e.l.e.a<b.a.r0.j1.l.i, HotTopicPkItemHolder> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hotTopicPkItemHolder, iVar) == null) || hotTopicPkItemHolder == null || iVar == null) {
             return;
         }
-        hotTopicPkItemHolder.moduleName.setText(StringUtils.isNull(iVar.f18455e) ? this.n.getResources().getString(b.a.r0.j1.h.pk_topic_default) : iVar.f18455e.trim());
-        hotTopicPkItemHolder.pkQuesDesc.setText(StringHelper.cutStringWithSuffix(iVar.f18456f.trim(), 32, "..."));
-        hotTopicPkItemHolder.pkQuesDesc.setText(iVar.f18456f.trim());
+        hotTopicPkItemHolder.moduleName.setText(StringUtils.isNull(iVar.f19789e) ? this.n.getResources().getString(b.a.r0.j1.h.pk_topic_default) : iVar.f19789e.trim());
+        hotTopicPkItemHolder.pkQuesDesc.setText(StringHelper.cutStringWithSuffix(iVar.f19790f.trim(), 32, "..."));
+        hotTopicPkItemHolder.pkQuesDesc.setText(iVar.f19790f.trim());
         hotTopicPkItemHolder.pkView.setData(iVar, this.n);
-        hotTopicPkItemHolder.pkPositive.setText(iVar.f18457g.trim());
-        hotTopicPkItemHolder.pkOpposing.setText(iVar.f18459i.trim());
+        hotTopicPkItemHolder.pkPositive.setText(iVar.f19791g.trim());
+        hotTopicPkItemHolder.pkOpposing.setText(iVar.f19793i.trim());
     }
 
     public final void h0(HotTopicPkItemHolder hotTopicPkItemHolder, View view) {
@@ -83,12 +83,12 @@ public class g extends b.a.e.l.e.a<b.a.r0.j1.l.i, HotTopicPkItemHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public HotTopicPkItemHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotTopicPkItemHolder(LayoutInflater.from(this.f2419e).inflate(b.a.r0.j1.f.hot_topic_pk_item, viewGroup, false)) : (HotTopicPkItemHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotTopicPkItemHolder(LayoutInflater.from(this.f2421e).inflate(b.a.r0.j1.f.hot_topic_pk_item, viewGroup, false)) : (HotTopicPkItemHolder) invokeL.objValue;
     }
 
     public View j0(int i2, View view, ViewGroup viewGroup, b.a.r0.j1.l.i iVar, HotTopicPkItemHolder hotTopicPkItemHolder) {

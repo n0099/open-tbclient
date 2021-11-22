@@ -1,8 +1,8 @@
 package b.a.p0.a.y0.k;
 
 import androidx.annotation.NonNull;
-import b.a.p0.a.u.e.o.k;
-import b.a.p0.a.v2.q;
+import b.a.p0.a.u.e.n.l;
+import b.a.p0.a.z2.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,7 @@ public class d implements ZeusPluginFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9069a;
+    public String f9416a;
 
     /* loaded from: classes.dex */
     public static class a implements Runnable {
@@ -43,14 +43,12 @@ public class d implements ZeusPluginFactory {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                b.a.p0.a.y0.k.g.a b2 = b.a.p0.a.c1.a.z().b(null, null);
-                b2.m0();
+                b.a.p0.a.y0.k.g.a b2 = b.a.p0.a.c1.a.D().b(null, null);
+                b2.n0();
                 b2.U();
                 b2.C();
-                k.e().s(b2);
-                if (b.a.p0.a.k.f6397a) {
-                    String str = "pre-create video cost time ：" + (System.currentTimeMillis() - currentTimeMillis);
-                }
+                l.e().t(b2);
+                b.a.p0.a.e0.d.i("【InlineFactory】", "pre-create video cost time ：" + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
@@ -70,17 +68,16 @@ public class d implements ZeusPluginFactory {
                 return;
             }
         }
-        this.f9069a = str;
+        this.f9416a = str;
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || b.a.p0.a.c1.a.z() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || b.a.p0.a.c1.a.D() == null) {
             return;
         }
-        b.a.p0.a.y0.k.f.b.d("4");
-        k.e().c();
-        q.j(new a(), "PreCreateVideo");
+        l.e().c();
+        q.k(new a(), "PreCreateVideo");
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -89,23 +86,20 @@ public class d implements ZeusPluginFactory {
         b.a.p0.a.y0.k.g.a b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            if (b.a.p0.a.c1.a.z() == null) {
+            if (b.a.p0.a.c1.a.D() == null) {
                 return null;
             }
-            if (k.e().f()) {
-                b.a.p0.a.e0.d.g("【InlineFactory】", "handleAppOnLaunch use cache inline video. ");
-                b2 = k.e().d();
-                k.e().r();
+            if (l.e().f()) {
+                b.a.p0.a.e0.d.i("【InlineFactory】", "handleAppOnLaunch use cache inline video. ");
+                b2 = l.e().d();
+                l.e().s();
                 b2.N(invoker);
             } else {
-                b.a.p0.a.e0.d.g("【InlineFactory】", "handleAppOnLaunch create cache inline video. ");
-                b2 = b.a.p0.a.c1.a.z().b(invoker, this.f9069a);
+                b.a.p0.a.e0.d.i("【InlineFactory】", "handleAppOnLaunch create cache inline video. ");
+                b2 = b.a.p0.a.c1.a.D().b(invoker, this.f9416a);
                 b2.H();
             }
-            if (b.a.p0.a.k.f6397a) {
-                String str = "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + b2.hashCode() + "」";
-            }
-            k.e().b(b2);
+            b.a.p0.a.e0.d.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + b2.hashCode() + "」");
             return new b(b2);
         }
         return (ZeusPlugin) invokeL.objValue;

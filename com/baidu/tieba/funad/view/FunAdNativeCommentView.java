@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import b.a.q0.b.d;
 import b.a.q0.s.u.c;
-import b.a.r0.l3.j0.o;
+import b.a.r0.m3.j0.o;
 import b.a.r0.y0.a;
 import b.a.r0.z0.b;
 import com.baidu.adp.BdUniqueId;
@@ -39,16 +39,16 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f49220f;
+    public LinearLayout f50131f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RoundTbImageView f49221g;
+    public RoundTbImageView f50132g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49222h;
+    public TextView f50133h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49223i;
+    public TextView f50134i;
     public ViewGroup j;
     public ImageView k;
     public View l;
@@ -113,7 +113,7 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return a.b("pb", d.G() ? "1" : "0");
+            return a.b("pb", d.J() ? "1" : "0");
         }
         return (a.g) invokeV.objValue;
     }
@@ -129,7 +129,7 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     public void hideOrShowView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f49220f.setVisibility(i2);
+            this.f50131f.setVisibility(i2);
         }
     }
 
@@ -150,8 +150,8 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
                 return;
             }
             FunNativeAd funNativeAd = (FunNativeAd) oVar.d();
-            this.f49223i.setText(this.funAdTitle);
-            this.f49221g.startLoad(funNativeAd.getIconUrl(), 10, false);
+            this.f50134i.setText(this.funAdTitle);
+            this.f50132g.startLoad(funNativeAd.getIconUrl(), 10, false);
             if (funNativeAd.getVideoView() != null) {
                 boolean r = b.r(funNativeAd);
                 b.y(this.descriptionView, r);
@@ -169,15 +169,15 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
             super.initView(context);
-            this.f49220f = (LinearLayout) findViewById(R.id.fun_ad_frs_view_layout);
-            this.f49221g = (RoundTbImageView) findViewById(R.id.top_ad_logo);
-            this.f49223i = (TextView) findViewById(R.id.top_ad_name);
-            this.f49222h = (TextView) findViewById(R.id.top_ad_justnow);
+            this.f50131f = (LinearLayout) findViewById(R.id.fun_ad_frs_view_layout);
+            this.f50132g = (RoundTbImageView) findViewById(R.id.top_ad_logo);
+            this.f50134i = (TextView) findViewById(R.id.top_ad_name);
+            this.f50133h = (TextView) findViewById(R.id.top_ad_justnow);
             this.j = (ViewGroup) findViewById(R.id.layout_card_top);
             this.k = (ImageView) findViewById(R.id.fun_ad_feedback);
             this.l = findViewById(R.id.fun_ad_bottom_line);
             this.dividerView.setVisibility(8);
-            b(this.f49221g);
+            b(this.f50132g);
             RelativeLayout relativeLayout = this.viewLayout;
             relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.viewLayout.getPaddingTop(), this.viewLayout.getPaddingRight(), 0);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
@@ -195,10 +195,10 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
             c d2 = c.d(this);
             d2.n(R.string.J_X06);
             d2.i(R.color.CAM_X0205, R.color.CAM_X0206);
-            c.d(this.f49222h).v(R.color.CAM_X0109);
-            c.d(this.f49223i).v(R.color.CAM_X0107);
+            c.d(this.f50133h).v(R.color.CAM_X0109);
+            c.d(this.f50134i).v(R.color.CAM_X0107);
             WebPManager.setPureDrawable(this.k, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            this.f49221g.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f50132g.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             SkinManager.setBackgroundColor(this.l, R.color.CAM_X0203);
         }
     }
@@ -215,7 +215,7 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     public void setFunAdViewVisible(boolean z) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (linearLayout = this.f49220f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (linearLayout = this.f50131f) == null) {
             return;
         }
         linearLayout.setVisibility(z ? 0 : 8);

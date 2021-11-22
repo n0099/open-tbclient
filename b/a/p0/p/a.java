@@ -1,45 +1,33 @@
 package b.a.p0.p;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import java.util.List;
+import okhttp3.Interceptor;
 /* loaded from: classes4.dex */
-public class a implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface a {
+    String a();
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f11390e;
+    CookieManager f();
 
-    public a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f11390e = i2;
-    }
+    int g();
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i2 = this.f11390e) < 0) {
-            return;
-        }
-        try {
-            Thread.sleep(i2);
-        } catch (Throwable unused) {
-        }
-    }
+    Context getAppContext();
+
+    int getReadTimeout();
+
+    boolean h();
+
+    boolean i();
+
+    boolean isDebug();
+
+    void j(String str, HttpRequestBuilder httpRequestBuilder);
+
+    int k();
+
+    List<Interceptor> l();
+
+    int m();
 }

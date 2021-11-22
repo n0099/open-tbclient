@@ -12,7 +12,6 @@ import com.baidu.rtc.BaiduRtcRoom;
 import com.baidu.rtc.internal.BaiduRtcRoomImp;
 import com.baidu.rtc.logreport.ErrorInfoReport;
 import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -609,7 +608,7 @@ public class WebSocketChannel {
                             this.delegate.onUserKickOff(jSONObject.optJSONObject("userkickout").optLong("id"));
                         } else if (jSONObject.has("bypass_event")) {
                             JSONObject optJSONObject5 = jSONObject.optJSONObject("bypass_event");
-                            if (optJSONObject5.optString(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL).contains("room")) {
+                            if (optJSONObject5.optString("level").contains("room")) {
                                 rtcLiveTransferMode = BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION;
                             } else {
                                 rtcLiveTransferMode = BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
@@ -2284,7 +2283,7 @@ public class WebSocketChannel {
                 JSONObject jSONObject = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject.putOpt("request", "startbypass");
-                jSONObject.putOpt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, rtcLiveTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION ? "anchor" : "room");
+                jSONObject.putOpt("level", rtcLiveTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION ? "anchor" : "room");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(this.mUserId));
                 JSONObject jSONObject3 = new JSONObject();
@@ -2309,7 +2308,7 @@ public class WebSocketChannel {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.putOpt("request", "stopbypass");
-                jSONObject.putOpt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, rtcLiveTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION ? "anchor" : "room");
+                jSONObject.putOpt("level", rtcLiveTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION ? "anchor" : "room");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(this.mUserId));
                 Send(jSONObject);

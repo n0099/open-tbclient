@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class n extends BaseCardInfo implements b.a.e.l.e.n {
+public class n extends BaseCardInfo implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f21480f;
+    public static BdUniqueId f22976f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f21481e;
+    public List<a> f22977e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class n extends BaseCardInfo implements b.a.e.l.e.n {
                 return;
             }
         }
-        f21480f = BdUniqueId.gen();
+        f22976f = BdUniqueId.gen();
     }
 
     public n() {
@@ -51,13 +51,13 @@ public class n extends BaseCardInfo implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f21481e = new ArrayList();
+        this.f22977e = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f21480f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f22976f : (BdUniqueId) invokeV.objValue;
     }
 }

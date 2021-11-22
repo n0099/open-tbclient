@@ -24,19 +24,19 @@ public class TextLineView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f52558e;
+    public Paint f53475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52559f;
+    public int f53476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52560g;
+    public int f53477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52561h;
+    public int f53478h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f52562i;
+    public int f53479i;
     public int j;
     public RectF k;
     public int l;
@@ -82,15 +82,15 @@ public class TextLineView extends TextView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f52558e == null) {
-                this.f52558e = new Paint();
+            if (this.f53475e == null) {
+                this.f53475e = new Paint();
             }
-            this.f52558e.setAntiAlias(true);
-            this.f52558e.setStyle(Paint.Style.FILL);
+            this.f53475e.setAntiAlias(true);
+            this.f53475e.setStyle(Paint.Style.FILL);
             if (isSelected()) {
-                this.f52558e.setColor(SkinManager.getColor(f.transparent));
+                this.f53475e.setColor(SkinManager.getColor(f.transparent));
             } else {
-                this.f52558e.setColor(SkinManager.getColor(f.transparent));
+                this.f53475e.setColor(SkinManager.getColor(f.transparent));
             }
         }
     }
@@ -116,11 +116,11 @@ public class TextLineView extends TextView {
             RectF rectF = this.k;
             int i2 = this.n;
             int i3 = this.m;
-            int i4 = this.f52561h;
-            rectF.set(i2 + 0, (i3 - i4) - this.f52559f, this.l - i2, i3 - i4);
+            int i4 = this.f53478h;
+            rectF.set(i2 + 0, (i3 - i4) - this.f53476f, this.l - i2, i3 - i4);
             RectF rectF2 = this.k;
             int i5 = this.o;
-            canvas.drawRoundRect(rectF2, i5, i5, this.f52558e);
+            canvas.drawRoundRect(rectF2, i5, i5, this.f53475e);
         }
     }
 
@@ -165,16 +165,16 @@ public class TextLineView extends TextView {
             }
         }
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n.TextLineView);
-        this.f52559f = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_height, 0);
-        this.f52560g = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_top_margin, 0);
-        this.f52561h = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_bottom_margin, 0);
-        this.f52562i = obtainStyledAttributes.getColor(n.TextLineView_text_selected_color, SkinManager.getColor(f.CAM_X0105));
+        this.f53476f = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_height, 0);
+        this.f53477g = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_top_margin, 0);
+        this.f53478h = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_bottom_margin, 0);
+        this.f53479i = obtainStyledAttributes.getColor(n.TextLineView_text_selected_color, SkinManager.getColor(f.CAM_X0105));
         obtainStyledAttributes.getColor(n.TextLineView_text_unselected_color, SkinManager.getColor(f.CAM_X0108));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f52560g + this.f52559f + this.f52561h);
-        setTextColor(this.f52562i);
-        this.j = b.a.e.e.p.l.g(context, g.ds56);
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f53477g + this.f53476f + this.f53478h);
+        setTextColor(this.f53479i);
+        this.j = b.a.e.f.p.l.g(context, g.ds56);
         this.k = new RectF();
-        this.o = b.a.e.e.p.l.g(getContext(), g.ds4);
+        this.o = b.a.e.f.p.l.g(getContext(), g.ds4);
         obtainStyledAttributes.recycle();
     }
 }

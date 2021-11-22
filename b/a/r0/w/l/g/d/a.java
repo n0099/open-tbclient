@@ -1,6 +1,6 @@
 package b.a.r0.w.l.g.d;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -27,47 +27,47 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f25253a;
+    public TbPageContext f26770a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f25254b;
+    public b f26771b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdAsyncTask f25255c;
+    public BdAsyncTask f26772c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f25256d;
+    public HttpMessageListener f26773d;
 
     /* renamed from: b.a.r0.w.l.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1233a extends HttpMessageListener {
+    public class C1301a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f25257a;
+        public final /* synthetic */ a f26774a;
 
         /* renamed from: b.a.r0.w.l.g.d.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1234a extends BdAsyncTask {
+        public class C1302a extends BdAsyncTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f25258a;
+            public final /* synthetic */ List f26775a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ HttpResponsedMessage f25259b;
+            public final /* synthetic */ HttpResponsedMessage f26776b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ C1233a f25260c;
+            public final /* synthetic */ C1301a f26777c;
 
-            public C1234a(C1233a c1233a, List list, HttpResponsedMessage httpResponsedMessage) {
+            public C1302a(C1301a c1301a, List list, HttpResponsedMessage httpResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1233a, list, httpResponsedMessage};
+                    Object[] objArr = {c1301a, list, httpResponsedMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -77,9 +77,9 @@ public class a {
                         return;
                     }
                 }
-                this.f25260c = c1233a;
-                this.f25258a = list;
-                this.f25259b = httpResponsedMessage;
+                this.f26777c = c1301a;
+                this.f26775a = list;
+                this.f26776b = httpResponsedMessage;
             }
 
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -88,7 +88,7 @@ public class a {
                 AlaDynamicGift alaDynamicGift;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                    for (n nVar : this.f25258a) {
+                    for (n nVar : this.f26775a) {
                         if (nVar instanceof AlaEnterEffectData) {
                             AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) nVar;
                             if (alaEnterEffectData.type == 1 && (alaDynamicGift = alaEnterEffectData.gift) != null && alaDynamicGift.giftZip != null) {
@@ -110,7 +110,7 @@ public class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     super.onCancelled();
-                    this.f25260c.f25257a.f25254b.a((AlaGetEnterEffectResponsedMessage) this.f25259b);
+                    this.f26777c.f26774a.f26771b.a((AlaGetEnterEffectResponsedMessage) this.f26776b);
                 }
             }
 
@@ -119,13 +119,13 @@ public class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                     super.onPostExecute(obj);
-                    this.f25260c.f25257a.f25254b.a((AlaGetEnterEffectResponsedMessage) this.f25259b);
+                    this.f26777c.f26774a.f26771b.a((AlaGetEnterEffectResponsedMessage) this.f26776b);
                 }
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1233a(a aVar, int i2) {
+        public C1301a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -142,7 +142,7 @@ public class a {
                     return;
                 }
             }
-            this.f25257a = aVar;
+            this.f26774a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,10 +153,10 @@ public class a {
                 AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage = (AlaGetEnterEffectResponsedMessage) httpResponsedMessage;
                 List<n> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
                 if (ListUtils.isEmpty(effectList)) {
-                    this.f25257a.f25254b.a(alaGetEnterEffectResponsedMessage);
+                    this.f26774a.f26771b.a(alaGetEnterEffectResponsedMessage);
                     return;
                 }
-                this.f25257a.f25255c = new C1234a(this, effectList, httpResponsedMessage).execute(new Object[0]);
+                this.f26774a.f26772c = new C1302a(this, effectList, httpResponsedMessage).execute(new Object[0]);
             }
         }
     }
@@ -181,17 +181,17 @@ public class a {
                 return;
             }
         }
-        C1233a c1233a = new C1233a(this, AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
-        this.f25256d = c1233a;
-        this.f25253a = tbPageContext;
-        this.f25254b = bVar;
-        tbPageContext.registerListener(c1233a);
+        C1301a c1301a = new C1301a(this, AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+        this.f26773d = c1301a;
+        this.f26770a = tbPageContext;
+        this.f26771b = bVar;
+        tbPageContext.registerListener(c1301a);
     }
 
     public void c() {
         BdAsyncTask bdAsyncTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bdAsyncTask = this.f25255c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bdAsyncTask = this.f26772c) == null) {
             return;
         }
         bdAsyncTask.cancel();
@@ -202,7 +202,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            this.f25253a.sendMessage(httpMessage);
+            this.f26770a.sendMessage(httpMessage);
         }
     }
 }

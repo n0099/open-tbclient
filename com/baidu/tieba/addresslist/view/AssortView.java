@@ -16,21 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AssortView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f46816e;
+    public Paint f47680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46817f;
+    public int f47681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f46818g;
+    public a f47682g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void onTouchDown(String str);
 
@@ -55,14 +55,14 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f46817f = -1;
+        this.f47681f = -1;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f46816e = new Paint();
+            this.f47680e = new Paint();
         }
     }
 
@@ -81,16 +81,16 @@ public class AssortView extends View {
             int height = getHeight();
             int width = getWidth();
             float f2 = (float) (width / 48.0d);
-            String[] strArr = c.f14006a;
+            String[] strArr = c.f14779a;
             int length = height / strArr.length;
             int length2 = strArr.length;
             for (int i2 = 0; i2 < length2; i2++) {
-                this.f46816e.setAntiAlias(true);
-                this.f46816e.setTypeface(Typeface.DEFAULT_BOLD);
-                this.f46816e.setColor(SkinManager.getColor(R.color.CAM_X0108));
-                this.f46816e.setTextSize(26.0f * f2);
-                canvas.drawText(c.f14006a[i2], (width / 2.0f) - (this.f46816e.measureText(c.f14006a[i2]) / 2.0f), (length * i2) + length, this.f46816e);
-                this.f46816e.reset();
+                this.f47680e.setAntiAlias(true);
+                this.f47680e.setTypeface(Typeface.DEFAULT_BOLD);
+                this.f47680e.setColor(SkinManager.getColor(R.color.CAM_X0108));
+                this.f47680e.setTextSize(26.0f * f2);
+                canvas.drawText(c.f14779a[i2], (width / 2.0f) - (this.f47680e.measureText(c.f14779a[i2]) / 2.0f), (length * i2) + length, this.f47680e);
+                this.f47680e.reset();
             }
         }
     }
@@ -102,34 +102,34 @@ public class AssortView extends View {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             super.onTouchEvent(motionEvent);
             float y = motionEvent.getY() / getHeight();
-            String[] strArr = c.f14006a;
+            String[] strArr = c.f14779a;
             int length = (int) (y * strArr.length);
             if (length >= 0 && length < strArr.length) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f46817f = length;
-                    a aVar = this.f46818g;
+                    this.f47681f = length;
+                    a aVar = this.f47682g;
                     if (aVar != null) {
-                        aVar.onTouchDown(c.f14006a[length]);
+                        aVar.onTouchDown(c.f14779a[length]);
                     }
                 } else if (action != 1) {
-                    if (action == 2 && this.f46817f != length) {
-                        this.f46817f = length;
-                        a aVar2 = this.f46818g;
+                    if (action == 2 && this.f47681f != length) {
+                        this.f47681f = length;
+                        a aVar2 = this.f47682g;
                         if (aVar2 != null) {
-                            aVar2.onTouchDown(c.f14006a[length]);
+                            aVar2.onTouchDown(c.f14779a[length]);
                         }
                     }
                 } else {
-                    a aVar3 = this.f46818g;
+                    a aVar3 = this.f47682g;
                     if (aVar3 != null) {
                         aVar3.onTouchUP();
                     }
-                    this.f46817f = -1;
+                    this.f47681f = -1;
                 }
             } else {
-                this.f46817f = -1;
-                a aVar4 = this.f46818g;
+                this.f47681f = -1;
+                a aVar4 = this.f47682g;
                 if (aVar4 != null) {
                     aVar4.onTouchUP();
                 }
@@ -142,7 +142,7 @@ public class AssortView extends View {
     public void setOnTouchListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f46818g = aVar;
+            this.f47682g = aVar;
         }
     }
 
@@ -165,7 +165,7 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f46817f = -1;
+        this.f47681f = -1;
         a();
     }
 
@@ -188,7 +188,7 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f46817f = -1;
+        this.f47681f = -1;
         a();
     }
 }

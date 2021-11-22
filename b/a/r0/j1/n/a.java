@@ -12,6 +12,6 @@ public class a {
     public static String a(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i2)) == null) ? b.a.q0.t0.b.a(StringHelper.cutStringWithEllipsisNew(str, i2)) : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i2)) == null) ? b.a.q0.s0.b.a(StringHelper.cutStringWithEllipsisNew(str, i2)) : (String) invokeLI.objValue;
     }
 }

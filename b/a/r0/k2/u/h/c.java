@@ -2,9 +2,9 @@ package b.a.r0.k2.u.h;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.f.p.k;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,31 +25,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.r0.k2.u.h.f.b f19619a;
+    public b.a.r0.k2.u.h.f.b f21156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SubPbReplyAdapter f19620b;
+    public SubPbReplyAdapter f21157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NewSubPbActivity f19621c;
+    public NewSubPbActivity f21158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdTypeListView f19622d;
+    public BdTypeListView f21159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f19623e;
+    public List<b.a.e.m.e.a> f21160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f19624f;
+    public View.OnClickListener f21161f;
 
     /* renamed from: g  reason: collision with root package name */
-    public w f19625g;
+    public w f21162g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f19626h;
+    public boolean f21163h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19627i;
+    public boolean f21164i;
 
     public c(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -66,93 +66,93 @@ public class c {
                 return;
             }
         }
-        this.f19623e = new ArrayList();
-        this.f19624f = null;
-        this.f19626h = false;
-        this.f19627i = true;
-        this.f19621c = newSubPbActivity;
-        this.f19622d = bdTypeListView;
+        this.f21160e = new ArrayList();
+        this.f21161f = null;
+        this.f21163h = false;
+        this.f21164i = true;
+        this.f21158c = newSubPbActivity;
+        this.f21159d = bdTypeListView;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19626h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21163h : invokeV.booleanValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.a.r0.k2.u.h.f.b bVar = new b.a.r0.k2.u.h.f.b(this.f19621c, PostData.y0);
-            this.f19619a = bVar;
-            bVar.e(this.f19624f);
-            this.f19619a.c0(this.f19625g);
-            this.f19619a.setFromCDN(this.f19627i);
-            this.f19623e.add(this.f19619a);
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.f19621c, b.a.r0.k2.u.h.g.b.f19647f);
-            this.f19620b = subPbReplyAdapter;
-            this.f19623e.add(subPbReplyAdapter);
-            this.f19623e.add(new b.a.r0.k2.u.h.f.c(this.f19621c, b.a.r0.k2.u.h.g.a.f19646e));
-            this.f19622d.addAdapters(this.f19623e);
+            b.a.r0.k2.u.h.f.b bVar = new b.a.r0.k2.u.h.f.b(this.f21158c, PostData.y0);
+            this.f21156a = bVar;
+            bVar.e(this.f21161f);
+            this.f21156a.c0(this.f21162g);
+            this.f21156a.setFromCDN(this.f21164i);
+            this.f21160e.add(this.f21156a);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.f21158c, b.a.r0.k2.u.h.g.b.f21184f);
+            this.f21157b = subPbReplyAdapter;
+            this.f21160e.add(subPbReplyAdapter);
+            this.f21160e.add(new b.a.r0.k2.u.h.f.c(this.f21158c, b.a.r0.k2.u.h.g.a.f21183e));
+            this.f21159d.addAdapters(this.f21160e);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f19622d.getAdapter2() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f21159d.getAdapter2() == null) {
             return;
         }
-        this.f19622d.getAdapter2().notifyDataSetChanged();
+        this.f21159d.getAdapter2().notifyDataSetChanged();
     }
 
     public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f19624f = onClickListener;
+            this.f21161f = onClickListener;
         }
     }
 
     public void e(d2 d2Var, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, d2Var, list) == null) {
-            this.f19619a.t0(d2Var);
-            if (!k.isEmpty(this.f19621c.getSubPbModel().p0())) {
-                this.f19619a.s0(this.f19621c.getSubPbModel().p0());
+            this.f21156a.t0(d2Var);
+            if (!k.isEmpty(this.f21158c.getSubPbModel().p0())) {
+                this.f21156a.s0(this.f21158c.getSubPbModel().p0());
             }
-            NewSubPbActivity newSubPbActivity = this.f19621c;
+            NewSubPbActivity newSubPbActivity = this.f21158c;
             if (newSubPbActivity != null && newSubPbActivity.getSubPbModel() != null) {
-                this.f19619a.r0(this.f19621c.getSubPbModel().K0());
+                this.f21156a.r0(this.f21158c.getSubPbModel().K0());
             }
-            this.f19622d.setData(list);
-            this.f19622d.getAdapter2().notifyDataSetChanged();
+            this.f21159d.setData(list);
+            this.f21159d.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f19627i = z;
+            this.f21164i = z;
         }
     }
 
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f19626h = z;
+            this.f21163h = z;
         }
     }
 
     public void h(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
-            this.f19619a.d(onLongClickListener);
+            this.f21156a.d(onLongClickListener);
         }
     }
 
     public void i(TbRichTextView.z zVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zVar) == null) {
-            this.f19619a.p(zVar);
+            this.f21156a.p(zVar);
         }
     }
 }

@@ -14,7 +14,7 @@ public class b implements b.a.r0.q1.s.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.d f16707a;
+    public c.d f18221a;
 
     public b(c.d dVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b implements b.a.r0.q1.s.b {
                 return;
             }
         }
-        this.f16707a = dVar;
+        this.f18221a = dVar;
     }
 
     @Override // b.a.r0.q1.s.b
@@ -40,14 +40,14 @@ public class b implements b.a.r0.q1.s.b {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i2)}) == null) {
             b.a.r0.g1.c.a aVar = new b.a.r0.g1.c.a();
             e eVar = new e();
-            eVar.f22738a = j;
-            eVar.f22739b = str;
+            eVar.f24259a = j;
+            eVar.f24260b = str;
             b.a.r0.q1.p.a a2 = b.a.r0.q1.r.b.d().a(eVar);
             if (a2 != null) {
                 a2.d(z, message, z2, i2);
             }
             aVar.b(a2);
-            c.d dVar = this.f16707a;
+            c.d dVar = this.f18221a;
             if (dVar != null) {
                 dVar.e(z, aVar, z2, "", str, true);
             }
@@ -58,7 +58,7 @@ public class b implements b.a.r0.q1.s.b {
     public void b(long j, String str, String str2, int i2) {
         c.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i2)}) == null) || (dVar = this.f16707a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i2)}) == null) || (dVar = this.f18221a) == null) {
             return;
         }
         dVar.c(str, str2, i2, true, 1);

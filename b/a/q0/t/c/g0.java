@@ -14,13 +14,13 @@ public class g0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13786a;
+    public String f14554a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13787b;
+    public long f14555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f13788c;
+    public long f14556c;
 
     public g0() {
         Interceptable interceptable = $ic;
@@ -39,19 +39,19 @@ public class g0 {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13788c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14556c : invokeV.longValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13786a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14554a : (String) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13787b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14555b : invokeV.longValue;
     }
 
     public void d(JSONObject jSONObject) {
@@ -59,8 +59,8 @@ public class g0 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f13786a = jSONObject.optString("link_url", "");
-        this.f13787b = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
-        this.f13788c = jSONObject.optLong("end_time", 0L);
+        this.f14554a = jSONObject.optString("link_url", "");
+        this.f14555b = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
+        this.f14556c = jSONObject.optLong("end_time", 0L);
     }
 }

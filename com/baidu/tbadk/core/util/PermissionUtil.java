@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.util;
 import android.app.Activity;
 import android.content.Context;
 import androidx.collection.ArrayMap;
-import b.a.e.e.j.b.a;
-import b.a.e.e.p.l;
-import b.a.q0.d1.j;
+import b.a.e.f.j.b.a;
+import b.a.e.f.p.l;
+import b.a.q0.c1.j;
 import b.a.q0.j0.b;
 import b.a.q0.j0.h;
 import com.baidu.adp.framework.MessageManager;
@@ -399,7 +399,7 @@ public class PermissionUtil {
     public static String getLastCachedOid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) ? !isAgreePrivacyPolicy() ? "" : b.a.r.b.e(context).f() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) ? !isAgreePrivacyPolicy() ? "" : b.a.r.b.f(context).g() : (String) invokeL.objValue;
     }
 
     public static String getLocalMacAddress(Context context) {

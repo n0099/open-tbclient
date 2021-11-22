@@ -2,8 +2,8 @@ package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.content.res.Resources;
 import b.a.e.a.h;
-import b.a.e.e.m.a;
-import b.a.e.e.p.k;
+import b.a.e.f.m.a;
+import b.a.e.f.p.k;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -45,7 +45,7 @@ public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
             if (k.isEmpty(str)) {
                 return i2;
             }
-            if ("night".equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {
                 i2 = nightResouceId;
             }
             return (!SkinManager.SKIN_TYPE_STR_DARK.equals(str) || (darkResourceId = SkinManager.getDarkResourceId(TbadkCoreApplication.getInst().getResources(), i2)) <= 0) ? i2 : darkResourceId;

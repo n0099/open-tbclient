@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.searchbox.process.ipc.agent.Agent;
 import com.baidu.searchbox.process.ipc.delegate.DelegateDef;
 import com.baidu.searchbox.process.ipc.delegate.Delegation;
@@ -129,18 +130,22 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
             String stringExtra = intent.getStringExtra(DelegateDef.EXTRA_DELEGATION_NAME);
             this.mDelegationName = stringExtra;
             if (!TextUtils.isEmpty(stringExtra)) {
-                if (initDelegation()) {
-                    Bundle bundleExtra = intent.getBundleExtra("extra_params");
-                    if (bundleExtra != null && !bundleExtra.isEmpty()) {
-                        this.mDelegation.mParams.putAll(bundleExtra);
-                    }
-                    this.mDelegation.setAgent(this);
-                    this.mDelegation.exec();
+                if (!initDelegation()) {
+                    LogUtil.logActivity(this, "onCreate");
                     return;
                 }
+                Bundle bundleExtra = intent.getBundleExtra("extra_params");
+                if (bundleExtra != null && !bundleExtra.isEmpty()) {
+                    this.mDelegation.mParams.putAll(bundleExtra);
+                }
+                this.mDelegation.setAgent(this);
+                this.mDelegation.exec();
+                LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            throw new IllegalArgumentException("empty action name");
+            IllegalArgumentException illegalArgumentException = new IllegalArgumentException("empty action name");
+            LogUtil.logActivity(this, "onCreate");
+            throw illegalArgumentException;
         }
     }
 

@@ -1,11 +1,8 @@
 package b.a.p0.a.p.c;
 
 import b.a.p0.a.p.d.x0;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
@@ -28,30 +25,9 @@ public class e0 implements x0 {
     }
 
     @Override // b.a.p0.a.p.d.x0
-    public String a() {
-        InterceptResult invokeV;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.p0.d.g.c.e().d() : (String) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.p.d.x0
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.a.p0.d.g.c.e().b() : (String) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.p.d.x0
-    public String getAppName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? BaseWebViewActivity.SHOUBAI_SCHEME : (String) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.p.d.x0
-    public String getSchemeHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b.a.p0.d.g.c.e().f() : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        }
     }
 }

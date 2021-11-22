@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
-import b.a.q0.f1.a;
+import b.a.q0.e1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.view.AdapterLinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f46149g;
+    public a f47007g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SelectRuleRowItem(Context context) {
@@ -48,7 +48,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
             setGravity(16);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             a aVar = new a(getContext());
-            this.f46149g = aVar;
+            this.f47007g = aVar;
             setAdapter(aVar);
         }
     }
@@ -56,21 +56,21 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     public void onSkinTypeChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f46149g.notifyDataSetChanged();
+            this.f47007g.notifyDataSetChanged();
         }
     }
 
     public void setData(List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, list2) == null) {
-            this.f46149g.c(list, list2);
+            this.f47007g.c(list, list2);
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f46149g.e(i2);
+            this.f47007g.e(i2);
         }
     }
 
@@ -98,7 +98,7 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
     public void setData(List<String> list, List<String> list2, List<String> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, list, list2, list3) == null) {
-            this.f46149g.d(list, list2, list3);
+            this.f47007g.d(list, list2, list3);
         }
     }
 

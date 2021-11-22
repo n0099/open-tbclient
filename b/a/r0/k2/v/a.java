@@ -20,7 +20,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<d> f19649a;
+    public ArrayList<d> f21186a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class a {
                 return;
             }
         }
-        this.f19649a = new ArrayList<>();
+        this.f21186a = new ArrayList<>();
     }
 
     public ArrayList<d> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19649a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21186a : (ArrayList) invokeV.objValue;
     }
 
     public final boolean b(ExcContent excContent) {
@@ -70,9 +70,9 @@ public class a {
                             continue;
                         } else if (a2.a()) {
                             if (gVar != null) {
-                                this.f19649a.add(gVar);
+                                this.f21186a.add(gVar);
                             }
-                            this.f19649a.add(a2);
+                            this.f21186a.add(a2);
                         } else {
                             if (gVar == null) {
                                 gVar = new g();
@@ -81,16 +81,16 @@ public class a {
                         }
                     } else {
                         if (gVar != null) {
-                            this.f19649a.add(gVar);
+                            this.f21186a.add(gVar);
                         }
-                        this.f19649a.add(f.b(excContent));
+                        this.f21186a.add(f.b(excContent));
                     }
                 }
             }
             break loop0;
         }
         if (gVar != null) {
-            this.f19649a.add(gVar);
+            this.f21186a.add(gVar);
         }
     }
 }

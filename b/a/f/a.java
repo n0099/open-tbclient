@@ -13,9 +13,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
             e eVar = new e();
-            eVar.f2728a = true;
-            eVar.f2729b = str;
-            eVar.f2730c = null;
+            eVar.f2821a = true;
+            eVar.f2822b = str;
+            eVar.f2823c = null;
             return eVar;
         }
         return (e) invokeLL.objValue;

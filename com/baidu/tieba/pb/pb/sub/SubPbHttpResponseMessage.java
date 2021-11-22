@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
-import b.a.r0.k2.r.s;
+import b.a.r0.k2.r.t;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -17,7 +17,7 @@ import tbclient.PbFloor.PbFloorResIdl;
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s pbFloorData;
+    public t pbFloorData;
     public boolean treatDelPage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,7 +56,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             super.decodeInBackGround(i2, bArr);
             Object extra = getOrginalMessage().getExtra();
-            s sVar = null;
+            t tVar = null;
             if (extra == null || !(extra instanceof SubPbRequestMessage)) {
                 context = null;
             } else {
@@ -67,9 +67,9 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
             try {
                 PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
                 if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                    sVar = s.w(pbFloorResIdl.data, context);
-                    if (sVar != null) {
-                        sVar.m = pbFloorResIdl.error;
+                    tVar = t.w(pbFloorResIdl.data, context);
+                    if (tVar != null) {
+                        tVar.m = pbFloorResIdl.error;
                     } else if (pbFloorResIdl.error != null) {
                         if (pbFloorResIdl.error.errorno != null) {
                             setError(pbFloorResIdl.error.errorno.intValue());
@@ -80,7 +80,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
             } catch (Exception e2) {
                 BdLog.detailException(e2);
             }
-            this.pbFloorData = sVar;
+            this.pbFloorData = tVar;
         }
     }
 }

@@ -5,16 +5,16 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a1.e;
+import b.a.p0.a.a1.d;
 import b.a.p0.a.h0.d.a;
 import b.a.p0.a.h0.l.e;
 import b.a.p0.a.h0.l.g.j;
 import b.a.p0.a.h0.u.g;
-import b.a.p0.a.h2.d;
 import b.a.p0.a.k;
-import b.a.p0.a.l0.g;
-import b.a.p0.a.v2.o0;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.k2.d;
+import b.a.p0.a.l0.h;
+import b.a.p0.a.z2.o0;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -45,37 +45,34 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a implements b.a.p0.a.v1.c.f.a {
+public class a implements b.a.p0.a.y1.c.f.a {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final boolean f5476g;
+    /* renamed from: f  reason: collision with root package name */
+    public static final boolean f5757f;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static volatile a f5477h;
+    /* renamed from: g  reason: collision with root package name */
+    public static volatile a f5758g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BlockingQueue<PrefetchEvent> f5478a;
+    public final BlockingQueue<PrefetchEvent> f5759a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f5479b;
+    public final AtomicInteger f5760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f5480c;
+    public final int f5761c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f5481d;
+    public volatile boolean f5762d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f5482e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final List<Bundle> f5483f;
+    public final List<Bundle> f5763e;
 
     /* renamed from: b.a.p0.a.h0.l.g.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0218a {
+    public static /* synthetic */ class C0229a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -86,19 +83,19 @@ public class a implements b.a.p0.a.v1.c.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f5484e;
+        public final int f5764e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f5485f;
+        public boolean f5765f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final BlockingQueue<PrefetchEvent> f5486g;
+        public final BlockingQueue<PrefetchEvent> f5766g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicInteger f5487h;
+        public final AtomicInteger f5767h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c f5488i;
+        public c f5768i;
         public int j;
 
         public b(int i2, @NonNull BlockingQueue<PrefetchEvent> blockingQueue, @NonNull AtomicInteger atomicInteger) {
@@ -117,46 +114,46 @@ public class a implements b.a.p0.a.v1.c.f.a {
                 }
             }
             this.j = 0;
-            this.f5484e = i2 <= 0 ? 30 : i2;
-            this.f5485f = false;
-            this.f5486g = blockingQueue;
-            this.f5487h = atomicInteger;
+            this.f5764e = i2 <= 0 ? 30 : i2;
+            this.f5765f = false;
+            this.f5766g = blockingQueue;
+            this.f5767h = atomicInteger;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5485f = true;
-                this.f5487h.decrementAndGet();
+                this.f5765f = true;
+                this.f5767h.decrementAndGet();
                 b();
-                boolean z = a.f5476g;
+                boolean z = a.f5757f;
             }
         }
 
         public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c cVar = this.f5488i;
+                c cVar = this.f5768i;
                 if (cVar != null) {
                     cVar.k();
-                    this.f5488i = null;
+                    this.f5768i = null;
                 }
-                boolean z = a.f5476g;
+                boolean z = a.f5757f;
             }
         }
 
         public final void c(PrefetchEvent prefetchEvent) throws InterruptedException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent) == null) {
-                if (this.f5488i == null) {
-                    this.f5488i = d();
+                if (this.f5768i == null) {
+                    this.f5768i = d();
                 }
-                if (this.f5488i == null) {
+                if (this.f5768i == null) {
                     a();
                     return;
                 }
                 CountDownLatch countDownLatch = new CountDownLatch(1);
-                this.f5488i.l(prefetchEvent.appPath, prefetchEvent, countDownLatch);
+                this.f5768i.l(prefetchEvent.appPath, prefetchEvent, countDownLatch);
                 countDownLatch.await(3L, TimeUnit.SECONDS);
                 f();
             }
@@ -166,10 +163,10 @@ public class a implements b.a.p0.a.v1.c.f.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (g.M().a0() && e()) {
+                if (g.U().k0() && e()) {
                     return new c(null);
                 }
-                boolean z = a.f5476g;
+                boolean z = a.f5757f;
                 return null;
             }
             return (c) invokeV.objValue;
@@ -179,9 +176,9 @@ public class a implements b.a.p0.a.v1.c.f.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                boolean c2 = g.t.c();
-                String Q = g.M().Q();
-                return g.M().h0() && c2 && (!TextUtils.isEmpty(Q) && new File(Q).exists()) && d.c().b();
+                boolean c2 = g.v.c();
+                String Y = g.U().Y();
+                return g.U().s0() && c2 && (!TextUtils.isEmpty(Y) && new File(Y).exists()) && d.c().b();
             }
             return invokeV.booleanValue;
         }
@@ -209,23 +206,23 @@ public class a implements b.a.p0.a.v1.c.f.a {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                while (!this.f5485f) {
+                while (!this.f5765f) {
                     try {
                         try {
-                            PrefetchEvent poll = this.f5486g.poll(this.f5484e, TimeUnit.SECONDS);
+                            PrefetchEvent poll = this.f5766g.poll(this.f5764e, TimeUnit.SECONDS);
                             if (poll == null) {
                                 a();
                             } else {
                                 c(poll);
                             }
                         } catch (InterruptedException e2) {
-                            if (a.f5476g) {
+                            if (a.f5757f) {
                                 e2.printStackTrace();
                             }
                             a();
                         }
                     } catch (Throwable th) {
-                        if (a.f5476g) {
+                        if (a.f5757f) {
                             th.printStackTrace();
                         }
                         a();
@@ -241,40 +238,40 @@ public class a implements b.a.p0.a.v1.c.f.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final AtomicInteger f5489e;
+        public static final AtomicInteger f5769e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile boolean f5490a;
+        public volatile boolean f5770a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile b.a.p0.a.h0.l.a f5491b;
+        public volatile b.a.p0.a.h0.l.a f5771b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<j> f5492c;
+        public final List<j> f5772c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final List<String> f5493d;
+        public final List<String> f5773d;
 
         /* renamed from: b.a.p0.a.h0.l.g.n.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0219a implements j {
+        public class C0230a implements j {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f5494a;
+            public final /* synthetic */ String f5774a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ PrefetchEvent f5495b;
+            public final /* synthetic */ PrefetchEvent f5775b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ CountDownLatch f5496c;
+            public final /* synthetic */ CountDownLatch f5776c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ c f5497d;
+            public final /* synthetic */ c f5777d;
 
-            public C0219a(c cVar, String str, PrefetchEvent prefetchEvent, CountDownLatch countDownLatch) {
+            public C0230a(c cVar, String str, PrefetchEvent prefetchEvent, CountDownLatch countDownLatch) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -289,25 +286,25 @@ public class a implements b.a.p0.a.v1.c.f.a {
                         return;
                     }
                 }
-                this.f5497d = cVar;
-                this.f5494a = str;
-                this.f5495b = prefetchEvent;
-                this.f5496c = countDownLatch;
+                this.f5777d = cVar;
+                this.f5774a = str;
+                this.f5775b = prefetchEvent;
+                this.f5776c = countDownLatch;
             }
 
             @Override // b.a.p0.a.h0.l.g.j
             public void onReady() {
-                b.a.p0.a.h0.f.a f2;
+                b.a.p0.a.h0.f.a g2;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f5497d.f5491b != null && (f2 = this.f5497d.f5491b.f()) != null && !f2.isDestroyed()) {
-                        this.f5497d.s(this.f5494a, f2);
-                        this.f5497d.r(f2, this.f5495b);
-                        if (a.f5476g) {
-                            String str = "fill code cache finish for - " + this.f5494a;
+                    if (this.f5777d.f5771b != null && (g2 = this.f5777d.f5771b.g()) != null && !g2.isDestroyed()) {
+                        this.f5777d.s(this.f5774a, g2);
+                        this.f5777d.r(g2, this.f5775b);
+                        if (a.f5757f) {
+                            String str = "fill code cache finish for - " + this.f5774a;
                         }
                     }
-                    CountDownLatch countDownLatch = this.f5496c;
+                    CountDownLatch countDownLatch = this.f5776c;
                     if (countDownLatch != null) {
                         countDownLatch.countDown();
                     }
@@ -321,10 +318,10 @@ public class a implements b.a.p0.a.v1.c.f.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f5498a;
+            public final /* synthetic */ long f5778a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ c f5499b;
+            public final /* synthetic */ c f5779b;
 
             public b(c cVar, long j) {
                 Interceptable interceptable = $ic;
@@ -341,49 +338,49 @@ public class a implements b.a.p0.a.v1.c.f.a {
                         return;
                     }
                 }
-                this.f5499b = cVar;
-                this.f5498a = j;
+                this.f5779b = cVar;
+                this.f5778a = j;
             }
 
             @Override // b.a.p0.a.h0.b
             public void a(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    if (a.f5476g) {
+                    if (a.f5757f) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        String str2 = "create a new master cost - " + (currentTimeMillis - this.f5498a) + "ms";
+                        String str2 = "create a new master cost - " + (currentTimeMillis - this.f5778a) + "ms";
                     }
                     super.a(str);
-                    this.f5499b.f5490a = true;
-                    this.f5499b.q();
+                    this.f5779b.f5770a = true;
+                    this.f5779b.q();
                 }
             }
         }
 
         /* renamed from: b.a.p0.a.h0.l.g.n.a$c$c  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0220c extends e {
+        public class C0231c extends e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c k;
+            public final /* synthetic */ c j;
 
             /* renamed from: b.a.p0.a.h0.l.g.n.a$c$c$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class C0221a extends b.a.p0.a.h0.l.d {
+            public class C0232a extends b.a.p0.a.h0.l.d {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ C0220c f5500e;
+                public final /* synthetic */ C0231c f5780e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                public C0221a(C0220c c0220c, String str, String str2) {
+                public C0232a(C0231c c0231c, String str, String str2) {
                     super(str, str2);
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0220c, str, str2};
+                        Object[] objArr = {c0231c, str, str2};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -395,25 +392,25 @@ public class a implements b.a.p0.a.v1.c.f.a {
                             return;
                         }
                     }
-                    this.f5500e = c0220c;
+                    this.f5780e = c0231c;
                 }
 
                 @Override // b.a.p0.a.h0.l.d
-                public b.a.p0.a.l0.g e() {
+                public h e() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                        g.b bVar = new g.b();
+                        h.b bVar = new h.b();
                         bVar.c(1);
-                        bVar.b(this.f5500e.k.n());
+                        bVar.b(this.f5780e.j.n());
                         return bVar.a();
                     }
-                    return (b.a.p0.a.l0.g) invokeV.objValue;
+                    return (h) invokeV.objValue;
                 }
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0220c(c cVar, Context context) {
+            public C0231c(c cVar, Context context) {
                 super(context);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -430,14 +427,14 @@ public class a implements b.a.p0.a.v1.c.f.a {
                         return;
                     }
                 }
-                this.k = cVar;
+                this.j = cVar;
             }
 
             @Override // b.a.p0.a.h0.l.e
-            public b.a.p0.a.h0.l.d j(String str) {
+            public b.a.p0.a.h0.l.d i(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new C0221a(this, str, "runtime/index.js") : (b.a.p0.a.h0.l.d) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new C0232a(this, str, "runtime/index.js") : (b.a.p0.a.h0.l.d) invokeL.objValue;
             }
         }
 
@@ -454,10 +451,10 @@ public class a implements b.a.p0.a.v1.c.f.a {
                     return;
                 }
             }
-            f5489e = new AtomicInteger(1000);
+            f5769e = new AtomicInteger(1000);
         }
 
-        public /* synthetic */ c(C0218a c0218a) {
+        public /* synthetic */ c(C0229a c0229a) {
             this();
         }
 
@@ -468,12 +465,12 @@ public class a implements b.a.p0.a.v1.c.f.a {
                     if (jVar == null) {
                         return;
                     }
-                    if (this.f5490a) {
+                    if (this.f5770a) {
                         jVar.onReady();
                         return;
                     }
-                    if (!this.f5492c.contains(jVar)) {
-                        this.f5492c.add(jVar);
+                    if (!this.f5772c.contains(jVar)) {
+                        this.f5772c.add(jVar);
                     }
                 }
             }
@@ -492,20 +489,20 @@ public class a implements b.a.p0.a.v1.c.f.a {
                     hashMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, prefetchEvent.appPath);
                     hashMap.put("pageType", prefetchEvent.pageType);
                     File file = new File(prefetchEvent.appPath);
-                    String m = b.a.p0.a.a1.e.m(new File(file, "app.json"));
+                    String m = b.a.p0.a.a1.d.m(new File(file, "app.json"));
                     prefetchEvent.appConfig = m;
                     hashMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, m);
                     SwanAppConfigData c2 = SwanAppConfigData.c(prefetchEvent.appConfig, file);
                     if (c2 == null || p(c2)) {
                         return null;
                     }
-                    String e2 = c2.e();
-                    prefetchEvent.pageUrl = e2;
-                    hashMap.put("pageUrl", e2);
-                    String f2 = o0.f(prefetchEvent.pageUrl);
+                    String f2 = c2.f();
+                    prefetchEvent.pageUrl = f2;
+                    hashMap.put("pageUrl", f2);
+                    String f3 = o0.f(prefetchEvent.pageUrl);
                     String o = o0.o(prefetchEvent.pageUrl);
-                    String c3 = b.a.p0.a.c2.f.p0.j.c(f2, c2);
-                    if (!TextUtils.equals(f2, c3)) {
+                    String c3 = b.a.p0.a.f2.f.o0.j.c(f3, c2);
+                    if (!TextUtils.equals(f3, c3)) {
                         if (!TextUtils.isEmpty(o)) {
                             c3 = c3 + "?" + o;
                         }
@@ -522,10 +519,10 @@ public class a implements b.a.p0.a.v1.c.f.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                long currentTimeMillis = a.f5476g ? System.currentTimeMillis() : 0L;
+                long currentTimeMillis = a.f5757f ? System.currentTimeMillis() : 0L;
                 b.a.p0.a.h0.l.a j = j();
-                j.loadUrl(o0.w(b.a.p0.a.h0.u.g.M().Q()));
-                j.c(new b(this, currentTimeMillis));
+                j.loadUrl(o0.w(g.U().Y()));
+                j.d(new b(this, currentTimeMillis));
                 return j;
             }
             return (b.a.p0.a.h0.l.a) invokeV.objValue;
@@ -534,25 +531,25 @@ public class a implements b.a.p0.a.v1.c.f.a {
         public final b.a.p0.a.h0.l.a j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new C0220c(this, AppRuntime.getAppContext()) : (b.a.p0.a.h0.l.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new C0231c(this, AppRuntime.getAppContext()) : (b.a.p0.a.h0.l.a) invokeV.objValue;
         }
 
         public void k() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f5491b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f5771b == null) {
                 return;
             }
-            this.f5491b.destroy();
+            this.f5771b.destroy();
         }
 
         public void l(String str, PrefetchEvent prefetchEvent, CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048581, this, str, prefetchEvent, countDownLatch) == null) {
-                if (this.f5491b == null) {
-                    this.f5491b = i();
+                if (this.f5771b == null) {
+                    this.f5771b = i();
                 }
-                this.f5493d.add(str);
-                g(new C0219a(this, str, prefetchEvent, countDownLatch));
+                this.f5773d.add(str);
+                g(new C0230a(this, str, prefetchEvent, countDownLatch));
             }
         }
 
@@ -564,11 +561,11 @@ public class a implements b.a.p0.a.v1.c.f.a {
                 codeCacheSetting.id = "appjs";
                 ArrayList<String> arrayList = new ArrayList<>();
                 codeCacheSetting.pathList = arrayList;
-                arrayList.addAll(this.f5493d);
-                a.C0193a a2 = a.b.a();
-                codeCacheSetting.maxCount = a2.f5169a;
-                codeCacheSetting.sizeLimit = a2.f5170b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.f5171c;
+                arrayList.addAll(this.f5773d);
+                a.C0200a d2 = a.b.d();
+                codeCacheSetting.maxCount = d2.f5350a;
+                codeCacheSetting.sizeLimit = d2.f5351b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = d2.f5352c;
                 return codeCacheSetting;
             }
             return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
@@ -578,8 +575,8 @@ public class a implements b.a.p0.a.v1.c.f.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                String str = "master" + f5489e.getAndIncrement();
-                if (a.f5476g) {
+                String str = "master" + f5769e.getAndIncrement();
+                if (a.f5757f) {
                     String str2 = "code cache master id - " + str;
                 }
                 return str;
@@ -599,7 +596,7 @@ public class a implements b.a.p0.a.v1.c.f.a {
                     return false;
                 }
                 File file = new File(str);
-                return b.a.p0.a.a1.e.z(file) && b.a.p0.a.a1.e.y(file);
+                return b.a.p0.a.a1.d.z(file) && b.a.p0.a.a1.d.y(file);
             }
             return invokeL.booleanValue;
         }
@@ -608,14 +605,14 @@ public class a implements b.a.p0.a.v1.c.f.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, swanAppConfigData)) == null) {
-                String str = swanAppConfigData.m;
+                String str = swanAppConfigData.n;
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
                 try {
                     return new JSONObject(str).has("_modules");
                 } catch (JSONException e2) {
-                    if (a.f5476g) {
+                    if (a.f5757f) {
                         e2.printStackTrace();
                     }
                     return false;
@@ -628,12 +625,12 @@ public class a implements b.a.p0.a.v1.c.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
                 synchronized (this) {
-                    for (j jVar : this.f5492c) {
+                    for (j jVar : this.f5772c) {
                         if (jVar != null) {
                             jVar.onReady();
                         }
                     }
-                    this.f5492c.clear();
+                    this.f5772c.clear();
                 }
             }
         }
@@ -641,11 +638,11 @@ public class a implements b.a.p0.a.v1.c.f.a {
         public final void r(@NonNull b.a.p0.a.h0.f.a aVar, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048587, this, aVar, prefetchEvent) == null) {
-                long currentTimeMillis = a.f5476g ? System.currentTimeMillis() : 0L;
+                long currentTimeMillis = a.f5757f ? System.currentTimeMillis() : 0L;
                 PrefetchEvent.c h2 = h(prefetchEvent, "preload");
                 if (h2 != null) {
                     b.a.p0.a.o0.a.a(aVar, h2);
-                    if (a.f5476g) {
+                    if (a.f5757f) {
                         long currentTimeMillis2 = System.currentTimeMillis();
                         String str = "send code cache msg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
                     }
@@ -656,7 +653,7 @@ public class a implements b.a.p0.a.v1.c.f.a {
         public final void s(String str, b.a.p0.a.h0.f.a aVar) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048588, this, str, aVar) == null) && (aVar instanceof b.a.p0.a.l0.a)) {
-                ((b.a.p0.a.l0.a) aVar).C0(m());
+                ((b.a.p0.a.l0.a) aVar).D0(m());
             }
         }
 
@@ -673,8 +670,8 @@ public class a implements b.a.p0.a.v1.c.f.a {
                     return;
                 }
             }
-            this.f5492c = new ArrayList();
-            this.f5493d = new CopyOnWriteArrayList();
+            this.f5772c = new ArrayList();
+            this.f5773d = new CopyOnWriteArrayList();
         }
     }
 
@@ -691,7 +688,7 @@ public class a implements b.a.p0.a.v1.c.f.a {
                 return;
             }
         }
-        f5476g = k.f6397a;
+        f5757f = k.f6863a;
     }
 
     public a() {
@@ -707,16 +704,13 @@ public class a implements b.a.p0.a.v1.c.f.a {
                 return;
             }
         }
-        this.f5478a = new LinkedBlockingQueue();
-        this.f5479b = new AtomicInteger(0);
-        this.f5480c = 1;
-        this.f5483f = new ArrayList();
-        b.a.p0.a.c1.a.Z().getSwitch("swan_preset_code_cache", 0);
-        this.f5482e = 0;
+        this.f5759a = new LinkedBlockingQueue();
+        this.f5760b = new AtomicInteger(0);
+        this.f5761c = 1;
+        this.f5763e = new ArrayList();
         m();
-        b.a.p0.a.e0.d.h("PreCodeCacheManager", "swan_preset_code_cache - " + this.f5482e);
-        if (f5476g) {
-            String str = "max master size - " + this.f5480c;
+        if (f5757f) {
+            String str = "max master size - " + this.f5761c;
         }
     }
 
@@ -724,22 +718,22 @@ public class a implements b.a.p0.a.v1.c.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f5477h == null) {
+            if (f5758g == null) {
                 synchronized (a.class) {
-                    if (f5477h == null) {
-                        f5477h = new a();
+                    if (f5758g == null) {
+                        f5758g = new a();
                     }
                 }
             }
-            return f5477h;
+            return f5758g;
         }
         return (a) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.v1.c.f.a
-    public void a(String str, b.a.p0.a.v1.c.f.c cVar) {
+    @Override // b.a.p0.a.y1.c.f.a
+    public void a(String str, b.a.p0.a.y1.c.f.c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) && TextUtils.equals(str, "event_puppet_online") && !cVar.C()) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) && TextUtils.equals(str, "event_puppet_online") && !cVar.D()) {
             n(cVar);
         }
     }
@@ -762,35 +756,15 @@ public class a implements b.a.p0.a.v1.c.f.a {
 
     public final boolean c(String str, long j) {
         InterceptResult invokeLJ;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
-            if (!ProcessUtils.isMainProcess() || q0.G() || b.a.p0.a.c1.a.n0().c()) {
-                int i2 = this.f5482e;
-                if (i2 != 0) {
-                    if (i2 == 1) {
-                        boolean z2 = f5476g;
-                        z = true;
-                    } else if (i2 == 2) {
-                        boolean z3 = f5476g;
-                        z = !b.a.p0.a.c1.a.l0().a();
-                    }
-                    return !z ? false : false;
-                }
-                boolean z4 = f5476g;
-                z = false;
-                return !z ? false : false;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? (!ProcessUtils.isMainProcess() || q0.G() || b.a.p0.a.c1.a.w0().c()) && !TextUtils.isEmpty(str) && j > 0 : invokeLJ.booleanValue;
     }
 
     public final void d(@NonNull PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, prefetchEvent) == null) {
-            this.f5478a.offer(prefetchEvent);
-            if (this.f5481d) {
+            this.f5759a.offer(prefetchEvent);
+            if (this.f5762d) {
                 p();
             }
         }
@@ -799,25 +773,25 @@ public class a implements b.a.p0.a.v1.c.f.a {
     public final void e(String str, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLJ(1048580, this, str, j) == null) && c(str, j) && !ProcessUtils.isMainProcess()) {
-            if (f5476g) {
+            if (f5757f) {
                 String str2 = "start to fill code cache app - " + str + " , version - " + j;
             }
-            d(b(str, e.C0109e.i(str, String.valueOf(j)).getPath() + File.separator));
+            d(b(str, d.e.i(str, String.valueOf(j)).getPath() + File.separator));
         }
     }
 
     public void f(String str, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) && ProcessUtils.isMainProcess() && c(str, j)) {
-            b.a.p0.a.v1.c.f.c h2 = h();
+            b.a.p0.a.y1.c.f.c h2 = h();
             if (h2 == null) {
-                boolean z = f5476g;
+                boolean z = f5757f;
                 return;
             }
             Bundle bundle = new Bundle();
             bundle.putString("cc_app_id", str);
             bundle.putLong("cc_app_version", j);
-            if (h2.H()) {
+            if (h2.S()) {
                 o(h2, bundle);
             } else {
                 l(bundle);
@@ -833,23 +807,23 @@ public class a implements b.a.p0.a.v1.c.f.a {
         e(bundle.getString("cc_app_id"), bundle.getLong("cc_app_version"));
     }
 
-    public final b.a.p0.a.v1.c.f.c h() {
+    public final b.a.p0.a.y1.c.f.c h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            b.a.p0.a.v1.c.f.c e2 = b.a.p0.a.v1.c.f.e.k().e();
-            if (e2 == null || e2.C()) {
+            b.a.p0.a.y1.c.f.c e2 = b.a.p0.a.y1.c.f.e.k().e();
+            if (e2 == null || e2.D()) {
                 return null;
             }
             return e2;
         }
-        return (b.a.p0.a.v1.c.f.c) invokeV.objValue;
+        return (b.a.p0.a.y1.c.f.c) invokeV.objValue;
     }
 
     public final b j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new b(30, this.f5478a, this.f5479b) : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new b(30, this.f5759a, this.f5760b) : (b) invokeV.objValue;
     }
 
     public boolean k(String str) {
@@ -881,8 +855,8 @@ public class a implements b.a.p0.a.v1.c.f.a {
                 if (bundle == null) {
                     return;
                 }
-                this.f5483f.add(bundle);
-                boolean z = f5476g;
+                this.f5763e.add(bundle);
+                boolean z = f5757f;
             }
         }
     }
@@ -890,63 +864,63 @@ public class a implements b.a.p0.a.v1.c.f.a {
     public final void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && ProcessUtils.isMainProcess()) {
-            b.a.p0.a.v1.c.f.e.k().b(this);
+            b.a.p0.a.y1.c.f.e.k().b(this);
         }
     }
 
-    public final synchronized void n(b.a.p0.a.v1.c.f.c cVar) {
+    public final synchronized void n(b.a.p0.a.y1.c.f.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
             synchronized (this) {
-                if (this.f5483f.size() <= 0) {
+                if (this.f5763e.size() <= 0) {
                     return;
                 }
-                boolean z = f5476g;
-                for (Bundle bundle : this.f5483f) {
+                boolean z = f5757f;
+                for (Bundle bundle : this.f5763e) {
                     o(cVar, bundle);
                 }
-                this.f5483f.clear();
+                this.f5763e.clear();
             }
         }
     }
 
-    public final void o(b.a.p0.a.v1.c.f.c cVar, Bundle bundle) {
+    public final void o(b.a.p0.a.y1.c.f.c cVar, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, cVar, bundle) == null) {
-            b.a.p0.a.v1.c.a e2 = b.a.p0.a.v1.c.a.e();
-            b.a.p0.a.v1.c.c cVar2 = new b.a.p0.a.v1.c.c(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER, bundle);
-            cVar2.b(cVar.f8519f);
+            b.a.p0.a.y1.c.a e2 = b.a.p0.a.y1.c.a.e();
+            b.a.p0.a.y1.c.c cVar2 = new b.a.p0.a.y1.c.c(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER, bundle);
+            cVar2.b(cVar.f9497f);
             e2.h(cVar2);
-            if (f5476g) {
-                String str = "current process - " + cVar.f8519f.index;
+            if (f5757f) {
+                String str = "current process - " + cVar.f9497f.index;
             }
         }
     }
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.f5478a.size() <= 0 || this.f5479b.get() >= this.f5480c) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.f5759a.size() <= 0 || this.f5760b.get() >= this.f5761c) {
             return;
         }
-        if (this.f5479b.incrementAndGet() > this.f5480c) {
-            this.f5479b.decrementAndGet();
+        if (this.f5760b.incrementAndGet() > this.f5761c) {
+            this.f5760b.decrementAndGet();
             return;
         }
         j().g();
-        if (f5476g) {
-            String str = "master size - " + this.f5479b.get();
+        if (f5757f) {
+            String str = "master size - " + this.f5760b.get();
         }
     }
 
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f5481d = true;
+            this.f5762d = true;
             p();
         }
     }
 
-    @Override // b.a.p0.a.v1.c.f.a
+    @Override // b.a.p0.a.y1.c.f.a
     public void timeout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {

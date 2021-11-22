@@ -13,36 +13,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes11.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f62910a;
+    public static Context f63810a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f62911b;
+    public static boolean f63811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static s f62912c;
+    public static s f63812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f62913d;
+    public static Object f63813d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f62914e;
+    public static HandlerThread f63814e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f62915f;
+    public static Handler f63815f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f62916g;
+    public static String f63816g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f62917h;
+    public static String f63817h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile q f62918i;
+    public static volatile q f63818i;
     public static volatile o j;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,7 +60,7 @@ public class q {
                 return;
             }
         }
-        f62913d = new Object();
+        f63813d = new Object();
     }
 
     public q() {
@@ -83,17 +84,17 @@ public class q {
             try {
                 try {
                     Class<?> cls = Class.forName("android.os.SystemProperties");
-                    str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, "persist.sys.identifierid.supported", "unknown");
+                    str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "unknown");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     str = "0";
-                    f62911b = "1".equals(str);
+                    f63811b = "1".equals(str);
                 }
             } catch (Throwable unused) {
                 str = "0";
-                f62911b = "1".equals(str);
+                f63811b = "1".equals(str);
             }
-            f62911b = "1".equals(str);
+            f63811b = "1".equals(str);
         }
     }
 
@@ -101,24 +102,24 @@ public class q {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f62918i == null) {
+            if (f63818i == null) {
                 synchronized (q.class) {
-                    f62910a = context.getApplicationContext();
-                    f62918i = new q();
+                    f63810a = context.getApplicationContext();
+                    f63818i = new q();
                 }
             }
             if (j == null) {
                 synchronized (q.class) {
-                    f62910a = context.getApplicationContext();
+                    f63810a = context.getApplicationContext();
                     HandlerThread handlerThread = new HandlerThread("SqlWorkThread");
-                    f62914e = handlerThread;
+                    f63814e = handlerThread;
                     handlerThread.start();
-                    f62915f = new p(f62914e.getLooper());
-                    j = new o(f62910a);
+                    f63815f = new p(f63814e.getLooper());
+                    j = new o(f63810a);
                     a();
                 }
             }
-            return f62918i;
+            return f63818i;
         }
         return (q) invokeL.objValue;
     }
@@ -126,8 +127,8 @@ public class q {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            synchronized (f62913d) {
-                Message obtainMessage = f62915f.obtainMessage();
+            synchronized (f63813d) {
+                Message obtainMessage = f63815f.obtainMessage();
                 obtainMessage.what = 11;
                 Bundle bundle = new Bundle();
                 bundle.putInt("type", i2);
@@ -135,10 +136,10 @@ public class q {
                     bundle.putString("appid", str);
                 }
                 obtainMessage.setData(bundle);
-                f62915f.sendMessage(obtainMessage);
+                f63815f.sendMessage(obtainMessage);
                 long uptimeMillis = SystemClock.uptimeMillis();
                 try {
-                    f62913d.wait(2000L);
+                    f63813d.wait(2000L);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -148,14 +149,14 @@ public class q {
                             if (i2 != 2) {
                                 if (i2 != 4) {
                                 }
-                            } else if (f62916g != null) {
-                                f62916g = null;
+                            } else if (f63816g != null) {
+                                f63816g = null;
                             }
-                        } else if (f62916g != null) {
+                        } else if (f63816g != null) {
                         }
                     }
-                    f62917h = f62916g;
-                    f62916g = null;
+                    f63817h = f63816g;
+                    f63816g = null;
                 }
             }
         }

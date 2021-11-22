@@ -40,41 +40,41 @@ public class a extends Service implements LLSInterface {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HandlerC1625a f39152a;
+    public static HandlerC1661a f39984a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f39153c;
+    public static long f39985c;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f39154g;
+    public static long f39986g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Messenger f39155b;
+    public Messenger f39987b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Looper f39156d;
+    public Looper f39988d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HandlerThread f39157e;
+    public HandlerThread f39989e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39158f;
+    public boolean f39990f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39159h;
+    public int f39991h;
 
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class HandlerC1625a extends Handler {
+    public static class HandlerC1661a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<a> f39160a;
+        public final WeakReference<a> f39992a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1625a(Looper looper, a aVar) {
+        public HandlerC1661a(Looper looper, a aVar) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -91,14 +91,14 @@ public class a extends Service implements LLSInterface {
                     return;
                 }
             }
-            this.f39160a = new WeakReference<>(aVar);
+            this.f39992a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.f39160a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.f39992a.get()) == null) {
                 return;
             }
             if (f.isServing) {
@@ -162,11 +162,11 @@ public class a extends Service implements LLSInterface {
                 return;
             }
         }
-        this.f39155b = null;
-        this.f39156d = null;
-        this.f39157e = null;
-        this.f39158f = false;
-        this.f39159h = 0;
+        this.f39987b = null;
+        this.f39988d = null;
+        this.f39989e = null;
+        this.f39990f = false;
+        this.f39991h = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -184,7 +184,7 @@ public class a extends Service implements LLSInterface {
             com.baidu.location.c.b.a().b();
             l.c().d();
             i.a().c();
-            this.f39159h = 2;
+            this.f39991h = 2;
         }
     }
 
@@ -213,8 +213,8 @@ public class a extends Service implements LLSInterface {
             w.d();
             com.baidu.location.b.a.a().b();
             v.a().d();
-            this.f39159h = 4;
-            if (this.f39158f) {
+            this.f39991h = 4;
+            if (this.f39990f) {
                 return;
             }
             Process.killProcess(Process.myPid());
@@ -254,12 +254,12 @@ public class a extends Service implements LLSInterface {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
             Bundle extras = intent.getExtras();
             if (extras != null) {
-                com.baidu.location.e.b.f39175h = extras.getString("key");
-                com.baidu.location.e.b.f39174g = extras.getString("sign");
-                this.f39158f = extras.getBoolean("kill_process");
+                com.baidu.location.e.b.f40007h = extras.getString("key");
+                com.baidu.location.e.b.f40006g = extras.getString("sign");
+                this.f39990f = extras.getBoolean("kill_process");
                 extras.getBoolean("cache_exception");
             }
-            return this.f39155b.getBinder();
+            return this.f39987b.getBinder();
         }
         return (IBinder) invokeL.objValue;
     }
@@ -272,17 +272,17 @@ public class a extends Service implements LLSInterface {
                 k.ax = context.getPackageName();
             } catch (Exception unused) {
             }
-            f39154g = System.currentTimeMillis();
+            f39986g = System.currentTimeMillis();
             HandlerThread a2 = u.a();
-            this.f39157e = a2;
+            this.f39989e = a2;
             if (a2 != null) {
-                this.f39156d = a2.getLooper();
+                this.f39988d = a2.getLooper();
             }
-            f39152a = this.f39156d == null ? new HandlerC1625a(Looper.getMainLooper(), this) : new HandlerC1625a(this.f39156d, this);
-            f39153c = System.currentTimeMillis();
-            this.f39155b = new Messenger(f39152a);
-            f39152a.sendEmptyMessage(0);
-            this.f39159h = 1;
+            f39984a = this.f39988d == null ? new HandlerC1661a(Looper.getMainLooper(), this) : new HandlerC1661a(this.f39988d, this);
+            f39985c = System.currentTimeMillis();
+            this.f39987b = new Messenger(f39984a);
+            f39984a.sendEmptyMessage(0);
+            this.f39991h = 1;
             String str = "baidu location service start1 ...20190725..." + Process.myPid();
         }
     }
@@ -292,12 +292,12 @@ public class a extends Service implements LLSInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                f39152a.sendEmptyMessage(1);
+                f39984a.sendEmptyMessage(1);
             } catch (Exception unused) {
                 b();
                 Process.killProcess(Process.myPid());
             }
-            this.f39159h = 3;
+            this.f39991h = 3;
             new Handler(Looper.getMainLooper()).postDelayed(new b(this, new WeakReference(this)), 1000L);
         }
     }

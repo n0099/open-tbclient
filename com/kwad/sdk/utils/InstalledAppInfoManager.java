@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.PushClientConstants;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -118,7 +117,7 @@ public class InstalledAppInfoManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, appPackageInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, PushClientConstants.TAG_PKG_NAME, appPackageInfo.packageName);
+            q.a(jSONObject, "pkgName", appPackageInfo.packageName);
             q.a(jSONObject, "system_app", appPackageInfo.isSystemApp ? 1 : 0);
             q.a(jSONObject, "appVersion", appPackageInfo.versionName);
             q.a(jSONObject, "firstInstallTime", appPackageInfo.firstInstallTime);

@@ -3,7 +3,7 @@ package b.a.r0.q1.o.h;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.j.a.e;
+import b.a.e.f.j.a.e;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +22,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f22628a;
+    public String f24149a;
 
     /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<String, Void, Void> {
@@ -30,7 +30,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f22629a;
+        public final /* synthetic */ c f24150a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class c {
                     return;
                 }
             }
-            this.f22629a = cVar;
+            this.f24150a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,14 +56,14 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                HashMap c2 = this.f22629a.c();
+                HashMap c2 = this.f24150a.c();
                 e eVar = new e();
-                eVar.b().s(this.f22629a.f22628a);
+                eVar.b().s(this.f24150a.f24149a);
                 eVar.b().q(HttpMessageTask.HTTP_METHOD.GET);
                 if (c2 != null && !c2.isEmpty()) {
-                    eVar.b().p(this.f22629a.c());
+                    eVar.b().p(this.f24150a.c());
                 }
-                new b.a.e.e.j.a.c(eVar).n(1, 0, 0);
+                new b.a.e.f.j.a.c(eVar).n(1, 0, 0);
                 eVar.c();
                 return null;
             }
@@ -86,7 +86,7 @@ public class c {
                 return;
             }
         }
-        this.f22628a = str;
+        this.f24149a = str;
     }
 
     public static b e(AdvertAppInfo advertAppInfo) {
@@ -94,7 +94,7 @@ public class c {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.f4) == null || !(iLegoAdvert instanceof b)) {
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.g4) == null || !(iLegoAdvert instanceof b)) {
                 return null;
             }
             return (b) iLegoAdvert;
@@ -115,8 +115,8 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bVar) == null) || bVar == null || bVar.getParallelCharge() == null) {
             return;
         }
-        f(bVar.getParallelCharge().f22625b);
-        Iterator<String> it = bVar.getParallelCharge().f22626c.iterator();
+        f(bVar.getParallelCharge().f24146b);
+        Iterator<String> it = bVar.getParallelCharge().f24147c.iterator();
         while (it.hasNext()) {
             f(it.next());
         }
@@ -129,10 +129,10 @@ public class c {
             if (bVar == null || bVar.getParallelCharge() == null) {
                 return false;
             }
-            String str = bVar.getParallelCharge().f22624a;
+            String str = bVar.getParallelCharge().f24145a;
             f(str);
             boolean z = !TextUtils.isEmpty(str);
-            Iterator<String> it = bVar.getParallelCharge().f22627d.iterator();
+            Iterator<String> it = bVar.getParallelCharge().f24148d.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 z = z || !TextUtils.isEmpty(next);
@@ -149,7 +149,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
             if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = b.a.q0.m.a.f12715a;
+                cookie = b.a.q0.m.a.f13465a;
             }
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("Cookie", cookie);

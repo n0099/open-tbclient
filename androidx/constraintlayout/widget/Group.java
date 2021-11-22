@@ -1,7 +1,9 @@
 package androidx.constraintlayout.widget;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
+import android.view.View;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,40 +44,31 @@ public class Group extends ConstraintHelper {
         }
     }
 
-    @Override // androidx.constraintlayout.widget.ConstraintHelper, android.view.View
-    public void onAttachedToWindow() {
+    @Override // androidx.constraintlayout.widget.ConstraintHelper
+    public void updatePostLayout(ConstraintLayout constraintLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onAttachedToWindow();
-            applyLayoutFeatures();
-        }
-    }
-
-    @Override // android.view.View
-    public void setElevation(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            super.setElevation(f2);
-            applyLayoutFeatures();
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            super.setVisibility(i2);
-            applyLayoutFeatures();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, constraintLayout) == null) {
+            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
+            layoutParams.widget.setWidth(0);
+            layoutParams.widget.setHeight(0);
         }
     }
 
     @Override // androidx.constraintlayout.widget.ConstraintHelper
-    public void updatePostLayout(ConstraintLayout constraintLayout) {
+    public void updatePreLayout(ConstraintLayout constraintLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, constraintLayout) == null) {
-            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
-            layoutParams.widget.setWidth(0);
-            layoutParams.widget.setHeight(0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, constraintLayout) == null) {
+            int visibility = getVisibility();
+            float elevation = Build.VERSION.SDK_INT >= 21 ? getElevation() : 0.0f;
+            for (int i2 = 0; i2 < this.mCount; i2++) {
+                View viewById = constraintLayout.getViewById(this.mIds[i2]);
+                if (viewById != null) {
+                    viewById.setVisibility(visibility);
+                    if (elevation > 0.0f && Build.VERSION.SDK_INT >= 21) {
+                        viewById.setElevation(elevation);
+                    }
+                }
+            }
         }
     }
 

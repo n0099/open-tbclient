@@ -5,8 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.q0.f1.e.a;
+import b.a.e.f.p.l;
+import b.a.q0.e1.e.a;
 import b.a.q0.g0.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -31,19 +31,19 @@ public class d implements Object<List<EmotionPackageData>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f16564e;
+    public TbPageContext f18064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDragSortListView f16565f;
+    public SimpleDragSortListView f18065f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f16566g;
+    public View f18066g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.f2.h.d.a f16567h;
+    public b.a.r0.f2.h.d.a f18067h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.f2.h.f.b f16568i;
+    public b.a.r0.f2.h.f.b f18068i;
     public g j;
     public FrameLayout k;
     public boolean l;
@@ -57,7 +57,7 @@ public class d implements Object<List<EmotionPackageData>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f16569a;
+        public final /* synthetic */ d f18069a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -74,14 +74,14 @@ public class d implements Object<List<EmotionPackageData>> {
                     return;
                 }
             }
-            this.f16569a = dVar;
+            this.f18069a = dVar;
         }
 
-        @Override // b.a.q0.f1.e.a.i
+        @Override // b.a.q0.e1.e.a.i
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                this.f16569a.f16567h.a(i2, i3);
+                this.f18069a.f18067h.a(i2, i3);
             }
         }
     }
@@ -92,10 +92,10 @@ public class d implements Object<List<EmotionPackageData>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f16570e;
+        public final /* synthetic */ List f18070e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f16571f;
+        public final /* synthetic */ d f18071f;
 
         public b(d dVar, List list) {
             Interceptable interceptable = $ic;
@@ -112,19 +112,19 @@ public class d implements Object<List<EmotionPackageData>> {
                     return;
                 }
             }
-            this.f16571f = dVar;
-            this.f16570e = list;
+            this.f18071f = dVar;
+            this.f18070e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f16571f.i();
-                if (this.f16571f.f16567h == null || this.f16570e == null) {
+                this.f18071f.i();
+                if (this.f18071f.f18067h == null || this.f18070e == null) {
                     return;
                 }
-                this.f16571f.f16567h.update(this.f16570e);
+                this.f18071f.f18067h.update(this.f18070e);
             }
         }
     }
@@ -135,7 +135,7 @@ public class d implements Object<List<EmotionPackageData>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16572e;
+        public final /* synthetic */ d f18072e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -152,16 +152,16 @@ public class d implements Object<List<EmotionPackageData>> {
                     return;
                 }
             }
-            this.f16572e = dVar;
+            this.f18072e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f16572e.f16567h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18072e.f18067h == null) {
                 return;
             }
-            this.f16572e.f16567h.update();
+            this.f18072e.f18067h.update();
         }
     }
 
@@ -181,19 +181,19 @@ public class d implements Object<List<EmotionPackageData>> {
             }
         }
         this.l = false;
-        this.f16564e = tbPageContext;
+        this.f18064e = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_my_emotions, (ViewGroup) null, false);
-        this.f16566g = inflate;
+        this.f18066g = inflate;
         this.k = (FrameLayout) inflate.findViewById(R.id.my_emotion_loading);
-        this.o = (NoNetworkView) this.f16566g.findViewById(R.id.view_no_network);
-        this.f16568i = new b.a.r0.f2.h.f.b(this.f16566g.findViewById(R.id.emotion_my_emotion_empty), tbPageContext.getString(R.string.emotion_empty_mine));
-        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.f16566g.findViewById(R.id.my_emotion_list);
-        this.f16565f = simpleDragSortListView;
+        this.o = (NoNetworkView) this.f18066g.findViewById(R.id.view_no_network);
+        this.f18068i = new b.a.r0.f2.h.f.b(this.f18066g.findViewById(R.id.emotion_my_emotion_empty), tbPageContext.getString(R.string.emotion_empty_mine));
+        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.f18066g.findViewById(R.id.my_emotion_list);
+        this.f18065f = simpleDragSortListView;
         simpleDragSortListView.setDivider(null);
-        this.f16565f.setOverScrollMode(2);
-        this.f16565f.setVerticalScrollBarEnabled(false);
+        this.f18065f.setOverScrollMode(2);
+        this.f18065f.setVerticalScrollBarEnabled(false);
         j();
-        this.f16567h = new b.a.r0.f2.h.d.a(tbPageContext, this.f16565f, this.m);
+        this.f18067h = new b.a.r0.f2.h.d.a(tbPageContext, this.f18065f, this.m);
         k();
         this.o.addNetworkChangeListener(this);
     }
@@ -201,7 +201,7 @@ public class d implements Object<List<EmotionPackageData>> {
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16566g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18066g : (View) invokeV.objValue;
     }
 
     public void d() {
@@ -228,7 +228,7 @@ public class d implements Object<List<EmotionPackageData>> {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            b.a.r0.f2.h.f.b bVar = this.f16568i;
+            b.a.r0.f2.h.f.b bVar = this.f18068i;
             if (bVar != null) {
                 bVar.b(i2);
             }
@@ -236,17 +236,17 @@ public class d implements Object<List<EmotionPackageData>> {
             if (frameLayout != null) {
                 SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0201, i2);
             }
-            b.a.r0.f2.h.f.b bVar2 = this.f16568i;
+            b.a.r0.f2.h.f.b bVar2 = this.f18068i;
             if (bVar2 != null) {
                 SkinManager.setBackgroundColor(bVar2.a(), R.color.CAM_X0201, i2);
             }
-            SimpleDragSortListView simpleDragSortListView = this.f16565f;
+            SimpleDragSortListView simpleDragSortListView = this.f18065f;
             if (simpleDragSortListView != null) {
                 SkinManager.setBackgroundColor(simpleDragSortListView, R.color.CAM_X0201, i2);
             }
             NoNetworkView noNetworkView = this.o;
             if (noNetworkView != null) {
-                noNetworkView.onChangeSkinType(this.f16564e, i2);
+                noNetworkView.onChangeSkinType(this.f18064e, i2);
             }
         }
     }
@@ -254,7 +254,7 @@ public class d implements Object<List<EmotionPackageData>> {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b.a.e.e.m.e.a().post(new c(this));
+            b.a.e.f.m.e.a().post(new c(this));
         }
     }
 
@@ -270,7 +270,7 @@ public class d implements Object<List<EmotionPackageData>> {
         SimpleDragSortListView simpleDragSortListView;
         b.a.r0.f2.h.f.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (simpleDragSortListView = this.f16565f) == null || this.l || (bVar = this.f16568i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (simpleDragSortListView = this.f18065f) == null || this.l || (bVar = this.f18068i) == null) {
             return;
         }
         this.l = true;
@@ -280,7 +280,7 @@ public class d implements Object<List<EmotionPackageData>> {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            b.a.r0.f2.h.b.a aVar = new b.a.r0.f2.h.b.a(this.f16565f);
+            b.a.r0.f2.h.b.a aVar = new b.a.r0.f2.h.b.a(this.f18065f);
             this.m = aVar;
             aVar.c(new a(this));
         }
@@ -288,12 +288,12 @@ public class d implements Object<List<EmotionPackageData>> {
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f16564e == null || this.k == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f18064e == null || this.k == null) {
             return;
         }
         h();
         this.k.setVisibility(0);
-        g gVar = new g(this.f16564e.getPageActivity());
+        g gVar = new g(this.f18064e.getPageActivity());
         this.j = gVar;
         gVar.attachView(this.k, true);
         this.j.onChangeSkinType();
@@ -301,15 +301,15 @@ public class d implements Object<List<EmotionPackageData>> {
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f16564e == null || this.k == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f18064e == null || this.k == null) {
             return;
         }
         h();
         this.k.setVisibility(0);
-        NoDataView b2 = NoDataViewFactory.b(this.f16564e.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f16564e.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f16564e.getString(R.string.emotion_error_net_tip)), null, true);
+        NoDataView b2 = NoDataViewFactory.b(this.f18064e.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f18064e.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f18064e.getString(R.string.emotion_error_net_tip)), null, true);
         this.n = b2;
         b2.setVisibility(0);
-        this.n.onActivityStart(this.f16564e);
+        this.n.onActivityStart(this.f18064e);
     }
 
     public void onNetworkChange(boolean z) {
@@ -324,7 +324,7 @@ public class d implements Object<List<EmotionPackageData>> {
     public void update(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            b.a.e.e.m.e.a().post(new b(this, list));
+            b.a.e.f.m.e.a().post(new b(this, list));
         }
     }
 }

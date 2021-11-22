@@ -1,561 +1,514 @@
 package b.a.r0.c4;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class g {
-    public static /* synthetic */ Interceptable $ic;
+public final class g {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_action_bar_title_item = 2131492864;
+    public static final int abc_action_bar_up_container = 2131492865;
+    public static final int abc_action_menu_item_layout = 2131492866;
+    public static final int abc_action_menu_layout = 2131492867;
+    public static final int abc_action_mode_bar = 2131492868;
+    public static final int abc_action_mode_close_item_material = 2131492869;
+    public static final int abc_activity_chooser_view = 2131492870;
+    public static final int abc_activity_chooser_view_list_item = 2131492871;
+    public static final int abc_alert_dialog_button_bar_material = 2131492872;
+    public static final int abc_alert_dialog_material = 2131492873;
+    public static final int abc_alert_dialog_title_material = 2131492874;
+    public static final int abc_cascading_menu_item_layout = 2131492875;
+    public static final int abc_dialog_title_material = 2131492876;
+    public static final int abc_expanded_menu_layout = 2131492877;
+    public static final int abc_list_menu_item_checkbox = 2131492878;
+    public static final int abc_list_menu_item_icon = 2131492879;
+    public static final int abc_list_menu_item_layout = 2131492880;
+    public static final int abc_list_menu_item_radio = 2131492881;
+    public static final int abc_popup_menu_header_item_layout = 2131492882;
+    public static final int abc_popup_menu_item_layout = 2131492883;
+    public static final int abc_screen_content_include = 2131492884;
+    public static final int abc_screen_simple = 2131492885;
+    public static final int abc_screen_simple_overlay_action_mode = 2131492886;
+    public static final int abc_screen_toolbar = 2131492887;
+    public static final int abc_search_dropdown_item_icons_2line = 2131492888;
+    public static final int abc_search_view = 2131492889;
+    public static final int abc_select_dialog_material = 2131492890;
+    public static final int abc_tooltip = 2131492891;
+    public static final int activity_lc_update_layout = 2131492924;
+    public static final int activity_suspended = 2131492944;
+    public static final int ad_video_middle_page = 2131492978;
+    public static final int adapter_no_data_item_layout = 2131492979;
+    public static final int add_new_friend_text = 2131492983;
+    public static final int advanced_ad_slide_loading_view = 2131492991;
+    public static final int ala_living_logo_view = 2131493116;
+    public static final int ala_tail_view_layout = 2131493132;
+    public static final int ala_video_card_item_new = 2131493133;
+    public static final int app_download_dialog = 2131493147;
+    public static final int app_download_layout = 2131493148;
+    public static final int applets_cell_layout = 2131493149;
+    public static final int attention_not_login_layout = 2131493153;
+    public static final int bannerview = 2131493167;
+    public static final int bar_select_rule_item = 2131493176;
+    public static final int base_fragment_activity = 2131493180;
+    public static final int base_video_view = 2131493181;
+    public static final int base_webview_activity_new = 2131493182;
+    public static final int bd_base_viewpager_container = 2131493189;
+    public static final int bd_top_toast_layout = 2131493195;
+    public static final int bdalert_one_message_view = 2131493196;
+    public static final int bdalert_two_message_view = 2131493197;
+    public static final int beautify = 2131493198;
+    public static final int big_image_next = 2131493199;
+    public static final int bjh_article_layout = 2131493202;
+    public static final int bottom_up_list_dialog_item = 2131493206;
+    public static final int bottom_up_list_dialog_view = 2131493207;
+    public static final int bottom_write_thread = 2131493208;
+    public static final int bubble_free_dialog_content = 2131493212;
+    public static final int business_alert_dialog = 2131493218;
+    public static final int buy_no_face_item = 2131493221;
+    public static final int call_fans_dialog_content = 2131493223;
+    public static final int card_divider_line = 2131493240;
+    public static final int card_divider_view = 2131493241;
+    public static final int card_forum_head_layout = 2131493246;
+    public static final int card_frs_lottery_new_frame = 2131493258;
+    public static final int card_group = 2131493262;
+    public static final int card_home_page_ala_live_item_new = 2131493263;
+    public static final int card_home_page_auto_video_view_new = 2131493264;
+    public static final int card_home_page_extra_item = 2131493265;
+    public static final int card_home_page_forum_enter_button = 2131493266;
+    public static final int card_home_page_forum_enter_item = 2131493267;
+    public static final int card_home_page_forum_goods_enter_item = 2131493268;
+    public static final int card_home_page_link_thread = 2131493269;
+    public static final int card_home_page_multi_img_new_frame = 2131493271;
+    public static final int card_interview_layout = 2131493275;
+    public static final int card_link_layout = 2131493280;
+    public static final int card_original_pb_layout = 2131493286;
+    public static final int card_person_dynamic_thread = 2131493288;
+    public static final int card_promotion_item = 2131493294;
+    public static final int card_transmit_thread_layout = 2131493306;
+    public static final int card_transmit_thread_view = 2131493307;
+    public static final int card_video_layout = 2131493310;
+    public static final int card_voice_room_layout = 2131493314;
+    public static final int cell_image_view_right_layout = 2131493322;
+    public static final int chat_image_with_tail_item = 2131493327;
+    public static final int chat_list_item = 2131493329;
+    public static final int commit_good = 2131493349;
+    public static final int common_tab_content = 2131493351;
+    public static final int common_tab_host = 2131493352;
+    public static final int common_tab_widget = 2131493353;
+    public static final int content_tieba_uid_info = 2131493367;
+    public static final int core_permission_go_setting = 2131493368;
+    public static final int cover_advanced_ad_view = 2131493372;
+    public static final int custom_act_dialog = 2131493379;
+    public static final int custom_blue_check_radio_button_layout = 2131493380;
+    public static final int custom_dailog_view = 2131493381;
+    public static final int custom_dialog = 2131493382;
+    public static final int custom_loading_toast = 2131493383;
+    public static final int custom_push_premission_dialog_view = 2131493385;
+    public static final int custom_toast_textview = 2131493386;
+    public static final int default_tab_layout = 2131493391;
+    public static final int delete_original_thread_view = 2131493392;
+    public static final int design_bottom_navigation_item = 2131493394;
+    public static final int design_bottom_sheet_dialog = 2131493395;
+    public static final int design_layout_snackbar = 2131493396;
+    public static final int design_layout_snackbar_include = 2131493397;
+    public static final int design_layout_tab_icon = 2131493398;
+    public static final int design_layout_tab_text = 2131493399;
+    public static final int design_menu_item_action_area = 2131493400;
+    public static final int design_navigation_item = 2131493401;
+    public static final int design_navigation_item_header = 2131493402;
+    public static final int design_navigation_item_separator = 2131493403;
+    public static final int design_navigation_item_subheader = 2131493404;
+    public static final int design_navigation_menu = 2131493405;
+    public static final int design_navigation_menu_item = 2131493406;
+    public static final int design_text_input_end_icon = 2131493407;
+    public static final int design_text_input_start_icon = 2131493408;
+    public static final int dialog_bdalert = 2131493409;
+    public static final int dialog_bdlist = 2131493410;
+    public static final int dialog_bdlist_item = 2131493411;
+    public static final int dialog_bdtoast = 2131493412;
+    public static final int dialog_card_main = 2131493413;
+    public static final int dialog_content_with_no_tip_again = 2131493415;
+    public static final int dialog_loading = 2131493419;
+    public static final int dialog_permission_request = 2131493420;
+    public static final int dialog_rich_bdlist_item = 2131493421;
+    public static final int dialog_rich_layout = 2131493422;
+    public static final int dialog_rich_yes_no_layout = 2131493423;
+    public static final int dialog_sign_remind = 2131493424;
+    public static final int download_notify_view = 2131493432;
+    public static final int e_business_protocol_dialog = 2131493464;
+    public static final int editor_muti_image_item = 2131493475;
+    public static final int editor_tool_container_image = 2131493476;
+    public static final int emotion_search_edit = 2131493499;
+    public static final int emotion_tab_content = 2131493503;
+    public static final int emotion_tab_widget = 2131493506;
+    public static final int exo_playback_control_view = 2131493524;
+    public static final int exo_simple_player_view = 2131493525;
+    public static final int extend_forum_item = 2131493526;
+    public static final int fake_video_container = 2131493538;
+    public static final int float_video_container = 2131493542;
+    public static final int float_video_window_jindu = 2131493543;
+    public static final int float_video_window_voice = 2131493544;
+    public static final int floating_view_from_bcast_copy_link = 2131493547;
+    public static final int floating_view_from_kuang = 2131493548;
+    public static final int floating_view_from_rule_copy = 2131493549;
+    public static final int floating_window_from_kuang = 2131493550;
+    public static final int floorimage_textview_layout_new = 2131493551;
+    public static final int follow_user_spinner_btn_layout = 2131493553;
+    public static final int forum_list_base_item = 2131493577;
+    public static final int forum_list_forum_footer = 2131493579;
+    public static final int fps_float_view = 2131493607;
+    public static final int fragment_bottom_indicator_item = 2131493608;
+    public static final int fragment_tabhost = 2131493632;
+    public static final int fragmenttabindicator = 2131493639;
+    public static final int frs_bazhu_exam_fail = 2131493653;
+    public static final int frs_general_tab_notify_dialog_layout = 2131493671;
+    public static final int frs_hot_topic_card_layout = 2131493687;
+    public static final int frs_hottopic_video_card = 2131493689;
+    public static final int frs_item_praise = 2131493695;
+    public static final int frs_net_refresh_view_layout = 2131493708;
+    public static final int frs_no_list_item_view = 2131493709;
+    public static final int frs_private_common_dialog = 2131493712;
+    public static final int frs_publish_major_fine_goods_dialog = 2131493715;
+    public static final int frs_share_card_view = 2131493719;
+    public static final int frs_tips_blue_twice_line_down = 2131493725;
+    public static final int frs_top_item = 2131493727;
+    public static final int full_browse_dialog = 2131493736;
+    public static final int game_tip_view = 2131493764;
+    public static final int game_to_group_share_dialog = 2131493765;
+    public static final int gif_banner_view = 2131493770;
+    public static final int grid_icon_item = 2131493778;
+    public static final int group_title_layout = 2131493782;
+    public static final int group_title_pullleft_refresh_layout = 2131493783;
+    public static final int guide_popup_window = 2131493789;
+    public static final int home_card_hot_topic_item = 2131493792;
+    public static final int home_page_test_write_thread_view = 2131493800;
+    public static final int hot_thread_rank_list = 2131493813;
+    public static final int image_activity_2 = 2131493849;
+    public static final int image_activity_save_button = 2131493850;
+    public static final int image_toast_view = 2131493854;
+    public static final int image_viewer_bottom_layout = 2131493855;
+    public static final int include_pickerview_topbar = 2131493858;
+    public static final int interview_live_layout = 2131493883;
+    public static final int invite_friend_list_item = 2131493886;
+    public static final int invite_to_group_view = 2131493888;
+    public static final int item_card_view_layout = 2131493889;
+    public static final int layout_activity_ocr_id_card = 2131493989;
+    public static final int layout_baiduboxapp_back_view = 2131493991;
+    public static final int layout_basepickerview = 2131493992;
+    public static final int layout_img_interview_live = 2131494003;
+    public static final int layout_pass_liveness_alert_dialog = 2131494012;
+    public static final int layout_pass_liveness_constrast_loading = 2131494013;
+    public static final int layout_pass_liveness_dialog_alert = 2131494014;
+    public static final int layout_pass_liveness_recognize_new = 2131494015;
+    public static final int layout_sapi_address_title_bar = 2131494030;
+    public static final int layout_sapi_bottom_back_bar = 2131494031;
+    public static final int layout_sapi_loading_timeout = 2131494045;
+    public static final int layout_sapi_network_unavailable = 2131494046;
+    public static final int layout_sapi_sdk_addr_default_tag_group = 2131494047;
+    public static final int layout_sapi_sdk_addr_default_tag_group_dark = 2131494048;
+    public static final int layout_sapi_sdk_addr_map_searchbox = 2131494049;
+    public static final int layout_sapi_sdk_address_edit_activity = 2131494050;
+    public static final int layout_sapi_sdk_address_list_activity = 2131494051;
+    public static final int layout_sapi_sdk_address_list_empty = 2131494052;
+    public static final int layout_sapi_sdk_address_list_footer = 2131494053;
+    public static final int layout_sapi_sdk_address_list_header = 2131494054;
+    public static final int layout_sapi_sdk_address_list_item = 2131494055;
+    public static final int layout_sapi_sdk_address_option_dialog = 2131494056;
+    public static final int layout_sapi_sdk_common_input_form = 2131494057;
+    public static final int layout_sapi_sdk_common_loading = 2131494058;
+    public static final int layout_sapi_sdk_common_night_loading = 2131494059;
+    public static final int layout_sapi_sdk_common_night_toast = 2131494060;
+    public static final int layout_sapi_sdk_common_text_form = 2131494061;
+    public static final int layout_sapi_sdk_common_toast = 2131494062;
+    public static final int layout_sapi_sdk_dialog_addr_list_page_view = 2131494063;
+    public static final int layout_sapi_sdk_dialog_address_selector = 2131494064;
+    public static final int layout_sapi_sdk_dialog_address_selector_tab = 2131494065;
+    public static final int layout_sapi_sdk_dialog_alert = 2131494066;
+    public static final int layout_sapi_sdk_dialog_speech_recognition = 2131494067;
+    public static final int layout_sapi_sdk_fingerprint_dialog = 2131494068;
+    public static final int layout_sapi_sdk_horizontal_screen_webview_with_title_bar = 2131494069;
+    public static final int layout_sapi_sdk_image_clip = 2131494070;
+    public static final int layout_sapi_sdk_img_ocr_option_dialog = 2131494071;
+    public static final int layout_sapi_sdk_item_address_map = 2131494072;
+    public static final int layout_sapi_sdk_item_address_map_load_more = 2131494073;
+    public static final int layout_sapi_sdk_item_address_selector = 2131494074;
+    public static final int layout_sapi_sdk_load_timeout = 2131494075;
+    public static final int layout_sapi_sdk_loading_dialog = 2131494076;
+    public static final int layout_sapi_sdk_loading_timeout = 2131494077;
+    public static final int layout_sapi_sdk_map_location_poi_activity = 2131494078;
+    public static final int layout_sapi_sdk_night_mode_mask = 2131494079;
+    public static final int layout_sapi_sdk_normal_webview_with_title_bar = 2131494080;
+    public static final int layout_sapi_sdk_sms_login_view = 2131494081;
+    public static final int layout_sapi_sdk_speech_recognition_error_view = 2131494082;
+    public static final int layout_sapi_sdk_suggest_addr_item = 2131494083;
+    public static final int layout_sapi_sdk_sweep_light_loading_view = 2131494084;
+    public static final int layout_sapi_sdk_title_bar = 2131494085;
+    public static final int layout_sapi_sdk_webview_with_title_bar = 2131494086;
+    public static final int layout_sapi_sdk_youth_style_login_activity = 2131494087;
+    public static final int layout_sapi_webview_login = 2131494088;
+    public static final int layout_svprogresshud = 2131494094;
+    public static final int layout_video_wifi_tip = 2131494097;
+    public static final int lego_blank_item = 2131494099;
+    public static final int link_thread_item = 2131494106;
+    public static final int live_room_group_header = 2131494148;
+    public static final int loading_view_layout = 2131494152;
+    public static final int main_input_username = 2131494159;
+    public static final int maintab_bottom_indicator = 2131494160;
+    public static final int maintab_bottom_indicator_item = 2131494161;
+    public static final int maintab_title_layout = 2131494162;
+    public static final int max_sign_dialog_cus_view = 2131494167;
+    public static final int max_sing_dialog_item_view = 2131494168;
+    public static final int mcn_video_ad_layout = 2131494169;
+    public static final int mid_video_network_state_tip = 2131494195;
+    public static final int msg_chat_ear_item = 2131494199;
+    public static final int msg_chat_top_notify = 2131494200;
+    public static final int msg_delete_friend_view = 2131494201;
+    public static final int msg_msgleft_view = 2131494203;
+    public static final int msg_msglist_activity = 2131494204;
+    public static final int msg_msgmid_view = 2131494205;
+    public static final int msg_msgright_view = 2131494206;
+    public static final int mtrl_alert_dialog = 2131494218;
+    public static final int mtrl_alert_dialog_actions = 2131494219;
+    public static final int mtrl_alert_dialog_title = 2131494220;
+    public static final int mtrl_alert_select_dialog_item = 2131494221;
+    public static final int mtrl_alert_select_dialog_multichoice = 2131494222;
+    public static final int mtrl_alert_select_dialog_singlechoice = 2131494223;
+    public static final int mtrl_calendar_day = 2131494224;
+    public static final int mtrl_calendar_day_of_week = 2131494225;
+    public static final int mtrl_calendar_days_of_week = 2131494226;
+    public static final int mtrl_calendar_horizontal = 2131494227;
+    public static final int mtrl_calendar_month = 2131494228;
+    public static final int mtrl_calendar_month_labeled = 2131494229;
+    public static final int mtrl_calendar_month_navigation = 2131494230;
+    public static final int mtrl_calendar_months = 2131494231;
+    public static final int mtrl_calendar_vertical = 2131494232;
+    public static final int mtrl_calendar_year = 2131494233;
+    public static final int mtrl_layout_snackbar = 2131494234;
+    public static final int mtrl_layout_snackbar_include = 2131494235;
+    public static final int mtrl_picker_actions = 2131494236;
+    public static final int mtrl_picker_dialog = 2131494237;
+    public static final int mtrl_picker_fullscreen = 2131494238;
+    public static final int mtrl_picker_header_dialog = 2131494239;
+    public static final int mtrl_picker_header_fullscreen = 2131494240;
+    public static final int mtrl_picker_header_selection_text = 2131494241;
+    public static final int mtrl_picker_header_title_text = 2131494242;
+    public static final int mtrl_picker_header_toggle = 2131494243;
+    public static final int mtrl_picker_text_input_date = 2131494244;
+    public static final int mtrl_picker_text_input_date_range = 2131494245;
+    public static final int multi_del_decor_layout = 2131494246;
+    public static final int multi_image_ab_layout = 2131494247;
+    public static final int multi_image_card_layout = 2131494248;
+    public static final int multi_image_double_layout = 2131494249;
+    public static final int multi_image_layout = 2131494250;
+    public static final int multi_image_more_layout = 2131494251;
+    public static final int multi_image_single_h_layout = 2131494252;
+    public static final int multi_image_single_layout = 2131494253;
+    public static final int multi_image_text_layout = 2131494254;
+    public static final int multi_link_card_layout = 2131494255;
+    public static final int navigation_right_button_layout = 2131494264;
+    public static final int navigationbar_search_edit = 2131494265;
+    public static final int nb_item_floor_more = 2131494266;
+    public static final int neg_dt_bottom_popupwindow = 2131494268;
+    public static final int neg_dt_head_popupwindow = 2131494269;
+    public static final int neg_feedback_popupwindow = 2131494270;
+    public static final int neg_feedback_reason_item = 2131494271;
+    public static final int net_refresh_view_layout = 2131494272;
+    public static final int nevigationbar_layout = 2131494273;
+    public static final int new_float_view = 2131494277;
+    public static final int new_grid_image_layout = 2131494280;
+    public static final int new_pb_list_more = 2131494287;
+    public static final int new_pb_video_more = 2131494290;
+    public static final int new_task_completed_toast_layout = 2131494299;
+    public static final int new_thread_comment_and_praise_info_layout = 2131494300;
+    public static final int new_user_reward_dialog_layout = 2131494305;
+    public static final int new_vcode_activity = 2131494308;
+    public static final int new_vote_count_down_view = 2131494309;
+    public static final int no_data_view = 2131494318;
+    public static final int no_network_more_view = 2131494321;
+    public static final int no_network_view = 2131494322;
+    public static final int no_network_view_layout = 2131494323;
+    public static final int normal_interaction_achievement = 2131494324;
+    public static final int notification_action = 2131494326;
+    public static final int notification_action_tombstone = 2131494327;
+    public static final int notification_media_action = 2131494328;
+    public static final int notification_media_cancel_action = 2131494329;
+    public static final int notification_template_big_media = 2131494330;
+    public static final int notification_template_big_media_custom = 2131494331;
+    public static final int notification_template_big_media_narrow = 2131494332;
+    public static final int notification_template_big_media_narrow_custom = 2131494333;
+    public static final int notification_template_custom_big = 2131494334;
+    public static final int notification_template_icon_group = 2131494335;
+    public static final int notification_template_lines_media = 2131494336;
+    public static final int notification_template_media = 2131494337;
+    public static final int notification_template_media_custom = 2131494338;
+    public static final int notification_template_part_chronometer = 2131494339;
+    public static final int notification_template_part_time = 2131494340;
+    public static final int official_bar_menu = 2131494349;
+    public static final int official_bar_menu_line = 2131494350;
+    public static final int official_bar_menu_loading = 2131494351;
+    public static final int officialbar_msg_activity = 2131494358;
+    public static final int operable_video_container = 2131494364;
+    public static final int operable_video_controller = 2131494365;
+    public static final int operable_video_error = 2131494366;
+    public static final int operable_video_gesture = 2131494367;
+    public static final int operable_video_network_state_tip = 2131494368;
+    public static final int operable_video_share_view = 2131494369;
+    public static final int pass_bio_toast_tips = 2131494376;
+    public static final int pass_sdk_base_ui_common_dialog = 2131494377;
+    public static final int pb_child_title = 2131494407;
+    public static final int pb_level_toast = 2131494427;
+    public static final int pb_link_goods_item_layout = 2131494428;
+    public static final int pb_link_goods_layout = 2131494429;
+    public static final int pb_vote_select_rule_item = 2131494455;
+    public static final int person_info_more_dialog = 2131494483;
+    public static final int personal_chat_lbs_title = 2131494511;
+    public static final int pickerview_options = 2131494519;
+    public static final int pickerview_time = 2131494520;
+    public static final int play_voice_bnt = 2131494521;
+    public static final int play_voice_bnt_new = 2131494522;
+    public static final int plugin_error_tip_activity = 2131494528;
+    public static final int plugin_error_tip_view = 2131494529;
+    public static final int popup_dialog = 2131494533;
+    public static final int popup_dialog_view = 2131494534;
+    public static final int popup_dialog_view_horizal = 2131494535;
+    public static final int popup_dialog_view_horizal_item = 2131494536;
+    public static final int popup_dialog_view_item = 2131494537;
+    public static final int popupwindow_business = 2131494539;
+    public static final int post_video_progress_dialog = 2131494545;
+    public static final int post_write_or_reply_lay = 2131494546;
+    public static final int prefix_item = 2131494547;
+    public static final int progress_dialog_1080 = 2131494555;
+    public static final int publish_progress_view = 2131494557;
+    public static final int pull_left_item_view = 2131494558;
+    public static final int pull_view = 2131494559;
+    public static final int rate_list_dialog_view = 2131494565;
+    public static final int recommend_forum_horizontal_item_view = 2131494576;
+    public static final int recommend_forum_horizontal_view = 2131494577;
+    public static final int recommend_god_item = 2131494585;
+    public static final int recommend_god_layout = 2131494586;
+    public static final int richtext_normal_layout = 2131494599;
+    public static final int screen_top_toast_layout = 2131494616;
+    public static final int scroll_item_layout = 2131494621;
+    public static final int select_dialog_item_material = 2131494635;
+    public static final int select_dialog_multichoice_material = 2131494636;
+    public static final int select_dialog_singlechoice_material = 2131494637;
+    public static final int send_video_success_tip = 2131494650;
+    public static final int setting_text_switch_view = 2131494654;
+    public static final int share_from_frs_view = 2131494655;
+    public static final int share_from_game_center_pic_and_word = 2131494656;
+    public static final int share_from_pb_view = 2131494657;
+    public static final int share_smart_app_layout = 2131494660;
+    public static final int sign_dialog_cus_view = 2131494664;
+    public static final int sing_dialog_item_view = 2131494671;
+    public static final int single_link_card_layout = 2131494673;
+    public static final int smart_app_bottom_layout = 2131494674;
+    public static final int snap_chat_header = 2131494676;
+    public static final int snap_group_chat_float_tip = 2131494677;
+    public static final int stranger_person_add_friend_layout = 2131494722;
+    public static final int support_simple_spinner_dropdown_item = 2131494725;
+    public static final int tb_pull_view = 2131494816;
+    public static final int tb_setting_text_tip_view = 2131494817;
+    public static final int tb_top_toast_layout = 2131494818;
+    public static final int tb_top_toast_layout_no_tip = 2131494819;
+    public static final int tb_webview_pop_more = 2131494820;
+    public static final int tbadkcore_pull_to_refresh_header_horizontal = 2131494821;
+    public static final int tbadkcore_pull_to_refresh_header_vertical = 2131494822;
+    public static final int test_action_chip = 2131494825;
+    public static final int test_chip_zero_corner_radius = 2131494826;
+    public static final int test_design_checkbox = 2131494827;
+    public static final int test_design_radiobutton = 2131494828;
+    public static final int test_reflow_chipgroup = 2131494829;
+    public static final int test_toolbar = 2131494830;
+    public static final int test_toolbar_custom_background = 2131494831;
+    public static final int test_toolbar_elevation = 2131494832;
+    public static final int test_toolbar_surface = 2131494833;
+    public static final int text_toast_layout = 2131494834;
+    public static final int text_view_with_line_height_from_appearance = 2131494835;
+    public static final int text_view_with_line_height_from_layout = 2131494836;
+    public static final int text_view_with_line_height_from_style = 2131494837;
+    public static final int text_view_with_theme_line_height = 2131494838;
+    public static final int text_view_without_line_height = 2131494839;
+    public static final int thread_card_layout = 2131494843;
+    public static final int thread_category = 2131494844;
+    public static final int thread_comment_and_view_info_layout = 2131494845;
+    public static final int thread_comment_praise_read_info_layout = 2131494846;
+    public static final int thread_forum_enter_button_container_layout = 2131494847;
+    public static final int thread_forum_user_info_layout = 2131494848;
+    public static final int thread_god_reply_layout = 2131494849;
+    public static final int thread_recommend_info_layout = 2131494850;
+    public static final int thread_smart_app_layout = 2131494852;
+    public static final int thread_to_group_share_view = 2131494853;
+    public static final int thread_user_info_layout = 2131494854;
+    public static final int tie_plus_download_dialog = 2131494855;
+    public static final int tiejia_recommend_card = 2131494856;
+    public static final int tips_blue_center_down = 2131494857;
+    public static final int tips_blue_left_up = 2131494858;
+    public static final int tips_blue_right_up = 2131494859;
+    public static final int tips_blue_twice_line_down = 2131494860;
+    public static final int u9_info_layout = 2131494882;
+    public static final int ueg_new_delete_thread_view = 2131494883;
+    public static final int uni_slide_loading_view = 2131494890;
+    public static final int upgrade_success_dialog_content = 2131494896;
+    public static final int user_info_layout = 2131494898;
+    public static final int video_ad_view = 2131494908;
+    public static final int video_attention_list_cover_view = 2131494909;
+    public static final int video_attention_list_head_view = 2131494910;
+    public static final int video_attention_list_last_view = 2131494911;
+    public static final int video_attention_list_view = 2131494912;
+    public static final int video_attention_not_login_fragment = 2131494913;
+    public static final int video_attention_recomend_list_view = 2131494914;
+    public static final int video_channel_fragment = 2131494915;
+    public static final int video_channel_header = 2131494916;
+    public static final int video_channel_viewpager = 2131494917;
+    public static final int video_controller = 2131494918;
+    public static final int video_detail_pb_browse_mode_emotion = 2131494919;
+    public static final int video_full_screen = 2131494924;
+    public static final int video_image_no_player_layout = 2131494925;
+    public static final int video_interaction_achievement = 2131494926;
+    public static final int video_list_video_controller = 2131494927;
+    public static final int video_loading_fragment = 2131494928;
+    public static final int video_media_controller = 2131494929;
+    public static final int video_middle_naivi_controller = 2131494930;
+    public static final int video_network_state_tip = 2131494932;
+    public static final int video_no_wifi_dialog = 2131494933;
+    public static final int video_paster_overlay_layout = 2131494934;
+    public static final int video_play_activity = 2131494938;
+    public static final int video_play_view = 2131494939;
+    public static final int video_vertical_page_fragment = 2131494942;
+    public static final int videoplayer_layout_kernel_error = 2131494944;
+    public static final int videoplayer_layout_net_error = 2131494945;
+    public static final int view_interview_live_info = 2131494952;
+    public static final int view_live_container = 2131494954;
+    public static final int view_negative_feedback_bottom = 2131494955;
+    public static final int view_no_tip_again = 2131494956;
+    public static final int view_password = 2131494957;
+    public static final int view_svprogressdefault = 2131494964;
+    public static final int view_vote_main = 2131494972;
+    public static final int view_vote_text_item = 2131494973;
+    public static final int view_youngster_password = 2131494974;
+    public static final int viewstub_headimage_mask = 2131494975;
+    public static final int voice_play_btn = 2131494976;
+    public static final int voice_room_talking_layout = 2131494978;
+    public static final int vote_count_down_view = 2131494981;
+    public static final int warning_toast = 2131495218;
+    public static final int webview_poster_share = 2131495220;
+    public static final int weight_thread_comment_and_praise_info_layout = 2131495221;
+    public static final int widget_expandable_text_view = 2131495222;
+    public static final int widget_frs_forum_info_item = 2131495223;
+    public static final int widget_hot_forum_list_item = 2131495225;
+    public static final int widget_left_voice_view = 2131495226;
+    public static final int widget_message_entrance = 2131495228;
+    public static final int widget_navigation_bar = 2131495229;
+    public static final int widget_navigation_bar_unlogin = 2131495230;
+    public static final int widget_nb_item_back = 2131495231;
+    public static final int widget_nb_item_create_group = 2131495232;
+    public static final int widget_nb_item_finish = 2131495234;
+    public static final int widget_nb_item_more = 2131495235;
+    public static final int widget_nb_item_privacy = 2131495236;
+    public static final int widget_nb_item_search = 2131495237;
+    public static final int widget_nb_item_stepbtn = 2131495240;
+    public static final int widget_nb_item_title = 2131495241;
+    public static final int widget_right_voice_view = 2131495242;
+    public static final int write_thread_share_guide = 2131495258;
+    public static final int youngster_frs_dialog_view = 2131495259;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f15385a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f15386b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f15387c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f15388d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f15389e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f15390f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f15391g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<c> f15392h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public f f15393i;
-    public d j;
-    public InterfaceC0775g k;
-    public RadioButton l;
-    public RadioButton m;
-    public RadioButton n;
-    public RadioButton o;
-    public RadioButton p;
-    public LinearLayout q;
-    public int r;
-    public View.OnClickListener s;
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f15394e;
-
-        public a(g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15394e = gVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f15394e.l) {
-                    this.f15394e.m.setChecked(false);
-                    this.f15394e.n.setChecked(false);
-                    this.f15394e.o.setChecked(false);
-                    this.f15394e.p.setChecked(false);
-                    this.f15394e.r = 1;
-                } else if (view == this.f15394e.m) {
-                    this.f15394e.l.setChecked(true);
-                    this.f15394e.n.setChecked(false);
-                    this.f15394e.o.setChecked(false);
-                    this.f15394e.p.setChecked(false);
-                    this.f15394e.r = 2;
-                } else if (view == this.f15394e.n) {
-                    this.f15394e.l.setChecked(true);
-                    this.f15394e.m.setChecked(true);
-                    this.f15394e.o.setChecked(false);
-                    this.f15394e.p.setChecked(false);
-                    this.f15394e.r = 3;
-                } else if (view == this.f15394e.o) {
-                    this.f15394e.l.setChecked(true);
-                    this.f15394e.m.setChecked(true);
-                    this.f15394e.n.setChecked(true);
-                    this.f15394e.p.setChecked(false);
-                    this.f15394e.r = 4;
-                } else if (view == this.f15394e.p) {
-                    this.f15394e.l.setChecked(true);
-                    this.f15394e.m.setChecked(true);
-                    this.f15394e.n.setChecked(true);
-                    this.f15394e.o.setChecked(true);
-                    this.f15394e.r = 5;
-                }
-                if (this.f15394e.k != null) {
-                    this.f15394e.k.onClick(this.f15394e.r);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f15395e;
-
-        public b(g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15395e = gVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f15395e.j.onClick();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f15396a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public g f15397b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public View f15398c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f15399d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public View f15400e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f15401f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f15402g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public e f15403h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public boolean f15404i;
-        public final View.OnClickListener j;
-
-        /* loaded from: classes4.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f15405e;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f15405e = cVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (this.f15405e.f15403h != null) {
-                        this.f15405e.f15403h.onClick();
-                    }
-                    if (this.f15405e.f15397b == null || this.f15405e.f15397b.k() == null) {
-                        return;
-                    }
-                    this.f15405e.f15397b.k().onItemClick(this.f15405e.f15396a);
-                }
-            }
-        }
-
-        public c(String str, g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, gVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15402g = 17;
-            this.f15404i = true;
-            this.j = new a(this);
-            this.f15401f = str;
-            this.f15397b = gVar;
-            this.f15396a = hashCode();
-            f();
-            e();
-        }
-
-        public View d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15398c : (View) invokeV.objValue;
-        }
-
-        public final void e() {
-            TextView textView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.f15399d) == null) {
-                return;
-            }
-            textView.setOnClickListener(this.j);
-        }
-
-        public final void f() {
-            g gVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.f15397b) == null || gVar.getContext() == null) {
-                return;
-            }
-            View inflate = LayoutInflater.from(this.f15397b.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.f15397b.l(), false);
-            this.f15398c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.item_view);
-            this.f15399d = textView;
-            textView.setText(this.f15401f);
-            this.f15399d.setGravity(this.f15402g);
-            View findViewById = this.f15398c.findViewById(R.id.divider_line);
-            this.f15400e = findViewById;
-            if (this.f15404i) {
-                findViewById.setVisibility(0);
-            } else {
-                findViewById.setVisibility(8);
-            }
-            g();
-        }
-
-        public void g() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SkinManager.setBackgroundResource(this.f15399d, R.drawable.bg_bottom_up_list_dialog_item);
-                SkinManager.setViewTextColor(this.f15399d, R.color.CAM_X0106);
-                SkinManager.setBackgroundColor(this.f15400e, R.color.CAM_X0204);
-            }
-        }
-
-        public void h(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-                this.f15403h = eVar;
-                e();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface d {
-        void onClick();
-    }
-
-    /* loaded from: classes4.dex */
-    public interface e {
-        void onClick();
-    }
-
-    /* loaded from: classes4.dex */
-    public interface f {
-        void onItemClick(int i2);
-    }
-
-    /* renamed from: b.a.r0.c4.g$g  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0775g {
-        void onClick(int i2);
-    }
-
-    public g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.s = new a(this);
-        if (context == null) {
-            return;
-        }
-        this.f15385a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.rate_list_dialog_view, (ViewGroup) null);
-        this.f15386b = inflate;
-        this.f15387c = (LinearLayout) inflate.findViewById(R.id.content_view);
-        this.f15388d = (TextView) this.f15386b.findViewById(R.id.title);
-        this.f15389e = this.f15386b.findViewById(R.id.title_divide_line);
-        this.f15392h = new ArrayList();
-        this.f15390f = (TextView) this.f15386b.findViewById(R.id.dialog_bottom_cancel_button);
-        RadioButton radioButton = (RadioButton) this.f15386b.findViewById(R.id.comment_grade_1);
-        this.l = radioButton;
-        radioButton.setOnClickListener(this.s);
-        RadioButton radioButton2 = (RadioButton) this.f15386b.findViewById(R.id.comment_grade_2);
-        this.m = radioButton2;
-        radioButton2.setOnClickListener(this.s);
-        RadioButton radioButton3 = (RadioButton) this.f15386b.findViewById(R.id.comment_grade_3);
-        this.n = radioButton3;
-        radioButton3.setOnClickListener(this.s);
-        RadioButton radioButton4 = (RadioButton) this.f15386b.findViewById(R.id.comment_grade_4);
-        this.o = radioButton4;
-        radioButton4.setOnClickListener(this.s);
-        RadioButton radioButton5 = (RadioButton) this.f15386b.findViewById(R.id.comment_grade_5);
-        this.p = radioButton5;
-        radioButton5.setOnClickListener(this.s);
-        this.q = (LinearLayout) this.f15386b.findViewById(R.id.comment_grade);
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15385a : (Context) invokeV.objValue;
-    }
-
-    public View j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!StringUtils.isNull(this.f15391g)) {
-                this.f15388d.setText(this.f15391g);
-            } else {
-                this.f15388d.setVisibility(8);
-            }
-            if (this.j != null) {
-                this.f15390f.setOnClickListener(new b(this));
-            }
-            m();
-            return this.f15386b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public f k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15393i : (f) invokeV.objValue;
-    }
-
-    public ViewGroup l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15387c : (ViewGroup) invokeV.objValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setBackgroundColor(this.f15388d, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f15388d, R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.f15389e, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.f15390f, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setViewTextColor(this.f15390f, R.color.CAM_X0106);
-            SkinManager.setBackgroundResource(this.q, R.drawable.bg_bottom_up_list_dialog_item);
-            List<c> list = this.f15392h;
-            if (list != null) {
-                for (c cVar : list) {
-                    cVar.g();
-                }
-            }
-        }
-    }
-
-    public void n(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f15390f.setVisibility(i2);
-        }
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.l.setEnabled(z);
-            this.m.setEnabled(z);
-            this.n.setEnabled(z);
-            this.o.setEnabled(z);
-            this.p.setEnabled(z);
-        }
-    }
-
-    public void p(int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) {
-            this.q.setPadding(i2, i3, i4, i5);
-        }
-    }
-
-    public void q(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            if (i2 == 1) {
-                this.l.setChecked(true);
-                this.m.setChecked(false);
-                this.n.setChecked(false);
-                this.o.setChecked(false);
-                this.p.setChecked(false);
-            } else if (i2 == 2) {
-                this.l.setChecked(true);
-                this.m.setChecked(true);
-                this.n.setChecked(false);
-                this.o.setChecked(false);
-                this.p.setChecked(false);
-            } else if (i2 == 3) {
-                this.l.setChecked(true);
-                this.m.setChecked(true);
-                this.n.setChecked(true);
-                this.o.setChecked(false);
-                this.p.setChecked(false);
-            } else if (i2 == 4) {
-                this.l.setChecked(true);
-                this.m.setChecked(true);
-                this.n.setChecked(true);
-                this.o.setChecked(true);
-                this.p.setChecked(false);
-            } else if (i2 != 5) {
-            } else {
-                this.l.setChecked(true);
-                this.m.setChecked(true);
-                this.n.setChecked(true);
-                this.o.setChecked(true);
-                this.p.setChecked(true);
-            }
-        }
-    }
-
-    public void r(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.q.setVisibility(i2);
-        }
-    }
-
-    public void s(List<c> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, list) == null) || list == null) {
-            return;
-        }
-        this.f15392h = list;
-        this.f15387c.removeAllViews();
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            c cVar = list.get(i2);
-            if (cVar != null) {
-                this.f15387c.addView(cVar.d());
-            }
-        }
-    }
-
-    public void t(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
-            this.j = dVar;
-        }
-    }
-
-    public void u(InterfaceC0775g interfaceC0775g) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, interfaceC0775g) == null) {
-            this.k = interfaceC0775g;
-        }
-    }
-
-    public void v(int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048589, this, i2, i3, i4, i5) == null) {
-            this.f15388d.setPadding(i2, i3, i4, i5);
-        }
-    }
-
-    public void w(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f15388d.setTextSize(0, l.g(this.f15385a, i2));
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f15391g = str;
-        }
-    }
 }

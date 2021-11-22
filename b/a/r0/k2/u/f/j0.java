@@ -3,31 +3,31 @@ package b.a.r0.k2.u.f;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.q0.s.q.f1;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
+import com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class j0 extends n<f1, PbRecommendNovelHolder> {
+public class j0 extends n<h0, PbPageNewsInfoHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b.a.r0.k2.r.f s;
-    public PbRecommendNovelHolder.b t;
+    public PbPageNewsInfoHolder.b t;
 
     /* loaded from: classes5.dex */
-    public class a implements PbRecommendNovelHolder.b {
+    public class a implements PbPageNewsInfoHolder.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ j0 f19324a;
+        public final /* synthetic */ j0 f20889a;
 
         public a(j0 j0Var) {
             Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class j0 extends n<f1, PbRecommendNovelHolder> {
                     return;
                 }
             }
-            this.f19324a = j0Var;
+            this.f20889a = j0Var;
         }
 
-        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
-        public void a(f1 f1Var) {
+        @Override // com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder.b
+        public void a(h0 h0Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, f1Var) == null) || f1Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, h0Var) == null) || h0Var == null) {
                 return;
             }
-            b.a.r0.k2.w.a.a(this.f19324a.s, f1Var, f1Var.k0, 6);
+            b.a.r0.k2.w.a.a(this.f20889a.s, h0Var, h0Var.k0, 5);
         }
     }
 
@@ -79,32 +79,33 @@ public class j0 extends n<f1, PbRecommendNovelHolder> {
         this.t = new a(this);
     }
 
-    @Override // b.a.r0.k2.u.f.n, b.a.e.l.e.a
+    @Override // b.a.r0.k2.u.f.n, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        k0(i2, view, viewGroup, (f1) obj, (PbRecommendNovelHolder) viewHolder);
+        k0(i2, view, viewGroup, (h0) obj, (PbPageNewsInfoHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
-    public PbRecommendNovelHolder T(ViewGroup viewGroup) {
+    public PbPageNewsInfoHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.n.getPageContext(), LayoutInflater.from(this.f2419e).inflate(b.a.r0.k2.j.pb_recommend_novel, viewGroup, false), this.t) : (PbRecommendNovelHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPageNewsInfoHolder(this.n.getPageContext(), LayoutInflater.from(this.f2421e).inflate(b.a.r0.k2.j.pb_page_news, viewGroup, false), this.t) : (PbPageNewsInfoHolder) invokeL.objValue;
     }
 
-    public View k0(int i2, View view, ViewGroup viewGroup, f1 f1Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
+    public View k0(int i2, View view, ViewGroup viewGroup, h0 h0Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, f1Var, pbRecommendNovelHolder})) == null) {
-            super.Z(i2, view, viewGroup, f1Var, pbRecommendNovelHolder);
-            if (f1Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, h0Var, pbPageNewsInfoHolder})) == null) {
+            super.Z(i2, view, viewGroup, h0Var, pbPageNewsInfoHolder);
+            if (h0Var == null) {
                 return view;
             }
-            f1Var.k0 = i2 + 1;
-            b.a.r0.k2.w.a.d(this.n.getUniqueId(), this.s, f1Var, f1Var.k0, 6);
-            pbRecommendNovelHolder.bindDataToView(f1Var);
+            h0Var.k0 = i2 + 1;
+            b.a.r0.k2.w.a.d(this.n.getUniqueId(), this.s, h0Var, h0Var.k0, 5);
+            pbPageNewsInfoHolder.bindDataToView(h0Var);
+            pbPageNewsInfoHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return view;
         }
         return (View) invokeCommon.objValue;

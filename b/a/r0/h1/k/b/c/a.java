@@ -17,21 +17,22 @@ import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.PkModule;
 import tbclient.TopicModule;
 /* loaded from: classes4.dex */
-public class a extends b.a.r0.b0.e0.b {
+public class a extends b.a.r0.b0.f0.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId j0;
-    public static final BdUniqueId k0;
+    public static final BdUniqueId m0;
+    public static final BdUniqueId n0;
     public transient /* synthetic */ FieldHolder $fh;
-    public int U;
-    public long V;
-    public String W;
-    public String X;
-    public long Y;
+    public int W;
+    public long X;
+    public String Y;
     public String Z;
-    public b a0;
-    public PostData b0;
-    public int c0;
-    public d2 i0;
+    public long a0;
+    public String b0;
+    public b c0;
+    public PostData i0;
+    public int j0;
+    public String k0;
+    public d2 l0;
 
     static {
         InterceptResult invokeClinit;
@@ -46,8 +47,8 @@ public class a extends b.a.r0.b0.e0.b {
                 return;
             }
         }
-        j0 = BdUniqueId.gen();
-        k0 = BdUniqueId.gen();
+        m0 = BdUniqueId.gen();
+        n0 = BdUniqueId.gen();
     }
 
     public a() {
@@ -63,13 +64,13 @@ public class a extends b.a.r0.b0.e0.b {
                 return;
             }
         }
-        this.c0 = 0;
+        this.j0 = 0;
     }
 
     public static boolean P(d2 d2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d2Var)) == null) ? d2Var != null && d2Var.getType() == d2.o3 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d2Var)) == null) ? d2Var != null && d2Var.getType() == d2.q3 : invokeL.booleanValue;
     }
 
     public void Q(NewTopicList newTopicList) {
@@ -77,22 +78,22 @@ public class a extends b.a.r0.b0.e0.b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, newTopicList) == null) || newTopicList == null) {
             return;
         }
-        this.V = newTopicList.topic_id.longValue();
-        this.W = newTopicList.topic_name;
-        this.X = newTopicList.topic_desc;
-        this.Y = newTopicList.discuss_num.longValue();
-        this.Z = newTopicList.topic_image;
+        this.X = newTopicList.topic_id.longValue();
+        this.Y = newTopicList.topic_name;
+        this.Z = newTopicList.topic_desc;
+        this.a0 = newTopicList.discuss_num.longValue();
+        this.b0 = newTopicList.topic_image;
         PkModule pkModule = newTopicList.pk_module;
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             b bVar = new b();
-            this.a0 = bVar;
-            bVar.f17639a = this.V;
-            bVar.f17644f = 1;
+            this.c0 = bVar;
+            bVar.f19108a = this.X;
+            bVar.f19113f = 1;
             bVar.b(newTopicList.pk_module);
         }
         if (newTopicList.top_agree_post != null) {
             PostData postData = new PostData();
-            this.b0 = postData;
+            this.i0 = postData;
             postData.g0(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
         }
     }
@@ -102,53 +103,54 @@ public class a extends b.a.r0.b0.e0.b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicModule) == null) || topicModule == null) {
             return;
         }
-        this.V = topicModule.topic_id.longValue();
-        this.W = topicModule.topic_name;
-        this.X = topicModule.topic_desc;
-        this.Z = topicModule.topic_image;
+        this.X = topicModule.topic_id.longValue();
+        this.Y = topicModule.topic_name;
+        this.Z = topicModule.topic_desc;
+        this.b0 = topicModule.topic_image;
+        this.k0 = topicModule.topic_avatar;
         tbclient.PkModule pkModule = topicModule.pk_module;
         if (pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
             return;
         }
         b bVar = new b();
-        this.a0 = bVar;
-        bVar.f17639a = this.V;
-        bVar.f17644f = 3;
+        this.c0 = bVar;
+        bVar.f19108a = this.X;
+        bVar.f19113f = 3;
         bVar.c(topicModule.pk_module);
     }
 
     public void S(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
-            this.i0 = d2Var;
+            this.l0 = d2Var;
         }
     }
 
-    @Override // b.a.r0.b0.e0.b, b.a.q0.s.q.a
+    @Override // b.a.r0.b0.f0.b, b.a.q0.s.q.a
     public x0 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             x0 negFeedBackData = super.getNegFeedBackData();
             if (negFeedBackData != null) {
-                negFeedBackData.q(this.V);
+                negFeedBackData.q(this.X);
             }
             return negFeedBackData;
         }
         return (x0) invokeV.objValue;
     }
 
-    @Override // b.a.r0.b0.e0.b, b.a.q0.s.q.a
+    @Override // b.a.r0.b0.f0.b, b.a.q0.s.q.a
     public d2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i0 : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l0 : (d2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c0 == 0 ? j0 : k0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j0 == 0 ? m0 : n0 : (BdUniqueId) invokeV.objValue;
     }
 }

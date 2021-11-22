@@ -2,7 +2,6 @@ package com.ss.android.socialbase.appdownloader.b;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.searchbox.privateapi.PrivateApiUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +13,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68909a;
+    public static final String f69829a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +33,7 @@ public class a {
         boolean z = true;
         boolean z2 = !TextUtils.isEmpty(Build.VERSION.RELEASE);
         boolean z3 = !TextUtils.isEmpty(Build.ID);
-        z = (!PrivateApiUtils.SDK_VERSION_NAME.equals(Build.VERSION.CODENAME) || TextUtils.isEmpty(Build.MODEL)) ? false : false;
+        z = (!"REL".equals(Build.VERSION.CODENAME) || TextUtils.isEmpty(Build.MODEL)) ? false : false;
         sb.append("AppDownloader");
         if (z2) {
             sb.append("/");
@@ -57,6 +56,6 @@ public class a {
             }
         }
         sb.append(SmallTailInfo.EMOTION_SUFFIX);
-        f68909a = sb.toString();
+        f69829a = sb.toString();
     }
 }

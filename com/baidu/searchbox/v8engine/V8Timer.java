@@ -86,63 +86,68 @@ public class V8Timer implements V8Engine.V8StatusListener {
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.mRemoved || this.this$0.mDestroyed) {
                 return;
             }
-            this.this$0.mV8Engine.postOnJSThread(new Runnable(this) { // from class: com.baidu.searchbox.v8engine.V8Timer.TimeTask.1
-                public static final /* synthetic */ boolean $assertionsDisabled = false;
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ TimeTask this$1;
-
-                static {
-                    InterceptResult invokeClinit;
-                    ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                    if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-61551286, "Lcom/baidu/searchbox/v8engine/V8Timer$TimeTask$1;")) == null) {
-                        return;
-                    }
-                    Interceptable interceptable2 = invokeClinit.interceptor;
-                    if (interceptable2 != null) {
-                        $ic = interceptable2;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(-61551286, "Lcom/baidu/searchbox/v8engine/V8Timer$TimeTask$1;");
-                    }
+            synchronized (this.this$0) {
+                if (this.this$0.mV8Engine == null) {
+                    return;
                 }
+                this.this$0.mV8Engine.postOnJSThread(new Runnable(this) { // from class: com.baidu.searchbox.v8engine.V8Timer.TimeTask.1
+                    public static final /* synthetic */ boolean $assertionsDisabled = false;
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ TimeTask this$1;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65537, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65537, newInitContext);
+                    static {
+                        InterceptResult invokeClinit;
+                        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-61551286, "Lcom/baidu/searchbox/v8engine/V8Timer$TimeTask$1;")) == null) {
                             return;
                         }
+                        Interceptable interceptable2 = invokeClinit.interceptor;
+                        if (interceptable2 != null) {
+                            $ic = interceptable2;
+                        }
+                        if ((invokeClinit.flags & 1) != 0) {
+                            classClinitInterceptable.invokePostClinit(-61551286, "Lcom/baidu/searchbox/v8engine/V8Timer$TimeTask$1;");
+                        }
                     }
-                    this.this$1 = this;
-                }
 
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.mRemoved || this.this$1.this$0.mDestroyed || this.this$1.this$0.mV8Engine.isPaused()) {
-                        return;
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65537, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65537, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
                     }
-                    TimeTask timeTask = this.this$1;
-                    timeTask.this$0.nativeTimeOutCallback(timeTask.mTimerPtr);
-                    TimeTask timeTask2 = this.this$1;
-                    if (timeTask2.mRepeat) {
-                        Handler handler = timeTask2.this$0.mUiHandler;
-                        TimeTask timeTask3 = this.this$1;
-                        handler.postDelayed(timeTask3, timeTask3.mTimeOut);
-                        return;
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.mRemoved || this.this$1.this$0.mDestroyed || this.this$1.this$0.mV8Engine.isPaused()) {
+                            return;
+                        }
+                        TimeTask timeTask = this.this$1;
+                        timeTask.this$0.nativeTimeOutCallback(timeTask.mTimerPtr);
+                        TimeTask timeTask2 = this.this$1;
+                        if (timeTask2.mRepeat) {
+                            Handler handler = timeTask2.this$0.mUiHandler;
+                            TimeTask timeTask3 = this.this$1;
+                            handler.postDelayed(timeTask3, timeTask3.mTimeOut);
+                            return;
+                        }
+                        timeTask2.this$0.removeTimeTask(timeTask2.mTimerID, timeTask2.mTimerPtr);
                     }
-                    timeTask2.this$0.removeTimeTask(timeTask2.mTimerID, timeTask2.mTimerPtr);
-                }
-            });
+                });
+            }
         }
 
         public String toString() {
@@ -214,7 +219,9 @@ public class V8Timer implements V8Engine.V8StatusListener {
                     removeTimeTask(timeTask.mTimerID, timeTask.mTimerPtr);
                 }
             }
-            this.mV8Engine = null;
+            synchronized (this) {
+                this.mV8Engine = null;
+            }
             this.mActiveTimer.clear();
         }
     }

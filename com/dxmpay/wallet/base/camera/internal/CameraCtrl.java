@@ -39,7 +39,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
     public int _cameraCnt;
     public int _cameraId;
-    public b.f.b.a.a.a.b _cameraProxy;
+    public b.e.b.a.a.a.b _cameraProxy;
     public int _height;
     public final Method[] _newVersionMethods;
     public Camera.PreviewCallback _previewCb;
@@ -166,7 +166,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static CameraCtrl f62324a;
+        public static CameraCtrl f63225a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -182,7 +182,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                     return;
                 }
             }
-            f62324a = new CameraCtrl(null);
+            f63225a = new CameraCtrl(null);
         }
     }
 
@@ -251,7 +251,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static CameraCtrl getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f62324a : (CameraCtrl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f63225a : (CameraCtrl) invokeV.objValue;
     }
 
     private Camera.Size getSimilarRatioSize(int i2, int i3, List<Camera.Size> list, int i4) {
@@ -341,9 +341,9 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
             boolean z2 = true;
             if (this._cameraProxy == null) {
                 try {
-                    this._cameraProxy = b.f.b.a.a.a.b.a();
+                    this._cameraProxy = b.e.b.a.a.a.b.a();
                     if (-1 != i2 && isSupportMultiCamera()) {
-                        this._cameraProxy.f30744a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
+                        this._cameraProxy.f31602a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
                         k = this._cameraProxy.k();
                         if (k != null) {
                             return false;
@@ -380,7 +380,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                                     Method method = this._newVersionMethods[MethodIndex.setDisplayOrientation.ordinal()];
                                     if (method != null) {
                                         try {
-                                            method.invoke(this._cameraProxy.f30744a, Integer.valueOf(i5));
+                                            method.invoke(this._cameraProxy.f31602a, Integer.valueOf(i5));
                                             this._rotation = i5;
                                         } catch (Exception e2) {
                                             LogUtil.e(Tag, "", e2);
@@ -451,10 +451,10 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    public b.f.b.a.a.a.b camera() {
+    public b.e.b.a.a.a.b camera() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this._cameraProxy : (b.f.b.a.a.a.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this._cameraProxy : (b.e.b.a.a.a.b) invokeV.objValue;
     }
 
     public synchronized void destroy() {
@@ -501,7 +501,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
 
     public int getCurrentZoom() {
         InterceptResult invokeV;
-        b.f.b.a.a.a.b bVar;
+        b.e.b.a.a.a.b bVar;
         Camera.Parameters k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -515,7 +515,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
 
     public int getMaxZoom() {
         InterceptResult invokeV;
-        b.f.b.a.a.a.b bVar;
+        b.e.b.a.a.a.b bVar;
         Camera.Parameters k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -599,7 +599,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         Camera.Parameters k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            b.f.b.a.a.a.b bVar = this._cameraProxy;
+            b.e.b.a.a.a.b bVar = this._cameraProxy;
             if (bVar == null || (k = bVar.k()) == null) {
                 return false;
             }
@@ -679,7 +679,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     }
 
     public void setZoom(int i2) {
-        b.f.b.a.a.a.b bVar;
+        b.e.b.a.a.a.b bVar;
         Camera.Parameters k;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || (bVar = this._cameraProxy) == null || (k = bVar.k()) == null || !isSupportZoom() || k.getZoom() == i2) {

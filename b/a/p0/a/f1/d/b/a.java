@@ -2,7 +2,7 @@ package b.a.p0.a.f1.d.b;
 
 import b.a.p0.a.e0.d;
 import b.a.p0.a.k;
-import b.a.p0.n.c;
+import b.a.p0.q.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,18 +16,21 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f4820b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Integer> f5046a;
+    public final Map<String, Integer> f4821a;
 
     /* renamed from: b.a.p0.a.f1.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0180a {
+    public static class C0168a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f5047a;
+        public static final a f4822a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +46,7 @@ public class a {
                     return;
                 }
             }
-            f5047a = new a();
+            f4822a = new a();
         }
     }
 
@@ -60,7 +63,9 @@ public class a {
                 return;
             }
         }
-        boolean z = k.f6397a;
+        boolean z = k.f6863a;
+        b.a.p0.a.c1.a.g0().getSwitch("swan_pms_request_retry_count", 1);
+        f4820b = 1;
     }
 
     public a() {
@@ -76,19 +81,19 @@ public class a {
                 return;
             }
         }
-        this.f5046a = new ConcurrentHashMap();
+        this.f4821a = new ConcurrentHashMap();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0180a.f5047a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0168a.f4822a : (a) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f5046a.put(str, Integer.valueOf(c(str) + 1));
+            this.f4821a.put(str, Integer.valueOf(c(str) + 1));
         }
     }
 
@@ -96,11 +101,11 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.f5046a.get(str);
-            if (num != null) {
-                return num.intValue();
+            Integer num = this.f4821a.get(str);
+            if (num == null) {
+                return 0;
             }
-            return 0;
+            return num.intValue();
         }
         return invokeL.intValue;
     }
@@ -109,8 +114,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = c.b().j().getInt("get_pkg_retry_switch", 0);
-            d.g("GetPkgRetryController", "getServerRetrySwitch:" + i2);
+            int i2 = c.b().i().getInt("get_pkg_retry_switch", 0);
+            d.i("GetPkgRetryController", "getServerRetrySwitch:" + i2);
             return i2 == 1;
         }
         return invokeV.booleanValue;
@@ -128,13 +133,13 @@ public class a {
     public boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? d() && c(str) < 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? d() && c(str) < f4820b : invokeL.booleanValue;
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f5046a.remove(str);
+            this.f4821a.remove(str);
         }
     }
 }

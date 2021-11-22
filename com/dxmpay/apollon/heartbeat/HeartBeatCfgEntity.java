@@ -2,7 +2,7 @@ package com.dxmpay.apollon.heartbeat;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.f.a.d.c;
+import b.e.a.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -128,7 +128,7 @@ public class HeartBeatCfgEntity implements NoProguard, Serializable {
             if (!TextUtils.isEmpty(json)) {
                 FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + "dxmheartbeatcfg.cfg"));
             }
-            c.b(context, com.baidu.apollon.heartbeat.c.f36004b, Calendar.getInstance().getTimeInMillis() / 1000);
+            c.b(context, com.baidu.apollon.heartbeat.c.f36833b, Calendar.getInstance().getTimeInMillis() / 1000);
         }
     }
 

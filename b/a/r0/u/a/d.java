@@ -3,7 +3,7 @@ package b.a.r0.u.a;
 import android.content.Context;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.q0.j;
 import b.a.r0.r.b;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -31,30 +31,30 @@ public class d implements b.a.r0.u.a.h.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile SplashAd f23897h;
+    public static volatile SplashAd f25385h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile boolean f23898i;
+    public static volatile boolean f25386i;
     public static volatile SplashLpCloseListener j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public RsplashType f23899b;
+    public RsplashType f25387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23900c;
+    public int f25388c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WeakReference<ViewGroup> f23901d;
+    public WeakReference<ViewGroup> f25389d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdLoadState f23902e;
+    public AdLoadState f25390e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.q0.l.a f23903f;
+    public b.a.q0.l.a f25391f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.q0.l.b f23904g;
+    public b.a.q0.l.b f25392g;
 
     /* loaded from: classes5.dex */
     public class a implements b.a.q0.l.b {
@@ -62,7 +62,7 @@ public class d implements b.a.r0.u.a.h.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f23905a;
+        public final /* synthetic */ d f25393a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -79,14 +79,14 @@ public class d implements b.a.r0.u.a.h.b {
                     return;
                 }
             }
-            this.f23905a = dVar;
+            this.f25393a = dVar;
         }
 
         @Override // b.a.q0.l.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f23905a.p();
+                this.f25393a.p();
             }
         }
     }
@@ -97,7 +97,7 @@ public class d implements b.a.r0.u.a.h.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f23906a;
+        public final /* synthetic */ d f25394a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -114,13 +114,13 @@ public class d implements b.a.r0.u.a.h.b {
                     return;
                 }
             }
-            this.f23906a = dVar;
+            this.f25394a = dVar;
         }
 
         public final void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                b.a.e.e.n.a a2 = j.a();
+                b.a.e.f.n.a a2 = j.a();
                 a2.b("type", "cpc");
                 a2.b("locate", SpeedStatsUtils.UBC_VALUE_SPLASH);
                 a2.c(SetImageWatermarkTypeReqMsg.SWITCH, Integer.valueOf(b.a.r0.u.a.h.a.c().b()));
@@ -133,15 +133,15 @@ public class d implements b.a.r0.u.a.h.b {
         public void onADLoaded(RsplashType rsplashType, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rsplashType, i2) == null) {
-                b.a.r0.u.a.j.a.j(b.a.r0.u.a.j.a.f23952e, "0", i2);
-                this.f23906a.f23902e = AdLoadState.SUCCEED;
-                boolean z = b.a.r0.u.a.h.b.f23940a;
-                if (d.f23897h == null || this.f23906a.f23901d == null) {
+                b.a.r0.u.a.j.a.j(b.a.r0.u.a.j.a.f25440e, "0", i2);
+                this.f25394a.f25390e = AdLoadState.SUCCEED;
+                boolean z = b.a.r0.u.a.h.b.f25428a;
+                if (d.f25385h == null || this.f25394a.f25389d == null) {
                     return;
                 }
-                this.f23906a.f23899b = rsplashType;
-                this.f23906a.f23900c = 0;
-                b.a.r0.u.a.h.a.c().h(this.f23906a.f23903f);
+                this.f25394a.f25387b = rsplashType;
+                this.f25394a.f25388c = 0;
+                b.a.r0.u.a.h.a.c().h(this.f25394a.f25391f);
                 a("advert_load", 1);
             }
         }
@@ -150,9 +150,9 @@ public class d implements b.a.r0.u.a.h.b {
         public void onAdClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                boolean z = b.a.r0.u.a.h.b.f23940a;
-                if (this.f23906a.f23903f != null) {
-                    this.f23906a.f23903f.a(this.f23906a.f23899b == RsplashType.VIDEO, 1 == this.f23906a.f23900c, 7, null, null);
+                boolean z = b.a.r0.u.a.h.b.f25428a;
+                if (this.f25394a.f25391f != null) {
+                    this.f25394a.f25391f.a(this.f25394a.f25387b == RsplashType.VIDEO, 1 == this.f25394a.f25388c, 7, null, null);
                 }
             }
         }
@@ -161,12 +161,12 @@ public class d implements b.a.r0.u.a.h.b {
         public void onAdDismissed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                boolean z = this.f23906a.f23902e == AdLoadState.DISMISSED;
-                this.f23906a.f23902e = AdLoadState.DISMISSED;
-                if (this.f23906a.f23903f == null || z) {
+                boolean z = this.f25394a.f25390e == AdLoadState.DISMISSED;
+                this.f25394a.f25390e = AdLoadState.DISMISSED;
+                if (this.f25394a.f25391f == null || z) {
                     return;
                 }
-                this.f23906a.f23903f.onAdDismiss();
+                this.f25394a.f25391f.onAdDismiss();
             }
         }
 
@@ -174,13 +174,13 @@ public class d implements b.a.r0.u.a.h.b {
         public void onAdFailed(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                b.a.r0.u.a.j.a.j(b.a.r0.u.a.j.a.f23952e, str, 0);
-                if (b.a.r0.u.a.h.b.f23940a) {
+                b.a.r0.u.a.j.a.j(b.a.r0.u.a.j.a.f25440e, str, 0);
+                if (b.a.r0.u.a.h.b.f25428a) {
                     String str2 = "bes cpc ad loaded failed : " + str;
                 }
-                this.f23906a.f23902e = AdLoadState.FAILED;
-                b.a.r0.u.a.h.a.c().h(this.f23906a.f23903f);
-                b.a.r0.u.a.j.a.k(b.a.r0.u.a.j.a.f23952e, "1");
+                this.f25394a.f25390e = AdLoadState.FAILED;
+                b.a.r0.u.a.h.a.c().h(this.f25394a.f25391f);
+                b.a.r0.u.a.j.a.k(b.a.r0.u.a.j.a.f25440e, "1");
                 a("advert_show", 0);
             }
         }
@@ -189,12 +189,12 @@ public class d implements b.a.r0.u.a.h.b {
         public void onAdPresent() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                boolean z = b.a.r0.u.a.h.b.f23940a;
-                boolean z2 = 1 == this.f23906a.f23900c;
-                if (this.f23906a.f23903f != null) {
-                    this.f23906a.f23903f.e(false, z2, 7);
+                boolean z = b.a.r0.u.a.h.b.f25428a;
+                boolean z2 = 1 == this.f25394a.f25388c;
+                if (this.f25394a.f25391f != null) {
+                    this.f25394a.f25391f.e(false, z2, 7);
                 }
-                b.a.r0.u.a.j.a.k(b.a.r0.u.a.j.a.f23952e, "0");
+                b.a.r0.u.a.j.a.k(b.a.r0.u.a.j.a.f25440e, "0");
                 a("advert_show", 1);
             }
         }
@@ -202,10 +202,10 @@ public class d implements b.a.r0.u.a.h.b {
         @Override // com.baidu.mobads.sdk.api.SplashLpCloseListener
         public void onLpClosed() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f23906a.f23903f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f25394a.f25391f == null) {
                 return;
             }
-            this.f23906a.f23903f.onLpClosed();
+            this.f25394a.f25391f.onLpClosed();
         }
     }
 
@@ -215,7 +215,7 @@ public class d implements b.a.r0.u.a.h.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f23907a;
+        public final /* synthetic */ d f25395a;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
@@ -223,10 +223,10 @@ public class d implements b.a.r0.u.a.h.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ RsplashType f23908e;
+            public final /* synthetic */ RsplashType f25396e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f23909f;
+            public final /* synthetic */ int f25397f;
 
             public a(c cVar, RsplashType rsplashType, int i2) {
                 Interceptable interceptable = $ic;
@@ -243,8 +243,8 @@ public class d implements b.a.r0.u.a.h.b {
                         return;
                     }
                 }
-                this.f23908e = rsplashType;
-                this.f23909f = i2;
+                this.f25396e = rsplashType;
+                this.f25397f = i2;
             }
 
             @Override // java.lang.Runnable
@@ -253,7 +253,7 @@ public class d implements b.a.r0.u.a.h.b {
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || d.j == null) {
                     return;
                 }
-                d.j.onADLoaded(this.f23908e, this.f23909f);
+                d.j.onADLoaded(this.f25396e, this.f25397f);
             }
         }
 
@@ -263,7 +263,7 @@ public class d implements b.a.r0.u.a.h.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f23910e;
+            public final /* synthetic */ String f25398e;
 
             public b(c cVar, String str) {
                 Interceptable interceptable = $ic;
@@ -280,7 +280,7 @@ public class d implements b.a.r0.u.a.h.b {
                         return;
                     }
                 }
-                this.f23910e = str;
+                this.f25398e = str;
             }
 
             @Override // java.lang.Runnable
@@ -289,7 +289,7 @@ public class d implements b.a.r0.u.a.h.b {
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || d.j == null) {
                     return;
                 }
-                d.j.onAdFailed(this.f23910e);
+                d.j.onAdFailed(this.f25398e);
             }
         }
 
@@ -308,7 +308,7 @@ public class d implements b.a.r0.u.a.h.b {
                     return;
                 }
             }
-            this.f23907a = dVar;
+            this.f25395a = dVar;
         }
 
         @Override // com.baidu.mobads.sdk.api.SplashAdListener
@@ -319,11 +319,11 @@ public class d implements b.a.r0.u.a.h.b {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("rsplashType", rsplashType);
                     hashMap.put("count", Integer.valueOf(i2));
-                    b.a.r0.r.b.c().a(this.f23907a.d(), "onADLoaded", hashMap);
+                    b.a.r0.r.b.c().a(this.f25395a.d(), "onADLoaded", hashMap);
                 } else if (l.C()) {
                     d.j.onADLoaded(rsplashType, i2);
                 } else {
-                    b.a.e.e.m.e.a().post(new a(this, rsplashType, i2));
+                    b.a.e.f.m.e.a().post(new a(this, rsplashType, i2));
                 }
             }
         }
@@ -353,11 +353,11 @@ public class d implements b.a.r0.u.a.h.b {
                 if (d.j == null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("data", str);
-                    b.a.r0.r.b.c().a(this.f23907a.d(), "onAdFailed", hashMap);
+                    b.a.r0.r.b.c().a(this.f25395a.d(), "onAdFailed", hashMap);
                 } else if (l.C()) {
                     d.j.onAdFailed(str);
                 } else {
-                    b.a.e.e.m.e.a().post(new b(this, str));
+                    b.a.e.f.m.e.a().post(new b(this, str));
                 }
             }
         }
@@ -409,11 +409,11 @@ public class d implements b.a.r0.u.a.h.b {
                 return;
             }
         }
-        this.f23900c = 1;
+        this.f25388c = 1;
         new AdSplashStyle();
-        this.f23902e = AdLoadState.INIT;
-        this.f23903f = null;
-        this.f23904g = new a(this);
+        this.f25390e = AdLoadState.INIT;
+        this.f25391f = null;
+        this.f25392g = new a(this);
     }
 
     @Override // b.a.r0.u.a.h.b
@@ -421,7 +421,7 @@ public class d implements b.a.r0.u.a.h.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             r(new c(this), null);
-            f23898i = true;
+            f25386i = true;
         }
     }
 
@@ -429,7 +429,7 @@ public class d implements b.a.r0.u.a.h.b {
     public AdLoadState b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23902e : (AdLoadState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25390e : (AdLoadState) invokeV.objValue;
     }
 
     @Override // b.a.r0.u.a.h.b
@@ -438,18 +438,18 @@ public class d implements b.a.r0.u.a.h.b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) || dVar == null || dVar.b() == null || dVar.b().getContext() == null) {
             return;
         }
-        dVar.f12714c = this.f23904g;
-        this.f23903f = dVar.a();
-        this.f23901d = new WeakReference<>(dVar.b());
+        dVar.f13464c = this.f25392g;
+        this.f25391f = dVar.a();
+        this.f25389d = new WeakReference<>(dVar.b());
         b bVar = new b(this);
         dVar.b();
-        if (f23898i) {
+        if (f25386i) {
             j = bVar;
             q();
-            f23898i = false;
+            f25386i = false;
             return;
         }
-        r(bVar, this.f23903f);
+        r(bVar, this.f25391f);
     }
 
     @Override // b.a.r0.u.a.h.b
@@ -463,9 +463,9 @@ public class d implements b.a.r0.u.a.h.b {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (f23897h != null) {
-                f23897h.destroy();
-                f23897h = null;
+            if (f25385h != null) {
+                f25385h.destroy();
+                f25385h = null;
             }
             j = null;
         }
@@ -474,13 +474,13 @@ public class d implements b.a.r0.u.a.h.b {
     public final void p() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (weakReference = this.f23901d) == null || weakReference.get().getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (weakReference = this.f25389d) == null || weakReference.get().getParent() == null) {
             return;
         }
-        ViewGroup.LayoutParams layoutParams = this.f23901d.get().getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f25389d.get().getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -1;
-        this.f23901d.get().setLayoutParams(layoutParams);
+        this.f25389d.get().setLayoutParams(layoutParams);
     }
 
     public final void q() {
@@ -489,7 +489,7 @@ public class d implements b.a.r0.u.a.h.b {
             return;
         }
         for (b.a aVar : b.a.r0.r.b.c().d(d())) {
-            String str = aVar.f22935a;
+            String str = aVar.f24467a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != -1769079577) {
@@ -500,9 +500,9 @@ public class d implements b.a.r0.u.a.h.b {
                 c2 = 0;
             }
             if (c2 == 0) {
-                j.onADLoaded((RsplashType) aVar.f22936b.get("rsplashType"), ((Integer) aVar.f22936b.get("count")).intValue());
+                j.onADLoaded((RsplashType) aVar.f24468b.get("rsplashType"), ((Integer) aVar.f24468b.get("count")).intValue());
             } else if (c2 == 1) {
-                j.onAdFailed((String) aVar.f22936b.get("data"));
+                j.onAdFailed((String) aVar.f24468b.get("data"));
             }
         }
         b.a.r0.r.b.c().b(d());
@@ -514,12 +514,12 @@ public class d implements b.a.r0.u.a.h.b {
             try {
                 Context context = TbadkCoreApplication.getInst().getContext();
                 RequestParameters.Builder addExtra = new RequestParameters.Builder().setHeight(l.k(context)).setWidth(l.i(context)).addExtra(SplashAd.KEY_LIMIT_REGION_CLICK, "true").addExtra(SplashAd.KEY_FETCHAD, "false").addExtra(SplashAd.KEY_DISPLAY_FULL_SCREEN, "false");
-                RequestParameters.Builder addExtra2 = addExtra.addExtra(SplashAd.KEY_BOTTOM_LOGO_ID, "" + b.a.f0.a.b.a.f2781a.get().e());
-                f23897h = new SplashAd(context, "7352842", addExtra2.addExtra(SplashAd.KEY_BOTTOM_LOGO_HEIGHT, "" + b.a.f0.a.b.a.f2781a.get().d()).addExtra(SplashAd.KEY_SKIP_TYPE, "1").addExtra(SplashAd.KEY_LABEL_TYPE, "1").build(), splashLpCloseListener);
-                this.f23902e = AdLoadState.LOADING;
-                f23897h.load();
-                b.a.r0.u.a.j.a.i(b.a.r0.u.a.j.a.f23952e);
-                boolean z = b.a.r0.u.a.h.b.f23940a;
+                RequestParameters.Builder addExtra2 = addExtra.addExtra(SplashAd.KEY_BOTTOM_LOGO_ID, "" + b.a.f0.a.b.a.f2874a.get().e());
+                f25385h = new SplashAd(context, "7352842", addExtra2.addExtra(SplashAd.KEY_BOTTOM_LOGO_HEIGHT, "" + b.a.f0.a.b.a.f2874a.get().d()).addExtra(SplashAd.KEY_SKIP_TYPE, "1").addExtra(SplashAd.KEY_LABEL_TYPE, "1").build(), splashLpCloseListener);
+                this.f25390e = AdLoadState.LOADING;
+                f25385h.load();
+                b.a.r0.u.a.j.a.i(b.a.r0.u.a.j.a.f25440e);
+                boolean z = b.a.r0.u.a.h.b.f25428a;
             } catch (OutOfMemoryError unused) {
                 TbadkCoreApplication.getInst().onLowMemory();
                 if (aVar != null) {
@@ -533,20 +533,20 @@ public class d implements b.a.r0.u.a.h.b {
     public void show() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || f23897h == null || (weakReference = this.f23901d) == null || weakReference.get() == null || this.f23902e != AdLoadState.SUCCEED) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || f25385h == null || (weakReference = this.f25389d) == null || weakReference.get() == null || this.f25390e != AdLoadState.SUCCEED) {
             return;
         }
-        b.a.q0.l.a aVar = this.f23903f;
+        b.a.q0.l.a aVar = this.f25391f;
         if (aVar != null) {
             aVar.d();
         }
         p();
-        int i2 = this.f23900c;
-        if (this.f23901d.get().getChildCount() > 0) {
-            this.f23901d.get().removeAllViews();
+        int i2 = this.f25388c;
+        if (this.f25389d.get().getChildCount() > 0) {
+            this.f25389d.get().removeAllViews();
         }
-        boolean z = b.a.r0.u.a.h.b.f23940a;
-        this.f23902e = AdLoadState.SHOWED;
-        f23897h.show(this.f23901d.get());
+        boolean z = b.a.r0.u.a.h.b.f25428a;
+        this.f25390e = AdLoadState.SHOWED;
+        f25385h.show(this.f25389d.get());
     }
 }

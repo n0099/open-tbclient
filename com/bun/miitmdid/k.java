@@ -1,0 +1,119 @@
+package com.bun.miitmdid;
+
+import android.content.Context;
+import com.android.msasdk.FreemeIds;
+import com.android.msasdk.FreemeIdsSupplier;
+import com.android.msasdk.IConnect;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes11.dex */
+public class k extends l implements IConnect {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context j;
+    public String k;
+    public FreemeIdsSupplier l;
+
+    public k(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.j = context;
+    }
+
+    @Override // com.android.msasdk.IConnect
+    public void connectSuccess(boolean z) {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || d()) {
+            return;
+        }
+        try {
+            try {
+                if (z) {
+                    this.f62092f = this.l.isSupported();
+                    String str3 = null;
+                    if (this.f62092f) {
+                        String aaid = this.l.getAAID(this.k);
+                        String oaid = this.l.getOAID();
+                        str2 = this.l.getVAID(this.k);
+                        str3 = oaid;
+                        str = aaid;
+                    } else {
+                        str = null;
+                        str2 = null;
+                    }
+                    if (str3 == null) {
+                        str3 = "";
+                    }
+                    this.f62089c = str3;
+                    if (str2 == null) {
+                        str2 = "";
+                    }
+                    this.f62090d = str2;
+                    if (str == null) {
+                        str = "";
+                    }
+                    this.f62091e = str;
+                } else {
+                    e0.b("FreemeProvider", "connectSuccess: false");
+                    a();
+                }
+            } catch (Exception e2) {
+                e0.b("FreemeProvider", "connectSuccess: Exception: " + e2.getMessage());
+                a();
+            }
+            shutDown();
+            a(this.f62089c, this.f62090d, this.f62091e, this.f62092f, this.f62093g);
+        } catch (Throwable th) {
+            shutDown();
+            a(this.f62089c, this.f62090d, this.f62091e, this.f62092f, this.f62093g);
+            throw th;
+        }
+    }
+
+    @Override // com.bun.miitmdid.interfaces.IIdProvider
+    public void doStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Context a2 = a(this.j);
+            this.j = a2;
+            this.k = a2.getPackageName();
+            this.l = new FreemeIds(this.j);
+            try {
+                c();
+                this.l.connect(this);
+                b();
+            } catch (Exception e2) {
+                e0.b("FreemeProvider", "doStart: Exception: " + e2.getMessage());
+                a();
+                a(this.f62089c, this.f62090d, this.f62091e, this.f62092f, this.f62093g);
+            }
+        }
+    }
+
+    @Override // com.bun.miitmdid.interfaces.IIdProvider
+    public void shutDown() {
+        FreemeIdsSupplier freemeIdsSupplier;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (freemeIdsSupplier = this.l) == null) {
+            return;
+        }
+        freemeIdsSupplier.shutDown();
+    }
+}

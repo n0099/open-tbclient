@@ -11,7 +11,7 @@ public class i implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f70565a;
+    public final /* synthetic */ a f71485a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ bo f46a;
@@ -31,7 +31,7 @@ public class i implements Runnable {
                 return;
             }
         }
-        this.f70565a = aVar;
+        this.f71485a = aVar;
         this.f46a = boVar;
     }
 

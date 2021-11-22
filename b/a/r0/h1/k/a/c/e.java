@@ -1,6 +1,6 @@
 package b.a.r0.h1.k.a.c;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,22 +12,22 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f17606a;
+    public long f19075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f17607b;
+    public long f19076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f17608c;
+    public String f19077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f17609d;
+    public String f19078d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f17610e;
+    public String f19079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17611f;
+    public int f19080f;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, timeLineInfo) == null) || timeLineInfo == null) {
             return;
         }
-        this.f17607b = timeLineInfo.tid.longValue();
-        this.f17608c = timeLineInfo.title;
-        this.f17609d = k.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
-        this.f17610e = timeLineInfo.bg_color;
+        this.f19076b = timeLineInfo.tid.longValue();
+        this.f19077c = timeLineInfo.title;
+        this.f19078d = k.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
+        this.f19079e = timeLineInfo.bg_color;
     }
 }

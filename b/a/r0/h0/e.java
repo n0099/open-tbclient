@@ -16,11 +16,11 @@ public class e extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f16884f;
+    public static final BdUniqueId f18351f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardHot f16885e;
+    public FeatureCardHot f18352e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class e extends BaseCardInfo {
                 return;
             }
         }
-        f16884f = BdUniqueId.gen();
+        f18351f = BdUniqueId.gen();
     }
 
     public e() {
@@ -55,20 +55,20 @@ public class e extends BaseCardInfo {
     public FeatureCardHot g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16885e : (FeatureCardHot) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18352e : (FeatureCardHot) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f16884f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f18351f : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(FeatureCardHot featureCardHot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, featureCardHot) == null) {
-            this.f16885e = featureCardHot;
+            this.f18352e = featureCardHot;
         }
     }
 }

@@ -2,10 +2,10 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.g;
-import b.a.q0.d1.z;
-import b.a.r0.z2.j0.a;
-import b.a.r0.z2.l0.b;
+import b.a.q0.c1.g;
+import b.a.q0.c1.z;
+import b.a.r0.a3.j0.a;
+import b.a.r0.a3.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -299,7 +299,7 @@ public class PbPageRequestMessage extends NetMessage {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.forumId = Long.valueOf(b.a.e.e.m.b.g(str, 0L));
+            this.forumId = Long.valueOf(b.a.e.f.m.b.g(str, 0L));
         }
     }
 

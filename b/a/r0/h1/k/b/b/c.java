@@ -3,7 +3,7 @@ package b.a.r0.h1.k.b.b;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class c extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.c, CardViewHolder<b.a.r0.h1.k.b.d.b>> {
+public class c extends b.a.e.m.e.a<b.a.r0.h1.k.b.c.c, CardViewHolder<b.a.r0.h1.k.b.d.b>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.h1.k.b.c.c.f17652g);
+        super(tbPageContext.getPageActivity(), b.a.r0.h1.k.b.c.c.f19121g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,14 +44,14 @@ public class c extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.c, CardViewHolder<b.a.r0.h1.k
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public CardViewHolder<b.a.r0.h1.k.b.d.b> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             b.a.r0.h1.k.b.d.b bVar = new b.a.r0.h1.k.b.d.b(this.m);
-            bVar.m(this.f2423i);
+            bVar.m(this.f2425i);
             CardViewHolder<b.a.r0.h1.k.b.d.b> cardViewHolder = new CardViewHolder<>(bVar);
             int g2 = l.g(this.m.getPageActivity(), R.dimen.tbds44);
             cardViewHolder.getView().setPadding(g2, 0, g2, 0);
@@ -61,7 +61,7 @@ public class c extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.c, CardViewHolder<b.a.r0.h1.k
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.h1.k.b.c.c cVar, CardViewHolder<b.a.r0.h1.k.b.d.b> cardViewHolder) {
         InterceptResult invokeCommon;

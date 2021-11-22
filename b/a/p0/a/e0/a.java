@@ -16,19 +16,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f4557a;
+    public static boolean f4527a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.e0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class DialogInterface$OnClickListenerC0144a implements DialogInterface.OnClickListener {
+    public static class DialogInterface$OnClickListenerC0147a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.a2.e f4558e;
+        public final /* synthetic */ b.a.p0.a.d2.e f4528e;
 
-        public DialogInterface$OnClickListenerC0144a(b.a.p0.a.a2.e eVar) {
+        public DialogInterface$OnClickListenerC0147a(b.a.p0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,14 +43,14 @@ public class a {
                     return;
                 }
             }
-            this.f4558e = eVar;
+            this.f4528e = eVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                SwanAppActivity x = this.f4558e.x();
+                SwanAppActivity x = this.f4528e.x();
                 if (x != null && Build.VERSION.SDK_INT >= 21) {
                     x.finishAndRemoveTask();
                 }
@@ -62,30 +62,30 @@ public class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f4557a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f4527a : invokeV.booleanValue;
     }
 
     public static void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            f4557a = z;
+            f4527a = z;
         }
     }
 
     public static void c(Context context, boolean z) {
-        b.a.p0.a.a2.e i2;
+        b.a.p0.a.d2.e L;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) || (i2 = b.a.p0.a.a2.e.i()) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) || (L = b.a.p0.a.d2.e.L()) == null) {
             return;
         }
         b.c(z);
-        int i3 = z ? h.aiapps_open_debug : h.aiapps_close_debug;
+        int i2 = z ? h.aiapps_open_debug : h.aiapps_close_debug;
         SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(context);
         aVar.V(context.getString(h.aiapps_debug_switch_title));
-        aVar.x(context.getString(i3));
-        aVar.n(new b.a.p0.a.w2.h.a());
+        aVar.x(context.getString(i2));
+        aVar.n(new b.a.p0.a.a3.h.a());
         aVar.m(false);
-        aVar.O(h.aiapps_confirm, new DialogInterface$OnClickListenerC0144a(i2));
+        aVar.O(h.aiapps_confirm, new DialogInterface$OnClickListenerC0147a(L));
         aVar.X();
     }
 

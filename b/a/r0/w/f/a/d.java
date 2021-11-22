@@ -3,7 +3,7 @@ package b.a.r0.w.f.a;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,14 +43,14 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
-            List<ThreadInfo> list = aVar.f24531e;
+            List<ThreadInfo> list = aVar.f26048e;
             ArrayList arrayList = new ArrayList(list.size());
             for (ThreadInfo threadInfo : list) {
                 if (threadInfo != null) {
                     e eVar = new e();
-                    eVar.f24507e = aVar.f24527a;
-                    eVar.f24508f = aVar.f24528b;
-                    eVar.f24509g = aVar.f24529c;
+                    eVar.f26024e = aVar.f26044a;
+                    eVar.f26025f = aVar.f26045b;
+                    eVar.f26026g = aVar.f26046c;
                     eVar.o(threadInfo);
                     arrayList.add(eVar);
                 }
@@ -68,15 +68,15 @@ public class d {
         HashMap hashMap = new HashMap(list2.size());
         for (b.a.r0.w.f.b.b.a aVar : list2) {
             if (aVar != null) {
-                hashMap.put(e(aVar), aVar.f24531e);
+                hashMap.put(e(aVar), aVar.f26048e);
             }
         }
         for (b.a.r0.w.f.b.b.a aVar2 : list) {
-            if (aVar2 != null && !ListUtils.isEmpty(aVar2.f24531e)) {
+            if (aVar2 != null && !ListUtils.isEmpty(aVar2.f26048e)) {
                 ArrayList<Integer> arrayList = new ArrayList();
                 ArrayList arrayList2 = new ArrayList();
-                for (int i2 = 0; i2 < aVar2.f24531e.size(); i2++) {
-                    ThreadInfo threadInfo = aVar2.f24531e.get(i2);
+                for (int i2 = 0; i2 < aVar2.f26048e.size(); i2++) {
+                    ThreadInfo threadInfo = aVar2.f26048e.get(i2);
                     if (threadInfo != null) {
                         if (list3.contains(threadInfo.ala_info.live_id)) {
                             arrayList.add(Integer.valueOf(i2));
@@ -91,7 +91,7 @@ public class d {
                         ArrayList arrayList3 = new ArrayList();
                         for (Integer num : arrayList) {
                             int intValue = num.intValue();
-                            if (intValue < aVar2.f24531e.size()) {
+                            if (intValue < aVar2.f26048e.size()) {
                                 ThreadInfo threadInfo2 = null;
                                 Iterator it = list4.iterator();
                                 while (true) {
@@ -106,9 +106,9 @@ public class d {
                                 }
                                 if (threadInfo2 != null) {
                                     arrayList3.add(threadInfo2.ala_info.live_id);
-                                    aVar2.f24531e.set(intValue, threadInfo2);
+                                    aVar2.f26048e.set(intValue, threadInfo2);
                                 } else {
-                                    aVar2.f24531e.remove(intValue);
+                                    aVar2.f26048e.remove(intValue);
                                 }
                             }
                         }
@@ -129,42 +129,42 @@ public class d {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             for (b.a.r0.w.f.b.b.a aVar : list) {
-                if (aVar != null && !ListUtils.isEmpty(aVar.f24531e)) {
+                if (aVar != null && !ListUtils.isEmpty(aVar.f26048e)) {
                     List<n> b2 = b(aVar);
-                    String str2 = aVar.f24528b;
+                    String str2 = aVar.f26045b;
                     if (!ListUtils.isEmpty(b2) && b2.size() >= 2 && !TextUtils.isEmpty(str2)) {
                         b.a.r0.w.f.b.b.b bVar = new b.a.r0.w.f.b.b.b();
-                        bVar.f24534e = aVar.f24527a;
-                        bVar.f24535f = str2;
-                        bVar.f24536g = aVar.f24529c;
-                        bVar.f24537h = aVar.f24530d;
-                        int i2 = aVar.f24532f;
-                        bVar.f24538i = aVar.f24533g;
+                        bVar.f26051e = aVar.f26044a;
+                        bVar.f26052f = str2;
+                        bVar.f26053g = aVar.f26046c;
+                        bVar.f26054h = aVar.f26047d;
+                        int i2 = aVar.f26049f;
+                        bVar.f26055i = aVar.f26050g;
                         linkedList.add(bVar);
                         int size = b2.size();
                         if (size % 2 != 0) {
                             size--;
                         }
                         int i3 = 0;
-                        aVar.f24531e = aVar.f24531e.subList(0, size);
+                        aVar.f26048e = aVar.f26048e.subList(0, size);
                         while (true) {
                             int i4 = i3 + 1;
                             if (i4 < size) {
-                                if ("1:1".equals(aVar.f24530d)) {
+                                if ("1:1".equals(aVar.f26047d)) {
                                     b.a.r0.w.f.h.b.b bVar2 = new b.a.r0.w.f.h.b.b();
                                     e eVar = (e) b2.get(i3);
                                     e eVar2 = (e) b2.get(i4);
-                                    bVar2.f24892e = eVar;
-                                    bVar2.f24893f = eVar2;
+                                    bVar2.f26409e = eVar;
+                                    bVar2.f26410f = eVar2;
                                     arrayList.add(eVar);
                                     arrayList.add(eVar2);
                                     linkedList.add(bVar2);
-                                } else if ("16:9".equals(aVar.f24530d)) {
+                                } else if ("16:9".equals(aVar.f26047d)) {
                                     b.a.r0.w.f.h.b.a aVar2 = new b.a.r0.w.f.h.b.a();
                                     e eVar3 = (e) b2.get(i3);
                                     e eVar4 = (e) b2.get(i4);
-                                    aVar2.f24889e = eVar3;
-                                    aVar2.f24890f = eVar4;
+                                    aVar2.f26406e = eVar3;
+                                    aVar2.f26407f = eVar4;
                                     arrayList.add(eVar3);
                                     arrayList.add(eVar4);
                                     linkedList.add(aVar2);
@@ -190,9 +190,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(aVar.f24527a + "_");
-            sb.append(aVar.f24528b + "_");
-            sb.append(aVar.f24529c);
+            sb.append(aVar.f26044a + "_");
+            sb.append(aVar.f26045b + "_");
+            sb.append(aVar.f26046c);
             return sb.toString();
         }
         return (String) invokeL.objValue;
@@ -204,7 +204,7 @@ public class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, aVar, list)) == null) {
             if (aVar != null && !ListUtils.isEmpty(list)) {
                 for (b.a.r0.w.f.b.b.a aVar2 : list) {
-                    if (aVar.f24527a == aVar2.f24527a && aVar.f24528b.equals(aVar2.f24528b) && aVar.f24529c.equals(aVar2.f24529c)) {
+                    if (aVar.f26044a == aVar2.f26044a && aVar.f26045b.equals(aVar2.f26045b) && aVar.f26046c.equals(aVar2.f26046c)) {
                         return true;
                     }
                 }
@@ -226,7 +226,7 @@ public class d {
             }
             LinkedList linkedList = new LinkedList();
             for (b.a.r0.w.f.b.b.a aVar : list2) {
-                if (aVar != null && !ListUtils.isEmpty(aVar.f24531e) && !TextUtils.isEmpty(aVar.f24528b)) {
+                if (aVar != null && !ListUtils.isEmpty(aVar.f26048e) && !TextUtils.isEmpty(aVar.f26045b)) {
                     if (z) {
                         if (!f(aVar, list)) {
                             linkedList.add(aVar);

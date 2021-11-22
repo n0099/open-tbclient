@@ -14,11 +14,11 @@ public class b extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f3110b;
+    public static b f3203b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f3111a;
+    public h f3204a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -44,10 +44,10 @@ public class b extends ContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                if (f3110b == null) {
-                    f3110b = new b();
+                if (f3203b == null) {
+                    f3203b = new b();
                 }
-                bVar = f3110b;
+                bVar = f3203b;
             }
             return bVar;
         }
@@ -81,10 +81,10 @@ public class b extends ContextWrapper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f3111a == null) {
-                this.f3111a = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+            if (this.f3204a == null) {
+                this.f3204a = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
             }
-            return this.f3111a;
+            return this.f3204a;
         }
         return (h) invokeV.objValue;
     }

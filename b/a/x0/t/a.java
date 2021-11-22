@@ -12,10 +12,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f29920a = -1;
+    public static int f30789a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f29921b = "";
+    public static String f30790b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,15 +37,15 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(f29921b)) {
-                return f29921b;
+            if (!TextUtils.isEmpty(f30790b)) {
+                return f30790b;
             }
             try {
-                f29921b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                f30790b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            return f29921b;
+            return f30790b;
         }
         return (String) invokeL.objValue;
     }
@@ -54,16 +54,16 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i2 = f29920a;
+            int i2 = f30789a;
             if (i2 >= 0) {
                 return i2;
             }
             try {
-                f29920a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                f30789a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            return f29920a;
+            return f30789a;
         }
         return invokeL.intValue;
     }

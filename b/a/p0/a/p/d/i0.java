@@ -1,15 +1,14 @@
 package b.a.p0.a.p.d;
 
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.baidu.swan.apps.SwanAppActivity;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface i0 {
-    b.a.p0.a.y0.g.h.b a(ZeusPluginFactory.Invoker invoker, String str);
+    void a();
 
-    b.a.p0.a.y0.k.g.a b(ZeusPluginFactory.Invoker invoker, String str);
+    void b(String str, b.a.p0.a.u.e.d.c cVar);
 
-    b.a.p0.a.y0.k.g.a c(ZeusPluginFactory.Invoker invoker, String str);
+    void c(SwanAppActivity swanAppActivity, String str, b.a.p0.a.u.e.d.c cVar);
 
-    b.a.p0.a.y0.g.h.a d(ZeusPluginFactory.Invoker invoker, String str);
-
-    b.a.p0.a.y0.f.a e(ZeusPluginFactory.Invoker invoker, String str);
+    void d(String str, String str2, JSONObject jSONObject, b.a.p0.a.u.e.d.c cVar);
 }

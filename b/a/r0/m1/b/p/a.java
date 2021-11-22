@@ -2,7 +2,7 @@ package b.a.r0.m1.b.p;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -37,19 +37,19 @@ public class a extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f21117e;
+    public BdUniqueId f22272e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MetaData f21118f;
+    public MetaData f22273f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21119g;
+    public String f22274g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f21120h;
+    public long f22275h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f21121i;
+    public String f22276i;
     public String j;
     public OriginalThreadInfo k;
     public String l;
@@ -98,7 +98,7 @@ public class a extends BaseCardInfo {
                 return;
             }
         }
-        this.f21118f = new MetaData();
+        this.f22273f = new MetaData();
         this.u = false;
     }
 
@@ -111,7 +111,7 @@ public class a extends BaseCardInfo {
     public long B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21120h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22275h : invokeV.longValue;
     }
 
     public boolean C() {
@@ -138,17 +138,17 @@ public class a extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, feedData) == null) || feedData == null) {
             return;
         }
-        this.f21118f = feedData.getReplyer();
-        this.f21120h = feedData.getTime();
+        this.f22273f = feedData.getReplyer();
+        this.f22275h = feedData.getTime();
         this.p = feedData.getPost_id();
         if (!feedData.isHideForumName()) {
             this.l = feedData.getFname();
         }
         this.o = feedData.getThread_id();
         this.n = feedData.getThread_Type();
-        this.f21121i = feedData.getContent();
+        this.f22276i = feedData.getContent();
         this.r = feedData.getIsFloor();
-        this.f21119g = feedData.getPostFrom();
+        this.f22274g = feedData.getPostFrom();
         this.s = feedData.getQuote_pid();
         this.t = feedData.isNew();
         this.m = feedData.getThreadAuthor();
@@ -156,9 +156,9 @@ public class a extends BaseCardInfo {
         this.v = feedData.getBaijiahaoData();
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
         this.k = originalThreadInfo;
-        originalThreadInfo.f45040f = this.o;
+        originalThreadInfo.f45889f = this.o;
         originalThreadInfo.k = this.n;
-        originalThreadInfo.f45037c = feedData.getThreadImgUrl();
+        originalThreadInfo.f45886c = feedData.getThreadImgUrl();
         OriginalThreadInfo originalThreadInfo2 = this.k;
         originalThreadInfo2.o = this.u;
         originalThreadInfo2.p = this.v;
@@ -172,24 +172,24 @@ public class a extends BaseCardInfo {
             } else {
                 str = feedData.getQuote_user().getName_show();
             }
-            this.k.f45041g = TbadkCoreApplication.getInst().getString(R.string.reply_me_original, new Object[]{str, feedData.getQuote_content()});
-            if (TextUtils.isGraphic(this.k.f45041g)) {
+            this.k.f45890g = TbadkCoreApplication.getInst().getString(R.string.reply_me_original, new Object[]{str, feedData.getQuote_content()});
+            if (TextUtils.isGraphic(this.k.f45890g)) {
                 OriginalThreadInfo originalThreadInfo3 = this.k;
-                originalThreadInfo3.f45041g = originalThreadInfo3.f45041g.replace(StringUtils.LF, " ");
+                originalThreadInfo3.f45890g = originalThreadInfo3.f45890g.replace(StringUtils.LF, " ");
             }
             if (feedData.getIsFloor()) {
-                this.f21117e = z;
+                this.f22272e = z;
             } else {
-                this.f21117e = A;
+                this.f22272e = A;
             }
         } else {
             this.k.n = "0";
             if (feedData.isShareThread() && feedData.getOriginalThreadInfo() != null) {
-                this.k.f45041g = TbadkCoreApplication.getInst().getString(R.string.share_replyme_original, new Object[]{feedData.getOriginalThreadInfo().f45036b});
+                this.k.f45890g = TbadkCoreApplication.getInst().getString(R.string.share_replyme_original, new Object[]{feedData.getOriginalThreadInfo().f45885b});
             } else {
-                this.k.f45041g = feedData.getTitle();
+                this.k.f45890g = feedData.getTitle();
             }
-            this.f21117e = B;
+            this.f22272e = B;
         }
         this.k.q();
     }
@@ -202,9 +202,9 @@ public class a extends BaseCardInfo {
         }
         this.q = agreeList.id.longValue();
         MetaData metaData = new MetaData();
-        this.f21118f = metaData;
+        this.f22273f = metaData;
         metaData.parserProtobuf(agreeList.agreeer);
-        this.f21120h = agreeList.time.intValue() * 1000;
+        this.f22275h = agreeList.time.intValue() * 1000;
         Post post = agreeList.post_info;
         if (post != null) {
             this.p = String.valueOf(post.id);
@@ -218,26 +218,26 @@ public class a extends BaseCardInfo {
             this.s = agreeList.post_info.quote_id;
         }
         d2 d2Var = new d2();
-        d2Var.Y2(agreeList.thread_info);
+        d2Var.a3(agreeList.thread_info);
         this.k = OriginalThreadInfo.k(d2Var);
         this.m = d2Var.J();
         this.l = d2Var.Z();
         this.o = d2Var.f0();
         this.n = d2Var.i0;
-        this.u = d2Var.D2();
+        this.u = d2Var.F2();
         this.v = d2Var.L();
         this.w = "c12927";
         if (agreeList.type.intValue() == 3) {
-            this.f21117e = x;
-            this.f21121i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_thread);
+            this.f22272e = x;
+            this.f22276i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_thread);
             if (this.u) {
-                this.f21121i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_dynamic);
+                this.f22276i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_dynamic);
                 return;
             }
             return;
         }
-        this.f21117e = y;
-        this.f21121i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_post);
+        this.f22272e = y;
+        this.f22276i = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_post);
     }
 
     public void H(boolean z2) {
@@ -256,14 +256,14 @@ public class a extends BaseCardInfo {
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21121i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22276i : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f21117e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f22272e : (BdUniqueId) invokeV.objValue;
     }
 
     public String i() {
@@ -287,7 +287,7 @@ public class a extends BaseCardInfo {
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f21119g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f22274g : (String) invokeV.objValue;
     }
 
     public String q() {
@@ -305,7 +305,7 @@ public class a extends BaseCardInfo {
     public MetaData w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f21118f : (MetaData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f22273f : (MetaData) invokeV.objValue;
     }
 
     public String x() {

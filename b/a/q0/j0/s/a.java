@@ -41,14 +41,14 @@ public class a implements b<MissionEvent> {
                 long j = missionEvent.tid;
                 String str = missionEvent.actionType;
                 if ("onResume".equals(str)) {
-                    d.y().K(i2, j);
-                    d.y().P(i3, j);
+                    d.y().L(i2, j);
+                    d.y().Q(i3, j);
                 } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-                    d.y().E();
-                } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
                     d.y().F();
+                } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
+                    d.y().G();
                 } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-                    d.y().K(i2, j);
+                    d.y().L(i2, j);
                 }
                 return true;
             }

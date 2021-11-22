@@ -32,31 +32,31 @@ public class i {
     public static Map<String, String> B = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f40415a = null;
+    public static Context f41247a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f40416b;
+    public static final int f41248b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f40417c = 0.0f;
+    public static float f41249c = 0.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40418d = null;
+    public static String f41250d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f40419e = "i";
+    public static final String f41251e = "i";
 
     /* renamed from: f  reason: collision with root package name */
-    public static com.baidu.mapsdkplatform.comjni.util.a f40420f;
+    public static com.baidu.mapsdkplatform.comjni.util.a f41252f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f40421g;
+    public static String f41253g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f40422h;
+    public static String f41254h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f40423i;
+    public static String f41255i;
     public static String j;
     public static String k;
     public static int l;
@@ -89,16 +89,16 @@ public class i {
                 return;
             }
         }
-        f40420f = new com.baidu.mapsdkplatform.comjni.util.a();
-        f40421g = "02";
+        f41252f = new com.baidu.mapsdkplatform.comjni.util.a();
+        f41253g = "02";
         s = "baidu";
         t = "";
         u = "";
         v = "";
         y = "-1";
         z = "-1";
-        f40416b = Integer.parseInt(Build.VERSION.SDK);
-        f40417c = 1.0f;
+        f41248b = Integer.parseInt(Build.VERSION.SDK);
+        f41249c = 1.0f;
         A = "";
         B = new HashMap();
     }
@@ -161,7 +161,7 @@ public class i {
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             Bundle bundle = new Bundle();
             bundle.putString("cpu", t);
-            bundle.putString("resid", f40421g);
+            bundle.putString("resid", f41253g);
             bundle.putString("channel", s);
             bundle.putString("glr", u);
             bundle.putString("glv", v);
@@ -172,11 +172,11 @@ public class i {
             bundle.putInt("dpi_y", l());
             bundle.putString("net", r);
             bundle.putString("cuid", A);
-            bundle.putByteArray(SocialOperation.GAME_SIGNATURE, a(f40415a));
-            bundle.putString("pcn", f40415a.getPackageName());
+            bundle.putByteArray(SocialOperation.GAME_SIGNATURE, a(f41247a));
+            bundle.putString("pcn", f41247a.getPackageName());
             bundle.putInt("screen_x", h());
             bundle.putInt("screen_y", j());
-            com.baidu.mapsdkplatform.comjni.util.a aVar = f40420f;
+            com.baidu.mapsdkplatform.comjni.util.a aVar = f41252f;
             if (aVar != null) {
                 aVar.a(bundle);
             }
@@ -188,30 +188,30 @@ public class i {
     public static void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            f40415a = context;
+            f41247a = context;
             if (context.getFilesDir() != null) {
                 w = context.getFilesDir().getAbsolutePath();
             }
             if (context.getCacheDir() != null) {
                 x = context.getCacheDir().getAbsolutePath();
             }
-            f40423i = Build.MODEL;
+            f41255i = Build.MODEL;
             j = "Android" + Build.VERSION.SDK;
-            f40422h = context.getPackageName();
+            f41254h = context.getPackageName();
             c(context);
             d(context);
             q();
             A = p();
-            B.put("resid", AppMD5.encodeUrlParamsValue(f40421g));
+            B.put("resid", AppMD5.encodeUrlParamsValue(f41253g));
             B.put("channel", AppMD5.encodeUrlParamsValue(m()));
             B.put("mb", AppMD5.encodeUrlParamsValue(g()));
             B.put("sv", AppMD5.encodeUrlParamsValue(i()));
             B.put("os", AppMD5.encodeUrlParamsValue(k()));
             B.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
             B.put("cuid", AppMD5.encodeUrlParamsValue(A));
-            B.put("pcn", AppMD5.encodeUrlParamsValue(f40415a.getPackageName()));
+            B.put("pcn", AppMD5.encodeUrlParamsValue(f41247a.getPackageName()));
             B.put("screen", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(h()), Integer.valueOf(j()))));
-            com.baidu.mapsdkplatform.comjni.util.a aVar = f40420f;
+            com.baidu.mapsdkplatform.comjni.util.a aVar = f41252f;
             if (aVar != null) {
                 aVar.a();
             }
@@ -261,7 +261,7 @@ public class i {
     public static void d() {
         com.baidu.mapsdkplatform.comjni.util.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, null) == null) || (aVar = f40420f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65546, null) == null) || (aVar = f41252f) == null) {
             return;
         }
         aVar.b();
@@ -278,10 +278,10 @@ public class i {
                 n = defaultDisplay.getHeight();
                 defaultDisplay.getMetrics(displayMetrics);
             }
-            f40417c = displayMetrics.density;
+            f41249c = displayMetrics.density;
             o = (int) displayMetrics.xdpi;
             p = (int) displayMetrics.ydpi;
-            if (f40416b > 3) {
+            if (f41248b > 3) {
                 q = displayMetrics.densityDpi;
             } else {
                 q = 160;
@@ -304,12 +304,12 @@ public class i {
             B.put("net", AppMD5.encodeUrlParamsValue(e()));
             B.put("appid", AppMD5.encodeUrlParamsValue(y));
             B.put("bduid", "");
-            if (f40420f == null) {
+            if (f41252f == null) {
                 return;
             }
             Bundle bundle = new Bundle();
             bundle.putString("cpu", t);
-            bundle.putString("resid", f40421g);
+            bundle.putString("resid", f41253g);
             bundle.putString("channel", s);
             bundle.putString("glr", u);
             bundle.putString("glv", v);
@@ -320,15 +320,15 @@ public class i {
             bundle.putInt("dpi_y", l());
             bundle.putString("net", r);
             bundle.putString("cuid", A);
-            bundle.putString("pcn", f40415a.getPackageName());
+            bundle.putString("pcn", f41247a.getPackageName());
             bundle.putInt("screen_x", h());
             bundle.putInt("screen_y", j());
             bundle.putString("appid", y);
             bundle.putString("duid", z);
-            if (!TextUtils.isEmpty(f40418d)) {
-                bundle.putString("token", f40418d);
+            if (!TextUtils.isEmpty(f41250d)) {
+                bundle.putString("token", f41250d);
             }
-            f40420f.a(bundle);
+            f41252f.a(bundle);
             SysUpdateObservable.getInstance().updatePhoneInfo();
         }
     }
@@ -336,7 +336,7 @@ public class i {
     public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f40423i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f41255i : (String) invokeV.objValue;
     }
 
     public static int h() {
@@ -378,7 +378,7 @@ public class i {
     public static String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? f40422h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? f41254h : (String) invokeV.objValue;
     }
 
     public static String o() {
@@ -393,7 +393,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
             try {
-                str = CommonParam.getCUID(f40415a);
+                str = CommonParam.getCUID(f41247a);
             } catch (Exception unused) {
                 str = "";
             }

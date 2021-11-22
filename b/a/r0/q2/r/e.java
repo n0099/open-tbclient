@@ -3,7 +3,7 @@ package b.a.r0.q2.r;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayer;
 import com.baidu.tbadk.BaseActivity;
@@ -113,7 +113,7 @@ public class e extends d {
             this.V = str2;
             S();
             T();
-            r0(this.f22907f);
+            r0(this.f24428f);
             this.G.setPlayer(this.u);
             this.C.setVisibility(8);
             this.v.setPlaceHolder(3);

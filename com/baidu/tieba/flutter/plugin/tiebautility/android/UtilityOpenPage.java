@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import b.a.q0.e.f;
 import b.a.q0.u.k;
 import b.a.r0.v.a;
@@ -77,9 +77,9 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 return;
             }
             UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.f45667a = true;
-            aVar.f45670d = "1".equals(queryParameter2);
-            aVar.f45669c = queryParameter;
+            aVar.f46517a = true;
+            aVar.f46520d = "1".equals(queryParameter2);
+            aVar.f46519c = queryParameter;
             MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
     }
@@ -238,7 +238,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, sMAppMapParam) == null) {
             HashMap result = sMAppMapParam.getResult();
-            if (a.b((String) result.get("id"), (String) result.get("link"), "1191000600000000", Integer.valueOf(((Boolean) result.get("is_game")).booleanValue() ? 1 : 0)) || b.a.e.e.p.k.isEmpty((String) result.get("h5_url"))) {
+            if (a.b((String) result.get("id"), (String) result.get("link"), "1191000600000000", Integer.valueOf(((Boolean) result.get("is_game")).booleanValue() ? 1 : 0)) || b.a.e.f.p.k.isEmpty((String) result.get("h5_url"))) {
                 return;
             }
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();

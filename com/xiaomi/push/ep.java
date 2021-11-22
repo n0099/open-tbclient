@@ -32,7 +32,7 @@ public abstract class ep extends en {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f70889a;
+    public int f71809a;
 
     /* renamed from: a  reason: collision with other field name */
     public Bitmap f330a;
@@ -53,7 +53,7 @@ public abstract class ep extends en {
     public boolean f335a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f70890b;
+    public CharSequence f71810b;
 
     /* renamed from: b  reason: collision with other field name */
     public boolean f336b;
@@ -77,7 +77,7 @@ public abstract class ep extends en {
             }
         }
         this.f333a = str;
-        this.f70889a = i2;
+        this.f71809a = i2;
         m293c();
     }
 
@@ -151,7 +151,7 @@ public abstract class ep extends en {
             return;
         }
         super.setContentTitle(this.f332a);
-        super.setContentText(this.f70890b);
+        super.setContentText(this.f71810b);
     }
 
     /* renamed from: d  reason: collision with other method in class */
@@ -174,7 +174,7 @@ public abstract class ep extends en {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             if (Build.VERSION.SDK_INT >= 20 && (m600b = com.xiaomi.push.service.ao.a(a(), this.f333a).m600b()) != null && !m600b.isEmpty()) {
                 for (StatusBarNotification statusBarNotification : m600b) {
-                    if (statusBarNotification.getId() == this.f70889a) {
+                    if (statusBarNotification.getId() == this.f71809a) {
                         Notification notification = statusBarNotification.getNotification();
                         if (notification == null) {
                             return false;
@@ -330,7 +330,7 @@ public abstract class ep extends en {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, charSequence)) == null) {
-            this.f70890b = charSequence;
+            this.f71810b = charSequence;
             return this;
         }
         return (ep) invokeL.objValue;
@@ -345,7 +345,7 @@ public abstract class ep extends en {
             return;
         }
         super.setContentTitle(this.f332a);
-        super.setContentText(this.f70890b);
+        super.setContentText(this.f71810b);
         Bitmap bitmap = this.f330a;
         if (bitmap != null) {
             super.setLargeIcon(bitmap);

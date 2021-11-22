@@ -44,19 +44,19 @@ public class NPSManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41664e;
+        public final /* synthetic */ String f42496e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41665f;
+        public final /* synthetic */ String f42497f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ IInvokeCallback f41666g;
+        public final /* synthetic */ IInvokeCallback f42498g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f41667h;
+        public final /* synthetic */ int f42499h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Class f41668i;
+        public final /* synthetic */ Class f42500i;
         public final /* synthetic */ NPSManager j;
 
         public a(NPSManager nPSManager, String str, String str2, IInvokeCallback iInvokeCallback, int i2, Class cls) {
@@ -75,57 +75,57 @@ public class NPSManager {
                 }
             }
             this.j = nPSManager;
-            this.f41664e = str;
-            this.f41665f = str2;
-            this.f41666g = iInvokeCallback;
-            this.f41667h = i2;
-            this.f41668i = cls;
+            this.f42496e = str;
+            this.f42497f = str2;
+            this.f42498g = iInvokeCallback;
+            this.f42499h = i2;
+            this.f42500i = cls;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.f41664e) && !TextUtils.isEmpty(this.f41665f)) {
-                    int prepareBundle = NPSPackageManager.getInstance().prepareBundle(this.f41664e, this.f41667h);
+                if (!TextUtils.isEmpty(this.f42496e) && !TextUtils.isEmpty(this.f42497f)) {
+                    int prepareBundle = NPSPackageManager.getInstance().prepareBundle(this.f42496e, this.f42499h);
                     if (prepareBundle != 41) {
                         if (b.a.b0.i.b.a()) {
                             String str = "loadClazz, retCode=" + prepareBundle;
                         }
-                        this.f41666g.onResult(prepareBundle, Constant.MSG.retMsgBundleNotReady(prepareBundle), null);
+                        this.f42498g.onResult(prepareBundle, Constant.MSG.retMsgBundleNotReady(prepareBundle), null);
                         return;
                     }
-                    NPSPackageManager.getInstance().recordBundleRunning(this.f41664e);
-                    Bundle bundleInternal = this.j.getBundleInternal(this.f41664e);
+                    NPSPackageManager.getInstance().recordBundleRunning(this.f42496e);
+                    Bundle bundleInternal = this.j.getBundleInternal(this.f42496e);
                     if (bundleInternal == null) {
                         b.a.b0.i.b.a();
-                        this.f41666g.onResult(5, Constant.MSG.retMsgInvalidPkg(this.f41664e), null);
+                        this.f42498g.onResult(5, Constant.MSG.retMsgInvalidPkg(this.f42496e), null);
                         return;
                     }
                     try {
-                        Class loadClass = bundleInternal.loadClass(this.f41665f, this.f41668i);
+                        Class loadClass = bundleInternal.loadClass(this.f42497f, this.f42500i);
                         f.a().b().recordInvokeResult(14, bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), Constant.MSG.retMsgSuccess());
                         b.a.b0.i.b.a();
-                        this.f41666g.onResult(14, Constant.MSG.retMsgSuccess(), loadClass);
+                        this.f42498g.onResult(14, Constant.MSG.retMsgSuccess(), loadClass);
                         return;
                     } catch (InvokeException e2) {
                         f.a().b().recordInvokeResult(e2.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e2.errMsg());
                         if (b.a.b0.i.b.a()) {
                             String str2 = "loadClazz, retCode=" + e2.errCode();
                         }
-                        this.f41666g.onResult(e2.errCode(), e2.errMsg(), null);
+                        this.f42498g.onResult(e2.errCode(), e2.errMsg(), null);
                         return;
                     } catch (InitException e3) {
                         f.a().b().recordInvokeResult(e3.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e3.errMsg());
                         if (b.a.b0.i.b.a()) {
                             String str3 = "loadClazz, retCode=" + e3.errCode();
                         }
-                        this.f41666g.onResult(e3.errCode(), e3.errMsg(), null);
+                        this.f42498g.onResult(e3.errCode(), e3.errMsg(), null);
                         return;
                     }
                 }
                 b.a.b0.i.b.a();
-                this.f41666g.onResult(5, Constant.MSG.retMsgErrParam(this.f41664e, this.f41665f), null);
+                this.f42498g.onResult(5, Constant.MSG.retMsgErrParam(this.f42496e, this.f42497f), null);
             }
         }
     }

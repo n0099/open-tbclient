@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b extends b.a.e.l.e.a<b.a.r0.v1.h.e.b, SearchSuggestForumViewHolder> {
+public class b extends b.a.e.m.e.a<b.a.r0.v1.h.e.b, SearchSuggestForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context m;
@@ -37,10 +37,10 @@ public class b extends b.a.e.l.e.a<b.a.r0.v1.h.e.b, SearchSuggestForumViewHolder
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f24365e;
+        public final /* synthetic */ Context f25828e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f24366f;
+        public final /* synthetic */ b f25829f;
 
         public a(b bVar, Context context) {
             Interceptable interceptable = $ic;
@@ -57,19 +57,19 @@ public class b extends b.a.e.l.e.a<b.a.r0.v1.h.e.b, SearchSuggestForumViewHolder
                     return;
                 }
             }
-            this.f24366f = bVar;
-            this.f24365e = context;
+            this.f25829f = bVar;
+            this.f25828e = context;
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof b.a.r0.v1.h.e.b)) {
                 b.a.r0.v1.h.e.b bVar = (b.a.r0.v1.h.e.b) nVar;
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f24365e).createNormalCfg(bVar.e(), FrsActivityConfig.FRS_FROM_SEARCH_SUG);
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f25828e).createNormalCfg(bVar.e(), FrsActivityConfig.FRS_FROM_SEARCH_SUG);
                 createNormalCfg.setCallFrom(16);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
-                this.f24366f.i0(bVar);
+                this.f25829f.i0(bVar);
             }
         }
     }
@@ -94,12 +94,12 @@ public class b extends b.a.e.l.e.a<b.a.r0.v1.h.e.b, SearchSuggestForumViewHolder
             }
         }
         this.m = context;
-        this.f2422h = bdUniqueId;
+        this.f2424h = bdUniqueId;
         c0(new a(this, context));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.v1.h.e.b bVar, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
         k0(i2, view, viewGroup, bVar, searchSuggestForumViewHolder);
         return view;
@@ -124,7 +124,7 @@ public class b extends b.a.e.l.e.a<b.a.r0.v1.h.e.b, SearchSuggestForumViewHolder
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public SearchSuggestForumViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;

@@ -69,8 +69,8 @@ public class a extends b.a.r0.b0.b<b.a.r0.w.f.h.b.a> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.m.j(aVar.f24889e);
-        this.n.j(aVar.f24890f);
+        this.m.j(aVar.f26406e);
+        this.n.j(aVar.f26407f);
     }
 
     @Override // android.view.View.OnClickListener

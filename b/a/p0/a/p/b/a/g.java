@@ -12,7 +12,7 @@ public interface g {
 
     b.a.p0.a.t0.c o(SwanAppActivity swanAppActivity, String str);
 
-    b.a.p0.a.h0.m.l p(b.a.p0.a.v2.e1.b<Exception> bVar);
+    b.a.p0.a.h0.m.o p(b.a.p0.a.z2.g1.c<Exception> cVar);
 
     void q(Intent intent);
 

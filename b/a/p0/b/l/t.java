@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class t extends b.a.p0.a.e2.c.j.g {
+public class t extends b.a.p0.a.h2.c.j.g {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean u;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,20 +30,20 @@ public class t extends b.a.p0.a.e2.c.j.g {
     }
 
     /* loaded from: classes.dex */
-    public class b extends b.a.p0.a.e2.c.e {
+    public class b extends b.a.p0.a.h2.c.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ t f9357g;
+        public final /* synthetic */ t f9940g;
 
         /* loaded from: classes.dex */
-        public class a implements b.a.p0.a.v2.e1.b<Bundle> {
+        public class a implements b.a.p0.a.z2.g1.c<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f9358e;
+            public final /* synthetic */ b f9941e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -60,26 +60,26 @@ public class t extends b.a.p0.a.e2.c.j.g {
                         return;
                     }
                 }
-                this.f9358e = bVar;
+                this.f9941e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.p0.a.v2.e1.b
+            @Override // b.a.p0.a.z2.g1.c
             /* renamed from: a */
             public void onCallback(Bundle bundle) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                     if (bundle == null) {
-                        this.f9358e.e(new OAuthException("null stoken", 10001));
+                        this.f9941e.e(new OAuthException("null stoken", 10001));
                         return;
                     }
                     String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
                     if (!TextUtils.isEmpty(string)) {
-                        this.f9358e.f9357g.t = string;
-                        this.f9358e.d();
+                        this.f9941e.f9940g.t = string;
+                        this.f9941e.d();
                         return;
                     }
-                    this.f9358e.e(new OAuthException("empty stoken", 10001));
+                    this.f9941e.e(new OAuthException("empty stoken", 10001));
                 }
             }
         }
@@ -99,20 +99,20 @@ public class t extends b.a.p0.a.e2.c.j.g {
                     return;
                 }
             }
-            this.f9357g = tVar;
+            this.f9940g = tVar;
         }
 
-        @Override // b.a.p0.a.e2.c.e
+        @Override // b.a.p0.a.h2.c.e
         public boolean f() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.f9357g.s) {
-                    this.f9357g.t = null;
+                if (!this.f9940g.s) {
+                    this.f9940g.t = null;
                     boolean unused = t.u;
                     return true;
                 }
-                b.a.p0.b.l.a.t(this.f9357g.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                b.a.p0.b.l.a.t(this.f9940g.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
                 return false;
             }
             return invokeV.booleanValue;
@@ -136,7 +136,7 @@ public class t extends b.a.p0.a.e2.c.j.g {
                 return;
             }
         }
-        u = b.a.p0.a.k.f6397a;
+        u = b.a.p0.a.k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -162,7 +162,7 @@ public class t extends b.a.p0.a.e2.c.j.g {
         y();
     }
 
-    @Override // b.a.p0.a.e2.c.j.g
+    @Override // b.a.p0.a.h2.c.j.g
     public JSONObject P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -182,7 +182,7 @@ public class t extends b.a.p0.a.e2.c.j.g {
         return (JSONObject) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.e2.c.c
+    @Override // b.a.p0.a.h2.c.c
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

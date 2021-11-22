@@ -13,13 +13,13 @@ public final class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f70400a;
+    public static final o f71320a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f70401b;
+    public static boolean f71321b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f70402c;
+    public static boolean f71322c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,96 +35,96 @@ public final class p {
                 return;
             }
         }
-        f70400a = new n();
-        f70401b = z.b("persist.sys.log.ctrl", "no").equals("yes");
+        f71320a = new n();
+        f71321b = z.b("persist.sys.log.ctrl", "no").equals("yes");
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f70401b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f71321b : invokeV.booleanValue;
     }
 
     public static int b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? f70400a.b(str, str2) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? f71320a.b(str, str2) : invokeLL.intValue;
     }
 
     public static int c(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) ? f70400a.c(str, str2) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) ? f71320a.c(str, str2) : invokeLL.intValue;
     }
 
     public static int d(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, str2)) == null) ? f70400a.d(str, str2) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, str2)) == null) ? f71320a.d(str, str2) : invokeLL.intValue;
     }
 
     public static int e(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) ? f70400a.e(str, str2) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) ? f71320a.e(str, str2) : invokeLL.intValue;
     }
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
-            f70401b = z;
-            f70402c = z;
+            f71321b = z;
+            f71322c = z;
         }
     }
 
     public static int b(String str, String str2, Throwable th) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, th)) == null) ? f70400a.b(str, str2, th) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, th)) == null) ? f71320a.b(str, str2, th) : invokeLLL.intValue;
     }
 
     public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
-            f70400a.c(context, str);
+            f71320a.c(context, str);
         }
     }
 
     public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            f70400a.b(context, str);
+            f71320a.b(context, str);
         }
     }
 
     public static int a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? f70400a.a(str, str2) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? f71320a.a(str, str2) : invokeLL.intValue;
     }
 
     public static int a(String str, Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, th)) == null) ? f70400a.a(str, th) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, th)) == null) ? f71320a.a(str, th) : invokeLL.intValue;
     }
 
     public static int a(String str, String str2, Throwable th) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, th)) == null) ? f70400a.a(str, str2, th) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, th)) == null) ? f71320a.a(str, str2, th) : invokeLLL.intValue;
     }
 
     public static String a(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) ? f70400a.a(th) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) ? f71320a.a(th) : (String) invokeL.objValue;
     }
 
     public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
-            f70400a.a(context, str);
+            f71320a.a(context, str);
         }
     }
 }

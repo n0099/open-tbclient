@@ -18,17 +18,17 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static q f11815d;
+    public static q f12566d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f11816a;
+    public c f12567a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f11817b;
+    public CustomMessageListener f12568b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f11818c;
+    public CustomMessageListener f12569c;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -36,7 +36,7 @@ public class q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q f11819a;
+        public final /* synthetic */ q f12570a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(q qVar, int i2) {
@@ -56,19 +56,19 @@ public class q {
                     return;
                 }
             }
-            this.f11819a = qVar;
+            this.f12570a = qVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f11819a.f11816a == null || customResponsedMessage == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f12570a.f12567a == null || customResponsedMessage == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof b.a.r0.l3.s0.k) && ((b.a.r0.l3.s0.k) data).f20875b) {
-                this.f11819a.e();
+            if ((data instanceof b.a.r0.m3.s0.k) && ((b.a.r0.m3.s0.k) data).f22725b) {
+                this.f12570a.e();
             }
         }
     }
@@ -120,22 +120,22 @@ public class q {
                 return;
             }
         }
-        this.f11817b = new a(this, 2001437);
-        this.f11818c = new b(this, 2005016);
+        this.f12568b = new a(this, 2001437);
+        this.f12569c = new b(this, 2005016);
     }
 
     public static q c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f11815d == null) {
+            if (f12566d == null) {
                 synchronized (q.class) {
-                    if (f11815d == null) {
-                        f11815d = new q();
+                    if (f12566d == null) {
+                        f12566d = new q();
                     }
                 }
             }
-            return f11815d;
+            return f12566d;
         }
         return (q) invokeV.objValue;
     }
@@ -143,27 +143,27 @@ public class q {
     public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.f11817b.setTag(bdUniqueId);
-            this.f11818c.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.f11817b);
-            MessageManager.getInstance().registerListener(this.f11818c);
+            this.f12568b.setTag(bdUniqueId);
+            this.f12569c.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.f12568b);
+            MessageManager.getInstance().registerListener(this.f12569c);
         }
     }
 
     public final void e() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f11816a) == null || cVar.d() == 0 || this.f11816a.q() == 0 || this.f11816a.x() != 9) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f12567a) == null || cVar.d() == 0 || this.f12567a.q() == 0 || this.f12567a.x() != 9) {
             return;
         }
         try {
-            String valueOf = String.valueOf(this.f11816a.d());
-            String valueOf2 = String.valueOf(this.f11816a.q());
+            String valueOf = String.valueOf(this.f12567a.d());
+            String valueOf2 = String.valueOf(this.f12567a.q());
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(valueOf, valueOf2);
             CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
             completeTaskReqMsg.completeId = jSONObject.toString();
-            JSONObject a2 = b.a.q0.a.d0.c.a(null, this.f11816a.d(), this.f11816a.q(), this.f11816a.E());
+            JSONObject a2 = b.a.q0.a.d0.c.a(null, this.f12567a.d(), this.f12567a.q(), this.f12567a.E());
             if (a2 != null) {
                 completeTaskReqMsg.setToken(a2.toString());
             }
@@ -177,7 +177,7 @@ public class q {
     public void f(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f11816a = cVar;
+            this.f12567a = cVar;
         }
     }
 }

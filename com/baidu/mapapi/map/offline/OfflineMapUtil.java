@@ -39,21 +39,21 @@ public class OfflineMapUtil {
                 return null;
             }
             MKOLSearchRecord mKOLSearchRecord = new MKOLSearchRecord();
-            mKOLSearchRecord.cityID = qVar.f40163a;
-            mKOLSearchRecord.cityName = qVar.f40164b;
-            mKOLSearchRecord.cityType = qVar.f40166d;
+            mKOLSearchRecord.cityID = qVar.f40995a;
+            mKOLSearchRecord.cityName = qVar.f40996b;
+            mKOLSearchRecord.cityType = qVar.f40998d;
             long j = 0;
             if (qVar.a() != null) {
                 ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
                 Iterator<q> it = qVar.a().iterator();
                 while (it.hasNext()) {
                     arrayList.add(getSearchRecordFromLocalCityInfo(it.next()));
-                    j += next.f40165c;
+                    j += next.f40997c;
                     mKOLSearchRecord.childCities = arrayList;
                 }
             }
             if (mKOLSearchRecord.cityType != 1) {
-                j = qVar.f40165c;
+                j = qVar.f40997c;
             }
             mKOLSearchRecord.dataSize = j;
             return mKOLSearchRecord;
@@ -69,16 +69,16 @@ public class OfflineMapUtil {
                 return null;
             }
             MKOLUpdateElement mKOLUpdateElement = new MKOLUpdateElement();
-            mKOLUpdateElement.cityID = tVar.f40174a;
-            mKOLUpdateElement.cityName = tVar.f40175b;
-            GeoPoint geoPoint = tVar.f40180g;
+            mKOLUpdateElement.cityID = tVar.f41006a;
+            mKOLUpdateElement.cityName = tVar.f41007b;
+            GeoPoint geoPoint = tVar.f41012g;
             if (geoPoint != null) {
                 mKOLUpdateElement.geoPt = CoordUtil.mc2ll(geoPoint);
             }
-            mKOLUpdateElement.level = tVar.f40178e;
-            int i2 = tVar.f40182i;
+            mKOLUpdateElement.level = tVar.f41010e;
+            int i2 = tVar.f41014i;
             mKOLUpdateElement.ratio = i2;
-            int i3 = tVar.f40181h;
+            int i3 = tVar.f41013h;
             mKOLUpdateElement.serversize = i3;
             if (i2 != 100) {
                 i3 = (i3 / 100) * i2;

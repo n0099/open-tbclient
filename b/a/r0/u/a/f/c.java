@@ -16,7 +16,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f23933a;
+    public SharedPreferences f25421a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -33,19 +33,19 @@ public class c {
                 return;
             }
         }
-        this.f23933a = TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info", 0);
+        this.f25421a = TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info", 0);
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23933a.getString(SpeedStatsUtils.UBC_VALUE_SPLASH, "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25421a.getString(SpeedStatsUtils.UBC_VALUE_SPLASH, "") : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            SharedPreferences.Editor edit = this.f23933a.edit();
+            SharedPreferences.Editor edit = this.f25421a.edit();
             edit.putString(SpeedStatsUtils.UBC_VALUE_SPLASH, str);
             edit.commit();
         }

@@ -44,19 +44,19 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public l<T, D> f45989e;
+    public l<T, D> f46839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public m<T, D> f45990f;
+    public m<T, D> f46840f;
 
     /* renamed from: g  reason: collision with root package name */
-    public T f45991g;
+    public T f46841g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final NetModelType f45992h;
+    public final NetModelType f46842h;
 
     /* renamed from: i  reason: collision with root package name */
-    public j<T, D, ActivityType> f45993i;
+    public j<T, D, ActivityType> f46843i;
     public boolean j;
     public boolean k;
     public boolean l;
@@ -135,7 +135,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f45994a;
+        public static final /* synthetic */ int[] f46844a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -152,21 +152,21 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                 }
             }
             int[] iArr = new int[NetModelType.values().length];
-            f45994a = iArr;
+            f46844a = iArr;
             try {
                 iArr[NetModelType.TYPE_AUTO.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f45994a[NetModelType.TYPE_SOCKET.ordinal()] = 2;
+                f46844a[NetModelType.TYPE_SOCKET.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f45994a[NetModelType.TYPE_HTTP.ordinal()] = 3;
+                f46844a[NetModelType.TYPE_HTTP.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f45994a[NetModelType.TYPE_NETWORK.ordinal()] = 4;
+                f46844a[NetModelType.TYPE_NETWORK.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -178,7 +178,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NetModel f45995e;
+        public final /* synthetic */ NetModel f46845e;
 
         public b(NetModel netModel) {
             Interceptable interceptable = $ic;
@@ -195,20 +195,20 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                     return;
                 }
             }
-            this.f45995e = netModel;
+            this.f46845e = netModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = a.f45994a[this.f45995e.f45992h.ordinal()];
+                int i2 = a.f46844a[this.f46845e.f46842h.ordinal()];
                 if (i2 == 1) {
-                    this.f45995e.S(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    this.f46845e.S(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                 } else if (i2 == 2) {
-                    this.f45995e.T(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    this.f46845e.T(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                 } else if (i2 == 3 || i2 == 4) {
-                    this.f45995e.R(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    this.f46845e.R(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                 }
             }
         }
@@ -220,7 +220,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NetModel f45996e;
+        public final /* synthetic */ NetModel f46846e;
 
         public c(NetModel netModel) {
             Interceptable interceptable = $ic;
@@ -237,14 +237,14 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                     return;
                 }
             }
-            this.f45996e = netModel;
+            this.f46846e = netModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45996e.S(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                this.f46846e.S(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
             }
         }
     }
@@ -255,7 +255,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NetModel f45997e;
+        public final /* synthetic */ NetModel f46847e;
 
         public d(NetModel netModel) {
             Interceptable interceptable = $ic;
@@ -272,14 +272,14 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                     return;
                 }
             }
-            this.f45997e = netModel;
+            this.f46847e = netModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45997e.R(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                this.f46847e.R(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
             }
         }
     }
@@ -290,7 +290,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NetModel f45998e;
+        public final /* synthetic */ NetModel f46848e;
 
         public e(NetModel netModel) {
             Interceptable interceptable = $ic;
@@ -307,14 +307,14 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                     return;
                 }
             }
-            this.f45998e = netModel;
+            this.f46848e = netModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45998e.T(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                this.f46848e.T(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
             }
         }
     }
@@ -325,7 +325,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NetModel f45999e;
+        public final /* synthetic */ NetModel f46849e;
 
         public f(NetModel netModel) {
             Interceptable interceptable = $ic;
@@ -342,14 +342,14 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                     return;
                 }
             }
-            this.f45999e = netModel;
+            this.f46849e = netModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45999e.R(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                this.f46849e.R(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
             }
         }
     }
@@ -360,7 +360,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NetModel f46000a;
+        public final /* synthetic */ NetModel f46850a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(NetModel netModel, int i2, int i3) {
@@ -381,7 +381,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                     return;
                 }
             }
-            this.f46000a = netModel;
+            this.f46850a = netModel;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: com.baidu.tbadk.mvc.model.NetModel$m */
@@ -391,19 +391,19 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f46000a.n = false;
-                if (this.f46000a.q != null) {
-                    b.a.e.e.m.e.a().removeCallbacks(this.f46000a.q);
+                this.f46850a.n = false;
+                if (this.f46850a.q != null) {
+                    b.a.e.f.m.e.a().removeCallbacks(this.f46850a.q);
                 }
                 if (responsedMessage instanceof MvcProtobufHttpResponsedMessage) {
                     MvcNetMessage mvcNetMessage = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-                    if (this.f46000a.f45989e != null) {
-                        this.f46000a.f45989e.p((MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
+                    if (this.f46850a.f46839e != null) {
+                        this.f46850a.f46839e.p((MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
                     }
                 } else if (responsedMessage instanceof MvcSocketResponsedMessage) {
                     MvcNetMessage mvcNetMessage2 = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-                    if (this.f46000a.f45990f != null) {
-                        this.f46000a.f45990f.k((MvcSocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
+                    if (this.f46850a.f46840f != null) {
+                        this.f46850a.f46840f.k((MvcSocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
                     }
                 } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new RuntimeException("mvc netmodel NetListener responsedMessage error");
@@ -418,7 +418,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NetModel f46001a;
+        public final /* synthetic */ NetModel f46851a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(NetModel netModel, int i2, boolean z) {
@@ -439,7 +439,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                     return;
                 }
             }
-            this.f46001a = netModel;
+            this.f46851a = netModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -447,14 +447,14 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f46001a.n = false;
-                if (this.f46001a.q != null) {
-                    b.a.e.e.m.e.a().removeCallbacks(this.f46001a.q);
+                this.f46851a.n = false;
+                if (this.f46851a.q != null) {
+                    b.a.e.f.m.e.a().removeCallbacks(this.f46851a.q);
                 }
                 if (httpResponsedMessage instanceof MvcJsonHttpResponsedMessage) {
                     if (httpResponsedMessage.getOrginalMessage() instanceof MvcHttpMessage) {
-                        if (this.f46001a.f45989e != null) {
-                            this.f46001a.f45989e.p((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
+                        if (this.f46851a.f46839e != null) {
+                            this.f46851a.f46839e.p((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
                         }
                     } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                         throw new RuntimeException("mvc netmodel HttpListener jsonHttpResponsedMessage originaMessage error");
@@ -472,7 +472,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NetModel f46002a;
+        public final /* synthetic */ NetModel f46852a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(NetModel netModel, int i2, boolean z) {
@@ -493,7 +493,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                     return;
                 }
             }
-            this.f46002a = netModel;
+            this.f46852a = netModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -501,14 +501,14 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f46002a.n = false;
-                if (this.f46002a.q != null) {
-                    b.a.e.e.m.e.a().removeCallbacks(this.f46002a.q);
+                this.f46852a.n = false;
+                if (this.f46852a.q != null) {
+                    b.a.e.f.m.e.a().removeCallbacks(this.f46852a.q);
                 }
                 if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
                     if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
-                        if (this.f46002a.f45990f != null) {
-                            this.f46002a.f45990f.k((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
+                        if (this.f46852a.f46840f != null) {
+                            this.f46852a.f46840f.k((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
                         }
                     } else if (TbadkCoreApplication.getInst().isDebugMode()) {
                         throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage originaMessage error");
@@ -526,10 +526,10 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetModel<T, D, ActivityType> f46003a;
+        public NetModel<T, D, ActivityType> f46853a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HttpNetContext f46004b;
+        public HttpNetContext f46854b;
 
         public j(NetModel<T, D, ActivityType> netModel) {
             Interceptable interceptable = $ic;
@@ -546,7 +546,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                     return;
                 }
             }
-            this.f46003a = netModel;
+            this.f46853a = netModel;
         }
 
         public D b(Class<D> cls) {
@@ -577,14 +577,14 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
             HttpNetContext httpNetContext;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
-                this.f46003a.n = true;
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.f46003a.M());
-                for (Map.Entry<String, Object> entry : this.f46003a.f45991g.s().entrySet()) {
+                this.f46853a.n = true;
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.f46853a.M());
+                for (Map.Entry<String, Object> entry : this.f46853a.f46841g.s().entrySet()) {
                     netWork.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
                 }
                 String postNetData = netWork.postNetData();
-                this.f46004b = netWork.getNetContext();
-                D b2 = b(this.f46003a.getResponseDataClass());
+                this.f46854b = netWork.getNetContext();
+                D b2 = b(this.f46853a.getResponseDataClass());
                 if (postNetData != null) {
                     try {
                         b2.initByJson(new JSONObject(postNetData));
@@ -593,8 +593,8 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                     }
                 }
                 publishProgress(b2);
-                if (this.f46003a.isNeedCache() && (httpNetContext = this.f46004b) != null && httpNetContext.getResponse() != null && this.f46004b.getResponse().isRequestSuccess() && b2 != null) {
-                    T t = this.f46003a.f45991g;
+                if (this.f46853a.isNeedCache() && (httpNetContext = this.f46854b) != null && httpNetContext.getResponse() != null && this.f46854b.getResponse().isRequestSuccess() && b2 != null) {
+                    T t = this.f46853a.f46841g;
                     if (t instanceof b.a.q0.k0.b.d) {
                         b.a.q0.k0.b.d dVar = (b.a.q0.k0.b.d) t;
                         String cacheKey = dVar.getCacheKey();
@@ -602,7 +602,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                         String currentAccount = dVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
                         if (cacheKey != null && !TextUtils.isEmpty(v) && b2 != null) {
                             b.a.q0.s.r.a.f();
-                            b.a.e.e.d.l<String> h2 = b.a.q0.s.r.a.h(v, currentAccount);
+                            b.a.e.f.d.l<String> h2 = b.a.q0.s.r.a.h(v, currentAccount);
                             if (h2 == null) {
                                 return b2;
                             }
@@ -635,27 +635,27 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                 if (dArr == null || dArr.length <= 0) {
                     return;
                 }
-                this.f46003a.n = false;
-                if (this.f46003a.q != null) {
-                    b.a.e.e.m.e.a().removeCallbacks(this.f46003a.q);
+                this.f46853a.n = false;
+                if (this.f46853a.q != null) {
+                    b.a.e.f.m.e.a().removeCallbacks(this.f46853a.q);
                 }
-                NetModel<T, D, ActivityType> netModel = this.f46003a;
-                MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(netModel.f45991g, netModel.J());
-                MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.f46003a.J());
+                NetModel<T, D, ActivityType> netModel = this.f46853a;
+                MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(netModel.f46841g, netModel.J());
+                MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.f46853a.J());
                 mvcJsonHttpResponsedMessage.setData(dArr[0]);
                 mvcJsonHttpResponsedMessage.setOrginalMessage(mvcHttpMessage);
-                HttpNetContext httpNetContext = this.f46004b;
+                HttpNetContext httpNetContext = this.f46854b;
                 if (httpNetContext != null && httpNetContext.getResponse() != null) {
-                    mvcJsonHttpResponsedMessage.setStatusCode(this.f46004b.getResponse().mNetErrorCode, this.f46004b.getResponse().mErrorString);
-                    mvcJsonHttpResponsedMessage.setError(this.f46004b.getResponse().mServerErrorCode);
-                    mvcJsonHttpResponsedMessage.setErrorString(this.f46004b.getResponse().mErrorString);
-                    if (this.f46004b.getResponse().mException != null) {
-                        BdLog.e(this.f46004b.getResponse().mException);
+                    mvcJsonHttpResponsedMessage.setStatusCode(this.f46854b.getResponse().mNetErrorCode, this.f46854b.getResponse().mErrorString);
+                    mvcJsonHttpResponsedMessage.setError(this.f46854b.getResponse().mServerErrorCode);
+                    mvcJsonHttpResponsedMessage.setErrorString(this.f46854b.getResponse().mErrorString);
+                    if (this.f46854b.getResponse().mException != null) {
+                        BdLog.e(this.f46854b.getResponse().mException);
                     }
                 }
-                this.f46003a.X();
-                if (this.f46003a.f45989e != null) {
-                    this.f46003a.f45989e.p(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
+                this.f46853a.X();
+                if (this.f46853a.f46839e != null) {
+                    this.f46853a.f46839e.p(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
                 }
             }
         }
@@ -693,7 +693,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                 return;
             }
         }
-        this.f45993i = null;
+        this.f46843i = null;
         this.j = false;
         this.k = false;
         this.l = false;
@@ -701,8 +701,8 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         this.n = false;
         this.o = -1;
         this.p = true;
-        this.f45991g = t;
-        this.f45992h = netModelType;
+        this.f46841g = t;
+        this.f46842h = netModelType;
     }
 
     public final void F() {
@@ -734,7 +734,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.m) {
             return;
         }
-        int i2 = a.f45994a[this.f45992h.ordinal()];
+        int i2 = a.f46844a[this.f46842h.ordinal()];
         if (i2 == 1) {
             g gVar = new g(this, J(), N());
             gVar.getHttpMessageListener().setSelfListener(true);
@@ -756,7 +756,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
     public final void I() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.l && MessageManager.getInstance().findTask(N()) == null) {
-            b.a.q0.z0.b bVar = new b.a.q0.z0.b(N());
+            b.a.q0.y0.b bVar = new b.a.q0.y0.b(N());
             bVar.setResponsedClass(O());
             W(bVar);
             MessageManager.getInstance().unRegisterTask(N());
@@ -809,22 +809,22 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
 
     public final void R(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, str) == null) || this.f45989e == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, str) == null) || this.f46839e == null) {
             return;
         }
-        MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.f45991g, J());
+        MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.f46841g, J());
         MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(J());
         mvcJsonHttpResponsedMessage.setOrginalMessage(mvcHttpMessage);
         mvcJsonHttpResponsedMessage.setError(i2);
         mvcJsonHttpResponsedMessage.setErrorString(str);
-        this.f45989e.p(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
+        this.f46839e.p(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
     }
 
     public final void S(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048589, this, i2, str) == null) {
-            MvcNetMessage<T, D> mvcNetMessage = new MvcNetMessage<>(this.f45991g, J(), N());
-            if (this.f45990f != null) {
+            MvcNetMessage<T, D> mvcNetMessage = new MvcNetMessage<>(this.f46841g, J(), N());
+            if (this.f46840f != null) {
                 MvcSocketResponsedMessage<D, ?> mvcSocketResponsedMessage = new MvcSocketResponsedMessage(this, N()) { // from class: com.baidu.tbadk.mvc.model.NetModel.9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -864,8 +864,8 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                 mvcSocketResponsedMessage.setOrginalMessage(mvcNetMessage.getSocketMessage());
                 mvcSocketResponsedMessage.setError(i2);
                 mvcSocketResponsedMessage.setErrorString(str);
-                this.f45990f.k(mvcSocketResponsedMessage, null, mvcNetMessage);
-            } else if (this.f45989e != null) {
+                this.f46840f.k(mvcSocketResponsedMessage, null, mvcNetMessage);
+            } else if (this.f46839e != null) {
                 MvcHttpResponsedMessage<D> mvcHttpResponsedMessage = new MvcProtobufHttpResponsedMessage<D, Error>(this, J()) { // from class: com.baidu.tbadk.mvc.model.NetModel.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -902,7 +902,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                 mvcHttpResponsedMessage.setOrginalMessage(mvcNetMessage.getHttpMessage());
                 mvcHttpResponsedMessage.setError(i2);
                 mvcHttpResponsedMessage.setErrorString(str);
-                this.f45989e.p(mvcHttpResponsedMessage, null, mvcNetMessage);
+                this.f46839e.p(mvcHttpResponsedMessage, null, mvcNetMessage);
             }
         }
     }
@@ -910,7 +910,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
     public final void T(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048590, this, i2, str) == null) {
-            MvcSocketMessage<T, D> mvcSocketMessage = new MvcSocketMessage<>(this.f45991g, N());
+            MvcSocketMessage<T, D> mvcSocketMessage = new MvcSocketMessage<>(this.f46841g, N());
             MvcSocketResponsedMessage<D, ?> mvcSocketResponsedMessage = new MvcSocketResponsedMessage(this, N()) { // from class: com.baidu.tbadk.mvc.model.NetModel.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -950,7 +950,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
             mvcSocketResponsedMessage.setOrginalMessage(mvcSocketMessage);
             mvcSocketResponsedMessage.setError(i2);
             mvcSocketResponsedMessage.setErrorString(str);
-            this.f45990f.k(mvcSocketResponsedMessage, mvcSocketMessage, null);
+            this.f46840f.k(mvcSocketResponsedMessage, mvcSocketMessage, null);
         }
     }
 
@@ -966,7 +966,7 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         }
     }
 
-    public void W(b.a.q0.z0.b bVar) {
+    public void W(b.a.q0.y0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bVar) == null) {
         }
@@ -975,15 +975,15 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
     public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f45993i = null;
+            this.f46843i = null;
         }
     }
 
     public void Y(k<T, D> kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, kVar) == null) {
-            this.f45989e = kVar;
-            this.f45990f = kVar;
+            this.f46839e = kVar;
+            this.f46840f = kVar;
         }
     }
 
@@ -1013,28 +1013,28 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (this.f45990f == null && this.f45989e == null && TbadkCoreApplication.getInst().isDebugMode()) {
+            if (this.f46840f == null && this.f46839e == null && TbadkCoreApplication.getInst().isDebugMode()) {
                 throw new RuntimeException("NetModel must have callback");
             }
-            this.p = b.a.e.e.p.l.D();
+            this.p = b.a.e.f.p.l.D();
             if (this.o >= 10) {
-                b.a.e.e.m.e.a().postDelayed(P(), this.o * 1000);
+                b.a.e.f.m.e.a().postDelayed(P(), this.o * 1000);
             }
-            int i2 = a.f45994a[this.f45992h.ordinal()];
+            int i2 = a.f46844a[this.f46842h.ordinal()];
             if (i2 == 1) {
                 if (!this.p) {
-                    b.a.e.e.m.e.a().post(new c(this));
+                    b.a.e.f.m.e.a().post(new c(this));
                     return false;
                 }
                 this.n = true;
                 G();
                 I();
                 H();
-                MvcNetMessage mvcNetMessage = new MvcNetMessage(this.f45991g, J(), N());
+                MvcNetMessage mvcNetMessage = new MvcNetMessage(this.f46841g, J(), N());
                 mvcNetMessage.setNeedCache(isNeedCache());
                 mvcNetMessage.setResponseDataClass(getResponseDataClass());
                 mvcNetMessage.setTag(this.unique_id);
-                HashMap<String, String> u = this.f45991g.u();
+                HashMap<String, String> u = this.f46841g.u();
                 if (u != null) {
                     for (Map.Entry<String, String> entry : u.entrySet()) {
                         mvcNetMessage.getHttpMessage().addHeader(entry.getKey(), entry.getValue());
@@ -1044,13 +1044,13 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
                 return true;
             } else if (i2 == 2) {
                 if (!this.p) {
-                    b.a.e.e.m.e.a().post(new e(this));
+                    b.a.e.f.m.e.a().post(new e(this));
                     return false;
                 }
                 this.n = true;
                 I();
                 H();
-                MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.f45991g, N());
+                MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.f46841g, N());
                 mvcSocketMessage.setResponseDataClass(getResponseDataClass());
                 mvcSocketMessage.setNeedCache(isNeedCache());
                 mvcSocketMessage.setTag(this.unique_id);
@@ -1059,32 +1059,32 @@ public abstract class NetModel<T extends b.a.q0.k0.b.g, D extends b.a.q0.k0.b.h,
             } else if (i2 != 3) {
                 if (i2 == 4) {
                     if (!this.p) {
-                        b.a.e.e.m.e.a().post(new f(this));
+                        b.a.e.f.m.e.a().post(new f(this));
                         return false;
-                    } else if (this.f45993i == null) {
+                    } else if (this.f46843i == null) {
                         j<T, D, ActivityType> jVar = new j<>(this);
-                        this.f45993i = jVar;
+                        this.f46843i = jVar;
                         jVar.execute(new Object[0]);
                         return true;
                     }
                 }
                 return false;
             } else if (!this.p) {
-                b.a.e.e.m.e.a().post(new d(this));
+                b.a.e.f.m.e.a().post(new d(this));
                 return false;
             } else {
                 this.n = true;
                 F();
                 H();
-                MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.f45991g, J());
+                MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.f46841g, J());
                 mvcHttpMessage.setResponseDataClass(getResponseDataClass());
-                HashMap<String, Object> s = this.f45991g.s();
+                HashMap<String, Object> s = this.f46841g.s();
                 if (s != null) {
                     for (Map.Entry<String, Object> entry2 : s.entrySet()) {
                         mvcHttpMessage.addParam(entry2.getKey(), entry2.getValue());
                     }
                 }
-                HashMap<String, String> u2 = this.f45991g.u();
+                HashMap<String, String> u2 = this.f46841g.u();
                 if (u2 != null) {
                     for (Map.Entry<String, String> entry3 : u2.entrySet()) {
                         mvcHttpMessage.addHeader(entry3.getKey(), entry3.getValue());

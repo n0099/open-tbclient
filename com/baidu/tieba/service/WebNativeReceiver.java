@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.deeplink.DeepLinkCode;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,7 +47,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
             }
             if (stringExtra == null) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 3);
-            } else if (stringExtra.equals("web")) {
+            } else if (stringExtra.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB)) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 0);
                 intent2.putExtra("url", intent.getStringExtra("url"));
                 intent2.putExtra("from", stringExtra2);

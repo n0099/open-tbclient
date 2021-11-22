@@ -12,7 +12,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final TimeInterpolator f29278a;
+    public static final TimeInterpolator f30147a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,6 +28,6 @@ public class a {
                 return;
             }
         }
-        f29278a = new DecelerateInterpolator();
+        f30147a = new DecelerateInterpolator();
     }
 }

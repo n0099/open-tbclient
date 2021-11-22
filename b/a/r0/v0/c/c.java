@@ -1,6 +1,6 @@
 package b.a.r0.v0.c;
 
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -16,7 +16,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.e.e.d.l<byte[]> f24264a;
+    public b.a.e.f.d.l<byte[]> f25727a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class c {
                 return null;
             }
             String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
-            b.a.e.e.d.l<byte[]> lVar = this.f24264a;
+            b.a.e.f.d.l<byte[]> lVar = this.f25727a;
             l.b<byte[]> h2 = lVar != null ? lVar.h(str2) : null;
-            if (h2 == null || (bArr = h2.f1705b) == null) {
+            if (h2 == null || (bArr = h2.f1708b) == null) {
                 return null;
             }
             return bArr;
@@ -55,9 +55,9 @@ public class c {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f24264a == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f25727a == null) {
             b.a.q0.s.r.a.f();
-            this.f24264a = b.a.q0.s.r.a.d("tb.forum_member_info");
+            this.f25727a = b.a.q0.s.r.a.d("tb.forum_member_info");
         }
     }
 
@@ -69,7 +69,7 @@ public class c {
                 return;
             }
             b();
-            b.a.e.e.d.l<byte[]> lVar = this.f24264a;
+            b.a.e.f.d.l<byte[]> lVar = this.f25727a;
             lVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }

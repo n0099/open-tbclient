@@ -12,7 +12,7 @@ public class c {
     @Inject(force = false)
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.h0.a.b.d<a> f5150a;
+    public b.a.h0.a.b.d<a> f5302a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             b.a.h0.a.b.b b2 = b.a.h0.a.b.b.b();
-            this.f5150a = b2;
+            this.f5302a = b2;
             b2.a(new b());
         }
     }

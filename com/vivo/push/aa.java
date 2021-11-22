@@ -17,13 +17,13 @@ public abstract class aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f70186a;
+    public Context f71106a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f70187b;
+    public Handler f71107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f70188c;
+    public final Object f71108c;
 
     /* loaded from: classes2.dex */
     public class a extends Handler {
@@ -31,7 +31,7 @@ public abstract class aa {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ aa f70189a;
+        public final /* synthetic */ aa f71109a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(aa aaVar, Looper looper) {
@@ -51,14 +51,14 @@ public abstract class aa {
                     return;
                 }
             }
-            this.f70189a = aaVar;
+            this.f71109a = aaVar;
         }
 
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f70189a.b(message);
+                this.f71109a.b(message);
             }
         }
     }
@@ -76,16 +76,16 @@ public abstract class aa {
                 return;
             }
         }
-        this.f70188c = new Object();
+        this.f71108c = new Object();
         HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
         handlerThread.start();
-        this.f70187b = new a(this, handlerThread.getLooper());
+        this.f71107b = new a(this, handlerThread.getLooper());
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f70186a = context;
+            this.f71106a = context;
         }
     }
 
@@ -94,12 +94,12 @@ public abstract class aa {
     public final void a(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            synchronized (this.f70188c) {
-                if (this.f70187b == null) {
+            synchronized (this.f71108c) {
+                if (this.f71107b == null) {
                     String simpleName = getClass().getSimpleName();
                     com.vivo.push.util.p.e(simpleName, ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + SmallTailInfo.EMOTION_SUFFIX);
                 } else {
-                    this.f70187b.sendMessage(message);
+                    this.f71107b.sendMessage(message);
                 }
             }
         }

@@ -19,29 +19,29 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f11973g;
+    public static c f12727g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.e.e.k.a<String, b.a.e.l.d.a> f11974a;
+    public b.a.e.f.k.a<String, b.a.e.m.d.a> f12728a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.e.e.k.a<String, b.a.e.l.d.a> f11975b;
+    public b.a.e.f.k.a<String, b.a.e.m.d.a> f12729b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.e.e.k.a<String, Bitmap> f11976c;
+    public b.a.e.f.k.a<String, Bitmap> f12730c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a.e.e.k.a<String, b.a.e.l.d.a> f11977d;
+    public b.a.e.f.k.a<String, b.a.e.m.d.a> f12731d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.e.e.k.b<b.a.q0.f1.i.a.a> f11978e;
+    public b.a.e.f.k.b<b.a.q0.e1.i.a.a> f12732e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.q0.f1.i.c.b f11979f;
+    public b.a.q0.e1.i.c.b f12733f;
 
     /* loaded from: classes4.dex */
-    public class a extends b.a.e.e.k.a<String, b.a.e.l.d.a> {
+    public class a extends b.a.e.f.k.a<String, b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,9 +66,9 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.a
+        @Override // b.a.e.f.k.a
         /* renamed from: o */
-        public void b(boolean z, String str, b.a.e.l.d.a aVar, b.a.e.l.d.a aVar2) {
+        public void b(boolean z, String str, b.a.e.m.d.a aVar, b.a.e.m.d.a aVar2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, aVar, aVar2}) == null) || aVar == null) {
                 return;
@@ -78,7 +78,7 @@ public class c {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends b.a.e.e.k.a<String, b.a.e.l.d.a> {
+    public class b extends b.a.e.f.k.a<String, b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -103,9 +103,9 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.a
+        @Override // b.a.e.f.k.a
         /* renamed from: o */
-        public void b(boolean z, String str, b.a.e.l.d.a aVar, b.a.e.l.d.a aVar2) {
+        public void b(boolean z, String str, b.a.e.m.d.a aVar, b.a.e.m.d.a aVar2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, aVar, aVar2}) == null) || aVar == null) {
                 return;
@@ -116,9 +116,9 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.a
+        @Override // b.a.e.f.k.a
         /* renamed from: p */
-        public int m(String str, b.a.e.l.d.a aVar) {
+        public int m(String str, b.a.e.m.d.a aVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, aVar)) == null) {
@@ -133,12 +133,12 @@ public class c {
 
     /* renamed from: b.a.q0.c0.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0640c extends b.a.e.e.k.a<String, Bitmap> {
+    public class C0675c extends b.a.e.f.k.a<String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0640c(c cVar, int i2) {
+        public C0675c(c cVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -158,7 +158,7 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.a
+        @Override // b.a.e.f.k.a
         /* renamed from: o */
         public void b(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
             Interceptable interceptable = $ic;
@@ -182,7 +182,7 @@ public class c {
                 return;
             }
         }
-        f11973g = new c();
+        f12727g = new c();
     }
 
     public c() {
@@ -198,20 +198,20 @@ public class c {
                 return;
             }
         }
-        this.f11974a = null;
-        this.f11975b = null;
-        this.f11976c = null;
-        this.f11977d = null;
-        this.f11974a = new a(this, 0);
-        this.f11975b = new b(this, 0);
-        this.f11976c = new C0640c(this, 0);
-        this.f11977d = new b.a.e.e.k.a<>(Integer.MAX_VALUE);
+        this.f12728a = null;
+        this.f12729b = null;
+        this.f12730c = null;
+        this.f12731d = null;
+        this.f12728a = new a(this, 0);
+        this.f12729b = new b(this, 0);
+        this.f12730c = new C0675c(this, 0);
+        this.f12731d = new b.a.e.f.k.a<>(Integer.MAX_VALUE);
     }
 
     public static c k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f11973g : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12727g : (c) invokeV.objValue;
     }
 
     public void a(String str, Bitmap bitmap) {
@@ -219,45 +219,45 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) || StringUtils.isNull(str) || bitmap == null) {
             return;
         }
-        this.f11976c.h(str, bitmap);
+        this.f12730c.h(str, bitmap);
     }
 
-    public void b(String str, b.a.e.l.d.a aVar) {
+    public void b(String str, b.a.e.m.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
             c(str, aVar, false);
         }
     }
 
-    public void c(String str, b.a.e.l.d.a aVar, boolean z) {
-        b.a.e.e.k.a<String, b.a.e.l.d.a> aVar2;
+    public void c(String str, b.a.e.m.d.a aVar, boolean z) {
+        b.a.e.f.k.a<String, b.a.e.m.d.a> aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, aVar, z) == null) || aVar == null || (aVar2 = this.f11974a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, aVar, z) == null) || aVar == null || (aVar2 = this.f12728a) == null) {
             return;
         }
         aVar2.h(str, aVar);
     }
 
-    public void d(String str, b.a.e.l.d.a aVar) {
+    public void d(String str, b.a.e.m.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, aVar) == null) {
             e(str, aVar, false);
         }
     }
 
-    public void e(String str, b.a.e.l.d.a aVar, boolean z) {
+    public void e(String str, b.a.e.m.d.a aVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, str, aVar, z) == null) || aVar == null || this.f11975b == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, str, aVar, z) == null) || aVar == null || this.f12729b == null) {
             return;
         }
         BdLog.isDebugMode();
-        this.f11975b.h(str, aVar);
+        this.f12729b.h(str, aVar);
     }
 
-    public void f(String str, b.a.e.l.d.a aVar) {
-        b.a.e.e.k.a<String, b.a.e.l.d.a> aVar2;
+    public void f(String str, b.a.e.m.d.a aVar) {
+        b.a.e.f.k.a<String, b.a.e.m.d.a> aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) || aVar == null || (aVar2 = this.f11977d) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) || aVar == null || (aVar2 = this.f12731d) == null) {
             return;
         }
         aVar2.h(str, aVar);
@@ -266,21 +266,21 @@ public class c {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f11974a.i(str);
+            this.f12728a.i(str);
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f11975b.i(str);
+            this.f12729b.i(str);
         }
     }
 
     public boolean i(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.f11975b.e(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.f12729b.e(i2) : invokeI.booleanValue;
     }
 
     public Bitmap j(String str) {
@@ -290,62 +290,62 @@ public class c {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            return this.f11976c.f(str);
+            return this.f12730c.f(str);
         }
         return (Bitmap) invokeL.objValue;
     }
 
-    public b.a.e.l.d.a l(String str) {
+    public b.a.e.m.d.a l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? this.f11974a.f(str) : (b.a.e.l.d.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? this.f12728a.f(str) : (b.a.e.m.d.a) invokeL.objValue;
     }
 
-    public b.a.e.l.d.a m(String str) {
+    public b.a.e.m.d.a m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? this.f11975b.f(str) : (b.a.e.l.d.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? this.f12729b.f(str) : (b.a.e.m.d.a) invokeL.objValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f11975b.g() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f12729b.g() : invokeV.intValue;
     }
 
-    public b.a.e.l.d.a o(String str) {
+    public b.a.e.m.d.a o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            return this.f11977d.f(str);
+            return this.f12731d.f(str);
         }
-        return (b.a.e.l.d.a) invokeL.objValue;
+        return (b.a.e.m.d.a) invokeL.objValue;
     }
 
-    public b.a.e.e.k.b<b.a.q0.f1.i.a.a> p(int i2) {
+    public b.a.e.f.k.b<b.a.q0.e1.i.a.a> p(int i2) {
         InterceptResult invokeI;
-        b.a.q0.f1.i.c.b bVar;
+        b.a.q0.e1.i.c.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            if (this.f11978e != null && (bVar = this.f11979f) != null) {
+            if (this.f12732e != null && (bVar = this.f12733f) != null) {
                 if (bVar.g() == i2) {
-                    return this.f11978e;
+                    return this.f12732e;
                 }
-                this.f11979f.j(i2);
-                this.f11978e.c();
+                this.f12733f.j(i2);
+                this.f12732e.c();
             }
-            if (this.f11979f == null) {
-                this.f11979f = new b.a.q0.f1.i.c.b(i2);
+            if (this.f12733f == null) {
+                this.f12733f = new b.a.q0.e1.i.c.b(i2);
             }
-            if (this.f11978e == null) {
-                this.f11978e = new b.a.e.e.k.b<>(this.f11979f, 6, 0);
+            if (this.f12732e == null) {
+                this.f12732e = new b.a.e.f.k.b<>(this.f12733f, 6, 0);
             }
-            return this.f11978e;
+            return this.f12732e;
         }
-        return (b.a.e.e.k.b) invokeI.objValue;
+        return (b.a.e.f.k.b) invokeI.objValue;
     }
 
     public void q(int i2, int i3) {
@@ -358,28 +358,28 @@ public class c {
     }
 
     public void r() {
-        b.a.e.e.k.b<b.a.q0.f1.i.a.a> bVar;
+        b.a.e.f.k.b<b.a.q0.e1.i.a.a> bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (bVar = this.f11978e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (bVar = this.f12732e) == null) {
             return;
         }
         bVar.g(0);
-        this.f11978e.f(0);
-        this.f11978e.c();
-        this.f11978e = null;
+        this.f12732e.f(0);
+        this.f12732e.c();
+        this.f12732e = null;
     }
 
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f11976c.k(i2);
+            this.f12730c.k(i2);
         }
     }
 
     public void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f11974a.k(i2);
+            this.f12728a.k(i2);
         }
     }
 
@@ -387,7 +387,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "pic:" + this.f11975b.toString() + "  photo:" + this.f11974a.toString();
+            return "pic:" + this.f12729b.toString() + "  photo:" + this.f12728a.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -395,7 +395,7 @@ public class c {
     public void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.f11975b.k(i2);
+            this.f12729b.k(i2);
         }
     }
 
@@ -403,7 +403,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.f11975b.l() + "/" + this.f11975b.g() + "/" + this.f11975b.d() + "_" + this.f11974a.l() + "/" + this.f11974a.g() + "/" + this.f11974a.d();
+            return this.f12729b.l() + "/" + this.f12729b.g() + "/" + this.f12729b.d() + "_" + this.f12728a.l() + "/" + this.f12728a.g() + "/" + this.f12728a.d();
         }
         return (String) invokeV.objValue;
     }

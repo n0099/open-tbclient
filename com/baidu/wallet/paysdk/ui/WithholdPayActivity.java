@@ -45,31 +45,31 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f60351a;
+    public TextView f61273a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f60352b;
+    public LinearLayout f61274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f60353c;
+    public TextView f61275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f60354d;
+    public TextView f61276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f60355e;
+    public TextView f61277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NetImageView f60356f;
+    public NetImageView f61278f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f60357g;
+    public TextView f61279g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f60358h;
+    public TextView f61280h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwitchButton f60359i;
+    public SwitchButton f61281i;
     public LinearLayout j;
     public TextView k;
     public RelativeLayout l;
@@ -153,7 +153,7 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
                 c();
             } else if (id != ResUtils.id(this, "rl_auth_pay_button") || (payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)) == null) {
             } else {
-                String str = this.f60359i.isChecked() ? "1" : "0";
+                String str = this.f61281i.isChecked() ? "1" : "0";
                 payRequest.withholding_auth = str;
                 StatisticManager.onEventWithValue("freeSecretWithholdPayMethod", str);
                 b();
@@ -161,7 +161,7 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, com.dxmpay.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
@@ -219,7 +219,7 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
         String discountAmount = payRequest.getDiscountAmount();
         String discountMsg = payRequest.getDiscountMsg();
         boolean z = true;
-        this.f60351a.setText(!TextUtils.isEmpty(orderPrice) ? String.format(this.u, StringUtils.fen2Yuan(orderPrice)) : "");
+        this.f61273a.setText(!TextUtils.isEmpty(orderPrice) ? String.format(this.u, StringUtils.fen2Yuan(orderPrice)) : "");
         try {
             bigDecimal = new BigDecimal(orderPrice);
         } catch (NumberFormatException unused) {
@@ -234,37 +234,37 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
         boolean z2 = bigDecimal.compareTo(subtract) > 0;
         String bigDecimal3 = subtract.toString();
         if (z2) {
-            this.f60351a.getPaint().setFlags(16);
+            this.f61273a.getPaint().setFlags(16);
         } else {
-            this.f60351a.getPaint().setFlags(1);
+            this.f61273a.getPaint().setFlags(1);
         }
         if (payRequest.showCouponListEntry() && z2) {
-            this.f60352b.setVisibility(0);
-            TextView textView = this.f60353c;
+            this.f61274b.setVisibility(0);
+            TextView textView = this.f61275c;
             if (TextUtils.isEmpty(discountMsg)) {
                 discountMsg = "";
             }
             textView.setText(discountMsg);
-            this.f60354d.setText(!TextUtils.isEmpty(discountAmount) ? String.format(this.v, StringUtils.fen2Yuan(discountAmount)) : "");
+            this.f61276d.setText(!TextUtils.isEmpty(discountAmount) ? String.format(this.v, StringUtils.fen2Yuan(discountAmount)) : "");
         } else {
-            this.f60352b.setVisibility(8);
+            this.f61274b.setVisibility(8);
         }
         String format = !TextUtils.isEmpty(bigDecimal3) ? String.format(this.u, StringUtils.fen2Yuan(bigDecimal3)) : "";
         if (format.length() > 0) {
             SpannableString spannableString = new SpannableString(format);
             spannableString.setSpan(this.w, 0, 1, 33);
-            this.f60355e.setText(spannableString);
+            this.f61277e.setText(spannableString);
         } else {
-            this.f60355e.setText(format);
+            this.f61277e.setText(format);
         }
         if (!TextUtils.isEmpty(payRequest.withholding.sp_log_url)) {
-            this.f60356f.setVisibility(0);
-            this.f60356f.setImageUrl(payRequest.withholding.sp_log_url);
+            this.f61278f.setVisibility(0);
+            this.f61278f.setImageUrl(payRequest.withholding.sp_log_url);
         } else {
-            this.f60356f.setVisibility(8);
+            this.f61278f.setVisibility(8);
         }
-        this.f60357g.setText(!TextUtils.isEmpty(payRequest.withholding.sp_company) ? payRequest.withholding.sp_company : "");
-        this.f60358h.setText(!TextUtils.isEmpty(payRequest.withholding.authorize_action_desc) ? payRequest.withholding.authorize_action_desc : "");
+        this.f61279g.setText(!TextUtils.isEmpty(payRequest.withholding.sp_company) ? payRequest.withholding.sp_company : "");
+        this.f61280h.setText(!TextUtils.isEmpty(payRequest.withholding.authorize_action_desc) ? payRequest.withholding.authorize_action_desc : "");
         Withholding.AgreementInfo[] agreementInfoArr = payRequest.withholding.agreement_info;
         if (agreementInfoArr != null && agreementInfoArr.length >= 1) {
             if (!TextUtils.isEmpty(agreementInfoArr[0].title)) {
@@ -309,7 +309,7 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
     public void setAuthSwitch(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f60359i.setChecked(z);
+            this.f61281i.setChecked(z);
             a(z, false);
         }
     }
@@ -341,15 +341,15 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             setContentView(ResUtils.layout(this, "wallet_base_withhold_pay_layout"));
             initActionBar("lbspay_title_new");
-            this.f60351a = (TextView) findViewById(ResUtils.id(this, "tv_order_amount"));
-            this.f60352b = (LinearLayout) findViewById(ResUtils.id(this, "ll_discount_panel"));
-            this.f60354d = (TextView) findViewById(ResUtils.id(this, "tv_discount"));
-            this.f60353c = (TextView) findViewById(ResUtils.id(this, "tv_discount_tips"));
-            this.f60355e = (TextView) findViewById(ResUtils.id(this, "tv_pay_amount"));
-            this.f60356f = (NetImageView) findViewById(ResUtils.id(this, "ni_sp_logo"));
-            this.f60357g = (TextView) findViewById(ResUtils.id(this, "tv_sp_name"));
-            this.f60358h = (TextView) findViewById(ResUtils.id(this, "tv_sp_action"));
-            this.f60359i = (SwitchButton) findViewById(ResUtils.id(this, "sb_auth_switch"));
+            this.f61273a = (TextView) findViewById(ResUtils.id(this, "tv_order_amount"));
+            this.f61274b = (LinearLayout) findViewById(ResUtils.id(this, "ll_discount_panel"));
+            this.f61276d = (TextView) findViewById(ResUtils.id(this, "tv_discount"));
+            this.f61275c = (TextView) findViewById(ResUtils.id(this, "tv_discount_tips"));
+            this.f61277e = (TextView) findViewById(ResUtils.id(this, "tv_pay_amount"));
+            this.f61278f = (NetImageView) findViewById(ResUtils.id(this, "ni_sp_logo"));
+            this.f61279g = (TextView) findViewById(ResUtils.id(this, "tv_sp_name"));
+            this.f61280h = (TextView) findViewById(ResUtils.id(this, "tv_sp_action"));
+            this.f61281i = (SwitchButton) findViewById(ResUtils.id(this, "sb_auth_switch"));
             this.j = (LinearLayout) findViewById(ResUtils.id(this, "ll_auth_desc_panel"));
             this.k = (TextView) findViewById(ResUtils.id(this, "tv_auth_desc"));
             this.l = (RelativeLayout) findViewById(ResUtils.id(this, "rl_auth_pay_button"));
@@ -360,15 +360,15 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
             this.u = ResUtils.getString(this, "dxm_price_format");
             this.v = ResUtils.getString(this, "dxm_save_format");
             this.w = new RelativeSizeSpan(0.5f);
-            this.f60358h.setOnClickListener(this);
+            this.f61280h.setOnClickListener(this);
             this.l.setOnClickListener(this);
             this.p.setOnClickListener(this);
-            this.f60359i.setOnCheckedListener(new SwitchButton.a(this) { // from class: com.baidu.wallet.paysdk.ui.WithholdPayActivity.1
+            this.f61281i.setOnCheckedListener(new SwitchButton.a(this) { // from class: com.baidu.wallet.paysdk.ui.WithholdPayActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WithholdPayActivity f60360a;
+                public final /* synthetic */ WithholdPayActivity f61282a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -385,15 +385,15 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
                             return;
                         }
                     }
-                    this.f60360a = this;
+                    this.f61282a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.ui.widget.SwitchButton.a
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                        this.f60360a.a(z, true);
-                        this.f60360a.f60359i.setChecked(z);
+                        this.f61282a.a(z, true);
+                        this.f61282a.f61281i.setChecked(z);
                     }
                 }
             });
@@ -402,7 +402,7 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WithholdPayActivity f60361a;
+                public final /* synthetic */ WithholdPayActivity f61283a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -419,14 +419,14 @@ public class WithholdPayActivity extends PayBaseActivity implements View.OnClick
                             return;
                         }
                     }
-                    this.f60361a = this;
+                    this.f61283a = this;
                 }
 
                 @Override // android.widget.CompoundButton.OnCheckedChangeListener
                 public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, compoundButton, z) == null) {
-                        this.f60361a.l.setEnabled(z);
+                        this.f61283a.l.setEnabled(z);
                     }
                 }
             });

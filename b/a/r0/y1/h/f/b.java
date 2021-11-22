@@ -21,24 +21,24 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a extends b.a.e.e.l.c<b.a.e.l.d.a> {
+    public class a extends b.a.e.f.l.c<b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f27762a;
+        public final /* synthetic */ EditText f29265a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f27763b;
+        public final /* synthetic */ SpannableStringBuilder f29266b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f27764c;
+        public final /* synthetic */ int f29267c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ EmotionGroupType f27765d;
+        public final /* synthetic */ EmotionGroupType f29268d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27766e;
+        public final /* synthetic */ b f29269e;
 
         public a(b bVar, EditText editText, SpannableStringBuilder spannableStringBuilder, int i2, EmotionGroupType emotionGroupType) {
             Interceptable interceptable = $ic;
@@ -55,21 +55,21 @@ public class b {
                     return;
                 }
             }
-            this.f27766e = bVar;
-            this.f27762a = editText;
-            this.f27763b = spannableStringBuilder;
-            this.f27764c = i2;
-            this.f27765d = emotionGroupType;
+            this.f29269e = bVar;
+            this.f29265a = editText;
+            this.f29266b = spannableStringBuilder;
+            this.f29267c = i2;
+            this.f29268d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.l.c
-        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar != null) {
-                    this.f27766e.c(this.f27762a, this.f27763b, this.f27764c, aVar, this.f27765d);
+                    this.f29269e.c(this.f29265a, this.f29266b, this.f29267c, aVar, this.f29268d);
                 }
             }
         }
@@ -99,12 +99,12 @@ public class b {
             String c2 = wVar.c();
             EmotionGroupType type = wVar.getType();
             if (c2 != null) {
-                b.a.e.e.l.d.h().k(c2, 20, new a(this, editText, new SpannableStringBuilder(c2), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, c2, Boolean.FALSE, null);
+                b.a.e.f.l.d.h().k(c2, 20, new a(this, editText, new SpannableStringBuilder(c2), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, c2, Boolean.FALSE, null);
             }
         }
     }
 
-    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i2, b.a.e.l.d.a aVar, EmotionGroupType emotionGroupType) {
+    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i2, b.a.e.m.d.a aVar, EmotionGroupType emotionGroupType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i2), aVar, emotionGroupType}) == null) {
             Bitmap p = aVar.p();

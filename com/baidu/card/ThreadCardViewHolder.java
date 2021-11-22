@@ -15,7 +15,6 @@ import b.a.l.u;
 import b.a.q0.b.d;
 import b.a.q0.s.q.a;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.c0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,19 +34,19 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f36632e;
+    public BdUniqueId f37461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l0<T> f36633f;
+    public l0<T> f37462f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b0 f36634g;
+    public b0 f37463g;
 
     /* renamed from: h  reason: collision with root package name */
-    public r0 f36635h;
+    public r0 f37464h;
 
     /* renamed from: i  reason: collision with root package name */
-    public u f36636i;
+    public u f37465i;
     public k0 j;
     public d0 k;
     public j l;
@@ -71,13 +70,13 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f36633f = l0Var;
+        this.f37462f = l0Var;
     }
 
     public final TbPageContext a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((TbPageContextSupport) this.f36633f.i().getContext()).getPageContext() : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((TbPageContextSupport) this.f37462f.i().getContext()).getPageContext() : (TbPageContext) invokeV.objValue;
     }
 
     public final void b(c cVar) {
@@ -85,7 +84,7 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null || cVar.a() == null) {
             return;
         }
-        this.f36633f.m(cVar);
+        this.f37462f.m(cVar);
     }
 
     public final boolean c(d2 d2Var) {
@@ -97,20 +96,20 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
     public l0<T> getCardView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36633f : (l0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37462f : (l0) invokeV.objValue;
     }
 
     public u getMultiDelDecorItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36636i : (u) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37465i : (u) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36633f.i() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37462f.i() : (View) invokeV.objValue;
     }
 
     public void onBindDataToView(T t) {
@@ -118,37 +117,37 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
             if (t == null) {
-                this.f36633f.i().setVisibility(8);
+                this.f37462f.i().setVisibility(8);
                 return;
             }
             if (t.getThreadData() != null) {
-                t.getThreadData().s1();
+                t.getThreadData().t1();
             }
             if (t.getThreadData() != null && t.getThreadData().J() != null) {
                 t.getThreadData().J().getName_show();
             }
             boolean z = false;
-            this.f36633f.i().setVisibility(0);
-            b0 b0Var = this.f36634g;
-            if (b0Var != null && b0Var.f3222i != null) {
+            this.f37462f.i().setVisibility(0);
+            b0 b0Var = this.f37463g;
+            if (b0Var != null && b0Var.f3313i != null) {
                 if (!t.isSelf() && t.getNegFeedBackData() != null) {
-                    this.f36634g.l(t);
-                    this.f36634g.onBindDataToView(t.getNegFeedBackData());
-                    this.f36634g.f3222i.setVisibility(0);
+                    this.f37463g.l(t);
+                    this.f37463g.onBindDataToView(t.getNegFeedBackData());
+                    this.f37463g.f3313i.setVisibility(0);
                     z = true;
                 } else {
-                    b0 b0Var2 = this.f36634g;
-                    if (b0Var2 != null && (nEGFeedBackView = b0Var2.f3222i) != null) {
+                    b0 b0Var2 = this.f37463g;
+                    if (b0Var2 != null && (nEGFeedBackView = b0Var2.f3313i) != null) {
                         nEGFeedBackView.setVisibility(8);
                     }
                 }
             }
-            if (this.f36635h != null) {
+            if (this.f37464h != null) {
                 if (c(t.getThreadData())) {
-                    b(this.f36635h);
+                    b(this.f37464h);
                 } else {
-                    this.f36635h.k(t);
-                    this.f36635h.onBindDataToView(t.getThreadData());
+                    this.f37464h.k(t);
+                    this.f37464h.onBindDataToView(t.getThreadData());
                 }
             }
             k0 k0Var = this.j;
@@ -156,7 +155,7 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
                 k0Var.m(z);
                 this.j.onBindDataToView(t.getThreadData());
             }
-            u uVar = this.f36636i;
+            u uVar = this.f37465i;
             if (uVar != null) {
                 uVar.onBindDataToView(t.getThreadData());
             }
@@ -177,44 +176,44 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
                     b(this.m);
                 }
             }
-            this.f36633f.k(t);
+            this.f37462f.k(t);
         }
     }
 
     public void removeThemeAndStarDecorItem() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f36633f.m(this.j);
+            this.f37462f.m(this.j);
         }
     }
 
     public void setData(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-            this.f36633f.k(t);
+            this.f37462f.k(t);
         }
     }
 
     public void setDelDecorWeightSum(int i2, m0 m0Var) {
         u uVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i2, m0Var) == null) || (uVar = this.f36636i) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i2, m0Var) == null) || (uVar = this.f37465i) == null) {
             return;
         }
         uVar.s(i2, m0Var);
     }
 
-    public void setOnSubCardClickListener(c0<T> c0Var) {
+    public void setOnSubCardClickListener(b.a.r0.b0.d0<T> d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, c0Var) == null) {
-            this.f36633f.o(c0Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, d0Var) == null) {
+            this.f37462f.o(d0Var);
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
-            this.f36632e = bdUniqueId;
+            this.f37461e = bdUniqueId;
         }
     }
 
@@ -225,7 +224,7 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
             if (this.m == null) {
                 this.m = new f(a());
             }
-            this.f36633f.b(this.m);
+            this.f37462f.b(this.m);
             return this.m;
         }
         return (f) invokeV.objValue;
@@ -248,13 +247,13 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
-            if (this.f36634g == null) {
+            if (this.f37463g == null) {
                 b0 b0Var = new b0(a(), z);
-                this.f36634g = b0Var;
-                b0Var.f3222i.setUniqueId(this.f36632e);
+                this.f37463g = b0Var;
+                b0Var.f3313i.setUniqueId(this.f37461e);
             }
-            this.f36633f.b(this.f36634g);
-            return this.f36634g;
+            this.f37462f.b(this.f37463g);
+            return this.f37463g;
         }
         return (b0) invokeZ.objValue;
     }
@@ -263,17 +262,17 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), align, bVar}) == null) {
             if (!z) {
-                b(this.f36634g);
+                b(this.f37463g);
                 return;
             }
-            if (this.f36634g == null) {
+            if (this.f37463g == null) {
                 b0 b0Var = new b0(a(), align);
-                this.f36634g = b0Var;
-                b0Var.f3222i.setUniqueId(this.f36632e);
-                this.f36634g.t(bVar);
+                this.f37463g = b0Var;
+                b0Var.f3313i.setUniqueId(this.f37461e);
+                this.f37463g.t(bVar);
             }
-            this.f36634g.k(align);
-            this.f36633f.b(this.f36634g);
+            this.f37463g.k(align);
+            this.f37462f.b(this.f37463g);
         }
     }
 
@@ -282,11 +281,11 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
             if (this.k == null) {
-                d0 d0Var = new d0(this.f36633f.i().getContext(), i2);
+                d0 d0Var = new d0(this.f37462f.i().getContext(), i2);
                 this.k = d0Var;
-                d0Var.p(this.f36632e);
+                d0Var.p(this.f37461e);
             }
-            this.f36633f.b(this.k);
+            this.f37462f.b(this.k);
             return this.k;
         }
         return (d0) invokeI.objValue;
@@ -299,9 +298,9 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
             if (this.j == null) {
                 k0 k0Var = new k0(a());
                 this.j = k0Var;
-                k0Var.n(this.f36632e);
+                k0Var.n(this.f37461e);
             }
-            this.f36633f.b(this.j);
+            this.f37462f.b(this.j);
             return this.j;
         }
         return (k0) invokeV.objValue;
@@ -311,14 +310,14 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048597, this, z, align) == null) {
             if (!z) {
-                b(this.f36635h);
+                b(this.f37464h);
                 return;
             }
-            if (this.f36635h == null) {
-                this.f36635h = new r0(a(), align);
+            if (this.f37464h == null) {
+                this.f37464h = new r0(a(), align);
             }
-            this.f36635h.j(align);
-            this.f36633f.b(this.f36635h);
+            this.f37464h.j(align);
+            this.f37462f.b(this.f37464h);
         }
     }
 
@@ -330,13 +329,13 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
                 return;
             }
             if (this.l == null) {
-                j jVar = new j(a(), d.l0());
+                j jVar = new j(a(), d.p0());
                 this.l = jVar;
                 jVar.q(aVar);
             }
-            this.l.r(this.f36632e);
+            this.l.r(this.f37461e);
             this.l.o(z2);
-            this.f36633f.b(this.l);
+            this.f37462f.b(this.l);
         }
     }
 
@@ -344,13 +343,13 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
-            if (this.f36636i == null) {
-                this.f36636i = new u(this.f36633f.getContext());
+            if (this.f37465i == null) {
+                this.f37465i = new u(this.f37462f.getContext());
             }
-            this.f36636i.r(this.f36632e);
-            this.f36636i.p(z);
-            this.f36633f.b(this.f36636i);
-            return this.f36636i;
+            this.f37465i.r(this.f37461e);
+            this.f37465i.p(z);
+            this.f37462f.b(this.f37465i);
+            return this.f37465i;
         }
         return (u) invokeZ.objValue;
     }

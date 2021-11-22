@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.kwad.sdk.core.response.model.NewsInfo;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -37,7 +38,7 @@ public class ay implements com.kwad.sdk.core.d<NewsInfo.ImageInfo> {
         imageInfo.width = jSONObject.optInt("width");
         imageInfo.height = jSONObject.optInt("height");
         imageInfo.url = jSONObject.optString("url");
-        imageInfo.origin = jSONObject.optString("origin");
+        imageInfo.origin = jSONObject.optString(FilterValue.DEFAULT_FILTER_VALUE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +53,7 @@ public class ay implements com.kwad.sdk.core.d<NewsInfo.ImageInfo> {
             com.kwad.sdk.utils.q.a(jSONObject, "width", imageInfo.width);
             com.kwad.sdk.utils.q.a(jSONObject, "height", imageInfo.height);
             com.kwad.sdk.utils.q.a(jSONObject, "url", imageInfo.url);
-            com.kwad.sdk.utils.q.a(jSONObject, "origin", imageInfo.origin);
+            com.kwad.sdk.utils.q.a(jSONObject, FilterValue.DEFAULT_FILTER_VALUE, imageInfo.origin);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

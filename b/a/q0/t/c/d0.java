@@ -12,13 +12,13 @@ public class d0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13765a;
+    public int f14533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13766b;
+    public int f14534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13767c;
+    public int f14535c;
 
     public d0() {
         Interceptable interceptable = $ic;
@@ -37,20 +37,20 @@ public class d0 {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13766b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14534b : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13767c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14535c : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.f13765a;
+            int i2 = this.f14533a;
             if (i2 == 0) {
                 return Integer.MAX_VALUE;
             }
@@ -62,21 +62,21 @@ public class d0 {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f13766b = b.a.e.e.m.b.e(str, 0);
+            this.f14534b = b.a.e.f.m.b.e(str, 0);
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f13767c = b.a.e.e.m.b.e(str, 0);
+            this.f14535c = b.a.e.f.m.b.e(str, 0);
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f13765a = b.a.e.e.m.b.e(str, 0);
+            this.f14533a = b.a.e.f.m.b.e(str, 0);
         }
     }
 }

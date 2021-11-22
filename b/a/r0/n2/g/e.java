@@ -32,7 +32,7 @@ public class e extends b.a.r0.b0.b<n> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f21494a;
+        public final /* synthetic */ e f22990a;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -49,20 +49,20 @@ public class e extends b.a.r0.b0.b<n> {
                     return;
                 }
             }
-            this.f21494a = eVar;
+            this.f22990a = eVar;
         }
 
         @Override // b.a.q0.s.w.b.d
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f21494a.o == null || str == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || this.f22990a.o == null || str == null) {
                 return;
             }
-            if (this.f21494a.o.checkIndex(i2)) {
+            if (this.f22990a.o.checkIndex(i2)) {
                 TiebaStatic.log(new StatisticItem("c13247").param("obj_locate", i2).param("obj_param1", str));
             }
-            this.f21494a.o.stopAutoScroll();
-            this.f21494a.o.dealOneLink(str);
+            this.f22990a.o.stopAutoScroll();
+            this.f22990a.o.dealOneLink(str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public class e extends b.a.r0.b0.b<n> {
         /* renamed from: c */
         public void a(int i2, b.a.r0.n2.e.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, aVar) == null) || this.f21494a.o == null || aVar == null || aVar.c() == null || !this.f21494a.o.checkIndex(i2)) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, aVar) == null) || this.f22990a.o == null || aVar == null || aVar.c() == null || !this.f22990a.o.checkIndex(i2)) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c13246").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i2).param("obj_param1", aVar.c()));
@@ -140,11 +140,11 @@ public class e extends b.a.r0.b0.b<n> {
         List<b.a.r0.n2.e.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-            k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
-            if (this.n == null || nVar == null || (list = nVar.f21481e) == null || this.o == null || list.size() == 0) {
+            k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
+            if (this.n == null || nVar == null || (list = nVar.f22977e) == null || this.o == null || list.size() == 0) {
                 return;
             }
-            this.o.onBindDataToView(nVar.f21481e);
+            this.o.onBindDataToView(nVar.f22977e);
         }
     }
 }

@@ -52,7 +52,7 @@ public class e extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
             try {
-                this.f68025a.putOpt(str, obj);
+                this.f68946a.putOpt(str, obj);
             } catch (JSONException unused) {
                 GDTLogger.d("Exception while update setting");
             }
@@ -63,7 +63,7 @@ public class e extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "GDTSDKSetting[" + this.f68025a.toString() + PreferencesUtil.RIGHT_MOUNT;
+            return "GDTSDKSetting[" + this.f68946a.toString() + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

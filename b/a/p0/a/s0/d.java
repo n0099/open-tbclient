@@ -12,11 +12,11 @@ public final class d {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7852a;
+    public String f8328a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7853b;
+    public String f8329b;
 
     public d(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class d {
                 return;
             }
         }
-        this.f7852a = str;
-        this.f7853b = str2;
+        this.f8328a = str;
+        this.f8329b = str2;
     }
 }

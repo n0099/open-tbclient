@@ -20,13 +20,13 @@ public class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f19972a;
+    public c f21494a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f19973b;
+    public HashMap<String, String> f21495b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Gson f19974c;
+    public Gson f21496c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(int i2) {
@@ -46,7 +46,7 @@ public class a extends d {
                 return;
             }
         }
-        this.f19974c = new Gson();
+        this.f21496c = new Gson();
     }
 
     public String a(String str) {
@@ -57,7 +57,7 @@ public class a extends d {
                 str = str.split("[?]")[0];
             }
             String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-            HashMap<String, String> hashMap = this.f19973b;
+            HashMap<String, String> hashMap = this.f21495b;
             if (hashMap != null) {
                 return hashMap.get(replace);
             }
@@ -72,14 +72,14 @@ public class a extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpMessage, httpMessageTask)) == null) {
             String a2 = a(httpMessageTask.getUrl());
-            if (a2 != null && this.f19972a != null) {
+            if (a2 != null && this.f21494a != null) {
                 if (httpMessage.getExtra() instanceof NetMessage) {
                     NetMessage netMessage = (NetMessage) httpMessage.getExtra();
-                    json = netMessage.getSocketMessage() != null ? this.f19974c.toJson(netMessage.getSocketMessage().getData()) : "";
+                    json = netMessage.getSocketMessage() != null ? this.f21496c.toJson(netMessage.getSocketMessage().getData()) : "";
                 } else {
-                    json = this.f19974c.toJson(httpMessage.getParams());
+                    json = this.f21496c.toJson(httpMessage.getParams());
                 }
-                this.f19972a.a(httpMessageTask.getUrl(), this.f19974c.toJson(a2), this.f19974c.toJson(json));
+                this.f21494a.a(httpMessageTask.getUrl(), this.f21496c.toJson(a2), this.f21496c.toJson(json));
             }
             return httpMessage;
         }
@@ -89,14 +89,14 @@ public class a extends d {
     public void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f19972a = cVar;
+            this.f21494a = cVar;
         }
     }
 
     public void d(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) {
-            this.f19973b = hashMap;
+            this.f21495b = hashMap;
         }
     }
 

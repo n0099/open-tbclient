@@ -14,7 +14,7 @@ public class bo extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f70722a;
+    public Context f71642a;
 
     public bo(Context context) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class bo extends ai.a {
                 return;
             }
         }
-        this.f70722a = context;
+        this.f71642a = context;
     }
 
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.f70722a).m78a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.f71642a).m78a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -54,8 +54,8 @@ public class bo extends ai.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (a()) {
-                    com.xiaomi.clientreport.manager.a.a(this.f70722a).c();
-                    com.xiaomi.channel.commonutils.logger.b.c(this.f70722a.getPackageName() + "perf  begin upload");
+                    com.xiaomi.clientreport.manager.a.a(this.f71642a).c();
+                    com.xiaomi.channel.commonutils.logger.b.c(this.f71642a.getPackageName() + "perf  begin upload");
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("fail to send perf data. " + e2);

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
 import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface e {
     void d(Activity activity, i.a.a.e.l.f fVar, Dialog dialog, IYYPayWayView iYYPayWayView);
 

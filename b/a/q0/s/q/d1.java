@@ -16,10 +16,10 @@ public class d1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13268a;
+    public int f14048a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f13269b;
+    public ArrayList<a> f14049b;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -27,7 +27,7 @@ public class d1 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13270a;
+        public String f14050a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -61,13 +61,13 @@ public class d1 {
     public ArrayList<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13269b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14049b : (ArrayList) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13268a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14048a : invokeV.intValue;
     }
 
     public void c(PbPresent pbPresent) {
@@ -75,20 +75,20 @@ public class d1 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbPresent) == null) || pbPresent == null) {
             return;
         }
-        this.f13268a = pbPresent.total.intValue();
+        this.f14048a = pbPresent.total.intValue();
         List<PbPresentList> list = pbPresent.list;
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.f13269b = new ArrayList<>();
+        this.f14049b = new ArrayList<>();
         for (PbPresentList pbPresentList : pbPresent.list) {
             if (pbPresentList != null) {
                 a aVar = new a();
                 pbPresentList.gift_id.intValue();
                 String str = pbPresentList.gift_name;
-                aVar.f13270a = pbPresentList.thumbnail_url;
+                aVar.f14050a = pbPresentList.thumbnail_url;
                 pbPresentList.num.intValue();
-                this.f13269b.add(aVar);
+                this.f14049b.add(aVar);
             }
         }
     }
@@ -96,14 +96,14 @@ public class d1 {
     public void d(ArrayList<a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.f13269b = arrayList;
+            this.f14049b = arrayList;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f13268a = i2;
+            this.f14048a = i2;
         }
     }
 }

@@ -17,6 +17,7 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
+import com.baidu.webkit.sdk.abtest.ABTestSDK;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes11.dex */
 public class QuicPreConnect implements INoProGuard, INetListener {
@@ -63,7 +64,7 @@ public class QuicPreConnect implements INoProGuard, INetListener {
                 Log.i(LOG_TAG, "no need tryToQuicPreConnect");
             } else if (ConectivityUtils.getNetType(context).equals("unknown")) {
             } else {
-                if (WebSettingsGlobalBlink.getPreconnectABTestEnable() && WebSettingsGlobalBlink.hasQuicAltService("https://m.baidu.com") && WebViewFactory.hasProvider() && WebViewFactory.getProvider().getStatics() != null) {
+                if (ABTestSDK.isEnableUseQuicPreconnectEnabled() && WebSettingsGlobalBlink.hasQuicAltService("https://m.baidu.com") && WebViewFactory.hasProvider() && WebViewFactory.getProvider().getStatics() != null) {
                     String str = mQuicPreConnectUrl + System.currentTimeMillis();
                     Log.i(LOG_TAG, "QuicPreconnect tryToQuicPreConnect preconnectUrl Url = ".concat(String.valueOf(str)));
                     WebViewFactory.getProvider().getStatics().preconnectUrl(str, 1);

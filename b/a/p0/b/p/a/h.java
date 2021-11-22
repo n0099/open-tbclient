@@ -4,19 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
-import b.a.p0.a.c2.f.a0;
-import b.a.p0.a.e2.c.i;
-import b.a.p0.a.e2.c.j.b;
-import b.a.p0.a.e2.c.j.f;
-import b.a.p0.a.u.e.a.c;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.f2.f.z;
+import b.a.p0.a.h2.c.i;
+import b.a.p0.a.h2.c.j.b;
+import b.a.p0.a.h2.c.j.f;
+import b.a.p0.a.u.e.a.d;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.utils.ThirdPartyUtil;
-import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,39 +25,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class h extends a0 {
+public class h extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a implements b.a.p0.a.v2.e1.b<i<b.e>> {
+    public class a implements b.a.p0.a.z2.g1.c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9443e;
+        public final /* synthetic */ CallbackHandler f10028e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9444f;
+        public final /* synthetic */ String f10029f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f9445g;
+        public final /* synthetic */ Context f10030g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f9446h;
+        public final /* synthetic */ String f10031h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.a2.e f9447i;
-        public final /* synthetic */ c.C0379c j;
+        public final /* synthetic */ b.a.p0.a.d2.e f10032i;
+        public final /* synthetic */ d.C0412d j;
         public final /* synthetic */ Bundle k;
         public final /* synthetic */ h l;
 
-        public a(h hVar, CallbackHandler callbackHandler, String str, Context context, String str2, b.a.p0.a.a2.e eVar, c.C0379c c0379c, Bundle bundle) {
+        public a(h hVar, CallbackHandler callbackHandler, String str, Context context, String str2, b.a.p0.a.d2.e eVar, d.C0412d c0412d, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hVar, callbackHandler, str, context, str2, eVar, c0379c, bundle};
+                Object[] objArr = {hVar, callbackHandler, str, context, str2, eVar, c0412d, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -68,55 +68,55 @@ public class h extends a0 {
                 }
             }
             this.l = hVar;
-            this.f9443e = callbackHandler;
-            this.f9444f = str;
-            this.f9445g = context;
-            this.f9446h = str2;
-            this.f9447i = eVar;
-            this.j = c0379c;
+            this.f10028e = callbackHandler;
+            this.f10029f = str;
+            this.f10030g = context;
+            this.f10031h = str2;
+            this.f10032i = eVar;
+            this.j = c0412d;
             this.k = bundle;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                if (b.a.p0.a.e2.c.d.h(iVar)) {
-                    if (this.l.o(this.f9445g, this.f9446h)) {
-                        this.l.m(this.f9447i, (Activity) this.f9445g, this.j, this.f9443e, this.f9444f, this.k);
+                if (b.a.p0.a.h2.c.d.h(iVar)) {
+                    if (this.l.o(this.f10030g, this.f10031h)) {
+                        this.l.m(this.f10032i, (Activity) this.f10030g, this.j, this.f10028e, this.f10029f, this.k);
                         return;
                     } else {
-                        this.f9443e.handleSchemeDispatchCallback(this.f9444f, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
+                        this.f10028e.handleSchemeDispatchCallback(this.f10029f, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
                         return;
                     }
                 }
-                b.a.p0.a.e2.c.d.p(iVar, this.f9443e, this.f9444f);
+                b.a.p0.a.h2.c.d.q(iVar, this.f10028e, this.f10029f);
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class b implements b.a.p0.a.v2.e1.b<i<f.d>> {
+    public class b implements b.a.p0.a.z2.g1.c<i<f.d>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.C0379c f9448e;
+        public final /* synthetic */ d.C0412d f10033e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9449f;
+        public final /* synthetic */ CallbackHandler f10034f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f9450g;
+        public final /* synthetic */ String f10035g;
 
-        public b(h hVar, c.C0379c c0379c, CallbackHandler callbackHandler, String str) {
+        public b(h hVar, d.C0412d c0412d, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hVar, c0379c, callbackHandler, str};
+                Object[] objArr = {hVar, c0412d, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -126,37 +126,37 @@ public class h extends a0 {
                     return;
                 }
             }
-            this.f9448e = c0379c;
-            this.f9449f = callbackHandler;
-            this.f9450g = str;
+            this.f10033e = c0412d;
+            this.f10034f = callbackHandler;
+            this.f10035g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: a */
         public void onCallback(i<f.d> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!iVar.c()) {
-                    b.a.p0.a.e0.d.l("ThirdPartyLoginAction", iVar.b() + " " + this.f9448e.toString());
-                    String f2 = b.a.p0.a.e2.c.d.f(iVar.b());
+                    b.a.p0.a.e0.d.o("ThirdPartyLoginAction", iVar.b() + " " + this.f10033e.toString());
+                    String f2 = b.a.p0.a.h2.c.d.f(iVar.b());
                     if (!TextUtils.isEmpty(f2)) {
-                        this.f9449f.handleSchemeDispatchCallback(this.f9450g, UnitedSchemeUtility.wrapCallbackParams(iVar.b(), f2).toString());
+                        this.f10034f.handleSchemeDispatchCallback(this.f10035g, UnitedSchemeUtility.wrapCallbackParams(iVar.b(), f2).toString());
                     } else {
-                        this.f9449f.handleSchemeDispatchCallback(this.f9450g, UnitedSchemeUtility.wrapCallbackParams(iVar.b()).toString());
+                        this.f10034f.handleSchemeDispatchCallback(this.f10035g, UnitedSchemeUtility.wrapCallbackParams(iVar.b()).toString());
                     }
-                } else if (TextUtils.isEmpty(iVar.f4946a.f4964a)) {
-                    this.f9449f.handleSchemeDispatchCallback(this.f9450g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                } else if (TextUtils.isEmpty(iVar.f6424a.f6442a)) {
+                    this.f10034f.handleSchemeDispatchCallback(this.f10035g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
                 } else {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("code", iVar.f4946a.f4964a);
-                        this.f9449f.handleSchemeDispatchCallback(this.f9450g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
+                        jSONObject.put("code", iVar.f6424a.f6442a);
+                        this.f10034f.handleSchemeDispatchCallback(this.f10035g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
                     } catch (JSONException e2) {
-                        if (a0.f4160b) {
+                        if (z.f5228b) {
                             e2.printStackTrace();
                         }
-                        this.f9449f.handleSchemeDispatchCallback(this.f9450g, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
+                        this.f10034f.handleSchemeDispatchCallback(this.f10035g, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
                     }
                 }
             }
@@ -164,7 +164,7 @@ public class h extends a0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(b.a.p0.a.c2.e eVar) {
+    public h(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/thirdPartyLogin");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -184,8 +184,8 @@ public class h extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
@@ -205,20 +205,20 @@ public class h extends a0 {
             }
             String optString2 = optParamsAsJo.optString("type", "");
             int n = n(optString2);
-            c.C0379c c0379c = new c.C0379c(optParamsAsJo);
+            d.C0412d c0412d = new d.C0412d(optParamsAsJo);
             Bundle bundle = new Bundle();
             bundle.putInt("key_login_mode", n);
-            eVar.S().g(context, "mapp_i_login", new a(this, callbackHandler, optString, context, optString2, eVar, c0379c, bundle));
+            eVar.d0().g(context, "mapp_i_login", new a(this, callbackHandler, optString, context, optString2, eVar, c0412d, bundle));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void m(b.a.p0.a.a2.e eVar, Activity activity, c.C0379c c0379c, CallbackHandler callbackHandler, String str, Bundle bundle) {
+    public final void m(b.a.p0.a.d2.e eVar, Activity activity, d.C0412d c0412d, CallbackHandler callbackHandler, String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{eVar, activity, c0379c, callbackHandler, str, bundle}) == null) {
-            eVar.S().r(activity, c0379c, bundle, new b(this, c0379c, callbackHandler, str), "SwanThirdPartLogin");
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{eVar, activity, c0412d, callbackHandler, str, bundle}) == null) {
+            eVar.d0().r(activity, c0412d, bundle, new b(this, c0412d, callbackHandler, str), "SwanThirdPartLogin");
         }
     }
 
@@ -244,7 +244,7 @@ public class h extends a0 {
                     c2 = 65535;
                     break;
                 case 3616:
-                    if (str.equals(LoginConstants.QQ_LOGIN)) {
+                    if (str.equals("qq")) {
                         c2 = 3;
                         break;
                     }
@@ -258,7 +258,7 @@ public class h extends a0 {
                     c2 = 65535;
                     break;
                 case 113011944:
-                    if (str.equals("weibo")) {
+                    if (str.equals(PassProviderPlugin.LOGIN_TYPE_WEIBO)) {
                         c2 = 4;
                         break;
                     }
@@ -309,7 +309,7 @@ public class h extends a0 {
                     c2 = 65535;
                     break;
                 case 3616:
-                    if (str.equals(LoginConstants.QQ_LOGIN)) {
+                    if (str.equals("qq")) {
                         c2 = 1;
                         break;
                     }
@@ -323,7 +323,7 @@ public class h extends a0 {
                     c2 = 65535;
                     break;
                 case 113011944:
-                    if (str.equals("weibo")) {
+                    if (str.equals(PassProviderPlugin.LOGIN_TYPE_WEIBO)) {
                         c2 = 2;
                         break;
                     }

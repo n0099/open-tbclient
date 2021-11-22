@@ -5,12 +5,12 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a1.e;
-import b.a.p0.a.e0.d;
-import b.a.p0.a.h0.m.e;
+import b.a.p0.a.a1.d;
+import b.a.p0.a.h0.m.f;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.o0;
-import b.a.p0.n.i.m.c;
+import b.a.p0.a.z2.g1.c;
+import b.a.p0.a.z2.o0;
+import b.a.p0.q.j.m.d;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
@@ -29,16 +29,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5079a;
+    public static final boolean f4854a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.f1.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0184a implements b.a.p0.a.v2.e1.b<PMSAppInfo> {
+    public static class C0172a implements c<PMSAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0184a() {
+        public C0172a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,18 +53,18 @@ public class a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: a */
         public void onCallback(PMSAppInfo pMSAppInfo) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, pMSAppInfo) == null) && pMSAppInfo != null && pMSAppInfo.isForbiddenApp()) {
-                b.a.p0.a.c2.f.g0.a.h(pMSAppInfo.appKey, pMSAppInfo.appStatus);
+                b.a.p0.a.f2.f.f0.a.K(pMSAppInfo.appKey, pMSAppInfo.appStatus);
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public static class b extends e {
+    public static class b extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,13 +88,13 @@ public class a {
             }
         }
 
-        @Override // b.a.p0.n.f.g, b.a.p0.n.f.d
+        @Override // b.a.p0.q.f.i, b.a.p0.q.f.f
         public void n(String str, String str2) {
             List<UbcFlowEvent> list;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
                 super.n(str, str2);
-                if (TextUtils.isEmpty(str2) || !TextUtils.equals(str, "770") || (list = this.s) == null) {
+                if (TextUtils.isEmpty(str2) || !TextUtils.equals(str, "770") || (list = this.t) == null) {
                     return;
                 }
                 list.add(new UbcFlowEvent(str2));
@@ -115,13 +115,13 @@ public class a {
                 return;
             }
         }
-        f5079a = k.f6397a;
+        f4854a = k.f6863a;
     }
 
     public static void a(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
-            boolean z = f5079a;
+            boolean z = f4854a;
             String string = bundle.getString("mAppId");
             if (TextUtils.isEmpty(string)) {
                 return;
@@ -130,18 +130,18 @@ public class a {
             if (1 != i2) {
                 i2 = 0;
             }
-            c cVar = new c(string, i2);
+            d dVar = new d(string, i2);
             if (bundle.containsKey("pms_update_expect_pkg_ver")) {
-                cVar.o(bundle.getLong("pms_update_expect_pkg_ver"));
+                dVar.q(bundle.getLong("pms_update_expect_pkg_ver"));
             }
-            if (f5079a) {
-                String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i2), Long.valueOf(cVar.h()));
+            if (f4854a) {
+                String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i2), Long.valueOf(dVar.i()));
             }
-            cVar.d("4");
+            dVar.d("4");
             b bVar = new b(string);
-            bVar.b0(new C0184a());
-            bVar.K(3);
-            b.a.p0.n.b.b(cVar, bVar);
+            bVar.e0(new C0172a());
+            bVar.L(3);
+            b.a.p0.q.b.c(dVar, bVar);
         }
     }
 
@@ -155,12 +155,12 @@ public class a {
                 if (j == 0 || bundle == null || pMSAppInfo.appCategory == 1) {
                     return false;
                 }
-                File i2 = e.C0109e.i(pMSAppInfo.appId, String.valueOf(j));
+                File i2 = d.e.i(pMSAppInfo.appId, String.valueOf(j));
                 if (i2.exists()) {
                     String string = bundle.getString("mPage");
                     if (TextUtils.isEmpty(string)) {
                         boolean exists = new File(i2, "app.json").exists();
-                        d.h("SwanAppLaunchUtils", "checkSwanAppPageDirExist app.json exists: " + exists);
+                        b.a.p0.a.e0.d.k("SwanAppLaunchUtils", "checkSwanAppPageDirExist app.json exists: " + exists);
                         return exists;
                     }
                     String g2 = o0.g(string);
@@ -185,7 +185,7 @@ public class a {
                             }
                             lastIndexOf2 = g2.lastIndexOf(File.separator);
                         }
-                        if (f5079a) {
+                        if (f4854a) {
                             String str = "isInDependentPkg=" + z + ", pagePath=" + g2;
                         }
                         if (z && !TextUtils.isEmpty(g2)) {
@@ -213,12 +213,12 @@ public class a {
             int lastIndexOf = g2.lastIndexOf(File.separator);
             while (lastIndexOf != -1) {
                 g2 = g2.substring(0, lastIndexOf);
-                if (b.a.p0.a.a1.e.B(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), g2)) {
+                if (b.a.p0.a.a1.d.B(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), g2)) {
                     return g2;
                 }
                 lastIndexOf = g2.lastIndexOf(File.separator);
             }
-            return b.a.p0.a.a1.e.B(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), g2) ? g2 : "";
+            return b.a.p0.a.a1.d.B(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), g2) ? g2 : "";
         }
         return (String) invokeLL.objValue;
     }
@@ -230,7 +230,7 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return e(b.a.p0.n.g.a.h().s(str));
+            return e(b.a.p0.q.g.a.i().u(str));
         }
         return invokeL.booleanValue;
     }
@@ -249,7 +249,7 @@ public class a {
                         }
                         return false;
                     }
-                    return b.a.p0.a.a1.e.z(e.C0109e.i(pMSAppInfo.appId, String.valueOf(j)));
+                    return b.a.p0.a.a1.d.z(d.e.i(pMSAppInfo.appId, String.valueOf(j)));
                 }
             }
             return false;
@@ -268,7 +268,7 @@ public class a {
             if (g2.lastIndexOf(File.separator) != -1) {
                 g2 = g2.substring(0, g2.lastIndexOf(File.separator));
             }
-            return b.a.p0.a.a1.e.p(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), g2).exists();
+            return b.a.p0.a.a1.d.p(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), g2).exists();
         }
         return invokeLL.booleanValue;
     }

@@ -1,7 +1,7 @@
 package b.a.r0.w0.d;
 
 import android.view.View;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -39,10 +39,10 @@ public class c extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
             }
         }
         this.n = 3;
-        NoDataView a2 = NoDataViewFactory.a(this.f14737f.getPageActivity(), i(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f14737f.getPageActivity(), R.dimen.ds160)), NoDataViewFactory.e.a(R.string.search_forum_no_result), null);
+        NoDataView a2 = NoDataViewFactory.a(this.f16224f.getPageActivity(), i(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f16224f.getPageActivity(), R.dimen.ds160)), NoDataViewFactory.e.a(R.string.search_forum_no_result), null);
         this.m = a2;
         a2.setVisibility(0);
-        k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+        k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // b.a.r0.b0.b
@@ -60,7 +60,7 @@ public class c extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
         }
         NoDataView noDataView = this.m;
         if (noDataView != null) {
-            noDataView.onChangeSkinType(this.f14737f, i2);
+            noDataView.onChangeSkinType(this.f16224f, i2);
         }
         this.n = i2;
     }
@@ -71,7 +71,7 @@ public class c extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
     public void j(b.a.r0.w0.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+            k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 

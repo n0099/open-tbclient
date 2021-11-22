@@ -1,5 +1,6 @@
 package com.google.j2objc.annotations;
 
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class ReflectionSupport$Level {
     public static final /* synthetic */ ReflectionSupport$Level[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +31,7 @@ public final class ReflectionSupport$Level {
             }
         }
         NATIVE_ONLY = new ReflectionSupport$Level("NATIVE_ONLY", 0);
-        ReflectionSupport$Level reflectionSupport$Level = new ReflectionSupport$Level("FULL", 1);
+        ReflectionSupport$Level reflectionSupport$Level = new ReflectionSupport$Level(PolyActivity.FULL_PANEL_TYPE, 1);
         FULL = reflectionSupport$Level;
         $VALUES = new ReflectionSupport$Level[]{NATIVE_ONLY, reflectionSupport$Level};
     }

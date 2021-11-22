@@ -12,7 +12,7 @@ public final class b<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final h.n.b<? super T> f72069i;
+    public final h.n.b<? super T> f72988i;
     public final h.n.b<Throwable> j;
     public final h.n.a k;
 
@@ -31,7 +31,7 @@ public final class b<T> extends j<T> {
                 return;
             }
         }
-        this.f72069i = bVar;
+        this.f72988i = bVar;
         this.j = bVar2;
         this.k = aVar;
     }
@@ -56,7 +56,7 @@ public final class b<T> extends j<T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f72069i.call(t);
+            this.f72988i.call(t);
         }
     }
 }

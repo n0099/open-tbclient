@@ -121,24 +121,24 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
             this.urlTitleData = k0Var;
             DataRes dataRes2 = getGiftListResIdl.data;
             UrlTitle urlTitle = dataRes2.currency_txt;
-            k0Var.f13380a = urlTitle.name;
-            k0Var.f13381b = urlTitle.url;
+            k0Var.f14160a = urlTitle.name;
+            k0Var.f14161b = urlTitle.url;
             List<PresentGiftList1> list = dataRes2.gift_list;
             if (list != null && list.size() > 0) {
                 this.giftList = new ArrayList<>();
                 for (PresentGiftList1 presentGiftList1 : getGiftListResIdl.data.gift_list) {
                     if (presentGiftList1 != null) {
                         j0 j0Var = new j0();
-                        j0Var.f13358a = presentGiftList1.gift_id.intValue();
-                        j0Var.f13359b = presentGiftList1.gift_name;
-                        j0Var.f13360c = presentGiftList1.price.intValue();
-                        j0Var.f13361d = presentGiftList1.thumbnail_url;
+                        j0Var.f14138a = presentGiftList1.gift_id.intValue();
+                        j0Var.f14139b = presentGiftList1.gift_name;
+                        j0Var.f14140c = presentGiftList1.price.intValue();
+                        j0Var.f14141d = presentGiftList1.thumbnail_url;
                         presentGiftList1.ios_price.intValue();
-                        j0Var.f13362e = presentGiftList1.gift_desc;
-                        j0Var.f13363f = presentGiftList1.activity_type.intValue();
-                        j0Var.f13364g = presentGiftList1.mark_url;
-                        j0Var.f13365h = presentGiftList1.begin_time.intValue();
-                        j0Var.f13366i = presentGiftList1.end_time.intValue();
+                        j0Var.f14142e = presentGiftList1.gift_desc;
+                        j0Var.f14143f = presentGiftList1.activity_type.intValue();
+                        j0Var.f14144g = presentGiftList1.mark_url;
+                        j0Var.f14145h = presentGiftList1.begin_time.intValue();
+                        j0Var.f14146i = presentGiftList1.end_time.intValue();
                         j0Var.j = presentGiftList1.discount.intValue();
                         presentGiftList1.ios_discount.intValue();
                         presentGiftList1.proportion.intValue();

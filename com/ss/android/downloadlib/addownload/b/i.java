@@ -28,7 +28,7 @@ public class i {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f68532a;
+        public static i f69452a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +44,7 @@ public class i {
                     return;
                 }
             }
-            f68532a = new i();
+            f69452a = new i();
         }
     }
 
@@ -100,7 +100,7 @@ public class i {
     public static i a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f68532a : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f69452a : (i) invokeV.objValue;
     }
 
     public void a(com.ss.android.downloadad.api.a.b bVar) {
@@ -123,10 +123,10 @@ public class i {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Collection f68528a;
+                            public final /* synthetic */ Collection f69448a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ i f68529b;
+                            public final /* synthetic */ i f69449b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -143,16 +143,16 @@ public class i {
                                         return;
                                     }
                                 }
-                                this.f68529b = this;
-                                this.f68528a = collection;
+                                this.f69449b = this;
+                                this.f69448a = collection;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    SharedPreferences.Editor edit = this.f68529b.c().edit();
-                                    for (com.ss.android.downloadad.api.a.b bVar : this.f68528a) {
+                                    SharedPreferences.Editor edit = this.f69449b.c().edit();
+                                    for (com.ss.android.downloadad.api.a.b bVar : this.f69448a) {
                                         if (bVar != null && bVar.b() != 0) {
                                             edit.putString(String.valueOf(bVar.b()), bVar.ae().toString());
                                         }
@@ -177,10 +177,10 @@ public class i {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f68530a;
+            public final /* synthetic */ List f69450a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ i f68531b;
+            public final /* synthetic */ i f69451b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -197,16 +197,16 @@ public class i {
                         return;
                     }
                 }
-                this.f68531b = this;
-                this.f68530a = list;
+                this.f69451b = this;
+                this.f69450a = list;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    SharedPreferences.Editor edit = this.f68531b.c().edit();
-                    for (String str : this.f68530a) {
+                    SharedPreferences.Editor edit = this.f69451b.c().edit();
+                    for (String str : this.f69450a) {
                         edit.remove(str);
                     }
                     edit.apply();

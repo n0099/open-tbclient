@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.BannerImage;
 /* loaded from: classes4.dex */
-public class l0 extends BaseCardInfo implements b.a.e.l.e.n {
+public class l0 extends BaseCardInfo implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f13387f;
+    public static final BdUniqueId f14167f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<m> f13388e;
+    public List<m> f14168e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class l0 extends BaseCardInfo implements b.a.e.l.e.n {
                 return;
             }
         }
-        f13387f = BdUniqueId.gen();
+        f14167f = BdUniqueId.gen();
     }
 
     public l0() {
@@ -53,14 +53,14 @@ public class l0 extends BaseCardInfo implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f13388e = new ArrayList();
+        this.f14168e = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f13387f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f14167f : (BdUniqueId) invokeV.objValue;
     }
 
     public void parserProtobuf(List<BannerImage> list) {
@@ -68,12 +68,12 @@ public class l0 extends BaseCardInfo implements b.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
             return;
         }
-        this.f13388e.clear();
+        this.f14168e.clear();
         int min = Math.min(list.size(), 10);
         for (int i2 = 0; i2 < min; i2++) {
             m mVar = new m();
             mVar.f(list.get(i2));
-            this.f13388e.add(mVar);
+            this.f14168e.add(mVar);
         }
     }
 }

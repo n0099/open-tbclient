@@ -29,7 +29,7 @@ public abstract class HighPriorityIntentService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HighPriorityIntentService f34443a;
+        public final /* synthetic */ HighPriorityIntentService f35275a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HighPriorityIntentService highPriorityIntentService, Looper looper) {
@@ -49,15 +49,15 @@ public abstract class HighPriorityIntentService extends Service {
                     return;
                 }
             }
-            this.f34443a = highPriorityIntentService;
+            this.f35275a = highPriorityIntentService;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f34443a.onHandleIntent((Intent) message.obj);
-                this.f34443a.stopSelf(message.arg1);
+                this.f35275a.onHandleIntent((Intent) message.obj);
+                this.f35275a.stopSelf(message.arg1);
             }
         }
     }

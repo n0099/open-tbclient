@@ -215,7 +215,7 @@ public class ChannelManager {
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:11:0x0039 -> B:16:0x0047). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:11:0x003a -> B:16:0x0048). Please submit an issue!!! */
     private String readLastChannelFromRaw() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

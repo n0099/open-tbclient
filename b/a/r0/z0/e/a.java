@@ -3,9 +3,9 @@ package b.a.r0.z0.e;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.n;
-import b.a.r0.z2.p;
-import b.a.r0.z2.t;
+import b.a.e.m.e.n;
+import b.a.r0.a3.p;
+import b.a.r0.a3.t;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class a extends b.a.e.l.e.a<n, FunAdEmptyHolder> implements t, p {
+public class a extends b.a.e.m.e.a<n, FunAdEmptyHolder> implements t, p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragmentActivity m;
@@ -44,7 +44,7 @@ public class a extends b.a.e.l.e.a<n, FunAdEmptyHolder> implements t, p {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public FunAdEmptyHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -58,7 +58,7 @@ public class a extends b.a.e.l.e.a<n, FunAdEmptyHolder> implements t, p {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, n nVar, FunAdEmptyHolder funAdEmptyHolder) {
         InterceptResult invokeCommon;
@@ -66,28 +66,28 @@ public class a extends b.a.e.l.e.a<n, FunAdEmptyHolder> implements t, p {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, funAdEmptyHolder})) == null) ? funAdEmptyHolder.getView() : (View) invokeCommon.objValue;
     }
 
-    @Override // b.a.r0.z2.t
+    @Override // b.a.r0.a3.t
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
         }
     }
 
-    @Override // b.a.r0.z2.p
+    @Override // b.a.r0.a3.p
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // b.a.r0.z2.p
+    @Override // b.a.r0.a3.p
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    @Override // b.a.r0.z2.p
+    @Override // b.a.r0.a3.p
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

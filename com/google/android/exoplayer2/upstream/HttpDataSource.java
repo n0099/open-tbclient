@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.upstream;
 
-import b.i.b.a.h0.e;
-import b.i.b.a.h0.g;
+import b.h.b.a.h0.e;
+import b.h.b.a.h0.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -82,7 +82,7 @@ public interface HttpDataSource extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f63066a;
+        public final b f63966a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -97,16 +97,16 @@ public interface HttpDataSource extends e {
                     return;
                 }
             }
-            this.f63066a = new b();
+            this.f63966a = new b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.i.b.a.h0.e.a
+        @Override // b.h.b.a.h0.e.a
         /* renamed from: b */
         public final HttpDataSource a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f63066a) : (HttpDataSource) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f63966a) : (HttpDataSource) invokeV.objValue;
         }
 
         public abstract HttpDataSource c(b bVar);
@@ -118,10 +118,10 @@ public interface HttpDataSource extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, String> f63067a;
+        public final Map<String, String> f63967a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f63068b;
+        public Map<String, String> f63968b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public interface HttpDataSource extends e {
                     return;
                 }
             }
-            this.f63067a = new HashMap();
+            this.f63967a = new HashMap();
         }
 
         public synchronized Map<String, String> a() {
@@ -145,10 +145,10 @@ public interface HttpDataSource extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
-                    if (this.f63068b == null) {
-                        this.f63068b = Collections.unmodifiableMap(new HashMap(this.f63067a));
+                    if (this.f63968b == null) {
+                        this.f63968b = Collections.unmodifiableMap(new HashMap(this.f63967a));
                     }
-                    map = this.f63068b;
+                    map = this.f63968b;
                 }
                 return map;
             }

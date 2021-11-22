@@ -29,31 +29,31 @@ public class PassBiometricUtil {
     public static final String CPU_TYPE_X86 = "x86";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41764a = "PassBiometricUtil";
+    public static final String f42596a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f41765b = 480;
+    public static final int f42597b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f41766c = 480;
+    public static final int f42598c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f41767d = 192;
+    public static final int f42599d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f41768e = 480;
+    public static final int f42600e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f41769f = 620;
+    public static final int f42601f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f41770g = 250;
+    public static final int f42602g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f41771h = 250;
+    public static final int f42603h = 250;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f41772i = 728;
+    public static final int f42604i = 728;
     public static final int j = 194;
     public static final int k = 750;
     public static final int l = 1335;

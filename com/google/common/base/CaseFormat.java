@@ -1,9 +1,9 @@
 package com.google.common.base;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.a;
-import b.i.d.a.b;
-import b.i.d.a.n;
+import b.h.d.a.a;
+import b.h.d.a.b;
+import b.h.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public abstract class CaseFormat {
     public static final /* synthetic */ CaseFormat[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +30,7 @@ public abstract class CaseFormat {
     public final b wordBoundary;
     public final String wordSeparator;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class StringConverter extends Converter<String, String> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -59,7 +59,7 @@ public abstract class CaseFormat {
             this.targetFormat = caseFormat2;
         }
 
-        @Override // com.google.common.base.Converter, b.i.d.a.g
+        @Override // com.google.common.base.Converter, b.h.d.a.g
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;

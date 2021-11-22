@@ -134,7 +134,7 @@ public class Login extends LightAppListenerImpl implements IWalletListener {
             } else if ("tdoudiscount:".equals(str)) {
                 CurrencyJumpHelper.schemaGotoBuyBean(this.mContext);
             } else {
-                a.u(this.mContext, true, str);
+                a.v(this.mContext, true, str);
             }
             return true;
         }

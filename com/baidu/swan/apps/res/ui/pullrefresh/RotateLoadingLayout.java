@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.res.ui.pullrefresh;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -19,7 +18,7 @@ import b.a.p0.a.e;
 import b.a.p0.a.f;
 import b.a.p0.a.g;
 import b.a.p0.a.h;
-import b.a.p0.a.v2.d;
+import b.a.p0.a.z2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,7 +28,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"NewApi"})
 /* loaded from: classes8.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +35,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f44105i;
+    public RelativeLayout f44903i;
     public ImageView j;
     public TextView k;
     public TextView l;
@@ -84,7 +82,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f44105i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+            this.f44903i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
             this.j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
             this.k = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
             this.l = (TextView) findViewById(f.pull_to_refresh_header_time);
@@ -123,7 +121,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RelativeLayout relativeLayout = this.f44105i;
+            RelativeLayout relativeLayout = this.f44903i;
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }

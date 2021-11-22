@@ -10,22 +10,22 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f30013a;
+    public static Context f30882a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f30014b;
+    public static String f30883b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f30013a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f30882a : (Context) invokeV.objValue;
     }
 
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f30014b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f30883b : (String) invokeV.objValue;
     }
 
     public static String c() {
@@ -43,8 +43,8 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 throw new NullPointerException("clienID is null");
             }
-            f30013a = context.getApplicationContext();
-            f30014b = str;
+            f30882a = context.getApplicationContext();
+            f30883b = str;
             context.getPackageName();
         }
     }

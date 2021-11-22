@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.k;
 import b.a.q0.s.q.d2;
 import b.a.r0.b0.m;
@@ -80,18 +80,18 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
     public TbImageView z;
 
     /* loaded from: classes4.dex */
-    public class a implements b.a.q0.f1.j.d {
+    public class a implements b.a.q0.e1.j.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f17631a;
+        public final /* synthetic */ LinkedList f19100a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d2 f17632b;
+        public final /* synthetic */ d2 f19101b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f17633c;
+        public final /* synthetic */ d f19102c;
 
         public a(d dVar, LinkedList linkedList, d2 d2Var) {
             Interceptable interceptable = $ic;
@@ -108,19 +108,19 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
                     return;
                 }
             }
-            this.f17633c = dVar;
-            this.f17631a = linkedList;
-            this.f17632b = d2Var;
+            this.f19102c = dVar;
+            this.f19100a = linkedList;
+            this.f19101b = d2Var;
         }
 
-        @Override // b.a.q0.f1.j.d
+        @Override // b.a.q0.e1.j.d
         public void a(View view, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
                 if (z) {
-                    this.f17633c.s();
+                    this.f19102c.s();
                 } else {
-                    this.f17633c.D(view, this.f17631a, i2, this.f17632b);
+                    this.f19102c.D(view, this.f19100a, i2, this.f19101b);
                 }
             }
         }
@@ -153,7 +153,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
     public final void A(b.a.r0.h1.k.a.c.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            d2 d2Var = cVar.f17597f;
+            d2 d2Var = cVar.f19066f;
             ArrayList<MediaData> E0 = d2Var.E0();
             if (k.c().g() && ListUtils.getCount(E0) != 0) {
                 LinkedList linkedList = new LinkedList();
@@ -192,7 +192,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, view, list, i2, d2Var) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                l.L(this.f14737f.getPageActivity(), R.string.plugin_image_viewer_install_error_tips);
+                l.L(this.f16224f.getPageActivity(), R.string.plugin_image_viewer_install_error_tips);
                 return;
             }
             ArrayList<String> arrayList = new ArrayList<>();
@@ -208,7 +208,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
                         imageUrlData.originalSize = mediaData.getOriginalSize();
                         imageUrlData.isLongPic = mediaData.isLongPic();
                         imageUrlData.mIsShowOrigonButton = mediaData.isShowOriginBtn();
-                        imageUrlData.threadId = b.a.e.e.m.b.g(d2Var.s1(), -1L);
+                        imageUrlData.threadId = b.a.e.f.m.b.g(d2Var.t1(), -1L);
                         imageUrlData.postId = mediaData.getPostId();
                         concurrentHashMap.put(mediaData.getSrc_pic(), imageUrlData);
                     }
@@ -228,7 +228,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
             bVar.B(i2);
             bVar.z(d2Var.Z());
             bVar.y(String.valueOf(d2Var.T()));
-            bVar.O(d2Var.s1());
+            bVar.O(d2Var.t1());
             bVar.C(this.C);
             bVar.J(arrayList.size() > 0 ? arrayList.get(0) : "");
             bVar.F(true);
@@ -236,7 +236,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
             bVar.H(true);
             bVar.N(d2Var);
             bVar.M(rect, UtilHelper.fixedDrawableRect(rect, view));
-            ImageViewerConfig v = bVar.v(this.f14737f.getPageActivity());
+            ImageViewerConfig v = bVar.v(this.f16224f.getPageActivity());
             if (this.l == 2) {
                 v.getIntent().putExtra("from", "index");
             } else {
@@ -244,7 +244,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2010000, v));
             HistoryMessage historyMessage = new HistoryMessage();
-            historyMessage.Activity = this.f14737f;
+            historyMessage.Activity = this.f16224f;
             historyMessage.threadId = d2Var.f0();
             historyMessage.threadName = d2Var.getTitle();
             historyMessage.forumName = d2Var.Z();
@@ -270,7 +270,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
         this.o.setSkinType(i2);
         b.a.r0.h1.k.a.c.c cVar = this.n;
         if (cVar.j) {
-            int i3 = cVar.f17599h;
+            int i3 = cVar.f19068h;
             if (i3 == 1) {
                 SkinManager.setImageResource(this.q, R.drawable.label_topic_agree_red);
                 this.o.setBorderColor(this.m.getPageActivity().getResources().getColor(R.color.CAM_X0301));
@@ -300,11 +300,11 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
     public void onClick(View view) {
         b.a.r0.h1.k.a.c.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view) == null) || (cVar = this.n) == null || cVar.f17597f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, view) == null) || (cVar = this.n) == null || cVar.f19066f == null) {
             return;
         }
         if (view == this.v) {
-            if (cVar.f17600i == 1) {
+            if (cVar.f19069i == 1) {
                 t();
             } else {
                 s();
@@ -320,7 +320,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
             p("2");
             return;
         }
-        if (this.n.f17600i == 1) {
+        if (this.n.f19069i == 1) {
             t();
         } else {
             s();
@@ -331,7 +331,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
     public final void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            TiebaStatic.log(new StatisticItem("c13356").param("obj_locate", str).param("tid", this.n.f17597f.s1()).param("topic_id", this.n.f17598g).param("obj_type", String.valueOf(this.n.f17600i)));
+            TiebaStatic.log(new StatisticItem("c13356").param("obj_locate", str).param("tid", this.n.f19066f.t1()).param("topic_id", this.n.f19067g).param("obj_type", String.valueOf(this.n.f19069i)));
         }
     }
 
@@ -348,14 +348,14 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
             tbRichTextView.setClickable(true);
             this.v.setTextEllipsize(TextUtils.TruncateAt.END);
             this.v.setMaxLines(2);
-            b.a.q0.f1.n.a aVar = new b.a.q0.f1.n.a();
+            b.a.q0.e1.n.a aVar = new b.a.q0.e1.n.a();
             aVar.v(l.g(getContext(), R.dimen.tbds44));
             aVar.o(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
             this.v.setLayoutStrategy(aVar);
             this.x = (RelativeLayout) i2.findViewById(R.id.topic_detail_img_container);
             this.w = (ConstrainImageGroup) i2.findViewById(R.id.card_topic_detail_discuss_thread_img_layout);
             this.w.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10));
-            b.a.q0.f1.j.a aVar2 = new b.a.q0.f1.j.a(3);
+            b.a.q0.e1.j.a aVar2 = new b.a.q0.e1.j.a(3);
             aVar2.d(1.0d);
             this.w.setImageProcessor(aVar2);
             AgreeView agreeView = (AgreeView) i2.findViewById(R.id.card_topic_detail_discuss_argee_view);
@@ -383,25 +383,25 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
     public void s() {
         b.a.r0.h1.k.a.c.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (cVar = this.n) == null || cVar.f17597f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (cVar = this.n) == null || cVar.f19066f == null) {
             return;
         }
-        PbActivityConfig addLocateParam = new PbActivityConfig(this.m.getPageActivity()).createFromThreadCfg(this.n.f17597f, null, "none", 18003, true, false, false).addLocateParam(null);
-        addLocateParam.setForumId(String.valueOf(this.n.f17597f.T()));
+        PbActivityConfig addLocateParam = new PbActivityConfig(this.m.getPageActivity()).createFromThreadCfg(this.n.f19066f, null, "none", 18003, true, false, false).addLocateParam(null);
+        addLocateParam.setForumId(String.valueOf(this.n.f19066f.T()));
         addLocateParam.setFrom("from_personalize");
-        addLocateParam.setForumName(this.n.f17597f.Z());
+        addLocateParam.setForumName(this.n.f19066f.Z());
         addLocateParam.setStartFrom(this.l);
         addLocateParam.setJumpGodReply(false);
         addLocateParam.setJumpToCommentArea(true);
-        m.a(this.n.f17597f.s1());
-        this.f14737f.sendMessage(new CustomMessage(2004001, addLocateParam));
+        m.a(this.n.f19066f.t1());
+        this.f16224f.sendMessage(new CustomMessage(2004001, addLocateParam));
     }
 
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            String format = String.format("%1$s", this.n.f17597f.v1().G());
-            String valueOf = String.valueOf(this.n.f17597f.s1());
+            String format = String.format("%1$s", this.n.f19066f.w1().G());
+            String valueOf = String.valueOf(this.n.f19066f.t1());
             PbActivityConfig pbActivityConfig = new PbActivityConfig(this.m.getPageActivity());
             PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(valueOf, format + "", 1, "mention");
             createNormalCfg.setStartFrom(12);
@@ -415,20 +415,20 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
         d2 d2Var;
         MetaData J;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (cVar = this.n) == null || (d2Var = cVar.f17597f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (cVar = this.n) == null || (d2Var = cVar.f19066f) == null) {
             return;
         }
-        if (cVar.f17600i == 1 && d2Var.v1() != null) {
-            J = d2Var.v1().t();
+        if (cVar.f19069i == 1 && d2Var.w1() != null) {
+            J = d2Var.w1().t();
         } else {
             J = d2Var.J();
         }
         if (J == null || StringUtils.isNull(J.getName_show()) || StringUtils.isNull(J.getUserId())) {
             return;
         }
-        long g2 = b.a.e.e.m.b.g(J.getUserId(), 0L);
-        PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(getContext()).createNormalConfig(g2, g2 == b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), J.isBigV(), d2Var.q1() != null, PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL);
-        createNormalConfig.setSourceTid(d2Var.s1());
+        long g2 = b.a.e.f.m.b.g(J.getUserId(), 0L);
+        PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(getContext()).createNormalConfig(g2, g2 == b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), J.isBigV(), d2Var.r1() != null, PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL);
+        createNormalConfig.setSourceTid(d2Var.t1());
         createNormalConfig.setSourceNid(d2Var.F0());
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
     }
@@ -442,18 +442,18 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
         int U0;
         AgreeData B;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) || cVar == null || cVar.f17597f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) || cVar == null || cVar.f19066f == null) {
             return;
         }
         this.n = cVar;
         k(this.m, TbadkCoreApplication.getInst().getSkinType());
-        d2 d2Var = this.n.f17597f;
-        PostData v1 = d2Var.v1();
-        if (v1 == null) {
+        d2 d2Var = this.n.f19066f;
+        PostData w1 = d2Var.w1();
+        if (w1 == null) {
             return;
         }
         this.o.setPlaceHolder(1);
-        if (this.n.f17600i == 1) {
+        if (this.n.f19069i == 1) {
             this.o.setData(d2Var, false, true);
         } else {
             this.o.setData(d2Var, false, false);
@@ -464,7 +464,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
         this.o.setPageId(this.m.getUniqueId());
         if (this.n.j) {
             this.q.setVisibility(0);
-            int i2 = this.n.f17599h;
+            int i2 = this.n.f19068h;
             if (i2 == 1) {
                 this.q.setImageResource(R.drawable.label_topic_agree_red);
                 this.o.setBorderColor(this.m.getPageActivity().getResources().getColor(R.color.CAM_X0301));
@@ -478,10 +478,10 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
         } else {
             this.q.setVisibility(8);
         }
-        if (this.n.f17600i == 1) {
-            name_show = v1.t().getName_show();
-            formatTime = StringHelper.getFormatTime(v1.U());
-            U0 = v1.Q();
+        if (this.n.f19069i == 1) {
+            name_show = w1.t().getName_show();
+            formatTime = StringHelper.getFormatTime(w1.U());
+            U0 = w1.Q();
         } else {
             name_show = d2Var.J().getName_show();
             formatTime = StringHelper.getFormatTime(d2Var.P());
@@ -504,17 +504,17 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
             this.t.setText(this.m.getString(R.string.action_comment_default));
             this.t.setVisibility(0);
         }
-        if (this.n.f17600i == 1) {
-            B = v1.q();
+        if (this.n.f19069i == 1) {
+            B = w1.q();
             B.objType = 1;
         } else {
             B = d2Var.B();
             B.objType = 3;
         }
-        B.threadId = d2Var.s1();
+        B.threadId = d2Var.t1();
         this.s.setData(B);
-        this.s.setTopicId(String.valueOf(this.n.f17598g));
-        x(v1, d2Var);
+        this.s.setTopicId(String.valueOf(this.n.f19067g));
+        x(w1, d2Var);
         w(cVar, d2Var);
         B(g());
     }
@@ -522,7 +522,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
     public final void w(b.a.r0.h1.k.a.c.c cVar, d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, cVar, d2Var) == null) {
-            if (this.n.f17600i == 1) {
+            if (this.n.f19069i == 1) {
                 this.y.setVisibility(0);
                 this.x.setVisibility(8);
                 String title = d2Var.getTitle();
@@ -533,8 +533,8 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
                 this.y.setVisibility(0);
                 this.A.setText(title);
                 String str = null;
-                if (ListUtils.getCount(d2Var.E0()) != 0 && !ListUtils.isEmpty(cVar.f17597f.E0())) {
-                    Iterator<MediaData> it = cVar.f17597f.E0().iterator();
+                if (ListUtils.getCount(d2Var.E0()) != 0 && !ListUtils.isEmpty(cVar.f19066f.E0())) {
+                    Iterator<MediaData> it = cVar.f19066f.E0().iterator();
                     while (it.hasNext()) {
                         MediaData next = it.next();
                         if (next != null && next.getType() == 3) {
@@ -571,7 +571,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
     public final void x(PostData postData, d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, postData, d2Var) == null) {
-            if (this.n.f17600i == 1) {
+            if (this.n.f19069i == 1) {
                 this.v.setVisibility(0);
                 this.v.setText(postData.M());
                 return;
@@ -582,13 +582,13 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
                 this.v.setText(TbRichTextView.parser(getContext(), V, false, d2Var));
                 return;
             }
-            SpannableString L2 = d2Var.L2();
-            if (L2 != null && !StringUtils.isNull(L2.toString())) {
+            SpannableString N2 = d2Var.N2();
+            if (N2 != null && !StringUtils.isNull(N2.toString())) {
                 this.v.setVisibility(0);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("type", "0");
-                    jSONObject.put("text", L2);
+                    jSONObject.put("text", N2);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -601,7 +601,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
         }
     }
 
-    public void y(b.a.e.e.k.b<TbImageView> bVar) {
+    public void y(b.a.e.f.k.b<TbImageView> bVar) {
         ConstrainImageGroup constrainImageGroup;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) || (constrainImageGroup = this.w) == null) {
@@ -610,7 +610,7 @@ public class d extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.c> {
         constrainImageGroup.setImageViewPool(bVar);
     }
 
-    public void z(b.a.e.e.k.b<ConstrainImageLayout> bVar) {
+    public void z(b.a.e.f.k.b<ConstrainImageLayout> bVar) {
         ConstrainImageGroup constrainImageGroup;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048592, this, bVar) == null) || (constrainImageGroup = this.w) == null) {

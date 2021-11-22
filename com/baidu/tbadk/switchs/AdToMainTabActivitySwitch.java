@@ -61,7 +61,7 @@ public class AdToMainTabActivitySwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, b.a.e.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, b.a.e.f.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

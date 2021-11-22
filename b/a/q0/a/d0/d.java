@@ -3,7 +3,7 @@ package b.a.q0.a.d0;
 import android.os.Handler;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.q0.a.i;
 import b.a.q0.a.o;
 import com.baidu.adp.BdUniqueId;
@@ -40,19 +40,19 @@ public class d implements Handler.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Queue<c> f11738e;
+    public final Queue<c> f12489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f11739f;
+    public BdUniqueId f12490f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.q0.n.b<b.a.q0.a.c> f11740g;
+    public b.a.q0.n.b<b.a.q0.a.c> f12491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.q0.a.d0.b f11741h;
+    public b.a.q0.a.d0.b f12492h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f11742i;
+    public boolean f12493i;
     public final Handler j;
     public b.a.e.c.g.a k;
     public CustomMessageListener l;
@@ -63,7 +63,7 @@ public class d implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f11743a;
+        public final /* synthetic */ d f12494a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2, int i3) {
@@ -84,7 +84,7 @@ public class d implements Handler.Callback {
                     return;
                 }
             }
-            this.f11743a = dVar;
+            this.f12494a = dVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: b.a.q0.a.d0.d$f */
@@ -94,12 +94,12 @@ public class d implements Handler.Callback {
             b.a.q0.a.d0.a data;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f11743a.f11742i = false;
+                this.f12494a.f12493i = false;
                 if (responsedMessage == null) {
                     return;
                 }
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.f11743a.r(responsedMessage);
+                    this.f12494a.r(responsedMessage);
                     return;
                 }
                 e eVar = null;
@@ -112,31 +112,31 @@ public class d implements Handler.Callback {
                 if (data == null) {
                     return;
                 }
-                if (this.f11743a.f11741h == null) {
-                    this.f11743a.f11741h = new b.a.q0.a.d0.b();
+                if (this.f12494a.f12492h == null) {
+                    this.f12494a.f12492h = new b.a.q0.a.d0.b();
                 }
-                this.f11743a.f11741h.d(data);
-                this.f11743a.f11741h.e();
+                this.f12494a.f12492h.d(data);
+                this.f12494a.f12492h.e();
                 Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
                 if (obj instanceof f) {
                     f fVar = (f) obj;
-                    b.a.q0.a.c cVar = fVar.f11750a;
+                    b.a.q0.a.c cVar = fVar.f12501a;
                     if (data != null && data.x == 1) {
                         cVar.z = true;
                     }
-                    this.f11743a.t(cVar);
+                    this.f12494a.t(cVar);
                     eVar = fVar;
                 } else if (obj instanceof e) {
                     e eVar2 = (e) obj;
-                    this.f11743a.s(eVar2.f11748a);
+                    this.f12494a.s(eVar2.f12499a);
                     eVar = eVar2;
                 } else if (obj instanceof g) {
                     o.b().g();
                 }
                 if (eVar != null) {
-                    this.f11743a.f11738e.remove(eVar);
+                    this.f12494a.f12489e.remove(eVar);
                 }
-                this.f11743a.u();
+                this.f12494a.u();
             }
         }
     }
@@ -147,7 +147,7 @@ public class d implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f11744a;
+        public final /* synthetic */ d f12495a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, int i2) {
@@ -167,17 +167,17 @@ public class d implements Handler.Callback {
                     return;
                 }
             }
-            this.f11744a = dVar;
+            this.f12495a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof C0636d)) {
-                C0636d c0636d = (C0636d) customResponsedMessage.getData();
-                this.f11744a.k(c0636d.f11745a);
-                this.f11744a.l(c0636d.f11746b);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof C0670d)) {
+                C0670d c0670d = (C0670d) customResponsedMessage.getData();
+                this.f12495a.k(c0670d.f12496a);
+                this.f12495a.l(c0670d.f12497b);
             }
         }
     }
@@ -204,20 +204,20 @@ public class d implements Handler.Callback {
 
     /* renamed from: b.a.q0.a.d0.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0636d {
+    public static class C0670d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<i> f11745a;
+        public List<i> f12496a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<b.a.q0.a.c> f11746b;
+        public List<b.a.q0.a.c> f12497b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<b.a.q0.a.c> f11747c;
+        public List<b.a.q0.a.c> f12498c;
 
-        public C0636d() {
+        public C0670d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -234,7 +234,7 @@ public class d implements Handler.Callback {
         public void a(b.a.q0.a.c cVar) {
             List<b.a.q0.a.c> list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (list = this.f11746b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (list = this.f12497b) == null) {
                 return;
             }
             list.add(cVar);
@@ -243,7 +243,7 @@ public class d implements Handler.Callback {
         public void b(i iVar) {
             List<i> list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar) == null) || (list = this.f11745a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar) == null) || (list = this.f12496a) == null) {
                 return;
             }
             list.add(iVar);
@@ -252,7 +252,7 @@ public class d implements Handler.Callback {
         public void c(b.a.q0.a.c cVar) {
             List<b.a.q0.a.c> list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || (list = this.f11747c) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || (list = this.f12498c) == null) {
                 return;
             }
             list.add(cVar);
@@ -265,10 +265,10 @@ public class d implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11748a;
+        public String f12499a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11749b;
+        public String f12500b;
 
         public e(String str) {
             Interceptable interceptable = $ic;
@@ -285,7 +285,7 @@ public class d implements Handler.Callback {
                     return;
                 }
             }
-            this.f11748a = str;
+            this.f12499a = str;
         }
     }
 
@@ -295,7 +295,7 @@ public class d implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b.a.q0.a.c f11750a;
+        public b.a.q0.a.c f12501a;
 
         public f(b.a.q0.a.c cVar) {
             Interceptable interceptable = $ic;
@@ -312,7 +312,7 @@ public class d implements Handler.Callback {
                     return;
                 }
             }
-            this.f11750a = cVar;
+            this.f12501a = cVar;
         }
     }
 
@@ -351,12 +351,12 @@ public class d implements Handler.Callback {
                 return;
             }
         }
-        this.f11738e = new LinkedList();
-        this.f11742i = false;
+        this.f12489e = new LinkedList();
+        this.f12493i = false;
         this.j = new Handler(this);
         this.k = new a(this, CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
         this.l = new b(this, 2921379);
-        this.f11739f = bdUniqueId;
+        this.f12490f = bdUniqueId;
         p();
         q();
     }
@@ -429,8 +429,8 @@ public class d implements Handler.Callback {
             }
         }
         e eVar = new e(jSONObject.toString());
-        eVar.f11749b = jSONObject2.toString();
-        this.f11738e.add(eVar);
+        eVar.f12500b = jSONObject2.toString();
+        this.f12489e.add(eVar);
         u();
     }
 
@@ -444,7 +444,7 @@ public class d implements Handler.Callback {
                 cVar.e0(cVar.F());
                 o(cVar);
             } else {
-                this.f11738e.add(new f(cVar));
+                this.f12489e.add(new f(cVar));
             }
         }
         u();
@@ -453,7 +453,7 @@ public class d implements Handler.Callback {
     public void m() {
         b.a.q0.a.d0.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.f11741h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.f12492h) == null) {
             return;
         }
         bVar.a();
@@ -462,13 +462,13 @@ public class d implements Handler.Callback {
     public BdUniqueId n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11739f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12490f : (BdUniqueId) invokeV.objValue;
     }
 
     public final void o(b.a.q0.a.c cVar) {
         b.a.q0.n.b<b.a.q0.a.c> bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (bVar = this.f11740g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (bVar = this.f12491g) == null) {
             return;
         }
         bVar.a(cVar);
@@ -477,8 +477,8 @@ public class d implements Handler.Callback {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b.a.r0.l3.f0.a.h(309627, CompleteTaskSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, b.a.r0.l3.f0.a.a(TbConfig.COMPLETE_TASK_URL, 309627));
+            b.a.r0.m3.f0.a.h(309627, CompleteTaskSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, b.a.r0.m3.f0.a.a(TbConfig.COMPLETE_TASK_URL, 309627));
             tbHttpMessageTask.setResponsedClass(CompleteTaskHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -506,13 +506,13 @@ public class d implements Handler.Callback {
         Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
         if (obj instanceof f) {
             f fVar = (f) obj;
-            o(fVar.f11750a);
+            o(fVar.f12501a);
             eVar = fVar;
         } else if (obj instanceof e) {
             eVar = (e) obj;
         }
         if (eVar != null) {
-            this.f11738e.remove(eVar);
+            this.f12489e.remove(eVar);
         }
         u();
     }
@@ -541,8 +541,8 @@ public class d implements Handler.Callback {
                 if (string != null && (split = string.split(",")) != null) {
                     for (String str2 : split) {
                         b.a.q0.a.c cVar = new b.a.q0.a.c();
-                        cVar.S(b.a.e.e.m.b.e(next, 0));
-                        cVar.b0(b.a.e.e.m.b.e(str2, 0));
+                        cVar.S(b.a.e.f.m.b.e(next, 0));
+                        cVar.b0(b.a.e.f.m.b.e(str2, 0));
                         if (cVar.d() != 0 && cVar.q() != 0) {
                             linkedList.add(cVar);
                         }
@@ -577,9 +577,9 @@ public class d implements Handler.Callback {
     public void v(String str, int i2, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLILL(1048588, this, str, i2, str2, obj) == null) && j.z()) {
-            this.f11742i = true;
+            this.f12493i = true;
             CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(i2);
-            completeTaskReqMsg.setTag(this.f11739f);
+            completeTaskReqMsg.setTag(this.f12490f);
             completeTaskReqMsg.completeId = str;
             completeTaskReqMsg.setToken(str2);
             completeTaskReqMsg.extra = obj;
@@ -591,7 +591,7 @@ public class d implements Handler.Callback {
     public void w(b.a.q0.n.b<b.a.q0.a.c> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.f11740g = bVar;
+            this.f12491g = bVar;
         }
     }
 
@@ -606,22 +606,22 @@ public class d implements Handler.Callback {
             return invokeV.booleanValue;
         }
         try {
-            if (this.f11742i || (peek = this.f11738e.peek()) == null) {
+            if (this.f12493i || (peek = this.f12489e.peek()) == null) {
                 return false;
             }
             if (peek instanceof f) {
                 f fVar = (f) peek;
-                if (fVar == null || (cVar = fVar.f11750a) == null) {
+                if (fVar == null || (cVar = fVar.f12501a) == null) {
                     return false;
                 }
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(String.valueOf(cVar.d()), String.valueOf(cVar.q()));
                 v(jSONObject.toString(), 1, cVar.E(), fVar);
                 return true;
-            } else if (!(peek instanceof e) || (eVar = (e) peek) == null || (str = eVar.f11748a) == null) {
+            } else if (!(peek instanceof e) || (eVar = (e) peek) == null || (str = eVar.f12499a) == null) {
                 return false;
             } else {
-                v(str, 1, eVar.f11749b, eVar);
+                v(str, 1, eVar.f12500b, eVar);
                 return true;
             }
         } catch (Exception e2) {

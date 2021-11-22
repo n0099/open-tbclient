@@ -27,16 +27,16 @@ public class e extends BaseExpandableListAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<HotTopicSelectActivity> f18621e;
+    public TbPageContext<HotTopicSelectActivity> f20157e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LayoutInflater f18622f;
+    public LayoutInflater f20158f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ExpandableListView f18623g;
+    public ExpandableListView f20159g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<c> f18624h;
+    public final List<c> f20160h;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -44,19 +44,19 @@ public class e extends BaseExpandableListAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18625a;
+        public int f20161a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f18626b;
+        public TextView f20162b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f18627c;
+        public TextView f20163c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f18628d;
+        public View f20164d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f18629e;
+        public View f20165e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -71,11 +71,11 @@ public class e extends BaseExpandableListAdapter {
                     return;
                 }
             }
-            this.f18625a = 3;
-            this.f18626b = null;
-            this.f18627c = null;
-            this.f18628d = null;
-            this.f18629e = null;
+            this.f20161a = 3;
+            this.f20162b = null;
+            this.f20163c = null;
+            this.f20164d = null;
+            this.f20165e = null;
         }
     }
 
@@ -85,16 +85,16 @@ public class e extends BaseExpandableListAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18630a;
+        public int f20166a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f18631b;
+        public TextView f20167b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f18632c;
+        public View f20168c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f18633d;
+        public View f20169d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class e extends BaseExpandableListAdapter {
                     return;
                 }
             }
-            this.f18630a = 3;
+            this.f20166a = 3;
         }
     }
 
@@ -128,41 +128,41 @@ public class e extends BaseExpandableListAdapter {
                 return;
             }
         }
-        this.f18624h = new ArrayList();
-        this.f18621e = tbPageContext;
-        this.f18622f = LayoutInflater.from(tbPageContext.getPageActivity());
+        this.f20160h = new ArrayList();
+        this.f20157e = tbPageContext;
+        this.f20158f = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
     public final void a(a aVar, View view, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, view, i2) == null) || aVar == null || aVar.f18625a == i2) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, view, i2) == null) || aVar == null || aVar.f20161a == i2) {
             return;
         }
         SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-        SkinManager.setBackgroundResource(aVar.f18627c, R.drawable.hot_select_tag_bg);
-        SkinManager.setBackgroundColor(aVar.f18628d, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(aVar.f18629e, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(aVar.f18627c, R.color.CAM_X0302, 1);
-        SkinManager.setViewTextColor(aVar.f18626b, R.color.CAM_X0105, 1);
-        aVar.f18625a = i2;
+        SkinManager.setBackgroundResource(aVar.f20163c, R.drawable.hot_select_tag_bg);
+        SkinManager.setBackgroundColor(aVar.f20164d, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(aVar.f20165e, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(aVar.f20163c, R.color.CAM_X0302, 1);
+        SkinManager.setViewTextColor(aVar.f20162b, R.color.CAM_X0105, 1);
+        aVar.f20161a = i2;
     }
 
     public final void b(b bVar, View view, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, view, i2) == null) || bVar == null || bVar.f18630a == i2) {
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, view, i2) == null) || bVar == null || bVar.f20166a == i2) {
             return;
         }
         SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(bVar.f18632c, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(bVar.f18633d, R.color.CAM_X0205);
-        SkinManager.setViewTextColor(bVar.f18631b, R.color.CAM_X0109, 1);
-        bVar.f18630a = i2;
+        SkinManager.setBackgroundColor(bVar.f20168c, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(bVar.f20169d, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(bVar.f20167b, R.color.CAM_X0109, 1);
+        bVar.f20166a = i2;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f18624h.clear();
+            this.f20160h.clear();
             notifyDataSetChanged();
         }
     }
@@ -188,19 +188,19 @@ public class e extends BaseExpandableListAdapter {
     public c getGroup(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f18624h.get(i2) : (c) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f20160h.get(i2) : (c) invokeI.objValue;
     }
 
     public List<c> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f18624h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20160h : (List) invokeV.objValue;
     }
 
     public void g(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.f18624h.add(cVar);
+            this.f20160h.add(cVar);
         }
     }
 
@@ -232,7 +232,7 @@ public class e extends BaseExpandableListAdapter {
     public int getChildTypeCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f18624h.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f20160h.size() : invokeV.intValue;
     }
 
     @Override // android.widget.ExpandableListAdapter
@@ -245,19 +245,19 @@ public class e extends BaseExpandableListAdapter {
             if (view != null && (view.getTag() instanceof a)) {
                 aVar = (a) view.getTag();
             } else {
-                view = this.f18622f.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
+                view = this.f20158f.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
                 aVar = new a();
-                aVar.f18626b = (TextView) view.findViewById(R.id.hot_topic_title);
-                aVar.f18627c = (TextView) view.findViewById(R.id.hot_topic_tag);
-                aVar.f18628d = view.findViewById(R.id.divider_line_top);
-                aVar.f18629e = view.findViewById(R.id.divider_line_bottom);
+                aVar.f20162b = (TextView) view.findViewById(R.id.hot_topic_title);
+                aVar.f20163c = (TextView) view.findViewById(R.id.hot_topic_tag);
+                aVar.f20164d = view.findViewById(R.id.divider_line_top);
+                aVar.f20165e = view.findViewById(R.id.divider_line_bottom);
                 view.setTag(aVar);
             }
             if (child == null) {
                 return view;
             }
-            aVar.f18626b.setText(b.a.q0.t0.b.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
-            h(aVar.f18627c, child.a().intValue());
+            aVar.f20162b.setText(b.a.q0.s0.b.a(StringHelper.cutStringWithEllipsisNew(child.b(), 15)));
+            h(aVar.f20163c, child.a().intValue());
             a(aVar, view, TbadkCoreApplication.getInst().getSkinType());
             return view;
         }
@@ -281,7 +281,7 @@ public class e extends BaseExpandableListAdapter {
     public int getGroupCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f18624h.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f20160h.size() : invokeV.intValue;
     }
 
     @Override // android.widget.ExpandableListAdapter
@@ -300,11 +300,11 @@ public class e extends BaseExpandableListAdapter {
             if (view != null && (view.getTag() instanceof b)) {
                 bVar = (b) view.getTag();
             } else {
-                view = this.f18622f.inflate(R.layout.hot_group_item, (ViewGroup) null);
+                view = this.f20158f.inflate(R.layout.hot_group_item, (ViewGroup) null);
                 bVar = new b();
-                bVar.f18631b = (TextView) view.findViewById(R.id.header_text);
-                bVar.f18632c = view.findViewById(R.id.divider_line);
-                bVar.f18633d = view.findViewById(R.id.group_divider);
+                bVar.f20167b = (TextView) view.findViewById(R.id.header_text);
+                bVar.f20168c = view.findViewById(R.id.divider_line);
+                bVar.f20169d = view.findViewById(R.id.group_divider);
                 view.setTag(bVar);
                 view.setClickable(false);
             }
@@ -312,13 +312,13 @@ public class e extends BaseExpandableListAdapter {
             if (group == null) {
                 return view;
             }
-            bVar.f18631b.setText(StringHelper.cutStringWithSuffix(group.a(), 15, null));
+            bVar.f20167b.setText(StringHelper.cutStringWithSuffix(group.a(), 15, null));
             if (i2 == 0) {
-                bVar.f18632c.setVisibility(0);
-                bVar.f18633d.setVisibility(8);
+                bVar.f20168c.setVisibility(0);
+                bVar.f20169d.setVisibility(8);
             } else {
-                bVar.f18632c.setVisibility(8);
-                bVar.f18633d.setVisibility(0);
+                bVar.f20168c.setVisibility(8);
+                bVar.f20169d.setVisibility(0);
             }
             b(bVar, view, TbadkCoreApplication.getInst().getSkinType());
             return view;
@@ -333,10 +333,10 @@ public class e extends BaseExpandableListAdapter {
         }
         if (i2 == 10) {
             textView.setVisibility(0);
-            textView.setText(this.f18621e.getString(R.string.topic_tag_offical));
+            textView.setText(this.f20157e.getString(R.string.topic_tag_offical));
         } else if (i2 == 11) {
             textView.setVisibility(0);
-            textView.setText(this.f18621e.getString(R.string.topic_tag_bar));
+            textView.setText(this.f20157e.getString(R.string.topic_tag_bar));
         } else {
             textView.setVisibility(8);
         }
@@ -365,13 +365,13 @@ public class e extends BaseExpandableListAdapter {
     @Override // android.widget.BaseExpandableListAdapter, android.widget.ExpandableListAdapter
     public void onGroupCollapsed(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || this.f18623g == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || this.f20159g == null) {
             return;
         }
         int groupCount = getGroupCount();
         for (int i3 = 0; i3 < groupCount; i3++) {
             if (i3 != i2) {
-                this.f18623g.collapseGroup(i2);
+                this.f20159g.collapseGroup(i2);
             }
         }
     }

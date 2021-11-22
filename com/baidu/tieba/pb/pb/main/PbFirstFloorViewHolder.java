@@ -8,8 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import b.a.e.e.m.b;
-import b.a.e.e.p.l;
+import b.a.e.f.m.b;
+import b.a.e.f.p.l;
 import b.a.q0.s.q.d2;
 import b.a.r0.k2.g;
 import b.a.r0.k2.h;
@@ -17,8 +17,8 @@ import b.a.r0.k2.i;
 import b.a.r0.k2.j;
 import b.a.r0.k2.r.f;
 import b.a.r0.k2.u.f.e;
-import b.a.r0.k2.u.f.g1.a;
-import b.a.r0.k2.u.f.q0;
+import b.a.r0.k2.u.f.h1.a;
+import b.a.r0.k2.u.f.r0;
 import b.a.r0.k2.u.f.s;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -43,10 +43,10 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f52213a;
+    public ImageView f53127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f52214b;
+    public View f53128b;
     public AppletsCellView mAppletsCellView;
     public View mBottomDivider;
     public ThreadForumEnterButtonContainer mForumEnterButtonContainer;
@@ -54,7 +54,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public TbImageView mHeadMask;
     public LinearLayout mLinkContainer;
     public a mManagerSelectView;
-    public b.a.r0.k2.u.f.d1.a mOriginalThreadView;
+    public b.a.r0.k2.u.f.e1.a mOriginalThreadView;
     public FrameLayout mOrignalThreadRootView;
     public PbBusinessPromotionContainer mPbBusinessPromotionContainer;
     public ThreadSkinView mPbItemSkinView;
@@ -90,12 +90,12 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.mSkinType = 3;
         this.mViewStubController = new s(view);
         ImageView imageView = (ImageView) view.findViewById(i.pb_thread_type_stamp_first_floor_bottom_part);
-        this.f52213a = imageView;
+        this.f53127a = imageView;
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -q0.g());
-        this.f52213a.setImageMatrix(matrix);
-        this.f52214b = view.findViewById(i.blank_view_above_rich_text);
+        matrix.postTranslate(0.0f, -r0.g());
+        this.f53127a.setImageMatrix(matrix);
+        this.f53128b = view.findViewById(i.blank_view_above_rich_text);
         this.richText = (TbRichTextView) view.findViewById(i.richText);
         this.pbItemViewRoot = view;
         int k = (((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight();
@@ -133,14 +133,14 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showBlankViewAboveRichText(boolean z, int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f52214b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f53128b) == null) {
             return;
         }
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             layoutParams.height = i2;
-            this.f52214b.setLayoutParams(layoutParams);
-            this.f52214b.setVisibility(0);
+            this.f53128b.setLayoutParams(layoutParams);
+            this.f53128b.setVisibility(0);
             return;
         }
         view.setVisibility(8);
@@ -160,15 +160,15 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
             ListUtils.isEmpty(fVar.p());
         }
         d2 d2Var = new d2();
-        d2Var.O3(fVar.Q());
-        d2Var.E3(b.g(fVar.l().getId(), 0L));
-        d2Var.I3(fVar.l().getName());
-        d2Var.F3(fVar.l().getFirst_class());
-        d2Var.r4(fVar.l().getSecond_class());
+        d2Var.Q3(fVar.Q());
+        d2Var.G3(b.g(fVar.l().getId(), 0L));
+        d2Var.K3(fVar.l().getName());
+        d2Var.H3(fVar.l().getFirst_class());
+        d2Var.t4(fVar.l().getSecond_class());
         if (fVar.O() != null) {
-            d2Var.z4(fVar.O().i0);
+            d2Var.B4(fVar.O().i0);
         }
-        if (fVar.f18765i) {
+        if (fVar.f20301i) {
             this.mForumEnterButtonContainer.setVisibility(8);
             this.mPbBusinessPromotionContainer.bindForumData(d2Var, fVar.h(), fVar.r0());
             return;
@@ -180,19 +180,19 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (fVar != null && fVar.j) {
-                this.f52213a.setImageResource(h.pic_frs_headlines_n);
-                this.f52213a.setVisibility(0);
+                this.f53127a.setImageResource(h.pic_frs_headlines_n);
+                this.f53127a.setVisibility(0);
             } else if (z && z2) {
-                this.f52213a.setImageResource(h.pic_pb_stick_refined_n);
-                this.f52213a.setVisibility(0);
+                this.f53127a.setImageResource(h.pic_pb_stick_refined_n);
+                this.f53127a.setVisibility(0);
             } else if (z) {
-                this.f52213a.setImageResource(h.pic_pb_refined_n);
-                this.f52213a.setVisibility(0);
+                this.f53127a.setImageResource(h.pic_pb_refined_n);
+                this.f53127a.setVisibility(0);
             } else if (z2) {
-                this.f52213a.setImageResource(h.pic_pb_stick_n);
-                this.f52213a.setVisibility(0);
+                this.f53127a.setImageResource(h.pic_pb_stick_n);
+                this.f53127a.setVisibility(0);
             } else {
-                this.f52213a.setVisibility(8);
+                this.f53127a.setVisibility(8);
             }
         }
     }

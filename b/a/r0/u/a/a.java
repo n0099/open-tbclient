@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.t.c.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -36,24 +36,24 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f23866a;
+    public e f25354a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23867b;
+    public String f25355b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<SplashAdView> f23868c;
+    public WeakReference<SplashAdView> f25356c;
 
     /* renamed from: b.a.r0.u.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1156a implements CustomMessageTask.CustomRunnable<n> {
+    public class C1223a implements CustomMessageTask.CustomRunnable<n> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23869e;
+        public final /* synthetic */ a f25357e;
 
-        public C1156a(a aVar) {
+        public C1223a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +68,7 @@ public class a {
                     return;
                 }
             }
-            this.f23869e = aVar;
+            this.f25357e = aVar;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -78,7 +78,7 @@ public class a {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getCmd() == 2016310) {
                     try {
-                        return new CustomResponsedMessage<>(2016310, this.f23869e.f(customMessage.getData()));
+                        return new CustomResponsedMessage<>(2016310, this.f25357e.f(customMessage.getData()));
                     } catch (Exception unused) {
                     }
                 }
@@ -94,10 +94,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f23870a;
+        public final /* synthetic */ SplashAdView f25358a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f23871b;
+        public final /* synthetic */ a f25359b;
 
         public b(a aVar, SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -114,8 +114,8 @@ public class a {
                     return;
                 }
             }
-            this.f23871b = aVar;
-            this.f23870a = splashAdView;
+            this.f25359b = aVar;
+            this.f25358a = splashAdView;
         }
 
         @Override // b.a.r0.u.a.g.a
@@ -148,18 +148,18 @@ public class a {
             b.a.r0.u.a.f.b entryInfoData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SplashAdView splashAdView = (SplashAdView) this.f23871b.f23868c.get();
+                SplashAdView splashAdView = (SplashAdView) this.f25359b.f25356c.get();
                 if (splashAdView != null) {
-                    this.f23871b.f23867b = this.f23870a.skipText();
-                    a aVar = this.f23871b;
-                    aVar.h(aVar.f23867b);
+                    this.f25359b.f25355b = this.f25358a.skipText();
+                    a aVar = this.f25359b;
+                    aVar.h(aVar.f25355b);
                 }
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_SHOW);
                 if (splashAdView != null && (entryInfoData = splashAdView.getEntryInfoData()) != null) {
                     if (entryInfoData.d()) {
-                        statisticItem.param("obj_source", entryInfoData.f23928e);
+                        statisticItem.param("obj_source", entryInfoData.f25416e);
                     } else {
-                        statisticItem.param("obj_source", entryInfoData.f23925b);
+                        statisticItem.param("obj_source", entryInfoData.f25413b);
                     }
                 }
                 TiebaStatic.log(statisticItem);
@@ -240,16 +240,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f23872a;
+        public final WeakReference<CountDownTextView> f25360a;
 
-        public /* synthetic */ e(CountDownTextView countDownTextView, C1156a c1156a) {
+        public /* synthetic */ e(CountDownTextView countDownTextView, C1223a c1223a) {
             this(countDownTextView);
         }
 
         public void a(String str) {
             CountDownTextView countDownTextView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (countDownTextView = this.f23872a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (countDownTextView = this.f25360a.get()) == null) {
                 return;
             }
             countDownTextView.init(str, 0);
@@ -270,7 +270,7 @@ public class a {
                     return;
                 }
             }
-            this.f23872a = new WeakReference<>(countDownTextView);
+            this.f25360a = new WeakReference<>(countDownTextView);
         }
     }
 
@@ -287,8 +287,8 @@ public class a {
                 return;
             }
         }
-        this.f23866a = null;
-        this.f23867b = null;
+        this.f25354a = null;
+        this.f25355b = null;
     }
 
     public final View f(n nVar) {
@@ -304,7 +304,7 @@ public class a {
             int b2 = nVar.b();
             SplashAdView splashAdView = new SplashAdView(nVar.getContext(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
             splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a2));
-            this.f23868c = new WeakReference<>(splashAdView);
+            this.f25356c = new WeakReference<>(splashAdView);
             splashAdView.setBCAdCallBack(new b(this, splashAdView));
             try {
                 z = splashAdView.isSplashAvailable();
@@ -323,8 +323,8 @@ public class a {
                     int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.ds106);
                     int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.ds52);
                     CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
-                    this.f23866a = new e(countDownTextView, null);
-                    String str = this.f23867b;
+                    this.f25354a = new e(countDownTextView, null);
+                    String str = this.f25355b;
                     if (TextUtils.isEmpty(str)) {
                         str = pageActivity.getResources().getString(R.string.skip);
                     }
@@ -381,7 +381,7 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new C1156a(this));
+            CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new C1223a(this));
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }
@@ -389,9 +389,9 @@ public class a {
 
     public final void h(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f23866a == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f25354a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f23866a.a(str);
+        this.f25354a.a(str);
     }
 }

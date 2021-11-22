@@ -13,7 +13,7 @@ public class b extends Editable.Factory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f13046a;
+    public c f13826a;
 
     public b(c cVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class b extends Editable.Factory {
                 return;
             }
         }
-        this.f13046a = cVar;
+        this.f13826a = cVar;
     }
 
     @Override // android.text.Editable.Factory
@@ -39,7 +39,7 @@ public class b extends Editable.Factory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-            spannableStringBuilder.setSpan(this.f13046a, 0, charSequence.length(), 18);
+            spannableStringBuilder.setSpan(this.f13826a, 0, charSequence.length(), 18);
             return spannableStringBuilder;
         }
         return (Editable) invokeL.objValue;

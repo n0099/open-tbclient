@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.r0.j1.b;
 import b.a.r0.j1.c;
 import b.a.r0.j1.e;
@@ -28,19 +28,19 @@ public class ShareCardView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f50082e;
+    public LinearLayout f50994e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f50083f;
+    public EditText f50995f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f50084g;
+    public TbImageView f50996g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50085h;
+    public TextView f50997h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50086i;
+    public TextView f50998i;
     public ShareFromTopicMsgData j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,16 +70,16 @@ public class ShareCardView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(f.thread_to_group_share_view, this);
             setOrientation(1);
-            this.f50082e = (LinearLayout) findViewById(e.share_content);
-            this.f50086i = (TextView) findViewById(e.share_title_view);
-            this.f50083f = (EditText) findViewById(e.chat_msg);
-            this.f50084g = (TbImageView) findViewById(e.chat_group_img);
-            this.f50085h = (TextView) findViewById(e.chat_group_desc);
-            SkinManager.setViewTextColor(this.f50086i, b.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.f50083f, b.CAM_X0105, 2);
-            SkinManager.setViewTextColor(this.f50085h, b.CAM_X0106, 1);
-            this.f50083f.setHintTextColor(SkinManager.getColor(b.CAM_X0110));
-            this.f50083f.setPadding(context.getResources().getDimensionPixelSize(c.ds20), 0, 0, 0);
+            this.f50994e = (LinearLayout) findViewById(e.share_content);
+            this.f50998i = (TextView) findViewById(e.share_title_view);
+            this.f50995f = (EditText) findViewById(e.chat_msg);
+            this.f50996g = (TbImageView) findViewById(e.chat_group_img);
+            this.f50997h = (TextView) findViewById(e.chat_group_desc);
+            SkinManager.setViewTextColor(this.f50998i, b.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.f50995f, b.CAM_X0105, 2);
+            SkinManager.setViewTextColor(this.f50997h, b.CAM_X0106, 1);
+            this.f50995f.setHintTextColor(SkinManager.getColor(b.CAM_X0110));
+            this.f50995f.setPadding(context.getResources().getDimensionPixelSize(c.ds20), 0, 0, 0);
             hideEditTextCursor();
         }
     }
@@ -87,25 +87,25 @@ public class ShareCardView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f50086i.setText(this.j.getTitle());
+            this.f50998i.setText(this.j.getTitle());
             BdLog.e("mData.getImageUrl()的图片URL" + this.j.getImageUrl());
-            this.f50084g.setTag(this.j.getImageUrl());
+            this.f50996g.setTag(this.j.getImageUrl());
             BdLog.e("mData.getContent()的Content" + this.j.getContent());
-            this.f50085h.setText(this.j.getContent());
+            this.f50997h.setText(this.j.getContent());
         }
     }
 
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50083f : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50995f : (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            EditText editText = this.f50083f;
+            EditText editText = this.f50995f;
             if (editText != null) {
                 return k.charSequence2String(editText.getText(), null);
             }
@@ -117,16 +117,16 @@ public class ShareCardView extends LinearLayout {
     public void hideEditTextCursor() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f50082e.setFocusable(true);
-            this.f50082e.setFocusableInTouchMode(true);
-            this.f50082e.requestFocus();
+            this.f50994e.setFocusable(true);
+            this.f50994e.setFocusableInTouchMode(true);
+            this.f50994e.requestFocus();
         }
     }
 
     public void loadImageIcon(String str, boolean z) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) || (tbImageView = this.f50084g) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) || (tbImageView = this.f50996g) == null) {
             return;
         }
         tbImageView.startLoad(str, z ? 17 : 18, false);

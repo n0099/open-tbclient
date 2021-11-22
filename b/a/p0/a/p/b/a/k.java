@@ -3,5 +3,5 @@ package b.a.p0.a.p.b.a;
 public interface k {
     void a(b.a.p0.a.y.b.a aVar);
 
-    void b(b.a.p0.k.n nVar);
+    void b(b.a.p0.n.n nVar);
 }

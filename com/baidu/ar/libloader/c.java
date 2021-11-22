@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.ILibLoader;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +67,7 @@ public class c extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            List<String> asList = Arrays.asList("c++_shared", "opencv_java3", "anakin_lite");
+            List<String> asList = Arrays.asList(SwanKV.LIB_CPP_SHARED, "opencv_java3", "anakin_lite");
             try {
                 for (String str : asList) {
                     require(str);

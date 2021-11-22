@@ -21,11 +21,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f72571a;
+    public static final Object f73490a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map f72572b;
+    public Map f73491b;
 
     /* loaded from: classes3.dex */
     public static final class a {
@@ -82,7 +82,7 @@ public class b {
                 return;
             }
         }
-        f72571a = new a((byte) 0);
+        f73490a = new a((byte) 0);
     }
 
     public b() {
@@ -98,7 +98,7 @@ public class b {
                 return;
             }
         }
-        this.f72572b = new HashMap();
+        this.f73491b = new HashMap();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -136,7 +136,7 @@ public class b {
                 return;
             }
         }
-        this.f72572b = map == null ? new HashMap() : map;
+        this.f73491b = map == null ? new HashMap() : map;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -184,9 +184,9 @@ public class b {
             }
             if (d2 != null) {
                 b(d2);
-                this.f72572b.put(obj, d2);
+                this.f73491b.put(obj, d2);
             } else {
-                this.f72572b.remove(obj);
+                this.f73491b.remove(obj);
             }
             char c4 = cVar.c();
             if (c4 != ',' && c4 != ';') {
@@ -319,7 +319,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Object obj = str == null ? null : this.f72572b.get(str);
+            Object obj = str == null ? null : this.f73491b.get(str);
             if (obj != null) {
                 return obj;
             }
@@ -331,13 +331,13 @@ public class b {
     public final Iterator a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72572b.keySet().iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73491b.keySet().iterator() : (Iterator) invokeV.objValue;
     }
 
     public final boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f72572b.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f73491b.containsKey(str) : invokeL.booleanValue;
     }
 
     public String toString() {
@@ -354,7 +354,7 @@ public class b {
                     Object next = a2.next();
                     stringBuffer.append(c(next.toString()));
                     stringBuffer.append(':');
-                    stringBuffer.append(a(this.f72572b.get(next)));
+                    stringBuffer.append(a(this.f73491b.get(next)));
                 }
                 stringBuffer.append(ExtendedMessageFormat.END_FE);
                 return stringBuffer.toString();

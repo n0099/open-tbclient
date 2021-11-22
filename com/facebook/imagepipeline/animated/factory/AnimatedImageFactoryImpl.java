@@ -229,7 +229,7 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
             if (imageDecodeOptions.decodePreviewFrame && closeableReference == null) {
                 closeableReference = createPreviewBitmap(animatedImage, config, frameCount);
             }
-            CloseableAnimatedImage closeableAnimatedImage = new CloseableAnimatedImage(AnimatedImageResult.newBuilder(animatedImage).setPreviewBitmap(closeableReference).setFrameForPreview(frameCount).setDecodedFrames(list).setBitmapTransformation(imageDecodeOptions.bitmapTransformation).build());
+            CloseableAnimatedImage closeableAnimatedImage = new CloseableAnimatedImage(AnimatedImageResult.newBuilder(animatedImage).setPreviewBitmap(closeableReference).setFrameForPreview(frameCount).setDecodedFrames(list).build());
             CloseableReference.closeSafely(closeableReference);
             CloseableReference.closeSafely(list);
             return closeableAnimatedImage;
@@ -256,7 +256,7 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageFactory
     public CloseableImage decodeGif(EncodedImage encodedImage, ImageDecodeOptions imageDecodeOptions, Bitmap.Config config) {
         InterceptResult invokeLLL;
-        AnimatedImage decodeFromNativeMemory;
+        AnimatedImage decode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, encodedImage, imageDecodeOptions, config)) == null) {
             if (sGifAnimatedImageDecoder != null) {
@@ -265,11 +265,11 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
                 try {
                     PooledByteBuffer pooledByteBuffer = byteBufferRef.get();
                     if (pooledByteBuffer.getByteBuffer() != null) {
-                        decodeFromNativeMemory = sGifAnimatedImageDecoder.decodeFromByteBuffer(pooledByteBuffer.getByteBuffer(), imageDecodeOptions);
+                        decode = sGifAnimatedImageDecoder.decode(pooledByteBuffer.getByteBuffer());
                     } else {
-                        decodeFromNativeMemory = sGifAnimatedImageDecoder.decodeFromNativeMemory(pooledByteBuffer.getNativePtr(), pooledByteBuffer.size(), imageDecodeOptions);
+                        decode = sGifAnimatedImageDecoder.decode(pooledByteBuffer.getNativePtr(), pooledByteBuffer.size());
                     }
-                    return getCloseableImage(imageDecodeOptions, decodeFromNativeMemory, config);
+                    return getCloseableImage(imageDecodeOptions, decode, config);
                 } finally {
                     CloseableReference.closeSafely(byteBufferRef);
                 }
@@ -282,7 +282,7 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageFactory
     public CloseableImage decodeWebP(EncodedImage encodedImage, ImageDecodeOptions imageDecodeOptions, Bitmap.Config config) {
         InterceptResult invokeLLL;
-        AnimatedImage decodeFromNativeMemory;
+        AnimatedImage decode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, imageDecodeOptions, config)) == null) {
             if (sWebpAnimatedImageDecoder != null) {
@@ -291,11 +291,11 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
                 try {
                     PooledByteBuffer pooledByteBuffer = byteBufferRef.get();
                     if (pooledByteBuffer.getByteBuffer() != null) {
-                        decodeFromNativeMemory = sWebpAnimatedImageDecoder.decodeFromByteBuffer(pooledByteBuffer.getByteBuffer(), imageDecodeOptions);
+                        decode = sWebpAnimatedImageDecoder.decode(pooledByteBuffer.getByteBuffer());
                     } else {
-                        decodeFromNativeMemory = sWebpAnimatedImageDecoder.decodeFromNativeMemory(pooledByteBuffer.getNativePtr(), pooledByteBuffer.size(), imageDecodeOptions);
+                        decode = sWebpAnimatedImageDecoder.decode(pooledByteBuffer.getNativePtr(), pooledByteBuffer.size());
                     }
-                    return getCloseableImage(imageDecodeOptions, decodeFromNativeMemory, config);
+                    return getCloseableImage(imageDecodeOptions, decode, config);
                 } finally {
                     CloseableReference.closeSafely(byteBufferRef);
                 }

@@ -16,13 +16,13 @@ public class g implements f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BDHttpDns.a f2985a;
+    public final BDHttpDns.a f3078a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BDHttpDns f2986b;
+    public final BDHttpDns f3079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final h f2987c;
+    public final h f3080c;
 
     public g(Context context, BDHttpDns.a aVar) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class g implements f.a {
                 return;
             }
         }
-        this.f2985a = aVar;
+        this.f3078a = aVar;
         BDHttpDns j = BDHttpDns.j(context);
-        this.f2986b = j;
-        this.f2987c = j.d();
+        this.f3079b = j;
+        this.f3080c = j.d();
     }
 
     @Override // b.a.j.f.a
@@ -53,7 +53,7 @@ public class g implements f.a {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), arrayList, arrayList2, Long.valueOf(j), str}) == null) {
             if (i2 == -1) {
                 k.a("Async resolve failed, host(%s), dns resolve failed", str);
-                aVar = this.f2985a;
+                aVar = this.f3078a;
                 if (aVar == null) {
                     return;
                 }
@@ -73,8 +73,8 @@ public class g implements f.a {
                 aVar2.e(System.currentTimeMillis() / 1000);
                 aVar2.b(arrayList);
                 aVar2.f(arrayList2);
-                this.f2987c.c(str, aVar2);
-                aVar = this.f2985a;
+                this.f3080c.c(str, aVar2);
+                aVar = this.f3078a;
                 if (aVar == null) {
                     return;
                 }

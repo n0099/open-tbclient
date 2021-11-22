@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.n.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -32,7 +31,7 @@ public final class AbiType {
     public static final AbiType ARM64_V8A;
     public static final AbiType ARMEABI;
     public static final AbiType ARMEABI_V7A;
-    public static final boolean DEBUG;
+    public static final boolean DEBUG = false;
     public static final String TAG = "AbiType";
     public static final AbiType X86;
     public static final AbiType X86_64;
@@ -65,7 +64,6 @@ public final class AbiType {
         AbiType abiType4 = new AbiType("X86_64", 4, "x86_64", abiType3, ARMEABI_V7A, ARMEABI);
         X86_64 = abiType4;
         $VALUES = new AbiType[]{ARMEABI, ARMEABI_V7A, ARM64_V8A, X86, abiType4};
-        DEBUG = c.f11048a;
         sIndex = new HashMap();
     }
 
@@ -101,9 +99,6 @@ public final class AbiType {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (sCurrent == null) {
                 sCurrent = findById(getRuntimeAbiTypeStr(), ARMEABI);
-            }
-            if (DEBUG) {
-                String str = "ABI_CURRENT=" + sCurrent;
             }
             return sCurrent;
         }

@@ -4,12 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.q0.m.a;
-import b.a.r0.b4.f;
-import b.a.r0.b4.g;
-import b.a.r0.b4.i;
-import b.a.r0.z3.h;
+import b.a.r0.a4.h;
+import b.a.r0.c4.f;
+import b.a.r0.c4.g;
+import b.a.r0.c4.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -26,7 +26,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f55172h;
+    public TextView f56094h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoNetworkStateTipView(Context context) {
@@ -52,7 +52,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f55172h = (TextView) findViewById(f.video_net_tip_duration);
+            this.f56094h = (TextView) findViewById(f.video_net_tip_duration);
         }
     }
 
@@ -85,7 +85,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
             return;
         }
         if (view.getId() == f.free_flow) {
-            a.w(true, getContext(), getResources().getString(i.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            a.x(true, getContext(), getResources().getString(i.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view.getId() != f.play || (onClickListener = this.mOutClickListener) == null) {
         } else {
             onClickListener.onClick(view);
@@ -98,7 +98,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f55172h.setText(String.format(getResources().getString(i.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+        this.f56094h.setText(String.format(getResources().getString(i.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -14,10 +14,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f29038a;
+    public c f29907a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f29039b;
+    public d f29908b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public class b {
                 return;
             }
         }
-        this.f29038a = new c();
-        this.f29039b = new d();
+        this.f29907a = new c();
+        this.f29908b = new d();
     }
 
     public b.a.u.a.c.b a(b.a.u.a.c.b bVar, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, bVar, z)) == null) {
-            this.f29038a.b(bVar, z);
+            this.f29907a.b(bVar, z);
             return bVar;
         }
         return (b.a.u.a.c.b) invokeLZ.objValue;
@@ -49,12 +49,12 @@ public class b {
     public b.a.u.a.c.b b(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) ? this.f29038a.c(context, j) : (b.a.u.a.c.b) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) ? this.f29907a.c(context, j) : (b.a.u.a.c.b) invokeLJ.objValue;
     }
 
     public b.a.u.a.c.b c(InputStream inputStream) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) ? this.f29039b.b(inputStream) : (b.a.u.a.c.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) ? this.f29908b.b(inputStream) : (b.a.u.a.c.b) invokeL.objValue;
     }
 }

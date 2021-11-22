@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class EmotionResourceProvider implements IResourceProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -36,7 +36,7 @@ public class EmotionResourceProvider implements IResourceProvider {
     public File mEmotionSoundFile;
     public File mResourcePath;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_UNZIP_DIR_NAME = "emotion_unzip";
@@ -364,7 +364,7 @@ public class EmotionResourceProvider implements IResourceProvider {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) {
-                        if (file2.isDirectory() || !this.this$0.isFilteredResDir(file2, ".png")) {
+                        if (file2.isDirectory() || !this.this$0.isFilteredResDir(file2, EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)) {
                             return false;
                         }
                         this.this$0.mEmotionIconFileMap.put(file2.getName(), file2);

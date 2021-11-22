@@ -14,22 +14,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f21186a;
+    public String f22341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21187b;
+    public int f22342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f21188c;
+    public List<b> f22343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21189d;
+    public String f22344d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21190e;
+    public String f22345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21191f;
+    public String f22346f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -50,19 +50,19 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, tbBookrack) == null) || tbBookrack == null) {
             return;
         }
-        this.f21186a = tbBookrack.booktown;
-        this.f21187b = tbBookrack.num.intValue();
-        this.f21189d = tbBookrack.title;
-        this.f21190e = tbBookrack.icon;
-        this.f21191f = tbBookrack.tip;
-        this.f21188c = new ArrayList();
+        this.f22341a = tbBookrack.booktown;
+        this.f22342b = tbBookrack.num.intValue();
+        this.f22344d = tbBookrack.title;
+        this.f22345e = tbBookrack.icon;
+        this.f22346f = tbBookrack.tip;
+        this.f22343c = new ArrayList();
         List<BookInfo> list = tbBookrack.book_list;
         if (list != null) {
             for (BookInfo bookInfo : list) {
                 if (bookInfo != null) {
                     b bVar = new b();
                     bVar.a(bookInfo);
-                    this.f21188c.add(bVar);
+                    this.f22343c.add(bVar);
                 }
             }
         }

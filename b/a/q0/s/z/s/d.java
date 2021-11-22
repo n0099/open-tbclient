@@ -22,7 +22,7 @@ public class d extends n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public l f13695c;
+    public l f14486c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(l lVar) {
@@ -42,7 +42,7 @@ public class d extends n {
                 return;
             }
         }
-        this.f13695c = lVar;
+        this.f14486c = lVar;
     }
 
     @Override // b.a.q0.s.z.n
@@ -71,7 +71,7 @@ public class d extends n {
             shareItem.v = Uri.parse(optString3);
         }
         shareItem.t = optString4;
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f13695c.getContext(), shareItem, true);
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f14486c.getContext(), shareItem, true);
         shareDialogConfig.setIsSupportNightMode(true);
         shareDialogConfig.setIsCopyLink(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));

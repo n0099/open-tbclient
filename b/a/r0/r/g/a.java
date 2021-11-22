@@ -4,7 +4,7 @@ import android.os.Build;
 import android.webkit.WebSettings;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.k.a.o.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.async.BdRunnable;
@@ -35,41 +35,41 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f23013a;
+    public b f24545a;
 
     /* renamed from: b.a.r0.r.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1125a extends BdRunnable {
+    public class C1193a extends BdRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f23014g;
+        public final /* synthetic */ Map f24546g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f23015h;
+        public final /* synthetic */ String f24547h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f23016i;
+        public final /* synthetic */ a f24548i;
 
         /* renamed from: b.a.r0.r.g.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1126a extends BdRunnable {
+        public class C1194a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f23017g;
+            public final /* synthetic */ JSONObject f24549g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ C1125a f23018h;
+            public final /* synthetic */ C1193a f24550h;
 
-            public C1126a(C1125a c1125a, JSONObject jSONObject) {
+            public C1194a(C1193a c1193a, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1125a, jSONObject};
+                    Object[] objArr = {c1193a, jSONObject};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -79,20 +79,20 @@ public class a {
                         return;
                     }
                 }
-                this.f23018h = c1125a;
-                this.f23017g = jSONObject;
+                this.f24550h = c1193a;
+                this.f24549g = jSONObject;
             }
 
             @Override // com.baidu.browser.core.async.BdRunnable
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f23018h.f23016i.f23013a.a(this.f23017g);
+                    this.f24550h.f24548i.f24545a.a(this.f24549g);
                 }
             }
         }
 
-        public C1125a(a aVar, Map map, String str) {
+        public C1193a(a aVar, Map map, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,9 +107,9 @@ public class a {
                     return;
                 }
             }
-            this.f23016i = aVar;
-            this.f23014g = map;
-            this.f23015h = str;
+            this.f24548i = aVar;
+            this.f24546g = map;
+            this.f24547h = str;
         }
 
         @Override // com.baidu.browser.core.async.BdRunnable
@@ -119,8 +119,8 @@ public class a {
                 MediaType parse = MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE);
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    this.f23016i.d(this.f23014g);
-                    this.f23016i.f(this.f23014g, jSONObject);
+                    this.f24548i.d(this.f24546g);
+                    this.f24548i.f(this.f24546g, jSONObject);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -128,12 +128,12 @@ public class a {
                 RequestBody create = RequestBody.create(parse, String.valueOf(jSONObject));
                 Response response = null;
                 try {
-                    response = okHttpClient.newCall(new Request.Builder().url(this.f23015h).post(create).build()).execute();
+                    response = okHttpClient.newCall(new Request.Builder().url(this.f24547h).post(create).build()).execute();
                 } catch (IOException e3) {
                     e3.printStackTrace();
                 }
                 try {
-                    d.f().h(new C1126a(this, new JSONObject(response.body().string())));
+                    d.f().h(new C1194a(this, new JSONObject(response.body().string())));
                 } catch (IOException e4) {
                     e4.printStackTrace();
                 } catch (JSONException e5) {
@@ -163,7 +163,7 @@ public class a {
                 return;
             }
         }
-        this.f23013a = bVar;
+        this.f24545a = bVar;
     }
 
     public static String e() {
@@ -219,7 +219,7 @@ public class a {
     public void g(Map<String, String> map, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
-            d.f().g(new C1125a(this, map, str));
+            d.f().g(new C1193a(this, map, str));
         }
     }
 }

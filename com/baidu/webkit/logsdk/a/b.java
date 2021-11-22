@@ -33,33 +33,33 @@ public class b implements Handler.Callback {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f61034d;
+    public static b f61954d;
     public static final List<Message> m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f61035a;
+    public c f61955a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f61036b;
+    public Handler f61956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f61037c;
+    public Context f61957c;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f61038e;
+    public boolean f61958e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61039f;
+    public boolean f61959f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.webkit.logsdk.b f61040g;
+    public com.baidu.webkit.logsdk.b f61960g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HandlerThread f61041h;
+    public HandlerThread f61961h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.baidu.webkit.logsdk.b.b f61042i;
+    public com.baidu.webkit.logsdk.b.b f61962i;
     public com.baidu.webkit.logsdk.upload.b j;
     public a k;
     public com.baidu.webkit.logsdk.c.c l;
@@ -96,9 +96,9 @@ public class b implements Handler.Callback {
         }
         this.n = new ConcurrentHashMap<>();
         HandlerThread handlerThread = new HandlerThread("BdLogSDK");
-        this.f61041h = handlerThread;
+        this.f61961h = handlerThread;
         handlerThread.start();
-        this.f61036b = new Handler(this.f61041h.getLooper(), this);
+        this.f61956b = new Handler(this.f61961h.getLooper(), this);
     }
 
     public static b a() {
@@ -106,11 +106,11 @@ public class b implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (b.class) {
-                if (f61034d == null) {
-                    f61034d = new b();
+                if (f61954d == null) {
+                    f61954d = new b();
                 }
             }
-            return f61034d;
+            return f61954d;
         }
         return (b) invokeV.objValue;
     }
@@ -119,8 +119,8 @@ public class b implements Handler.Callback {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (a().f61037c != null) {
-                return a().f61037c;
+            if (a().f61957c != null) {
+                return a().f61957c;
             }
             throw new RuntimeException("LogSDK getContext null! please init first.");
         }
@@ -138,23 +138,23 @@ public class b implements Handler.Callback {
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
             synchronized (this) {
                 z = true;
-                if (!this.f61038e) {
+                if (!this.f61958e) {
                     com.baidu.webkit.logsdk.c.c h2 = h();
-                    boolean z2 = h2.f61074a.isEmpty() && h2.f61076c.isEmpty();
+                    boolean z2 = h2.f61994a.isEmpty() && h2.f61996c.isEmpty();
                     com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor canRelease = ".concat(String.valueOf(z2)));
                     if (z2 && f().a() && this.n.isEmpty()) {
                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "checkCanRelease = ".concat(String.valueOf(z)));
                         if (z) {
                             com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "releaseDelay", null);
-                            if (f61034d != null) {
+                            if (f61954d != null) {
                                 if (Build.VERSION.SDK_INT >= 18) {
-                                    this.f61041h.quitSafely();
+                                    this.f61961h.quitSafely();
                                 } else {
-                                    this.f61041h.quit();
+                                    this.f61961h.quit();
                                 }
-                                this.f61039f = false;
-                                this.f61037c = null;
-                                f61034d = null;
+                                this.f61959f = false;
+                                this.f61957c = null;
+                                f61954d = null;
                             }
                         }
                     }
@@ -186,7 +186,7 @@ public class b implements Handler.Callback {
             if (message == null) {
                 return;
             }
-            this.f61036b.sendMessage(message);
+            this.f61956b.sendMessage(message);
         }
     }
 
@@ -195,7 +195,7 @@ public class b implements Handler.Callback {
         if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || i()) {
             return;
         }
-        this.f61036b.sendEmptyMessageDelayed(3, j);
+        this.f61956b.sendEmptyMessageDelayed(3, j);
     }
 
     public final void a(com.baidu.webkit.logsdk.upload.a aVar, long j, boolean z) {
@@ -206,16 +206,16 @@ public class b implements Handler.Callback {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.baidu.webkit.logsdk.upload.a f61048a;
+                public final /* synthetic */ com.baidu.webkit.logsdk.upload.a f61968a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f61049b;
+                public final /* synthetic */ long f61969b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f61050c;
+                public final /* synthetic */ boolean f61970c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ b f61051d;
+                public final /* synthetic */ b f61971d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -232,30 +232,30 @@ public class b implements Handler.Callback {
                             return;
                         }
                     }
-                    this.f61051d = this;
-                    this.f61048a = aVar;
-                    this.f61049b = j;
-                    this.f61050c = z;
+                    this.f61971d = this;
+                    this.f61968a = aVar;
+                    this.f61969b = j;
+                    this.f61970c = z;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.baidu.webkit.logsdk.c.c h2 = this.f61051d.h();
-                        com.baidu.webkit.logsdk.upload.a aVar2 = this.f61048a;
-                        long j2 = this.f61049b;
-                        boolean z2 = this.f61050c;
-                        int i2 = aVar2.f61090e.f61056b;
-                        String str = aVar2.f61093h;
+                        com.baidu.webkit.logsdk.c.c h2 = this.f61971d.h();
+                        com.baidu.webkit.logsdk.upload.a aVar2 = this.f61968a;
+                        long j2 = this.f61969b;
+                        boolean z2 = this.f61970c;
+                        int i2 = aVar2.f62010e.f61976b;
+                        String str = aVar2.f62013h;
                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "handleWriteDataToFile oldFileName = ".concat(String.valueOf(str)));
                         String l = (i2 == 1 || i2 == 2) ? Long.toString(j2) : i2 == 3 ? "upload" : null;
                         if (!TextUtils.isEmpty(l)) {
-                            String c2 = com.baidu.webkit.logsdk.d.c.c(aVar2.f61090e.f61055a, l);
+                            String c2 = com.baidu.webkit.logsdk.d.c.c(aVar2.f62010e.f61975a, l);
                             String b2 = com.baidu.webkit.logsdk.d.c.b(c2);
                             com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "handleWriteDataToFile path = ".concat(String.valueOf(b2)));
                             StringBuilder sb = new StringBuilder();
-                            int i3 = aVar2.f61087b;
+                            int i3 = aVar2.f62007b;
                             if (z2) {
                                 i3++;
                             } else if (c2.equals(str)) {
@@ -264,11 +264,11 @@ public class b implements Handler.Callback {
                             }
                             sb.append(i3);
                             sb.append(Part.CRLF);
-                            sb.append(aVar2.f61091f);
+                            sb.append(aVar2.f62011f);
                             sb.append(Part.CRLF);
-                            sb.append(aVar2.f61094i);
+                            sb.append(aVar2.f62014i);
                             sb.append(Part.CRLF);
-                            sb.append(aVar2.f61086a);
+                            sb.append(aVar2.f62006a);
                             com.baidu.webkit.logsdk.d.c.b(b2, sb.toString());
                             if (!TextUtils.isEmpty(str)) {
                                 b.a().h().b(str);
@@ -282,15 +282,15 @@ public class b implements Handler.Callback {
                                 com.baidu.webkit.logsdk.d.c.a(e2);
                             }
                         }
-                        b.a().f().a(aVar2.f61089d);
+                        b.a().f().a(aVar2.f62009d);
                     }
                 }
             };
-            Handler handler = this.f61036b;
+            Handler handler = this.f61956b;
             if (handler != null) {
                 Message obtainMessage = handler.obtainMessage(4);
                 obtainMessage.obj = runnable;
-                this.f61036b.sendMessage(obtainMessage);
+                this.f61956b.sendMessage(obtainMessage);
             }
         }
     }
@@ -308,19 +308,19 @@ public class b implements Handler.Callback {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f61043a;
+                public final /* synthetic */ String f61963a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f61044b;
+                public final /* synthetic */ String f61964b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f61045c;
+                public final /* synthetic */ long f61965c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f61046d;
+                public final /* synthetic */ String f61966d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ b f61047e;
+                public final /* synthetic */ b f61967e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -337,47 +337,47 @@ public class b implements Handler.Callback {
                             return;
                         }
                     }
-                    this.f61047e = this;
-                    this.f61043a = str;
-                    this.f61044b = str2;
-                    this.f61045c = j;
-                    this.f61046d = c2;
+                    this.f61967e = this;
+                    this.f61963a = str;
+                    this.f61964b = str2;
+                    this.f61965c = j;
+                    this.f61966d = c2;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.baidu.webkit.logsdk.c.c h2 = this.f61047e.h();
-                        String str3 = this.f61043a;
-                        String str4 = this.f61044b;
-                        long j2 = this.f61045c;
+                        com.baidu.webkit.logsdk.c.c h2 = this.f61967e.h();
+                        String str3 = this.f61963a;
+                        String str4 = this.f61964b;
+                        long j2 = this.f61965c;
                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor addLog = ".concat(String.valueOf(str3)));
                         com.baidu.webkit.logsdk.b.a a2 = b.a().e().a(str3);
-                        int i2 = a2.f61056b;
+                        int i2 = a2.f61976b;
                         if (i2 == 1) {
-                            if (com.baidu.webkit.logsdk.a.f61024b) {
+                            if (com.baidu.webkit.logsdk.a.f61944b) {
                                 com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogDataProcessor handleNewRealTimeLog", str4);
                             }
                             String a3 = com.baidu.webkit.logsdk.c.c.a(str4, j2);
                             if (!TextUtils.isEmpty(a3)) {
-                                h2.f61074a.add(new com.baidu.webkit.logsdk.upload.a(a2, a3));
+                                h2.f61994a.add(new com.baidu.webkit.logsdk.upload.a(a2, a3));
                                 com.baidu.webkit.logsdk.c.c.a(a2);
-                                if ("frame_app".equals(a2.f61055a) && "app_pause".equals(str4)) {
+                                if ("frame_app".equals(a2.f61975a) && "app_pause".equals(str4)) {
                                     com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "checkAppPause");
-                                    if (!h2.f61075b.isEmpty()) {
-                                        for (String str5 : h2.f61075b.keySet()) {
-                                            com.baidu.webkit.logsdk.c.a aVar = h2.f61075b.get(str5);
-                                            if (!aVar.f61070b.isEmpty()) {
+                                    if (!h2.f61995b.isEmpty()) {
+                                        for (String str5 : h2.f61995b.keySet()) {
+                                            com.baidu.webkit.logsdk.c.a aVar = h2.f61995b.get(str5);
+                                            if (!aVar.f61990b.isEmpty()) {
                                                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor destroy type = ".concat(String.valueOf(str5)));
                                                 com.baidu.webkit.logsdk.b.a a4 = b.a().e().a(str5);
-                                                int i3 = a4.f61056b;
+                                                int i3 = a4.f61976b;
                                                 if (i3 == 2) {
-                                                    h2.f61074a.add(new com.baidu.webkit.logsdk.upload.a(a4, aVar.a()));
-                                                    aVar.f61070b.clear();
+                                                    h2.f61994a.add(new com.baidu.webkit.logsdk.upload.a(a4, aVar.a()));
+                                                    aVar.f61990b.clear();
                                                 } else if (i3 == 3) {
-                                                    h2.c(com.baidu.webkit.logsdk.d.c.c(aVar.f61069a, SapiOptions.KEY_CACHE));
-                                                    h2.f61077d.a(aVar);
+                                                    h2.c(com.baidu.webkit.logsdk.d.c.c(aVar.f61989a, SapiOptions.KEY_CACHE));
+                                                    h2.f61997d.a(aVar);
                                                 }
                                             }
                                         }
@@ -385,41 +385,41 @@ public class b implements Handler.Callback {
                                 }
                             }
                         } else if (i2 == 2) {
-                            if (com.baidu.webkit.logsdk.a.f61023a) {
+                            if (com.baidu.webkit.logsdk.a.f61943a) {
                                 com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogDataProcessor handleNewShortTimeLog", str4);
                             }
                             String a5 = com.baidu.webkit.logsdk.c.c.a(str4, j2);
                             if (!TextUtils.isEmpty(a5)) {
-                                com.baidu.webkit.logsdk.c.a a6 = h2.a(a2.f61055a);
+                                com.baidu.webkit.logsdk.c.a a6 = h2.a(a2.f61975a);
                                 int a7 = a6.a(a5);
                                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor handleNewShortTimeLog current = ".concat(String.valueOf(a7)));
                                 long j3 = a7;
                                 b.a().e();
                                 if (j3 >= com.baidu.webkit.logsdk.b.b.a().getLong("threshold", 10L)) {
-                                    h2.f61074a.add(new com.baidu.webkit.logsdk.upload.a(a2, a6.a()));
-                                    a6.f61070b.clear();
+                                    h2.f61994a.add(new com.baidu.webkit.logsdk.upload.a(a2, a6.a()));
+                                    a6.f61990b.clear();
                                     h2.a(2);
                                     com.baidu.webkit.logsdk.c.c.a(a2);
                                 }
                             }
                         } else if (i2 == 3) {
-                            if (com.baidu.webkit.logsdk.a.f61023a) {
+                            if (com.baidu.webkit.logsdk.a.f61943a) {
                                 com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogDataProcessor handleNewLongTimeLog", str4);
                             }
                             String a8 = com.baidu.webkit.logsdk.c.c.a(str4, j2);
                             if (!TextUtils.isEmpty(a8)) {
-                                com.baidu.webkit.logsdk.c.a a9 = h2.a(a2.f61055a);
-                                if (a9.a(a8) >= com.baidu.webkit.logsdk.d.a.f61080a) {
+                                com.baidu.webkit.logsdk.c.a a9 = h2.a(a2.f61975a);
+                                if (a9.a(a8) >= com.baidu.webkit.logsdk.d.a.f62000a) {
                                     b a10 = b.a();
                                     Runnable runnable2 = new Runnable(a10, a9) { // from class: com.baidu.webkit.logsdk.a.b.3
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ com.baidu.webkit.logsdk.c.a f61052a;
+                                        public final /* synthetic */ com.baidu.webkit.logsdk.c.a f61972a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ b f61053b;
+                                        public final /* synthetic */ b f61973b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -436,41 +436,41 @@ public class b implements Handler.Callback {
                                                     return;
                                                 }
                                             }
-                                            this.f61053b = a10;
-                                            this.f61052a = a9;
+                                            this.f61973b = a10;
+                                            this.f61972a = a9;
                                         }
 
                                         @Override // java.lang.Runnable
                                         public final void run() {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                this.f61053b.h().b().a(this.f61052a);
+                                                this.f61973b.h().b().a(this.f61972a);
                                             }
                                         }
                                     };
-                                    Handler handler = a10.f61036b;
+                                    Handler handler = a10.f61956b;
                                     if (handler != null) {
                                         Message obtainMessage = handler.obtainMessage(4);
                                         obtainMessage.obj = runnable2;
-                                        a10.f61036b.sendMessage(obtainMessage);
+                                        a10.f61956b.sendMessage(obtainMessage);
                                     }
                                 }
                             }
                         }
-                        if (TextUtils.isEmpty(this.f61046d)) {
+                        if (TextUtils.isEmpty(this.f61966d)) {
                             return;
                         }
-                        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "addLog remove key = " + this.f61046d);
-                        this.f61047e.n.remove(this.f61046d);
+                        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "addLog remove key = " + this.f61966d);
+                        this.f61967e.n.remove(this.f61966d);
                     }
                 }
             };
-            Handler handler = this.f61036b;
+            Handler handler = this.f61956b;
             if (handler != null) {
                 Message obtainMessage = handler.obtainMessage(1);
                 obtainMessage.obj = runnable;
                 if (b()) {
-                    this.f61036b.sendMessage(obtainMessage);
+                    this.f61956b.sendMessage(obtainMessage);
                     return;
                 }
                 synchronized (m) {
@@ -505,7 +505,7 @@ public class b implements Handler.Callback {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
             b bVar2 = this;
             com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogManager init invoked");
-            if (!bVar2.f61038e) {
+            if (!bVar2.f61958e) {
                 if (context == null) {
                     throw new RuntimeException("LogSDK init: Context null!");
                 }
@@ -514,15 +514,15 @@ public class b implements Handler.Callback {
                 }
                 com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogManager init execute", null);
                 try {
-                    bVar2.f61035a = null;
-                    bVar2.f61040g = bVar;
-                    bVar2.f61037c = context;
+                    bVar2.f61955a = null;
+                    bVar2.f61960g = bVar;
+                    bVar2.f61957c = context;
                     e2 = e();
                     String b2 = bVar.b();
                     if (TextUtils.isEmpty(b2)) {
                         b2 = "https://browserkernel.baidu.com/log/config_browser.json";
                     }
-                    e2.f61062a = b2;
+                    e2.f61982a = b2;
                 } catch (Exception e3) {
                     e = e3;
                 }
@@ -580,7 +580,7 @@ public class b implements Handler.Callback {
                                 String string7 = jSONObject.getString("publickey");
                                 if (!TextUtils.isEmpty(string7)) {
                                     edit.putString("publickey", string7);
-                                    com.baidu.webkit.logsdk.b.b.f61060b = string7;
+                                    com.baidu.webkit.logsdk.b.b.f61980b = string7;
                                 }
                             }
                             if (jSONObject.has("f1")) {
@@ -593,7 +593,7 @@ public class b implements Handler.Callback {
                                 String string9 = jSONObject.getString("f2");
                                 if (!TextUtils.isEmpty(string9)) {
                                     edit.putString("f2", string9);
-                                    com.baidu.webkit.logsdk.b.b.f61061c = string9;
+                                    com.baidu.webkit.logsdk.b.b.f61981c = string9;
                                 }
                             }
                             if (jSONObject.has("f3")) {
@@ -607,20 +607,20 @@ public class b implements Handler.Callback {
                             edit.apply();
                             a2 = a();
                             com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogManager setReady = true", null);
-                            a2.f61039f = true;
-                            if (1 != 0 && a2.f61036b != null) {
-                                a2.f61036b.sendMessage(a2.f61036b.obtainMessage(2));
+                            a2.f61959f = true;
+                            if (1 != 0 && a2.f61956b != null) {
+                                a2.f61956b.sendMessage(a2.f61956b.obtainMessage(2));
                             }
                             com.baidu.webkit.logsdk.upload.b f2 = f();
                             a3 = bVar.a();
                             if (TextUtils.isEmpty(a3)) {
                                 a3 = "https://browserkernel.baidu.com/logstat/stat/log";
                             }
-                            f2.f61095a = a3;
+                            f2.f62015a = a3;
                             g();
                             h();
                             bVar2 = this;
-                            bVar2.f61038e = true;
+                            bVar2.f61958e = true;
                         }
                     }
                     z = true;
@@ -647,27 +647,27 @@ public class b implements Handler.Callback {
                     edit.apply();
                     a2 = a();
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogManager setReady = true", null);
-                    a2.f61039f = true;
+                    a2.f61959f = true;
                     if (1 != 0) {
-                        a2.f61036b.sendMessage(a2.f61036b.obtainMessage(2));
+                        a2.f61956b.sendMessage(a2.f61956b.obtainMessage(2));
                     }
                     com.baidu.webkit.logsdk.upload.b f22 = f();
                     a3 = bVar.a();
                     if (TextUtils.isEmpty(a3)) {
                     }
-                    f22.f61095a = a3;
+                    f22.f62015a = a3;
                     g();
                     h();
                     bVar2 = this;
-                    bVar2.f61038e = true;
+                    bVar2.f61958e = true;
                 } catch (Exception e5) {
                     e = e5;
                     bVar2 = this;
                     com.baidu.webkit.logsdk.d.c.a(e);
-                    return bVar2.f61038e;
+                    return bVar2.f61958e;
                 }
             }
-            return bVar2.f61038e;
+            return bVar2.f61958e;
         }
         return invokeLL.booleanValue;
     }
@@ -675,14 +675,14 @@ public class b implements Handler.Callback {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f61038e && this.f61040g != null && this.f61037c != null && this.f61039f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f61958e && this.f61960g != null && this.f61957c != null && this.f61959f : invokeV.booleanValue;
     }
 
     public final com.baidu.webkit.logsdk.b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            com.baidu.webkit.logsdk.b bVar = this.f61040g;
+            com.baidu.webkit.logsdk.b bVar = this.f61960g;
             if (bVar != null) {
                 return bVar;
             }
@@ -695,10 +695,10 @@ public class b implements Handler.Callback {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f61042i == null) {
-                this.f61042i = new com.baidu.webkit.logsdk.b.b();
+            if (this.f61962i == null) {
+                this.f61962i = new com.baidu.webkit.logsdk.b.b();
             }
-            return this.f61042i;
+            return this.f61962i;
         }
         return (com.baidu.webkit.logsdk.b.b) invokeV.objValue;
     }
@@ -721,7 +721,7 @@ public class b implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.k == null) {
-                this.k = new a(this.f61037c);
+                this.k = new a(this.f61957c);
             }
             return this.k;
         }
@@ -769,7 +769,7 @@ public class b implements Handler.Callback {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ b f61054a;
+                        public final /* synthetic */ b f61974a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -786,17 +786,17 @@ public class b implements Handler.Callback {
                                     return;
                                 }
                             }
-                            this.f61054a = this;
+                            this.f61974a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f61054a.b()) {
-                                com.baidu.webkit.logsdk.c.b b2 = this.f61054a.h().b();
+                            if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f61974a.b()) {
+                                com.baidu.webkit.logsdk.c.b b2 = this.f61974a.h().b();
                                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "handleUploadLongTimeLog");
-                                for (String str : b2.f61072a.keySet()) {
-                                    if (b2.f61072a.get(str).booleanValue()) {
+                                for (String str : b2.f61992a.keySet()) {
+                                    if (b2.f61992a.get(str).booleanValue()) {
                                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createUploadTask: ".concat(String.valueOf(str)));
                                         try {
                                             String c2 = com.baidu.webkit.logsdk.d.c.c(str, "upload");
@@ -804,9 +804,9 @@ public class b implements Handler.Callback {
                                             if (file.exists()) {
                                                 com.baidu.webkit.logsdk.upload.a a2 = com.baidu.webkit.logsdk.c.c.a(file, b.a().e().a(str));
                                                 if (a2 != null) {
-                                                    a2.f61093h = c2;
-                                                    b2.f61073b.c(c2);
-                                                    b2.f61073b.a(a2);
+                                                    a2.f62013h = c2;
+                                                    b2.f61993b.c(c2);
+                                                    b2.f61993b.a(a2);
                                                 }
                                             } else {
                                                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createFromCache: ".concat(String.valueOf(str)));
@@ -820,11 +820,11 @@ public class b implements Handler.Callback {
                             }
                         }
                     };
-                    Handler handler = this.f61036b;
+                    Handler handler = this.f61956b;
                     if (handler != null) {
                         Message obtainMessage = handler.obtainMessage(5);
                         obtainMessage.obj = runnable;
-                        this.f61036b.sendMessageDelayed(obtainMessage, 3000L);
+                        this.f61956b.sendMessageDelayed(obtainMessage, 3000L);
                     }
                 } else if (i2 != 3) {
                     if (i2 != 4) {

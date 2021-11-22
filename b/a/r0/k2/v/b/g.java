@@ -16,16 +16,16 @@ public class g implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SpannableStringBuilder f19661e;
+    public SpannableStringBuilder f21198e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19662f;
+    public int f21199f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19663g;
+    public String f21200g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19664h;
+    public int f21201h;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class g implements c {
                 return;
             }
         }
-        this.f19662f = 0;
-        this.f19664h = -1;
-        this.f19661e = new SpannableStringBuilder();
+        this.f21199f = 0;
+        this.f21201h = -1;
+        this.f21198e = new SpannableStringBuilder();
     }
 
     @Override // b.a.r0.k2.v.b.c
@@ -50,8 +50,8 @@ public class g implements c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f19662f;
-            return (i2 > 0 && i2 < 3) || !StringUtils.isNull(this.f19663g);
+            int i2 = this.f21199f;
+            return (i2 > 0 && i2 < 3) || !StringUtils.isNull(this.f21200g);
         }
         return invokeV.booleanValue;
     }
@@ -60,7 +60,7 @@ public class g implements c {
     public CharSequence b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19661e : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21198e : (CharSequence) invokeV.objValue;
     }
 
     public void c(CharSequence charSequence) {
@@ -68,25 +68,25 @@ public class g implements c {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) || charSequence == null) {
             return;
         }
-        this.f19661e.append(charSequence);
+        this.f21198e.append(charSequence);
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19662f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21199f : invokeV.intValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19663g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21200g : (String) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19664h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21201h : invokeV.intValue;
     }
 
     @Override // b.a.r0.k2.v.b.d
@@ -114,22 +114,22 @@ public class g implements c {
                 return;
             }
         }
-        this.f19662f = 0;
-        this.f19664h = -1;
+        this.f21199f = 0;
+        this.f21201h = -1;
         if (excContent == null) {
             return;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        this.f19661e = spannableStringBuilder;
+        this.f21198e = spannableStringBuilder;
         if (excContent != null) {
             spannableStringBuilder.append((CharSequence) excContent.text);
         }
         Integer num = excContent.align;
         if (num != null) {
-            this.f19662f = num.intValue();
+            this.f21199f = num.intValue();
         }
         if (!StringUtils.isNull(excContent.color)) {
-            this.f19663g = excContent.color;
+            this.f21200g = excContent.color;
         }
         Integer num2 = excContent.size;
         if (num2 == null || num2.intValue() <= 0 || context == null || context.getResources() == null) {
@@ -139,6 +139,6 @@ public class g implements c {
         if (identifier <= 0) {
             return;
         }
-        this.f19664h = context.getResources().getDimensionPixelSize(identifier);
+        this.f21201h = context.getResources().getDimensionPixelSize(identifier);
     }
 }

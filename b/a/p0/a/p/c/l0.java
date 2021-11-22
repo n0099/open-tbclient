@@ -1,13 +1,13 @@
 package b.a.p0.a.p.c;
 
-import b.a.p0.a.p.d.j1;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class l0 implements j1 {
+public class l0 implements b.a.p0.a.p.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,10 +25,20 @@ public class l0 implements j1 {
         }
     }
 
-    @Override // b.a.p0.a.p.d.j1
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    @Override // b.a.p0.a.p.d.b
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0" : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.a.p.d.b
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

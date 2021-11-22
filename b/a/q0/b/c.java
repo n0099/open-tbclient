@@ -44,17 +44,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f11871d;
+    public static c f12624d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, e> f11872a;
+    public final HashMap<String, e> f12625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<BdUniqueId, b.a.q0.b.f.a> f11873b;
+    public final HashMap<BdUniqueId, b.a.q0.b.f.a> f12626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<BdUniqueId, e> f11874c;
+    public final HashMap<BdUniqueId, e> f12627c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -69,9 +69,9 @@ public class c {
                 return;
             }
         }
-        this.f11872a = new HashMap<>();
-        this.f11873b = new HashMap<>();
-        this.f11874c = new HashMap<>();
+        this.f12625a = new HashMap<>();
+        this.f12626b = new HashMap<>();
+        this.f12627c = new HashMap<>();
         m();
         j(c());
     }
@@ -80,14 +80,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11871d == null) {
+            if (f12624d == null) {
                 synchronized (c.class) {
-                    if (f11871d == null) {
-                        f11871d = new c();
+                    if (f12624d == null) {
+                        f12624d = new c();
                     }
                 }
             }
-            return f11871d;
+            return f12624d;
         }
         return (c) invokeV.objValue;
     }
@@ -101,7 +101,7 @@ public class c {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b.a.q0.s.e0.b.j().v("static_opt_open", d.W() ? 1 : 0);
+            b.a.q0.s.e0.b.j().v("static_opt_open", d.a0() ? 1 : 0);
         }
     }
 
@@ -111,7 +111,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             synchronized (this) {
-                eVar = this.f11872a.get(str);
+                eVar = this.f12625a.get(str);
             }
             return eVar;
         }
@@ -145,7 +145,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bdUniqueId)) == null) {
-            b.a.q0.b.f.a aVar = this.f11873b.get(bdUniqueId);
+            b.a.q0.b.f.a aVar = this.f12626b.get(bdUniqueId);
             if (aVar == null) {
                 return null;
             }
@@ -157,7 +157,7 @@ public class c {
     public Map<BdUniqueId, e> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11874c : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12627c : (Map) invokeV.objValue;
     }
 
     public void h(JSONArray jSONArray) {
@@ -166,7 +166,7 @@ public class c {
             try {
                 String e2 = e();
                 if (jSONArray == null) {
-                    this.f11872a.clear();
+                    this.f12625a.clear();
                     b.a.q0.s.e0.b.j().C(e2);
                     return;
                 }
@@ -204,10 +204,10 @@ public class c {
     public final void j(HashMap<String, e> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            synchronized (this.f11872a) {
-                this.f11872a.clear();
+            synchronized (this.f12625a) {
+                this.f12625a.clear();
                 if (hashMap != null) {
-                    this.f11872a.putAll(hashMap);
+                    this.f12625a.putAll(hashMap);
                 }
                 k();
             }
@@ -217,7 +217,7 @@ public class c {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            for (Map.Entry<BdUniqueId, b.a.q0.b.f.a> entry : this.f11873b.entrySet()) {
+            for (Map.Entry<BdUniqueId, b.a.q0.b.f.a> entry : this.f12626b.entrySet()) {
                 b.a.q0.b.f.a value = entry.getValue();
                 if (value != null) {
                     o(value);
@@ -230,9 +230,9 @@ public class c {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f11874c.clear();
-            for (BdUniqueId bdUniqueId : this.f11873b.keySet()) {
-                this.f11874c.put(bdUniqueId, f(bdUniqueId));
+            this.f12627c.clear();
+            for (BdUniqueId bdUniqueId : this.f12626b.keySet()) {
+                this.f12627c.put(bdUniqueId, f(bdUniqueId));
             }
         }
     }
@@ -275,7 +275,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) || aVar == null || aVar.c() == null) {
             return;
         }
-        this.f11873b.put(aVar.c(), aVar);
+        this.f12626b.put(aVar.c(), aVar);
     }
 
     public final void o(b.a.q0.b.f.a aVar) {
@@ -291,7 +291,7 @@ public class c {
         }
         Iterator<String> it = a2.iterator();
         while (it.hasNext()) {
-            eVar = this.f11872a.get(it.next());
+            eVar = this.f12625a.get(it.next());
             if (eVar != null) {
                 break;
             }

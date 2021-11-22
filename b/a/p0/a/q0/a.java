@@ -1,7 +1,7 @@
 package b.a.p0.a.q0;
 
 import android.text.TextUtils;
-import b.a.p0.a.a2.e;
+import b.a.p0.a.d2.e;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,10 +20,10 @@ public class a {
         int indexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            e P = e.P();
+            e a0 = e.a0();
             JSONObject jSONObject = new JSONObject();
-            if (P != null) {
-                jSONObject = P.K().L();
+            if (a0 != null) {
+                jSONObject = a0.V().M();
             }
             return (jSONObject == null || (optString = jSONObject.optString("keyfeed")) == null || (indexOf = optString.indexOf("_")) < 0 || !TextUtils.equals("miniapp", optString.substring(0, indexOf))) ? "" : optString.substring(indexOf + 1);
         }

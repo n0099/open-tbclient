@@ -123,7 +123,7 @@ public class MiPushClient4Hybrid {
             String str = miPushMessage.getExtra() == null ? "" : miPushMessage.getExtra().get(Constants.EXTRA_KEY_HYBRID_DEVICE_STATUS);
             int intValue = TextUtils.isEmpty(str) ? 0 : Integer.valueOf(str).intValue();
             if (!z) {
-                intValue = (intValue & (-4)) + g.a.f70980c.a();
+                intValue = (intValue & (-4)) + g.a.f71900c.a();
             }
             return (short) intValue;
         }
@@ -150,7 +150,7 @@ public class MiPushClient4Hybrid {
                 arrayList = new ArrayList();
                 arrayList.add(igVar.f709e);
             }
-            MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ev.f70896a.f345a, arrayList, igVar.f699a, igVar.f708d, null);
+            MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ev.f71816a.f345a, arrayList, igVar.f699a, igVar.f708d, null);
             MiPushCallback miPushCallback = sCallback;
             if (miPushCallback != null) {
                 miPushCallback.onReceiveRegisterResult(b2, generateCommandMessage);
@@ -161,7 +161,7 @@ public class MiPushClient4Hybrid {
     public static void onReceiveUnregisterResult(Context context, im imVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, imVar) == null) {
-            MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ev.f70897b.f345a, null, imVar.f775a, imVar.f783d, null);
+            MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ev.f71817b.f345a, null, imVar.f775a, imVar.f783d, null);
             String a2 = imVar.a();
             MiPushCallback miPushCallback = sCallback;
             if (miPushCallback != null) {
@@ -177,8 +177,8 @@ public class MiPushClient4Hybrid {
                 ArrayList arrayList = new ArrayList();
                 b.a a2 = b.m114a(context).a(str);
                 if (a2 != null) {
-                    arrayList.add(a2.f70615c);
-                    MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ev.f70896a.f345a, arrayList, 0L, null, null);
+                    arrayList.add(a2.f71535c);
+                    MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(ev.f71816a.f345a, arrayList, 0L, null, null);
                     MiPushCallback miPushCallback = sCallback;
                     if (miPushCallback != null) {
                         miPushCallback.onReceiveRegisterResult(str, generateCommandMessage);
@@ -190,7 +190,7 @@ public class MiPushClient4Hybrid {
                     ieVar.c(hp.j.f514a);
                     ieVar.a(com.xiaomi.push.service.at.a());
                     ieVar.a(false);
-                    an.a(context).a(ieVar, hf.f71078i, false, true, null, false, str, str2);
+                    an.a(context).a(ieVar, hf.f71998i, false, true, null, false, str, str2);
                     com.xiaomi.channel.commonutils.logger.b.b("MiPushClient4Hybrid pull offline pass through message");
                     addPullNotificationTime(context, str);
                     return;
@@ -217,7 +217,7 @@ public class MiPushClient4Hybrid {
             cif.b(com.xiaomi.push.g.a(context, context.getPackageName()));
             cif.h("3_8_5");
             cif.a(30805);
-            cif.a(ht.f71157c);
+            cif.a(ht.f72077c);
             if (!com.xiaomi.push.l.d()) {
                 String g2 = com.xiaomi.push.i.g(context);
                 if (!TextUtils.isEmpty(g2)) {
@@ -234,7 +234,7 @@ public class MiPushClient4Hybrid {
             ieVar2.d(context.getPackageName());
             ieVar2.a(ip.a(cif));
             ieVar2.a(com.xiaomi.push.service.at.a());
-            an.a(context).a((an) ieVar2, hf.f71078i, (hs) null);
+            an.a(context).a((an) ieVar2, hf.f71998i, (hs) null);
         }
     }
 
@@ -266,7 +266,7 @@ public class MiPushClient4Hybrid {
                 if (!TextUtils.isEmpty(miPushMessage.getTopic())) {
                     hvVar.c(miPushMessage.getTopic());
                 }
-                an.a(context).a((an) hvVar, hf.f71075f, false, PushMessageHelper.generateMessage(miPushMessage));
+                an.a(context).a((an) hvVar, hf.f71995f, false, PushMessageHelper.generateMessage(miPushMessage));
                 com.xiaomi.channel.commonutils.logger.b.b("MiPushClient4Hybrid ack mina message, messageId is " + miPushMessage.getMessageId());
             } finally {
                 try {
@@ -315,15 +315,15 @@ public class MiPushClient4Hybrid {
             ilVar.a(com.xiaomi.push.service.at.a());
             ilVar.d(str);
             ilVar.b(a2.f89a);
-            ilVar.c(a2.f70615c);
-            ilVar.e(a2.f70614b);
+            ilVar.c(a2.f71535c);
+            ilVar.e(a2.f71534b);
             ie ieVar = new ie();
             ieVar.c(hp.L.f514a);
             ieVar.b(b.m114a(context).m115a());
             ieVar.d(context.getPackageName());
             ieVar.a(ip.a(ilVar));
             ieVar.a(com.xiaomi.push.service.at.a());
-            an.a(context).a((an) ieVar, hf.f71078i, (hs) null);
+            an.a(context).a((an) ieVar, hf.f71998i, (hs) null);
             b.m114a(context).b(str);
         }
     }

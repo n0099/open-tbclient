@@ -13,7 +13,7 @@ public final class d<T, R> extends h.j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> f71888i;
+    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> f72807i;
     public final int j;
     public boolean k;
 
@@ -32,7 +32,7 @@ public final class d<T, R> extends h.j<T> {
                 return;
             }
         }
-        this.f71888i = onSubscribeCombineLatest$LatestCoordinator;
+        this.f72807i = onSubscribeCombineLatest$LatestCoordinator;
         this.j = i2;
         e(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
     }
@@ -51,7 +51,7 @@ public final class d<T, R> extends h.j<T> {
             return;
         }
         this.k = true;
-        this.f71888i.combine(null, this.j);
+        this.f72807i.combine(null, this.j);
     }
 
     @Override // h.e
@@ -62,9 +62,9 @@ public final class d<T, R> extends h.j<T> {
                 h.r.c.j(th);
                 return;
             }
-            this.f71888i.onError(th);
+            this.f72807i.onError(th);
             this.k = true;
-            this.f71888i.combine(null, this.j);
+            this.f72807i.combine(null, this.j);
         }
     }
 
@@ -74,6 +74,6 @@ public final class d<T, R> extends h.j<T> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.k) {
             return;
         }
-        this.f71888i.combine(NotificationLite.h(t), this.j);
+        this.f72807i.combine(NotificationLite.h(t), this.j);
     }
 }

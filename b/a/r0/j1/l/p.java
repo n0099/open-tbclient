@@ -11,25 +11,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.TopicList.TabList;
 /* loaded from: classes4.dex */
-public class p implements b.a.e.l.e.n {
+public class p implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18485e;
+    public String f19819e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18486f;
+    public String f19820f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18487g;
+    public String f19821g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18488h;
+    public String f19822h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f18489i;
+    public String f19823i;
     public String j;
 
     static {
@@ -67,15 +67,15 @@ public class p implements b.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, tabList) == null) || tabList == null) {
             return;
         }
-        this.f18485e = tabList.tab_name;
-        this.f18486f = tabList.tab_type;
-        this.f18487g = tabList.share_pic;
-        this.f18488h = tabList.share_title;
-        this.f18489i = tabList.share_desc;
+        this.f19819e = tabList.tab_name;
+        this.f19820f = tabList.tab_type;
+        this.f19821g = tabList.share_pic;
+        this.f19822h = tabList.share_title;
+        this.f19823i = tabList.share_desc;
         this.j = tabList.share_url;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

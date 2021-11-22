@@ -1,7 +1,7 @@
 package b.a.p0.a.p.e;
 
 import android.view.View;
-import android.widget.AbsoluteLayout;
+import android.webkit.ValueCallback;
 /* loaded from: classes.dex */
 public interface c extends b.a.p0.a.h0.f.a {
     boolean canGoBack();
@@ -10,9 +10,12 @@ public interface c extends b.a.p0.a.h0.f.a {
 
     void destroy();
 
+    @Override // b.a.p0.a.h0.f.a
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+
     int getContentHeight();
 
-    AbsoluteLayout getCurrentWebView();
+    View getCurrentWebView();
 
     float getScale();
 

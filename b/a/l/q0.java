@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import b.a.l.v0.a;
+import b.a.l.w0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -39,7 +39,7 @@ public class q0 extends b.a.l.a<b.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q0 f3275a;
+        public final /* synthetic */ q0 f3366a;
 
         public a(q0 q0Var) {
             Interceptable interceptable = $ic;
@@ -56,22 +56,22 @@ public class q0 extends b.a.l.a<b.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3275a = q0Var;
+            this.f3366a = q0Var;
         }
 
         @Override // com.baidu.tieba.card.OriginalThreadCardView.b
         public void a(OriginalThreadInfo originalThreadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.f3275a.n == null || this.f3275a.n.getThreadData() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.f3366a.n == null || this.f3366a.n.getThreadData() == null) {
                 return;
             }
-            if (this.f3275a.c() != null) {
-                this.f3275a.c().a(this.f3275a.m, this.f3275a.n);
+            if (this.f3366a.c() != null) {
+                this.f3366a.c().a(this.f3366a.m, this.f3366a.n);
             }
-            String f0 = this.f3275a.n.getThreadData().f0();
+            String f0 = this.f3366a.n.getThreadData().f0();
             b.a.r0.b0.m.a(f0);
-            this.f3275a.r(f0);
-            this.f3275a.f3215e.n(new a.C0090a(1));
+            this.f3366a.r(f0);
+            this.f3366a.f3306e.n(new a.C0092a(1));
         }
     }
 
@@ -88,7 +88,7 @@ public class q0 extends b.a.l.a<b.a.q0.s.q.a> {
                 return;
             }
         }
-        q = b.a.e.e.p.l.k(TbadkCoreApplication.getInst()) - ((b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        q = b.a.e.f.p.l.k(TbadkCoreApplication.getInst()) - ((b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -131,10 +131,10 @@ public class q0 extends b.a.l.a<b.a.q0.s.q.a> {
     }
 
     @Override // b.a.l.a
-    public void k(b.a.r0.b0.c0<b.a.q0.s.q.a> c0Var) {
+    public void k(b.a.r0.b0.d0<b.a.q0.s.q.a> d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0Var) == null) {
-            super.k(c0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d0Var) == null) {
+            super.k(d0Var);
         }
     }
 

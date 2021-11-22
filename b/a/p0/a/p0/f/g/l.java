@@ -1,0 +1,120 @@
+package b.a.p0.a.p0.f.g;
+
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.Toast;
+import b.a.p0.a.a1.d;
+import b.a.p0.a.f2.f.z;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONObject;
+/* loaded from: classes.dex */
+public class l extends z {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes.dex */
+    public class a implements d.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(l lVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // b.a.p0.a.a1.d.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Toast.makeText(b.a.p0.a.c1.a.c(), b.a.p0.a.h.aiapps_debug_swan_core_download_failed, 1).show();
+            }
+        }
+
+        @Override // b.a.p0.a.a1.d.c
+        public void onProgressChanged(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            }
+        }
+
+        @Override // b.a.p0.a.a1.d.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File d2 = b.a.p0.a.q2.d.a.d();
+                File c2 = b.a.p0.a.q2.d.a.c();
+                if (d2.exists() && b.a.p0.w.d.U(d2.getPath(), c2.getPath())) {
+                    b.a.p0.a.x1.a.a.M(true);
+                    Toast.makeText(b.a.p0.a.c1.a.c(), b.a.p0.a.h.aiapps_debug_swan_core_download_success, 1).show();
+                    return;
+                }
+                Toast.makeText(b.a.p0.a.c1.a.c(), b.a.p0.a.h.aiapps_debug_swan_core_download_failed, 1).show();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(b.a.p0.a.f2.e eVar) {
+        super(eVar, "/swanAPI/debugSwanCore");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
+            if (z.f5228b) {
+                JSONObject a2 = z.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    Toast.makeText(context, b.a.p0.a.h.aiapps_debug_params_empty, 1).show();
+                    return false;
+                }
+                String optString = a2.optString("downloadurl");
+                if (TextUtils.isEmpty(optString)) {
+                    Toast.makeText(context, b.a.p0.a.h.aiapps_debug_download_url_empty, 1).show();
+                    return false;
+                }
+                b.a.p0.a.a1.d.J(optString, new a(this));
+                return true;
+            }
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+}

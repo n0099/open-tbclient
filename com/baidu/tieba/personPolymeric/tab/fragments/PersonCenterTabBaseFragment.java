@@ -19,7 +19,7 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f53218e;
+    public l f54135e;
 
     public PersonCenterTabBaseFragment() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public void hideNetRefreshView(View view) {
         l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (lVar = this.f53218e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (lVar = this.f54135e) == null) {
             return;
         }
         lVar.dettachView(view);
@@ -56,7 +56,7 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onChangeSkinType(i2);
-            l lVar = this.f53218e;
+            l lVar = this.f54135e;
             if (lVar != null) {
                 lVar.onChangeSkinType();
             }
@@ -77,17 +77,17 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public void showNetRefreshView(View view, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, str, z) == null) {
-            if (this.f53218e == null) {
+            if (this.f54135e == null) {
                 l lVar = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.f53218e = lVar;
+                this.f54135e = lVar;
                 lVar.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-                this.f53218e.d(null);
-                this.f53218e.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-                this.f53218e.f();
-                this.f53218e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                this.f54135e.d(null);
+                this.f54135e.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+                this.f54135e.f();
+                this.f54135e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
-            this.f53218e.onChangeSkinType();
-            this.f53218e.attachView(view, z);
+            this.f54135e.onChangeSkinType();
+            this.f54135e.attachView(view, z);
         }
     }
 }

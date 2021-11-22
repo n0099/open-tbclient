@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.ss.android.download.api.constant.BaseConstants;
 import com.ss.android.socialbase.appdownloader.g;
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -23,7 +22,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, g.a> f68995a;
+    public static final HashMap<String, g.a> f69915a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +38,7 @@ public class a {
                 return;
             }
         }
-        f68995a = new HashMap<>();
+        f69915a = new HashMap<>();
     }
 
     public static boolean a(JSONArray jSONArray, String str) {
@@ -129,7 +128,7 @@ public class a {
                         return false;
                     }
                     for (String str : optString.split(",")) {
-                        if (BaseConstants.SCHEME_MARKET.equals(str)) {
+                        if ("market".equals(str)) {
                             str = d.i();
                         }
                         g.a b2 = b(str);
@@ -166,15 +165,15 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (f68995a.containsKey(str)) {
-                g.a aVar = f68995a.get(str);
+            if (f69915a.containsKey(str)) {
+                g.a aVar = f69915a.get(str);
                 if (aVar != null) {
                     return aVar;
                 }
                 return null;
             }
             g.a b2 = g.b(str);
-            f68995a.put(str, b2);
+            f69915a.put(str, b2);
             if (b2 != null) {
                 return b2;
             }

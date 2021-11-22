@@ -12,8 +12,8 @@ import android.webkit.JsPromptResult;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
 import com.airbnb.lottie.RenderMode;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -40,36 +40,36 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PopupWindow f19944a;
+    public PopupWindow f21466a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f19945b;
+    public Handler f21467b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.r0.l3.n0.a f19946c;
+    public b.a.r0.m3.n0.a f21468c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ActivityLifeCycleListener f19947d;
+    public ActivityLifeCycleListener f21469d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseWebView f19948e;
+    public BaseWebView f21470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.l3.n0.c f19949f;
+    public b.a.r0.m3.n0.c f21471f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f19950g;
+    public Runnable f21472g;
 
     /* renamed from: b.a.r0.l0.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0992a implements b.a.r0.l3.n0.c {
+    public class C1060a implements b.a.r0.m3.n0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f19951a;
+        public final /* synthetic */ a f21473a;
 
-        public C0992a(a aVar) {
+        public C1060a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,14 +84,14 @@ public class a {
                     return;
                 }
             }
-            this.f19951a = aVar;
+            this.f21473a = aVar;
         }
 
-        @Override // b.a.r0.l3.n0.c
+        @Override // b.a.r0.m3.n0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) ? this.f19951a.f19946c != null && this.f19951a.f19946c.b(this.f19951a.f19948e, str, jsPromptResult) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) ? this.f21473a.f21468c != null && this.f21473a.f21468c.b(this.f21473a.f21470e, str, jsPromptResult) : invokeLL.booleanValue;
         }
     }
 
@@ -101,7 +101,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19952e;
+        public final /* synthetic */ a f21474e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -118,15 +118,15 @@ public class a {
                     return;
                 }
             }
-            this.f19952e = aVar;
+            this.f21474e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f19952e.f19945b.removeCallbacksAndMessages(null);
-                this.f19952e.e();
+                this.f21474e.f21467b.removeCallbacksAndMessages(null);
+                this.f21474e.e();
             }
         }
     }
@@ -137,7 +137,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19953e;
+        public final /* synthetic */ a f21475e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -154,14 +154,14 @@ public class a {
                     return;
                 }
             }
-            this.f19953e = aVar;
+            this.f21475e = aVar;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f19953e.f19944a = null;
+                this.f21475e.f21466a = null;
             }
         }
     }
@@ -172,10 +172,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19954e;
+        public final /* synthetic */ String f21476e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f19955f;
+        public final /* synthetic */ a f21477f;
 
         public d(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -192,8 +192,8 @@ public class a {
                     return;
                 }
             }
-            this.f19955f = aVar;
-            this.f19954e = str;
+            this.f21477f = aVar;
+            this.f21476e = str;
         }
 
         @Override // java.lang.Runnable
@@ -201,9 +201,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f19955f.h(this.f19954e);
+                    this.f21477f.h(this.f21476e);
                 } catch (Throwable unused) {
-                    this.f19955f.e();
+                    this.f21477f.e();
                 }
             }
         }
@@ -215,7 +215,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19956e;
+        public final /* synthetic */ a f21478e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -232,14 +232,14 @@ public class a {
                     return;
                 }
             }
-            this.f19956e = aVar;
+            this.f21478e = aVar;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                this.f19956e.f19945b.removeCallbacksAndMessages(null);
+                this.f21478e.f21467b.removeCallbacksAndMessages(null);
             }
         }
     }
@@ -250,7 +250,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f19957a;
+        public final /* synthetic */ a f21479a;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -267,15 +267,15 @@ public class a {
                     return;
                 }
             }
-            this.f19957a = aVar;
+            this.f21479a = aVar;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
         public void a(WebView webView, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, webView, i2, str, str2) == null) {
-                this.f19957a.f19945b.removeCallbacksAndMessages(null);
-                this.f19957a.e();
+                this.f21479a.f21467b.removeCallbacksAndMessages(null);
+                this.f21479a.e();
             }
         }
     }
@@ -286,13 +286,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19958e;
+        public final /* synthetic */ String f21480e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f19959f;
+        public final /* synthetic */ String f21481f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f19960g;
+        public final /* synthetic */ a f21482g;
 
         public g(a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -309,9 +309,9 @@ public class a {
                     return;
                 }
             }
-            this.f19960g = aVar;
-            this.f19958e = str;
-            this.f19959f = str2;
+            this.f21482g = aVar;
+            this.f21480e = str;
+            this.f21481f = str2;
         }
 
         @Override // java.lang.Runnable
@@ -319,9 +319,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f19960g.i(this.f19958e, this.f19959f);
+                    this.f21482g.i(this.f21480e, this.f21481f);
                 } catch (Throwable unused) {
-                    this.f19960g.e();
+                    this.f21482g.e();
                 }
             }
         }
@@ -333,10 +333,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19961e;
+        public final /* synthetic */ String f21483e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f19962f;
+        public final /* synthetic */ a f21484f;
 
         public h(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -353,21 +353,21 @@ public class a {
                     return;
                 }
             }
-            this.f19962f = aVar;
-            this.f19961e = str;
+            this.f21484f = aVar;
+            this.f21483e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!k.isEmpty(this.f19961e) && (view.getContext() instanceof TbPageContextSupport)) {
+                if (!k.isEmpty(this.f21483e) && (view.getContext() instanceof TbPageContextSupport)) {
                     TiebaStatic.log(new StatisticItem("c13451").param("obj_type", 1));
-                    UrlManager.getInstance().dealOneLink(((TbPageContextSupport) view.getContext()).getPageContext(), new String[]{this.f19961e});
+                    UrlManager.getInstance().dealOneLink(((TbPageContextSupport) view.getContext()).getPageContext(), new String[]{this.f21483e});
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13451").param("obj_type", 2));
-                this.f19962f.e();
+                this.f21484f.e();
             }
         }
     }
@@ -378,7 +378,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19963e;
+        public final /* synthetic */ a f21485e;
 
         public i(a aVar) {
             Interceptable interceptable = $ic;
@@ -395,7 +395,7 @@ public class a {
                     return;
                 }
             }
-            this.f19963e = aVar;
+            this.f21485e = aVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -409,7 +409,7 @@ public class a {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f19963e.e();
+                this.f21485e.e();
             }
         }
 
@@ -424,7 +424,7 @@ public class a {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f19963e.f19945b.removeCallbacksAndMessages(null);
+                this.f21485e.f21467b.removeCallbacksAndMessages(null);
             }
         }
     }
@@ -434,7 +434,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f19964a;
+        public static a f21486a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -450,26 +450,26 @@ public class a {
                     return;
                 }
             }
-            f19964a = new a(null);
+            f21486a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C0992a c0992a) {
+    public /* synthetic */ a(C1060a c1060a) {
         this();
     }
 
     public static a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? j.f19964a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? j.f21486a : (a) invokeV.objValue;
     }
 
     public void e() {
         PopupWindow popupWindow;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (popupWindow = this.f19944a) != null && popupWindow.isShowing()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (popupWindow = this.f21466a) != null && popupWindow.isShowing()) {
             try {
-                this.f19944a.dismiss();
+                this.f21466a.dismiss();
             } catch (Throwable unused) {
             }
         }
@@ -488,12 +488,12 @@ public class a {
             return;
         }
         if (g(b2)) {
-            this.f19945b.postDelayed(new d(this, str), 1000L);
+            this.f21467b.postDelayed(new d(this, str), 1000L);
             return;
         }
-        PopupWindow popupWindow = this.f19944a;
+        PopupWindow popupWindow = this.f21466a;
         if (popupWindow != null && popupWindow.isShowing()) {
-            if (this.f19944a.getContentView() != null && this.f19944a.getContentView().getContext() == b2) {
+            if (this.f21466a.getContentView() != null && this.f21466a.getContentView().getContext() == b2) {
                 return;
             }
             e();
@@ -501,12 +501,12 @@ public class a {
         View inflate = LayoutInflater.from(b2).inflate(R.layout.easter_egg_dialog_h5_layout, (ViewGroup) null);
         inflate.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         BaseWebView baseWebView = (BaseWebView) inflate.findViewById(R.id.dialog_webview);
-        this.f19948e = baseWebView;
+        this.f21470e = baseWebView;
         baseWebView.loadUrl(str);
-        this.f19948e.setOnPageFinishedListener(new e(this));
-        this.f19948e.setOnReceivedErrorListener(new f(this));
-        this.f19948e.setBackgroundColor(0);
-        this.f19948e.setOnJsPromptCallback(this.f19949f);
+        this.f21470e.setOnPageFinishedListener(new e(this));
+        this.f21470e.setOnReceivedErrorListener(new f(this));
+        this.f21470e.setBackgroundColor(0);
+        this.f21470e.setOnJsPromptCallback(this.f21471f);
         j(b2, inflate);
     }
 
@@ -516,10 +516,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) || k.isEmpty(str)) {
             return;
         }
-        PopupWindow popupWindow = this.f19944a;
+        PopupWindow popupWindow = this.f21466a;
         if ((popupWindow == null || !popupWindow.isShowing()) && (b2 = b.a.e.a.b.g().b()) != null && PermissionUtil.checkWriteExternalStorage(b2)) {
             if (g(b2)) {
-                this.f19945b.postDelayed(new g(this, str, str2), 1000L);
+                this.f21467b.postDelayed(new g(this, str, str2), 1000L);
                 return;
             }
             View inflate = LayoutInflater.from(b2).inflate(R.layout.easter_egg_dialog_lottie_layout, (ViewGroup) null);
@@ -540,21 +540,21 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, activity, view) == null) {
             PopupWindow popupWindow = new PopupWindow(activity);
-            this.f19944a = popupWindow;
+            this.f21466a = popupWindow;
             popupWindow.setBackgroundDrawable(new ColorDrawable(0));
-            this.f19944a.setWidth(l.k(activity));
-            this.f19944a.setHeight(l.i(activity));
+            this.f21466a.setWidth(l.k(activity));
+            this.f21466a.setHeight(l.i(activity));
             view.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.f19944a.setContentView(view);
-            this.f19945b.removeCallbacksAndMessages(null);
-            this.f19945b.postDelayed(this.f19950g, 5000L);
+            this.f21466a.setContentView(view);
+            this.f21467b.removeCallbacksAndMessages(null);
+            this.f21467b.postDelayed(this.f21472g, 5000L);
             FragmentManager fragmentManager = activity.getFragmentManager();
-            if (fragmentManager.findFragmentByTag("LIFE_CYCLE") == null && !this.f19947d.isAdded()) {
-                fragmentManager.beginTransaction().add(this.f19947d, "LIFE_CYCLE").commitAllowingStateLoss();
+            if (fragmentManager.findFragmentByTag("LIFE_CYCLE") == null && !this.f21469d.isAdded()) {
+                fragmentManager.beginTransaction().add(this.f21469d, "LIFE_CYCLE").commitAllowingStateLoss();
             }
-            this.f19944a.setOnDismissListener(new c(this));
+            this.f21466a.setOnDismissListener(new c(this));
             try {
-                this.f19944a.showAtLocation(activity.getWindow().getDecorView(), 0, 0, 0);
+                this.f21466a.showAtLocation(activity.getWindow().getDecorView(), 0, 0, 0);
                 TiebaStatic.log(new StatisticItem("c13126"));
             } catch (Throwable unused) {
             }
@@ -574,11 +574,11 @@ public class a {
                 return;
             }
         }
-        this.f19945b = new Handler();
-        this.f19949f = new C0992a(this);
-        this.f19950g = new b(this);
-        this.f19946c = new b.a.r0.l3.n0.a();
-        this.f19946c.a(new EasterEggBridge());
-        this.f19947d = new ActivityLifeCycleListener();
+        this.f21467b = new Handler();
+        this.f21471f = new C1060a(this);
+        this.f21472g = new b(this);
+        this.f21468c = new b.a.r0.m3.n0.a();
+        this.f21468c.a(new EasterEggBridge());
+        this.f21469d = new ActivityLifeCycleListener();
     }
 }

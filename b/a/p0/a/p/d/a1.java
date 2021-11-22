@@ -1,9 +1,7 @@
 package b.a.p0.a.p.d;
 /* loaded from: classes.dex */
 public interface a1 {
-    String[] a();
+    boolean a(String str, String str2, String str3);
 
-    boolean b();
-
-    String c();
+    void b();
 }

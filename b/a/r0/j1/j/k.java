@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
+public class k extends b.a.e.m.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener A;
@@ -94,7 +94,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f18363e;
+        public final /* synthetic */ k f19697e;
 
         public b(k kVar) {
             Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18363e = kVar;
+            this.f19697e = kVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
@@ -119,10 +119,10 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                if (!this.f18363e.r) {
-                    BdToast.i(this.f18363e.n.getPageContext().getPageActivity(), this.f18363e.n.getPageContext().getResources().getString(b.a.r0.j1.h.pb_play_error), b.a.r0.j1.d.icon_pure_toast_mistake40_svg, true).q();
+                if (!this.f19697e.r) {
+                    BdToast.i(this.f19697e.n.getPageContext().getPageActivity(), this.f19697e.n.getPageContext().getResources().getString(b.a.r0.j1.h.pb_play_error), b.a.r0.j1.d.icon_pure_toast_mistake40_svg, true).q();
                 }
-                this.f18363e.B0();
+                this.f19697e.B0();
                 return true;
             }
             return invokeIIL.booleanValue;
@@ -135,7 +135,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f18364a;
+        public final /* synthetic */ k f19698a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(k kVar, int i2) {
@@ -155,7 +155,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18364a = kVar;
+            this.f19698a = kVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -163,7 +163,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f18364a.v0();
+                this.f19698a.v0();
             }
         }
     }
@@ -174,7 +174,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f18365a;
+        public final /* synthetic */ k f19699a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(k kVar, int i2) {
@@ -194,21 +194,21 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18365a = kVar;
+            this.f19699a = kVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f18365a.p == null || this.f18365a.p.mThumbnailImage == null || this.f18365a.p.mReplayLayout == null || this.f18365a.p.mVideoView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f19699a.p == null || this.f19699a.p.mThumbnailImage == null || this.f19699a.p.mReplayLayout == null || this.f19699a.p.mVideoView == null) {
                 return;
             }
-            this.f18365a.p.mThumbnailImage.setVisibility(0);
-            this.f18365a.p.mReplayLayout.setVisibility(8);
-            this.f18365a.p.mVideoView.stopPlayback();
-            this.f18365a.r = true;
-            k kVar = this.f18365a;
+            this.f19699a.p.mThumbnailImage.setVisibility(0);
+            this.f19699a.p.mReplayLayout.setVisibility(8);
+            this.f19699a.p.mVideoView.stopPlayback();
+            this.f19699a.r = true;
+            k kVar = this.f19699a;
             kVar.w0(kVar.p);
         }
     }
@@ -219,7 +219,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f18366a;
+        public final /* synthetic */ k f19700a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(k kVar, int i2) {
@@ -239,20 +239,20 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18366a = kVar;
+            this.f19700a = kVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f18366a.p == null || this.f18366a.p.mTopicLayoutVideoView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f19700a.p == null || this.f19700a.p.mTopicLayoutVideoView == null) {
                 return;
             }
             int[] iArr = new int[2];
-            this.f18366a.p.mTopicLayoutVideoView.getLocationInWindow(iArr);
+            this.f19700a.p.mTopicLayoutVideoView.getLocationInWindow(iArr);
             int i2 = iArr[1];
-            this.f18366a.p.mTopicLayoutVideoView.getHeight();
+            this.f19700a.p.mTopicLayoutVideoView.getHeight();
         }
     }
 
@@ -262,7 +262,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f18367a;
+        public final /* synthetic */ k f19701a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(k kVar, int i2) {
@@ -282,7 +282,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18367a = kVar;
+            this.f19701a = kVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -290,14 +290,14 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                if (this.f18367a.v != null) {
-                    this.f18367a.v.removeMessages(1);
+                if (this.f19701a.v != null) {
+                    this.f19701a.v.removeMessages(1);
                 }
-                if (this.f18367a.p == null || this.f18367a.p.mControllerView == null || this.f18367a.p.mVideoProgressView == null) {
+                if (this.f19701a.p == null || this.f19701a.p.mControllerView == null || this.f19701a.p.mVideoProgressView == null) {
                     return;
                 }
-                this.f18367a.p.mControllerView.destroy();
-                this.f18367a.p.mVideoProgressView.destroy();
+                this.f19701a.p.mControllerView.destroy();
+                this.f19701a.p.mVideoProgressView.destroy();
             }
         }
     }
@@ -308,13 +308,13 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicMediaHolder f18368e;
+        public final /* synthetic */ TopicMediaHolder f19702e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.j1.l.o f18369f;
+        public final /* synthetic */ b.a.r0.j1.l.o f19703f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f18370g;
+        public final /* synthetic */ k f19704g;
 
         public g(k kVar, TopicMediaHolder topicMediaHolder, b.a.r0.j1.l.o oVar) {
             Interceptable interceptable = $ic;
@@ -331,22 +331,22 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18370g = kVar;
-            this.f18368e = topicMediaHolder;
-            this.f18369f = oVar;
+            this.f19704g = kVar;
+            this.f19702e = topicMediaHolder;
+            this.f19703f = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f18368e.mReplayLayout.setVisibility(8);
-                TbCyberVideoView tbCyberVideoView = this.f18368e.mVideoView;
+                this.f19702e.mReplayLayout.setVisibility(8);
+                TbCyberVideoView tbCyberVideoView = this.f19702e.mVideoView;
                 if (tbCyberVideoView != null) {
                     tbCyberVideoView.setPlayMode("2");
                 }
-                this.f18368e.mVideoView.start();
-                this.f18370g.E0(this.f18369f, this.f18368e);
+                this.f19702e.mVideoView.start();
+                this.f19704g.E0(this.f19703f, this.f19702e);
             }
         }
     }
@@ -357,13 +357,13 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicMediaHolder f18371e;
+        public final /* synthetic */ TopicMediaHolder f19705e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.j1.l.o f18372f;
+        public final /* synthetic */ b.a.r0.j1.l.o f19706f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f18373g;
+        public final /* synthetic */ k f19707g;
 
         public h(k kVar, TopicMediaHolder topicMediaHolder, b.a.r0.j1.l.o oVar) {
             Interceptable interceptable = $ic;
@@ -380,9 +380,9 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18373g = kVar;
-            this.f18371e = topicMediaHolder;
-            this.f18372f = oVar;
+            this.f19707g = kVar;
+            this.f19705e = topicMediaHolder;
+            this.f19706f = oVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
@@ -390,19 +390,19 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
             TopicMediaHolder topicMediaHolder;
             TopicVideoControllerView topicVideoControllerView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (topicMediaHolder = this.f18371e) == null || topicMediaHolder.mVideoView == null || (topicVideoControllerView = topicMediaHolder.mControllerView) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (topicMediaHolder = this.f19705e) == null || topicMediaHolder.mVideoView == null || (topicVideoControllerView = topicMediaHolder.mControllerView) == null) {
                 return;
             }
             int curProgress = topicVideoControllerView.getCurProgress();
             if (curProgress > 0) {
-                float duration = this.f18371e.mVideoView.getDuration() * 1.0f * curProgress;
-                TopicMediaHolder topicMediaHolder2 = this.f18371e;
+                float duration = this.f19705e.mVideoView.getDuration() * 1.0f * curProgress;
+                TopicMediaHolder topicMediaHolder2 = this.f19705e;
                 TopicVideoControllerView topicVideoControllerView2 = topicMediaHolder2.mControllerView;
                 topicMediaHolder2.mVideoView.seekTo((int) (duration / 10000.0f));
             }
-            Message obtainMessage = this.f18373g.v.obtainMessage(1);
-            obtainMessage.obj = this.f18372f;
-            this.f18373g.v.sendMessage(obtainMessage);
+            Message obtainMessage = this.f19707g.v.obtainMessage(1);
+            obtainMessage.obj = this.f19706f;
+            this.f19707g.v.sendMessage(obtainMessage);
         }
     }
 
@@ -412,13 +412,13 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicMediaHolder f18374e;
+        public final /* synthetic */ TopicMediaHolder f19708e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.j1.l.o f18375f;
+        public final /* synthetic */ b.a.r0.j1.l.o f19709f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f18376g;
+        public final /* synthetic */ k f19710g;
 
         public i(k kVar, TopicMediaHolder topicMediaHolder, b.a.r0.j1.l.o oVar) {
             Interceptable interceptable = $ic;
@@ -435,17 +435,17 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18376g = kVar;
-            this.f18374e = topicMediaHolder;
-            this.f18375f = oVar;
+            this.f19710g = kVar;
+            this.f19708e = topicMediaHolder;
+            this.f19709f = oVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18374e.mReplayLayout.setVisibility(0);
-                this.f18376g.x0(this.f18375f, this.f18374e);
+                this.f19708e.mReplayLayout.setVisibility(0);
+                this.f19710g.x0(this.f19709f, this.f19708e);
             }
         }
     }
@@ -456,13 +456,13 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicMediaHolder f18377e;
+        public final /* synthetic */ TopicMediaHolder f19711e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.j1.l.o f18378f;
+        public final /* synthetic */ b.a.r0.j1.l.o f19712f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f18379g;
+        public final /* synthetic */ k f19713g;
 
         public j(k kVar, TopicMediaHolder topicMediaHolder, b.a.r0.j1.l.o oVar) {
             Interceptable interceptable = $ic;
@@ -479,38 +479,38 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18379g = kVar;
-            this.f18377e = topicMediaHolder;
-            this.f18378f = oVar;
+            this.f19713g = kVar;
+            this.f19711e = topicMediaHolder;
+            this.f19712f = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!this.f18377e.mVideoView.isPlaying()) {
-                    this.f18379g.t0(this.f18377e, this.f18378f);
+                if (!this.f19711e.mVideoView.isPlaying()) {
+                    this.f19713g.t0(this.f19711e, this.f19712f);
                     return;
                 }
-                this.f18377e.mVideoView.pause();
-                this.f18377e.mBtnPausePlay.setVisibility(0);
+                this.f19711e.mVideoView.pause();
+                this.f19711e.mBtnPausePlay.setVisibility(0);
             }
         }
     }
 
     /* renamed from: b.a.r0.j1.j.k$k  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC0932k implements View.OnClickListener {
+    public class View$OnClickListenerC0993k implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.j1.l.o f18380e;
+        public final /* synthetic */ b.a.r0.j1.l.o f19714e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f18381f;
+        public final /* synthetic */ k f19715f;
 
-        public View$OnClickListenerC0932k(k kVar, b.a.r0.j1.l.o oVar) {
+        public View$OnClickListenerC0993k(k kVar, b.a.r0.j1.l.o oVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -525,15 +525,15 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18381f = kVar;
-            this.f18380e = oVar;
+            this.f19715f = kVar;
+            this.f19714e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f18381f.n.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f18381f.n.getActivity()).createNormalConfig(String.valueOf(this.f18380e.f18480e), this.f18380e.f18481f, "")));
+                this.f19715f.n.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f19715f.n.getActivity()).createNormalConfig(String.valueOf(this.f19714e.f19814e), this.f19714e.f19815f, "")));
             }
         }
     }
@@ -544,7 +544,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f18382e;
+        public final /* synthetic */ k f19716e;
 
         public l(k kVar) {
             Interceptable interceptable = $ic;
@@ -561,17 +561,17 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18382e = kVar;
+            this.f19716e = kVar;
         }
 
         @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.h
         public void onSurfaceDestroyed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f18382e.p != null && this.f18382e.p.mVideoView != null) {
-                    this.f18382e.p.mVideoView.stopPlayback();
+                if (this.f19716e.p != null && this.f19716e.p.mVideoView != null) {
+                    this.f19716e.p.mVideoView.stopPlayback();
                 }
-                this.f18382e.B0();
+                this.f19716e.B0();
             }
         }
     }
@@ -582,7 +582,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f18383a;
+        public final /* synthetic */ k f19717a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public m(k kVar, Looper looper) {
@@ -602,28 +602,28 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18383a = kVar;
+            this.f19717a = kVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 1 || this.f18383a.r || this.f18383a.p == null || this.f18383a.p.mVideoView == null || this.f18383a.p.mThumbnailImage == null || this.f18383a.p.mReplayLayout == null || this.f18383a.p.mBtnPausePlay == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 1 || this.f19717a.r || this.f19717a.p == null || this.f19717a.p.mVideoView == null || this.f19717a.p.mThumbnailImage == null || this.f19717a.p.mReplayLayout == null || this.f19717a.p.mBtnPausePlay == null) {
                 return;
             }
-            if (this.f18383a.p.mVideoView.getCurrentPosition() > 0) {
-                this.f18383a.p.mThumbnailImage.setVisibility(8);
-                this.f18383a.p.mReplayLayout.setVisibility(8);
-                this.f18383a.p.mBtnPausePlay.setVisibility(8);
-                k kVar = this.f18383a;
+            if (this.f19717a.p.mVideoView.getCurrentPosition() > 0) {
+                this.f19717a.p.mThumbnailImage.setVisibility(8);
+                this.f19717a.p.mReplayLayout.setVisibility(8);
+                this.f19717a.p.mBtnPausePlay.setVisibility(8);
+                k kVar = this.f19717a;
                 kVar.E0((b.a.r0.j1.l.o) message.obj, kVar.p);
-                k kVar2 = this.f18383a;
+                k kVar2 = this.f19717a;
                 kVar2.w0(kVar2.p);
                 return;
             }
-            Message obtainMessage = this.f18383a.v.obtainMessage(1);
+            Message obtainMessage = this.f19717a.v.obtainMessage(1);
             obtainMessage.obj = message.obj;
-            this.f18383a.v.sendMessageDelayed(obtainMessage, 50L);
+            this.f19717a.v.sendMessageDelayed(obtainMessage, 50L);
         }
     }
 
@@ -633,13 +633,13 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicMediaHolder f18384e;
+        public final /* synthetic */ TopicMediaHolder f19718e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.j1.l.o f18385f;
+        public final /* synthetic */ b.a.r0.j1.l.o f19719f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f18386g;
+        public final /* synthetic */ k f19720g;
 
         public n(k kVar, TopicMediaHolder topicMediaHolder, b.a.r0.j1.l.o oVar) {
             Interceptable interceptable = $ic;
@@ -656,9 +656,9 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18386g = kVar;
-            this.f18384e = topicMediaHolder;
-            this.f18385f = oVar;
+            this.f19720g = kVar;
+            this.f19718e = topicMediaHolder;
+            this.f19719f = oVar;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -666,11 +666,11 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
             TbCyberVideoView tbCyberVideoView;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                TopicMediaHolder topicMediaHolder = this.f18384e;
+                TopicMediaHolder topicMediaHolder = this.f19718e;
                 if (topicMediaHolder != null && (tbCyberVideoView = topicMediaHolder.mVideoView) != null) {
                     tbCyberVideoView.setPlayMode("2");
                 }
-                this.f18386g.u0(this.f18384e, this.f18385f);
+                this.f19720g.u0(this.f19718e, this.f19719f);
                 aVar.dismiss();
             }
         }
@@ -712,13 +712,13 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public b.a.r0.j1.l.o f18387e;
+        public b.a.r0.j1.l.o f19721e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TopicMediaHolder f18388f;
+        public TopicMediaHolder f19722f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f18389g;
+        public final /* synthetic */ k f19723g;
 
         /* loaded from: classes4.dex */
         public class a implements a.e {
@@ -726,7 +726,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ p f18390e;
+            public final /* synthetic */ p f19724e;
 
             public a(p pVar) {
                 Interceptable interceptable = $ic;
@@ -743,14 +743,14 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                         return;
                     }
                 }
-                this.f18390e = pVar;
+                this.f19724e = pVar;
             }
 
             @Override // b.a.q0.s.s.a.e
             public void onClick(b.a.q0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    this.f18390e.b();
+                    this.f19724e.b();
                     aVar.dismiss();
                 }
             }
@@ -801,23 +801,23 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     return;
                 }
             }
-            this.f18389g = kVar;
-            this.f18387e = oVar;
-            this.f18388f = topicMediaHolder;
+            this.f19723g = kVar;
+            this.f19721e = oVar;
+            this.f19722f = topicMediaHolder;
         }
 
         public final void b() {
             TopicMediaHolder topicMediaHolder;
             TbCyberVideoView tbCyberVideoView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18387e == null || (topicMediaHolder = this.f18388f) == null || (tbCyberVideoView = topicMediaHolder.mVideoView) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f19721e == null || (topicMediaHolder = this.f19722f) == null || (tbCyberVideoView = topicMediaHolder.mVideoView) == null) {
                 return;
             }
             tbCyberVideoView.setPlayMode("2");
-            this.f18388f.mVideoView.setVideoPath(this.f18387e.f18483h);
-            this.f18388f.mVideoView.start();
-            this.f18389g.r = false;
-            this.f18389g.D0(this.f18388f);
+            this.f19722f.mVideoView.setVideoPath(this.f19721e.f19817h);
+            this.f19722f.mVideoView.start();
+            this.f19723g.r = false;
+            this.f19723g.D0(this.f19722f);
         }
 
         @Override // android.view.View.OnClickListener
@@ -825,19 +825,19 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
             TopicMediaHolder topicMediaHolder;
             View view2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f18387e == null || (topicMediaHolder = this.f18388f) == null || (view2 = topicMediaHolder.mLoadingLayout) == null || topicMediaHolder.mVideoView == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f19721e == null || (topicMediaHolder = this.f19722f) == null || (view2 = topicMediaHolder.mLoadingLayout) == null || topicMediaHolder.mVideoView == null) {
                 return;
             }
             if (view2.getVisibility() == 0) {
-                this.f18388f.mVideoView.stopPlayback();
-                this.f18389g.r = true;
-                this.f18389g.w0(this.f18388f);
-            } else if (b.a.e.e.p.j.x()) {
-                b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f18389g.n.getPageContext().getPageActivity());
+                this.f19722f.mVideoView.stopPlayback();
+                this.f19723g.r = true;
+                this.f19723g.w0(this.f19722f);
+            } else if (b.a.e.f.p.j.x()) {
+                b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f19723g.n.getPageContext().getPageActivity());
                 aVar.setMessage(TbadkCoreApplication.getInst().getString(b.a.r0.j1.h.play_video_mobile_tip));
                 aVar.setPositiveButton(b.a.r0.j1.h.confirm, new a(this));
                 aVar.setNegativeButton(b.a.r0.j1.h.cancel, new b(this));
-                aVar.create(this.f18389g.n.getPageContext()).show();
+                aVar.create(this.f19723g.n.getPageContext()).show();
             } else {
                 b();
             }
@@ -938,7 +938,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
     public final void t0(TopicMediaHolder topicMediaHolder, b.a.r0.j1.l.o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, topicMediaHolder, oVar) == null) {
-            if (b.a.e.e.p.j.x()) {
+            if (b.a.e.f.p.j.x()) {
                 b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.n.getPageContext().getPageActivity());
                 aVar.setMessage(TbadkCoreApplication.getInst().getString(b.a.r0.j1.h.play_video_mobile_tip));
                 aVar.setPositiveButton(b.a.r0.j1.h.confirm, new n(this, topicMediaHolder, oVar));
@@ -995,10 +995,10 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         if (!(interceptable == null || interceptable.invokeLL(1048587, this, oVar, topicMediaHolder) == null) || oVar == null) {
             return;
         }
-        if (!StringUtils.isNull(oVar.f18483h) && oVar.f18484i > 0) {
+        if (!StringUtils.isNull(oVar.f19817h) && oVar.f19818i > 0) {
             topicMediaHolder.mThumbnailImage.startLoad(oVar.j, 17, false);
         } else {
-            topicMediaHolder.mThumbnailImage.startLoad(oVar.f18482g, 17, false);
+            topicMediaHolder.mThumbnailImage.startLoad(oVar.f19816g, 17, false);
         }
         topicMediaHolder.mThumbnailImage.setNoImageBottomText("");
         if (!StringUtils.isNull(oVar.j)) {
@@ -1007,23 +1007,23 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
         if (this.s) {
             topicMediaHolder.mVideoProgressView.initProgress();
         } else {
-            topicMediaHolder.mControllerView.initCurTimeAndDuration(0, oVar.f18484i * 1000);
+            topicMediaHolder.mControllerView.initCurTimeAndDuration(0, oVar.f19818i * 1000);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: y0 */
     public TopicMediaHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, viewGroup)) == null) {
             if (this.o == null) {
-                this.o = LayoutInflater.from(this.f2419e).inflate(b.a.r0.j1.f.topic_vedio_item, viewGroup, false);
+                this.o = LayoutInflater.from(this.f2421e).inflate(b.a.r0.j1.f.topic_vedio_item, viewGroup, false);
                 this.p = new TopicMediaHolder(this.o);
                 View findViewById = this.o.findViewById(b.a.r0.j1.e.topic_layout_video_view);
                 ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
-                int k = b.a.e.e.p.l.k(this.f2419e);
+                int k = b.a.e.f.p.l.k(this.f2421e);
                 if (layoutParams != null) {
                     layoutParams.height = (int) (k / 1.8d);
                     findViewById.setLayoutParams(layoutParams);
@@ -1037,7 +1037,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: z0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.j1.l.o oVar, TopicMediaHolder topicMediaHolder) {
         InterceptResult invokeCommon;
@@ -1046,7 +1046,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
             if (oVar != null && topicMediaHolder != null) {
                 if (!this.q) {
                     this.q = true;
-                    if (!StringUtils.isNull(oVar.f18483h) && oVar.f18484i > 0) {
+                    if (!StringUtils.isNull(oVar.f19817h) && oVar.f19818i > 0) {
                         this.t = false;
                         topicMediaHolder.mCoverView.setVisibility(0);
                         if (this.s) {
@@ -1062,7 +1062,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                         topicMediaHolder.mVideoProgressView.setVisibility(8);
                         topicMediaHolder.mCoverView.setVisibility(8);
                     }
-                    if (!StringUtils.isNull(oVar.f18483h) && oVar.f18484i > 0) {
+                    if (!StringUtils.isNull(oVar.f19817h) && oVar.f19818i > 0) {
                         topicMediaHolder.mThumbnailImage.setForegroundDrawable(b.a.r0.j1.d.icon_play_video);
                         topicMediaHolder.mThumbnailImage.setOnClickListener(new p(this, oVar, topicMediaHolder));
                     } else {
@@ -1094,14 +1094,14 @@ public class k extends b.a.e.l.e.a<b.a.r0.j1.l.o, TopicMediaHolder> {
                     } else {
                         topicMediaHolder.mControllerView.setPlayer(topicMediaHolder.mVideoView);
                     }
-                    if (StringUtils.isNull(oVar.f18481f)) {
+                    if (StringUtils.isNull(oVar.f19815f)) {
                         topicMediaHolder.mVedioTitle.setVisibility(8);
                         topicMediaHolder.mVedioLine.setVisibility(8);
                     } else {
                         topicMediaHolder.mVedioTitle.setVisibility(0);
                         topicMediaHolder.mVedioLine.setVisibility(0);
-                        topicMediaHolder.mVedioTitle.setText(oVar.f18481f);
-                        topicMediaHolder.mVedioTitle.setOnClickListener(new View$OnClickListenerC0932k(this, oVar));
+                        topicMediaHolder.mVedioTitle.setText(oVar.f19815f);
+                        topicMediaHolder.mVedioTitle.setOnClickListener(new View$OnClickListenerC0993k(this, oVar));
                     }
                 }
                 if (topicMediaHolder.skinType != this.m) {

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.r0.b0.c0;
+import b.a.r0.b0.d0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -21,19 +21,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e extends b.a.e.l.e.a<b.a.r0.w.f.c.f.b.b, LiveTabConcernOfflineViewHolder> {
+public class e extends b.a.e.m.e.a<b.a.r0.w.f.c.f.b.b, LiveTabConcernOfflineViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
-    public c0<b.a.r0.w.f.c.f.b.b> n;
+    public d0<b.a.r0.w.f.c.f.b.b> n;
 
     /* loaded from: classes5.dex */
-    public class a extends c0<b.a.r0.w.f.c.f.b.b> {
+    public class a extends d0<b.a.r0.w.f.c.f.b.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f24631b;
+        public final /* synthetic */ e f26148b;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class e extends b.a.e.l.e.a<b.a.r0.w.f.c.f.b.b, LiveTabConcernOfflineView
                     return;
                 }
             }
-            this.f24631b = eVar;
+            this.f26148b = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
         public void a(View view, b.a.r0.w.f.c.f.b.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, bVar) == null) {
-                this.f24631b.h0(bVar);
+                this.f26148b.h0(bVar);
             }
         }
     }
@@ -92,19 +92,19 @@ public class e extends b.a.e.l.e.a<b.a.r0.w.f.c.f.b.b, LiveTabConcernOfflineView
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || bVar == null) {
             return;
         }
-        String str = bVar.f24633e;
-        if (StringUtils.isNull(str) || b.a.e.e.m.b.g(str, 0L) == 0) {
+        String str = bVar.f26150e;
+        if (StringUtils.isNull(str) || b.a.e.f.m.b.g(str, 0L) == 0) {
             return;
         }
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.m.getPageActivity());
         } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.m.getPageActivity()).createNormalConfig(b.a.e.e.m.b.g(str, 0L), !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str), false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.m.getPageActivity()).createNormalConfig(b.a.e.f.m.b.g(str, 0L), !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str), false)));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public LiveTabConcernOfflineViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -118,7 +118,7 @@ public class e extends b.a.e.l.e.a<b.a.r0.w.f.c.f.b.b, LiveTabConcernOfflineView
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.w.f.c.f.b.b bVar, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
         InterceptResult invokeCommon;

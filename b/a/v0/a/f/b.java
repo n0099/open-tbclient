@@ -18,13 +18,13 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<WeakReference<ScheduledFuture<?>>> f29142a;
+    public static List<WeakReference<ScheduledFuture<?>>> f30011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f29143b;
+    public static ExecutorService f30012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ScheduledExecutorService f29144c;
+    public static ScheduledExecutorService f30013c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,19 +40,19 @@ public final class b {
                 return;
             }
         }
-        f29142a = new ArrayList();
-        f29143b = Executors.newFixedThreadPool(2);
-        f29144c = Executors.newScheduledThreadPool(2);
+        f30011a = new ArrayList();
+        f30012b = Executors.newFixedThreadPool(2);
+        f30013c = Executors.newScheduledThreadPool(2);
     }
 
     public static synchronized void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
             synchronized (b.class) {
-                if (f29144c == null || f29144c.isShutdown()) {
-                    f29144c = Executors.newScheduledThreadPool(2);
+                if (f30013c == null || f30013c.isShutdown()) {
+                    f30013c = Executors.newScheduledThreadPool(2);
                 }
-                f29144c.execute(runnable);
+                f30013c.execute(runnable);
             }
         }
     }
@@ -61,10 +61,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             synchronized (b.class) {
-                if (f29144c == null || f29144c.isShutdown()) {
-                    f29144c = Executors.newScheduledThreadPool(2);
+                if (f30013c == null || f30013c.isShutdown()) {
+                    f30013c = Executors.newScheduledThreadPool(2);
                 }
-                f29142a.add(new WeakReference<>(f29144c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
+                f30011a.add(new WeakReference<>(f30013c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
             }
         }
     }
@@ -72,11 +72,11 @@ public final class b {
     public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            ExecutorService executorService = f29143b;
+            ExecutorService executorService = f30012b;
             if (executorService == null || executorService.isShutdown()) {
-                f29143b = Executors.newFixedThreadPool(2);
+                f30012b = Executors.newFixedThreadPool(2);
             }
-            f29143b.execute(runnable);
+            f30012b.execute(runnable);
         }
     }
 }

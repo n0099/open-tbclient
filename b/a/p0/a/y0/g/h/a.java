@@ -7,7 +7,7 @@ public interface a extends c {
 
     /* renamed from: b.a.p0.a.y0.g.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0460a {
+    public interface InterfaceC0475a {
     }
 
     void R(int i2, int i3);
@@ -20,7 +20,7 @@ public interface a extends c {
 
     void m(String str);
 
-    void o(@NonNull InterfaceC0460a interfaceC0460a);
+    void o(@NonNull InterfaceC0475a interfaceC0475a);
 
     void s(int i2, int i3, int i4, int i5);
 

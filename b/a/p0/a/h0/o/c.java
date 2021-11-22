@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f5631a = new a();
+    public static final c f5921a = new a();
 
     /* loaded from: classes.dex */
     public static class a implements c {

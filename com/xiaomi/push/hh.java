@@ -15,34 +15,34 @@ public final class hh {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hh f71081a;
+    public static final hh f72001a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hh[] f480a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hh f71082b;
+    public static final hh f72002b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hh f71083c;
+    public static final hh f72003c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hh f71084d;
+    public static final hh f72004d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hh f71085e;
+    public static final hh f72005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hh f71086f;
+    public static final hh f72006f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hh f71087g;
+    public static final hh f72007g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hh f71088h;
+    public static final hh f72008h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hh f71089i;
+    public static final hh f72009i;
     public static final hh j;
     public static final hh k;
     public static final hh l;
@@ -76,15 +76,15 @@ public final class hh {
                 return;
             }
         }
-        f71081a = new hh("DeviceInfo", 0, 1);
-        f71082b = new hh("AppInstallList", 1, 2);
-        f71083c = new hh("AppActiveList", 2, 3);
-        f71084d = new hh("Bluetooth", 3, 4);
-        f71085e = new hh("Location", 4, 5);
-        f71086f = new hh("Account", 5, 6);
-        f71087g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
-        f71088h = new hh("Cellular", 7, 8);
-        f71089i = new hh("TopApp", 8, 9);
+        f72001a = new hh("DeviceInfo", 0, 1);
+        f72002b = new hh("AppInstallList", 1, 2);
+        f72003c = new hh("AppActiveList", 2, 3);
+        f72004d = new hh("Bluetooth", 3, 4);
+        f72005e = new hh("Location", 4, 5);
+        f72006f = new hh("Account", 5, 6);
+        f72007g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
+        f72008h = new hh("Cellular", 7, 8);
+        f72009i = new hh("TopApp", 8, 9);
         j = new hh("BroadcastAction", 9, 10);
         k = new hh("BroadcastActionAdded", 10, 11);
         l = new hh("BroadcastActionRemoved", 11, 12);
@@ -101,7 +101,7 @@ public final class hh {
         w = new hh("Storage", 22, 23);
         hh hhVar = new hh("AppIsInstalled", 23, 24);
         x = hhVar;
-        f480a = new hh[]{f71081a, f71082b, f71083c, f71084d, f71085e, f71086f, f71087g, f71088h, f71089i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
+        f480a = new hh[]{f72001a, f72002b, f72003c, f72004d, f72005e, f72006f, f72007g, f72008h, f72009i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
     }
 
     public hh(String str, int i2, int i3) {
@@ -131,23 +131,23 @@ public final class hh {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             switch (i2) {
                 case 1:
-                    return f71081a;
+                    return f72001a;
                 case 2:
-                    return f71082b;
+                    return f72002b;
                 case 3:
-                    return f71083c;
+                    return f72003c;
                 case 4:
-                    return f71084d;
+                    return f72004d;
                 case 5:
-                    return f71085e;
+                    return f72005e;
                 case 6:
-                    return f71086f;
+                    return f72006f;
                 case 7:
-                    return f71087g;
+                    return f72007g;
                 case 8:
-                    return f71088h;
+                    return f72008h;
                 case 9:
-                    return f71089i;
+                    return f72009i;
                 case 10:
                     return j;
                 case 11:

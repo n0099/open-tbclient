@@ -1,184 +1,79 @@
 package b.a.r0.k2.u.f;
 
-import android.view.View;
-import b.a.q0.s.q.d2;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import b.a.q0.s.q.g1;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p0 extends b.a.q0.s.g0.t.c {
+public class p0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean s;
-    public boolean t;
-    public int u;
-    public TbPageContext v;
-    public String w;
-    public int x;
-    public d2 y;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p0(TbPageContext tbPageContext, b.a.q0.s.g0.t.b bVar, int i2) {
-        super(tbPageContext, bVar);
+    /* renamed from: a  reason: collision with root package name */
+    public TbPageContext f20931a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f20932b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public g1 f20933c;
+
+    public p0(TbPageContext tbPageContext) {
+        Uri uri;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bVar, Integer.valueOf(i2)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (b.a.q0.s.g0.t.b) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = false;
-        this.t = false;
-        this.u = 0;
-        this.u = i2;
-        this.v = tbPageContext;
-        if (i2 == 1) {
-            super.m("4");
-        } else if (i2 == 3) {
-            super.m("5");
-        } else if (i2 != 4 && i2 != 5 && i2 != 6) {
-            super.m("0");
+        this.f20932b = false;
+        this.f20931a = tbPageContext;
+        if (tbPageContext.getPageActivity() == null || this.f20931a.getPageActivity().getIntent() == null || (uri = (Uri) this.f20931a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) == null) {
+            return;
+        }
+        String queryParameter = uri.getQueryParameter("tid");
+        uri.getQueryParameter("eqid");
+        g1 g1Var = new g1();
+        this.f20933c = g1Var;
+        g1Var.f14108a = uri.getQueryParameter("tid");
+        this.f20933c.f14109b = uri.getQueryParameter("eqid");
+        if (TextUtils.isEmpty(queryParameter) || b.a.e.a.b.g().h() > 3) {
+            return;
+        }
+        this.f20932b = true;
+    }
+
+    public void a(PbModel pbModel) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) || !this.f20932b || this.f20933c == null || pbModel == null || pbModel.P0() == null || pbModel.P0().l() == null) {
+            return;
+        }
+        ForumData l = pbModel.P0().l();
+        this.f20933c.f14110c = l.getFirst_class();
+        this.f20933c.f14111d = l.getSecond_class();
+        TbSingleton.getInstance().setPbToHomeUpdateData(this.f20933c);
+        if (b.a.e.a.b.g().i("MainTabActivity")) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
         } else {
-            super.m("4");
-        }
-    }
-
-    @Override // b.a.q0.s.g0.t.c, android.view.View.OnClickListener
-    public void onClick(View view) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || view.getAlpha() < 0.4d) {
-            return;
-        }
-        b.a.q0.s.g0.t.a aVar = this.f13061e;
-        String userId = aVar != null ? aVar.getUserId() : "";
-        TiebaStatic.log(new StatisticItem("c12408").param("obj_source", t()).param("obj_id", userId).param("tid", this.w));
-        int i2 = this.u;
-        int i3 = 8;
-        int i4 = 0;
-        if (i2 == 1) {
-            i3 = 3;
-        } else if (i2 == 3) {
-            i3 = 2;
-        } else if (i2 == 5) {
-            i3 = 5;
-        } else if (i2 == 7) {
-            i3 = 7;
-        } else if (i2 == 6) {
-            i3 = 6;
-        } else if (i2 == 4) {
-            i3 = 4;
-        } else if (i2 != 8) {
-            i3 = 0;
-        }
-        StatisticItem statisticItem = new StatisticItem("c12507");
-        statisticItem.param("obj_locate", i3);
-        statisticItem.param("obj_id", userId);
-        statisticItem.param("tid", this.w);
-        statisticItem.param("obj_param1", this.x);
-        if (!b.a.e.e.p.k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-            statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
-        }
-        TiebaStatic.log(statisticItem);
-        StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_CONCERN_BTN_CLICK);
-        statisticItem2.param("obj_id", userId);
-        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem2.param("tid", this.w);
-        d2 d2Var = this.y;
-        if (d2Var != null) {
-            statisticItem2.param("nid", d2Var.F0());
-            if (this.y.L() != null && !b.a.e.e.p.k.isEmpty(this.y.L().oriUgcVid)) {
-                statisticItem2.param(TiebaStatic.Params.OBJ_PARAM6, this.y.L().oriUgcVid);
-            }
-            statisticItem2.param("recom_source", this.y.X0);
-            statisticItem2.param("ab_tag", this.y.Z0);
-            statisticItem2.param("weight", this.y.Y0);
-            statisticItem2.param("extra", this.y.a1);
-        }
-        TbPageContext tbPageContext = this.v;
-        if (tbPageContext != null) {
-            b.a.q0.n0.c.e(tbPageContext.getPageActivity(), statisticItem2);
-        }
-        TiebaStatic.log(statisticItem2);
-        super.onClick(view);
-        if (this.s && this.f13061e != null) {
-            TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f13061e.getUserId()));
-        }
-        if (!this.t || this.f13061e == null) {
-            return;
-        }
-        int i5 = this.u;
-        if (i5 == 1) {
-            i4 = 1;
-        } else if (i5 == 2) {
-            i4 = 2;
-        }
-        TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i4).param("obj_id", this.f13061e.getUserId()));
-    }
-
-    public final int t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String fromPageKey = UtilHelper.getFromPageKey(this.v);
-            if (fromPageKey == null) {
-                return 3;
-            }
-            if (fromPageKey.equals("a038")) {
-                return 1;
-            }
-            if (fromPageKey.equals("a002")) {
-                return 2;
-            }
-            if (fromPageKey.equals("a006")) {
-                return 3;
-            }
-            if (fromPageKey.equals("a011")) {
-                return 4;
-            }
-            if (fromPageKey.equals("a033")) {
-                return 5;
-            }
-            return fromPageKey.equals("a010") ? 6 : 7;
-        }
-        return invokeV.intValue;
-    }
-
-    public void u(d2 d2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
-            this.y = d2Var;
-        }
-    }
-
-    public void v(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.x = i2;
-        }
-    }
-
-    public void w(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.w = str;
+            TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
         }
     }
 }

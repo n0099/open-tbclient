@@ -1,8 +1,7 @@
 package b.a.p0.a.e0.g;
 
 import android.content.Context;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.c2.f.a0;
+import b.a.p0.a.f2.f.z;
 import b.a.p0.a.g1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -18,15 +17,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class c extends a0 {
+public class c extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f4711c;
+    public a f4681c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(e eVar) {
+    public c(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/perfCat");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,12 +45,12 @@ public class c extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4160b) {
+            if (z.f5228b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
                 return false;
             }
@@ -60,15 +59,15 @@ public class c extends a0 {
         return invokeLLLL.booleanValue;
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            if (a0.f4160b) {
+            if (z.f5228b) {
                 String str2 = "handleSubAction subAction: " + str;
             }
-            if (!a0.f4160b) {
+            if (!z.f5228b) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(403));
                 return false;
             }
@@ -87,12 +86,12 @@ public class c extends a0 {
                 c2 = 2;
             }
             if (c2 == 0) {
-                if (this.f4711c == null) {
-                    this.f4711c = new a();
+                if (this.f4681c == null) {
+                    this.f4681c = new a();
                 }
-                this.f4711c.h();
+                this.f4681c.h();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                b.a.p0.a.e0.d.g("SwanAppPropertyLogAction", " Start property log：");
+                b.a.p0.a.e0.d.i("SwanAppPropertyLogAction", " Start property log：");
                 return true;
             } else if (c2 != 1) {
                 if (c2 != 2) {
@@ -102,33 +101,33 @@ public class c extends a0 {
                 if (optParamsAsJo == null) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
                 } else {
-                    if (this.f4711c != null) {
-                        this.f4711c.g(optParamsAsJo.optInt("duration"));
+                    if (this.f4681c != null) {
+                        this.f4681c.g(optParamsAsJo.optInt("duration"));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 }
                 return true;
             } else {
                 JSONObject jSONObject = new JSONObject();
-                a aVar = this.f4711c;
+                a aVar = this.f4681c;
                 if (aVar == null) {
-                    b.a.p0.a.e0.d.b("SwanAppPropertyLogAction", "Property log never start");
+                    b.a.p0.a.e0.d.c("SwanAppPropertyLogAction", "Property log never start");
                 } else {
                     String i2 = aVar.i();
-                    this.f4711c = null;
-                    f.T().C();
+                    this.f4681c = null;
+                    f.U().C();
                     try {
-                        jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, f.T().C());
+                        jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, f.U().C());
                         jSONObject.put("path", i2);
                     } catch (JSONException e2) {
-                        if (a0.f4160b) {
+                        if (z.f5228b) {
                             e2.printStackTrace();
                         }
                     }
-                    if (a0.f4160b) {
+                    if (z.f5228b) {
                         String str3 = "Video dispatch Params : " + jSONObject.toString();
                     }
-                    b.a.p0.a.e0.d.g("SwanAppPropertyLogAction", "Stop property log");
+                    b.a.p0.a.e0.d.i("SwanAppPropertyLogAction", "Stop property log");
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
                 return true;

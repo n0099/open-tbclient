@@ -19,13 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EmotionIntefaceStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +54,7 @@ public class EmotionIntefaceStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +97,7 @@ public class EmotionIntefaceStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,20 +127,17 @@ public class EmotionIntefaceStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
-                if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof List)) {
-                    return;
-                }
-                for (b.a.q0.x.p.a aVar : (List) customResponsedMessage.getData()) {
-                    b.a.r0.n0.b.e.i().p(aVar);
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
+                    for (b.a.q0.x.p.a aVar : (List) customResponsedMessage.getData()) {
+                        b.a.r0.n0.b.e.i().p(aVar);
+                    }
                 }
                 b.a.r0.n0.b.e.i().q();
-                MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +168,7 @@ public class EmotionIntefaceStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class e implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +202,7 @@ public class EmotionIntefaceStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class f implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,7 +235,7 @@ public class EmotionIntefaceStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class g implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -270,42 +268,6 @@ public class EmotionIntefaceStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class h extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof List)) {
-                return;
-            }
-            ((List) customResponsedMessage.getData()).add(b.a.r0.n0.b.d.f());
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -319,7 +281,7 @@ public class EmotionIntefaceStatic {
                 return;
             }
         }
-        b.a.e.e.l.d.h().o(20, new b.a.r0.n0.a.a());
+        b.a.e.f.l.d.h().o(20, new b.a.r0.n0.a.a());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
@@ -339,9 +301,10 @@ public class EmotionIntefaceStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerTask(customMessageTask4);
         MessageManager.getInstance().registerListener(bVar);
-        cVar.setPriority(Integer.MAX_VALUE);
         MessageManager.getInstance().registerListener(cVar);
-        MessageManager.getInstance().registerListener(new h(2004602));
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(b.a.r0.n0.b.d.f());
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004602, arrayList));
     }
 
     public EmotionIntefaceStatic() {

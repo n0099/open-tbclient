@@ -11,7 +11,7 @@ public class FragmentResultReceiver extends ResultReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f62550a;
+    public a f63451a;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -21,7 +21,7 @@ public class FragmentResultReceiver extends ResultReceiver {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f62550a = null;
+            this.f63451a = null;
         }
     }
 
@@ -29,7 +29,7 @@ public class FragmentResultReceiver extends ResultReceiver {
     public void onReceiveResult(int i2, Bundle bundle) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bundle) == null) || (aVar = this.f62550a) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bundle) == null) || (aVar = this.f63451a) == null) {
             return;
         }
         aVar.onReceiveResult(i2, bundle);

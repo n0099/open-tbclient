@@ -25,7 +25,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             Context context = KsAdSDKImpl.get().getContext();
-            return (context == null || (c2 = b.r.a.a.b.c(context, str)) == null) ? "" : c2;
+            return (context == null || (c2 = b.p.a.a.b.c(context, str)) == null) ? "" : c2;
         }
         return (String) invokeL.objValue;
     }

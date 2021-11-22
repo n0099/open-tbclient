@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements FollowStatusService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,10 +31,10 @@ public class b implements FollowStatusService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
             UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.f45667a = true;
-            aVar.f45669c = str;
-            aVar.f45670d = z;
-            aVar.f45671e = true;
+            aVar.f46517a = true;
+            aVar.f46519c = str;
+            aVar.f46520d = z;
+            aVar.f46521e = true;
             MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
     }

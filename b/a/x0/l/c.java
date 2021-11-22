@@ -20,28 +20,28 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f29692a;
+    public List<String> f30561a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29693b;
+    public String f30562b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MediaMuxer f29694c;
+    public MediaMuxer f30563c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29695d;
+    public int f30564d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29696e;
+    public int f30565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MediaFormat f29697f;
+    public MediaFormat f30566f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MediaFormat f29698g;
+    public MediaFormat f30567g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.x0.p.a f29699h;
+    public b.a.x0.p.a f30568h;
 
     public c(List<String> list, String str, b.a.x0.p.a aVar) {
         Interceptable interceptable = $ic;
@@ -59,9 +59,9 @@ public class c {
             }
         }
         b.a.x0.t.c.e("VideoComposer", list.size() + " composer to " + str);
-        this.f29692a = list;
-        this.f29693b = str;
-        this.f29699h = aVar;
+        this.f30561a = list;
+        this.f30562b = str;
+        this.f30568h = aVar;
     }
 
     public final long a(long j, String str) throws IOException {
@@ -86,7 +86,7 @@ public class c {
                 bVar4.j();
                 bVar4 = null;
             } else {
-                bVar4.l(this.f29696e);
+                bVar4.l(this.f30565e);
             }
             b bVar6 = new b();
             bVar6.m(str, "audio/");
@@ -94,7 +94,7 @@ public class c {
             if (d3 < 0) {
                 bVar6.j();
             } else {
-                bVar6.l(this.f29695d);
+                bVar6.l(this.f30564d);
                 bVar5 = bVar6;
             }
             boolean z = bVar4 == null;
@@ -106,12 +106,12 @@ public class c {
                     break;
                 }
                 if (!z2 && (z || bVar5.e() - bVar4.e() <= 50000)) {
-                    i2 = this.f29695d;
+                    i2 = this.f30564d;
                     i4 = d3;
                     i3 = i4;
                     bVar = bVar5;
                 } else {
-                    i2 = this.f29696e;
+                    i2 = this.f30565e;
                     i3 = d3;
                     bVar = bVar4;
                     i4 = d2;
@@ -152,7 +152,7 @@ public class c {
                     }
                     str2 = str3;
                     h2.presentationTimeUs += j;
-                    this.f29694c.writeSampleData(i2, bVar8.c(), h2);
+                    this.f30563c.writeSampleData(i2, bVar8.c(), h2);
                     bVar8.a();
                 }
                 str3 = str2;
@@ -162,7 +162,7 @@ public class c {
                 bVar5 = bVar3;
             }
             long max = j + Math.max(j2, j3) + 10000;
-            b.a.x0.p.a aVar = this.f29699h;
+            b.a.x0.p.a aVar = this.f30568h;
             if (aVar != null) {
                 aVar.c(max);
             }
@@ -184,14 +184,14 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb)) == null) {
             boolean z = false;
             boolean z2 = false;
-            for (String str : this.f29692a) {
+            for (String str : this.f30561a) {
                 try {
                     b bVar = new b();
                     try {
                         bVar.m(str, FileUtils.VIDEO_FILE_START);
                         if (!z) {
-                            MediaFormat mediaFormat = bVar.g().f29687a;
-                            this.f29698g = mediaFormat;
+                            MediaFormat mediaFormat = bVar.g().f30556a;
+                            this.f30567g = mediaFormat;
                             if (mediaFormat == null) {
                                 b.a.x0.t.c.e("VideoComposer", "No video track found in " + str);
                             } else {
@@ -199,8 +199,8 @@ public class c {
                             }
                         }
                         if (!z2) {
-                            MediaFormat mediaFormat2 = bVar.b().f29687a;
-                            this.f29697f = mediaFormat2;
+                            MediaFormat mediaFormat2 = bVar.b().f30556a;
+                            this.f30566f = mediaFormat2;
                             if (mediaFormat2 == null) {
                                 b.a.x0.t.c.e("VideoComposer", "No audio track found in " + str);
                             } else {
@@ -223,27 +223,27 @@ public class c {
                     return false;
                 }
             }
-            MediaMuxer mediaMuxer = new MediaMuxer(this.f29693b, 0);
-            this.f29694c = mediaMuxer;
+            MediaMuxer mediaMuxer = new MediaMuxer(this.f30562b, 0);
+            this.f30563c = mediaMuxer;
             if (z) {
-                this.f29696e = mediaMuxer.addTrack(this.f29698g);
+                this.f30565e = mediaMuxer.addTrack(this.f30567g);
             }
             if (z2) {
-                this.f29695d = this.f29694c.addTrack(this.f29697f);
+                this.f30564d = this.f30563c.addTrack(this.f30566f);
             }
-            this.f29694c.start();
+            this.f30563c.start();
             long j = 0;
-            for (String str2 : this.f29692a) {
+            for (String str2 : this.f30561a) {
                 j = a(j, str2);
             }
-            if (this.f29694c != null) {
+            if (this.f30563c != null) {
                 try {
-                    this.f29694c.stop();
-                    this.f29694c.release();
+                    this.f30563c.stop();
+                    this.f30563c.release();
                 } catch (Exception unused) {
                     b.a.x0.t.c.e("VideoComposer", "Muxer close error. No data was written");
                 }
-                this.f29694c = null;
+                this.f30563c = null;
             }
             b.a.x0.t.c.j("VideoComposer", "video join finished");
             return true;

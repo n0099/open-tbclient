@@ -177,6 +177,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_USER_VIDEO_LIST = 1003312;
     public static final int CMD_GET_VIDEO_ACTIVITY = 1003376;
     public static final int CMD_GET_VIDEO_INFO_BY_LOGVID = 1003384;
+    public static final int CMD_GET_VOICE_ROOM_LIST = 1003517;
     public static final int CMD_GET_YOUNGSTER_VERIFY_AUTHID = 1003478;
     public static final int CMD_GIFT_LIST_BY_CATEGORY = 1003046;
     public static final int CMD_GIFT_PALCE_ORDER = 1003053;
@@ -282,6 +283,7 @@ public class CmdConfigHttp {
     public static final int CMD_TAIL_SET = 1003022;
     public static final int CMD_TAIL_UPDATE = 1003023;
     public static final int CMD_THEME_LIST_UPDATE = 1003038;
+    public static final int CMD_TIEBA_PLUS_GAME_ITEM_ORDER = 1003518;
     public static final int CMD_TOPIC_BLESS = 1003065;
     public static final int CMD_TOPIC_DETAIL = 1003424;
     public static final int CMD_TOPIC_LIST = 1003423;

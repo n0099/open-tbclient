@@ -5,23 +5,23 @@ import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static PackageManager f56701a;
+    public static PackageManager f57623a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f56702b;
+    public static Context f57624b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            f56702b = context;
+            f57624b = context;
             PackageManager packageManager = context.getPackageManager();
-            f56701a = packageManager;
+            f57623a = packageManager;
             if (packageManager == null) {
                 c.d("PermissionUtil#init fail to get PackageManager.");
             }
@@ -32,13 +32,13 @@ public final class p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            PackageManager packageManager = f56701a;
+            PackageManager packageManager = f57623a;
             if (packageManager == null) {
                 c.d("PermissionUtil fail to get PackageManager.");
                 return false;
             }
             try {
-                return packageManager.checkPermission(str, f56702b.getPackageName()) == 0;
+                return packageManager.checkPermission(str, f57624b.getPackageName()) == 0;
             } catch (RuntimeException e2) {
                 c.a("PermissionUtil#hasPermission failed.", e2);
                 return false;

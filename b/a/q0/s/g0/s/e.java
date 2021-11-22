@@ -19,7 +19,7 @@ public class e extends a<e> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13051i;
+    public String f13831i;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class e extends a<e> {
             StringBuilder sb = new StringBuilder();
             sb.append("#");
             sb.append("[视频]");
-            sb.append(this.f13051i);
+            sb.append(this.f13831i);
             sb.append("#");
             i(sb);
         }
@@ -75,7 +75,7 @@ public class e extends a<e> {
             StringBuilder sb = new StringBuilder();
             sb.append("#");
             sb.append("[视频]");
-            sb.append(this.f13051i);
+            sb.append(this.f13831i);
             sb.append("#");
             i(sb);
         }
@@ -93,7 +93,7 @@ public class e extends a<e> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "#[视频]" + this.f13051i + "#";
+            return "#[视频]" + this.f13831i + "#";
         }
         return (String) invokeV.objValue;
     }
@@ -101,14 +101,14 @@ public class e extends a<e> {
     public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13051i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13831i : (String) invokeV.objValue;
     }
 
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             i(s());
-            if (b.a.q0.t0.b.i(this.f13041c, f())) {
+            if (b.a.q0.s0.b.i(this.f13821c, f())) {
                 return;
             }
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_videotopic31, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
@@ -134,6 +134,6 @@ public class e extends a<e> {
                 return;
             }
         }
-        this.f13051i = str;
+        this.f13831i = str;
     }
 }

@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +30,7 @@ import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FlutterFragmentActivity extends FragmentActivity implements SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAGMENT_CONTAINER_ID = 609893468;
@@ -39,7 +40,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     @Nullable
     public FlutterFragment flutterFragment;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CachedEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +99,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class NewEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -411,6 +412,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
             setContentView(createFragmentContainer());
             configureStatusBarForFullscreenFlutterExperience();
             ensureFlutterFragmentCreated();
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

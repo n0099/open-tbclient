@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends UniversalPlayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f27044e;
+    public Context f28576e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(@Nullable Context context, @NonNull String str) {
@@ -39,13 +39,13 @@ public class d extends UniversalPlayer {
                 return;
             }
         }
-        this.f27044e = context;
+        this.f28576e = context;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27044e : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28576e : (Context) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.player.BDVideoPlayer

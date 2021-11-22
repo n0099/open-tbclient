@@ -1,6 +1,6 @@
 package b.a.q0.j0.x;
 
-import b.a.q0.d1.c;
+import b.a.q0.c1.c;
 import b.a.q0.j0.b;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;

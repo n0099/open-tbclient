@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import b.a.r0.x0.a;
-import b.a.r0.x0.b1;
-import b.a.r0.x0.d1;
+import b.a.r0.x0.c1;
 import b.a.r0.x0.e1;
 import b.a.r0.x0.f1;
-import b.a.r0.x0.h1;
+import b.a.r0.x0.g1;
+import b.a.r0.x0.i1;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,19 +33,19 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f49108e;
+    public TbPageContext f49972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49109f;
+    public TextView f49973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49110g;
+    public TextView f49974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f49111h;
+    public View f49975h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrsMoveAreaChooseView f49112i;
+    public FrsMoveAreaChooseView f49976i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FrsMoveAreaBottomMenuView(Context context) {
@@ -71,12 +71,12 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(f1.frs_move_area_bottom_menu_layout, this);
-            this.f49109f = (TextView) findViewById(e1.frs_move_area_cancel);
-            this.f49110g = (TextView) findViewById(e1.frs_move_area_move);
-            this.f49111h = findViewById(e1.frs_move_area_top_line);
-            this.f49109f.setOnClickListener(this);
-            this.f49110g.setOnClickListener(this);
+            LayoutInflater.from(getContext()).inflate(g1.frs_move_area_bottom_menu_layout, this);
+            this.f49973f = (TextView) findViewById(f1.frs_move_area_cancel);
+            this.f49974g = (TextView) findViewById(f1.frs_move_area_move);
+            this.f49975h = findViewById(f1.frs_move_area_top_line);
+            this.f49973f.setOnClickListener(this);
+            this.f49974g.setOnClickListener(this);
             onChangeSkinType();
             setClickable(true);
         }
@@ -86,7 +86,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrsMoveAreaChooseView frsMoveAreaChooseView = this.f49112i;
+            FrsMoveAreaChooseView frsMoveAreaChooseView = this.f49976i;
             return frsMoveAreaChooseView != null && frsMoveAreaChooseView.getVisibility() == 0;
         }
         return invokeV.booleanValue;
@@ -95,12 +95,12 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this, b1.CAM_X0201);
-            SkinManager.setViewTextColor(this.f49109f, b1.CAM_X0105);
-            SkinManager.setBackgroundResource(this.f49109f, d1.bg_bottom_up_list_dialog_item);
-            SkinManager.setViewTextColor(this.f49110g, b1.CAM_X0302);
-            SkinManager.setBackgroundResource(this.f49110g, d1.bg_bottom_up_list_dialog_item);
-            SkinManager.setBackgroundColor(this.f49111h, b1.CAM_X0204);
+            SkinManager.setBackgroundColor(this, c1.CAM_X0201);
+            SkinManager.setViewTextColor(this.f49973f, c1.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f49973f, e1.bg_bottom_up_list_dialog_item);
+            SkinManager.setViewTextColor(this.f49974g, c1.CAM_X0302);
+            SkinManager.setBackgroundResource(this.f49974g, e1.bg_bottom_up_list_dialog_item);
+            SkinManager.setBackgroundColor(this.f49975h, c1.CAM_X0204);
         }
     }
 
@@ -110,21 +110,21 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view.getTag() instanceof String) {
                 removeChooseView();
-            } else if (view == this.f49109f) {
-                this.f49112i = null;
+            } else if (view == this.f49973f) {
+                this.f49976i = null;
                 a.h().n();
-            } else if (view == this.f49110g) {
-                if (this.f49108e != null && this.f49112i == null && !ListUtils.isEmpty(a.h().i())) {
-                    FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.f49108e);
-                    this.f49112i = frsMoveAreaChooseView;
+            } else if (view == this.f49974g) {
+                if (this.f49972e != null && this.f49976i == null && !ListUtils.isEmpty(a.h().i())) {
+                    FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.f49972e);
+                    this.f49976i = frsMoveAreaChooseView;
                     frsMoveAreaChooseView.setOnClickListener(this);
-                    ((ViewGroup) getParent()).addView(this.f49112i, -1, -1);
-                } else if (this.f49112i != null || getContext() == null) {
+                    ((ViewGroup) getParent()).addView(this.f49976i, -1, -1);
+                } else if (this.f49976i != null || getContext() == null) {
                 } else {
-                    new BdTopToast(getContext()).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(h1.frs_move_area_choose_empty)).show((ViewGroup) getParent());
+                    new BdTopToast(getContext()).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(i1.frs_move_area_choose_empty)).show((ViewGroup) getParent());
                 }
             } else {
-                FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.f49112i;
+                FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.f49976i;
                 if (frsMoveAreaChooseView2 == null || view != frsMoveAreaChooseView2) {
                     return;
                 }
@@ -135,28 +135,28 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
 
     public void removeChooseView() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f49112i.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f49976i.getParent() == null) {
             return;
         }
-        ((ViewGroup) this.f49112i.getParent()).removeView(this.f49112i);
-        this.f49112i = null;
+        ((ViewGroup) this.f49976i.getParent()).removeView(this.f49976i);
+        this.f49976i = null;
     }
 
     public void setMoveNumber(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            String string = getContext().getString(h1.frs_move_area_move);
+            String string = getContext().getString(i1.frs_move_area_move);
             if (i2 > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i2));
             }
-            this.f49110g.setText(string);
+            this.f49974g.setText(string);
         }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.f49108e = tbPageContext;
+            this.f49972e = tbPageContext;
         }
     }
 

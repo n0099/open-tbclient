@@ -1,9 +1,9 @@
 package b.a.p0.a.g0;
 
 import android.util.Log;
-import b.a.p0.a.e2.c.h;
+import b.a.p0.a.h2.c.h;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.d;
+import b.a.p0.a.z2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +21,7 @@ public class c extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5098a;
+    public static final boolean f5241a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,11 +37,11 @@ public class c extends h {
                 return;
             }
         }
-        f5098a = k.f6397a;
+        f5241a = k.f6863a;
         try {
             CookieSyncManager.createInstance(AppRuntime.getAppContext());
         } catch (Exception e2) {
-            if (f5098a) {
+            if (f5241a) {
                 String str = "static createInstance err=" + e2 + " trace=" + Log.getStackTraceString(e2);
             }
         }
@@ -65,36 +65,36 @@ public class c extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (d.f()) {
-                boolean z = f5098a;
+                boolean z = f5241a;
                 CookieManager.getInstance().flush();
                 android.webkit.CookieManager.getInstance().flush();
                 return;
             }
-            boolean z2 = f5098a;
+            boolean z2 = f5241a;
             CookieSyncManager.getInstance().sync();
         }
     }
 
-    @Override // b.a.p0.a.e2.c.h, com.baidu.searchbox.http.cookie.CookieManager
+    @Override // b.a.p0.a.h2.c.h, com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f5098a) {
+            if (f5241a) {
                 String str2 = "getCookie: httpUrl=" + str;
             }
             String str3 = "";
             try {
                 str3 = CookieManager.getInstance().getCookie(str);
-                if (f5098a) {
+                if (f5241a) {
                     String str4 = "RealCookieManager:" + str3;
                 }
             } catch (Exception e2) {
-                if (f5098a) {
+                if (f5241a) {
                     String str5 = "getCookie: err=" + e2 + " trace=" + Log.getStackTraceString(e2);
                 }
             }
-            if (f5098a) {
+            if (f5241a) {
                 String str6 = "getCookie: ret cookie=" + str3 + " for httpUrl=" + str;
             }
             return str3;
@@ -126,7 +126,7 @@ public class c extends h {
     public void storeCookie(String str, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (f5098a) {
+            if (f5241a) {
                 String str2 = "storeCookie: httpUrl= " + str;
                 StringBuilder sb = new StringBuilder();
                 sb.append("storeCookie: cookies=");
@@ -138,7 +138,7 @@ public class c extends h {
             }
             try {
                 for (String str3 : list) {
-                    if (f5098a) {
+                    if (f5241a) {
                         String str4 = "storeCookie: cookies item=" + str3;
                     }
                     CookieManager.getInstance().setCookie(str, str3);
@@ -146,7 +146,7 @@ public class c extends h {
                 }
                 a();
             } catch (Exception e2) {
-                if (f5098a) {
+                if (f5241a) {
                     String str5 = "storeCookie: err=" + e2 + " trace=" + Log.getStackTraceString(e2);
                 }
             }

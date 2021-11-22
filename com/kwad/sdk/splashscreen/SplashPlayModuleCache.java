@@ -16,7 +16,7 @@ public class SplashPlayModuleCache {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, WeakReference<com.kwad.sdk.splashscreen.b.a>> f66491a;
+    public HashMap<String, WeakReference<com.kwad.sdk.splashscreen.b.a>> f67404a;
 
     /* renamed from: com.kwad.sdk.splashscreen.SplashPlayModuleCache$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -105,7 +105,7 @@ public class SplashPlayModuleCache {
                 return;
             }
         }
-        this.f66491a = new HashMap<>(1);
+        this.f67404a = new HashMap<>(1);
     }
 
     public /* synthetic */ SplashPlayModuleCache(AnonymousClass1 anonymousClass1) {
@@ -122,13 +122,13 @@ public class SplashPlayModuleCache {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            WeakReference<com.kwad.sdk.splashscreen.b.a> weakReference = this.f66491a.get(str);
+            WeakReference<com.kwad.sdk.splashscreen.b.a> weakReference = this.f67404a.get(str);
             if (weakReference != null) {
                 com.kwad.sdk.splashscreen.b.a aVar = weakReference.get();
                 if (aVar != null) {
                     return aVar;
                 }
-                this.f66491a.remove(str);
+                this.f67404a.remove(str);
             }
             return null;
         }
@@ -138,7 +138,7 @@ public class SplashPlayModuleCache {
     public void a(String str, com.kwad.sdk.splashscreen.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
-            this.f66491a.put(str, new WeakReference<>(aVar));
+            this.f67404a.put(str, new WeakReference<>(aVar));
         }
     }
 }

@@ -5,27 +5,28 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import b.a.p0.a.v2.v;
-import b.a.p0.e.l.b;
+import b.a.p0.a.z2.v;
+import b.a.p0.g.m.b;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanEntryActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAUNCHER_URI = "SWAN_URI";
     public static final String SWAN_ACTION = "com.baidu.swan.launcher";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f46838e;
+        public final /* synthetic */ SwanEntryActivity f47702e;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -42,14 +43,14 @@ public class SwanEntryActivity extends Activity {
                     return;
                 }
             }
-            this.f46838e = swanEntryActivity;
+            this.f47702e = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46838e.finish();
+                this.f47702e.finish();
             }
         }
     }
@@ -94,9 +95,11 @@ public class SwanEntryActivity extends Activity {
             b.a.e.a.a.b(this);
             super.onCreate(bundle);
             if (v.a(this)) {
+                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             doLaunch();
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

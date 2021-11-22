@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.profession.permission;
 
 import b.a.q0.k0.b.g;
-import b.a.r0.x0.q2.a.a;
-import b.a.r0.x0.q2.a.b;
+import b.a.r0.x0.r2.a.a;
+import b.a.r0.x0.r2.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;

@@ -5,6 +5,7 @@ import b.a.q0.b.d;
 import b.a.q0.s.q.t0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,10 +57,20 @@ public class DialogLoginHelper {
         }
     }
 
+    public static void addMinePageLoginDialogSuccessLog(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        statisticItem.param("obj_locate", str2);
+        TiebaStatic.log(statisticItem);
+    }
+
     public static boolean checkUpIsLogin(t0 t0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t0Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t0Var)) == null) {
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (!isLogin) {
                 skipToLoginDialogActivity(t0Var);
@@ -72,12 +83,12 @@ public class DialogLoginHelper {
     public static String getOneKeyLoginActivityLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.n() ? "new_start_1" : d.o() ? "new_start_2" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? d.n() ? "new_start_1" : d.o() ? "new_start_2" : "" : (String) invokeV.objValue;
     }
 
     public static void skipToLoginDialogActivity(t0 t0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, t0Var) == null) || t0Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, t0Var) == null) || t0Var == null) {
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2921530, t0Var));

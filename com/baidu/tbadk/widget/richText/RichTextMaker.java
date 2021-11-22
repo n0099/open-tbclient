@@ -7,8 +7,8 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.c0;
-import b.a.q0.f1.n.f;
+import b.a.q0.c1.c0;
+import b.a.q0.e1.n.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
@@ -27,16 +27,16 @@ public abstract class RichTextMaker<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IconPos f46361a;
+    public IconPos f47219a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f46362b;
+    public int f47220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f46363c;
+    public int f47221c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f46364d;
+    public int f47222d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
@@ -149,7 +149,7 @@ public abstract class RichTextMaker<T> {
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // b.a.q0.f1.n.f, android.text.style.ClickableSpan
+        @Override // b.a.q0.e1.n.f, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
@@ -164,7 +164,7 @@ public abstract class RichTextMaker<T> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f46365a;
+        public static final /* synthetic */ int[] f47223a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -181,21 +181,21 @@ public abstract class RichTextMaker<T> {
                 }
             }
             int[] iArr = new int[IconPos.values().length];
-            f46365a = iArr;
+            f47223a = iArr;
             try {
                 iArr[IconPos.START.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f46365a[IconPos.END.ordinal()] = 2;
+                f47223a[IconPos.END.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f46365a[IconPos.NONE.ordinal()] = 3;
+                f47223a[IconPos.NONE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f46365a[IconPos.START_OFFSET.ordinal()] = 4;
+                f47223a[IconPos.START_OFFSET.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -206,26 +206,26 @@ public abstract class RichTextMaker<T> {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final int f46366g = 1;
+        public static final int f47224g = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final SpannableString f46367a;
+        public final SpannableString f47225a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f46368b;
+        public final int f47226b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f46369c;
+        public final int f47227c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f46370d;
+        public final int f47228d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f46371e;
+        public final int f47229e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f46372f;
+        public final int f47230f;
 
         static {
             InterceptResult invokeClinit;
@@ -257,12 +257,12 @@ public abstract class RichTextMaker<T> {
                     return;
                 }
             }
-            this.f46367a = spannableString;
-            this.f46368b = i2;
-            this.f46369c = i3;
-            this.f46370d = i4;
-            this.f46371e = i5;
-            this.f46372f = i6;
+            this.f47225a = spannableString;
+            this.f47226b = i2;
+            this.f47227c = i3;
+            this.f47228d = i4;
+            this.f47229e = i5;
+            this.f47230f = i6;
         }
 
         @NonNull
@@ -276,11 +276,11 @@ public abstract class RichTextMaker<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, iconPos)) == null) {
                 int length = str.length();
-                int i6 = b.f46365a[iconPos.ordinal()];
+                int i6 = b.f47223a[iconPos.ordinal()];
                 if (i6 != 1) {
                     if (i6 == 2) {
                         SpannableString spannableString2 = new SpannableString(str + "m");
-                        i2 = f46366g + length;
+                        i2 = f47224g + length;
                         spannableString = spannableString2;
                         i5 = length + (-1);
                         i4 = i5;
@@ -299,7 +299,7 @@ public abstract class RichTextMaker<T> {
                         sb.append("m");
                         sb.append(str.substring(i7));
                         SpannableString spannableString3 = new SpannableString(sb);
-                        int i8 = f46366g;
+                        int i8 = f47224g;
                         spannableString = spannableString3;
                         i5 = i7;
                         i4 = (i8 + length) - 1;
@@ -310,7 +310,7 @@ public abstract class RichTextMaker<T> {
                     i3 = 0;
                 } else {
                     SpannableString spannableString4 = new SpannableString("m" + str);
-                    int i9 = f46366g;
+                    int i9 = f47224g;
                     i2 = i9;
                     i3 = i2;
                     spannableString = spannableString4;
@@ -326,7 +326,7 @@ public abstract class RichTextMaker<T> {
         public SpannableString h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46367a : (SpannableString) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47225a : (SpannableString) invokeV.objValue;
         }
     }
 
@@ -343,7 +343,7 @@ public abstract class RichTextMaker<T> {
                 return;
             }
         }
-        this.f46361a = IconPos.NONE;
+        this.f47219a = IconPos.NONE;
     }
 
     @NonNull
@@ -354,7 +354,7 @@ public abstract class RichTextMaker<T> {
             if (!str.endsWith(" ")) {
                 str = str + " ";
             }
-            return c.g(str, this.f46361a);
+            return c.g(str, this.f47219a);
         }
         return (c) invokeL.objValue;
     }
@@ -378,49 +378,49 @@ public abstract class RichTextMaker<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048579, this, cVar, i2, t) == null) {
             a aVar = new a(this, i2, t instanceof String ? (String) t : "", i2, t);
-            aVar.j(this.f46363c);
-            cVar.f46367a.setSpan(aVar, cVar.f46370d, cVar.f46371e, cVar.f46372f);
+            aVar.j(this.f47221c);
+            cVar.f47225a.setSpan(aVar, cVar.f47228d, cVar.f47229e, cVar.f47230f);
         }
     }
 
     public void e(@NonNull c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) || this.f46361a == IconPos.NONE) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) || this.f47219a == IconPos.NONE) {
             return;
         }
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(this.f46362b, this.f46363c, EMRichTextAnyIconSpan.IconType.WEBP);
-        eMRichTextAnyIconSpan.c(this.f46364d);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(this.f47220b, this.f47221c, EMRichTextAnyIconSpan.IconType.WEBP);
+        eMRichTextAnyIconSpan.c(this.f47222d);
         if (DeviceInfoUtil.isXiaoMi()) {
             eMRichTextAnyIconSpan.a(R.dimen.tbds6);
         }
-        cVar.f46367a.setSpan(eMRichTextAnyIconSpan, cVar.f46368b, cVar.f46369c, cVar.f46372f);
+        cVar.f47225a.setSpan(eMRichTextAnyIconSpan, cVar.f47226b, cVar.f47227c, cVar.f47230f);
     }
 
     public void f(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f46363c = i2;
+            this.f47221c = i2;
         }
     }
 
     public void g(@NonNull IconPos iconPos) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, iconPos) == null) {
-            this.f46361a = iconPos;
+            this.f47219a = iconPos;
         }
     }
 
     public void h(@DrawableRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f46362b = i2;
+            this.f47220b = i2;
         }
     }
 
     public void i(@DimenRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f46364d = UtilHelper.getDimenPixelSize(i2);
+            this.f47222d = UtilHelper.getDimenPixelSize(i2);
         }
     }
 

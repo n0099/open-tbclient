@@ -37,18 +37,18 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarHistoryActivity f50274a;
+        public final /* synthetic */ OfficialBarHistoryActivity f51186a;
 
         /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC1727a implements Runnable {
+        public class RunnableC1767a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f50275e;
+            public final /* synthetic */ a f51187e;
 
-            public RunnableC1727a(a aVar) {
+            public RunnableC1767a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,16 +63,16 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                         return;
                     }
                 }
-                this.f50275e = aVar;
+                this.f51187e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50275e.f50274a.mView.e()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f51187e.f51186a.mView.e()) {
                     return;
                 }
-                this.f50275e.f50274a.getNextPage();
+                this.f51187e.f51186a.getNextPage();
             }
         }
 
@@ -94,7 +94,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     return;
                 }
             }
-            this.f50274a = officialBarHistoryActivity;
+            this.f51186a = officialBarHistoryActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,38 +102,38 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f50274a.hideProgressBar();
-                this.f50274a.isRefreshing = false;
+                this.f51186a.hideProgressBar();
+                this.f51186a.isRefreshing = false;
                 if (socketResponsedMessage == null) {
-                    this.f50274a.showToast(R.string.neterror);
-                    this.f50274a.mView.h(this.f50274a.mDataList);
+                    this.f51186a.showToast(R.string.neterror);
+                    this.f51186a.mView.h(this.f51186a.mDataList);
                 } else if (socketResponsedMessage.getError() != 0) {
-                    this.f50274a.showToast(socketResponsedMessage.getErrorString());
-                    this.f50274a.mView.h(this.f50274a.mDataList);
+                    this.f51186a.showToast(socketResponsedMessage.getErrorString());
+                    this.f51186a.mView.h(this.f51186a.mDataList);
                 } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
-                    this.f50274a.mView.h(this.f50274a.mDataList);
-                    this.f50274a.showToast(R.string.neterror);
+                    this.f51186a.mView.h(this.f51186a.mDataList);
+                    this.f51186a.showToast(R.string.neterror);
                 } else {
                     ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                     if (responseHistoryMessage.getMsg().isEmpty()) {
-                        this.f50274a.mView.h(this.f50274a.mDataList);
+                        this.f51186a.mView.h(this.f51186a.mDataList);
                         return;
                     }
                     RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage();
                     if (requestHistoryMessage == null) {
-                        this.f50274a.mView.h(this.f50274a.mDataList);
+                        this.f51186a.mView.h(this.f51186a.mDataList);
                         return;
                     }
                     if (requestHistoryMessage.getRequestId() != 0) {
-                        this.f50274a.mDataList.addAll(responseHistoryMessage.getMsg());
+                        this.f51186a.mDataList.addAll(responseHistoryMessage.getMsg());
                     } else {
-                        this.f50274a.mDataList = responseHistoryMessage.getMsg();
+                        this.f51186a.mDataList = responseHistoryMessage.getMsg();
                     }
-                    this.f50274a.mView.f(this.f50274a.mDataList);
+                    this.f51186a.mView.f(this.f51186a.mDataList);
                     if (responseHistoryMessage.getMsg().size() == 0) {
-                        this.f50274a.mView.h(this.f50274a.mDataList);
+                        this.f51186a.mView.h(this.f51186a.mDataList);
                     } else {
-                        new Handler().post(new RunnableC1727a(this));
+                        new Handler().post(new RunnableC1767a(this));
                     }
                 }
             }
@@ -146,7 +146,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarHistoryActivity f50276a;
+        public final /* synthetic */ OfficialBarHistoryActivity f51188a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(OfficialBarHistoryActivity officialBarHistoryActivity) {
@@ -166,7 +166,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     return;
                 }
             }
-            this.f50276a = officialBarHistoryActivity;
+            this.f51188a = officialBarHistoryActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,15 +174,15 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f50276a.hideProgressBar();
+                this.f51188a.hideProgressBar();
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001152 && (customResponsedMessage instanceof ResponseLocalHistoryMessage)) {
                     ResponseLocalHistoryMessage responseLocalHistoryMessage = (ResponseLocalHistoryMessage) customResponsedMessage;
                     if (responseLocalHistoryMessage.getData().isEmpty()) {
                         return;
                     }
-                    if (this.f50276a.mDataList == null || this.f50276a.mDataList.isEmpty()) {
-                        this.f50276a.mDataList = responseLocalHistoryMessage.getData();
-                        this.f50276a.mView.f(this.f50276a.mDataList);
+                    if (this.f51188a.mDataList == null || this.f51188a.mDataList.isEmpty()) {
+                        this.f51188a.mDataList = responseLocalHistoryMessage.getData();
+                        this.f51188a.mView.f(this.f51188a.mDataList);
                     }
                 }
             }
@@ -216,10 +216,10 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 i2 = 0;
             } else {
                 List<ResponseHistoryMessage.a> list2 = this.mDataList;
-                i2 = list2.get(list2.size() - 1).f50319d;
+                i2 = list2.get(list2.size() - 1).f51231d;
             }
             this.isRefreshing = true;
-            MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), i2));
+            MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), i2));
         }
     }
 

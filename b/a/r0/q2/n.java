@@ -3,7 +3,6 @@ package b.a.r0.q2;
 import android.animation.ObjectAnimator;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.VideoLoadingProgressView;
@@ -17,22 +16,22 @@ public class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f22872a;
+    public ViewGroup f24393a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f22873b;
+    public ImageView f24394b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VideoLoadingProgressView f22874c;
+    public VideoLoadingProgressView f24395c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ObjectAnimator f22875d;
+    public ObjectAnimator f24396d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f22876e;
+    public ObjectAnimator f24397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ObjectAnimator f22877f;
+    public ObjectAnimator f24398f;
 
     public n(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
@@ -49,18 +48,18 @@ public class n {
                 return;
             }
         }
-        this.f22872a = viewGroup;
-        this.f22873b = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
-        this.f22874c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
+        this.f24393a = viewGroup;
+        this.f24394b = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
+        this.f24395c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
         d();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f22875d.cancel();
-            this.f22876e.cancel();
-            this.f22877f.cancel();
+            this.f24396d.cancel();
+            this.f24397e.cancel();
+            this.f24398f.cancel();
         }
     }
 
@@ -68,8 +67,8 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a();
-            this.f22872a.setVisibility(8);
-            this.f22874c.endLoading();
+            this.f24393a.setVisibility(8);
+            this.f24395c.endLoading();
         }
     }
 
@@ -77,20 +76,20 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             a();
-            this.f22876e.start();
-            this.f22877f.start();
+            this.f24397e.start();
+            this.f24398f.start();
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f22875d = ObjectAnimator.ofFloat(this.f22873b, Key.ALPHA, 1.0f, 0.5f);
-            this.f22876e = ObjectAnimator.ofFloat(this.f22873b, Key.ALPHA, 0.5f, 0.0f);
-            this.f22877f = ObjectAnimator.ofFloat(this.f22874c, Key.ALPHA, 1.0f, 0.0f);
-            this.f22875d.setDuration(50L);
-            this.f22876e.setDuration(50L);
-            this.f22877f.setDuration(50L);
+            this.f24396d = ObjectAnimator.ofFloat(this.f24394b, "alpha", 1.0f, 0.5f);
+            this.f24397e = ObjectAnimator.ofFloat(this.f24394b, "alpha", 0.5f, 0.0f);
+            this.f24398f = ObjectAnimator.ofFloat(this.f24395c, "alpha", 1.0f, 0.0f);
+            this.f24396d.setDuration(50L);
+            this.f24397e.setDuration(50L);
+            this.f24398f.setDuration(50L);
         }
     }
 
@@ -98,14 +97,14 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             a();
-            this.f22874c.loadingSuccess();
+            this.f24395c.loadingSuccess();
         }
     }
 
     public void f(VideoLoadingProgressView.c cVar) {
         VideoLoadingProgressView videoLoadingProgressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (videoLoadingProgressView = this.f22874c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (videoLoadingProgressView = this.f24395c) == null) {
             return;
         }
         videoLoadingProgressView.setLoadingAnimationListener(cVar);
@@ -115,11 +114,11 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             a();
-            this.f22873b.setAlpha(1.0f);
-            this.f22874c.setAlpha(1.0f);
-            this.f22872a.setVisibility(0);
-            this.f22874c.startLoading();
-            this.f22875d.start();
+            this.f24394b.setAlpha(1.0f);
+            this.f24395c.setAlpha(1.0f);
+            this.f24393a.setVisibility(0);
+            this.f24395c.startLoading();
+            this.f24396d.start();
         }
     }
 }

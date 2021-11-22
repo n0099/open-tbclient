@@ -3,7 +3,7 @@ package b.a.r0.c0.a.c;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -37,10 +37,10 @@ public class b extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f15108e;
+        public final /* synthetic */ tinfo f16546e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f15109f;
+        public final /* synthetic */ b f16547f;
 
         public a(b bVar, tinfo tinfoVar) {
             Interceptable interceptable = $ic;
@@ -57,18 +57,18 @@ public class b extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f15109f = bVar;
-            this.f15108e = tinfoVar;
+            this.f16547f = bVar;
+            this.f16546e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String str = this.f15108e.forum_name;
+                String str = this.f16546e.forum_name;
                 if (k.isForumName(str)) {
-                    TiebaStatic.eventStat(this.f15109f.getActivity(), "kantie_6", null, 1, new Object[0]);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15109f.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                    TiebaStatic.eventStat(this.f16547f.getActivity(), "kantie_6", null, 1, new Object[0]);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f16547f.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                 }
             }
         }
@@ -145,7 +145,7 @@ public class b extends b.a.q0.k0.f.a<tinfo, b.a.q0.k0.d.b> {
         }
     }
 
-    @Override // b.a.r0.l3.u
+    @Override // b.a.r0.m3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

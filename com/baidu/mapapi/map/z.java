@@ -12,7 +12,7 @@ public class z implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f39612a;
+    public final /* synthetic */ WearMapView f40444a;
 
     public z(WearMapView wearMapView) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class z implements View.OnClickListener {
                 return;
             }
         }
-        this.f39612a = wearMapView;
+        this.f40444a = wearMapView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,10 +38,10 @@ public class z implements View.OnClickListener {
         com.baidu.mapsdkplatform.comapi.map.j jVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            jVar = this.f39612a.f39556f;
+            jVar = this.f40444a.f40388f;
             ab E = jVar.a().E();
-            E.f40067a += 1.0f;
-            jVar2 = this.f39612a.f39556f;
+            E.f40899a += 1.0f;
+            jVar2 = this.f40444a.f40388f;
             jVar2.a().a(E, 300);
         }
     }

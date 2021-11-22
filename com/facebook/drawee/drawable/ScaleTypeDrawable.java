@@ -180,19 +180,15 @@ public class ScaleTypeDrawable extends ForwardingDrawable {
         return (Drawable) invokeL.objValue;
     }
 
-    public void setFocusPoint(@Nullable PointF pointF) {
+    public void setFocusPoint(PointF pointF) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, pointF) == null) || Objects.equal(this.mFocusPoint, pointF)) {
             return;
         }
-        if (pointF == null) {
-            this.mFocusPoint = null;
-        } else {
-            if (this.mFocusPoint == null) {
-                this.mFocusPoint = new PointF();
-            }
-            this.mFocusPoint.set(pointF);
+        if (this.mFocusPoint == null) {
+            this.mFocusPoint = new PointF();
         }
+        this.mFocusPoint.set(pointF);
         configureBounds();
         invalidateSelf();
     }

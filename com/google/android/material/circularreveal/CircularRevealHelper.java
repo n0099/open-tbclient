@@ -14,6 +14,7 @@ import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -135,7 +136,7 @@ public class CircularRevealHelper {
             }
             if (shouldDrawCircularReveal()) {
                 drawDebugCircle(canvas, -16777216, 10.0f);
-                drawDebugCircle(canvas, -65536, 5.0f);
+                drawDebugCircle(canvas, SupportMenu.CATEGORY_MASK, 5.0f);
             }
             drawOverlayDrawable(canvas);
         }

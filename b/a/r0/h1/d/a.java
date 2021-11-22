@@ -15,23 +15,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f17048f;
+    public static a f18516f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f17049a;
+    public long f18517a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<Long> f17050b;
+    public SparseArray<Long> f18518b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SparseArray<Long> f17051c;
+    public SparseArray<Long> f18519c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SparseArray<Long> f17052d;
+    public SparseArray<Long> f18520d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SparseArray<Long> f17053e;
+    public SparseArray<Long> f18521e;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class a {
                 return;
             }
         }
-        f17048f = new a();
+        f18516f = new a();
     }
 
     public a() {
@@ -62,24 +62,24 @@ public class a {
                 return;
             }
         }
-        this.f17049a = 0L;
-        this.f17050b = new SparseArray<>();
-        this.f17051c = new SparseArray<>();
-        this.f17052d = new SparseArray<>();
-        this.f17053e = new SparseArray<>();
+        this.f18517a = 0L;
+        this.f18518b = new SparseArray<>();
+        this.f18519c = new SparseArray<>();
+        this.f18520d = new SparseArray<>();
+        this.f18521e = new SparseArray<>();
     }
 
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f17048f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f18516f : (a) invokeV.objValue;
     }
 
     public long a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            Long l = this.f17051c.get(i2);
+            Long l = this.f18519c.get(i2);
             if (l == null) {
                 return -1L;
             }
@@ -91,14 +91,14 @@ public class a {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17049a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18517a : invokeV.longValue;
     }
 
     public long c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            Long l = this.f17050b.get(i2);
+            Long l = this.f18518b.get(i2);
             if (l == null) {
                 return -1L;
             }
@@ -111,7 +111,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            Long l = this.f17053e.get(i2);
+            Long l = this.f18521e.get(i2);
             if (l == null) {
                 return -1L;
             }
@@ -124,7 +124,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            Long l = this.f17052d.get(i2);
+            Long l = this.f18520d.get(i2);
             if (l == null) {
                 return -1L;
             }
@@ -136,35 +136,35 @@ public class a {
     public void g(long j, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            this.f17051c.put(i2, Long.valueOf(j));
+            this.f18519c.put(i2, Long.valueOf(j));
         }
     }
 
     public void h(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.f17049a = j;
+            this.f18517a = j;
         }
     }
 
     public void i(long j, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            this.f17050b.put(i2, Long.valueOf(j));
+            this.f18518b.put(i2, Long.valueOf(j));
         }
     }
 
     public void j(long j, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            this.f17053e.put(i2, Long.valueOf(j));
+            this.f18521e.put(i2, Long.valueOf(j));
         }
     }
 
     public void k(long j, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            this.f17052d.put(i2, Long.valueOf(j));
+            this.f18520d.put(i2, Long.valueOf(j));
         }
     }
 }

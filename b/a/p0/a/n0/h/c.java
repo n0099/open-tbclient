@@ -11,7 +11,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6799a;
+    public static final boolean f7128a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,22 +27,22 @@ public class c {
                 return;
             }
         }
-        boolean z = k.f6397a;
-        f6799a = b("swan_clean_pkg_opt", 0);
+        boolean z = k.f6863a;
+        f7128a = b("swan_clean_pkg_opt", 0);
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f6799a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f7128a : invokeV.booleanValue;
     }
 
     public static boolean b(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
-            b.a.p0.a.c1.a.Z().getSwitch(str, i2);
-            b.a.p0.a.e0.d.h("CleanPkgSwitcher", str + " value from AB : " + i2);
+            b.a.p0.a.c1.a.g0().getSwitch(str, i2);
+            b.a.p0.a.e0.d.k("CleanPkgSwitcher", str + " value from AB : " + i2);
             return i2 == 1;
         }
         return invokeLI.booleanValue;

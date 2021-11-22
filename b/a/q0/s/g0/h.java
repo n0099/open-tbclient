@@ -23,8 +23,8 @@ public class h {
             WebPManager.setPureDrawable(imageView, i2, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.width = b.a.e.e.p.l.g(TbadkApplication.getInst(), R.dimen.tbds52);
-                layoutParams.height = b.a.e.e.p.l.g(TbadkApplication.getInst(), R.dimen.tbds52);
+                layoutParams.width = b.a.e.f.p.l.g(TbadkApplication.getInst(), R.dimen.tbds52);
+                layoutParams.height = b.a.e.f.p.l.g(TbadkApplication.getInst(), R.dimen.tbds52);
                 imageView.setLayoutParams(layoutParams);
             }
         }
@@ -36,7 +36,7 @@ public class h {
         if (!(interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) || viewGroup == null || !b.a.q0.b.d.m() || (layoutParams = viewGroup.getLayoutParams()) == null) {
             return;
         }
-        layoutParams.height = b.a.e.e.p.l.g(TbadkApplication.getInst(), R.dimen.tbds120);
+        layoutParams.height = b.a.e.f.p.l.g(TbadkApplication.getInst(), R.dimen.tbds120);
         viewGroup.setLayoutParams(layoutParams);
     }
 

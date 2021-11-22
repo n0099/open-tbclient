@@ -13,7 +13,7 @@ public class t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13860a;
+    public String f14633a;
 
     public t() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class t {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13860a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14633a : (String) invokeV.objValue;
     }
 
     public void b(JSONObject jSONObject) {
@@ -41,7 +41,7 @@ public class t {
             return;
         }
         try {
-            this.f13860a = jSONObject.optString("client_id");
+            this.f14633a = jSONObject.optString("client_id");
         } catch (Exception e2) {
             e2.printStackTrace();
         }

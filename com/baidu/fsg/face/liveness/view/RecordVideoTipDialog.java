@@ -18,7 +18,7 @@ public class RecordVideoTipDialog extends Dialog implements View.OnClickListener
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f38391a;
+    public a f39221a;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -60,15 +60,15 @@ public class RecordVideoTipDialog extends Dialog implements View.OnClickListener
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38391a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39221a == null) {
             return;
         }
         if (view.getId() == R.id.liveness_again_btn) {
-            this.f38391a.a();
+            this.f39221a.a();
         } else if (view.getId() == R.id.start_record_btn) {
-            this.f38391a.b();
+            this.f39221a.b();
         } else if (view.getId() == R.id.record_video_close_iv) {
-            this.f38391a.c();
+            this.f39221a.c();
         }
     }
 
@@ -94,7 +94,7 @@ public class RecordVideoTipDialog extends Dialog implements View.OnClickListener
     public void setMenuItemClickListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f38391a = aVar;
+            this.f39221a = aVar;
         }
     }
 

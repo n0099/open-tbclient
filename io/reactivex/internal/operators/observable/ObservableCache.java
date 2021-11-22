@@ -20,14 +20,14 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ObservableCache<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean once;
     public final CacheState<T> state;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CacheState<T> extends LinkedArrayList implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public static final ReplayDisposable[] EMPTY;
@@ -197,7 +197,7 @@ public final class ObservableCache<T> extends AbstractObservableWithUpstream<T, 
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ReplayDisposable<T> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7058506693698832024L;

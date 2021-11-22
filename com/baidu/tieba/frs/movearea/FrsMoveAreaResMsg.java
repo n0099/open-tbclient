@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.movearea;
 
-import b.a.r0.x0.h1;
+import b.a.r0.x0.i1;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class FrsMoveAreaResMsg extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) && jSONObject == null) {
             setError(-1);
-            setErrorString(TbadkCoreApplication.getInst().getApp().getString(h1.error_unkown_try_again));
+            setErrorString(TbadkCoreApplication.getInst().getApp().getString(i1.error_unkown_try_again));
         }
     }
 }

@@ -37,25 +37,25 @@ public class q extends l implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f13682c;
+    public final f f14473c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b.a.q0.s.z.c f13683d;
+    public final b.a.q0.s.z.c f14474d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d f13684e;
+    public final d f14475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<String, h> f13685f;
+    public final HashMap<String, h> f14476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HashMap<String, m> f13686g;
+    public final HashMap<String, m> f14477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13687h;
+    public String f14478h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13688i;
+    public int f14479i;
     public int j;
 
     /* loaded from: classes4.dex */
@@ -64,10 +64,10 @@ public class q extends l implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f13689a;
+        public final /* synthetic */ int f14480a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ q f13690b;
+        public final /* synthetic */ q f14481b;
 
         public a(q qVar, int i2) {
             Interceptable interceptable = $ic;
@@ -84,15 +84,15 @@ public class q extends l implements i {
                     return;
                 }
             }
-            this.f13690b = qVar;
-            this.f13689a = i2;
+            this.f14481b = qVar;
+            this.f14480a = i2;
         }
 
         @Override // b.a.q0.s.z.k
         public void a(m mVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, mVar, jSONObject) == null) {
-                this.f13690b.t(mVar, this.f13689a);
+                this.f14481b.t(mVar, this.f14480a);
             }
         }
 
@@ -100,17 +100,17 @@ public class q extends l implements i {
         public void b(int i2, Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, th) == null) && i2 == 1) {
-                if (this.f13689a < q.m.length) {
-                    this.f13690b.u();
+                if (this.f14480a < q.m.length) {
+                    this.f14481b.u();
                 }
-                int i3 = this.f13689a;
+                int i3 = this.f14480a;
                 if (i3 >= 0 && i3 < q.m.length) {
-                    this.f13690b.x(String.valueOf(q.m[this.f13689a]), "");
+                    this.f14481b.x(String.valueOf(q.m[this.f14480a]), "");
                     return;
                 }
-                BdLog.e("pingIndex " + this.f13689a + " out of bounds.");
-                String s = this.f13690b.s();
-                e.b(s, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY, "ping timeout for index " + this.f13689a);
+                BdLog.e("pingIndex " + this.f14480a + " out of bounds.");
+                String s = this.f14481b.s();
+                e.b(s, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY, "ping timeout for index " + this.f14480a);
             }
         }
     }
@@ -167,10 +167,10 @@ public class q extends l implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final l f13691a;
+        public final l f14482a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f13692b;
+        public final String f14483b;
 
         public c(l lVar, String str) {
             Interceptable interceptable = $ic;
@@ -187,8 +187,8 @@ public class q extends l implements i {
                     return;
                 }
             }
-            this.f13691a = lVar;
-            this.f13692b = str;
+            this.f14482a = lVar;
+            this.f14483b = str;
         }
 
         @Override // b.a.q0.s.z.h
@@ -197,13 +197,13 @@ public class q extends l implements i {
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
                 String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
                 if (TextUtils.isEmpty(optString)) {
-                    e.a("scope " + this.f13692b + " not found!");
+                    e.a("scope " + this.f14483b + " not found!");
                     return;
                 }
                 HashMap hashMap = new HashMap(4);
                 hashMap.put("errNo", TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
-                hashMap.put("errMsg", "cmd " + this.f13692b + " not found");
-                this.f13691a.c(m.k(optString, hashMap));
+                hashMap.put("errMsg", "cmd " + this.f14483b + " not found");
+                this.f14482a.c(m.k(optString, hashMap));
             }
         }
     }
@@ -214,7 +214,7 @@ public class q extends l implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<i> f13693a;
+        public final WeakReference<i> f14484a;
 
         public d(i iVar) {
             Interceptable interceptable = $ic;
@@ -231,14 +231,14 @@ public class q extends l implements i {
                     return;
                 }
             }
-            this.f13693a = new WeakReference<>(iVar);
+            this.f14484a = new WeakReference<>(iVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                i iVar = this.f13693a.get();
+                i iVar = this.f14484a.get();
                 if (iVar == null) {
                     e.a("TimeHandler got null bridge reference.");
                     return;
@@ -302,8 +302,8 @@ public class q extends l implements i {
                 return new b(webView, null);
             }
             q qVar = new q(webView, bVar);
-            qVar.f13682c.b(webViewClient);
-            qVar.f13683d.d(webChromeClient);
+            qVar.f14473c.b(webViewClient);
+            qVar.f14474d.d(webChromeClient);
             return qVar;
         }
         return (l) invokeCommon.objValue;
@@ -319,8 +319,8 @@ public class q extends l implements i {
             WebViewClient webViewClient = bridgeWebView.webViewClient;
             WebChromeClient webChromeClient = bridgeWebView.chromeClient;
             q qVar = new q(bridgeWebView, bVar);
-            qVar.f13682c.b(webViewClient);
-            qVar.f13683d.d(webChromeClient);
+            qVar.f14473c.b(webViewClient);
+            qVar.f14474d.d(webChromeClient);
             return qVar;
         }
         return (l) invokeCommon.objValue;
@@ -334,9 +334,9 @@ public class q extends l implements i {
                 e.a("invalid callbackId.");
                 return;
             }
-            m remove = this.f13686g.remove(str);
+            m remove = this.f14477g.remove(str);
             if (remove != null) {
-                e.a("(" + remove.f13674a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.f13675b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
+                e.a("(" + remove.f14465a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.f14466b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
                 remove.g(1, null);
             }
         }
@@ -362,14 +362,14 @@ public class q extends l implements i {
     public void c(m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
-            l(mVar, mVar.f13678e == 3);
+            l(mVar, mVar.f14469e == 3);
         }
     }
 
     @Override // b.a.q0.s.z.l
     public void e(String str, b.a.q0.s.z.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, dVar) == null) || this.f13685f.put(str, dVar) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, dVar) == null) || this.f14476f.put(str, dVar) == null) {
             return;
         }
         throw new IllegalArgumentException("handler " + str + " exists.");
@@ -395,35 +395,35 @@ public class q extends l implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, mVar, z) == null) {
             if (!z) {
-                if (this.f13688i != 0) {
+                if (this.f14479i != 0) {
                     String s = s();
-                    e.b(s, TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY, "(" + mVar.f13674a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f13675b + ") is called before bridge ready");
+                    e.b(s, TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY, "(" + mVar.f14465a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f14466b + ") is called before bridge ready");
                 }
-                if (TextUtils.isEmpty(mVar.f13674a) || TextUtils.isEmpty(mVar.f13675b)) {
+                if (TextUtils.isEmpty(mVar.f14465a) || TextUtils.isEmpty(mVar.f14466b)) {
                     e.b(s(), TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY, "the alias class or method is empty");
                     mVar.g(3, new IllegalArgumentException("cmd or method is illegal."));
                     return;
                 }
             }
-            if (!TextUtils.isEmpty(mVar.f13679f)) {
-                if (mVar.f13678e != 3) {
-                    this.f13686g.put(mVar.f13679f, mVar);
-                    if (mVar.f13680g > 0) {
-                        d dVar = this.f13684e;
-                        dVar.sendMessageDelayed(Message.obtain(dVar, 2, mVar.f13679f), mVar.f13680g);
-                    } else if (mVar.f13674a != null || mVar.f13675b != null) {
-                        e.a("ignore timeout check for method call (" + mVar.f13674a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f13675b + ").");
+            if (!TextUtils.isEmpty(mVar.f14470f)) {
+                if (mVar.f14469e != 3) {
+                    this.f14477g.put(mVar.f14470f, mVar);
+                    if (mVar.f14471g > 0) {
+                        d dVar = this.f14475e;
+                        dVar.sendMessageDelayed(Message.obtain(dVar, 2, mVar.f14470f), mVar.f14471g);
+                    } else if (mVar.f14465a != null || mVar.f14466b != null) {
+                        e.a("ignore timeout check for method call (" + mVar.f14465a + StringUtil.ARRAY_ELEMENT_SEPARATOR + mVar.f14466b + ").");
                     }
                 } else {
-                    e.a("ignore timeout check for response method, callbackId " + mVar.f13679f);
+                    e.a("ignore timeout check for response method, callbackId " + mVar.f14470f);
                 }
             }
             try {
                 String b2 = mVar.b();
                 if (Build.VERSION.SDK_INT >= 19) {
-                    this.f13671a.evaluateJavascript(b2, null);
+                    this.f14462a.evaluateJavascript(b2, null);
                 } else {
-                    this.f13671a.loadUrl(b2);
+                    this.f14462a.loadUrl(b2);
                 }
                 e.a(b2);
             } catch (NullPointerException e2) {
@@ -470,19 +470,19 @@ public class q extends l implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.j = -1;
-            int i2 = this.f13688i;
+            int i2 = this.f14479i;
             if (i2 != 2 && i2 != 1) {
-                e.a("current status " + this.f13688i + ", broken because url changed to " + str);
-                this.f13688i = 2;
+                e.a("current status " + this.f14479i + ", broken because url changed to " + str);
+                this.f14479i = 2;
             }
             if (p.b(str) && p.a(str)) {
-                e.a("current status " + this.f13688i + ", constructing bridge for " + str);
-                b.a.q0.s.z.b bVar = this.f13672b;
+                e.a("current status " + this.f14479i + ", constructing bridge for " + str);
+                b.a.q0.s.z.b bVar = this.f14463b;
                 if (bVar != null) {
                     bVar.b();
                 }
-                r(this.f13671a);
-                b.a.q0.s.z.b bVar2 = this.f13672b;
+                r(this.f14462a);
+                b.a.q0.s.z.b bVar2 = this.f14463b;
                 if (bVar2 != null) {
                     bVar2.a();
                 }
@@ -494,12 +494,12 @@ public class q extends l implements i {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.f13688i == -1) {
-                this.f13671a.getSettings().setJavaScriptEnabled(true);
-                this.f13671a.setWebViewClient(this.f13682c);
-                this.f13671a.setWebChromeClient(this.f13683d);
-                this.f13671a.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f13688i = 1;
+            if (this.f14479i == -1) {
+                this.f14462a.getSettings().setJavaScriptEnabled(true);
+                this.f14462a.setWebViewClient(this.f14473c);
+                this.f14462a.setWebChromeClient(this.f14474d);
+                this.f14462a.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f14479i = 1;
                 return;
             }
             throw new IllegalStateException("Can't init bridge more than once.");
@@ -509,7 +509,7 @@ public class q extends l implements i {
     public final void r(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, webView) == null) {
-            this.f13687h = String.valueOf(System.currentTimeMillis());
+            this.f14478h = String.valueOf(System.currentTimeMillis());
             try {
                 InputStream open = webView.getContext().getAssets().open("bridge.dist.min.js");
                 byte[] bArr = new byte[open.available()];
@@ -518,7 +518,7 @@ public class q extends l implements i {
                 StringBuilder k2 = k();
                 k2.append(new String(bArr));
                 webView.loadUrl("javascript:" + k2.toString());
-                this.f13684e.sendEmptyMessageDelayed(1, 0L);
+                this.f14475e.sendEmptyMessageDelayed(1, 0L);
             } catch (Throwable th) {
                 x(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY, th.getMessage());
                 e.a(th.toString());
@@ -529,18 +529,18 @@ public class q extends l implements i {
     public final String s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f13687h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f14478h : (String) invokeV.objValue;
     }
 
     public final void t(m mVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, mVar, i2) == null) {
-            this.f13688i = 0;
+            this.f14479i = 0;
             long currentTimeMillis = System.currentTimeMillis();
             if (i2 >= 0) {
                 int[] iArr = l;
                 if (i2 < iArr.length) {
-                    x(String.valueOf(iArr[i2]), String.valueOf(currentTimeMillis - mVar.f13681h));
+                    x(String.valueOf(iArr[i2]), String.valueOf(currentTimeMillis - mVar.f14472h));
                     return;
                 }
             }
@@ -552,7 +552,7 @@ public class q extends l implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             e.a("reInject for pingIndex " + this.j);
-            r(this.f13671a);
+            r(this.f14462a);
         }
     }
 
@@ -563,8 +563,8 @@ public class q extends l implements i {
                 e.a("invalid callbackId.");
                 return;
             }
-            this.f13684e.removeMessages(2, str);
-            m remove = this.f13686g.remove(str);
+            this.f14475e.removeMessages(2, str);
+            m remove = this.f14477g.remove(str);
             if (remove != null) {
                 remove.h(jSONObject);
             }
@@ -574,10 +574,10 @@ public class q extends l implements i {
     public final void w(String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, jSONObject, jSONObject2) == null) {
-            if (this.f13688i != 0) {
+            if (this.f14479i != 0) {
                 e.b(s(), TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT, "bridge is not ready");
             }
-            h hVar = this.f13685f.get(str);
+            h hVar = this.f14476f.get(str);
             if (hVar == null) {
                 hVar = new c(this, str);
                 String s = s();
@@ -613,16 +613,16 @@ public class q extends l implements i {
                 return;
             }
         }
-        this.f13687h = String.valueOf(System.currentTimeMillis());
-        this.f13688i = -1;
+        this.f14478h = String.valueOf(System.currentTimeMillis());
+        this.f14479i = -1;
         this.j = -1;
-        this.f13682c = fVar;
-        this.f13683d = cVar;
+        this.f14473c = fVar;
+        this.f14474d = cVar;
         cVar.c(this);
-        this.f13682c.a(this);
-        this.f13684e = new d(this);
-        this.f13685f = new HashMap<>(16);
-        this.f13686g = new HashMap<>(8);
+        this.f14473c.a(this);
+        this.f14475e = new d(this);
+        this.f14476f = new HashMap<>(16);
+        this.f14477g = new HashMap<>(8);
         q();
     }
 }

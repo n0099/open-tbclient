@@ -15,19 +15,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29914a;
+    public int f30783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29915b;
+    public int f30784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29916c;
+    public int f30785c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f29917d;
+    public boolean f30786d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InterfaceC1438b f29918e;
+    public InterfaceC1480b f30787e;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -35,7 +35,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f29919e;
+        public final /* synthetic */ b f30788e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -52,21 +52,21 @@ public class b {
                     return;
                 }
             }
-            this.f29919e = bVar;
+            this.f30788e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29919e.i();
+                this.f30788e.i();
             }
         }
     }
 
     /* renamed from: b.a.x0.p.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1438b {
+    public interface InterfaceC1480b {
         void a(int i2);
     }
 
@@ -103,12 +103,12 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f29916c;
+            int i2 = this.f30785c;
             if (i2 != 0) {
                 return i2;
             }
-            int i3 = this.f29915b;
-            return i3 != 0 ? i3 : this.f29914a;
+            int i3 = this.f30784b;
+            return i3 != 0 ? i3 : this.f30783a;
         }
         return invokeV.intValue;
     }
@@ -117,25 +117,25 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             synchronized (this) {
-                if (i2 == this.f29916c) {
+                if (i2 == this.f30785c) {
                     return;
                 }
-                if ((this.f29915b == 0 || i2 != this.f29915b) && (this.f29915b != 0 || i2 != this.f29914a)) {
-                    this.f29916c = i2;
-                    if (i2 != 0 && !this.f29917d) {
-                        this.f29917d = true;
+                if ((this.f30784b == 0 || i2 != this.f30784b) && (this.f30784b != 0 || i2 != this.f30783a)) {
+                    this.f30785c = i2;
+                    if (i2 != 0 && !this.f30786d) {
+                        this.f30786d = true;
                         g();
                     }
                 }
-                this.f29916c = 0;
+                this.f30785c = 0;
             }
         }
     }
 
-    public void c(InterfaceC1438b interfaceC1438b) {
+    public void c(InterfaceC1480b interfaceC1480b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1438b) == null) {
-            this.f29918e = interfaceC1438b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1480b) == null) {
+            this.f30787e = interfaceC1480b;
         }
     }
 
@@ -143,10 +143,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (this.f29916c != this.f29914a) {
-                    this.f29915b = this.f29916c;
+                if (this.f30785c != this.f30783a) {
+                    this.f30784b = this.f30785c;
                 }
-                this.f29916c = 0;
+                this.f30785c = 0;
             }
         }
     }
@@ -155,10 +155,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                if (this.f29915b != 0) {
-                    this.f29914a = this.f29915b;
+                if (this.f30784b != 0) {
+                    this.f30783a = this.f30784b;
                 }
-                this.f29915b = 0;
+                this.f30784b = 0;
             }
         }
     }
@@ -174,7 +174,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
-                this.f29917d = false;
+                this.f30786d = false;
             }
         }
     }
@@ -186,14 +186,14 @@ public class b {
         }
         while (true) {
             e();
-            int i2 = this.f29915b;
+            int i2 = this.f30784b;
             if (i2 == 0) {
                 h();
                 return;
             }
-            InterfaceC1438b interfaceC1438b = this.f29918e;
-            if (interfaceC1438b != null) {
-                interfaceC1438b.a(i2);
+            InterfaceC1480b interfaceC1480b = this.f30787e;
+            if (interfaceC1480b != null) {
+                interfaceC1480b.a(i2);
             }
             f();
         }

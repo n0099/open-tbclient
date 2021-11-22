@@ -17,27 +17,27 @@ import java.util.List;
 import tbclient.GetVipInfo.VipSpecialItem;
 import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes6.dex */
-public class e implements b.a.e.l.e.n {
+public class e implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f27412i;
+    public static final BdUniqueId f28915i;
     public static int j;
     public static boolean k;
     public static String l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public VipSpecialList f27413e;
+    public VipSpecialList f28916e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f27414f;
+    public d f28917f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<f> f27415g;
+    public List<f> f28918g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27416h;
+    public boolean f28919h;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class e implements b.a.e.l.e.n {
                 return;
             }
         }
-        f27412i = BdUniqueId.gen();
+        f28915i = BdUniqueId.gen();
         j = 3;
         k = false;
     }
@@ -73,32 +73,32 @@ public class e implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f27416h = true;
+        this.f28919h = true;
         if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
             return;
         }
         String str = vipSpecialList.card_id;
-        this.f27413e = vipSpecialList;
+        this.f28916e = vipSpecialList;
         d dVar = new d();
-        this.f27414f = dVar;
+        this.f28917f = dVar;
         dVar.f(4);
-        this.f27414f.e(vipSpecialList.class_name);
-        this.f27414f.g(vipSpecialList.class_url_name);
-        this.f27414f.h(vipSpecialList.class_url);
+        this.f28917f.e(vipSpecialList.class_name);
+        this.f28917f.g(vipSpecialList.class_url_name);
+        this.f28917f.h(vipSpecialList.class_url);
         String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
         if (StringUtils.isNull(l) || !l.equals(currentAccount)) {
             k = false;
             l = currentAccount;
         }
-        this.f27415g = new ArrayList();
+        this.f28918g = new ArrayList();
         for (int i4 = 0; i4 < vipSpecialList.item.size(); i4++) {
-            this.f27415g.add(new f(vipSpecialList.item.get(i4)));
+            this.f28918g.add(new f(vipSpecialList.item.get(i4)));
             if (k) {
                 if (i4 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > j) {
-                    this.f27415g.add(new f(true, true));
+                    this.f28918g.add(new f(true, true));
                 }
             } else if (i4 == j - 1 && vipSpecialList.item.size() > j) {
-                this.f27415g.add(new f(true, false));
+                this.f28918g.add(new f(true, false));
                 return;
             }
         }
@@ -107,7 +107,7 @@ public class e implements b.a.e.l.e.n {
     public d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27414f : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28917f : (d) invokeV.objValue;
     }
 
     public boolean d() {
@@ -119,7 +119,7 @@ public class e implements b.a.e.l.e.n {
     public List<f> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27415g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28918g : (List) invokeV.objValue;
     }
 
     public void g(boolean z) {
@@ -129,10 +129,10 @@ public class e implements b.a.e.l.e.n {
         }
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f27412i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f28915i : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -31,13 +31,13 @@ public class j extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FacePurchaseRecordsActivity f23307e;
+    public FacePurchaseRecordsActivity f24638e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FacePurchaseRecordsData f23308f;
+    public FacePurchaseRecordsData f24639f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23309g;
+    public boolean f24640g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -45,7 +45,7 @@ public class j extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f23310e;
+        public final /* synthetic */ j f24641e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -62,15 +62,15 @@ public class j extends BaseAdapter {
                     return;
                 }
             }
-            this.f23310e = jVar;
+            this.f24641e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceShopActivityConfig(this.f23310e.f23307e.getPageContext().getContext(), CommonStatisticKey.FACESHOP_FROM_MORE)));
-                this.f23310e.f23307e.finish();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceShopActivityConfig(this.f24641e.f24638e.getPageContext().getContext(), CommonStatisticKey.FACESHOP_FROM_MORE)));
+                this.f24641e.f24638e.finish();
             }
         }
     }
@@ -81,16 +81,16 @@ public class j extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f23311a;
+        public TbImageView f24642a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f23312b;
+        public TextView f24643b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f23313c;
+        public TextView f24644c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f23314d;
+        public TextView f24645d;
 
         public b(j jVar) {
             Interceptable interceptable = $ic;
@@ -128,23 +128,23 @@ public class j extends BaseAdapter {
                 return;
             }
         }
-        this.f23308f = null;
-        this.f23307e = facePurchaseRecordsActivity;
+        this.f24639f = null;
+        this.f24638e = facePurchaseRecordsActivity;
     }
 
     public final View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.f23307e.getPageContext().getContext()).inflate(R.layout.buy_no_face_item, (ViewGroup) null);
-            NoDataView a2 = NoDataViewFactory.a(this.f23307e.getPageContext().getContext(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.EMOTION, (int) this.f23307e.getResources().getDimension(R.dimen.ds160)), NoDataViewFactory.e.b(R.string.buy_no_emotion, R.string.go_to_emotion_store), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f23307e.getResources().getString(R.string.go_to_download_emotion), new a(this))));
-            b.a.q0.s.c layoutMode = this.f23307e.getLayoutMode();
+            View inflate = LayoutInflater.from(this.f24638e.getPageContext().getContext()).inflate(R.layout.buy_no_face_item, (ViewGroup) null);
+            NoDataView a2 = NoDataViewFactory.a(this.f24638e.getPageContext().getContext(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.EMOTION, (int) this.f24638e.getResources().getDimension(R.dimen.ds160)), NoDataViewFactory.e.b(R.string.buy_no_emotion, R.string.go_to_emotion_store), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f24638e.getResources().getString(R.string.go_to_download_emotion), new a(this))));
+            b.a.q0.s.c layoutMode = this.f24638e.getLayoutMode();
             int skinType = TbadkApplication.getInst().getSkinType();
             if (layoutMode != null) {
                 layoutMode.k(skinType == 1);
                 layoutMode.j(inflate);
             }
-            a2.onChangeSkinType(this.f23307e.getPageContext(), skinType);
+            a2.onChangeSkinType(this.f24638e.getPageContext(), skinType);
             a2.setVisibility(0);
             return inflate;
         }
@@ -156,11 +156,11 @@ public class j extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b bVar = new b(this, null);
-            View inflate = LayoutInflater.from(this.f23307e.getPageContext().getContext()).inflate(R.layout.face_purchase_record_item, (ViewGroup) null);
-            bVar.f23311a = (TbImageView) inflate.findViewById(R.id.cover);
-            bVar.f23312b = (TextView) inflate.findViewById(R.id.title);
-            bVar.f23313c = (TextView) inflate.findViewById(R.id.time);
-            bVar.f23314d = (TextView) inflate.findViewById(R.id.price);
+            View inflate = LayoutInflater.from(this.f24638e.getPageContext().getContext()).inflate(R.layout.face_purchase_record_item, (ViewGroup) null);
+            bVar.f24642a = (TbImageView) inflate.findViewById(R.id.cover);
+            bVar.f24643b = (TextView) inflate.findViewById(R.id.title);
+            bVar.f24644c = (TextView) inflate.findViewById(R.id.time);
+            bVar.f24645d = (TextView) inflate.findViewById(R.id.price);
             inflate.setTag(bVar);
             return inflate;
         }
@@ -173,13 +173,13 @@ public class j extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bVar) == null) || (facePurchasePackageData = (FacePurchasePackageData) getItem(i2)) == null) {
             return;
         }
-        bVar.f23311a.setTag(facePurchasePackageData.cover_url);
-        bVar.f23311a.startLoad(facePurchasePackageData.cover_url, 10, this.f23307e.getResources().getDimensionPixelSize(R.dimen.ds94), this.f23307e.getResources().getDimensionPixelSize(R.dimen.ds94), false);
-        bVar.f23314d.setText(facePurchasePackageData.price);
-        bVar.f23312b.setText(facePurchasePackageData.pname);
+        bVar.f24642a.setTag(facePurchasePackageData.cover_url);
+        bVar.f24642a.startLoad(facePurchasePackageData.cover_url, 10, this.f24638e.getResources().getDimensionPixelSize(R.dimen.ds94), this.f24638e.getResources().getDimensionPixelSize(R.dimen.ds94), false);
+        bVar.f24645d.setText(facePurchasePackageData.price);
+        bVar.f24643b.setText(facePurchasePackageData.pname);
         Date date = new Date();
         date.setTime(facePurchasePackageData.puy_time * 1000);
-        bVar.f23313c.setText(b.a.e.e.p.k.getDateStringDay(date));
+        bVar.f24644c.setText(b.a.e.f.p.k.getDateStringDay(date));
     }
 
     public void e(FacePurchaseRecordsData facePurchaseRecordsData) {
@@ -187,11 +187,11 @@ public class j extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, facePurchaseRecordsData) == null) {
             if (facePurchaseRecordsData != null && (arrayList = facePurchaseRecordsData.buy_his) != null && arrayList.size() != 0) {
-                this.f23309g = true;
+                this.f24640g = true;
             } else {
-                this.f23309g = false;
+                this.f24640g = false;
             }
-            this.f23308f = facePurchaseRecordsData;
+            this.f24639f = facePurchaseRecordsData;
             notifyDataSetChanged();
         }
     }
@@ -203,7 +203,7 @@ public class j extends BaseAdapter {
         ArrayList<FacePurchasePackageData> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.f23309g || (facePurchaseRecordsData = this.f23308f) == null || (arrayList = facePurchaseRecordsData.buy_his) == null) {
+            if (!this.f24640g || (facePurchaseRecordsData = this.f24639f) == null || (arrayList = facePurchaseRecordsData.buy_his) == null) {
                 return 1;
             }
             return arrayList.size();
@@ -217,7 +217,7 @@ public class j extends BaseAdapter {
         ArrayList<FacePurchasePackageData> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            FacePurchaseRecordsData facePurchaseRecordsData = this.f23308f;
+            FacePurchaseRecordsData facePurchaseRecordsData = this.f24639f;
             if (facePurchaseRecordsData == null || (arrayList = facePurchaseRecordsData.buy_his) == null || i2 < 0 || i2 >= arrayList.size()) {
                 return null;
             }
@@ -239,14 +239,14 @@ public class j extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             int skinType = TbadkApplication.getInst().getSkinType();
-            if (!this.f23309g) {
+            if (!this.f24640g) {
                 return b();
             }
             if (view == null) {
                 view = c();
             }
             b bVar = (b) view.getTag();
-            b.a.q0.s.c layoutMode = this.f23307e.getLayoutMode();
+            b.a.q0.s.c layoutMode = this.f24638e.getLayoutMode();
             layoutMode.k(skinType == 1);
             layoutMode.j(view);
             d(i2, bVar);

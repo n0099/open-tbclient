@@ -31,7 +31,7 @@ public final class GlideHelper {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final GlideHelper f62862a;
+        public static final GlideHelper f63762a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +47,7 @@ public final class GlideHelper {
                     return;
                 }
             }
-            f62862a = new GlideHelper();
+            f63762a = new GlideHelper();
         }
 
         public GlideHelperHolder() {
@@ -82,7 +82,7 @@ public final class GlideHelper {
     public static GlideHelper get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? GlideHelperHolder.f62862a : (GlideHelper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? GlideHelperHolder.f63762a : (GlideHelper) invokeV.objValue;
     }
 
     public void load(Activity activity, String str, ImageView imageView) {

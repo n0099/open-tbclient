@@ -22,16 +22,16 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35240a = "NotificationBuilderManager";
+    public static String f36069a = "NotificationBuilderManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35241b = "notification_builder_storage";
+    public static String f36070b = "notification_builder_storage";
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f35242c;
+    public static Object f36071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f35243d;
+    public static int f36072d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class d {
                 return;
             }
         }
-        f35242c = new Object();
+        f36071c = new Object();
     }
 
     public static Notification a(Context context, int i2, int i3, String str, String str2, boolean z) {
@@ -55,7 +55,7 @@ public class d {
         Notification construct;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), str, str2, Boolean.valueOf(z)})) == null) {
-            synchronized (f35242c) {
+            synchronized (f36071c) {
                 PushNotificationBuilder a2 = a(context, i2);
                 a2.setNotificationTitle(str);
                 a2.setNotificationText(str2);
@@ -91,7 +91,7 @@ public class d {
         Notification construct;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i2), str, str2, Boolean.valueOf(z)})) == null) {
-            synchronized (f35242c) {
+            synchronized (f36071c) {
                 PushNotificationBuilder a2 = a(context, i2);
                 a2.setNotificationTitle(str);
                 a2.setNotificationText(str2);
@@ -127,7 +127,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
             PushNotificationBuilder pushNotificationBuilder2 = null;
-            String string = context.getSharedPreferences(f35241b, 0).getString("" + i2, null);
+            String string = context.getSharedPreferences(f36070b, 0).getString("" + i2, null);
             if (string != null) {
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.decode(string.getBytes(), 2));
                 try {
@@ -155,13 +155,13 @@ public class d {
     public static void a(Context context, int i2, PushNotificationBuilder pushNotificationBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, context, i2, pushNotificationBuilder) == null) {
-            synchronized (f35242c) {
+            synchronized (f36071c) {
                 try {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                     objectOutputStream.writeObject(pushNotificationBuilder);
                     String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                    SharedPreferences.Editor edit = context.getSharedPreferences(f35241b, 0).edit();
+                    SharedPreferences.Editor edit = context.getSharedPreferences(f36070b, 0).edit();
                     edit.putString("" + i2, encodeToString);
                     edit.commit();
                     byteArrayOutputStream.close();
@@ -176,14 +176,14 @@ public class d {
     public static void a(Context context, PushNotificationBuilder pushNotificationBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, pushNotificationBuilder) == null) {
-            synchronized (f35242c) {
+            synchronized (f36071c) {
                 try {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                     objectOutputStream.writeObject(pushNotificationBuilder);
                     String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                    SharedPreferences.Editor edit = context.getSharedPreferences(f35241b, 0).edit();
-                    edit.putString("" + f35243d, encodeToString);
+                    SharedPreferences.Editor edit = context.getSharedPreferences(f36070b, 0).edit();
+                    edit.putString("" + f36072d, encodeToString);
                     edit.commit();
                     byteArrayOutputStream.close();
                     objectOutputStream.close();
@@ -200,9 +200,9 @@ public class d {
         PushNotificationBuilder pushNotificationBuilder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(f35241b, 0);
+            SharedPreferences sharedPreferences = context.getSharedPreferences(f36070b, 0);
             PushNotificationBuilder pushNotificationBuilder2 = null;
-            String string = sharedPreferences.getString("" + f35243d, null);
+            String string = sharedPreferences.getString("" + f36072d, null);
             if (string != null) {
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.decode(string.getBytes(), 2));
                 try {

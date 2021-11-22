@@ -39,7 +39,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 return;
             }
         }
-        CONTENT_AUTHORITY = a.b().getPackageName() + ".swan.subscribe_msg";
+        CONTENT_AUTHORITY = a.c().getPackageName() + ".swan.subscribe_msg";
         CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     }
 
@@ -65,7 +65,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 if (this.mDatabase != null) {
                     return false;
                 }
-                SQLiteOpenHelper h2 = SwanAppDbControl.f(a.b()).h();
+                SQLiteOpenHelper h2 = SwanAppDbControl.f(a.c()).h();
                 if (h2 != null) {
                     SQLiteDatabase writableDatabase = h2.getWritableDatabase();
                     this.mDatabase = writableDatabase;

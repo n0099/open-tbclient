@@ -1,6 +1,6 @@
 package b.a.r0.w.l.g.d.d;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,11 +16,11 @@ public class a implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f25277f;
+    public static final BdUniqueId f26794f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25278e;
+    public String f26795e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class a implements n {
                 return;
             }
         }
-        f25277f = BdUniqueId.gen();
+        f26794f = BdUniqueId.gen();
     }
 
     public a() {
@@ -57,14 +57,14 @@ public class a implements n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f25278e = jSONObject.optString("effect_type_name");
+        this.f26795e = jSONObject.optString("effect_type_name");
         jSONObject.optInt("effect_type");
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f25277f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f26794f : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -15,10 +15,10 @@ public class k extends ContentObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f22864a;
+    public Context f24385a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f22865b;
+    public a f24386b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -43,19 +43,19 @@ public class k extends ContentObserver {
                 return;
             }
         }
-        this.f22864a = context;
+        this.f24385a = context;
     }
 
     public final void a() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (context = this.f22864a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (context = this.f24385a) == null) {
             return;
         }
         try {
             int i2 = Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation");
-            if (this.f22865b != null) {
-                a aVar = this.f22865b;
+            if (this.f24386b != null) {
+                a aVar = this.f24386b;
                 boolean z = true;
                 if (i2 != 1) {
                     z = false;
@@ -70,7 +70,7 @@ public class k extends ContentObserver {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f22865b = aVar;
+            this.f24386b = aVar;
             a();
         }
     }

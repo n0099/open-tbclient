@@ -1,13 +1,24 @@
 package b.a.q0.a1;
 
-import android.view.View;
+import b.a.q0.a1.c.a;
+import b.a.q0.a1.c.b;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface a {
-    void a();
+public class a<Q extends b.a.q0.a1.c.a, P extends b> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(b bVar);
+    public abstract void a(int i2);
 
-    View getView();
+    public abstract void b();
 
-    void release();
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f(BdUniqueId bdUniqueId);
 }

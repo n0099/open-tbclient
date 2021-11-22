@@ -7,9 +7,9 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
-import b.a.e.e.m.b;
-import b.a.e.e.m.f;
-import b.a.e.e.p.j;
+import b.a.e.f.m.b;
+import b.a.e.f.m.f;
+import b.a.e.f.p.j;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.framework.MessageManager;
@@ -72,28 +72,28 @@ public class TbCDNTachometerService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbCdnIpListData f50882a;
+        public TbCdnIpListData f51794a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f50883b;
+        public int f51795b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f50884c;
+        public boolean f51796c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f50885d;
+        public long f51797d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f50886e;
+        public String f51798e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbCdnTachometerModel f50887f;
+        public TbCdnTachometerModel f51799f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f50888g;
+        public boolean f51800g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f50889h;
+        public String f51801h;
 
         public CustomMsgData(TbCDNTachometerService tbCDNTachometerService, TbCdnIpListData tbCdnIpListData, int i2) {
             Interceptable interceptable = $ic;
@@ -110,10 +110,10 @@ public class TbCDNTachometerService extends BdBaseService {
                     return;
                 }
             }
-            this.f50888g = false;
-            this.f50889h = null;
-            this.f50882a = tbCdnIpListData;
-            this.f50883b = i2;
+            this.f51800g = false;
+            this.f51801h = null;
+            this.f51794a = tbCdnIpListData;
+            this.f51795b = i2;
         }
     }
 
@@ -169,7 +169,7 @@ public class TbCDNTachometerService extends BdBaseService {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TbCDNTachometerService f50879a;
+            public final /* synthetic */ TbCDNTachometerService f51791a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -189,7 +189,7 @@ public class TbCDNTachometerService extends BdBaseService {
                         return;
                     }
                 }
-                this.f50879a = this;
+                this.f51791a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -203,35 +203,35 @@ public class TbCDNTachometerService extends BdBaseService {
                             if (customMsgData == null) {
                                 return;
                             }
-                            String str = customMsgData.f50886e;
-                            boolean z = customMsgData.f50884c;
-                            long j = customMsgData.f50885d;
+                            String str = customMsgData.f51798e;
+                            boolean z = customMsgData.f51796c;
+                            long j = customMsgData.f51797d;
                             String valueOf = String.valueOf(j);
                             int i4 = 0;
-                            if (customMsgData.f50889h != null && customMsgData.f50889h.length() > 0) {
-                                this.f50879a.canBroadCast = true;
-                                if (!z || j > this.f50879a.hiPhotosMaxTime) {
-                                    this.f50879a.isNormal = false;
+                            if (customMsgData.f51801h != null && customMsgData.f51801h.length() > 0) {
+                                this.f51791a.canBroadCast = true;
+                                if (!z || j > this.f51791a.hiPhotosMaxTime) {
+                                    this.f51791a.isNormal = false;
                                 }
                             }
                             if (z) {
                                 if (j <= 200 && str != null && str.length() != 0) {
-                                    ArrayList arrayList = (ArrayList) this.f50879a.cdnIpMap.get(str);
+                                    ArrayList arrayList = (ArrayList) this.f51791a.cdnIpMap.get(str);
                                     for (int i5 = 0; i5 < arrayList.size(); i5++) {
-                                        this.f50879a.optimalIpList.add((String) arrayList.get(i5));
+                                        this.f51791a.optimalIpList.add((String) arrayList.get(i5));
                                     }
                                 }
                                 if (j <= 1500 && str != null && str.length() != 0) {
-                                    ArrayList arrayList2 = (ArrayList) this.f50879a.cdnIpMap.get(str);
-                                    if (this.f50879a.belowOnePointFiveIpList.size() > 0) {
+                                    ArrayList arrayList2 = (ArrayList) this.f51791a.cdnIpMap.get(str);
+                                    if (this.f51791a.belowOnePointFiveIpList.size() > 0) {
                                         int i6 = 0;
                                         int i7 = 0;
                                         while (true) {
-                                            if (i6 >= this.f50879a.belowOnePointFiveIpList.size()) {
+                                            if (i6 >= this.f51791a.belowOnePointFiveIpList.size()) {
                                                 i6 = i7;
                                                 break;
                                             }
-                                            String[] split = ((String) this.f50879a.belowOnePointFiveIpList.get(i6)).split("_");
+                                            String[] split = ((String) this.f51791a.belowOnePointFiveIpList.get(i6)).split("_");
                                             if (split.length >= 2) {
                                                 if (b.g(split[1], 0L) > j) {
                                                     break;
@@ -240,15 +240,15 @@ public class TbCDNTachometerService extends BdBaseService {
                                             }
                                             i6++;
                                         }
-                                        if (i6 <= this.f50879a.belowOnePointFiveIpList.size()) {
+                                        if (i6 <= this.f51791a.belowOnePointFiveIpList.size()) {
                                             while (i4 < arrayList2.size()) {
-                                                this.f50879a.belowOnePointFiveIpList.add(i6, ((String) arrayList2.get(i4)) + "_" + valueOf);
+                                                this.f51791a.belowOnePointFiveIpList.add(i6, ((String) arrayList2.get(i4)) + "_" + valueOf);
                                                 i4++;
                                             }
                                         }
                                     } else {
                                         while (i4 < arrayList2.size()) {
-                                            this.f50879a.belowOnePointFiveIpList.add(((String) arrayList2.get(i4)) + "_" + valueOf);
+                                            this.f51791a.belowOnePointFiveIpList.add(((String) arrayList2.get(i4)) + "_" + valueOf);
                                             i4++;
                                         }
                                     }
@@ -258,8 +258,8 @@ public class TbCDNTachometerService extends BdBaseService {
                             BdLog.e(e2);
                         }
                     }
-                    this.f50879a.returnRequestNum++;
-                    this.f50879a.judgeIsBroadcastCdnIp();
+                    this.f51791a.returnRequestNum++;
+                    this.f51791a.judgeIsBroadcastCdnIp();
                 }
             }
         };
@@ -268,7 +268,7 @@ public class TbCDNTachometerService extends BdBaseService {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TbCDNTachometerService f50880a;
+            public final /* synthetic */ TbCDNTachometerService f51792a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -288,7 +288,7 @@ public class TbCDNTachometerService extends BdBaseService {
                         return;
                     }
                 }
-                this.f50880a = this;
+                this.f51792a = this;
             }
 
             @Override // android.os.Handler
@@ -297,7 +297,7 @@ public class TbCDNTachometerService extends BdBaseService {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     super.handleMessage(message);
                     if (1002 == message.what) {
-                        this.f50880a.BroadcastCdnIp();
+                        this.f51792a.BroadcastCdnIp();
                     }
                 }
             }
@@ -307,7 +307,7 @@ public class TbCDNTachometerService extends BdBaseService {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TbCDNTachometerService f50881a;
+            public final /* synthetic */ TbCDNTachometerService f51793a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -324,7 +324,7 @@ public class TbCDNTachometerService extends BdBaseService {
                         return;
                     }
                 }
-                this.f50881a = this;
+                this.f51793a = this;
             }
 
             @Override // com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.TbCdnTachometerModelCallBack
@@ -333,7 +333,7 @@ public class TbCDNTachometerService extends BdBaseService {
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, tbCdnIpListData) == null) || tbCdnIpListData == null) {
                     return;
                 }
-                this.f50881a.startTachometer(tbCdnIpListData);
+                this.f51793a.startTachometer(tbCdnIpListData);
             }
         };
     }
@@ -453,40 +453,40 @@ public class TbCDNTachometerService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, this, tbCdnIpListData) == null) {
             this.numOfThrowIp = 0;
-            if (tbCdnIpListData != null && tbCdnIpListData.f50890a == 0) {
-                if (!tbCdnIpListData.f50895f) {
+            if (tbCdnIpListData != null && tbCdnIpListData.f51802a == 0) {
+                if (!tbCdnIpListData.f51807f) {
                     broadCastAndStopSelf(null);
                     return;
-                } else if (tbCdnIpListData.f50894e.size() == 0) {
+                } else if (tbCdnIpListData.f51806e.size() == 0) {
                     broadCastAndStopSelf(null);
                     return;
                 } else {
-                    breakUpIpList(tbCdnIpListData.f50894e);
-                    String str = tbCdnIpListData.f50892c;
-                    String str2 = tbCdnIpListData.f50896g;
-                    String str3 = tbCdnIpListData.f50893d;
+                    breakUpIpList(tbCdnIpListData.f51806e);
+                    String str = tbCdnIpListData.f51804c;
+                    String str2 = tbCdnIpListData.f51808g;
+                    String str3 = tbCdnIpListData.f51805d;
                     if (str == null || str2 == null || str3 == null) {
                         return;
                     }
-                    int size = tbCdnIpListData.f50894e.size();
+                    int size = tbCdnIpListData.f51806e.size();
                     if (size > 0) {
                         CustomMsgData customMsgData = new CustomMsgData(this, tbCdnIpListData, 0);
-                        customMsgData.f50887f = this.cdnTachometerModel;
-                        customMsgData.f50888g = this.isNormal;
-                        customMsgData.f50889h = "c.hiphotos.baidu.com";
+                        customMsgData.f51799f = this.cdnTachometerModel;
+                        customMsgData.f51800g = this.isNormal;
+                        customMsgData.f51801h = "c.hiphotos.baidu.com";
                         CustomMessage customMessage = new CustomMessage(2017000, customMsgData);
                         customMessage.setTag(this.mId);
                         MessageManager.getInstance().sendMessage(customMessage);
                     }
                     for (int i2 = 0; i2 < size; i2++) {
-                        ArrayList<String> arrayList = tbCdnIpListData.f50894e.get(i2);
+                        ArrayList<String> arrayList = tbCdnIpListData.f51806e.get(i2);
                         String str4 = arrayList.size() > 0 ? arrayList.get(0) : "";
                         if (!this.cdnIpMap.containsKey(str4)) {
                             this.cdnIpMap.put(str4, arrayList);
                         }
                         CustomMsgData customMsgData2 = new CustomMsgData(this, tbCdnIpListData, i2);
-                        customMsgData2.f50887f = this.cdnTachometerModel;
-                        customMsgData2.f50888g = this.isNormal;
+                        customMsgData2.f51799f = this.cdnTachometerModel;
+                        customMsgData2.f51800g = this.isNormal;
                         CustomMessage customMessage2 = new CustomMessage(2017000, customMsgData2);
                         customMessage2.setTag(this.mId);
                         MessageManager.getInstance().sendMessage(customMessage2);

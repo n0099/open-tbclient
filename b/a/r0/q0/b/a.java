@@ -32,43 +32,43 @@ public class a implements b.a.r0.q0.b.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f22528i;
+    public static final String f24049i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public VideoControllerLayout f22529a;
+    public VideoControllerLayout f24050a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.r0.g0.c.a f22530b;
+    public b.a.r0.g0.c.a f24051b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.r0.g0.a.a f22531c;
+    public b.a.r0.g0.a.a f24052c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f22532d;
+    public HashMap<String, String> f24053d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<DownloadData> f22533e;
+    public List<DownloadData> f24054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f22534f;
+    public b f24055f;
 
     /* renamed from: g  reason: collision with root package name */
-    public QmFilterItem f22535g;
+    public QmFilterItem f24056g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f22536h;
+    public e f24057h;
 
     /* renamed from: b.a.r0.q0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1101a implements e {
+    public class C1168a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f22537a;
+        public final /* synthetic */ a f24058a;
 
-        public C1101a(a aVar) {
+        public C1168a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +83,7 @@ public class a implements b.a.r0.q0.b.b {
                     return;
                 }
             }
-            this.f22537a = aVar;
+            this.f24058a = aVar;
         }
 
         @Override // b.a.q0.w.e
@@ -94,48 +94,46 @@ public class a implements b.a.r0.q0.b.b {
                 if (file.exists()) {
                     file.delete();
                 }
-                this.f22537a.o(downloadData);
-                if (this.f22537a.f22534f == null || this.f22537a.f22535g == null || this.f22537a.f22535g.fileUrl == null || !this.f22537a.f22535g.fileUrl.equals(downloadData.getUrl())) {
+                this.f24058a.o(downloadData);
+                if (this.f24058a.f24055f == null || this.f24058a.f24056g == null || this.f24058a.f24056g.fileUrl == null || !this.f24058a.f24056g.fileUrl.equals(downloadData.getUrl())) {
                     return;
                 }
-                this.f22537a.f22534f.a(str);
+                this.f24058a.f24055f.a(str);
             }
         }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x008a */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0089 */
         @Override // b.a.q0.w.e
         public void onFileDownloadSucceed(DownloadData downloadData) {
             File file;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath()) || StringUtils.isNull(a.f22528i)) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath()) || StringUtils.isNull(a.f24049i)) {
                 return;
             }
-            this.f22537a.o(downloadData);
-            if (this.f22537a.f22534f == null || this.f22537a.f22535g == null || this.f22537a.f22535g.fileUrl == null || !this.f22537a.f22535g.fileUrl.equals(downloadData.getUrl()) || !downloadData.getPath().endsWith(".zip")) {
+            this.f24058a.o(downloadData);
+            if (this.f24058a.f24055f == null || this.f24058a.f24056g == null || this.f24058a.f24056g.fileUrl == null || !this.f24058a.f24056g.fileUrl.equals(downloadData.getUrl()) || !downloadData.getPath().endsWith(".zip")) {
                 return;
             }
-            String substring = downloadData.getPath().substring(a.f22528i.length() + 1, downloadData.getPath().lastIndexOf("."));
-            String str = a.f22528i + "/" + substring;
+            String substring = downloadData.getPath().substring(a.f24049i.length() + 1, downloadData.getPath().lastIndexOf("."));
+            String str = a.f24049i + "/" + substring;
             try {
                 try {
-                    try {
-                        r.c(new File(downloadData.getPath()), str);
-                        this.f22537a.f22532d.put(substring, str);
-                        this.f22537a.f22535g.localPath = str;
-                        this.f22537a.f22534f.c(this.f22537a.f22535g);
-                        String path = downloadData.getPath();
-                        file = new File(path);
-                        downloadData = path;
-                    } catch (ZipException e2) {
-                        this.f22537a.f22534f.a("解压失败，请点击重试");
-                        FileHelper.deleteFileOrDir(new File(str));
-                        BdLog.e(e2);
-                        String path2 = downloadData.getPath();
-                        file = new File(path2);
-                        downloadData = path2;
-                    }
+                    r.c(new File(downloadData.getPath()), str);
+                    this.f24058a.f24053d.put(substring, str);
+                    this.f24058a.f24056g.localPath = str;
+                    this.f24058a.f24055f.c(this.f24058a.f24056g);
+                    String path = downloadData.getPath();
+                    file = new File(path);
+                    downloadData = path;
+                } catch (ZipException e2) {
+                    this.f24058a.f24055f.a("解压失败，请点击重试");
+                    FileHelper.deleteFileOrDir(new File(str));
+                    BdLog.e(e2);
+                    String path2 = downloadData.getPath();
+                    file = new File(path2);
+                    downloadData = path2;
                 } catch (IOException e3) {
-                    this.f22537a.f22534f.a("解压失败，请点击重试");
+                    this.f24058a.f24055f.a("解压失败，请点击重试");
                     FileHelper.deleteFileOrDir(new File(str));
                     BdLog.e(e3);
                     String path3 = downloadData.getPath();
@@ -167,11 +165,11 @@ public class a implements b.a.r0.q0.b.b {
                 if (file.exists()) {
                     file.delete();
                 }
-                this.f22537a.o(downloadData);
-                if (this.f22537a.f22534f == null || this.f22537a.f22535g == null || this.f22537a.f22535g.fileUrl == null || !this.f22537a.f22535g.fileUrl.equals(downloadData.getUrl())) {
+                this.f24058a.o(downloadData);
+                if (this.f24058a.f24055f == null || this.f24058a.f24056g == null || this.f24058a.f24056g.fileUrl == null || !this.f24058a.f24056g.fileUrl.equals(downloadData.getUrl())) {
                     return;
                 }
-                this.f22537a.f22534f.b();
+                this.f24058a.f24055f.b();
             }
         }
 
@@ -208,7 +206,7 @@ public class a implements b.a.r0.q0.b.b {
                 return;
             }
         }
-        f22528i = FileHelper.CreateFileIfNotFound(".filters") != null ? FileHelper.CreateFileIfNotFound(".filters").getAbsolutePath() : "";
+        f24049i = FileHelper.CreateFileIfNotFound(".filters") != null ? FileHelper.CreateFileIfNotFound(".filters").getAbsolutePath() : "";
     }
 
     public a(b.a.r0.g0.c.a aVar, b.a.r0.g0.a.a aVar2, VideoControllerLayout videoControllerLayout) {
@@ -226,11 +224,11 @@ public class a implements b.a.r0.q0.b.b {
                 return;
             }
         }
-        this.f22535g = new QmFilterItem();
-        this.f22536h = new C1101a(this);
-        this.f22530b = aVar;
-        this.f22531c = aVar2;
-        this.f22529a = videoControllerLayout;
+        this.f24056g = new QmFilterItem();
+        this.f24057h = new C1168a(this);
+        this.f24051b = aVar;
+        this.f24052c = aVar2;
+        this.f24050a = videoControllerLayout;
         m();
     }
 
@@ -244,12 +242,12 @@ public class a implements b.a.r0.q0.b.b {
                 reset();
                 return true;
             } else if (!StringUtils.isNull(qmFilterItem.localPath)) {
-                b.a.r0.g0.c.a aVar = this.f22530b;
+                b.a.r0.g0.c.a aVar = this.f24051b;
                 if (aVar != null) {
                     aVar.a(qmFilterItem);
                     return true;
                 }
-                b.a.r0.g0.a.a aVar2 = this.f22531c;
+                b.a.r0.g0.a.a aVar2 = this.f24052c;
                 if (aVar2 != null) {
                     aVar2.a(qmFilterItem);
                 }
@@ -266,7 +264,7 @@ public class a implements b.a.r0.q0.b.b {
     public QmFilterItem b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22535g : (QmFilterItem) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24056g : (QmFilterItem) invokeV.objValue;
     }
 
     @Override // b.a.r0.q0.b.b
@@ -279,12 +277,12 @@ public class a implements b.a.r0.q0.b.b {
             if (qmFilterItem == null) {
                 return;
             }
-            if (!TextUtils.isEmpty(qmFilterItem.fileUrl) && !StringUtils.isNull(f22528i)) {
+            if (!TextUtils.isEmpty(qmFilterItem.fileUrl) && !StringUtils.isNull(f24049i)) {
                 String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(qmFilterItem.fileUrl);
                 if (nameMd5FromUrl == null) {
                     return;
                 }
-                File file = new File(f22528i);
+                File file = new File(f24049i);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
@@ -293,8 +291,8 @@ public class a implements b.a.r0.q0.b.b {
                 String str2 = qmFilterItem.fileUrl;
                 sb.append(str2.substring(str2.lastIndexOf(".") + 1));
                 String sb2 = sb.toString();
-                if (this.f22533e == null) {
-                    this.f22533e = new ArrayList();
+                if (this.f24054e == null) {
+                    this.f24054e = new ArrayList();
                 }
                 if (n(qmFilterItem.fileUrl)) {
                     return;
@@ -302,17 +300,17 @@ public class a implements b.a.r0.q0.b.b {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setType(10);
                 downloadData.setUrl(qmFilterItem.fileUrl);
-                downloadData.setPath(f22528i + "/" + nameMd5FromUrl + sb2);
-                downloadData.setCallback(this.f22536h);
-                this.f22533e.add(downloadData);
+                downloadData.setPath(f24049i + "/" + nameMd5FromUrl + sb2);
+                downloadData.setCallback(this.f24057h);
+                this.f24054e.add(downloadData);
                 f.k().l(downloadData);
                 return;
             }
             a(null);
-            if (this.f22534f == null || (qmFilterItem2 = this.f22535g) == null || (str = qmFilterItem2.fileUrl) == null || !str.equals(qmFilterItem.fileUrl)) {
+            if (this.f24055f == null || (qmFilterItem2 = this.f24056g) == null || (str = qmFilterItem2.fileUrl) == null || !str.equals(qmFilterItem.fileUrl)) {
                 return;
             }
-            this.f22534f.b();
+            this.f24055f.b();
         }
     }
 
@@ -320,7 +318,7 @@ public class a implements b.a.r0.q0.b.b {
     public void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f22534f = bVar;
+            this.f24055f = bVar;
         }
     }
 
@@ -328,7 +326,7 @@ public class a implements b.a.r0.q0.b.b {
     public void e() {
         VideoControllerLayout videoControllerLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (videoControllerLayout = this.f22529a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (videoControllerLayout = this.f24050a) == null) {
             return;
         }
         videoControllerLayout.setSelectedToRightIndex();
@@ -343,11 +341,11 @@ public class a implements b.a.r0.q0.b.b {
             if (nameMd5FromUrl == null) {
                 return null;
             }
-            if (this.f22532d == null) {
-                this.f22532d = new HashMap<>();
+            if (this.f24053d == null) {
+                this.f24053d = new HashMap<>();
                 h();
             }
-            return this.f22532d.get(nameMd5FromUrl);
+            return this.f24053d.get(nameMd5FromUrl);
         }
         return (String) invokeL.objValue;
     }
@@ -356,7 +354,7 @@ public class a implements b.a.r0.q0.b.b {
     public void g() {
         VideoControllerLayout videoControllerLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (videoControllerLayout = this.f22529a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (videoControllerLayout = this.f24050a) == null) {
             return;
         }
         videoControllerLayout.setSelectedToLeftIndex();
@@ -366,20 +364,20 @@ public class a implements b.a.r0.q0.b.b {
     public void h() {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || StringUtils.isNull(f22528i)) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || StringUtils.isNull(f24049i)) {
             return;
         }
-        HashMap<String, String> hashMap = this.f22532d;
+        HashMap<String, String> hashMap = this.f24053d;
         if (hashMap == null) {
-            this.f22532d = new HashMap<>();
+            this.f24053d = new HashMap<>();
         } else {
             hashMap.clear();
         }
-        File file = new File(f22528i);
+        File file = new File(f24049i);
         if (file.exists()) {
             for (File file2 : file.listFiles()) {
                 if (file2.isDirectory()) {
-                    this.f22532d.put(file2.getName(), file2.getAbsolutePath());
+                    this.f24053d.put(file2.getName(), file2.getAbsolutePath());
                 }
             }
         }
@@ -398,8 +396,8 @@ public class a implements b.a.r0.q0.b.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.f22533e) && str != null) {
-                for (DownloadData downloadData : this.f22533e) {
+            if (!ListUtils.isEmpty(this.f24054e) && str != null) {
+                for (DownloadData downloadData : this.f24054e) {
                     if (downloadData != null && str.equals(downloadData.getUrl())) {
                         return true;
                     }
@@ -412,14 +410,14 @@ public class a implements b.a.r0.q0.b.b {
 
     public final void o(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, downloadData) == null) || ListUtils.isEmpty(this.f22533e) || downloadData == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, downloadData) == null) || ListUtils.isEmpty(this.f24054e) || downloadData == null) {
             return;
         }
         int i2 = -1;
         int i3 = 0;
         while (true) {
-            if (i3 < this.f22533e.size()) {
-                if (this.f22533e.get(i3) != null && this.f22533e.get(i3).getUrl() != null && this.f22533e.get(i3).getUrl().equals(downloadData.getUrl())) {
+            if (i3 < this.f24054e.size()) {
+                if (this.f24054e.get(i3) != null && this.f24054e.get(i3).getUrl() != null && this.f24054e.get(i3).getUrl().equals(downloadData.getUrl())) {
                     i2 = i3;
                     break;
                 }
@@ -428,16 +426,16 @@ public class a implements b.a.r0.q0.b.b {
                 break;
             }
         }
-        this.f22533e.remove(i2);
+        this.f24054e.remove(i2);
     }
 
     public void p(QmFilterItem qmFilterItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, qmFilterItem) == null) {
             if (qmFilterItem == null) {
-                this.f22535g = new QmFilterItem();
+                this.f24056g = new QmFilterItem();
             } else {
-                this.f22535g = qmFilterItem;
+                this.f24056g = qmFilterItem;
             }
         }
     }
@@ -446,11 +444,11 @@ public class a implements b.a.r0.q0.b.b {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            b.a.r0.g0.c.a aVar = this.f22530b;
+            b.a.r0.g0.c.a aVar = this.f24051b;
             if (aVar != null) {
                 aVar.a(null);
             }
-            b.a.r0.g0.a.a aVar2 = this.f22531c;
+            b.a.r0.g0.a.a aVar2 = this.f24052c;
             if (aVar2 != null) {
                 aVar2.a(null);
             }

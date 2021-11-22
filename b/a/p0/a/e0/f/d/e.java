@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.q0;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,10 +40,10 @@ public class e {
 
         @Override // java.lang.Runnable
         public void run() {
-            b.a.p0.a.a2.e P;
+            b.a.p0.a.d2.e a0;
             SwanAppActivity x;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (P = b.a.p0.a.a2.e.P()) == null || (x = P.x()) == null || x.isFinishing()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a0 = b.a.p0.a.d2.e.a0()) == null || (x = a0.x()) == null || x.isFinishing()) {
                 return;
             }
             x.addDebugRunningView();
@@ -102,10 +102,10 @@ public class e {
 
         @Override // java.lang.Runnable
         public void run() {
-            b.a.p0.a.a2.e P;
+            b.a.p0.a.d2.e a0;
             SwanAppActivity x;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (P = b.a.p0.a.a2.e.P()) == null || (x = P.x()) == null || x.isFinishing()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a0 = b.a.p0.a.d2.e.a0()) == null || (x = a0.x()) == null || x.isFinishing()) {
                 return;
             }
             x.removeDebugRunningView();
@@ -130,14 +130,14 @@ public class e {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            q0.X(new a());
+            q0.a0(new a());
         }
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            q0.X(new c());
+            q0.a0(new c());
         }
     }
 

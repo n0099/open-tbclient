@@ -21,7 +21,7 @@ public class d extends a<d> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtSelectData f13050i;
+    public AtSelectData f13830i;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -63,11 +63,11 @@ public class d extends a<d> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editable) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("#(at, ");
-            sb.append(this.f13050i.getPortrait());
+            sb.append(this.f13830i.getPortrait());
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.f13050i.getNameShow());
+            sb.append(this.f13830i.getNameShow());
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.f13050i.getUid());
+            sb.append(this.f13830i.getUid());
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             sb.append(" ");
             i(sb);
@@ -80,9 +80,9 @@ public class d extends a<d> {
         if (interceptable == null || interceptable.invokeLI(1048579, this, editable, i2) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("#(at, ");
-            sb.append(this.f13050i.getPortrait());
+            sb.append(this.f13830i.getPortrait());
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.f13050i.getNameShow());
+            sb.append(this.f13830i.getNameShow());
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             sb.append(" ");
             i(sb);
@@ -111,21 +111,21 @@ public class d extends a<d> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
             super.b(dVar);
-            this.f13050i = dVar.f13050i;
+            this.f13830i = dVar.f13830i;
         }
     }
 
     public AtSelectData u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13050i : (AtSelectData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13830i : (AtSelectData) invokeV.objValue;
     }
 
     public String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "@" + this.f13050i.getNameShow() + " ";
+            return "@" + this.f13830i.getNameShow() + " ";
         }
         return (String) invokeV.objValue;
     }
@@ -145,6 +145,6 @@ public class d extends a<d> {
                 return;
             }
         }
-        this.f13050i = atSelectData;
+        this.f13830i = atSelectData;
     }
 }

@@ -1,8 +1,8 @@
 package b.a.e.c.e.c.j;
 
 import b.a.e.c.e.c.h;
-import b.a.e.e.p.g;
-import b.a.e.e.p.s;
+import b.a.e.f.p.g;
+import b.a.e.f.p.s;
 import com.baidu.adp.framework.client.socket.coder.CoderException;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
@@ -24,7 +24,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f1529a;
+    public static b f1525a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,14 +60,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1529a == null) {
+            if (f1525a == null) {
                 synchronized (b.class) {
-                    if (f1529a == null) {
-                        f1529a = new b();
+                    if (f1525a == null) {
+                        f1525a = new b();
                     }
                 }
             }
-            return f1529a;
+            return f1525a;
         }
         return (b) invokeV.objValue;
     }
@@ -83,8 +83,8 @@ public class b {
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
-                b.a.e.e.m.a.d(byteArrayOutputStream);
-                b.a.e.e.m.a.c(byteArrayInputStream);
+                b.a.e.f.m.a.d(byteArrayOutputStream);
+                b.a.e.f.m.a.c(byteArrayInputStream);
             }
         }
         return (byte[]) invokeLII.objValue;
@@ -105,7 +105,7 @@ public class b {
                 newInstance.setOrginalMessage(socketMessage);
                 if (z) {
                     try {
-                        newInstance.onDecodeFailedInBackGround(i2, bArr, h.f1513c);
+                        newInstance.onDecodeFailedInBackGround(i2, bArr, h.f1509c);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -115,7 +115,7 @@ public class b {
                 return newInstance;
             } catch (Throwable th) {
                 BdStatisticsManager.getInstance().error("im", socketMessage != null ? socketMessage.getClientLogID() : 0L, (String) null, "cmd", Integer.valueOf(i2), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th.getMessage());
-                throw new CoderException(h.f1513c);
+                throw new CoderException(h.f1509c);
             }
         }
         return (SocketResponsedMessage) invokeCommon.objValue;
@@ -130,15 +130,15 @@ public class b {
                 a a2 = a.a(bArr);
                 if (a2 != null) {
                     c cVar = new c();
-                    cVar.f1530a = a2;
-                    cVar.f1531b = bArr;
-                    cVar.f1532c = f2;
-                    cVar.f1533d = bArr.length - f2;
+                    cVar.f1526a = a2;
+                    cVar.f1527b = bArr;
+                    cVar.f1528c = f2;
+                    cVar.f1529d = bArr.length - f2;
                     return cVar;
                 }
-                throw new CoderException(h.f1512b);
+                throw new CoderException(h.f1508b);
             }
-            throw new CoderException(h.f1512b);
+            throw new CoderException(h.f1508b);
         }
         return (c) invokeL.objValue;
     }
@@ -149,34 +149,34 @@ public class b {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
-            if (cVar != null && (aVar = cVar.f1530a) != null && cVar.f1531b != null) {
-                if (aVar.d() && cVar.f1533d > 0) {
+            if (cVar != null && (aVar = cVar.f1526a) != null && cVar.f1527b != null) {
+                if (aVar.d() && cVar.f1529d > 0) {
                     if (d.a().b() != null) {
                         try {
-                            byte[] a2 = s.a(d.a().b(), cVar.f1531b, cVar.f1532c, cVar.f1533d);
-                            cVar.f1531b = a2;
-                            cVar.f1532c = 0;
-                            cVar.f1533d = a2.length;
+                            byte[] a2 = s.a(d.a().b(), cVar.f1527b, cVar.f1528c, cVar.f1529d);
+                            cVar.f1527b = a2;
+                            cVar.f1528c = 0;
+                            cVar.f1529d = a2.length;
                         } catch (Exception unused) {
-                            throw new CoderException(h.f1518h);
+                            throw new CoderException(h.f1514h);
                         }
                     } else {
-                        throw new CoderException(h.f1517g);
+                        throw new CoderException(h.f1513g);
                     }
                 }
-                if (aVar.c() && (i2 = cVar.f1533d) > 0) {
+                if (aVar.c() && (i2 = cVar.f1529d) > 0) {
                     try {
-                        byte[] g2 = g(cVar.f1531b, cVar.f1532c, i2);
-                        cVar.f1531b = g2;
-                        cVar.f1532c = 0;
-                        cVar.f1533d = g2.length;
+                        byte[] g2 = g(cVar.f1527b, cVar.f1528c, i2);
+                        cVar.f1527b = g2;
+                        cVar.f1528c = 0;
+                        cVar.f1529d = g2.length;
                     } catch (Exception unused2) {
-                        throw new CoderException(h.f1516f);
+                        throw new CoderException(h.f1512f);
                     }
                 }
                 return cVar;
             }
-            throw new CoderException(h.f1512b);
+            throw new CoderException(h.f1508b);
         }
         return (c) invokeL.objValue;
     }
@@ -192,7 +192,7 @@ public class b {
             byte[] encodeInBackGround = socketMessage.encodeInBackGround();
             byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
             if (encodeExtraDataInBackGround != null) {
-                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.f1520g);
+                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.f1516g);
                 if (encodeExtraDataInBackGround.length <= Integer.MAX_VALUE) {
                     allocate.putInt(encodeExtraDataInBackGround.length);
                     allocate.put(encodeExtraDataInBackGround);
@@ -200,7 +200,7 @@ public class b {
                     encodeInBackGround = allocate.array();
                     z3 = true;
                 } else {
-                    throw new CoderException(h.f1515e);
+                    throw new CoderException(h.f1511e);
                 }
             } else {
                 z3 = false;
@@ -227,8 +227,8 @@ public class b {
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
-                b.a.e.e.m.a.d(byteArrayOutputStream);
-                b.a.e.e.m.a.c(byteArrayInputStream);
+                b.a.e.f.m.a.d(byteArrayOutputStream);
+                b.a.e.f.m.a.c(byteArrayInputStream);
             }
         }
         return (byte[]) invokeLII.objValue;

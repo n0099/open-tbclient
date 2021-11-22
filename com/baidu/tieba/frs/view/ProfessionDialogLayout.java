@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import b.a.e.e.p.l;
-import b.a.r0.x0.b1;
+import b.a.e.f.p.l;
 import b.a.r0.x0.c1;
 import b.a.r0.x0.d1;
 import b.a.r0.x0.e1;
 import b.a.r0.x0.f1;
+import b.a.r0.x0.g1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -29,13 +29,13 @@ public class ProfessionDialogLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View.OnClickListener f49176e;
+    public View.OnClickListener f50040e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f49177f;
+    public View.OnClickListener f50041f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f49178g;
+    public Context f50042g;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -43,7 +43,7 @@ public class ProfessionDialogLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ProfessionDialogLayout f49179e;
+        public final /* synthetic */ ProfessionDialogLayout f50043e;
 
         public a(ProfessionDialogLayout professionDialogLayout) {
             Interceptable interceptable = $ic;
@@ -60,16 +60,16 @@ public class ProfessionDialogLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f49179e = professionDialogLayout;
+            this.f50043e = professionDialogLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49179e.f49177f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50043e.f50041f == null) {
                 return;
             }
-            this.f49179e.f49177f.onClick(view);
+            this.f50043e.f50041f.onClick(view);
         }
     }
 
@@ -79,7 +79,7 @@ public class ProfessionDialogLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ProfessionDialogLayout f49180e;
+        public final /* synthetic */ ProfessionDialogLayout f50044e;
 
         public b(ProfessionDialogLayout professionDialogLayout) {
             Interceptable interceptable = $ic;
@@ -96,16 +96,16 @@ public class ProfessionDialogLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f49180e = professionDialogLayout;
+            this.f50044e = professionDialogLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49180e.f49176e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50044e.f50040e == null) {
                 return;
             }
-            this.f49180e.f49176e.onClick(view);
+            this.f50044e.f50040e.onClick(view);
         }
     }
 
@@ -134,18 +134,18 @@ public class ProfessionDialogLayout extends LinearLayout {
         int k;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, tbImageView) == null) {
-            int g2 = l.g(this.f49178g, c1.ds40);
-            if (UtilHelper.getRealScreenOrientation(this.f49178g) == 2) {
-                k = l.i(this.f49178g);
+            int g2 = l.g(this.f50042g, d1.ds40);
+            if (UtilHelper.getRealScreenOrientation(this.f50042g) == 2) {
+                k = l.i(this.f50042g);
             } else {
-                k = l.k(this.f49178g);
+                k = l.k(this.f50042g);
             }
             int i2 = k - (g2 * 2);
             ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = (i2 * 558) / 992;
             tbImageView.setLayoutParams(layoutParams);
-            tbImageView.setRadius(l.g(this.f49178g, c1.ds16));
+            tbImageView.setRadius(l.g(this.f50042g, d1.ds16));
             tbImageView.setConrers(3);
             tbImageView.setIsBitmapPic(true);
         }
@@ -154,33 +154,33 @@ public class ProfessionDialogLayout extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f49178g = context;
-            LayoutInflater.from(context).inflate(f1.profession_dialog_layout, this);
+            this.f50042g = context;
+            LayoutInflater.from(context).inflate(g1.profession_dialog_layout, this);
             setOrientation(1);
-            TbImageView tbImageView = (TbImageView) findViewById(e1.img_bg);
-            SkinManager.setViewTextColor((TextView) findViewById(e1.desc_1), b1.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(e1.desc_2), b1.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(e1.button), b1.CAM_X0302);
+            TbImageView tbImageView = (TbImageView) findViewById(f1.img_bg);
+            SkinManager.setViewTextColor((TextView) findViewById(f1.desc_1), c1.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(f1.desc_2), c1.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(f1.button), c1.CAM_X0302);
             setImageAttribute(tbImageView);
-            SkinManager.setImageResource(tbImageView, d1.img_frs_professinal_popup);
-            TbImageView tbImageView2 = (TbImageView) findViewById(e1.close_btn);
-            SkinManager.setImageResource(tbImageView2, d1.icon_prefession_popup_close_n);
+            SkinManager.setImageResource(tbImageView, e1.img_frs_professinal_popup);
+            TbImageView tbImageView2 = (TbImageView) findViewById(f1.close_btn);
+            SkinManager.setImageResource(tbImageView2, e1.icon_prefession_popup_close_n);
             tbImageView2.setOnClickListener(new a(this));
-            findViewById(e1.button).setOnClickListener(new b(this));
+            findViewById(f1.button).setOnClickListener(new b(this));
         }
     }
 
     public void setButtonClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f49176e = onClickListener;
+            this.f50040e = onClickListener;
         }
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f49177f = onClickListener;
+            this.f50041f = onClickListener;
         }
     }
 

@@ -20,10 +20,10 @@ public class b {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f18639a = "c12585";
+        public static String f20175a = "c12585";
 
         /* renamed from: b  reason: collision with root package name */
-        public static String f18640b = "c12586";
+        public static String f20176b = "c12586";
         public transient /* synthetic */ FieldHolder $fh;
 
         static {

@@ -16,19 +16,19 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f22167a;
+    public f f23644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f22168b;
+    public l f23645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f22169c;
+    public g f23646c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a.r0.m2.g.a f22170d;
+    public b.a.r0.m2.g.a f23647d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f22171e;
+    public List<b.a.e.m.e.a> f23648e;
 
     public o(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         Interceptable interceptable = $ic;
@@ -45,29 +45,29 @@ public class o {
                 return;
             }
         }
-        this.f22171e = new ArrayList();
-        this.f22167a = new f(tbPageContext, b.a.r0.p2.e.o.f22326g);
-        this.f22168b = new l(tbPageContext);
-        this.f22169c = new g(tbPageContext, b.a.r0.p2.e.h.f22303g);
-        this.f22170d = new b.a.r0.m2.g.a(tbPageContext.getPageActivity(), b.a.r0.m2.d.f21161h);
-        this.f22171e.add(this.f22167a);
-        this.f22171e.add(this.f22168b);
-        this.f22171e.add(this.f22169c);
-        this.f22171e.add(this.f22170d);
-        hTypeListView.addAdapters(this.f22171e);
+        this.f23648e = new ArrayList();
+        this.f23644a = new f(tbPageContext, b.a.r0.p2.e.o.f23803g);
+        this.f23645b = new l(tbPageContext);
+        this.f23646c = new g(tbPageContext, b.a.r0.p2.e.h.f23780g);
+        this.f23647d = new b.a.r0.m2.g.a(tbPageContext.getPageActivity(), b.a.r0.m2.d.f22316h);
+        this.f23648e.add(this.f23644a);
+        this.f23648e.add(this.f23645b);
+        this.f23648e.add(this.f23646c);
+        this.f23648e.add(this.f23647d);
+        hTypeListView.addAdapters(this.f23648e);
     }
 
     public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.f22167a.i0(onClickListener);
+            this.f23644a.i0(onClickListener);
         }
     }
 
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f22169c.i0(onClickListener);
+            this.f23646c.i0(onClickListener);
         }
     }
 }

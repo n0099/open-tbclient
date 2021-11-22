@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.w0.b.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -38,27 +38,27 @@ public class b extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f25334a;
+        public View f26851a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f25335b;
+        public TextView f26852b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f25336c;
+        public ImageView f26853c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ b f25337d;
+        public final /* synthetic */ b f26854d;
 
         /* renamed from: b.a.r0.w0.d.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnLongClickListenerC1240a implements View.OnLongClickListener {
+        public class View$OnLongClickListenerC1308a implements View.OnLongClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f25338e;
+            public final /* synthetic */ a f26855e;
 
-            public View$OnLongClickListenerC1240a(a aVar, b bVar) {
+            public View$OnLongClickListenerC1308a(a aVar, b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public class b extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
                         return;
                     }
                 }
-                this.f25338e = aVar;
+                this.f26855e = aVar;
             }
 
             @Override // android.view.View.OnLongClickListener
@@ -81,12 +81,12 @@ public class b extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                    for (a aVar : this.f25338e.f25337d.n) {
+                    for (a aVar : this.f26855e.f26854d.n) {
                         if (aVar != null && aVar.b() != view) {
                             aVar.d(false);
                         }
                     }
-                    this.f25338e.d(true);
+                    this.f26855e.d(true);
                     return true;
                 }
                 return invokeL.booleanValue;
@@ -95,14 +95,14 @@ public class b extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
 
         /* renamed from: b.a.r0.w0.d.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1241b implements View.OnClickListener {
+        public class View$OnClickListenerC1309b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f25339e;
+            public final /* synthetic */ a f26856e;
 
-            public View$OnClickListenerC1241b(a aVar, b bVar) {
+            public View$OnClickListenerC1309b(a aVar, b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,16 +117,16 @@ public class b extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
                         return;
                     }
                 }
-                this.f25339e = aVar;
+                this.f26856e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25339e.f25335b.getText() == null || StringUtils.isNull(this.f25339e.f25335b.getText().toString())) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26856e.f26852b.getText() == null || StringUtils.isNull(this.f26856e.f26852b.getText().toString())) {
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921021, this.f25339e.f25335b.getText().toString()));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921021, this.f26856e.f26852b.getText().toString()));
             }
         }
 
@@ -136,7 +136,7 @@ public class b extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f25340e;
+            public final /* synthetic */ a f26857e;
 
             public c(a aVar, b bVar) {
                 Interceptable interceptable = $ic;
@@ -153,16 +153,16 @@ public class b extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
                         return;
                     }
                 }
-                this.f25340e = aVar;
+                this.f26857e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25340e.f25335b.getText() == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26857e.f26852b.getText() == null) {
                     return;
                 }
-                e.b(this.f25340e.f25335b.getText().toString());
+                e.b(this.f26857e.f26852b.getText().toString());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
             }
         }
@@ -182,29 +182,29 @@ public class b extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
                     return;
                 }
             }
-            this.f25337d = bVar;
+            this.f26854d = bVar;
             View inflate = LayoutInflater.from(bVar.h().getPageActivity()).inflate(R.layout.forum_search_history_info_item, (ViewGroup) null);
-            this.f25334a = inflate;
-            this.f25335b = (TextView) inflate.findViewById(R.id.content);
-            this.f25336c = (ImageView) this.f25334a.findViewById(R.id.delete);
+            this.f26851a = inflate;
+            this.f26852b = (TextView) inflate.findViewById(R.id.content);
+            this.f26853c = (ImageView) this.f26851a.findViewById(R.id.delete);
             c();
-            this.f25335b.setOnLongClickListener(new View$OnLongClickListenerC1240a(this, bVar));
-            this.f25335b.setOnClickListener(new View$OnClickListenerC1241b(this, bVar));
-            this.f25336c.setOnClickListener(new c(this, bVar));
+            this.f26852b.setOnLongClickListener(new View$OnLongClickListenerC1308a(this, bVar));
+            this.f26852b.setOnClickListener(new View$OnClickListenerC1309b(this, bVar));
+            this.f26853c.setOnClickListener(new c(this, bVar));
         }
 
         public View b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25334a : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26851a : (View) invokeV.objValue;
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                SkinManager.setViewTextColor(this.f25335b, R.color.CAM_X0105);
-                SkinManager.setBackgroundResource(this.f25335b, R.drawable.search_history_item_bg);
-                SkinManager.setImageResource(this.f25336c, R.drawable.del_search_btn);
+                SkinManager.setViewTextColor(this.f26852b, R.color.CAM_X0105);
+                SkinManager.setBackgroundResource(this.f26852b, R.drawable.search_history_item_bg);
+                SkinManager.setImageResource(this.f26853c, R.drawable.del_search_btn);
             }
         }
 
@@ -212,11 +212,11 @@ public class b extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 if (z) {
-                    this.f25336c.setVisibility(0);
-                    SkinManager.setImageResource(this.f25336c, R.drawable.del_search_btn);
+                    this.f26853c.setVisibility(0);
+                    SkinManager.setImageResource(this.f26853c, R.drawable.del_search_btn);
                     return;
                 }
-                this.f25336c.setVisibility(4);
+                this.f26853c.setVisibility(4);
             }
         }
     }
@@ -324,9 +324,9 @@ public class b extends b.a.r0.b0.b<b.a.r0.w0.c.a> {
             a aVar2 = this.n.get(i2);
             if (aVar2 != null) {
                 aVar2.d(false);
-                aVar2.f25335b.setText(aVar.g().get(i2));
+                aVar2.f26852b.setText(aVar.g().get(i2));
             }
         }
-        k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+        k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
     }
 }

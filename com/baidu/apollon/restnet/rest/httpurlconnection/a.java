@@ -23,10 +23,10 @@ public class a implements X509TrustManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final X509Certificate[] f36203a;
+    public static final X509Certificate[] f37032a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TrustManager[] f36204b;
+    public static TrustManager[] f37033b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class a implements X509TrustManager {
                 return;
             }
         }
-        f36203a = new X509Certificate[0];
+        f37032a = new X509Certificate[0];
     }
 
     public a() {
@@ -93,8 +93,8 @@ public class a implements X509TrustManager {
                     return invokeLL.booleanValue;
                 }
             });
-            if (f36204b == null) {
-                f36204b = new TrustManager[]{new a()};
+            if (f37033b == null) {
+                f37033b = new TrustManager[]{new a()};
             }
             try {
                 sSLContext = SSLContext.getInstance("TLS");
@@ -106,7 +106,7 @@ public class a implements X509TrustManager {
                 e2 = e5;
             }
             try {
-                sSLContext.init(null, f36204b, null);
+                sSLContext.init(null, f37033b, null);
             } catch (KeyManagementException e6) {
                 e3 = e6;
                 e3.printStackTrace();
@@ -156,6 +156,6 @@ public class a implements X509TrustManager {
     public X509Certificate[] getAcceptedIssuers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f36203a : (X509Certificate[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f37032a : (X509Certificate[]) invokeV.objValue;
     }
 }

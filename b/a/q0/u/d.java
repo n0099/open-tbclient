@@ -11,10 +11,10 @@ public class d extends TbConfig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Long f14126a;
+    public static final Long f14893a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f14127b;
+    public static int f14894b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,13 +30,13 @@ public class d extends TbConfig {
                 return;
             }
         }
-        f14126a = 86400000L;
-        f14127b = 300;
+        f14893a = 86400000L;
+        f14894b = 300;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f14127b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f14894b : invokeV.intValue;
     }
 }

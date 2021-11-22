@@ -21,11 +21,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f11869b;
+    public static b f12622b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, a> f11870a;
+    public final HashMap<String, a> f12623a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,24 +40,24 @@ public class b {
                 return;
             }
         }
-        this.f11870a = new HashMap<>();
+        this.f12623a = new HashMap<>();
         HashMap<String, a> d2 = d();
-        this.f11870a.clear();
-        this.f11870a.putAll(d2);
+        this.f12623a.clear();
+        this.f12623a.putAll(d2);
     }
 
     public static b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11869b == null) {
+            if (f12622b == null) {
                 synchronized (b.class) {
-                    if (f11869b == null) {
-                        f11869b = new b();
+                    if (f12622b == null) {
+                        f12622b = new b();
                     }
                 }
             }
-            return f11869b;
+            return f12622b;
         }
         return (b) invokeV.objValue;
     }
@@ -87,8 +87,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                synchronized (this.f11870a) {
-                    this.f11870a.clear();
+                synchronized (this.f12623a) {
+                    this.f12623a.clear();
                 }
                 SharedPreferences.Editor edit = g().edit();
                 edit.clear();
@@ -108,7 +108,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             a c2 = c(str);
-            return (c2 == null || TextUtils.isEmpty(c2.f11868a)) ? str2 : c2.f11868a;
+            return (c2 == null || TextUtils.isEmpty(c2.f12621a)) ? str2 : c2.f12621a;
         }
         return (String) invokeLL.objValue;
     }
@@ -119,7 +119,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             synchronized (this) {
-                aVar = this.f11870a.get(str);
+                aVar = this.f12623a.get(str);
             }
             return aVar;
         }
@@ -164,9 +164,9 @@ public class b {
                         hashMap.put(optString, new a(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
                     }
                 }
-                synchronized (this.f11870a) {
-                    this.f11870a.clear();
-                    this.f11870a.putAll(hashMap);
+                synchronized (this.f12623a) {
+                    this.f12623a.clear();
+                    this.f12623a.putAll(hashMap);
                 }
                 EditorHelper.putString(g(), "pref_key_abtest_switchs", jSONArray.toString());
                 b.a.q0.s.e0.b.j().v("perf_start_open", h("performance_start_small_flow") ? 1 : 0);

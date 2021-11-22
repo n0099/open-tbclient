@@ -12,7 +12,7 @@ public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, String> f71538a;
+    public static final HashMap<String, String> f72458a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,12 +29,12 @@ public class x {
             }
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        f71538a = hashMap;
+        f72458a = hashMap;
         hashMap.put("FFD8FF", "jpg");
-        f71538a.put("89504E47", "png");
-        f71538a.put("47494638", "gif");
-        f71538a.put("474946", "gif");
-        f71538a.put("424D", "bmp");
+        f72458a.put("89504E47", "png");
+        f72458a.put("47494638", "gif");
+        f72458a.put("474946", "gif");
+        f72458a.put("424D", "bmp");
     }
 
     public static long a(File file) {

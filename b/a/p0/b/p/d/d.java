@@ -1,54 +1,75 @@
 package b.a.p0.b.p.d;
 
-import android.text.TextUtils;
-import b.a.p0.a.j2.p.f;
-import b.a.p0.a.k;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import b.a.p0.a.z2.v;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class d {
+public class d extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9472a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(84313206, "Lb/a/p0/b/p/d/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes.dex */
+    public class a implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ d f10063a;
+
+        public a(d dVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(84313206, "Lb/a/p0/b/p/d/d;");
-                return;
+            this.f10063a = dVar;
+        }
+
+        @Override // b.a.p0.b.p.d.e
+        public void onResult(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+                this.f10063a.mResult.putInt("quick_login", i2);
+                this.f10063a.finish();
             }
         }
-        f9472a = k.f6397a;
     }
 
-    public static void a(String str, String str2, String str3, String str4, String str5) {
+    public d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
-            f fVar = new f();
-            fVar.f6383a = "swan";
-            fVar.f6384b = str;
-            fVar.f6389g = str2;
-            if (TextUtils.equals(str, PrefetchEvent.STATE_CLICK)) {
-                fVar.f6387e = str3;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            fVar.f6388f = str5;
-            fVar.a("source", str4);
-            if (f9472a) {
-                String str6 = "staticLoginResult: event = " + fVar.f();
-            }
-            b.a.p0.a.j2.k.u("1372", fVar);
         }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            f.d(getAgent(), v.f(this.mParams, "quick_login_mode", 0), new a(this));
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

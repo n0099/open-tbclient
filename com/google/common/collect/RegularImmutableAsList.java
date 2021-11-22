@@ -1,13 +1,13 @@
 package com.google.common.collect;
 
-import b.i.d.c.p1;
+import b.h.d.c.p1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class RegularImmutableAsList<E> extends ImmutableAsList<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class RegularImmutableAsList<E> extends ImmutableAsList<E> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: b.i.d.c.p1<? extends E>, b.i.d.c.p1<E> */
+    /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: b.h.d.c.p1<? extends E>, b.h.d.c.p1<E> */
     @Override // com.google.common.collect.ImmutableList, java.util.List
     public p1<E> listIterator(int i2) {
         InterceptResult invokeI;

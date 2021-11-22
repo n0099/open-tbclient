@@ -35,28 +35,28 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.e.e.h.a f19988b;
+    public b.a.e.f.h.a f21510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.e.e.h.b f19989c;
+    public b.a.e.f.h.b f21511c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f19990d;
+    public long f21512d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Calendar f19991e;
+    public Calendar f21513e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19992f;
+    public int f21514f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f19993g;
+    public long f21515g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19994h;
+    public TextView f21516h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbRichTextView f19995i;
+    public TbRichTextView f21517i;
     public ChatVoiceView j;
     public GifView k;
     public Invite2GroupView l;
@@ -74,7 +74,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f19996e;
+        public final /* synthetic */ e f21518e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f19996e = eVar;
+            this.f21518e = eVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -99,8 +99,8 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f19996e;
-                eVar.f19989c.onItemViewLongClick(view, 10, eVar.f19992f, 0L);
+                e eVar = this.f21518e;
+                eVar.f21511c.onItemViewLongClick(view, 10, eVar.f21514f, 0L);
                 return true;
             }
             return invokeL.booleanValue;
@@ -113,7 +113,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f19997e;
+        public final /* synthetic */ e f21519e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -130,15 +130,15 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f19997e = eVar;
+            this.f21519e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f19997e;
-                eVar.f19988b.onItemViewClick(view, 15, eVar.f19992f, 0L);
+                e eVar = this.f21519e;
+                eVar.f21510b.onItemViewClick(view, 15, eVar.f21514f, 0L);
             }
         }
     }
@@ -149,7 +149,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f19998e;
+        public final /* synthetic */ e f21520e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f19998e = eVar;
+            this.f21520e = eVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -174,8 +174,8 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f19998e;
-                eVar.f19989c.onItemViewLongClick(view, 15, eVar.f19992f, 0L);
+                e eVar = this.f21520e;
+                eVar.f21511c.onItemViewLongClick(view, 15, eVar.f21514f, 0L);
                 return true;
             }
             return invokeL.booleanValue;
@@ -188,7 +188,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f19999e;
+        public final /* synthetic */ e f21521e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -205,29 +205,29 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f19999e = eVar;
+            this.f21521e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f19999e;
-                eVar.f19988b.onItemViewClick(view, 11, eVar.f19992f, 0L);
+                e eVar = this.f21521e;
+                eVar.f21510b.onItemViewClick(view, 11, eVar.f21514f, 0L);
             }
         }
     }
 
     /* renamed from: b.a.r0.l1.f.e$e  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC0993e implements View.OnClickListener {
+    public class View$OnClickListenerC1061e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20000e;
+        public final /* synthetic */ e f21522e;
 
-        public View$OnClickListenerC0993e(e eVar) {
+        public View$OnClickListenerC1061e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -242,15 +242,15 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20000e = eVar;
+            this.f21522e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f20000e;
-                eVar.f19988b.onItemViewClick(view, 12, eVar.f19992f, 0L);
+                e eVar = this.f21522e;
+                eVar.f21510b.onItemViewClick(view, 12, eVar.f21514f, 0L);
             }
         }
     }
@@ -261,7 +261,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20001e;
+        public final /* synthetic */ e f21523e;
 
         public f(e eVar) {
             Interceptable interceptable = $ic;
@@ -278,7 +278,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20001e = eVar;
+            this.f21523e = eVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -286,8 +286,8 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f20001e;
-                eVar.f19989c.onItemViewLongClick(view, 11, eVar.f19992f, 0L);
+                e eVar = this.f21523e;
+                eVar.f21511c.onItemViewLongClick(view, 11, eVar.f21514f, 0L);
                 return true;
             }
             return invokeL.booleanValue;
@@ -300,7 +300,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20002e;
+        public final /* synthetic */ e f21524e;
 
         public g(e eVar) {
             Interceptable interceptable = $ic;
@@ -317,7 +317,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20002e = eVar;
+            this.f21524e = eVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -325,8 +325,8 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f20002e;
-                eVar.f19989c.onItemViewLongClick(view, 17, eVar.f19992f, 0L);
+                e eVar = this.f21524e;
+                eVar.f21511c.onItemViewLongClick(view, 17, eVar.f21514f, 0L);
                 return true;
             }
             return invokeL.booleanValue;
@@ -339,7 +339,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20003e;
+        public final /* synthetic */ e f21525e;
 
         public h(e eVar) {
             Interceptable interceptable = $ic;
@@ -356,17 +356,17 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20003e = eVar;
+            this.f21525e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TbRichTextView tbRichTextView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbRichTextView = this.f20003e.f19995i) == null || tbRichTextView.getTextView() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbRichTextView = this.f21525e.f21517i) == null || tbRichTextView.getTextView() == null) {
                 return;
             }
-            CharSequence text = this.f20003e.f19995i.getTextView().getText();
+            CharSequence text = this.f21525e.f21517i.getTextView().getText();
             if (TextUtils.isEmpty(text)) {
                 return;
             }
@@ -386,7 +386,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20004e;
+        public final /* synthetic */ e f21526e;
 
         public i(e eVar) {
             Interceptable interceptable = $ic;
@@ -403,7 +403,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20004e = eVar;
+            this.f21526e = eVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -411,8 +411,8 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f20004e;
-                eVar.f19989c.onItemViewLongClick(view, 5, eVar.f19992f, 0L);
+                e eVar = this.f21526e;
+                eVar.f21511c.onItemViewLongClick(view, 5, eVar.f21514f, 0L);
                 return true;
             }
             return invokeL.booleanValue;
@@ -425,7 +425,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20005e;
+        public final /* synthetic */ e f21527e;
 
         public j(e eVar) {
             Interceptable interceptable = $ic;
@@ -442,15 +442,15 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20005e = eVar;
+            this.f21527e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f20005e;
-                eVar.f19988b.onItemViewClick(view, 4, eVar.f19992f, 0L);
+                e eVar = this.f21527e;
+                eVar.f21510b.onItemViewClick(view, 4, eVar.f21514f, 0L);
             }
         }
     }
@@ -461,7 +461,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20006e;
+        public final /* synthetic */ e f21528e;
 
         public k(e eVar) {
             Interceptable interceptable = $ic;
@@ -478,7 +478,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20006e = eVar;
+            this.f21528e = eVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -486,8 +486,8 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f20006e;
-                eVar.f19989c.onItemViewLongClick(view, 4, eVar.f19992f, 0L);
+                e eVar = this.f21528e;
+                eVar.f21511c.onItemViewLongClick(view, 4, eVar.f21514f, 0L);
                 return true;
             }
             return invokeL.booleanValue;
@@ -500,7 +500,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20007e;
+        public final /* synthetic */ e f21529e;
 
         public l(e eVar) {
             Interceptable interceptable = $ic;
@@ -517,15 +517,15 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20007e = eVar;
+            this.f21529e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f20007e;
-                eVar.f19988b.onItemViewClick(view, 13, eVar.f19992f, 0L);
+                e eVar = this.f21529e;
+                eVar.f21510b.onItemViewClick(view, 13, eVar.f21514f, 0L);
             }
         }
     }
@@ -536,7 +536,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20008e;
+        public final /* synthetic */ e f21530e;
 
         public m(e eVar) {
             Interceptable interceptable = $ic;
@@ -553,7 +553,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20008e = eVar;
+            this.f21530e = eVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -561,8 +561,8 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f20008e;
-                eVar.f19989c.onItemViewLongClick(view, 3, eVar.f19992f, 0L);
+                e eVar = this.f21530e;
+                eVar.f21511c.onItemViewLongClick(view, 3, eVar.f21514f, 0L);
                 return true;
             }
             return invokeL.booleanValue;
@@ -575,7 +575,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20009e;
+        public final /* synthetic */ e f21531e;
 
         public n(e eVar) {
             Interceptable interceptable = $ic;
@@ -592,15 +592,15 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20009e = eVar;
+            this.f21531e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f20009e;
-                eVar.f19988b.onItemViewClick(view, 7, eVar.f19992f, 0L);
+                e eVar = this.f21531e;
+                eVar.f21510b.onItemViewClick(view, 7, eVar.f21514f, 0L);
             }
         }
     }
@@ -611,7 +611,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20010e;
+        public final /* synthetic */ e f21532e;
 
         public o(e eVar) {
             Interceptable interceptable = $ic;
@@ -628,7 +628,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20010e = eVar;
+            this.f21532e = eVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -636,8 +636,8 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f20010e;
-                eVar.f19989c.onItemViewLongClick(view, 7, eVar.f19992f, 0L);
+                e eVar = this.f21532e;
+                eVar.f21511c.onItemViewLongClick(view, 7, eVar.f21514f, 0L);
                 return true;
             }
             return invokeL.booleanValue;
@@ -650,7 +650,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20011e;
+        public final /* synthetic */ e f21533e;
 
         public p(e eVar) {
             Interceptable interceptable = $ic;
@@ -667,15 +667,15 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f20011e = eVar;
+            this.f21533e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f20011e;
-                eVar.f19988b.onItemViewClick(view, 10, eVar.f19992f, 0L);
+                e eVar = this.f21533e;
+                eVar.f21510b.onItemViewClick(view, 10, eVar.f21514f, 0L);
             }
         }
     }
@@ -699,14 +699,14 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
                 return;
             }
         }
-        this.f19988b = null;
-        this.f19989c = null;
-        this.f19992f = 0;
-        this.f19993g = 0L;
+        this.f21510b = null;
+        this.f21511c = null;
+        this.f21514f = 0;
+        this.f21515g = 0L;
         this.q = true;
         this.r = false;
-        this.f19990d = 0L;
-        this.f19991e = null;
+        this.f21512d = 0L;
+        this.f21513e = null;
         this.mContext = tbPageContext;
     }
 
@@ -719,11 +719,11 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             }
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(j2 * 1000);
-            Calendar calendar2 = this.f19991e;
-            if (calendar2 != null && calendar2.get(1) == calendar.get(1) && this.f19991e.get(6) == calendar.get(6)) {
-                return b.a.e.e.p.k.getDateStringHm(calendar.getTime());
+            Calendar calendar2 = this.f21513e;
+            if (calendar2 != null && calendar2.get(1) == calendar.get(1) && this.f21513e.get(6) == calendar.get(6)) {
+                return b.a.e.f.p.k.getDateStringHm(calendar.getTime());
             }
-            return b.a.e.e.p.k.getDateStringMdHm(calendar.getTime());
+            return b.a.e.f.p.k.getDateStringMdHm(calendar.getTime());
         }
         return (String) invokeJ.objValue;
     }
@@ -731,9 +731,9 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f19994h = (TextView) c(R.id.tex_msgitem_time);
+            this.f21516h = (TextView) c(R.id.tex_msgitem_time);
             TbRichTextView tbRichTextView = (TbRichTextView) c(R.id.tex_msgitem_text);
-            this.f19995i = tbRichTextView;
+            this.f21517i = tbRichTextView;
             tbRichTextView.setLinkTextColor(-14845754);
             this.p = (ChatImageWithTailView) c(R.id.img_msgitem_image);
             this.l = (Invite2GroupView) c(R.id.lay_msgitem_invite_view);
@@ -745,7 +745,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             chatVoiceView.setClickable(true);
             ChatVoiceView chatVoiceView2 = this.j;
             chatVoiceView2.setOnClickListener(chatVoiceView2);
-            this.f19995i.setOnClickListener(new h(this));
+            this.f21517i.setOnClickListener(new h(this));
             this.j.setLongClickable(true);
             this.j.setOnLongClickListener(new i(this));
             this.p.getImage().setClickable(true);
@@ -754,8 +754,8 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             this.p.getImage().setOnLongClickListener(new k(this));
             this.p.getTail().setClickable(true);
             this.p.getTail().setOnClickListener(new l(this));
-            this.f19995i.setLongClickable(true);
-            this.f19995i.setOnLongClickListener(new m(this));
+            this.f21517i.setLongClickable(true);
+            this.f21517i.setOnLongClickListener(new m(this));
             GifView gifView = (GifView) c(R.id.emotion_msgitem_image);
             this.k = gifView;
             gifView.setSupportNoImage(false);
@@ -773,7 +773,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             this.o.getContentBody().setClickable(true);
             this.o.getContentBody().setOnClickListener(new d(this));
             this.o.getTail().setClickable(true);
-            this.o.getTail().setOnClickListener(new View$OnClickListenerC0993e(this));
+            this.o.getTail().setOnClickListener(new View$OnClickListenerC1061e(this));
             this.o.getContentBody().setLongClickable(true);
             this.o.getContentBody().setOnLongClickListener(new f(this));
             Invite2GroupView invite2GroupView = this.l;
@@ -790,7 +790,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             if (j2 < 1000) {
                 return false;
             }
-            long j3 = this.f19990d;
+            long j3 = this.f21512d;
             return j3 == 0 || j2 - j3 >= 180;
         }
         return invokeJ.booleanValue;
@@ -800,7 +800,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             Calendar calendar = Calendar.getInstance();
-            this.f19991e = calendar;
+            this.f21513e = calendar;
             calendar.setTimeInMillis(j2 * 1000);
         }
     }
@@ -830,7 +830,7 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
     public void l(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f19990d = j2;
+            this.f21512d = j2;
         }
     }
 
@@ -841,24 +841,24 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
         }
     }
 
-    public void n(b.a.e.e.h.a aVar) {
+    public void n(b.a.e.f.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f19988b = aVar;
+            this.f21510b = aVar;
         }
     }
 
-    public void o(b.a.e.e.h.b bVar) {
+    public void o(b.a.e.f.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f19989c = bVar;
+            this.f21511c = bVar;
         }
     }
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f19992f = i2;
+            this.f21514f = i2;
         }
     }
 
@@ -895,10 +895,10 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             boolean z = chatMessage.getCacheData() != null && chatMessage.getCacheData().getIs_show_time() == 1;
             boolean g2 = g(chatMessage.getTime());
             if (!z && !g2) {
-                this.f19994h.setVisibility(8);
+                this.f21516h.setVisibility(8);
             } else {
-                this.f19994h.setVisibility(0);
-                this.f19994h.setText(e(chatMessage.getTime()));
+                this.f21516h.setVisibility(0);
+                this.f21516h.setText(e(chatMessage.getTime()));
             }
             if (z || !g2) {
                 return;
@@ -925,14 +925,14 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
     public void w(View view, ChatMessage chatMessage, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048594, this, view, chatMessage, str) == null) {
-            b.a.r0.l1.f.h.d(this.mContext.getContext(), view, this.p, chatMessage, this.f19993g, str);
+            b.a.r0.l1.f.h.d(this.mContext.getContext(), view, this.p, chatMessage, this.f21515g, str);
         }
     }
 
     public void x(ChatMessage chatMessage, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, chatMessage, str) == null) {
-            b.a.r0.l1.f.h.e(this.mContext.getContext(), this.f19995i, chatMessage, str, this.s);
+            b.a.r0.l1.f.h.e(this.mContext.getContext(), this.f21517i, chatMessage, str, this.s);
             if (chatMessage == null || chatMessage.getContent() == null) {
                 return;
             }
@@ -941,8 +941,8 @@ public class e extends b.a.e.a.c<MsglistActivity<?>> {
             for (String str2 : split) {
                 stringBuffer.append(str2);
             }
-            this.f19995i.setContentDescription(stringBuffer.toString());
-            this.f19995i.getTextView().setContentDescription(stringBuffer.toString());
+            this.f21517i.setContentDescription(stringBuffer.toString());
+            this.f21517i.getTextView().setContentDescription(stringBuffer.toString());
         }
     }
 

@@ -21,10 +21,10 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f57769a;
+    public LinearLayout f58691a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f57770b;
+    public AdapterView.OnItemClickListener f58692b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectNumberDialog(Context context) {
@@ -45,7 +45,7 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
             }
         }
         LinearLayout linearLayout = new LinearLayout(this.mContext);
-        this.f57769a = linearLayout;
+        this.f58691a = linearLayout;
         linearLayout.setOrientation(1);
         getWindow().setBackgroundDrawableResource(ResUtils.color(context, "wallet_base_transparent"));
     }
@@ -55,10 +55,10 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             dismiss();
-            if (this.f57770b == null || view.getTag() == null) {
+            if (this.f58692b == null || view.getTag() == null) {
                 return;
             }
-            this.f57770b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
+            this.f58692b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
         }
     }
 
@@ -67,7 +67,7 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            addContentView(this.f57769a);
+            addContentView(this.f58691a);
             hideButtons();
             setTitleText("选择手机号");
             setCancelable(true);
@@ -79,7 +79,7 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.size() <= 1) {
             return;
         }
-        this.f57769a.removeAllViews();
+        this.f58691a.removeAllViews();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(this.mContext, 45.0f));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(this.mContext, 1.0f));
         for (int i2 = 1; i2 < list.size(); i2++) {
@@ -87,7 +87,7 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
                 View view = new View(this.mContext);
                 view.setBackgroundColor(ResUtils.getColor(this.mContext, "bd_wallet_gray"));
                 view.setLayoutParams(layoutParams2);
-                this.f57769a.addView(view);
+                this.f58691a.addView(view);
             }
             TextView textView = new TextView(this.mContext);
             textView.setText(list.get(i2));
@@ -96,14 +96,14 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
             textView.setLayoutParams(layoutParams);
             textView.setTag(Integer.valueOf(i2));
             textView.setOnClickListener(this);
-            this.f57769a.addView(textView);
+            this.f58691a.addView(textView);
         }
     }
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onItemClickListener) == null) {
-            this.f57770b = onItemClickListener;
+            this.f58692b = onItemClickListener;
         }
     }
 }

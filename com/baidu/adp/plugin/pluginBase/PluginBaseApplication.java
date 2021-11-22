@@ -19,7 +19,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.h.j.g.d;
+import b.a.e.i.j.g.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -435,7 +435,7 @@ public class PluginBaseApplication extends Application {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0082  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0083  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -448,121 +448,110 @@ public class PluginBaseApplication extends Application {
         IllegalArgumentException e6;
         IllegalAccessException e7;
         ClassNotFoundException e8;
-        Class<?> cls;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048611, this, application) != null) {
-            return;
-        }
-        this.mApplicationProxy = application;
-        if (application == null) {
-            return;
-        }
-        try {
-            cls = Class.forName("android.app.ContextImpl");
-            Constructor<?> constructor = cls.getConstructor(cls);
-            constructor.setAccessible(true);
-            context = (Context) constructor.newInstance(application.getBaseContext());
-        } catch (ClassNotFoundException e9) {
-            context = null;
-            e8 = e9;
-        } catch (IllegalAccessException e10) {
-            context = null;
-            e7 = e10;
-        } catch (IllegalArgumentException e11) {
-            context = null;
-            e6 = e11;
-        } catch (InstantiationException e12) {
-            context = null;
-            e5 = e12;
-        } catch (NoSuchMethodException e13) {
-            context = null;
-            e4 = e13;
-        } catch (InvocationTargetException e14) {
-            context = null;
-            e3 = e14;
-        } catch (Exception e15) {
-            context = null;
-            e2 = e15;
-        }
-        try {
-            try {
-                Method declaredMethod = cls.getDeclaredMethod("setOuterContext", Context.class);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(context, this);
-            } catch (ClassNotFoundException e16) {
-                e8 = e16;
-                BdLog.e(e8);
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field = application.getClass().getField("mLoadedApk");
-                field.set(this, field.get(application));
-                return;
-            } catch (IllegalAccessException e17) {
-                e7 = e17;
-                BdLog.e(e7);
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field2 = application.getClass().getField("mLoadedApk");
-                field2.set(this, field2.get(application));
-                return;
-            } catch (IllegalArgumentException e18) {
-                e6 = e18;
-                BdLog.e(e6);
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field22 = application.getClass().getField("mLoadedApk");
-                field22.set(this, field22.get(application));
-                return;
-            } catch (InstantiationException e19) {
-                e5 = e19;
-                BdLog.e(e5);
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field222 = application.getClass().getField("mLoadedApk");
-                field222.set(this, field222.get(application));
-                return;
-            } catch (NoSuchMethodException e20) {
-                e4 = e20;
-                BdLog.e(e4);
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field2222 = application.getClass().getField("mLoadedApk");
-                field2222.set(this, field2222.get(application));
-                return;
-            } catch (InvocationTargetException e21) {
-                e3 = e21;
-                BdLog.e(e3);
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field22222 = application.getClass().getField("mLoadedApk");
-                field22222.set(this, field22222.get(application));
-                return;
-            } catch (Exception e22) {
-                e2 = e22;
-                BdLog.e(e2);
-                if (context == null) {
-                }
-                attachBaseContext(context);
-                Field field222222 = application.getClass().getField("mLoadedApk");
-                field222222.set(this, field222222.get(application));
+        if (interceptable == null || interceptable.invokeL(1048611, this, application) == null) {
+            this.mApplicationProxy = application;
+            if (application == null) {
                 return;
             }
-            Field field2222222 = application.getClass().getField("mLoadedApk");
-            field2222222.set(this, field2222222.get(application));
-            return;
-        } catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | Exception unused) {
-            return;
+            try {
+                Class<?> cls = Class.forName("android.app.ContextImpl");
+                Constructor<?> constructor = cls.getConstructor(cls);
+                constructor.setAccessible(true);
+                context = (Context) constructor.newInstance(application.getBaseContext());
+                try {
+                    Method declaredMethod = cls.getDeclaredMethod("setOuterContext", Context.class);
+                    declaredMethod.setAccessible(true);
+                    declaredMethod.invoke(context, this);
+                } catch (ClassNotFoundException e9) {
+                    e8 = e9;
+                    BdLog.e(e8);
+                    if (context == null) {
+                    }
+                    attachBaseContext(context);
+                    Field field = application.getClass().getField("mLoadedApk");
+                    field.set(this, field.get(application));
+                } catch (IllegalAccessException e10) {
+                    e7 = e10;
+                    BdLog.e(e7);
+                    if (context == null) {
+                    }
+                    attachBaseContext(context);
+                    Field field2 = application.getClass().getField("mLoadedApk");
+                    field2.set(this, field2.get(application));
+                } catch (IllegalArgumentException e11) {
+                    e6 = e11;
+                    BdLog.e(e6);
+                    if (context == null) {
+                    }
+                    attachBaseContext(context);
+                    Field field22 = application.getClass().getField("mLoadedApk");
+                    field22.set(this, field22.get(application));
+                } catch (InstantiationException e12) {
+                    e5 = e12;
+                    BdLog.e(e5);
+                    if (context == null) {
+                    }
+                    attachBaseContext(context);
+                    Field field222 = application.getClass().getField("mLoadedApk");
+                    field222.set(this, field222.get(application));
+                } catch (NoSuchMethodException e13) {
+                    e4 = e13;
+                    BdLog.e(e4);
+                    if (context == null) {
+                    }
+                    attachBaseContext(context);
+                    Field field2222 = application.getClass().getField("mLoadedApk");
+                    field2222.set(this, field2222.get(application));
+                } catch (InvocationTargetException e14) {
+                    e3 = e14;
+                    BdLog.e(e3);
+                    if (context == null) {
+                    }
+                    attachBaseContext(context);
+                    Field field22222 = application.getClass().getField("mLoadedApk");
+                    field22222.set(this, field22222.get(application));
+                } catch (Exception e15) {
+                    e2 = e15;
+                    BdLog.e(e2);
+                    if (context == null) {
+                    }
+                    attachBaseContext(context);
+                    Field field222222 = application.getClass().getField("mLoadedApk");
+                    field222222.set(this, field222222.get(application));
+                }
+            } catch (ClassNotFoundException e16) {
+                context = null;
+                e8 = e16;
+            } catch (IllegalAccessException e17) {
+                context = null;
+                e7 = e17;
+            } catch (IllegalArgumentException e18) {
+                context = null;
+                e6 = e18;
+            } catch (InstantiationException e19) {
+                context = null;
+                e5 = e19;
+            } catch (NoSuchMethodException e20) {
+                context = null;
+                e4 = e20;
+            } catch (InvocationTargetException e21) {
+                context = null;
+                e3 = e21;
+            } catch (Exception e22) {
+                context = null;
+                e2 = e22;
+            }
+            if (context == null) {
+                context = application.getBaseContext();
+            }
+            attachBaseContext(context);
+            try {
+                Field field2222222 = application.getClass().getField("mLoadedApk");
+                field2222222.set(this, field2222222.get(application));
+            } catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | Exception unused) {
+            }
         }
-        if (context == null) {
-            context = application.getBaseContext();
-        }
-        attachBaseContext(context);
     }
 
     public void setPluginPackageName(String str) {

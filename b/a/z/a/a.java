@@ -16,28 +16,28 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f30008b;
+    public static a f30877b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f30009a;
+    public ExecutorService f30878a;
 
     /* renamed from: b.a.z.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class ThreadFactoryC1442a implements ThreadFactory {
+    public static class ThreadFactoryC1484a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f30010e;
+        public final AtomicInteger f30879e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f30011f;
+        public final String f30880f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f30012g;
+        public int f30881g;
 
-        public ThreadFactoryC1442a(String str, int i2) {
+        public ThreadFactoryC1484a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,10 +52,10 @@ public final class a {
                     return;
                 }
             }
-            this.f30010e = new AtomicInteger(1);
-            this.f30012g = 5;
-            this.f30011f = str + "-";
-            this.f30012g = i2;
+            this.f30879e = new AtomicInteger(1);
+            this.f30881g = 5;
+            this.f30880f = str + "-";
+            this.f30881g = i2;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -63,11 +63,11 @@ public final class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.f30011f + this.f30010e.getAndIncrement());
+                Thread thread = new Thread(runnable, this.f30880f + this.f30879e.getAndIncrement());
                 if (thread.isDaemon()) {
                     thread.setDaemon(true);
                 }
-                thread.setPriority(this.f30012g);
+                thread.setPriority(this.f30881g);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -87,8 +87,8 @@ public final class a {
                 return;
             }
         }
-        new ThreadPoolExecutor(0, 5, 180L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC1442a("cyber-thread", 5));
-        this.f30009a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC1442a("cyber-thread-Single", 5));
+        new ThreadPoolExecutor(0, 5, 180L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC1484a("cyber-thread", 5));
+        this.f30878a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC1484a("cyber-thread-Single", 5));
     }
 
     public static synchronized a b() {
@@ -97,10 +97,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (a.class) {
-                if (f30008b == null) {
-                    f30008b = new a();
+                if (f30877b == null) {
+                    f30877b = new a();
                 }
-                aVar = f30008b;
+                aVar = f30877b;
             }
             return aVar;
         }
@@ -110,7 +110,7 @@ public final class a {
     public void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f30009a.execute(runnable);
+            this.f30878a.execute(runnable);
         }
     }
 }

@@ -13,7 +13,7 @@ public abstract class b extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f25172e;
+    public c f26689e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -32,13 +32,13 @@ public abstract class b extends BaseCardInfo {
     public c g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25172e : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26689e : (c) invokeV.objValue;
     }
 
     public void i(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f25172e = cVar;
+            this.f26689e = cVar;
         }
     }
 }

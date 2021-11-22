@@ -1,0 +1,7 @@
+package b.h.d.a;
+/* loaded from: classes6.dex */
+public interface o<T> {
+    boolean apply(T t);
+
+    boolean equals(Object obj);
+}

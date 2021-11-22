@@ -10,8 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
 import b.a.r0.f2.g.f;
 import b.a.r0.f2.g.h;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -46,19 +46,19 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SearchEditView f51861e;
+    public SearchEditView f52774e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51862f;
+    public TextView f52775f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f51863g;
+    public LinearLayout f52776g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FaceImageLayout f51864h;
+    public FaceImageLayout f52777h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoDataView f51865i;
+    public NoDataView f52778i;
     public View j;
     public AutoLineWrapLayout k;
     public BdListView l;
@@ -81,7 +81,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FaceSearchFragment f51866a;
+        public final /* synthetic */ FaceSearchFragment f52779a;
 
         public a(FaceSearchFragment faceSearchFragment) {
             Interceptable interceptable = $ic;
@@ -98,14 +98,14 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
                     return;
                 }
             }
-            this.f51866a = faceSearchFragment;
+            this.f52779a = faceSearchFragment;
         }
 
         @Override // com.baidu.tieba.newfaceshop.facemake.FaceImageLayout.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                l.x(this.f51866a.v, this.f51866a.f51861e);
+                l.x(this.f52779a.v, this.f52779a.f52774e);
             }
         }
     }
@@ -116,7 +116,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FaceSearchFragment f51867a;
+        public final /* synthetic */ FaceSearchFragment f52780a;
 
         public b(FaceSearchFragment faceSearchFragment) {
             Interceptable interceptable = $ic;
@@ -133,14 +133,14 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
                     return;
                 }
             }
-            this.f51867a = faceSearchFragment;
+            this.f52780a = faceSearchFragment;
         }
 
         @Override // com.baidu.tieba.newfaceshop.facemake.GetHotWordsModel.b
         public void onFail(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                this.f51867a.k.setVisibility(8);
+                this.f52780a.k.setVisibility(8);
             }
         }
 
@@ -150,12 +150,12 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
                 return;
             }
-            this.f51867a.q.addAll(list);
-            if (this.f51867a.q == null || this.f51867a.q.isEmpty()) {
-                this.f51867a.k.setVisibility(8);
-                this.f51867a.f51862f.setVisibility(8);
+            this.f52780a.q.addAll(list);
+            if (this.f52780a.q == null || this.f52780a.q.isEmpty()) {
+                this.f52780a.k.setVisibility(8);
+                this.f52780a.f52775f.setVisibility(8);
             }
-            this.f51867a.p();
+            this.f52780a.p();
         }
     }
 
@@ -165,10 +165,10 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f51868e;
+        public final /* synthetic */ String f52781e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FaceSearchFragment f51869f;
+        public final /* synthetic */ FaceSearchFragment f52782f;
 
         public c(FaceSearchFragment faceSearchFragment, String str) {
             Interceptable interceptable = $ic;
@@ -185,17 +185,17 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
                     return;
                 }
             }
-            this.f51869f = faceSearchFragment;
-            this.f51868e = str;
+            this.f52782f = faceSearchFragment;
+            this.f52781e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51869f.f51861e.setText(this.f51868e);
-                this.f51869f.f51861e.setSelection(this.f51868e.length());
-                this.f51869f.t(this.f51868e);
+                this.f52782f.f52774e.setText(this.f52781e);
+                this.f52782f.f52774e.setSelection(this.f52781e.length());
+                this.f52782f.t(this.f52781e);
             }
         }
     }
@@ -206,7 +206,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FaceSearchFragment f51870a;
+        public final /* synthetic */ FaceSearchFragment f52783a;
 
         public d(FaceSearchFragment faceSearchFragment) {
             Interceptable interceptable = $ic;
@@ -223,30 +223,30 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
                     return;
                 }
             }
-            this.f51870a = faceSearchFragment;
+            this.f52783a = faceSearchFragment;
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
         public void a(String str, b.a.r0.r0.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-                this.f51870a.getBaseFragmentActivity().hideProgressBar();
+                this.f52783a.getBaseFragmentActivity().hideProgressBar();
                 if (aVar == null || aVar.a() == null || aVar.a().isEmpty()) {
-                    if (this.f51870a.r == 0) {
-                        this.f51870a.v();
+                    if (this.f52783a.r == 0) {
+                        this.f52783a.v();
                         return;
                     }
                     return;
                 }
-                this.f51870a.r = aVar.c();
-                if (this.f51870a.r == 1) {
-                    this.f51870a.n.clear();
+                this.f52783a.r = aVar.c();
+                if (this.f52783a.r == 1) {
+                    this.f52783a.n.clear();
                 }
-                this.f51870a.s = aVar.b() != 0;
-                this.f51870a.n.addAll(aVar.a());
-                this.f51870a.m.notifyDataSetChanged();
-                this.f51870a.w();
-                l.x(this.f51870a.getActivity(), this.f51870a.f51861e);
+                this.f52783a.s = aVar.b() != 0;
+                this.f52783a.n.addAll(aVar.a());
+                this.f52783a.m.notifyDataSetChanged();
+                this.f52783a.w();
+                l.x(this.f52783a.getActivity(), this.f52783a.f52774e);
             }
         }
 
@@ -254,9 +254,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         public void onFail(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f51870a.getBaseFragmentActivity().hideProgressBar();
-                if (this.f51870a.r == 1) {
-                    this.f51870a.v();
+                this.f52783a.getBaseFragmentActivity().hideProgressBar();
+                if (this.f52783a.r == 1) {
+                    this.f52783a.v();
                 }
             }
         }
@@ -268,7 +268,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceSearchFragment f51871e;
+        public final /* synthetic */ FaceSearchFragment f52784e;
 
         public e(FaceSearchFragment faceSearchFragment) {
             Interceptable interceptable = $ic;
@@ -285,14 +285,14 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
                     return;
                 }
             }
-            this.f51871e = faceSearchFragment;
+            this.f52784e = faceSearchFragment;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f51871e.r();
+                this.f52784e.r();
             }
         }
     }
@@ -398,7 +398,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.k.setVisibility(0);
-            this.f51862f.setVisibility(0);
+            this.f52775f.setVisibility(0);
             int min = Math.min(this.q.size(), 10);
             for (int i2 = 0; i2 < min; i2++) {
                 String str = this.q.get(i2);
@@ -424,19 +424,19 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         EmotionImageData emotionImageData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            this.f51863g = (LinearLayout) view.findViewById(R.id.layout_root);
+            this.f52776g = (LinearLayout) view.findViewById(R.id.layout_root);
             FaceImageLayout faceImageLayout = (FaceImageLayout) view.findViewById(R.id.layout_content);
-            this.f51864h = faceImageLayout;
+            this.f52777h = faceImageLayout;
             faceImageLayout.setListener(new a(this));
             this.j = view.findViewById(R.id.view_line);
             SearchEditView searchEditView = (SearchEditView) view.findViewById(R.id.edit_search_view);
-            this.f51861e = searchEditView;
+            this.f52774e = searchEditView;
             searchEditView.setCallback(this);
             this.k = (AutoLineWrapLayout) view.findViewById(R.id.layout_hot_words);
-            this.f51862f = (TextView) view.findViewById(R.id.tv_tips);
-            SkinManager.setBackgroundResource(this.f51863g, R.color.CAM_X0201);
+            this.f52775f = (TextView) view.findViewById(R.id.tv_tips);
+            SkinManager.setBackgroundResource(this.f52776g, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f51862f, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f52775f, R.color.CAM_X0109);
             BdListView bdListView = (BdListView) view.findViewById(R.id.listview_emotion);
             this.l = bdListView;
             bdListView.setOnSrollToBottomListener(this.x);
@@ -513,10 +513,10 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
             List<String> list = this.q;
             if (list != null && !list.isEmpty()) {
                 this.k.setVisibility(0);
-                this.f51862f.setVisibility(0);
+                this.f52775f.setVisibility(0);
             }
             this.l.setVisibility(8);
-            NoDataView noDataView = this.f51865i;
+            NoDataView noDataView = this.f52778i;
             if (noDataView != null) {
                 noDataView.setVisibility(8);
             }
@@ -526,15 +526,15 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (this.f51865i == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.v, this.f51864h, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.v, R.dimen.ds320)), NoDataViewFactory.e.c(this.v.getText(R.string.face_group_no_emotion).toString()), null);
-                this.f51865i = a2;
+            if (this.f52778i == null) {
+                NoDataView a2 = NoDataViewFactory.a(this.v, this.f52777h, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.v, R.dimen.ds320)), NoDataViewFactory.e.c(this.v.getText(R.string.face_group_no_emotion).toString()), null);
+                this.f52778i = a2;
                 a2.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
-            this.f51865i.setVisibility(0);
+            this.f52778i.setVisibility(0);
             this.k.setVisibility(8);
             this.l.setVisibility(8);
-            this.f51862f.setVisibility(8);
+            this.f52775f.setVisibility(8);
         }
     }
 
@@ -542,9 +542,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.l.setVisibility(0);
-            this.f51862f.setVisibility(8);
+            this.f52775f.setVisibility(8);
             this.k.setVisibility(8);
-            NoDataView noDataView = this.f51865i;
+            NoDataView noDataView = this.f52778i;
             if (noDataView != null) {
                 noDataView.setVisibility(8);
             }

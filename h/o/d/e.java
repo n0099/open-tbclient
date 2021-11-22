@@ -15,10 +15,10 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f72075a;
+    public static final int f72994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f72076b;
+    public static final boolean f72995b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -64,14 +64,14 @@ public final class e {
             }
         }
         int d2 = d();
-        f72075a = d2;
-        f72076b = d2 != 0;
+        f72994a = d2;
+        f72995b = d2 != 0;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f72075a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f72994a : invokeV.intValue;
     }
 
     public static ClassLoader b() {
@@ -89,7 +89,7 @@ public final class e {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f72076b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f72995b : invokeV.booleanValue;
     }
 
     public static int d() {

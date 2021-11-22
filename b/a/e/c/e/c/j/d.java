@@ -1,6 +1,6 @@
 package b.a.e.c.e.c.j;
 
-import b.a.e.e.p.s;
+import b.a.e.f.p.s;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,14 +17,14 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f1534c;
+    public static d f1530c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SecretKey f1535a;
+    public SecretKey f1531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f1536b;
+    public byte[] f1532b;
 
     static {
         InterceptResult invokeClinit;
@@ -54,22 +54,22 @@ public class d {
                 return;
             }
         }
-        this.f1535a = null;
-        this.f1536b = null;
+        this.f1531a = null;
+        this.f1532b = null;
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1534c == null) {
+            if (f1530c == null) {
                 synchronized (d.class) {
-                    if (f1534c == null) {
-                        f1534c = new d();
+                    if (f1530c == null) {
+                        f1530c = new d();
                     }
                 }
             }
-            return f1534c;
+            return f1530c;
         }
         return (d) invokeV.objValue;
     }
@@ -77,13 +77,13 @@ public class d {
     public SecretKey b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1535a : (SecretKey) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1531a : (SecretKey) invokeV.objValue;
     }
 
     public byte[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1536b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1532b : (byte[]) invokeV.objValue;
     }
 
     public void d(byte[] bArr) {
@@ -96,12 +96,12 @@ public class d {
                 for (int i2 = 0; i2 < g2.length(); i2++) {
                     bArr2[i2] = (byte) g2.charAt(i2);
                 }
-                this.f1535a = s.f(g2);
-                this.f1536b = s.d(e2, bArr2);
+                this.f1531a = s.f(g2);
+                this.f1532b = s.d(e2, bArr2);
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
-                this.f1535a = null;
-                this.f1536b = new byte[0];
+                this.f1531a = null;
+                this.f1532b = new byte[0];
             }
         }
     }

@@ -24,23 +24,23 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34786e;
+    public static final String f35615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34787f;
+    public static final String f35616f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34788a;
+    public String f35617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34789b;
+    public String f35618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34790c;
+    public int f35619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34791d;
+    public int f35620d;
 
     static {
         InterceptResult invokeClinit;
@@ -55,8 +55,8 @@ public final class b {
                 return;
             }
         }
-        f34786e = a(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
-        f34787f = a(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+        f35615e = a(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+        f35616f = a(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
     }
 
     public b() {
@@ -72,7 +72,7 @@ public final class b {
                 return;
             }
         }
-        this.f34790c = 3;
+        this.f35619c = 3;
     }
 
     public static b a(Context context, String str) {
@@ -157,7 +157,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             try {
-                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f34788a).put(i("ZmxhZw=="), this.f34789b == null ? "0" : this.f34789b).put(i("dmVy"), this.f34790c).put(i("c2Rr"), this.f34791d).toString();
+                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f35617a).put(i("ZmxhZw=="), this.f35618b == null ? "0" : this.f35618b).put(i("dmVy"), this.f35619c).put(i("c2Rr"), this.f35620d).toString();
             } catch (JSONException e2) {
                 d.a(e2);
                 return null;
@@ -273,7 +273,7 @@ public final class b {
                 return null;
             }
             try {
-                return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f34786e, f34787f, str.getBytes()), "utf-8");
+                return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f35615e, f35616f, str.getBytes()), "utf-8");
             } catch (UnsupportedEncodingException | Exception e2) {
                 d.a(e2);
                 return "";
@@ -290,7 +290,7 @@ public final class b {
                 return null;
             }
             try {
-                return new String(com.baidu.android.bbalbs.common.a.a.b(f34786e, f34787f, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+                return new String(com.baidu.android.bbalbs.common.a.a.b(f35615e, f35616f, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
             } catch (Exception e2) {
                 d.a(e2);
                 return "";
@@ -307,7 +307,7 @@ public final class b {
                 return null;
             }
             try {
-                return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f34787f, f34786e, str.getBytes()), "utf-8");
+                return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f35616f, f35615e, str.getBytes()), "utf-8");
             } catch (UnsupportedEncodingException | Exception e2) {
                 d.a(e2);
                 return "";
@@ -324,7 +324,7 @@ public final class b {
                 return null;
             }
             try {
-                return new String(com.baidu.android.bbalbs.common.a.a.b(f34787f, f34786e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+                return new String(com.baidu.android.bbalbs.common.a.a.b(f35616f, f35615e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
             } catch (Exception e2) {
                 d.a(e2);
                 return "";
@@ -343,10 +343,10 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f34789b)) {
-                this.f34789b = "0";
+            if (TextUtils.isEmpty(this.f35618b)) {
+                this.f35618b = "0";
             }
-            return this.f34788a + "|" + this.f34789b;
+            return this.f35617a + "|" + this.f35618b;
         }
         return (String) invokeV.objValue;
     }
@@ -354,14 +354,14 @@ public final class b {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f34791d = i2;
+            this.f35620d = i2;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f34788a = str;
+            this.f35617a = str;
         }
     }
 
@@ -374,7 +374,7 @@ public final class b {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f34789b = str;
+            this.f35618b = str;
         }
     }
 }

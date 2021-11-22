@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.r0.l3.j0.n;
+import b.a.e.f.p.l;
+import b.a.r0.m3.j0.n;
 import b.a.r0.n2.e.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -59,7 +59,7 @@ public class h extends b.a.r0.b0.b<i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f21497e;
+        public final /* synthetic */ h f22993e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -76,22 +76,22 @@ public class h extends b.a.r0.b0.b<i> {
                     return;
                 }
             }
-            this.f21497e = hVar;
+            this.f22993e = hVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f21497e.v.getNewGodData() != null && this.f21497e.v.getNewGodData().hasNewGodInvited()) {
-                TiebaStatic.log(new StatisticItem("c13690").param("uid", this.f21497e.v.getUserId()).param("obj_locate", "1"));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f22993e.v.getNewGodData() != null && this.f22993e.v.getNewGodData().hasNewGodInvited()) {
+                TiebaStatic.log(new StatisticItem("c13690").param("uid", this.f22993e.v.getUserId()).param("obj_locate", "1"));
                 HashMap hashMap = new HashMap();
                 hashMap.put("from", "6");
-                hashMap.put("field_id", this.f21497e.v.getNewGodData().getFieldId());
+                hashMap.put("field_id", this.f22993e.v.getNewGodData().getFieldId());
                 hashMap.put("animated", Boolean.FALSE);
                 hashMap.put(OpenFlutter.EXTRA_TRANSPARANT, Boolean.TRUE);
                 hashMap.put("swipeback", Boolean.FALSE);
                 hashMap.put("present", Boolean.TRUE);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.f21497e.f14737f.getPageActivity(), "GodDialog", hashMap)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.f22993e.f16224f.getPageActivity(), "GodDialog", hashMap)));
             }
         }
     }
@@ -166,8 +166,8 @@ public class h extends b.a.r0.b0.b<i> {
         }
         if (view == this.q) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 2));
-            if (ViewHelper.checkUpIsLogin(this.f14737f.getPageActivity())) {
-                UrlManager.getInstance().dealOneLink(this.f14737f, new String[]{TbConfig.URL_MEMBER_BUY});
+            if (ViewHelper.checkUpIsLogin(this.f16224f.getPageActivity())) {
+                UrlManager.getInstance().dealOneLink(this.f16224f, new String[]{TbConfig.URL_MEMBER_BUY});
                 return;
             }
             return;
@@ -177,7 +177,7 @@ public class h extends b.a.r0.b0.b<i> {
             personCenterGuideView.hideAnim();
         }
         TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 1));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f14737f.getPageActivity()).createNormalConfig(b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f16224f.getPageActivity()).createNormalConfig(b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
     }
 
     public final void p() {
@@ -195,7 +195,7 @@ public class h extends b.a.r0.b0.b<i> {
     public void j(i iVar) {
         UserData userData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, iVar) == null) || iVar == null || (userData = iVar.f21461e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, iVar) == null) || iVar == null || (userData = iVar.f22957e) == null) {
             return;
         }
         this.v = userData;
@@ -213,7 +213,7 @@ public class h extends b.a.r0.b0.b<i> {
         this.r.setText(this.v.getName_show());
         this.s.setText(getContext().getString(R.string.person_center_default_introduce));
         p();
-        k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+        k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void s() {

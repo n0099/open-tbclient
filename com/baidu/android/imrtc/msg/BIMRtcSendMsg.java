@@ -12,7 +12,6 @@ import com.baidu.android.imrtc.send.BIMFetchStateRtcInfo;
 import com.baidu.android.imrtc.send.BIMInviteRtcInfo;
 import com.baidu.android.imrtc.upload.BIMRtcTrack;
 import com.baidu.android.imrtc.utils.IMJni;
-import com.baidu.android.imrtc.utils.IStatusListener;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.android.imrtc.utils.RtcUtility;
@@ -41,7 +40,6 @@ public class BIMRtcSendMsg extends Message {
     public long mRtcAppID;
     public String mRtcInfo;
     public int mSdkVersion;
-    public IStatusListener mStatusListener;
 
     public BIMRtcSendMsg(Context context, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -201,13 +199,6 @@ public class BIMRtcSendMsg extends Message {
             BIMRtcManager bIMRtcManager = BIMRtcManager.getInstance(this.mContext);
             int i4 = this.mAction;
             bIMRtcManager.onRtcRequestResult(i4, bIMInviteRtcInfo.toRtcInfo(i4, this.mRoomId, this.mRtcInfo), i2, str, this.mListenerKey);
-        }
-    }
-
-    public void setListener(IStatusListener iStatusListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iStatusListener) == null) {
-            this.mStatusListener = iStatusListener;
         }
     }
 

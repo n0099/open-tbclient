@@ -1,7 +1,7 @@
 package com.baidu.searchbox.anr.impl;
 
 import android.content.Context;
-import b.h.a.a;
+import b.g.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -63,7 +63,7 @@ public class ANRMonitor implements IANRMonitor {
             }
         }
 
-        @Override // b.h.a.a.f
+        @Override // b.g.a.a.f
         public void onAppNotResponding(ANRError aNRError) {
             Context appContext;
             String str;

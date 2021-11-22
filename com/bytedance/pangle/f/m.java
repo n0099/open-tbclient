@@ -11,19 +11,19 @@ public final class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ByteBuffer f61406a;
+    public final ByteBuffer f62305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f61407b;
+    public final long f62306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f61408c;
+    public final long f62307c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f61409d;
+    public final long f62308d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ByteBuffer f61410e;
+    public final ByteBuffer f62309e;
 
     public m(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public final class m {
                 return;
             }
         }
-        this.f61406a = byteBuffer;
-        this.f61407b = j;
-        this.f61408c = j2;
-        this.f61409d = j3;
-        this.f61410e = byteBuffer2;
+        this.f62305a = byteBuffer;
+        this.f62306b = j;
+        this.f62307c = j2;
+        this.f62308d = j3;
+        this.f62309e = byteBuffer2;
     }
 }

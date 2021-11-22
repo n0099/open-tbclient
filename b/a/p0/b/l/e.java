@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class e extends b.a.p0.a.v1.a.a.a {
+public class e extends b.a.p0.a.y1.a.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -18,7 +18,7 @@ public class e extends b.a.p0.a.v1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f9343a;
+        public final /* synthetic */ e f9926a;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public class e extends b.a.p0.a.v1.a.a.a {
                     return;
                 }
             }
-            this.f9343a = eVar;
+            this.f9926a = eVar;
         }
 
         @Override // b.a.p0.b.n.b.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f9343a.f8460d.putString("result", str);
-                this.f9343a.c();
+                this.f9926a.f9436d.putString("result", str);
+                this.f9926a.c();
             }
         }
     }
@@ -62,7 +62,7 @@ public class e extends b.a.p0.a.v1.a.a.a {
         }
     }
 
-    @Override // b.a.p0.a.v1.a.a.a
+    @Override // b.a.p0.a.y1.a.a.a
     public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {

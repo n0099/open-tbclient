@@ -1,0 +1,489 @@
+package b.e.a.c;
+
+import android.os.Looper;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.apollon.ApollonConstants;
+import com.dxmpay.apollon.eventbus.EventBus;
+import com.dxmpay.apollon.eventbus.EventBusException;
+import com.dxmpay.apollon.utils.LogUtil;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+/* loaded from: classes6.dex */
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final boolean f31513h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final String f31514i;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final Map<String, EventBus.Event> f31515a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final b.e.a.c.c f31516b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final b.e.a.c.a f31517c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Map<String, CopyOnWriteArrayList<g>> f31518d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final Map<Object, List<String>> f31519e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final f f31520f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final ThreadLocal<c> f31521g;
+
+    /* loaded from: classes6.dex */
+    public class a extends ThreadLocal<c> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.lang.ThreadLocal
+        /* renamed from: a */
+        public c initialValue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c() : (c) invokeV.objValue;
+        }
+    }
+
+    /* renamed from: b.e.a.c.b$b  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class C1500b {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f31522a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1857562552, "Lb/e/a/c/b$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1857562552, "Lb/e/a/c/b$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[EventBus.ThreadMode.values().length];
+            f31522a = iArr;
+            try {
+                iArr[EventBus.ThreadMode.PostThread.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f31522a[EventBus.ThreadMode.MainThread.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f31522a[EventBus.ThreadMode.Async.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f31523a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f31524b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public g f31525c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public EventBus.Event f31526d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f31527e;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1257797494, "Lb/e/a/c/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1257797494, "Lb/e/a/c/b;");
+                return;
+            }
+        }
+        f31513h = ApollonConstants.DEBUG;
+        f31514i = b.class.getSimpleName();
+    }
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f31521g = new a(this);
+        this.f31518d = new HashMap();
+        this.f31519e = new HashMap();
+        this.f31515a = new ConcurrentHashMap();
+        this.f31516b = new b.e.a.c.c(this, Looper.getMainLooper(), 10);
+        this.f31517c = new b.e.a.c.a(this);
+        this.f31520f = new f();
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.f31515a) {
+                this.f31515a.clear();
+            }
+        }
+    }
+
+    public void b(EventBus.Event event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            c cVar = this.f31521g.get();
+            if (cVar.f31523a) {
+                return;
+            }
+            cVar.f31524b = Looper.getMainLooper() == Looper.myLooper();
+            cVar.f31523a = true;
+            if (cVar.f31527e) {
+                cVar.f31523a = false;
+                boolean z = f31513h;
+                return;
+            }
+            try {
+                c(event, cVar);
+            } finally {
+                cVar.f31523a = false;
+                cVar.f31524b = false;
+            }
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r3v1, types: [b.e.a.c.g, com.dxmpay.apollon.eventbus.EventBus$Event] */
+    public final void c(EventBus.Event event, c cVar) throws Error {
+        CopyOnWriteArrayList<g> copyOnWriteArrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, event, cVar) == null) {
+            synchronized (this) {
+                copyOnWriteArrayList = this.f31518d.get(event.mEventKey);
+            }
+            boolean z = false;
+            if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
+                Iterator<g> it = copyOnWriteArrayList.iterator();
+                while (it.hasNext()) {
+                    g next = it.next();
+                    cVar.f31526d = event;
+                    cVar.f31525c = next;
+                    try {
+                        f(next, event, cVar.f31524b);
+                        if (cVar.f31527e) {
+                            break;
+                        }
+                    } finally {
+                        cVar.f31526d = null;
+                        cVar.f31525c = null;
+                        cVar.f31527e = false;
+                    }
+                }
+                z = true;
+            }
+            if (z || !f31513h) {
+                return;
+            }
+            String str = "No subscribers registered for event " + event.mEventKey;
+        }
+    }
+
+    public void d(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            EventBus.Event event = dVar.f31532a;
+            g gVar = dVar.f31533b;
+            if (gVar.f31540e) {
+                e(gVar, event);
+            }
+        }
+    }
+
+    public final void e(g gVar, EventBus.Event event) throws Error {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, gVar, event) == null) {
+            try {
+                gVar.f31537b.invoke(gVar.f31536a, event);
+            } catch (IllegalAccessException e2) {
+                throw new IllegalStateException("Unexpected exception", e2);
+            } catch (InvocationTargetException e3) {
+                e3.getCause();
+                String str = "Could not dispatch event: " + event.getClass() + " to subscribing class " + gVar.f31536a.getClass();
+            }
+        }
+    }
+
+    public final void f(g gVar, EventBus.Event event, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048581, this, gVar, event, z) == null) {
+            int i2 = C1500b.f31522a[gVar.f31539d.ordinal()];
+            if (i2 == 1) {
+                e(gVar, event);
+            } else if (i2 == 2) {
+                if (z) {
+                    e(gVar, event);
+                } else {
+                    this.f31516b.a(gVar, event);
+                }
+            } else if (i2 == 3) {
+                this.f31517c.a(gVar, event);
+            } else {
+                throw new IllegalStateException("Unknown thread mode: " + gVar.f31539d);
+            }
+        }
+    }
+
+    public synchronized void g(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            synchronized (this) {
+                if (obj != null) {
+                    List<String> list = this.f31519e.get(obj);
+                    if (list != null) {
+                        for (String str : list) {
+                            o(obj, str);
+                        }
+                        this.f31519e.remove(obj);
+                    } else {
+                        String str2 = f31514i;
+                        LogUtil.w(str2, "Subscriber to unregister was not registered before: " + obj.getClass());
+                    }
+                } else {
+                    throw new IllegalArgumentException("Provide at least one event class");
+                }
+            }
+        }
+    }
+
+    public synchronized void h(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, obj, str) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str)) {
+                    o(obj, str);
+                    List<String> list = this.f31519e.get(obj);
+                    if (list != null) {
+                        list.remove(str);
+                    }
+                    if (list != null && list.size() == 0) {
+                        this.f31519e.remove(obj);
+                    }
+                } else {
+                    throw new IllegalArgumentException("Provide at least one event class");
+                }
+            }
+        }
+    }
+
+    public synchronized void i(Object obj, String str, int i2, boolean z, EventBus.ThreadMode threadMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{obj, str, Integer.valueOf(i2), Boolean.valueOf(z), threadMode}) == null) {
+            synchronized (this) {
+                j(obj, this.f31520f.a(obj.getClass()), z, i2, str, threadMode);
+            }
+        }
+    }
+
+    public final void j(Object obj, Method method, boolean z, int i2, String str, EventBus.ThreadMode threadMode) {
+        EventBus.Event event;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{obj, method, Boolean.valueOf(z), Integer.valueOf(i2), str, threadMode}) == null) {
+            CopyOnWriteArrayList<g> copyOnWriteArrayList = this.f31518d.get(str);
+            if (copyOnWriteArrayList == null) {
+                copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+                this.f31518d.put(str, copyOnWriteArrayList);
+            } else {
+                Iterator<g> it = copyOnWriteArrayList.iterator();
+                while (it.hasNext()) {
+                    if (it.next().f31536a.equals(obj)) {
+                        if (f31513h) {
+                            String str2 = "Subscriber " + obj.getClass() + " already registered to event " + str;
+                            return;
+                        }
+                        return;
+                    }
+                }
+            }
+            g gVar = new g(obj, method, str, i2, threadMode);
+            int size = copyOnWriteArrayList.size();
+            if (size > 0) {
+                for (int i3 = 0; i3 <= size; i3++) {
+                    if (i3 == size || gVar.f31538c > copyOnWriteArrayList.get(i3).f31538c) {
+                        copyOnWriteArrayList.add(i3, gVar);
+                        break;
+                    }
+                }
+            } else {
+                copyOnWriteArrayList.add(gVar);
+            }
+            List<String> list = this.f31519e.get(obj);
+            if (list == null) {
+                list = new ArrayList<>();
+                this.f31519e.put(obj, list);
+            }
+            list.add(str);
+            if (z) {
+                synchronized (this.f31515a) {
+                    event = this.f31515a.get(str);
+                }
+                if (event != null) {
+                    f(gVar, event, Looper.getMainLooper() == Looper.myLooper());
+                }
+            }
+        }
+    }
+
+    public final void k(Object obj, Method method, boolean z, int i2, String[] strArr, EventBus.ThreadMode threadMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{obj, method, Boolean.valueOf(z), Integer.valueOf(i2), strArr, threadMode}) == null) {
+            for (String str : strArr) {
+                j(obj, method, z, i2, str, threadMode);
+            }
+        }
+    }
+
+    public synchronized void l(Object obj, String[] strArr, int i2, boolean z, EventBus.ThreadMode threadMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{obj, strArr, Integer.valueOf(i2), Boolean.valueOf(z), threadMode}) == null) {
+            synchronized (this) {
+                k(obj, this.f31520f.a(obj.getClass()), z, i2, strArr, threadMode);
+            }
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            synchronized (this.f31515a) {
+                this.f31515a.remove(str);
+            }
+        }
+    }
+
+    public void n(EventBus.Event event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, event) == null) {
+            synchronized (this.f31515a) {
+                this.f31515a.put(event.mEventKey, event);
+            }
+            b(event);
+        }
+    }
+
+    public final void o(Object obj, String str) {
+        CopyOnWriteArrayList<g> copyOnWriteArrayList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048590, this, obj, str) == null) || (copyOnWriteArrayList = this.f31518d.get(str)) == null) {
+            return;
+        }
+        int size = copyOnWriteArrayList.size();
+        int i2 = 0;
+        while (i2 < size) {
+            g gVar = copyOnWriteArrayList.get(i2);
+            if (gVar.f31536a == obj) {
+                gVar.f31540e = false;
+                copyOnWriteArrayList.remove(i2);
+                i2--;
+                size--;
+            }
+            i2++;
+        }
+    }
+
+    public void p(EventBus.Event event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, event) == null) {
+            c cVar = this.f31521g.get();
+            if (!cVar.f31523a) {
+                throw new EventBusException("This method may only be called from inside event handling methods on the posting thread");
+            }
+            if (event != null) {
+                if (cVar.f31526d == event) {
+                    cVar.f31527e = true;
+                    return;
+                }
+                throw new EventBusException("Only the currently handled event may be aborted");
+            }
+            throw new EventBusException("Event may not be null");
+        }
+    }
+}

@@ -103,7 +103,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, com.baidu.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
@@ -120,7 +120,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            b.f60619a = null;
+            b.f61541a = null;
             EventBus.getInstance().unregister(this);
         }
     }
@@ -170,10 +170,10 @@ public class MyCouponListActivity extends CouponBaseActivity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ CouponListResponse.CodeCoupon f60666a;
+                        public final /* synthetic */ CouponListResponse.CodeCoupon f61588a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ MyCouponListActivity f60667b;
+                        public final /* synthetic */ MyCouponListActivity f61589b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -190,15 +190,15 @@ public class MyCouponListActivity extends CouponBaseActivity {
                                     return;
                                 }
                             }
-                            this.f60667b = this;
-                            this.f60666a = codeCoupon;
+                            this.f61589b = this;
+                            this.f61588a = codeCoupon;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                BaiduWalletDelegate.getInstance().openH5Module(this.f60667b.getActivity(), this.f60666a.url);
+                                BaiduWalletDelegate.getInstance().openH5Module(this.f61589b.getActivity(), this.f61588a.url);
                             }
                         }
                     });

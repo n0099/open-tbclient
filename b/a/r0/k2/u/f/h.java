@@ -56,7 +56,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<PostData> A;
-    public ArrayList<b.a.e.l.e.n> B;
+    public ArrayList<b.a.e.m.e.n> B;
     public boolean C;
     public boolean D;
     public boolean E;
@@ -75,58 +75,58 @@ public class h {
     public b.a.r0.k2.s.c R;
     public View.OnLongClickListener S;
     public SortSwitchButton.f T;
-    public final List<b.a.e.l.e.a> U;
-    public final List<b.a.e.l.e.a> V;
+    public final List<b.a.e.m.e.a> U;
+    public final List<b.a.e.m.e.a> V;
     public Runnable W;
     public int X;
     public int Y;
     public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbFragment f19303a;
+    public PbFragment f20830a;
     public d2 a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f19304b;
+    public BdTypeListView f20831b;
     public List<PostData> b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public r f19305c;
+    public r f20832c;
     public final CustomMessageListener c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public PbFirstFloorCommentAndPraiseAdapter f19306d;
+    public PbFirstFloorCommentAndPraiseAdapter f20833d;
     public CustomMessageListener d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public PbFirstFloorEnterForumAdapter f19307e;
+    public PbFirstFloorEnterForumAdapter f20834e;
     public final CustomMessageListener e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbFirstFloorItemAdapter f19308f;
+    public PbFirstFloorItemAdapter f20835f;
     public final View.OnClickListener f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.r0.k2.u.f.z0.a f19309g;
+    public b.a.r0.k2.u.f.a1.a f20836g;
     public CustomMessageListener g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public l0 f19310h;
-    public List<b.a.e.l.e.a> h0;
+    public m0 f20837h;
+    public List<b.a.e.m.e.a> h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public l0 f19311i;
+    public m0 f20838i;
     public l j;
     public b.a.r0.k2.x.a k;
-    public b.a.r0.b0.f0.a l;
-    public b.a.e.l.e.a m;
-    public b.a.e.l.e.a n;
-    public b.a.e.l.e.a o;
-    public b.a.e.l.e.a p;
-    public b.a.e.l.e.a q;
-    public i0 r;
-    public j0 s;
-    public h0 t;
+    public b.a.r0.b0.g0.a l;
+    public b.a.e.m.e.a m;
+    public b.a.e.m.e.a n;
+    public b.a.e.m.e.a o;
+    public b.a.e.m.e.a p;
+    public b.a.e.m.e.a q;
+    public j0 r;
+    public k0 s;
+    public i0 t;
     public PbReplyLoadMoreAdapter u;
     public ArrayList<b.a.r0.k2.u.c.a> v;
     public i w;
@@ -140,7 +140,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f19312a;
+        public final /* synthetic */ h f20839a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(h hVar, int i2) {
@@ -160,23 +160,23 @@ public class h {
                     return;
                 }
             }
-            this.f19312a = hVar;
+            this.f20839a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof b.a.r0.l3.j0.o)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof b.a.r0.m3.j0.o)) {
                 return;
             }
-            b.a.r0.l3.j0.o oVar = (b.a.r0.l3.j0.o) customResponsedMessage.getData();
-            if (this.f19312a.a0 == null || this.f19312a.a0.K2 != oVar) {
+            b.a.r0.m3.j0.o oVar = (b.a.r0.m3.j0.o) customResponsedMessage.getData();
+            if (this.f20839a.a0 == null || this.f20839a.a0.K2 != oVar) {
                 return;
             }
-            this.f19312a.a0.K2.m(true);
-            this.f19312a.f19304b.setData(this.f19312a.B);
-            this.f19312a.X();
+            this.f20839a.a0.K2.m(true);
+            this.f20839a.f20831b.setData(this.f20839a.B);
+            this.f20839a.X();
         }
     }
 
@@ -186,7 +186,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f19313a;
+        public final /* synthetic */ h f20840a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(h hVar, int i2) {
@@ -206,31 +206,31 @@ public class h {
                     return;
                 }
             }
-            this.f19313a = hVar;
+            this.f20840a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof b.a.r0.l3.j0.d)) {
-                AbsDelegateAdapterList a2 = ((b.a.r0.l3.j0.d) customResponsedMessage.getData()).a();
-                Iterator<b.a.e.l.e.a<?, ?>> it = a2.iterator();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof b.a.r0.m3.j0.d)) {
+                AbsDelegateAdapterList a2 = ((b.a.r0.m3.j0.d) customResponsedMessage.getData()).a();
+                Iterator<b.a.e.m.e.a<?, ?>> it = a2.iterator();
                 while (it.hasNext()) {
-                    b.a.e.l.e.a<?, ?> next = it.next();
+                    b.a.e.m.e.a<?, ?> next = it.next();
                     if (next instanceof n) {
-                        ((n) next).h0(this.f19313a.f19303a);
+                        ((n) next).h0(this.f20840a.f20830a);
                         if (next instanceof b.a.r0.k2.u.c.a) {
-                            this.f19313a.v.add((b.a.r0.k2.u.c.a) next);
+                            this.f20840a.v.add((b.a.r0.k2.u.c.a) next);
                         }
                     }
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(a2);
-                this.f19313a.V.clear();
-                this.f19313a.V.addAll(arrayList);
-                if (this.f19313a.f19304b != null) {
-                    this.f19313a.f19304b.addAdapters(arrayList);
+                this.f20840a.V.clear();
+                this.f20840a.V.addAll(arrayList);
+                if (this.f20840a.f20831b != null) {
+                    this.f20840a.f20831b.addAdapters(arrayList);
                 }
             }
         }
@@ -242,7 +242,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f19314a;
+        public final /* synthetic */ h f20841a;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
@@ -250,7 +250,7 @@ public class h {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f19315e;
+            public final /* synthetic */ c f20842e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -267,14 +267,14 @@ public class h {
                         return;
                     }
                 }
-                this.f19315e = cVar;
+                this.f20842e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f19315e.f19314a.X();
+                    this.f20842e.f20841a.X();
                 }
             }
         }
@@ -297,7 +297,7 @@ public class h {
                     return;
                 }
             }
-            this.f19314a = hVar;
+            this.f20841a = hVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -310,7 +310,7 @@ public class h {
         public void onMessage2(CustomResponsedMessage customResponsedMessage) {
             List<DownloadData> data;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f19314a.z == null || b.a.e.a.j.c(this.f19314a.f19303a.getActivity()).isScroll() || customResponsedMessage.getCmd() != 2001118 || !(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null || data.size() == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f20841a.z == null || b.a.e.a.j.c(this.f20841a.f20830a.getActivity()).isScroll() || customResponsedMessage.getCmd() != 2001118 || !(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null || data.size() == 0) {
                 return;
             }
             boolean z = false;
@@ -324,7 +324,7 @@ public class h {
                 }
             }
             if (z) {
-                b.a.e.e.m.e.a().postDelayed(new a(this), TimeUnit.SECONDS.toMillis(2L));
+                b.a.e.f.m.e.a().postDelayed(new a(this), TimeUnit.SECONDS.toMillis(2L));
             }
         }
     }
@@ -335,7 +335,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f19316e;
+        public final /* synthetic */ h f20843e;
 
         public d(h hVar) {
             Interceptable interceptable = $ic;
@@ -352,16 +352,16 @@ public class h {
                     return;
                 }
             }
-            this.f19316e = hVar;
+            this.f20843e = hVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f19316e.f19303a == null || this.f19316e.z == null || this.f19316e.z.T() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20843e.f20830a == null || this.f20843e.z == null || this.f20843e.z.T() == null) {
                 return;
             }
-            this.f19316e.f19303a.getPbView().G0().v();
+            this.f20843e.f20830a.getPbView().G0().v();
             TiebaStatic.log(new StatisticItem("c12040"));
         }
     }
@@ -372,10 +372,10 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f19317e;
+        public final /* synthetic */ List f20844e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f19318f;
+        public final /* synthetic */ h f20845f;
 
         public e(h hVar, List list) {
             Interceptable interceptable = $ic;
@@ -392,16 +392,16 @@ public class h {
                     return;
                 }
             }
-            this.f19318f = hVar;
-            this.f19317e = list;
+            this.f20845f = hVar;
+            this.f20844e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f19318f.f19304b.setSelectionFromTop(this.f19318f.f19304b.getHeaderViewsCount() + this.f19317e.size(), 0 - this.f19318f.Y);
-                this.f19318f.I = false;
+                this.f20845f.f20831b.setSelectionFromTop(this.f20845f.f20831b.getHeaderViewsCount() + this.f20844e.size(), 0 - this.f20845f.Y);
+                this.f20845f.I = false;
             }
         }
     }
@@ -412,7 +412,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f19319a;
+        public final /* synthetic */ h f20846a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(h hVar, int i2) {
@@ -432,16 +432,16 @@ public class h {
                     return;
                 }
             }
-            this.f19319a = hVar;
+            this.f20846a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && ListUtils.isEmpty(this.f19319a.h0)) {
-                this.f19319a.n();
-                h hVar = this.f19319a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && ListUtils.isEmpty(this.f20846a.h0)) {
+                this.f20846a.n();
+                h hVar = this.f20846a;
                 hVar.c0(hVar.z, false);
             }
         }
@@ -491,15 +491,15 @@ public class h {
         this.e0 = new c(this, 2001118);
         this.f0 = new d(this);
         this.g0 = new f(this, 2016470);
-        this.K = b.a.e.e.p.l.k(pbFragment.getPageContext().getPageActivity());
-        this.f19303a = pbFragment;
-        this.f19304b = bdTypeListView;
+        this.K = b.a.e.f.p.l.k(pbFragment.getPageContext().getPageActivity());
+        this.f20830a = pbFragment;
+        this.f20831b = bdTypeListView;
         J(pbFragment, bdTypeListView);
         pbFragment.registerListener(this.e0);
-        this.Y = b.a.e.e.p.l.i(this.f19303a.getContext()) / 3;
+        this.Y = b.a.e.f.p.l.i(this.f20830a.getContext()) / 3;
     }
 
-    public final int A(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.l.e.n> arrayList) {
+    public final int A(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.m.e.n> arrayList) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -515,7 +515,7 @@ public class h {
                     i2 = 0;
                     break;
                 }
-                b.a.e.l.e.n nVar = arrayList.get(i2);
+                b.a.e.m.e.n nVar = arrayList.get(i2);
                 if (nVar instanceof PostData) {
                     PostData postData = (PostData) nVar;
                     if (postData.A() == 1 && postData.Q == 0) {
@@ -537,13 +537,13 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdTypeListView bdTypeListView = this.f19304b;
+            BdTypeListView bdTypeListView = this.f20831b;
             if (bdTypeListView == null || bdTypeListView.getData() == null) {
                 return -1;
             }
-            for (int i2 = 0; i2 < this.f19304b.getData().size(); i2++) {
-                b.a.e.l.e.n nVar = this.f19304b.getData().get(i2);
-                if (nVar != null && nVar.getType() == b.a.r0.k2.r.p.l) {
+            for (int i2 = 0; i2 < this.f20831b.getData().size(); i2++) {
+                b.a.e.m.e.n nVar = this.f20831b.getData().get(i2);
+                if (nVar != null && nVar.getType() == b.a.r0.k2.r.q.l) {
                     return i2;
                 }
             }
@@ -552,7 +552,7 @@ public class h {
         return invokeV.intValue;
     }
 
-    public int C(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.l.e.n> arrayList, boolean z) {
+    public int C(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.m.e.n> arrayList, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, fVar, arrayList, z)) == null) {
@@ -571,7 +571,7 @@ public class h {
         return invokeLLZ.intValue;
     }
 
-    public int D(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.l.e.n> arrayList, boolean z) {
+    public int D(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.m.e.n> arrayList, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, fVar, arrayList, z)) == null) {
@@ -596,7 +596,7 @@ public class h {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.A : (ArrayList) invokeV.objValue;
     }
 
-    public final int F(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.l.e.n> arrayList, boolean z) {
+    public final int F(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.m.e.n> arrayList, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048581, this, fVar, arrayList, z)) == null) {
@@ -622,19 +622,19 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            r rVar = this.f19305c;
+            r rVar = this.f20832c;
             if (rVar == null || rVar.v0() == null) {
                 return null;
             }
-            if (this.f19305c.v0().mPbBusinessPromotionContainer != null && this.f19305c.v0().mPbBusinessPromotionContainer.isShown()) {
-                return this.f19305c.v0().mPbBusinessPromotionContainer;
+            if (this.f20832c.v0().mPbBusinessPromotionContainer != null && this.f20832c.v0().mPbBusinessPromotionContainer.isShown()) {
+                return this.f20832c.v0().mPbBusinessPromotionContainer;
             }
-            return this.f19305c.v0().mForumEnterButtonContainer;
+            return this.f20832c.v0().mForumEnterButtonContainer;
         }
         return (View) invokeV.objValue;
     }
 
-    public final void I(ArrayList<b.a.e.l.e.n> arrayList, Boolean bool) {
+    public final void I(ArrayList<b.a.e.m.e.n> arrayList, Boolean bool) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList, bool) == null) || ListUtils.isEmpty(arrayList)) {
             return;
@@ -642,14 +642,14 @@ public class h {
         int i2 = b.a.q0.t.c.e.i();
         int j = b.a.q0.t.c.e.j() - 1;
         if (bool.booleanValue()) {
-            b.a.e.l.e.n nVar = arrayList.get(0);
+            b.a.e.m.e.n nVar = arrayList.get(0);
             if ((nVar instanceof PostData) && ((PostData) nVar).A() == 1) {
                 j++;
             }
         }
         int k = b.a.q0.t.c.e.k() + 1;
-        PbFragment pbFragment = this.f19303a;
-        if (pbFragment != null && pbFragment.getPbModel() != null && this.f19303a.getPbModel().Z0() == 3) {
+        PbFragment pbFragment = this.f20830a;
+        if (pbFragment != null && pbFragment.getPbModel() != null && this.f20830a.getPbModel().Z0() == 3) {
             this.b0.clear();
         }
         P(j, i2, k, arrayList);
@@ -659,41 +659,41 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, pbFragment, bdTypeListView) == null) {
             r rVar = new r(pbFragment, PostData.x0);
-            this.f19305c = rVar;
+            this.f20832c = rVar;
             rVar.H0(pbFragment);
-            this.f19306d = new PbFirstFloorCommentAndPraiseAdapter(pbFragment, b.a.r0.k2.r.q.j);
-            this.f19307e = new PbFirstFloorEnterForumAdapter(pbFragment, b.a.r0.k2.r.h.m);
-            this.f19308f = new PbFirstFloorItemAdapter(pbFragment.getContext(), b.a.r0.k2.r.i.f18771g);
-            this.f19309g = new b.a.r0.k2.u.f.z0.a(pbFragment, b.a.r0.k2.r.a.f18742g);
-            this.f19310h = new l0(pbFragment, b.a.r0.k2.r.p.l);
-            this.f19311i = new l0(pbFragment, b.a.r0.k2.r.p.m);
+            this.f20833d = new PbFirstFloorCommentAndPraiseAdapter(pbFragment, b.a.r0.k2.r.r.j);
+            this.f20834e = new PbFirstFloorEnterForumAdapter(pbFragment, b.a.r0.k2.r.h.m);
+            this.f20835f = new PbFirstFloorItemAdapter(pbFragment.getContext(), b.a.r0.k2.r.i.f20307g);
+            this.f20836g = new b.a.r0.k2.u.f.a1.a(pbFragment, b.a.r0.k2.r.a.f20278g);
+            this.f20837h = new m0(pbFragment, b.a.r0.k2.r.q.l);
+            this.f20838i = new m0(pbFragment, b.a.r0.k2.r.q.m);
             l lVar = new l(pbFragment, PostData.y0);
             this.j = lVar;
             lVar.X0(pbFragment);
-            this.m = b.a.r0.z2.y.o().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.s4);
-            this.n = b.a.r0.z2.y.o().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.u4);
-            this.o = b.a.r0.y0.b.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.A4);
-            this.p = b.a.r0.y0.b.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.B4);
-            this.q = b.a.r0.y0.b.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.D4);
-            this.t = new h0(pbFragment, b.a.r0.k2.r.m.M0);
-            this.r = new i0(pbFragment, g0.J0);
-            this.s = new j0(pbFragment, f1.P0);
+            this.m = b.a.r0.a3.y.o().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.t4);
+            this.n = b.a.r0.a3.y.o().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.v4);
+            this.o = b.a.r0.y0.b.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.B4);
+            this.p = b.a.r0.y0.b.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.C4);
+            this.q = b.a.r0.y0.b.e().a(pbFragment.getBaseFragmentActivity(), AdvertAppInfo.E4);
+            this.t = new i0(pbFragment, b.a.r0.k2.r.n.M0);
+            this.r = new j0(pbFragment, h0.J0);
+            this.s = new k0(pbFragment, f1.P0);
             this.u = new PbReplyLoadMoreAdapter(pbFragment, PostData.E0);
-            this.k = new b.a.r0.k2.x.a(pbFragment, b.a.r0.k2.x.b.f19665e);
-            this.l = new b.a.r0.b0.f0.a(pbFragment.getPageContext());
-            this.w = new i(pbFragment, b.a.q0.s.q.q.b4);
+            this.k = new b.a.r0.k2.x.a(pbFragment, b.a.r0.k2.x.b.f21202e);
+            this.l = new b.a.r0.b0.g0.a(pbFragment.getPageContext());
+            this.w = new i(pbFragment, b.a.q0.s.q.q.c4);
             this.x = new w(pbFragment, pbFragment.getUniqueId());
-            b.a.r0.k2.u.c.b bVar = new b.a.r0.k2.u.c.b(pbFragment, pbFragment.getUniqueId(), this.f19304b);
+            b.a.r0.k2.u.c.b bVar = new b.a.r0.k2.u.c.b(pbFragment, pbFragment.getUniqueId(), this.f20831b);
             this.y = bVar;
             this.U.addAll(bVar.a());
-            this.U.add(this.f19305c);
-            this.U.add(this.f19306d);
-            this.U.add(this.f19307e);
-            this.U.add(this.f19308f);
-            this.U.add(this.f19309g);
+            this.U.add(this.f20832c);
+            this.U.add(this.f20833d);
+            this.U.add(this.f20834e);
+            this.U.add(this.f20835f);
+            this.U.add(this.f20836g);
             this.U.add(this.j);
-            this.U.add(this.f19310h);
-            this.U.add(this.f19311i);
+            this.U.add(this.f20837h);
+            this.U.add(this.f20838i);
             this.U.add(this.m);
             this.U.add(this.n);
             this.U.add(this.o);
@@ -713,7 +713,7 @@ public class h {
             pbFragment.registerListener(this.d0);
             pbFragment.registerListener(this.c0);
             m();
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2004015, new b.a.r0.l3.j0.d(pbFragment.getPageContext().getPageActivity(), new AbsDelegateAdapterList()));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2004015, new b.a.r0.m3.j0.d(pbFragment.getPageContext().getPageActivity(), new AbsDelegateAdapterList()));
             CustomMessage customMessage = new CustomMessage(2004015);
             customMessage.setTag(pbFragment.getUniqueId());
             customResponsedMessage.setOrginalMessage(customMessage);
@@ -725,17 +725,17 @@ public class h {
     public final void K(@NonNull b.a.r0.k2.r.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
-            this.f19305c.t(fVar);
-            this.f19305c.setFromCDN(this.C);
-            this.f19305c.n(this.K);
-            this.f19305c.c(this.D);
-            this.f19305c.e(this.O);
-            this.f19305c.m(this.N);
-            this.f19305c.p(this.P);
-            this.f19305c.d(this.S);
-            this.f19305c.E0(this.Q);
-            this.f19305c.G0(this.R);
-            this.f19308f.k0(this.Q);
+            this.f20832c.t(fVar);
+            this.f20832c.setFromCDN(this.C);
+            this.f20832c.n(this.K);
+            this.f20832c.c(this.D);
+            this.f20832c.e(this.O);
+            this.f20832c.m(this.N);
+            this.f20832c.p(this.P);
+            this.f20832c.d(this.S);
+            this.f20832c.E0(this.Q);
+            this.f20832c.G0(this.R);
+            this.f20835f.k0(this.Q);
             this.j.t(fVar);
             this.j.setFromCDN(this.C);
             this.j.q(this.L);
@@ -745,12 +745,12 @@ public class h {
             this.j.p(this.P);
             this.j.d(this.S);
             this.j.W0(this.R);
-            this.f19306d.u0(this.O);
+            this.f20833d.u0(this.O);
             this.u.k0(this.O);
             this.k.k0(this.f0);
-            b.a.e.l.e.a aVar = this.n;
-            if (aVar != null && (aVar instanceof b.a.r0.z2.t)) {
-                ((b.a.r0.z2.t) aVar).k(this.C);
+            b.a.e.m.e.a aVar = this.n;
+            if (aVar != null && (aVar instanceof b.a.r0.a3.t)) {
+                ((b.a.r0.a3.t) aVar).k(this.C);
             }
             Iterator<b.a.r0.k2.u.c.a> it = this.v.iterator();
             while (it.hasNext()) {
@@ -769,29 +769,29 @@ public class h {
                     next.d(this.S);
                 }
             }
-            this.f19310h.e(this.O);
-            this.f19310h.m0(this.T);
-            this.f19311i.e(this.O);
-            this.f19310h.t(fVar);
-            this.f19309g.t(fVar);
-            this.f19311i.t(fVar);
+            this.f20837h.e(this.O);
+            this.f20837h.m0(this.T);
+            this.f20838i.e(this.O);
+            this.f20837h.t(fVar);
+            this.f20836g.t(fVar);
+            this.f20838i.t(fVar);
             this.r.t(fVar);
             this.s.t(fVar);
             this.w.m0(fVar);
-            this.w.l0(this.f19303a.bjhFrom);
+            this.w.l0(this.f20830a.bjhFrom);
             this.x.k0(fVar);
             this.y.f(fVar);
         }
     }
 
-    public final b.a.e.l.e.n L(ArrayList<b.a.e.l.e.n> arrayList, int i2) {
+    public final b.a.e.m.e.n L(ArrayList<b.a.e.m.e.n> arrayList, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, arrayList, i2)) == null) {
             if (this.z == null) {
                 return null;
             }
-            b.a.r0.l3.j0.p k0 = this.f19303a.getPbModel().k0();
+            b.a.r0.m3.j0.p k0 = this.f20830a.getPbModel().k0();
             if (k0 == null) {
                 k0 = this.z.z();
             }
@@ -802,11 +802,11 @@ public class h {
             if (L0 != null) {
                 L0.setAdvertAppInfo(k0.getAdvertAppInfo());
             }
-            int U4 = k0.getAdvertAppInfo().U4();
-            if (U4 != 0) {
-                b.a.r0.z2.l0.d.k(k0, U4);
-                if (U4 != 28 && U4 != 31) {
-                    k0.getAdvertAppInfo().Z3 = -1001;
+            int W4 = k0.getAdvertAppInfo().W4();
+            if (W4 != 0) {
+                b.a.r0.a3.l0.d.k(k0, W4);
+                if (W4 != 28 && W4 != 31) {
+                    k0.getAdvertAppInfo().a4 = -1001;
                 }
                 return null;
             }
@@ -814,7 +814,7 @@ public class h {
                 k0.I0 = this.z.l().getId();
             }
             if (this.z.O() != null) {
-                k0.L0 = b.a.e.e.m.b.g(this.z.O().f0(), 0L);
+                k0.L0 = b.a.e.f.m.b.g(this.z.O().f0(), 0L);
             }
             b.a.r0.k2.r.f fVar = this.z;
             if (fVar != null && fVar.y() != null) {
@@ -827,10 +827,10 @@ public class h {
             }
             return null;
         }
-        return (b.a.e.l.e.n) invokeLI.objValue;
+        return (b.a.e.m.e.n) invokeLI.objValue;
     }
 
-    public final boolean M(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.l.e.n> arrayList, boolean z, boolean z2, int i2, int i3, int i4, int i5) {
+    public final boolean M(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.m.e.n> arrayList, boolean z, boolean z2, int i2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{fVar, arrayList, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
@@ -840,16 +840,16 @@ public class h {
                 for (int i6 = 0; i6 < min; i6++) {
                     b.a.q0.s.q.q qVar = fVar.f().get(i6);
                     if (!z2 && i6 == 0) {
-                        qVar.U4(true);
+                        qVar.W4(true);
                     }
-                    if (qVar.q1() == null) {
+                    if (qVar.r1() == null) {
                         if (i6 == min - 1) {
-                            qVar.W4(true);
+                            qVar.Y4(true);
                         }
                     } else if (i6 == min - 2) {
-                        qVar.W4(true);
+                        qVar.Y4(true);
                     } else if (i6 == min - 1) {
-                        qVar.V4(true);
+                        qVar.X4(true);
                     }
                     arrayList2.add(qVar);
                 }
@@ -868,7 +868,7 @@ public class h {
         return invokeCommon.booleanValue;
     }
 
-    public final b.a.e.l.e.n N(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.l.e.n> arrayList, int i2) {
+    public final b.a.e.m.e.n N(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.m.e.n> arrayList, int i2) {
         InterceptResult invokeLLI;
         b.a.r0.k2.r.a aVar;
         Interceptable interceptable = $ic;
@@ -879,20 +879,20 @@ public class h {
             ListUtils.add(arrayList, i2, aVar);
             return aVar;
         }
-        return (b.a.e.l.e.n) invokeLLI.objValue;
+        return (b.a.e.m.e.n) invokeLLI.objValue;
     }
 
-    public final b.a.e.l.e.n O(ArrayList<b.a.e.l.e.n> arrayList, int i2) {
+    public final b.a.e.m.e.n O(ArrayList<b.a.e.m.e.n> arrayList, int i2) {
         InterceptResult invokeLI;
         b.a.r0.k2.r.f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, arrayList, i2)) == null) {
-            if (b.a.q0.b.d.H() && i2 > 0 && (fVar = this.z) != null && fVar.n0()) {
+            if (b.a.q0.b.d.K() && i2 > 0 && (fVar = this.z) != null && fVar.n0()) {
                 String d2 = b.a.r0.y0.e.c.e().d("pb_banner");
                 if (this.a0 == null && b.a.r0.y0.a.i().m(d2)) {
                     d2 d2Var = new d2();
                     this.a0 = d2Var;
-                    d2Var.K2 = new b.a.r0.l3.j0.o();
+                    d2Var.K2 = new b.a.r0.m3.j0.o();
                     b.a.r0.k2.r.f fVar2 = this.z;
                     if (fVar2 != null) {
                         this.a0.K2.j(fVar2.m());
@@ -906,15 +906,15 @@ public class h {
             }
             return this.a0;
         }
-        return (b.a.e.l.e.n) invokeLI.objValue;
+        return (b.a.e.m.e.n) invokeLI.objValue;
     }
 
-    public final void P(int i2, int i3, int i4, ArrayList<b.a.e.l.e.n> arrayList) {
+    public final void P(int i2, int i3, int i4, ArrayList<b.a.e.m.e.n> arrayList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), arrayList}) == null) || ListUtils.isEmpty(arrayList) || i2 < 0 || i3 < 1) {
             return;
         }
-        ListIterator<b.a.e.l.e.n> listIterator = arrayList.listIterator();
+        ListIterator<b.a.e.m.e.n> listIterator = arrayList.listIterator();
         int i5 = 0;
         int i6 = 0;
         while (true) {
@@ -929,7 +929,7 @@ public class h {
                     listIterator.add(this.b0.get(i6));
                 } else {
                     PostData postData = new PostData();
-                    b.a.r0.l3.j0.o oVar = new b.a.r0.l3.j0.o();
+                    b.a.r0.m3.j0.o oVar = new b.a.r0.m3.j0.o();
                     b.a.r0.k2.r.f fVar = this.z;
                     oVar.j(fVar != null ? fVar.m() : "");
                     b.a.r0.k2.r.f fVar2 = this.z;
@@ -948,7 +948,7 @@ public class h {
             return;
         }
         PostData postData2 = new PostData();
-        b.a.r0.l3.j0.o oVar2 = new b.a.r0.l3.j0.o();
+        b.a.r0.m3.j0.o oVar2 = new b.a.r0.m3.j0.o();
         b.a.r0.k2.r.f fVar3 = this.z;
         oVar2.j(fVar3 != null ? fVar3.m() : "");
         b.a.r0.k2.r.f fVar4 = this.z;
@@ -959,7 +959,7 @@ public class h {
         this.b0.add(postData2);
     }
 
-    public final b.a.e.l.e.n Q(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.l.e.n> arrayList, int i2) {
+    public final b.a.e.m.e.n Q(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.m.e.n> arrayList, int i2) {
         InterceptResult invokeLLI;
         b.a.r0.k2.r.h hVar;
         Interceptable interceptable = $ic;
@@ -967,27 +967,27 @@ public class h {
             if (fVar.l() == null || StringUtils.isNull(fVar.l().getName())) {
                 return null;
             }
-            if (TextUtils.equals(fVar.l().getName(), this.f19303a.getPbModel().q0()) && this.f19303a.getPbModel().v0()) {
+            if (TextUtils.equals(fVar.l().getName(), this.f20830a.getPbModel().q0()) && this.f20830a.getPbModel().v0()) {
                 return null;
             }
-            if (!this.f19303a.isSimpleForum() && !ListUtils.isEmpty(fVar.p())) {
+            if (!this.f20830a.isSimpleForum() && !ListUtils.isEmpty(fVar.p())) {
                 hVar = new b.a.r0.k2.r.h(fVar.p().get(0));
             } else {
                 hVar = new b.a.r0.k2.r.h(fVar.l());
             }
-            hVar.k = this.f19303a.getPbModel().f1();
+            hVar.k = this.f20830a.getPbModel().f1();
             ListUtils.add(arrayList, i2 + 1, hVar);
             return hVar;
         }
-        return (b.a.e.l.e.n) invokeLLI.objValue;
+        return (b.a.e.m.e.n) invokeLLI.objValue;
     }
 
-    public final b.a.e.l.e.n R(b.a.r0.k2.r.f fVar, PostData postData, ArrayList<b.a.e.l.e.n> arrayList, int i2) {
+    public final b.a.e.m.e.n R(b.a.r0.k2.r.f fVar, PostData postData, ArrayList<b.a.e.m.e.n> arrayList, int i2) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048593, this, fVar, postData, arrayList, i2)) == null) {
             b.a.r0.k2.r.i iVar = null;
-            if (fVar.l() == null || StringUtils.isNull(fVar.l().getName()) || !TextUtils.equals(fVar.l().getName(), this.f19303a.getPbModel().q0()) || !this.f19303a.getPbModel().v0()) {
+            if (fVar.l() == null || StringUtils.isNull(fVar.l().getName()) || !TextUtils.equals(fVar.l().getName(), this.f20830a.getPbModel().q0()) || !this.f20830a.getPbModel().v0()) {
                 if (postData != null) {
                     if (postData.r0 != null) {
                         iVar = new b.a.r0.k2.r.i(postData.r0);
@@ -999,25 +999,25 @@ public class h {
                     }
                 }
                 if (iVar != null) {
-                    iVar.f18773f = this.f19303a.getPbModel().f1();
+                    iVar.f20309f = this.f20830a.getPbModel().f1();
                     ListUtils.add(arrayList, i2 + 1, iVar);
                 }
                 return iVar;
             }
             return null;
         }
-        return (b.a.e.l.e.n) invokeLLLI.objValue;
+        return (b.a.e.m.e.n) invokeLLLI.objValue;
     }
 
-    public final x S(ArrayList<b.a.e.l.e.n> arrayList, b.a.e.l.e.n nVar, int i2, int i3) {
+    public final x S(ArrayList<b.a.e.m.e.n> arrayList, b.a.e.m.e.n nVar, int i2, int i3) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048594, this, arrayList, nVar, i2, i3)) == null) {
             x B = this.z.B();
             if (B != null) {
                 if (nVar != null) {
-                    if (i3 >= 0 || nVar.getType() == AdvertAppInfo.u4) {
-                        i3 = nVar.getType() != AdvertAppInfo.u4 ? i3 + 1 : -1;
+                    if (i3 >= 0 || nVar.getType() == AdvertAppInfo.v4) {
+                        i3 = nVar.getType() != AdvertAppInfo.v4 ? i3 + 1 : -1;
                     } else {
                         i3 = i2 + 2;
                     }
@@ -1033,40 +1033,40 @@ public class h {
         return (x) invokeLLII.objValue;
     }
 
-    public final void T(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.l.e.n> arrayList, int i2) {
+    public final void T(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.m.e.n> arrayList, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048595, this, fVar, arrayList, i2) == null) {
-            b.a.r0.k2.r.p pVar = new b.a.r0.k2.r.p(b.a.r0.k2.r.p.l);
+            b.a.r0.k2.r.q qVar = new b.a.r0.k2.r.q(b.a.r0.k2.r.q.l);
             d2 O = fVar.O();
             if (O != null) {
                 O.U0();
             }
-            pVar.f18797h = this.f19303a.isHostOnlyMode();
-            pVar.f18796g = fVar.f18763g;
+            qVar.f20334h = this.f20830a.isHostOnlyMode();
+            qVar.f20333g = fVar.f20299g;
             fVar.c();
-            pVar.f18798i = fVar.g0();
-            pVar.k = fVar.f18762f;
-            ListUtils.add(arrayList, i2, pVar);
+            qVar.f20335i = fVar.g0();
+            qVar.k = fVar.f20298f;
+            ListUtils.add(arrayList, i2, qVar);
             if (fVar.L() == 4) {
-                ListUtils.add(arrayList, i2 + 1, new b.a.r0.k2.r.o());
+                ListUtils.add(arrayList, i2 + 1, new b.a.r0.k2.r.p());
             }
         }
     }
 
-    public final b.a.e.l.e.n U(ArrayList<b.a.e.l.e.n> arrayList, int i2) {
+    public final b.a.e.m.e.n U(ArrayList<b.a.e.m.e.n> arrayList, int i2) {
         InterceptResult invokeLI;
         PbModel pbModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, arrayList, i2)) == null) {
-            if (i2 < 0 || (pbModel = this.f19303a.getPbModel()) == null || TextUtils.isEmpty(pbModel.T0())) {
+            if (i2 < 0 || (pbModel = this.f20830a.getPbModel()) == null || TextUtils.isEmpty(pbModel.T0())) {
                 return null;
             }
-            b.a.r0.l3.j0.p pVar = new b.a.r0.l3.j0.p();
+            b.a.r0.m3.j0.p pVar = new b.a.r0.m3.j0.p();
             l(pVar);
             ListUtils.add(arrayList, i2 + 1, pVar);
             return pVar;
         }
-        return (b.a.e.l.e.n) invokeLI.objValue;
+        return (b.a.e.m.e.n) invokeLI.objValue;
     }
 
     public boolean V() {
@@ -1085,8 +1085,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             this.X = B();
-            if (this.f19304b.getAdapter2() instanceof b.a.e.l.e.e) {
-                this.f19304b.getAdapter2().notifyDataSetChanged();
+            if (this.f20831b.getAdapter2() instanceof b.a.e.m.e.e) {
+                this.f20831b.getAdapter2().notifyDataSetChanged();
             }
         }
     }
@@ -1095,58 +1095,58 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
             if (i2 == 1) {
-                r rVar = this.f19305c;
+                r rVar = this.f20832c;
                 if (rVar != null) {
                     rVar.A0();
                 }
-                b.a.e.l.e.a aVar = this.n;
-                if (aVar instanceof b.a.r0.z2.p) {
-                    ((b.a.r0.z2.p) aVar).onPause();
+                b.a.e.m.e.a aVar = this.n;
+                if (aVar instanceof b.a.r0.a3.p) {
+                    ((b.a.r0.a3.p) aVar).onPause();
                 }
-                b.a.e.l.e.a aVar2 = this.o;
-                if (aVar2 instanceof b.a.r0.z2.p) {
-                    ((b.a.r0.z2.p) aVar2).onPause();
+                b.a.e.m.e.a aVar2 = this.o;
+                if (aVar2 instanceof b.a.r0.a3.p) {
+                    ((b.a.r0.a3.p) aVar2).onPause();
                 }
-                b.a.e.l.e.a aVar3 = this.q;
-                if (aVar3 instanceof b.a.r0.z2.p) {
-                    ((b.a.r0.z2.p) aVar3).onPause();
+                b.a.e.m.e.a aVar3 = this.q;
+                if (aVar3 instanceof b.a.r0.a3.p) {
+                    ((b.a.r0.a3.p) aVar3).onPause();
                 }
-                m.a().j(this.f19303a.getPbActivity());
+                m.a().j(this.f20830a.getPbActivity());
             } else if (i2 == 2) {
-                r rVar2 = this.f19305c;
+                r rVar2 = this.f20832c;
                 if (rVar2 != null) {
                     rVar2.C0();
                 }
-                b.a.e.l.e.a aVar4 = this.n;
-                if (aVar4 instanceof b.a.r0.z2.p) {
-                    ((b.a.r0.z2.p) aVar4).onResume();
+                b.a.e.m.e.a aVar4 = this.n;
+                if (aVar4 instanceof b.a.r0.a3.p) {
+                    ((b.a.r0.a3.p) aVar4).onResume();
                 }
-                b.a.e.l.e.a aVar5 = this.o;
-                if (aVar5 instanceof b.a.r0.z2.p) {
-                    ((b.a.r0.z2.p) aVar5).onResume();
+                b.a.e.m.e.a aVar5 = this.o;
+                if (aVar5 instanceof b.a.r0.a3.p) {
+                    ((b.a.r0.a3.p) aVar5).onResume();
                 }
-                b.a.e.l.e.a aVar6 = this.q;
-                if (aVar6 instanceof b.a.r0.z2.p) {
-                    ((b.a.r0.z2.p) aVar6).onResume();
+                b.a.e.m.e.a aVar6 = this.q;
+                if (aVar6 instanceof b.a.r0.a3.p) {
+                    ((b.a.r0.a3.p) aVar6).onResume();
                 }
                 b0(false);
             } else if (i2 != 3) {
             } else {
-                r rVar3 = this.f19305c;
+                r rVar3 = this.f20832c;
                 if (rVar3 != null) {
                     rVar3.B0();
                 }
-                b.a.e.l.e.a aVar7 = this.n;
-                if (aVar7 instanceof b.a.r0.z2.p) {
-                    ((b.a.r0.z2.p) aVar7).onDestroy();
+                b.a.e.m.e.a aVar7 = this.n;
+                if (aVar7 instanceof b.a.r0.a3.p) {
+                    ((b.a.r0.a3.p) aVar7).onDestroy();
                 }
-                b.a.e.l.e.a aVar8 = this.o;
-                if (aVar8 instanceof b.a.r0.z2.p) {
-                    ((b.a.r0.z2.p) aVar8).onDestroy();
+                b.a.e.m.e.a aVar8 = this.o;
+                if (aVar8 instanceof b.a.r0.a3.p) {
+                    ((b.a.r0.a3.p) aVar8).onDestroy();
                 }
-                b.a.e.l.e.a aVar9 = this.q;
-                if (aVar9 instanceof b.a.r0.z2.p) {
-                    ((b.a.r0.z2.p) aVar9).onDestroy();
+                b.a.e.m.e.a aVar9 = this.q;
+                if (aVar9 instanceof b.a.r0.a3.p) {
+                    ((b.a.r0.a3.p) aVar9).onDestroy();
                 }
                 m.a().d();
             }
@@ -1156,27 +1156,27 @@ public class h {
     public void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            b.a.e.e.m.e.a().removeCallbacks(this.W);
-            l0 l0Var = this.f19310h;
-            if (l0Var != null) {
-                l0Var.onDestroy();
+            b.a.e.f.m.e.a().removeCallbacks(this.W);
+            m0 m0Var = this.f20837h;
+            if (m0Var != null) {
+                m0Var.onDestroy();
             }
-            l0 l0Var2 = this.f19311i;
-            if (l0Var2 != null) {
-                l0Var2.onDestroy();
+            m0 m0Var2 = this.f20838i;
+            if (m0Var2 != null) {
+                m0Var2.onDestroy();
             }
-            PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter = this.f19306d;
+            PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter = this.f20833d;
             if (pbFirstFloorCommentAndPraiseAdapter != null) {
                 pbFirstFloorCommentAndPraiseAdapter.onDestroy();
             }
-            b.a.r0.k2.u.f.z0.a aVar = this.f19309g;
+            b.a.r0.k2.u.f.a1.a aVar = this.f20836g;
             if (aVar != null) {
                 aVar.onDestroy();
             }
         }
     }
 
-    public final void a0(boolean z, boolean z2, int i2, List<b.a.e.l.e.n> list) {
+    public final void a0(boolean z, boolean z2, int i2, List<b.a.e.m.e.n> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), list}) == null) || z || z2) {
             return;
@@ -1185,15 +1185,15 @@ public class h {
             return;
         }
         this.W = new e(this, list);
-        b.a.e.e.m.e.a().post(this.W);
+        b.a.e.f.m.e.a().post(this.W);
     }
 
     public void b0(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048603, this, z) == null) || this.f19303a.getPbView() == null || this.f19303a.getPbActivity() == null || this.f19303a.getPbActivity().getPbModel() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048603, this, z) == null) || this.f20830a.getPbView() == null || this.f20830a.getPbActivity() == null || this.f20830a.getPbActivity().getPbModel() == null) {
             return;
         }
-        m.a().g(this.f19303a.getPbActivity().getPbModel().s1(), this.f19310h.j0(), this.f19303a.getPbView().M0(), this.f19303a.getPbActivity().getPageStayDurationItem(), z, this.y.b(), this.f19303a.getListView());
+        m.a().g(this.f20830a.getPbActivity().getPbModel().u1(), this.f20837h.j0(), this.f20830a.getPbView().M0(), this.f20830a.getPbActivity().getPageStayDurationItem(), z, this.y.b(), this.f20830a.getListView());
     }
 
     public void c0(b.a.r0.k2.r.f fVar, boolean z) {
@@ -1207,11 +1207,11 @@ public class h {
         boolean z7;
         int i3;
         x xVar;
-        List<b.a.e.l.e.n> list;
+        List<b.a.e.m.e.n> list;
         int i4;
         boolean z8;
         boolean z9;
-        b.a.e.l.e.n nVar;
+        b.a.e.m.e.n nVar;
         int i5;
         PostData postData2;
         Interceptable interceptable = $ic;
@@ -1219,7 +1219,7 @@ public class h {
             return;
         }
         this.z = fVar;
-        if (!b.a.q0.b.d.G()) {
+        if (!b.a.q0.b.d.J()) {
             u0();
         }
         if (this.A == null) {
@@ -1233,19 +1233,19 @@ public class h {
         if (fVar.O() != null && fVar.O().J() != null) {
             this.L = fVar.O().J().getUserId();
         }
-        if (this.f19305c == null) {
+        if (this.f20832c == null) {
             return;
         }
         K(fVar);
-        ArrayList<b.a.e.l.e.n> arrayList = new ArrayList<>(fVar.F());
-        if (b.a.q0.g1.b.c.d()) {
-            this.f19304b.setData(arrayList.subList(0, 1));
-            this.f19305c.F0(false);
+        ArrayList<b.a.e.m.e.n> arrayList = new ArrayList<>(fVar.F());
+        if (b.a.q0.f1.b.c.d()) {
+            this.f20831b.setData(arrayList.subList(0, 1));
+            this.f20832c.F0(false);
             return;
         }
         PostData p = p(arrayList);
         boolean z10 = p != null;
-        if (!b.a.r0.z0.a.f() && b.a.q0.b.d.G() && this.z.n0()) {
+        if (!b.a.r0.z0.a.f() && b.a.q0.b.d.J() && this.z.n0()) {
             I(arrayList, Boolean.valueOf(z10));
         }
         if (p != null) {
@@ -1274,7 +1274,7 @@ public class h {
             z3 = true;
         }
         o(arrayList);
-        if (this.f19303a.getIsMangaThread()) {
+        if (this.f20830a.getIsMangaThread()) {
             if (fVar.F().size() > 0 && (postData2 = fVar.F().get(0)) != null && postData2.A() == 1 && !ListUtils.isEmpty(arrayList)) {
                 arrayList.remove(0);
             }
@@ -1288,7 +1288,7 @@ public class h {
         if (D >= 0) {
             ListUtils.add(arrayList, D, this.z.E());
         }
-        b.a.r0.l3.w.f(arrayList, 1);
+        b.a.r0.m3.w.f(arrayList, 1);
         int A = A(fVar, arrayList);
         if (A >= 0) {
             T(fVar, arrayList, A);
@@ -1297,9 +1297,9 @@ public class h {
             z4 = false;
         }
         int u = u(fVar, arrayList);
-        List<b.a.e.l.e.n> v = v(fVar);
+        List<b.a.e.m.e.n> v = v(fVar);
         if (!ListUtils.isEmpty(v) && u >= 0) {
-            b.a.e.l.e.n nVar2 = (b.a.e.l.e.n) ListUtils.getItem(arrayList, u);
+            b.a.e.m.e.n nVar2 = (b.a.e.m.e.n) ListUtils.getItem(arrayList, u);
             if (nVar2 instanceof PostData) {
                 ((PostData) nVar2).T = true;
             }
@@ -1329,7 +1329,7 @@ public class h {
             F++;
         }
         if (z10) {
-            b.a.e.l.e.n U = U(arrayList, F);
+            b.a.e.m.e.n U = U(arrayList, F);
             boolean z12 = U != null;
             if (z12) {
                 z9 = z12;
@@ -1348,7 +1348,7 @@ public class h {
                     F++;
                 }
             }
-            if (b.a.q0.b.d.H() && z13) {
+            if (b.a.q0.b.d.K() && z13) {
                 i3 = i5;
                 z7 = z9;
                 xVar = null;
@@ -1389,7 +1389,7 @@ public class h {
             list = v;
             i4 = u;
         }
-        this.f19305c.F0(!z5);
+        this.f20832c.F0(!z5);
         boolean t0 = t0(postData);
         if (this.F && !t0) {
             arrayList.remove(postData);
@@ -1398,37 +1398,37 @@ public class h {
         if (fVar.S() != null) {
             fVar.S().k(!z6);
         }
-        if (this.f19304b != null) {
+        if (this.f20831b != null) {
             this.B = arrayList;
-            List<b.a.e.l.e.n> R = fVar.R();
+            List<b.a.e.m.e.n> R = fVar.R();
             if (!ListUtils.isEmpty(R)) {
                 ArrayList arrayList2 = new ArrayList(arrayList.size() + R.size() + 2);
                 arrayList2.addAll(arrayList);
                 b.a.r0.k2.r.k kVar = new b.a.r0.k2.r.k();
-                PbListView K0 = this.f19303a.getPbView().K0();
+                PbListView K0 = this.f20830a.getPbView().K0();
                 if (K0 != null && K0.n()) {
-                    kVar.f18777e = TbadkCoreApplication.getInst().getString(b.a.r0.k2.l.pb_no_replay);
-                    kVar.f18778f = true;
+                    kVar.f20313e = TbadkCoreApplication.getInst().getString(b.a.r0.k2.l.pb_no_replay);
+                    kVar.f20314f = true;
                     z8 = false;
                 } else {
-                    kVar.f18777e = TbadkCoreApplication.getInst().getString(b.a.r0.k2.l.list_has_no_more);
+                    kVar.f20313e = TbadkCoreApplication.getInst().getString(b.a.r0.k2.l.list_has_no_more);
                     z8 = false;
-                    kVar.f18778f = false;
+                    kVar.f20314f = false;
                 }
                 arrayList2.add(kVar);
-                b.a.r0.b0.f0.e eVar = new b.a.r0.b0.f0.e();
-                eVar.f14788e = TbadkCoreApplication.getInst().getString(b.a.r0.k2.l.recommed_for_you);
+                b.a.r0.b0.g0.e eVar = new b.a.r0.b0.g0.e();
+                eVar.f16275e = TbadkCoreApplication.getInst().getString(b.a.r0.k2.l.recommed_for_you);
                 eVar.needTopMargin = z8;
                 arrayList2.add(eVar);
                 arrayList2.addAll(R);
-                this.f19304b.setData(arrayList2);
+                this.f20831b.setData(arrayList2);
             } else {
-                this.f19304b.setData(this.B);
+                this.f20831b.setData(this.B);
             }
         }
         a0(t0, z, i4, list);
         if (q(postData, arrayList, z3)) {
-            this.f19304b.setData(arrayList);
+            this.f20831b.setData(arrayList);
         }
     }
 
@@ -1436,10 +1436,10 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
             this.C = z;
-            this.f19305c.setFromCDN(z);
-            b.a.e.l.e.a aVar = this.n;
-            if (aVar != null && (aVar instanceof b.a.r0.z2.t)) {
-                ((b.a.r0.z2.t) aVar).k(z);
+            this.f20832c.setFromCDN(z);
+            b.a.e.m.e.a aVar = this.n;
+            if (aVar != null && (aVar instanceof b.a.r0.a3.t)) {
+                ((b.a.r0.a3.t) aVar).k(z);
             }
             Iterator<b.a.r0.k2.u.c.a> it = this.v.iterator();
             while (it.hasNext()) {
@@ -1497,28 +1497,28 @@ public class h {
         }
     }
 
-    public final void l(b.a.r0.l3.j0.p pVar) {
+    public final void l(b.a.r0.m3.j0.p pVar) {
         ForumData l;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048613, this, pVar) == null) || pVar == null || this.z == null || pVar.getAdvertAppInfo() == null) {
             return;
         }
-        pVar.getAdvertAppInfo().g4 = new b.a.q0.s.q.e();
+        pVar.getAdvertAppInfo().h4 = new b.a.q0.s.q.e();
         if (this.z.y() != null) {
-            pVar.getAdvertAppInfo().g4.f13277b = this.z.y().a();
+            pVar.getAdvertAppInfo().h4.f14057b = this.z.y().a();
         }
-        pVar.getAdvertAppInfo().g4.f13276a = pVar.K0();
+        pVar.getAdvertAppInfo().h4.f14056a = pVar.K0();
         if (this.z.l() != null && (l = this.z.l()) != null) {
-            pVar.getAdvertAppInfo().g4.f13279d = l.getId();
-            pVar.getAdvertAppInfo().g4.f13280e = l.getFirst_class();
-            pVar.getAdvertAppInfo().g4.f13281f = l.getSecond_class();
+            pVar.getAdvertAppInfo().h4.f14059d = l.getId();
+            pVar.getAdvertAppInfo().h4.f14060e = l.getFirst_class();
+            pVar.getAdvertAppInfo().h4.f14061f = l.getSecond_class();
         }
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            pVar.getAdvertAppInfo().g4.f13282g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
+            pVar.getAdvertAppInfo().h4.f14062g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
         }
-        pVar.getAdvertAppInfo().g4.f13283h = pVar.getAdvertAppInfo().e4;
-        pVar.getAdvertAppInfo().g4.f13284i = false;
+        pVar.getAdvertAppInfo().h4.f14063h = pVar.getAdvertAppInfo().f4;
+        pVar.getAdvertAppInfo().h4.f14064i = false;
     }
 
     public void l0(boolean z) {
@@ -1532,10 +1532,10 @@ public class h {
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048615, this) == null) || this.f19303a == null || n()) {
+        if (!(interceptable == null || interceptable.invokeV(1048615, this) == null) || this.f20830a == null || n()) {
             return;
         }
-        this.f19303a.registerListener(this.g0);
+        this.f20830a.registerListener(this.g0);
     }
 
     public void m0(View.OnClickListener onClickListener) {
@@ -1549,17 +1549,17 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            if (this.f19303a == null) {
+            if (this.f20830a == null) {
                 return false;
             }
             this.h0 = new ArrayList();
-            ArrayList<BdUniqueId> g2 = b.a.r0.l3.w.g();
+            ArrayList<BdUniqueId> g2 = b.a.r0.m3.w.g();
             if (g2 == null || g2.size() <= 0) {
                 return false;
             }
             int size = g2.size();
             for (int i2 = 0; i2 < size; i2++) {
-                b.a.r0.q1.o.g.a b2 = b.a.r0.q1.r.b.d().b(this.f19303a.getPageContext(), g2.get(i2), 2);
+                b.a.r0.q1.o.g.a b2 = b.a.r0.q1.r.b.d().b(this.f20830a.getPageContext(), g2.get(i2), 2);
                 if (b2 != null) {
                     this.U.add(b2);
                     this.h0.add(b2);
@@ -1568,7 +1568,7 @@ public class h {
             if (ListUtils.isEmpty(this.h0)) {
                 return true;
             }
-            this.f19304b.addAdapters(this.h0);
+            this.f20831b.addAdapters(this.h0);
             return true;
         }
         return invokeV.booleanValue;
@@ -1581,7 +1581,7 @@ public class h {
         }
     }
 
-    public final void o(List<b.a.e.l.e.n> list) {
+    public final void o(List<b.a.e.m.e.n> list) {
         int size;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048619, this, list) == null) || list == null || (size = list.size()) <= 0) {
@@ -1606,13 +1606,13 @@ public class h {
         }
     }
 
-    public final PostData p(ArrayList<b.a.e.l.e.n> arrayList) {
+    public final PostData p(ArrayList<b.a.e.m.e.n> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, arrayList)) == null) {
-            Iterator<b.a.e.l.e.n> it = arrayList.iterator();
+            Iterator<b.a.e.m.e.n> it = arrayList.iterator();
             while (it.hasNext()) {
-                b.a.e.l.e.n next = it.next();
+                b.a.e.m.e.n next = it.next();
                 if (next instanceof PostData) {
                     PostData postData = (PostData) next;
                     if (postData.A() == 1) {
@@ -1632,7 +1632,7 @@ public class h {
         }
     }
 
-    public final boolean q(PostData postData, ArrayList<b.a.e.l.e.n> arrayList, boolean z) {
+    public final boolean q(PostData postData, ArrayList<b.a.e.m.e.n> arrayList, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048623, this, postData, arrayList, z)) == null) {
@@ -1676,7 +1676,7 @@ public class h {
         }
     }
 
-    public ArrayList<b.a.e.l.e.n> s() {
+    public ArrayList<b.a.e.m.e.n> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.B : (ArrayList) invokeV.objValue;
@@ -1693,11 +1693,11 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            r rVar = this.f19305c;
+            r rVar = this.f20832c;
             if (rVar == null || rVar.v0() == null) {
                 return null;
             }
-            return this.f19305c.v0();
+            return this.f20832c.v0();
         }
         return (PbFirstFloorViewHolder) invokeV.objValue;
     }
@@ -1705,18 +1705,18 @@ public class h {
     public final boolean t0(PostData postData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, postData)) == null) ? (this.f19303a.getPbModel() == null || postData == null || postData.G() == null || !postData.G().equals(this.f19303a.getPbModel().l1())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, postData)) == null) ? (this.f20830a.getPbModel() == null || postData == null || postData.G() == null || !postData.G().equals(this.f20830a.getPbModel().l1())) ? false : true : invokeL.booleanValue;
     }
 
-    public final int u(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.l.e.n> arrayList) {
+    public final int u(b.a.r0.k2.r.f fVar, ArrayList<b.a.e.m.e.n> arrayList) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048631, this, fVar, arrayList)) == null) {
             if (this.G || fVar == null || ListUtils.isEmpty(fVar.F()) || arrayList == null || arrayList.size() <= 0) {
                 return (fVar != null && fVar.r0() && this.E) ? 0 : -1;
-            } else if (this.f19303a.getPbModel() == null || !this.f19303a.getPbModel().z0()) {
-                if (this.f19303a.getPbView() == null || !this.f19303a.getPbView().C0()) {
+            } else if (this.f20830a.getPbModel() == null || !this.f20830a.getPbModel().z0()) {
+                if (this.f20830a.getPbView() == null || !this.f20830a.getPbView().C0()) {
                     int size = arrayList.size();
                     int i2 = 0;
                     while (true) {
@@ -1725,7 +1725,7 @@ public class h {
                             i2 = -1;
                             break;
                         }
-                        b.a.e.l.e.n nVar = arrayList.get(i2);
+                        b.a.e.m.e.n nVar = arrayList.get(i2);
                         if (nVar instanceof PostData) {
                             PostData postData = (PostData) nVar;
                             if (postData.A() == 1 && postData.Q == 0) {
@@ -1747,21 +1747,21 @@ public class h {
 
     public final void u0() {
         b.a.r0.k2.r.f fVar;
-        b.a.r0.l3.j0.p pVar;
-        b.a.r0.l3.j0.p pVar2;
+        b.a.r0.m3.j0.p pVar;
+        b.a.r0.m3.j0.p pVar2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048632, this) == null) || (fVar = this.z) == null || fVar.a0 || fVar.b0 == 2) {
             return;
         }
         ArrayList<PostData> F = fVar.F();
-        ArrayList<b.a.r0.l3.j0.p> e2 = this.z.e();
+        ArrayList<b.a.r0.m3.j0.p> e2 = this.z.e();
         if (b.a.r0.q1.o.k.a.e(F) || b.a.r0.q1.o.k.a.e(e2)) {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        Iterator<b.a.r0.l3.j0.p> it = e2.iterator();
+        Iterator<b.a.r0.m3.j0.p> it = e2.iterator();
         while (it.hasNext()) {
-            b.a.r0.l3.j0.p next = it.next();
+            b.a.r0.m3.j0.p next = it.next();
             if (next != null && next.J0() != null) {
                 sb.append(next.J0());
                 sb.append(",");
@@ -1770,23 +1770,23 @@ public class h {
         if (sb.length() > 1) {
             sb.deleteCharAt(sb.length() - 1);
         }
-        Iterator<b.a.r0.l3.j0.p> it2 = e2.iterator();
+        Iterator<b.a.r0.m3.j0.p> it2 = e2.iterator();
         while (it2.hasNext()) {
-            b.a.r0.l3.j0.p next2 = it2.next();
+            b.a.r0.m3.j0.p next2 = it2.next();
             if (next2 != null) {
                 next2.O0 = next2.getPosition() - 1;
             }
         }
         SparseArray sparseArray = new SparseArray();
-        Iterator<b.a.r0.l3.j0.p> it3 = e2.iterator();
+        Iterator<b.a.r0.m3.j0.p> it3 = e2.iterator();
         while (it3.hasNext()) {
-            b.a.r0.l3.j0.p next3 = it3.next();
+            b.a.r0.m3.j0.p next3 = it3.next();
             if (next3.getAdvertAppInfo() != null) {
-                int U4 = next3.getAdvertAppInfo().U4();
-                if (U4 != 0) {
-                    b.a.r0.z2.l0.d.k(next3, U4);
-                    if (U4 != 28 && U4 != 31) {
-                        next3.getAdvertAppInfo().Z3 = -1001;
+                int W4 = next3.getAdvertAppInfo().W4();
+                if (W4 != 0) {
+                    b.a.r0.a3.l0.d.k(next3, W4);
+                    if (W4 != 28 && W4 != 31) {
+                        next3.getAdvertAppInfo().a4 = -1001;
                     }
                 }
                 sparseArray.put(next3.getPosition(), next3);
@@ -1795,14 +1795,14 @@ public class h {
         e2.clear();
         HashMap hashMap = new HashMap();
         for (int i2 = 0; i2 < sparseArray.size(); i2++) {
-            b.a.r0.l3.j0.p pVar3 = (b.a.r0.l3.j0.p) sparseArray.valueAt(i2);
-            if (pVar3 != null && (pVar2 = (b.a.r0.l3.j0.p) hashMap.put(pVar3.I0(), pVar3)) != null) {
-                b.a.r0.z2.l0.d.k(pVar2, 30);
+            b.a.r0.m3.j0.p pVar3 = (b.a.r0.m3.j0.p) sparseArray.valueAt(i2);
+            if (pVar3 != null && (pVar2 = (b.a.r0.m3.j0.p) hashMap.put(pVar3.I0(), pVar3)) != null) {
+                b.a.r0.a3.l0.d.k(pVar2, 30);
             }
         }
         sparseArray.clear();
         for (Map.Entry entry : hashMap.entrySet()) {
-            if (entry != null && (pVar = (b.a.r0.l3.j0.p) entry.getValue()) != null) {
+            if (entry != null && (pVar = (b.a.r0.m3.j0.p) entry.getValue()) != null) {
                 sparseArray.put(pVar.getPosition(), pVar);
             }
         }
@@ -1812,12 +1812,12 @@ public class h {
         }
         Collections.sort(arrayList);
         for (int i4 = 0; i4 < b.a.r0.q1.o.k.a.k(arrayList); i4++) {
-            b.a.r0.l3.j0.p pVar4 = (b.a.r0.l3.j0.p) sparseArray.get(((Integer) b.a.r0.q1.o.k.a.d(arrayList, i4)).intValue());
+            b.a.r0.m3.j0.p pVar4 = (b.a.r0.m3.j0.p) sparseArray.get(((Integer) b.a.r0.q1.o.k.a.d(arrayList, i4)).intValue());
             if (this.z.l() != null) {
                 pVar4.I0 = this.z.l().getId();
             }
             if (this.z.O() != null) {
-                pVar4.L0 = b.a.e.e.m.b.g(this.z.O().f0(), 0L);
+                pVar4.L0 = b.a.e.f.m.b.g(this.z.O().f0(), 0L);
             }
             b.a.r0.k2.r.f fVar2 = this.z;
             if (fVar2 != null && fVar2.y() != null) {
@@ -1827,7 +1827,7 @@ public class h {
             int position = pVar4.getPosition() + this.z.Z;
             if (position >= b.a.r0.q1.o.k.a.k(F)) {
                 pVar4.O0 = position;
-                b.a.r0.z2.l0.d.l(pVar4, 2, position, b.a.r0.q1.o.k.a.k(F));
+                b.a.r0.a3.l0.d.l(pVar4, 2, position, b.a.r0.q1.o.k.a.k(F));
                 return;
             }
             if (!this.E) {
@@ -1835,23 +1835,23 @@ public class h {
                 pVar4.O0 = position;
             }
             if (position < 0) {
-                b.a.r0.z2.l0.d.k(pVar4, 23);
+                b.a.r0.a3.l0.d.k(pVar4, 23);
             } else {
                 b.a.r0.q1.o.k.a.b(F, pVar4, position);
-                TiebaStatic.eventStat(this.f19303a.getPageContext().getContext(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", pVar4.getAdvertAppInfo().p4);
+                TiebaStatic.eventStat(this.f20830a.getPageContext().getContext(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", pVar4.getAdvertAppInfo().q4);
             }
         }
     }
 
-    public final List<b.a.e.l.e.n> v(b.a.r0.k2.r.f fVar) {
+    public final List<b.a.e.m.e.n> v(b.a.r0.k2.r.f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, fVar)) == null) {
-            if (fVar == null || fVar.T() == null || ListUtils.isEmpty(fVar.T().f18820a)) {
+            if (fVar == null || fVar.T() == null || ListUtils.isEmpty(fVar.T().f20357a)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            List<PostData> list = fVar.T().f18820a;
+            List<PostData> list = fVar.T().f20357a;
             if (ListUtils.isEmpty(list)) {
                 return null;
             }
@@ -1864,21 +1864,21 @@ public class h {
                     arrayList.add(postData);
                 }
             }
-            if (ListUtils.getCount(fVar.T().f18821b) > 2) {
-                b.a.e.l.e.n nVar = (b.a.e.l.e.n) ListUtils.getItem(arrayList, arrayList.size() - 1);
+            if (ListUtils.getCount(fVar.T().f20358b) > 2) {
+                b.a.e.m.e.n nVar = (b.a.e.m.e.n) ListUtils.getItem(arrayList, arrayList.size() - 1);
                 if (nVar instanceof PostData) {
                     ((PostData) nVar).R = false;
                 }
                 arrayList.add(new b.a.r0.k2.x.b());
             } else {
-                b.a.e.l.e.n nVar2 = (b.a.e.l.e.n) ListUtils.getItem(arrayList, arrayList.size() - 1);
+                b.a.e.m.e.n nVar2 = (b.a.e.m.e.n) ListUtils.getItem(arrayList, arrayList.size() - 1);
                 if (nVar2 instanceof PostData) {
                     ((PostData) nVar2).R = true;
                 }
             }
-            b.a.r0.k2.r.p pVar = new b.a.r0.k2.r.p(b.a.r0.k2.r.p.m);
-            pVar.f18794e = fVar.T().f18822c;
-            arrayList.add(0, pVar);
+            b.a.r0.k2.r.q qVar = new b.a.r0.k2.r.q(b.a.r0.k2.r.q.m);
+            qVar.f20331e = fVar.T().f20359c;
+            arrayList.add(0, qVar);
             return arrayList;
         }
         return (List) invokeL.objValue;
@@ -1891,28 +1891,28 @@ public class h {
             return;
         }
         this.Z = -1;
-        this.f19304b.setData(this.B);
+        this.f20831b.setData(this.B);
         X();
     }
 
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.f19304b.getHeaderViewsCount() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.f20831b.getHeaderViewsCount() : invokeV.intValue;
     }
 
-    public b.a.e.l.e.n x(int i2) {
+    public b.a.e.m.e.n x(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048636, this, i2)) == null) ? this.f19304b.getItem(i2) : (b.a.e.l.e.n) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048636, this, i2)) == null) ? this.f20831b.getItem(i2) : (b.a.e.m.e.n) invokeI.objValue;
     }
 
     public BdUniqueId y(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048637, this, i2)) == null) {
-            if (this.f19304b.getItem(i2) != null) {
-                return this.f19304b.getItem(i2).getType();
+            if (this.f20831b.getItem(i2) != null) {
+                return this.f20831b.getItem(i2).getType();
             }
             return null;
         }
@@ -1922,6 +1922,6 @@ public class h {
     public PbFirstFloorCommentAndPraiseAdapter z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.f19306d : (PbFirstFloorCommentAndPraiseAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.f20833d : (PbFirstFloorCommentAndPraiseAdapter) invokeV.objValue;
     }
 }

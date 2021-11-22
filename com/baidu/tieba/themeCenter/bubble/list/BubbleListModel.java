@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.bubble.list;
 
 import b.a.e.a.f;
-import b.a.r0.r3.h.e;
+import b.a.r0.s3.h.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -28,19 +28,19 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BubbleListActivity f54570e;
+    public BubbleListActivity f55490e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f54571f;
+    public e f55491f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<DressItemData> f54572g;
+    public List<DressItemData> f55492g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<DressItemData> f54573h;
+    public List<DressItemData> f55493h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f54574i;
+    public c f55494i;
     public int j;
     public boolean k;
     public boolean l;
@@ -54,7 +54,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleListModel f54575a;
+        public final /* synthetic */ BubbleListModel f55495a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BubbleListModel bubbleListModel, int i2, int i3) {
@@ -75,7 +75,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
                     return;
                 }
             }
-            this.f54575a = bubbleListModel;
+            this.f55495a = bubbleListModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -89,35 +89,35 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
                         BubbleListHttpResponseMessage bubbleListHttpResponseMessage = (BubbleListHttpResponseMessage) responsedMessage;
-                        this.f54575a.f54571f = bubbleListHttpResponseMessage.getRecommand();
-                        this.f54575a.f54572g = bubbleListHttpResponseMessage.getBubbleList();
-                        this.f54575a.k = bubbleListHttpResponseMessage.hasMore();
-                        this.f54575a.l = bubbleListHttpResponseMessage.isDefault();
+                        this.f55495a.f55491f = bubbleListHttpResponseMessage.getRecommand();
+                        this.f55495a.f55492g = bubbleListHttpResponseMessage.getBubbleList();
+                        this.f55495a.k = bubbleListHttpResponseMessage.hasMore();
+                        this.f55495a.l = bubbleListHttpResponseMessage.isDefault();
                     } else if (responsedMessage instanceof BubbleListSocketResponseMessage) {
                         BubbleListSocketResponseMessage bubbleListSocketResponseMessage = (BubbleListSocketResponseMessage) responsedMessage;
-                        this.f54575a.f54571f = bubbleListSocketResponseMessage.getRecommand();
-                        this.f54575a.f54572g = bubbleListSocketResponseMessage.getBubbleList();
-                        this.f54575a.k = bubbleListSocketResponseMessage.hasMore();
-                        this.f54575a.l = bubbleListSocketResponseMessage.isDefault();
+                        this.f55495a.f55491f = bubbleListSocketResponseMessage.getRecommand();
+                        this.f55495a.f55492g = bubbleListSocketResponseMessage.getBubbleList();
+                        this.f55495a.k = bubbleListSocketResponseMessage.hasMore();
+                        this.f55495a.l = bubbleListSocketResponseMessage.isDefault();
                     }
-                    if (this.f54575a.f54573h == null) {
-                        this.f54575a.f54573h = new ArrayList();
+                    if (this.f55495a.f55493h == null) {
+                        this.f55495a.f55493h = new ArrayList();
                     }
-                    if (this.f54575a.j == 1) {
-                        this.f54575a.f54573h.clear();
+                    if (this.f55495a.j == 1) {
+                        this.f55495a.f55493h.clear();
                         DressItemData dressItemData = new DressItemData();
                         dressItemData.setPropsId(0);
-                        dressItemData.setInUse(this.f54575a.l);
-                        this.f54575a.f54573h.add(dressItemData);
+                        dressItemData.setInUse(this.f55495a.l);
+                        this.f55495a.f55493h.add(dressItemData);
                     }
-                    if (this.f54575a.f54572g != null) {
-                        this.f54575a.f54573h.addAll(this.f54575a.f54572g);
+                    if (this.f55495a.f55492g != null) {
+                        this.f55495a.f55493h.addAll(this.f55495a.f55492g);
                     }
                 } else {
-                    BubbleListModel.y(this.f54575a);
+                    BubbleListModel.y(this.f55495a);
                 }
-                if (this.f54575a.f54574i != null) {
-                    this.f54575a.f54574i.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f54575a.f54571f, this.f54575a.f54573h);
+                if (this.f55495a.f55494i != null) {
+                    this.f55495a.f55494i.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f55495a.f55491f, this.f55495a.f55493h);
                 }
             }
         }
@@ -129,7 +129,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleListModel f54576a;
+        public final /* synthetic */ BubbleListModel f55496a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(BubbleListModel bubbleListModel, int i2) {
@@ -149,7 +149,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
                     return;
                 }
             }
-            this.f54576a = bubbleListModel;
+            this.f55496a = bubbleListModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -159,11 +159,11 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003056) {
                 BubbleSetResponseMessage bubbleSetResponseMessage = (BubbleSetResponseMessage) httpResponsedMessage;
                 if (bubbleSetResponseMessage.getError() != 0) {
-                    this.f54576a.f54570e.showToast(bubbleSetResponseMessage.getErrorString());
+                    this.f55496a.f55490e.showToast(bubbleSetResponseMessage.getErrorString());
                     return;
                 }
-                this.f54576a.O(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
-                this.f54576a.f54574i.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f54576a.f54571f, this.f54576a.f54573h);
+                this.f55496a.O(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
+                this.f55496a.f55494i.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f55496a.f55491f, this.f55496a.f55493h);
             }
         }
     }
@@ -196,7 +196,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         this.l = false;
         this.n = new a(this, CmdConfigHttp.CMD_BUBBLE_LIST, 309031);
         this.o = new b(this, CmdConfigHttp.CMD_BUBBLE_SET);
-        this.f54570e = bubbleListActivity;
+        this.f55490e = bubbleListActivity;
         this.m = bubbleListActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         registerTask();
         registerListener(this.n);
@@ -229,17 +229,17 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public void N(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f54574i = cVar;
+            this.f55494i = cVar;
         }
     }
 
     public final void O(int i2) {
         List<DressItemData> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (list = this.f54573h) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (list = this.f55493h) == null || list.size() <= 0) {
             return;
         }
-        for (DressItemData dressItemData : this.f54573h) {
+        for (DressItemData dressItemData : this.f55493h) {
             if (dressItemData != null) {
                 if (dressItemData.getPropsId() == i2) {
                     dressItemData.setInUse(true);
@@ -278,8 +278,8 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b.a.r0.l3.f0.a.h(309031, BubbleListSocketResponseMessage.class, false, false);
-            b.a.r0.l3.f0.a.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
+            b.a.r0.m3.f0.a.h(309031, BubbleListSocketResponseMessage.class, false, false);
+            b.a.r0.m3.f0.a.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
         }
     }
 

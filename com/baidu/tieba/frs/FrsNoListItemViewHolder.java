@@ -29,25 +29,25 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f48287a;
+    public ViewGroup f49151a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f48288b;
+    public View f49152b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f48289c;
+    public LinearLayout f49153c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f48290d;
+    public int f49154d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Rect f48291e;
+    public Rect f49155e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48292f;
+    public int f49156f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f48293g;
+    public CustomMessageListener f49157g;
     public ImageView mEmotionView;
     public TextView mNodataTextView;
 
@@ -57,7 +57,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsNoListItemViewHolder f48294a;
+        public final /* synthetic */ FrsNoListItemViewHolder f49158a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FrsNoListItemViewHolder frsNoListItemViewHolder, int i2) {
@@ -77,7 +77,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f48294a = frsNoListItemViewHolder;
+            this.f49158a = frsNoListItemViewHolder;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,7 +88,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Integer) || (num = (Integer) customResponsedMessage.getData()) == null) {
                 return;
             }
-            this.f48294a.c(num.intValue());
+            this.f49158a.c(num.intValue());
         }
     }
 
@@ -98,7 +98,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsNoListItemViewHolder f48295e;
+        public final /* synthetic */ FrsNoListItemViewHolder f49159e;
 
         public b(FrsNoListItemViewHolder frsNoListItemViewHolder) {
             Interceptable interceptable = $ic;
@@ -115,14 +115,14 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f48295e = frsNoListItemViewHolder;
+            this.f49159e = frsNoListItemViewHolder;
         }
 
         @Override // android.view.View.OnLayoutChangeListener
         public void onLayoutChange(View view, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) && this.f48295e.e(view)) {
-                this.f48295e.c(Integer.MAX_VALUE);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) && this.f49159e.e(view)) {
+                this.f49159e.c(Integer.MAX_VALUE);
             }
         }
     }
@@ -161,46 +161,46 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f48291e = new Rect();
-        this.f48293g = new a(this, 2921397);
-        this.f48288b = view;
-        this.f48287a = viewGroup;
-        this.f48289c = (LinearLayout) view.findViewById(R.id.container);
+        this.f49155e = new Rect();
+        this.f49157g = new a(this, 2921397);
+        this.f49152b = view;
+        this.f49151a = viewGroup;
+        this.f49153c = (LinearLayout) view.findViewById(R.id.container);
         this.mEmotionView = (ImageView) view.findViewById(R.id.emotion_view);
         this.mNodataTextView = (TextView) view.findViewById(R.id.no_data_tips);
         SkinManager.setImageResource(this.mEmotionView, R.drawable.new_pic_emotion_06);
-        this.f48293g.setTag(SCROLL_LISTENER_TAG);
-        MessageManager.getInstance().registerListener(this.f48293g);
+        this.f49157g.setTag(SCROLL_LISTENER_TAG);
+        MessageManager.getInstance().registerListener(this.f49157g);
         d();
     }
 
     public final void c(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f48288b == null || this.f48287a == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f49152b == null || this.f49151a == null) {
             return;
         }
-        if (this.f48290d <= 0) {
-            this.f48290d = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+        if (this.f49154d <= 0) {
+            this.f49154d = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
         }
-        if (i2 == Integer.MAX_VALUE && this.f48292f == Integer.MAX_VALUE) {
+        if (i2 == Integer.MAX_VALUE && this.f49156f == Integer.MAX_VALUE) {
             return;
         }
-        this.f48292f = i2;
-        if (this.f48287a.getLocalVisibleRect(this.f48291e)) {
-            int i3 = this.f48291e.bottom;
-            int abs = Math.abs(this.f48289c.getTop());
-            int abs2 = i3 - Math.abs(this.f48289c.getBottom());
-            ViewGroup.LayoutParams layoutParams = this.f48289c.getLayoutParams();
+        this.f49156f = i2;
+        if (this.f49151a.getLocalVisibleRect(this.f49155e)) {
+            int i3 = this.f49155e.bottom;
+            int abs = Math.abs(this.f49153c.getTop());
+            int abs2 = i3 - Math.abs(this.f49153c.getBottom());
+            ViewGroup.LayoutParams layoutParams = this.f49153c.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                int i4 = this.f48290d;
+                int i4 = this.f49154d;
                 if (abs < i4) {
                     marginLayoutParams.topMargin = i4;
-                    this.f48289c.setLayoutParams(marginLayoutParams);
+                    this.f49153c.setLayoutParams(marginLayoutParams);
                 } else if (abs == i4) {
                     if (abs2 > i4) {
                         marginLayoutParams.topMargin = i4 + ((abs2 - i4) / 2);
-                        this.f48289c.setLayoutParams(marginLayoutParams);
+                        this.f49153c.setLayoutParams(marginLayoutParams);
                     }
                 } else if (abs > i4) {
                     if (abs2 < i4) {
@@ -210,7 +210,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
                     } else if (abs2 > i4) {
                         marginLayoutParams.topMargin = (abs + abs2) / 2;
                     }
-                    this.f48289c.setLayoutParams(marginLayoutParams);
+                    this.f49153c.setLayoutParams(marginLayoutParams);
                 }
             }
         }
@@ -219,7 +219,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     public final void d() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view = this.f48288b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view = this.f49152b) == null) {
             return;
         }
         view.addOnLayoutChangeListener(new b(this));
@@ -232,7 +232,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
             if (view == null) {
                 return false;
             }
-            return view.getGlobalVisibleRect(this.f48291e);
+            return view.getGlobalVisibleRect(this.f49155e);
         }
         return invokeL.booleanValue;
     }

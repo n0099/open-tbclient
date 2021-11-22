@@ -1,12 +1,14 @@
 package com.baidu.poly.util;
 
 import android.text.TextUtils;
-import b.a.e0.k.a.b;
+import b.a.e0.l.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
@@ -31,19 +33,33 @@ public class HttpSigner {
         System.loadLibrary("hs");
     }
 
+    public HttpSigner() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static String a(b bVar, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bVar, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bVar, str, i2)) == null) {
             if (bVar == null) {
                 return "";
             }
-            Map<String, String> c2 = bVar.c();
-            ArrayList<String> arrayList = new ArrayList(c2.keySet());
+            Map<String, String> b2 = bVar.b();
+            ArrayList<String> arrayList = new ArrayList(b2.keySet());
             Collections.sort(arrayList);
             StringBuilder sb = new StringBuilder();
             for (String str2 : arrayList) {
-                String str3 = c2.get(str2);
+                String str3 = b2.get(str2);
                 if (!TextUtils.isEmpty(str3)) {
                     sb.append(str2);
                     sb.append("=");
@@ -54,28 +70,28 @@ public class HttpSigner {
             sb.append(str);
             sb.append("=");
             sb.append(nativeGetStatisticsKey(i2));
-            return b.a.e0.k.g.b.c(sb.toString());
+            return b.a.e0.m.i.b.c(sb.toString());
         }
         return (String) invokeLLI.objValue;
     }
 
     public static void b(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, bVar) == null) || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, bVar) == null) || bVar == null) {
             return;
         }
-        Map<String, String> c2 = bVar.c();
-        if (c2.containsKey("timestamp")) {
-            c2.remove("timestamp");
+        Map<String, String> b2 = bVar.b();
+        if (b2.containsKey("timestamp")) {
+            b2.remove("timestamp");
         }
-        if (c2.containsKey("sign")) {
-            c2.remove("sign");
+        if (b2.containsKey("sign")) {
+            b2.remove("sign");
         }
-        ArrayList<String> arrayList = new ArrayList(c2.keySet());
+        ArrayList<String> arrayList = new ArrayList(b2.keySet());
         Collections.sort(arrayList);
         StringBuilder sb = new StringBuilder();
         for (String str : arrayList) {
-            String str2 = c2.get(str);
+            String str2 = b2.get(str);
             if (!TextUtils.isEmpty(str2)) {
                 sb.append(str);
                 sb.append("=");
@@ -83,14 +99,18 @@ public class HttpSigner {
                 sb.append("&");
             }
         }
-        bVar.e("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        bVar.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         sb.append(nativeGetCommissionSk());
         sb.append("&");
-        sb.append(bVar.b("timestamp"));
-        bVar.e("sign", b.a.e0.k.g.b.c(sb.toString()));
+        sb.append(bVar.a("timestamp"));
+        bVar.d("sign", b.a.e0.m.i.b.c(sb.toString()));
     }
+
+    public static native String nativeGetAppId(int i2);
 
     public static native String nativeGetCommissionSk();
 
     public static native String nativeGetStatisticsKey(int i2);
+
+    public static native String nativeSignNop(String str, int i2);
 }

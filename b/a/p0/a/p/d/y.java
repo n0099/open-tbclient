@@ -6,7 +6,7 @@ import org.json.JSONArray;
 public interface y {
     long a(Context context);
 
-    void b(Context context, String str, b.a.p0.a.v2.e1.b<String> bVar);
+    void b(Context context, String str, b.a.p0.a.z2.g1.c<String> cVar);
 
-    void c(Context context, JSONArray jSONArray, b.a.p0.a.v2.e1.b<String> bVar);
+    void c(Context context, JSONArray jSONArray, b.a.p0.a.z2.g1.c<String> cVar);
 }

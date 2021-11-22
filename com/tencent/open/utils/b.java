@@ -25,10 +25,10 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final m f70124a;
+    public static final m f71044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final n f70125b;
+    public static final n f71045b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.open.utils.b$1  reason: invalid class name */
@@ -51,8 +51,8 @@ public final class b {
                 return;
             }
         }
-        f70124a = new m(101010256L);
-        f70125b = new n(38651);
+        f71044a = new m(101010256L);
+        f71045b = new n(38651);
     }
 
     /* loaded from: classes2.dex */
@@ -61,10 +61,10 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Properties f70126a;
+        public Properties f71046a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f70127b;
+        public byte[] f71047b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public final class b {
                     return;
                 }
             }
-            this.f70126a = new Properties();
+            this.f71046a = new Properties();
         }
 
         public void a(byte[] bArr) throws IOException {
@@ -88,10 +88,10 @@ public final class b {
                 return;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            int length = b.f70125b.a().length;
+            int length = b.f71045b.a().length;
             byte[] bArr2 = new byte[length];
             wrap.get(bArr2);
-            if (b.f70125b.equals(new n(bArr2))) {
+            if (b.f71045b.equals(new n(bArr2))) {
                 if (bArr.length - length <= 2) {
                     return;
                 }
@@ -103,11 +103,11 @@ public final class b {
                 }
                 byte[] bArr4 = new byte[b2];
                 wrap.get(bArr4);
-                this.f70126a.load(new ByteArrayInputStream(bArr4));
+                this.f71046a.load(new ByteArrayInputStream(bArr4));
                 int length2 = ((bArr.length - length) - b2) - 2;
                 if (length2 > 0) {
                     byte[] bArr5 = new byte[length2];
-                    this.f70127b = bArr5;
+                    this.f71047b = bArr5;
                     wrap.get(bArr5);
                     return;
                 }
@@ -120,7 +120,7 @@ public final class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "ApkExternalInfo [p=" + this.f70126a + ", otherData=" + Arrays.toString(this.f70127b) + PreferencesUtil.RIGHT_MOUNT;
+                return "ApkExternalInfo [p=" + this.f71046a + ", otherData=" + Arrays.toString(this.f71047b) + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }
@@ -138,7 +138,7 @@ public final class b {
         }
         RandomAccessFile randomAccessFile = null;
         try {
-            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, r.f40168a);
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, r.f41000a);
             try {
                 byte[] a2 = a(randomAccessFile2);
                 if (a2 == null) {
@@ -147,7 +147,7 @@ public final class b {
                 }
                 a aVar = new a(null);
                 aVar.a(a2);
-                String property = aVar.f70126a.getProperty(str);
+                String property = aVar.f71046a.getProperty(str);
                 randomAccessFile2.close();
                 return property;
             } catch (Throwable th) {
@@ -176,7 +176,7 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, randomAccessFile)) == null) {
             long length = randomAccessFile.length() - 22;
             randomAccessFile.seek(length);
-            byte[] a2 = f70124a.a();
+            byte[] a2 = f71044a.a();
             int read = randomAccessFile.read();
             while (true) {
                 z = true;

@@ -19,31 +19,31 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedBlockingQueue<a> f38245a;
+    public LinkedBlockingQueue<a> f39075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f38246b;
+    public f f39076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38247c;
+    public boolean f39077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38248d;
+    public int f39078d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38249e;
+    public int f39079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<byte[]> f38250f;
+    public LinkedList<byte[]> f39080f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f38251g;
+    public d f39081g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f38252h;
+    public boolean f39082h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f38253i;
+    public boolean f39083i;
     public int j;
     public int k;
     public byte[] l;
@@ -58,10 +58,10 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f38254a;
+        public long f39084a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f38255b;
+        public byte[] f39085b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -93,40 +93,40 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f38247c = false;
-        this.f38250f = new LinkedList<>();
+        this.f39077c = false;
+        this.f39080f = new LinkedList<>();
         this.p = -1L;
         this.n = 0;
         this.j = i2;
         this.k = i3;
         setPriority(10);
         setName("VideoMediaEncoderThread");
-        this.f38245a = new LinkedBlockingQueue<>();
-        this.f38249e = i5;
+        this.f39075a = new LinkedBlockingQueue<>();
+        this.f39079e = i5;
         a(i2, i3, i4, i5, i6, str, mediaMuxer);
     }
 
     public void a(int i2, int i3, int i4, int i5, int i6, String str, MediaMuxer mediaMuxer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str, mediaMuxer}) == null) {
-            this.f38246b = new f(i2, i3, i4, i5, i6, mediaMuxer);
+            this.f39076b = new f(i2, i3, i4, i5, i6, mediaMuxer);
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38252h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f39082h : invokeV.booleanValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             a aVar = new a();
-            aVar.f38255b = null;
-            aVar.f38254a = 0L;
-            this.f38245a.add(aVar);
-            this.f38247c = true;
+            aVar.f39085b = null;
+            aVar.f39084a = 0L;
+            this.f39075a.add(aVar);
+            this.f39077c = true;
             this.l = null;
             this.m = 0L;
         }
@@ -137,25 +137,25 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             a aVar = new a();
-            aVar.f38255b = null;
-            aVar.f38254a = 0L;
-            this.f38245a.clear();
-            this.f38245a.add(aVar);
-            this.f38247c = true;
+            aVar.f39085b = null;
+            aVar.f39084a = 0L;
+            this.f39075a.clear();
+            this.f39075a.add(aVar);
+            this.f39077c = true;
         }
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f38248d + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f39078d + 1 : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            LinkedBlockingQueue<a> linkedBlockingQueue = this.f38245a;
+            LinkedBlockingQueue<a> linkedBlockingQueue = this.f39075a;
             if (linkedBlockingQueue == null) {
                 return 0;
             }
@@ -171,43 +171,43 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         if (interceptable != null && interceptable.invokeV(1048586, this) != null) {
             return;
         }
-        if (!this.f38253i) {
+        if (!this.f39083i) {
             Thread.currentThread().setUncaughtExceptionHandler(this);
-            this.f38253i = true;
+            this.f39083i = true;
             LogUtil.i("+initInThread");
-            this.f38246b.a();
+            this.f39076b.a();
             LogUtil.i("-initInThread");
         }
         while (true) {
             try {
                 LogUtil.i("+mQueue.take");
-                take = this.f38245a.take();
+                take = this.f39075a.take();
                 LogUtil.i("-mQueue.take");
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
                 LogUtil.e(e2.toString());
             }
-            if (take.f38255b == null) {
-                this.f38250f.clear();
-                this.f38245a.clear();
-                this.f38246b.b();
-                this.f38252h = true;
+            if (take.f39085b == null) {
+                this.f39080f.clear();
+                this.f39075a.clear();
+                this.f39076b.b();
+                this.f39082h = true;
                 return;
             }
             LogUtil.i("+encodeFrame");
             long currentTimeMillis = System.currentTimeMillis();
-            this.f38246b.a(take.f38255b, take.f38254a);
+            this.f39076b.a(take.f39085b, take.f39084a);
             long currentTimeMillis2 = System.currentTimeMillis();
             LogUtil.i("-encodeFrame");
-            synchronized (this.f38250f) {
-                this.f38250f.add(take.f38255b);
+            synchronized (this.f39080f) {
+                this.f39080f.add(take.f39085b);
             }
-            this.f38248d++;
+            this.f39078d++;
             LogUtil.i("mRecorder.encodeFrame:" + (currentTimeMillis2 - currentTimeMillis) + "ms");
             if (this.p < 0) {
-                this.p = take.f38254a / 1000;
+                this.p = take.f39084a / 1000;
             }
-            this.o = (take.f38254a / 1000) - this.p;
+            this.o = (take.f39084a / 1000) - this.p;
         }
     }
 
@@ -222,12 +222,12 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public void a(byte[] bArr, long j) {
         byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048580, this, bArr, j) == null) || this.f38247c || this.f38245a == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048580, this, bArr, j) == null) || this.f39077c || this.f39075a == null) {
             return;
         }
-        if (this.f38250f.size() > 0) {
-            synchronized (this.f38250f) {
-                bArr2 = this.f38250f.pop();
+        if (this.f39080f.size() > 0) {
+            synchronized (this.f39080f) {
+                bArr2 = this.f39080f.pop();
             }
             if (bArr.length != bArr2.length) {
                 try {
@@ -251,10 +251,10 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         a aVar = new a();
         this.l = bArr2;
         this.m = j;
-        aVar.f38255b = bArr2;
-        aVar.f38254a = j;
-        if (this.f38245a.size() < 50) {
-            this.f38245a.add(aVar);
+        aVar.f39085b = bArr2;
+        aVar.f39084a = j;
+        if (this.f39075a.size() < 50) {
+            this.f39075a.add(aVar);
         }
     }
 
@@ -267,20 +267,20 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f38251g = dVar;
+            this.f39081g = dVar;
         }
     }
 
     public void a(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-            d dVar = this.f38251g;
+            d dVar = this.f39081g;
             if (dVar != null) {
                 dVar.a(th);
             }
             th.printStackTrace();
             LogUtil.e(th.toString());
-            f fVar = this.f38246b;
+            f fVar = this.f39076b;
             if (fVar != null) {
                 fVar.b();
             }

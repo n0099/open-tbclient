@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class bv implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f56846a;
+    public final /* synthetic */ View f57768a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PopupWindow f56847b;
+    public final /* synthetic */ PopupWindow f57769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f56848c;
+    public final /* synthetic */ FeedbackInputActivity f57770c;
 
     public bv(FeedbackInputActivity feedbackInputActivity, View view, PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
@@ -38,17 +38,17 @@ public final class bv implements View.OnClickListener {
                 return;
             }
         }
-        this.f56848c = feedbackInputActivity;
-        this.f56846a = view;
-        this.f56847b = popupWindow;
+        this.f57770c = feedbackInputActivity;
+        this.f57768a = view;
+        this.f57769b = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            ((ClipboardManager) this.f56848c.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(((TextView) this.f56846a).getText().toString());
-            this.f56847b.dismiss();
+            ((ClipboardManager) this.f57770c.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(((TextView) this.f57768a).getText().toString());
+            this.f57769b.dismiss();
         }
     }
 }

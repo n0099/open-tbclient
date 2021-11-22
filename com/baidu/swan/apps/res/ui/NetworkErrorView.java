@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.res.ui;
 
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.c;
 import b.a.p0.a.e;
@@ -26,7 +26,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43986e;
+    public int f44784e;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -34,7 +34,7 @@ public class NetworkErrorView extends CommonEmptyView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f43987a;
+        public Object f44785a;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class NetworkErrorView extends CommonEmptyView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, view) == null) {
             a aVar = new a(1);
-            aVar.f43987a = view;
+            aVar.f44785a = view;
             BdEventBus.Companion.getDefault().post(aVar);
         }
     }
@@ -88,13 +88,14 @@ public class NetworkErrorView extends CommonEmptyView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.mRefreshTextBtn.setVisibility(0);
             setTitle(getContext().getString(h.swanapp_tip_net_unavailable));
+            setIcon(e.swanapp_error_page_network_error);
         }
     }
 
     public boolean isNight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43986e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44784e == 2 : invokeV.booleanValue;
     }
 
     public void setBottomLayout(View.OnClickListener onClickListener, View view, RelativeLayout.LayoutParams layoutParams) {
@@ -155,29 +156,21 @@ public class NetworkErrorView extends CommonEmptyView {
     public void updateUI(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f43986e = i2;
+            this.f44784e = i2;
             if (i2 == 2) {
                 setBackgroundColor(-16777216);
                 this.mIcon.setAlpha(0.5f);
                 this.mTitle.setTextColor(getResources().getColor(c.aiapps_emptyview_title_text_color_night));
                 this.mSubTitle.setTextColor(getResources().getColor(c.aiapps_emptyview_subtitle_text_color_night));
-                if (Build.VERSION.SDK_INT >= 23) {
-                    this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color_night, null));
-                } else {
-                    this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color_night));
-                }
+                this.mRefreshTextBtn.setTextColor(AppCompatResources.getColorStateList(getContext(), c.swan_app_emptyview_btn_text_color_night));
             } else {
                 setBackgroundColor(-1);
                 this.mIcon.setAlpha(1.0f);
                 this.mTitle.setTextColor(getResources().getColor(c.aiapps_emptyview_title_text_color));
                 this.mSubTitle.setTextColor(getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
-                if (Build.VERSION.SDK_INT >= 23) {
-                    this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color, null));
-                } else {
-                    this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color));
-                }
+                this.mRefreshTextBtn.setTextColor(AppCompatResources.getColorStateList(getContext(), c.swan_app_emptyview_btn_text_color));
             }
-            this.mIcon.setImageDrawable(getContext().getResources().getDrawable(e.aiapps_empty_icon_network));
+            this.mIcon.setImageDrawable(getContext().getResources().getDrawable(e.swanapp_error_page_network_error));
             this.mRefreshTextBtn.setBackground(getContext().getResources().getDrawable(e.aiapps_emptyview_btn_bg));
         }
     }

@@ -9,14 +9,15 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import b.a.p0.a.v2.f0;
-import b.a.p0.a.v2.q0;
-import b.a.p0.a.v2.w;
-import b.a.p0.f.b;
-import b.a.p0.f.d;
-import b.a.p0.f.e;
-import b.a.p0.f.f;
-import b.a.p0.g.c.i.c;
+import b.a.p0.a.z2.f0;
+import b.a.p0.a.z2.q0;
+import b.a.p0.a.z2.w;
+import b.a.p0.h.b;
+import b.a.p0.h.d;
+import b.a.p0.h.e;
+import b.a.p0.h.f;
+import b.a.p0.i.b.i.c;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,7 +41,7 @@ public class InstallAntiBlockingActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InstallAntiBlockingActivity f44647e;
+        public final /* synthetic */ InstallAntiBlockingActivity f45455e;
 
         public a(InstallAntiBlockingActivity installAntiBlockingActivity) {
             Interceptable interceptable = $ic;
@@ -57,15 +58,15 @@ public class InstallAntiBlockingActivity extends Activity {
                     return;
                 }
             }
-            this.f44647e = installAntiBlockingActivity;
+            this.f45455e = installAntiBlockingActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a(this.f44647e.mPackageName, TextUtils.equals(this.f44647e.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new b.a.p0.g.c.i.a(this.f44647e.mUbcParams));
-                this.f44647e.finish();
+                c.a(this.f45455e.mPackageName, TextUtils.equals(this.f45455e.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new b.a.p0.i.b.i.a(this.f45455e.mUbcParams));
+                this.f45455e.finish();
             }
         }
     }
@@ -88,10 +89,10 @@ public class InstallAntiBlockingActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int Z = q0.Z(this);
+            int c0 = q0.c0(this);
             super.onCreate(bundle);
-            q0.g(this, Z);
-            b.a.p0.g.c.e.a.t();
+            q0.g(this, c0);
+            b.a.p0.i.b.e.a.t();
             setContentView(f.aiapps_install_guide_layout);
             Intent intent = getIntent();
             if (intent != null) {
@@ -102,15 +103,15 @@ public class InstallAntiBlockingActivity extends Activity {
             ImageView imageView = (ImageView) findViewById(e.install_guide_image);
             View findViewById = findViewById(e.install_guide_layout);
             if (TextUtils.equals(this.mType, "authorize")) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(b.a.p0.f.c.aiapps_install_image_height));
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(b.a.p0.h.c.aiapps_install_image_height));
                 layoutParams.gravity = 80;
                 imageView.setLayoutParams(layoutParams);
                 findViewById(e.install_guide_image_mask).setVisibility(0);
                 imageView.setImageResource(d.aiapps_install_guide_request);
                 findViewById(e.install_guide_bg_mask).setBackgroundResource(b.aiapps_install_guide_mask);
-                b.a.p0.g.c.e.a.o();
+                b.a.p0.i.b.e.a.o();
             } else {
-                FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(b.a.p0.f.c.aiapps_install_guide_image_height));
+                FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(b.a.p0.h.c.aiapps_install_guide_image_height));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
                 findViewById(e.install_guide_image_mask).setVisibility(8);
@@ -124,10 +125,11 @@ public class InstallAntiBlockingActivity extends Activity {
                     imageView.setImageResource(d.aiapps_install_guide_default);
                 }
                 findViewById(e.install_guide_bg_mask).setBackgroundResource(b.aiapps_anti_block_mask);
-                b.a.p0.g.c.e.a.p();
+                b.a.p0.i.b.e.a.p();
             }
             findViewById.setOnClickListener(new a(this));
-            c.a(this.mPackageName, this.mType, "success", null, new b.a.p0.g.c.i.a(this.mUbcParams));
+            c.a(this.mPackageName, this.mType, "success", null, new b.a.p0.i.b.i.a(this.mUbcParams));
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

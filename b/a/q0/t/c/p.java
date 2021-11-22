@@ -13,10 +13,10 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13846a;
+    public int f14607a;
 
     /* renamed from: b  reason: collision with root package name */
-    public q f13847b;
+    public q f14608b;
 
     public p() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class p {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13846a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14607a : invokeV.intValue;
     }
 
     public q b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13847b : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14608b : (q) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -49,12 +49,12 @@ public class p {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("common");
             if (optJSONObject != null) {
-                this.f13846a = optJSONObject.optInt("version");
+                this.f14607a = optJSONObject.optInt("version");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
             if (optJSONObject2 != null) {
                 q qVar = new q();
-                this.f13847b = qVar;
+                this.f14608b = qVar;
                 qVar.f(optJSONObject2);
             }
         }

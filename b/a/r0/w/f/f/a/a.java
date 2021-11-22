@@ -25,16 +25,16 @@ public abstract class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f24770e;
+    public TbPageContext f26287e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f24771f;
+    public Context f26288f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<b.a.r0.w.f.f.b.b> f24772g;
+    public List<b.a.r0.w.f.f.b.b> f26289g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24773h;
+    public int f26290h;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -51,9 +51,9 @@ public abstract class a extends BaseAdapter {
                 return;
             }
         }
-        this.f24770e = tbPageContext;
-        this.f24771f = tbPageContext.getPageActivity();
-        this.f24772g = new ArrayList();
+        this.f26287e = tbPageContext;
+        this.f26288f = tbPageContext.getPageActivity();
+        this.f26289g = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,14 +62,14 @@ public abstract class a extends BaseAdapter {
     public b.a.r0.w.f.f.b.b getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f24772g.get(i2) : (b.a.r0.w.f.f.b.b) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f26289g.get(i2) : (b.a.r0.w.f.f.b.b) invokeI.objValue;
     }
 
     public void b(TbPageContext<?> tbPageContext, d2 d2Var, String str) {
         String str2;
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, d2Var, str) == null) || tbPageContext == null || d2Var == null || d2Var.J() == null || d2Var.l1() == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, d2Var, str) == null) || tbPageContext == null || d2Var == null || d2Var.J() == null || d2Var.m1() == null) {
             return;
         }
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -82,7 +82,7 @@ public abstract class a extends BaseAdapter {
             z = false;
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(d2Var.l1());
+        alaLiveInfoCoreData.fillWithInfoData(d2Var.m1());
         alaLiveInfoCoreData.userName = d2Var.J().getUserName();
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
     }
@@ -92,8 +92,8 @@ public abstract class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f24772g.clear();
-        this.f24772g.addAll(list);
+        this.f26289g.clear();
+        this.f26289g.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -101,7 +101,7 @@ public abstract class a extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24772g.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26289g.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter

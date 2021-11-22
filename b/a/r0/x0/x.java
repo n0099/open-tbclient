@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class x extends b.a.r0.b0.e0.a {
+/* loaded from: classes6.dex */
+public class x extends b.a.r0.b0.f0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b.a.r0.i1.b.c> f26589e;
+    public List<b.a.r0.i1.b.c> f28091e;
 
     public x() {
         Interceptable interceptable = $ic;
@@ -31,26 +31,26 @@ public class x extends b.a.r0.b0.e0.a {
                 return;
             }
         }
-        this.f26589e = new ArrayList();
+        this.f28091e = new ArrayList();
     }
 
-    public void g(j1 j1Var) {
+    public void g(k1 k1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, j1Var) == null) {
-            this.f26589e.add(j1Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, k1Var) == null) {
+            this.f28091e.add(k1Var);
         }
     }
 
     public List<b.a.r0.i1.b.c> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26589e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28091e : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? t1.Z3 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? t1.a4 : (BdUniqueId) invokeV.objValue;
     }
 }

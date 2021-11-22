@@ -15,22 +15,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f3159a;
+    public static final /* synthetic */ boolean f3250a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.k.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static abstract class AbstractC0086a {
+    public static abstract class AbstractC0088a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f3160a;
+        public byte[] f3251a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f3161b;
+        public int f3252b;
 
-        public AbstractC0086a() {
+        public AbstractC0088a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,32 +46,32 @@ public class a {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends AbstractC0086a {
+    public static class b extends AbstractC0088a {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] j;
         public static final /* synthetic */ boolean k;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f3162c;
+        public final byte[] f3253c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f3163d;
+        public int f3254d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f3164e;
+        public int f3255e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f3165f;
+        public final boolean f3256f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f3166g;
+        public final boolean f3257g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final boolean f3167h;
+        public final boolean f3258h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final byte[] f3168i;
+        public final byte[] f3259i;
 
         static {
             InterceptResult invokeClinit;
@@ -103,14 +103,14 @@ public class a {
                     return;
                 }
             }
-            this.f3160a = null;
-            this.f3165f = false;
-            this.f3166g = false;
-            this.f3167h = false;
-            this.f3168i = j;
-            this.f3162c = new byte[2];
-            this.f3163d = 0;
-            this.f3164e = 0 != 0 ? 19 : -1;
+            this.f3251a = null;
+            this.f3256f = false;
+            this.f3257g = false;
+            this.f3258h = false;
+            this.f3259i = j;
+            this.f3253c = new byte[2];
+            this.f3254d = 0;
+            this.f3255e = 0 != 0 ? 19 : -1;
         }
     }
 
@@ -127,7 +127,7 @@ public class a {
                 return;
             }
         }
-        f3159a = !a.class.desiredAssertionStatus();
+        f3250a = !a.class.desiredAssertionStatus();
     }
 
     public a() {
@@ -145,7 +145,7 @@ public class a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:49:0x0109, code lost:
-        if (r2.f3167h == false) goto L40;
+        if (r2.f3258h == false) goto L40;
      */
     /* JADX WARN: Code restructure failed: missing block: B:50:0x010b, code lost:
         r5[r11] = 13;
@@ -181,7 +181,7 @@ public class a {
         b bVar = new b();
         int i7 = (length / 3) * 4;
         int i8 = 1;
-        if (!bVar.f3165f) {
+        if (!bVar.f3256f) {
             int i9 = length % 3;
             if (i9 == 1) {
                 i7 += 2;
@@ -191,28 +191,28 @@ public class a {
         } else if (length % 3 > 0) {
             i7 += 4;
         }
-        if (bVar.f3166g && length > 0) {
-            i7 += (((length - 1) / 57) + 1) * (bVar.f3167h ? 2 : 1);
+        if (bVar.f3257g && length > 0) {
+            i7 += (((length - 1) / 57) + 1) * (bVar.f3258h ? 2 : 1);
         }
         byte[] bArr2 = new byte[i7];
-        bVar.f3160a = bArr2;
-        byte[] bArr3 = bVar.f3168i;
-        int i10 = bVar.f3164e;
+        bVar.f3251a = bArr2;
+        byte[] bArr3 = bVar.f3259i;
+        int i10 = bVar.f3255e;
         int i11 = length + 0;
-        int i12 = bVar.f3163d;
+        int i12 = bVar.f3254d;
         if (i12 != 1) {
             if (i12 == 2 && i11 > 0) {
-                byte[] bArr4 = bVar.f3162c;
+                byte[] bArr4 = bVar.f3253c;
                 i2 = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[0] & 255);
-                bVar.f3163d = 0;
+                bVar.f3254d = 0;
                 i3 = 1;
             }
             i2 = -1;
             i3 = 0;
         } else {
             if (2 <= i11) {
-                i2 = ((bVar.f3162c[0] & 255) << 16) | ((bArr[0] & 255) << 8) | (bArr[1] & 255);
-                bVar.f3163d = 0;
+                i2 = ((bVar.f3253c[0] & 255) << 16) | ((bArr[0] & 255) << 8) | (bArr[1] & 255);
+                bVar.f3254d = 0;
                 i3 = 2;
             }
             i2 = -1;
@@ -225,7 +225,7 @@ public class a {
             bArr2[3] = bArr3[i2 & 63];
             i10--;
             if (i10 == 0) {
-                if (bVar.f3167h) {
+                if (bVar.f3258h) {
                     i6 = 5;
                     bArr2[4] = 13;
                 } else {
@@ -243,52 +243,52 @@ public class a {
         while (true) {
             int i13 = i3 + 3;
             if (i13 > i11) {
-                int i14 = bVar.f3163d;
+                int i14 = bVar.f3254d;
                 if (i3 - i14 == i11 - 1) {
                     if (i14 > 0) {
-                        b4 = bVar.f3162c[0];
+                        b4 = bVar.f3253c[0];
                     } else {
                         b4 = bArr[i3];
                         i3++;
                         i8 = 0;
                     }
                     int i15 = (b4 & 255) << 4;
-                    bVar.f3163d -= i8;
+                    bVar.f3254d -= i8;
                     int i16 = i4 + 1;
                     bArr2[i4] = bArr3[(i15 >> 6) & 63];
                     int i17 = i16 + 1;
                     bArr2[i16] = bArr3[i15 & 63];
-                    if (bVar.f3165f) {
+                    if (bVar.f3256f) {
                         int i18 = i17 + 1;
                         bArr2[i17] = 61;
                         i17 = i18 + 1;
                         bArr2[i18] = 61;
                     }
-                    if (!bVar.f3166g) {
+                    if (!bVar.f3257g) {
                         i4 = i17;
                         if (b.k) {
                         }
                         if (b.k) {
                         }
-                        bVar.f3161b = i4;
-                        bVar.f3164e = i10;
-                        if (f3159a) {
+                        bVar.f3252b = i4;
+                        bVar.f3255e = i10;
+                        if (f3250a) {
                         }
-                        return bVar.f3160a;
+                        return bVar.f3251a;
                     }
-                    if (bVar.f3167h) {
+                    if (bVar.f3258h) {
                         bArr2[i17] = 13;
                         i17++;
                     }
                     i5 = i17 + 1;
                     bArr2[i17] = 10;
                     i4 = i5;
-                    if (!b.k || bVar.f3163d == 0) {
+                    if (!b.k || bVar.f3254d == 0) {
                         if (!b.k || i3 == i11) {
-                            bVar.f3161b = i4;
-                            bVar.f3164e = i10;
-                            if (!f3159a || i4 == i7) {
-                                return bVar.f3160a;
+                            bVar.f3252b = i4;
+                            bVar.f3255e = i10;
+                            if (!f3250a || i4 == i7) {
+                                return bVar.f3251a;
                             }
                             throw new AssertionError();
                         }
@@ -296,8 +296,8 @@ public class a {
                     }
                     throw new AssertionError();
                 } else if (i3 - i14 != i11 - 2) {
-                    if (bVar.f3166g && i4 > 0 && i10 != 19) {
-                        if (bVar.f3167h) {
+                    if (bVar.f3257g && i4 > 0 && i10 != 19) {
+                        if (bVar.f3258h) {
                             bArr2[i4] = 13;
                             i4++;
                         }
@@ -309,14 +309,14 @@ public class a {
                     }
                     if (b.k) {
                     }
-                    bVar.f3161b = i4;
-                    bVar.f3164e = i10;
-                    if (f3159a) {
+                    bVar.f3252b = i4;
+                    bVar.f3255e = i10;
+                    if (f3250a) {
                     }
-                    return bVar.f3160a;
+                    return bVar.f3251a;
                 } else {
                     if (i14 > 1) {
-                        b2 = bVar.f3162c[0];
+                        b2 = bVar.f3253c[0];
                     } else {
                         byte b5 = bArr[i3];
                         i3++;
@@ -324,38 +324,38 @@ public class a {
                         i8 = 0;
                     }
                     int i19 = (b2 & 255) << 10;
-                    if (bVar.f3163d > 0) {
-                        b3 = bVar.f3162c[i8];
+                    if (bVar.f3254d > 0) {
+                        b3 = bVar.f3253c[i8];
                         i8++;
                     } else {
                         b3 = bArr[i3];
                         i3++;
                     }
                     int i20 = ((b3 & 255) << 2) | i19;
-                    bVar.f3163d -= i8;
+                    bVar.f3254d -= i8;
                     int i21 = i4 + 1;
                     bArr2[i4] = bArr3[(i20 >> 12) & 63];
                     int i22 = i21 + 1;
                     bArr2[i21] = bArr3[(i20 >> 6) & 63];
                     int i23 = i22 + 1;
                     bArr2[i22] = bArr3[i20 & 63];
-                    if (bVar.f3165f) {
+                    if (bVar.f3256f) {
                         bArr2[i23] = 61;
                         i23++;
                     }
-                    if (!bVar.f3166g) {
+                    if (!bVar.f3257g) {
                         i4 = i23;
                         if (b.k) {
                         }
                         if (b.k) {
                         }
-                        bVar.f3161b = i4;
-                        bVar.f3164e = i10;
-                        if (f3159a) {
+                        bVar.f3252b = i4;
+                        bVar.f3255e = i10;
+                        if (f3250a) {
                         }
-                        return bVar.f3160a;
+                        return bVar.f3251a;
                     }
-                    if (bVar.f3167h) {
+                    if (bVar.f3258h) {
                         bArr2[i23] = 13;
                         i23++;
                     }
@@ -366,11 +366,11 @@ public class a {
                     }
                     if (b.k) {
                     }
-                    bVar.f3161b = i4;
-                    bVar.f3164e = i10;
-                    if (f3159a) {
+                    bVar.f3252b = i4;
+                    bVar.f3255e = i10;
+                    if (f3250a) {
                     }
-                    return bVar.f3160a;
+                    return bVar.f3251a;
                 }
             }
             int i24 = ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3] & 255) << 16) | (bArr[i3 + 2] & 255);

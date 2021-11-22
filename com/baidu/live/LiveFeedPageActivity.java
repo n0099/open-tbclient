@@ -7,6 +7,7 @@ import b.a.w.b.a;
 import b.a.w.e.g.b;
 import b.a.w.e.g.c;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,6 +48,7 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             setContentView(aVar.u());
             this.mBaiduLiveTabContainer.D();
             b.a.w.b.c.a.r(this, stringExtra, "chenjinshi");
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

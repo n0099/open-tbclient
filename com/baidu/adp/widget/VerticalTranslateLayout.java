@@ -42,19 +42,19 @@ public class VerticalTranslateLayout extends FrameLayout {
     public g D;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34646e;
+    public int f35475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f34647f;
+    public int f35476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f34648g;
+    public float f35477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f34649h;
+    public float f35478h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f34650i;
+    public float f35479i;
     public float j;
     public int k;
     public final int l;
@@ -142,7 +142,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f34651a;
+        public static final /* synthetic */ int[] f35480a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -159,17 +159,17 @@ public class VerticalTranslateLayout extends FrameLayout {
                 }
             }
             int[] iArr = new int[TrackDirection.values().length];
-            f34651a = iArr;
+            f35480a = iArr;
             try {
                 iArr[TrackDirection.top.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f34651a[TrackDirection.bottom.ordinal()] = 2;
+                f35480a[TrackDirection.bottom.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f34651a[TrackDirection.vertical.ordinal()] = 3;
+                f35480a[TrackDirection.vertical.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -181,7 +181,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VerticalTranslateLayout f34652a;
+        public final /* synthetic */ VerticalTranslateLayout f35481a;
 
         public b(VerticalTranslateLayout verticalTranslateLayout) {
             Interceptable interceptable = $ic;
@@ -198,23 +198,23 @@ public class VerticalTranslateLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f34652a = verticalTranslateLayout;
+            this.f35481a = verticalTranslateLayout;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.f34652a.y.f34660h) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.f35481a.y.f35489h) {
                 int i2 = message.what;
                 if (i2 == -105) {
-                    this.f34652a.y.g();
+                    this.f35481a.y.g();
                 } else if (i2 == -104) {
-                    this.f34652a.y.i();
+                    this.f35481a.y.i();
                 } else if (i2 == -101) {
-                    this.f34652a.y.f();
+                    this.f35481a.y.f();
                 } else if (i2 != -100) {
                 } else {
-                    this.f34652a.y.h();
+                    this.f35481a.y.h();
                 }
             }
         }
@@ -230,31 +230,31 @@ public class VerticalTranslateLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final float f34653a;
+        public final float f35482a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f34654b;
+        public float f35483b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f34655c;
+        public float f35484c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f34656d;
+        public float f35485d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f34657e;
+        public float f35486e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f34658f;
+        public long f35487f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f34659g;
+        public long f35488g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f34660h;
+        public boolean f35489h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ VerticalTranslateLayout f34661i;
+        public final /* synthetic */ VerticalTranslateLayout f35490i;
 
         public c(VerticalTranslateLayout verticalTranslateLayout) {
             Interceptable interceptable = $ic;
@@ -271,97 +271,97 @@ public class VerticalTranslateLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f34661i = verticalTranslateLayout;
-            this.f34653a = verticalTranslateLayout.getContext().getResources().getDisplayMetrics().density * 600.0f;
+            this.f35490i = verticalTranslateLayout;
+            this.f35482a = verticalTranslateLayout.getContext().getResources().getDisplayMetrics().density * 600.0f;
         }
 
         public void a(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-                d dVar = this.f34661i.B;
+                d dVar = this.f35490i.B;
                 if (dVar != null) {
                     dVar.a();
                 }
-                this.f34660h = true;
+                this.f35489h = true;
                 long uptimeMillis = SystemClock.uptimeMillis();
-                this.f34658f = uptimeMillis;
-                this.f34659g = uptimeMillis + 16;
-                this.f34655c = f2;
-                this.f34654b = 0.0f;
-                this.f34656d = (this.f34661i.f34647f - this.f34661i.f34650i) - this.f34661i.k;
-                this.f34657e = this.f34661i.k;
-                BdLog.d("Animator@animateBottom " + this.f34656d);
+                this.f35487f = uptimeMillis;
+                this.f35488g = uptimeMillis + 16;
+                this.f35484c = f2;
+                this.f35483b = 0.0f;
+                this.f35485d = (this.f35490i.f35476f - this.f35490i.f35479i) - this.f35490i.k;
+                this.f35486e = this.f35490i.k;
+                BdLog.d("Animator@animateBottom " + this.f35485d);
                 BdLog.d("Animator@animateBottom " + f2);
-                this.f34661i.x.removeMessages(-101);
-                this.f34661i.x.sendEmptyMessageAtTime(-101, this.f34659g);
+                this.f35490i.x.removeMessages(-101);
+                this.f35490i.x.sendEmptyMessageAtTime(-101, this.f35488g);
             }
         }
 
         public void b(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-                for (e eVar : this.f34661i.C) {
+                for (e eVar : this.f35490i.C) {
                     if (eVar != null) {
                         eVar.a();
                     }
                 }
-                this.f34660h = true;
+                this.f35489h = true;
                 long uptimeMillis = SystemClock.uptimeMillis();
-                this.f34658f = uptimeMillis;
-                this.f34659g = uptimeMillis + 16;
-                this.f34655c = f2;
-                this.f34654b = 0.0f;
-                this.f34656d = 0 - this.f34661i.k;
-                this.f34657e = this.f34661i.k;
-                BdLog.d("Animator@animateBottomOpen " + this.f34656d);
+                this.f35487f = uptimeMillis;
+                this.f35488g = uptimeMillis + 16;
+                this.f35484c = f2;
+                this.f35483b = 0.0f;
+                this.f35485d = 0 - this.f35490i.k;
+                this.f35486e = this.f35490i.k;
+                BdLog.d("Animator@animateBottomOpen " + this.f35485d);
                 BdLog.d("Animator@animateBottomOpen " + f2);
-                this.f34661i.x.removeMessages(-105);
-                this.f34661i.x.sendEmptyMessageAtTime(-105, this.f34659g);
+                this.f35490i.x.removeMessages(-105);
+                this.f35490i.x.sendEmptyMessageAtTime(-105, this.f35488g);
             }
         }
 
         public void c(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-                f fVar = this.f34661i.A;
+                f fVar = this.f35490i.A;
                 if (fVar != null) {
                     fVar.a();
                 }
-                this.f34660h = true;
+                this.f35489h = true;
                 long uptimeMillis = SystemClock.uptimeMillis();
-                this.f34658f = uptimeMillis;
-                this.f34659g = uptimeMillis + 16;
-                this.f34655c = f2;
-                this.f34654b = 0.0f;
-                this.f34656d = ((-this.f34661i.f34647f) + this.f34661i.f34648g) - this.f34661i.k;
-                this.f34657e = this.f34661i.k;
-                BdLog.d("Animator@animateTop " + this.f34656d);
+                this.f35487f = uptimeMillis;
+                this.f35488g = uptimeMillis + 16;
+                this.f35484c = f2;
+                this.f35483b = 0.0f;
+                this.f35485d = ((-this.f35490i.f35476f) + this.f35490i.f35477g) - this.f35490i.k;
+                this.f35486e = this.f35490i.k;
+                BdLog.d("Animator@animateTop " + this.f35485d);
                 BdLog.d("Animator@animateTop " + f2);
-                this.f34661i.x.removeMessages(-100);
-                this.f34661i.x.sendEmptyMessageAtTime(-100, this.f34659g);
+                this.f35490i.x.removeMessages(-100);
+                this.f35490i.x.sendEmptyMessageAtTime(-100, this.f35488g);
             }
         }
 
         public void d(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-                for (e eVar : this.f34661i.C) {
+                for (e eVar : this.f35490i.C) {
                     if (eVar != null) {
                         eVar.a();
                     }
                 }
-                this.f34660h = true;
+                this.f35489h = true;
                 long uptimeMillis = SystemClock.uptimeMillis();
-                this.f34658f = uptimeMillis;
-                this.f34659g = uptimeMillis + 16;
-                this.f34655c = f2;
-                this.f34654b = 0.0f;
-                this.f34656d = 0 - this.f34661i.k;
-                this.f34657e = this.f34661i.k;
-                this.f34661i.x.removeMessages(-104);
-                BdLog.d("Animator@animateTopOpen " + this.f34656d);
+                this.f35487f = uptimeMillis;
+                this.f35488g = uptimeMillis + 16;
+                this.f35484c = f2;
+                this.f35483b = 0.0f;
+                this.f35485d = 0 - this.f35490i.k;
+                this.f35486e = this.f35490i.k;
+                this.f35490i.x.removeMessages(-104);
+                BdLog.d("Animator@animateTopOpen " + this.f35485d);
                 BdLog.d("Animator@animateTopOpen " + f2);
-                this.f34661i.x.sendEmptyMessageAtTime(-104, this.f34659g);
+                this.f35490i.x.sendEmptyMessageAtTime(-104, this.f35488g);
             }
         }
 
@@ -369,9 +369,9 @@ public class VerticalTranslateLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 long uptimeMillis = SystemClock.uptimeMillis();
-                this.f34654b += this.f34655c * (((float) (uptimeMillis - this.f34658f)) / 1000.0f);
-                this.f34658f = uptimeMillis;
-                this.f34659g += 16;
+                this.f35483b += this.f35484c * (((float) (uptimeMillis - this.f35487f)) / 1000.0f);
+                this.f35487f = uptimeMillis;
+                this.f35488g += 16;
             }
         }
 
@@ -379,21 +379,21 @@ public class VerticalTranslateLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 e();
-                float f2 = this.f34654b;
-                float f3 = this.f34656d;
+                float f2 = this.f35483b;
+                float f3 = this.f35485d;
                 if (f2 >= f3) {
-                    d dVar = this.f34661i.B;
+                    d dVar = this.f35490i.B;
                     if (dVar != null) {
                         dVar.b();
                     }
-                    this.f34660h = false;
-                    this.f34661i.p = 10001;
-                    this.f34661i.s();
+                    this.f35489h = false;
+                    this.f35490i.p = 10001;
+                    this.f35490i.s();
                     return;
                 }
-                this.f34661i.k = (int) (b.a.e.l.a.a(f3, f2, false) + this.f34657e);
-                this.f34661i.invalidate();
-                this.f34661i.x.sendEmptyMessageAtTime(-101, this.f34659g);
+                this.f35490i.k = (int) (b.a.e.m.a.a(f3, f2, false) + this.f35486e);
+                this.f35490i.invalidate();
+                this.f35490i.x.sendEmptyMessageAtTime(-101, this.f35488g);
             }
         }
 
@@ -401,22 +401,22 @@ public class VerticalTranslateLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 e();
-                float f2 = this.f34654b;
-                float f3 = this.f34656d;
+                float f2 = this.f35483b;
+                float f3 = this.f35485d;
                 if (f2 <= f3) {
-                    for (e eVar : this.f34661i.C) {
+                    for (e eVar : this.f35490i.C) {
                         if (eVar != null) {
                             eVar.b();
                         }
                     }
-                    this.f34660h = false;
-                    this.f34661i.p = 10004;
-                    this.f34661i.s();
+                    this.f35489h = false;
+                    this.f35490i.p = 10004;
+                    this.f35490i.s();
                     return;
                 }
-                this.f34661i.k = (int) (b.a.e.l.a.a(f3, f2, false) + this.f34657e);
-                this.f34661i.invalidate();
-                this.f34661i.x.sendEmptyMessageAtTime(-105, this.f34659g);
+                this.f35490i.k = (int) (b.a.e.m.a.a(f3, f2, false) + this.f35486e);
+                this.f35490i.invalidate();
+                this.f35490i.x.sendEmptyMessageAtTime(-105, this.f35488g);
             }
         }
 
@@ -424,21 +424,21 @@ public class VerticalTranslateLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 e();
-                float f2 = this.f34654b;
-                float f3 = this.f34656d;
+                float f2 = this.f35483b;
+                float f3 = this.f35485d;
                 if (f2 <= f3) {
-                    f fVar = this.f34661i.A;
+                    f fVar = this.f35490i.A;
                     if (fVar != null) {
                         fVar.b();
                     }
-                    this.f34660h = false;
-                    this.f34661i.p = 10000;
-                    this.f34661i.s();
+                    this.f35489h = false;
+                    this.f35490i.p = 10000;
+                    this.f35490i.s();
                     return;
                 }
-                this.f34661i.k = (int) (b.a.e.l.a.a(f3, f2, false) + this.f34657e);
-                this.f34661i.invalidate();
-                this.f34661i.x.sendEmptyMessageAtTime(-100, this.f34659g);
+                this.f35490i.k = (int) (b.a.e.m.a.a(f3, f2, false) + this.f35486e);
+                this.f35490i.invalidate();
+                this.f35490i.x.sendEmptyMessageAtTime(-100, this.f35488g);
             }
         }
 
@@ -446,22 +446,22 @@ public class VerticalTranslateLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                 e();
-                float f2 = this.f34654b;
-                float f3 = this.f34656d;
+                float f2 = this.f35483b;
+                float f3 = this.f35485d;
                 if (f2 >= f3) {
-                    for (e eVar : this.f34661i.C) {
+                    for (e eVar : this.f35490i.C) {
                         if (eVar != null) {
                             eVar.b();
                         }
                     }
-                    this.f34660h = false;
-                    this.f34661i.p = 10004;
-                    this.f34661i.s();
+                    this.f35489h = false;
+                    this.f35490i.p = 10004;
+                    this.f35490i.s();
                     return;
                 }
-                this.f34661i.k = (int) (b.a.e.l.a.a(f3, f2, false) + this.f34657e);
-                this.f34661i.invalidate();
-                this.f34661i.x.sendEmptyMessageAtTime(-104, this.f34659g);
+                this.f35490i.k = (int) (b.a.e.m.a.a(f3, f2, false) + this.f35486e);
+                this.f35490i.invalidate();
+                this.f35490i.x.sendEmptyMessageAtTime(-104, this.f35488g);
             }
         }
     }
@@ -498,19 +498,19 @@ public class VerticalTranslateLayout extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public VelocityTracker f34662a;
+        public VelocityTracker f35491a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f34663b;
+        public boolean f35492b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f34664c;
+        public final int f35493c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f34665d;
+        public final int f35494d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VerticalTranslateLayout f34666e;
+        public final /* synthetic */ VerticalTranslateLayout f35495e;
 
         public h(VerticalTranslateLayout verticalTranslateLayout) {
             Interceptable interceptable = $ic;
@@ -527,10 +527,10 @@ public class VerticalTranslateLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f34666e = verticalTranslateLayout;
+            this.f35495e = verticalTranslateLayout;
             float f2 = verticalTranslateLayout.getContext().getResources().getDisplayMetrics().density;
-            this.f34664c = (int) ((200.0f * f2) + 0.5f);
-            this.f34665d = (int) ((f2 * 500.0f) + 0.5f);
+            this.f35493c = (int) ((200.0f * f2) + 0.5f);
+            this.f35494d = (int) ((f2 * 500.0f) + 0.5f);
         }
 
         public final void b(float f2) {
@@ -538,9 +538,9 @@ public class VerticalTranslateLayout extends FrameLayout {
             if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
                 BdLog.d("VerticalTranslateLayout@bottomFling");
                 if (f2 < 0.0f) {
-                    this.f34666e.y.b(f2);
+                    this.f35495e.y.b(f2);
                 } else {
-                    this.f34666e.y.a(f2);
+                    this.f35495e.y.a(f2);
                 }
             }
         }
@@ -549,15 +549,15 @@ public class VerticalTranslateLayout extends FrameLayout {
             float max;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f34662a.computeCurrentVelocity(this.f34664c);
-                float yVelocity = this.f34662a.getYVelocity();
+                this.f35491a.computeCurrentVelocity(this.f35493c);
+                float yVelocity = this.f35491a.getYVelocity();
                 BdLog.d("VerticalTranslateLayout@fling y " + yVelocity);
                 if (yVelocity < 0.0f) {
-                    max = Math.min(yVelocity, -this.f34665d);
+                    max = Math.min(yVelocity, -this.f35494d);
                 } else {
-                    max = Math.max(yVelocity, this.f34665d);
+                    max = Math.max(yVelocity, this.f35494d);
                 }
-                int i2 = a.f34651a[this.f34666e.o.ordinal()];
+                int i2 = a.f35480a[this.f35495e.o.ordinal()];
                 if (i2 == 1) {
                     g(max);
                 } else if (i2 == 2) {
@@ -565,39 +565,39 @@ public class VerticalTranslateLayout extends FrameLayout {
                 } else if (i2 == 3) {
                     h(max);
                 }
-                this.f34662a.recycle();
-                this.f34662a = null;
+                this.f35491a.recycle();
+                this.f35491a = null;
             }
         }
 
         public void d(int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && this.f34663b) {
-                int i3 = this.f34666e.k - i2;
-                int i4 = a.f34651a[this.f34666e.o.ordinal()];
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && this.f35492b) {
+                int i3 = this.f35495e.k - i2;
+                int i4 = a.f35480a[this.f35495e.o.ordinal()];
                 if (i4 == 1) {
                     BdLog.d("VerticalTranslateLayout@move top");
-                    if (i3 <= this.f34666e.f34648g - this.f34666e.f34647f || i3 >= 0) {
+                    if (i3 <= this.f35495e.f35477g - this.f35495e.f35476f || i3 >= 0) {
                         return;
                     }
-                    this.f34666e.k -= i2;
-                    this.f34666e.invalidate();
+                    this.f35495e.k -= i2;
+                    this.f35495e.invalidate();
                 } else if (i4 == 2) {
                     BdLog.d("VerticalTranslateLayout@move bottom");
-                    if (i3 >= this.f34666e.f34647f - this.f34666e.f34650i || i3 <= 0) {
+                    if (i3 >= this.f35495e.f35476f - this.f35495e.f35479i || i3 <= 0) {
                         return;
                     }
-                    this.f34666e.k -= i2;
-                    this.f34666e.invalidate();
+                    this.f35495e.k -= i2;
+                    this.f35495e.invalidate();
                 } else if (i4 != 3) {
                 } else {
                     BdLog.d("VerticalTranslateLayout@move vertical");
                     float f2 = i3;
-                    if (f2 < this.f34666e.f34648g - this.f34666e.f34647f || f2 > this.f34666e.f34647f - this.f34666e.f34650i) {
+                    if (f2 < this.f35495e.f35477g - this.f35495e.f35476f || f2 > this.f35495e.f35476f - this.f35495e.f35479i) {
                         return;
                     }
-                    this.f34666e.k -= i2;
-                    this.f34666e.invalidate();
+                    this.f35495e.k -= i2;
+                    this.f35495e.invalidate();
                 }
             }
         }
@@ -606,20 +606,20 @@ public class VerticalTranslateLayout extends FrameLayout {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                int i3 = a.f34651a[this.f34666e.o.ordinal()];
+                int i3 = a.f35480a[this.f35495e.o.ordinal()];
                 if (i3 != 1) {
                     if (i3 != 2) {
-                        if (i3 == 3 && this.f34666e.D != null) {
-                            this.f34666e.D.a(i2);
+                        if (i3 == 3 && this.f35495e.D != null) {
+                            this.f35495e.D.a(i2);
                         }
-                    } else if (this.f34666e.p != 10004 && this.f34666e.p != 10001) {
+                    } else if (this.f35495e.p != 10004 && this.f35495e.p != 10001) {
                         return false;
                     }
-                } else if (this.f34666e.p != 10004 && this.f34666e.p != 10000) {
+                } else if (this.f35495e.p != 10004 && this.f35495e.p != 10000) {
                     return false;
                 }
-                this.f34662a = VelocityTracker.obtain();
-                this.f34663b = true;
+                this.f35491a = VelocityTracker.obtain();
+                this.f35492b = true;
                 return true;
             }
             return invokeI.booleanValue;
@@ -628,7 +628,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f34663b = false;
+                this.f35492b = false;
             }
         }
 
@@ -637,9 +637,9 @@ public class VerticalTranslateLayout extends FrameLayout {
             if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
                 BdLog.d("VerticalTranslateLayout@topFling");
                 if (f2 < 0.0f) {
-                    this.f34666e.y.c(f2);
+                    this.f35495e.y.c(f2);
                 } else {
-                    this.f34666e.y.d(f2);
+                    this.f35495e.y.d(f2);
                 }
             }
         }
@@ -648,19 +648,19 @@ public class VerticalTranslateLayout extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
                 BdLog.d("VerticalTranslateLayout@verticalFling");
-                int i2 = this.f34666e.k;
-                if (i2 <= 0 && i2 >= this.f34666e.f34648g - this.f34666e.f34647f) {
+                int i2 = this.f35495e.k;
+                if (i2 <= 0 && i2 >= this.f35495e.f35477g - this.f35495e.f35476f) {
                     if (f2 < 0.0f) {
-                        this.f34666e.y.c(f2);
+                        this.f35495e.y.c(f2);
                     } else {
-                        this.f34666e.y.d(f2);
+                        this.f35495e.y.d(f2);
                     }
-                } else if (i2 < 0 || i2 > this.f34666e.f34647f - this.f34666e.f34650i) {
+                } else if (i2 < 0 || i2 > this.f35495e.f35476f - this.f35495e.f35479i) {
                 } else {
                     if (f2 < 0.0f) {
-                        this.f34666e.y.b(f2);
+                        this.f35495e.y.b(f2);
                     } else {
-                        this.f34666e.y.a(f2);
+                        this.f35495e.y.a(f2);
                     }
                 }
             }
@@ -727,10 +727,10 @@ public class VerticalTranslateLayout extends FrameLayout {
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && p()) {
             if (z) {
                 c cVar = this.y;
-                cVar.a(cVar.f34653a);
+                cVar.a(cVar.f35482a);
                 return;
             }
-            this.k = (int) (this.f34647f - this.f34650i);
+            this.k = (int) (this.f35476f - this.f35479i);
             this.p = 10001;
             invalidate();
         }
@@ -741,10 +741,10 @@ public class VerticalTranslateLayout extends FrameLayout {
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && q()) {
             if (z) {
                 c cVar = this.y;
-                cVar.c(-cVar.f34653a);
+                cVar.c(-cVar.f35482a);
                 return;
             }
-            this.k = (int) (this.f34648g - this.f34647f);
+            this.k = (int) (this.f35477g - this.f35476f);
             this.p = 10000;
             invalidate();
         }
@@ -757,7 +757,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             canvas.save();
             canvas.translate(0.0f, this.k);
             BdLog.d("VerticalTranslateLayout@dispatchDraw " + this.k);
-            canvas.drawRect(0.0f, 0.0f, (float) this.f34646e, (float) this.f34647f, this.s);
+            canvas.drawRect(0.0f, 0.0f, (float) this.f35475e, (float) this.f35476f, this.s);
             super.dispatchDraw(canvas);
             canvas.restore();
         }
@@ -766,11 +766,11 @@ public class VerticalTranslateLayout extends FrameLayout {
     public void dump() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            BdLog.d("VerticalTranslateLayout@dump top offset " + this.f34648g);
-            BdLog.d("VerticalTranslateLayout@dump bottom offset " + this.f34650i);
+            BdLog.d("VerticalTranslateLayout@dump top offset " + this.f35477g);
+            BdLog.d("VerticalTranslateLayout@dump bottom offset " + this.f35479i);
             BdLog.d("VerticalTranslateLayout@dump track " + this.o);
             BdLog.d("VerticalTranslateLayout@dump top tap " + this.m);
-            BdLog.d("VerticalTranslateLayout@dump bottom tap " + this.f34650i);
+            BdLog.d("VerticalTranslateLayout@dump bottom tap " + this.f35479i);
         }
     }
 
@@ -781,13 +781,13 @@ public class VerticalTranslateLayout extends FrameLayout {
                 int i2 = this.p;
                 if (i2 == 10000) {
                     c cVar = this.y;
-                    cVar.d(cVar.f34653a);
+                    cVar.d(cVar.f35482a);
                     return;
                 } else if (i2 != 10001) {
                     return;
                 } else {
                     c cVar2 = this.y;
-                    cVar2.b(-cVar2.f34653a);
+                    cVar2.b(-cVar2.f35482a);
                     return;
                 }
             }
@@ -800,7 +800,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     public int getBottomOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (int) this.f34650i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (int) this.f35479i : invokeV.intValue;
     }
 
     public int getState() {
@@ -812,7 +812,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     public int getTopOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (int) this.f34648g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (int) this.f35477g : invokeV.intValue;
     }
 
     public int getTopTranslate() {
@@ -824,7 +824,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     public boolean isAnimating() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.y.f34660h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.y.f35489h : invokeV.booleanValue;
     }
 
     public boolean isBottomTapBack() {
@@ -877,16 +877,16 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                float f2 = this.f34648g;
+                float f2 = this.f35477g;
                 if (f2 != -1.0f) {
                     this.q.set(i2, i3, i4, (int) (i3 + f2));
                 }
-                float f3 = this.f34650i;
+                float f3 = this.f35479i;
                 if (f3 != -1.0f) {
                     this.r.set(i2, (int) (i5 - f3), i4, i5);
                 }
             }
-            if (this.y.f34660h || this.z.f34663b) {
+            if (this.y.f35489h || this.z.f35492b) {
                 return;
             }
             s();
@@ -899,14 +899,14 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeII(1048591, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
             int i4 = 1073741823 & i3;
-            if (this.f34649h != -1.0f) {
-                this.f34648g = i4 - this.j;
+            if (this.f35478h != -1.0f) {
+                this.f35477g = i4 - this.j;
             }
             if (this.j != -1.0f) {
-                this.f34650i = i4 - this.f34649h;
+                this.f35479i = i4 - this.f35478h;
             }
-            this.f34646e = getMeasuredWidth();
-            this.f34647f = getMeasuredHeight();
+            this.f35475e = getMeasuredWidth();
+            this.f35476f = getMeasuredHeight();
         }
     }
 
@@ -931,7 +931,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                         if (action != 3) {
                             return false;
                         }
-                    } else if (this.z.f34663b) {
+                    } else if (this.z.f35492b) {
                         if (!this.w) {
                             int i3 = this.u;
                             if (y > i3) {
@@ -944,12 +944,12 @@ public class VerticalTranslateLayout extends FrameLayout {
                         }
                         this.z.d(this.v - y);
                         this.v = y;
-                        this.z.f34662a.addMovement(motionEvent);
+                        this.z.f35491a.addMovement(motionEvent);
                     }
                 }
                 BdLog.d("VerticalTranslateLayout@onTouchEvent up");
                 this.w = false;
-                if (this.z.f34663b) {
+                if (this.z.f35492b) {
                     BdLog.d("VerticalTranslateLayout@onTouchEvent tracking");
                     this.z.f();
                     this.z.c();
@@ -962,7 +962,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     }
                 }
                 h hVar = this.z;
-                if (hVar.f34663b) {
+                if (hVar.f35492b) {
                     hVar.f();
                     this.z.c();
                 }
@@ -970,16 +970,16 @@ public class VerticalTranslateLayout extends FrameLayout {
                 return false;
             } else {
                 h hVar2 = this.z;
-                if (!hVar2.f34663b) {
+                if (!hVar2.f35492b) {
                     this.v = y;
                     hVar2.e(y);
                 }
             }
             h hVar3 = this.z;
-            if (hVar3.f34663b) {
+            if (hVar3.f35492b) {
                 hVar3.d(this.v - y);
                 this.v = y;
-                this.z.f34662a.addMovement(motionEvent);
+                this.z.f35491a.addMovement(motionEvent);
             }
             return true;
         }
@@ -989,13 +989,13 @@ public class VerticalTranslateLayout extends FrameLayout {
     public final boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (this.f34650i == -1.0f && this.f34649h == -1.0f) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (this.f35479i == -1.0f && this.f35478h == -1.0f) ? false : true : invokeV.booleanValue;
     }
 
     public final boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? (this.f34648g == -1.0f && this.j == -1.0f) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? (this.f35477g == -1.0f && this.j == -1.0f) ? false : true : invokeV.booleanValue;
     }
 
     public final void r(AttributeSet attributeSet) {
@@ -1003,9 +1003,9 @@ public class VerticalTranslateLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, attributeSet) == null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.VerticalTranslateLayout);
-            this.f34648g = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topOffset, -1.0f);
-            this.f34650i = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomOffset, -1.0f);
-            this.f34649h = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topHeight, -1.0f);
+            this.f35477g = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topOffset, -1.0f);
+            this.f35479i = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomOffset, -1.0f);
+            this.f35478h = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topHeight, -1.0f);
             this.j = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomHeight, -1.0f);
             String string = obtainStyledAttributes.getString(R.styleable.VerticalTranslateLayout_transTrack);
             if (string != null && string.length() > 0) {
@@ -1027,9 +1027,9 @@ public class VerticalTranslateLayout extends FrameLayout {
             if (string2 != null && string2.length() > 0) {
                 for (String str : string2.split("\\|")) {
                     BdLog.d("VerticalTranslateLayout@loadAttrs tap area " + str);
-                    if (TOP.equals(str) && this.f34648g != -1.0f) {
+                    if (TOP.equals(str) && this.f35477g != -1.0f) {
                         this.m = true;
-                    } else if ("bottom".equals(str) && this.f34650i != -1.0f) {
+                    } else if ("bottom".equals(str) && this.f35479i != -1.0f) {
                         this.n = true;
                     } else {
                         BdLog.d("VerticalTranslateLayout@loadAttrs tap_back_area value illegal");
@@ -1054,10 +1054,10 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             int i2 = this.p;
             if (i2 == 10000) {
-                this.k = (int) (this.f34648g - this.f34647f);
+                this.k = (int) (this.f35477g - this.f35476f);
                 invalidate();
             } else if (i2 == 10001) {
-                this.k = (int) (this.f34647f - this.f34650i);
+                this.k = (int) (this.f35476f - this.f35479i);
                 invalidate();
             } else if (i2 != 10004) {
             } else {
@@ -1097,19 +1097,19 @@ public class VerticalTranslateLayout extends FrameLayout {
             return;
         }
         if (f2 < 0.0f) {
-            this.k = (int) ((this.f34648g - this.f34647f) * (-f2));
+            this.k = (int) ((this.f35477g - this.f35476f) * (-f2));
         } else {
             int i3 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
             if (i3 > 0) {
-                this.k = (int) ((this.f34647f - this.f34650i) * f2);
+                this.k = (int) ((this.f35476f - this.f35479i) * f2);
             } else if (i3 == 0) {
                 this.k = 0;
                 this.p = 10004;
             } else if (f2 == -1.0f) {
-                this.f34648g -= this.f34647f;
+                this.f35477g -= this.f35476f;
                 this.p = 10000;
             } else if (i2 == 0) {
-                this.f34648g = this.f34647f - this.f34650i;
+                this.f35477g = this.f35476f - this.f35479i;
                 this.p = 10001;
             }
         }

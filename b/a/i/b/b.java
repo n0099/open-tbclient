@@ -36,10 +36,10 @@ public class b extends m {
                 return;
             }
         }
-        this.f14211d = R.drawable.icon_pure_post_voice24;
-        this.f14212e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f14214g = false;
-        this.f14215h = true;
+        this.f14978d = R.drawable.icon_pure_post_voice24;
+        this.f14979e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f14981g = false;
+        this.f14982h = true;
         this.l = 6;
         this.m = true;
         this.k = new NewVoiceRecordButton(context);

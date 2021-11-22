@@ -18,13 +18,13 @@ public class b implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b.a.r0.j0.b.b> f18319e;
+    public List<b.a.r0.j0.b.b> f19653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b.a.r0.j0.b.b> f18320f;
+    public List<b.a.r0.j0.b.b> f19654f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Integer f18321g;
+    public Integer f19655g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,17 +39,17 @@ public class b implements h {
                 return;
             }
         }
-        this.f18319e = new ArrayList();
-        this.f18320f = new ArrayList();
-        this.f18321g = 0;
+        this.f19653e = new ArrayList();
+        this.f19654f = new ArrayList();
+        this.f19655g = 0;
     }
 
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f18319e.addAll(bVar.f18319e);
-            this.f18320f = bVar.f18320f;
-            this.f18321g = bVar.f18321g;
+            this.f19653e.addAll(bVar.f19653e);
+            this.f19654f = bVar.f19654f;
+            this.f19655g = bVar.f19655g;
         }
     }
 
@@ -57,12 +57,12 @@ public class b implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
             for (ManageInfo manageInfo : dataRes.manage_list) {
-                this.f18319e.add(b.a.r0.j0.b.b.e(manageInfo));
+                this.f19653e.add(b.a.r0.j0.b.b.e(manageInfo));
             }
             for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
-                this.f18320f.add(b.a.r0.j0.b.b.e(manageInfo2));
+                this.f19654f.add(b.a.r0.j0.b.b.e(manageInfo2));
             }
-            this.f18321g = dataRes.has_more;
+            this.f19655g = dataRes.has_more;
         }
     }
 

@@ -5,10 +5,11 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.h.j.g.d;
-import b.a.r0.q3.a;
+import b.a.e.i.j.g.d;
+import b.a.r0.r3.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -50,6 +51,8 @@ public class FlutterBoost {
     public static boolean sInit;
     public static FlutterBoost sInstance;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity coveredTransparentActivity;
+    public boolean isCoverWithTransparentActivity;
     public boolean isReady;
     public Application.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
     public Activity mCurrentActiveActivity;
@@ -262,12 +265,13 @@ public class FlutterBoost {
             }
         }
         this.mEnterActivityCreate = false;
+        this.isCoverWithTransparentActivity = false;
     }
 
     public static FlutterBoost instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             if (sInstance == null) {
                 sInstance = new FlutterBoost();
             }
@@ -298,12 +302,12 @@ public class FlutterBoost {
                 a.getInstance().setFlutterPath("createEngine1");
             }
             if (this.mEngine == null) {
-                synchronized (b.a.e.h.k.a.f2335a) {
+                synchronized (b.a.e.i.k.a.f2338a) {
                     PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
                     try {
                         if (FlutterCrashRepairEnableSwitch.isOn() && h2 != null && h2.apkPath != null) {
-                            Object i2 = b.a.e.h.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
-                            Object h3 = b.a.e.h.k.a.h(i2);
+                            Object i2 = b.a.e.i.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
+                            Object h3 = b.a.e.i.k.a.h(i2);
                             if (h3 instanceof File[]) {
                                 File[] fileArr = (File[]) h3;
                                 z = false;
@@ -326,7 +330,7 @@ public class FlutterBoost {
                             if (!z) {
                                 String replace = h2.apkPath.replace(".apk", "/lib");
                                 if (h3 instanceof File[]) {
-                                    list = b.a.e.h.k.a.c(h3, new File(replace));
+                                    list = b.a.e.i.k.a.c(h3, new File(replace));
                                 } else {
                                     boolean z2 = h3 instanceof List;
                                     list = h3;
@@ -336,19 +340,19 @@ public class FlutterBoost {
                                         list = list3;
                                     }
                                 }
-                                b.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
+                                b.a.e.i.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
                                 if (Build.VERSION.SDK_INT <= 25 && (Build.VERSION.SDK_INT != 25 || !Util.t())) {
                                     if (Build.VERSION.SDK_INT >= 23) {
                                         Method declaredMethod = i2.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
                                         declaredMethod.setAccessible(true);
-                                        b.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i2.getClass(), (List) list, null, new ArrayList()));
+                                        b.a.e.i.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i2.getClass(), (List) list, null, new ArrayList()));
                                     } else {
-                                        b.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
+                                        b.a.e.i.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
                                     }
                                 }
                                 Method declaredMethod2 = i2.getClass().getDeclaredMethod("makePathElements", List.class);
                                 declaredMethod2.setAccessible(true);
-                                b.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i2.getClass(), (List) list));
+                                b.a.e.i.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i2.getClass(), (List) list));
                             }
                         }
                     } catch (Exception e2) {
@@ -429,6 +433,7 @@ public class FlutterBoost {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mEngine : (FlutterEngine) invokeV.objValue;
     }
 
+    @RequiresApi(api = 14)
     public void init(Platform platform) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, platform) == null) {
@@ -470,21 +475,31 @@ public class FlutterBoost {
                         if (this.this$0.mPlatform.whenEngineStart() == ConfigBuilder.ANY_ACTIVITY_CREATED) {
                             this.this$0.doInitialFlutter();
                         }
+                        FlutterBoost flutterBoost = this.this$0;
+                        if (flutterBoost.isCoverWithTransparentActivity && flutterBoost.coveredTransparentActivity == null) {
+                            this.this$0.coveredTransparentActivity = activity;
+                        }
                     }
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityDestroyed(Activity activity) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && this.this$0.mEnterActivityCreate && this.this$0.mCurrentActiveActivity == activity) {
-                        Debuger.log("Application entry background");
-                        FlutterBoostPlugin channel = this.this$0.channel();
-                        if (this.this$0.mEngine != null && channel != null) {
-                            HashMap hashMap = new HashMap();
-                            hashMap.put("type", NotificationCompat.WearableExtender.KEY_BACKGROUND);
-                            channel.sendEvent("lifecycle", hashMap);
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                        if (this.this$0.coveredTransparentActivity == activity) {
+                            this.this$0.coveredTransparentActivity = null;
+                            this.this$0.isCoverWithTransparentActivity = false;
                         }
-                        this.this$0.mCurrentActiveActivity = null;
+                        if (this.this$0.mEnterActivityCreate && this.this$0.mCurrentActiveActivity == activity) {
+                            Debuger.log("Application entry background");
+                            FlutterBoostPlugin channel = this.this$0.channel();
+                            if (this.this$0.mEngine != null && channel != null) {
+                                HashMap hashMap = new HashMap();
+                                hashMap.put("type", NotificationCompat.WearableExtender.KEY_BACKGROUND);
+                                channel.sendEvent("lifecycle", hashMap);
+                            }
+                            this.this$0.mCurrentActiveActivity = null;
+                        }
                     }
                 }
 

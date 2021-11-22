@@ -4,14 +4,14 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.b.d;
 import b.a.q0.s.q.c2;
 import b.a.q0.s.q.d2;
-import b.a.r0.l3.j0.o;
+import b.a.r0.a3.p;
+import b.a.r0.a3.t;
+import b.a.r0.m3.j0.o;
 import b.a.r0.y0.e.c;
-import b.a.r0.z2.p;
-import b.a.r0.z2.t;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes6.dex */
-public class b extends b.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
+public class b extends b.a.e.m.e.a<n, FunAdNativeViewHolder> implements t, p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseFragmentActivity m;
@@ -48,13 +48,13 @@ public class b extends b.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f27874e;
+        public final /* synthetic */ o f29392e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FunAdNativeViewHolder f27875f;
+        public final /* synthetic */ FunAdNativeViewHolder f29393f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f27876g;
+        public final /* synthetic */ b f29394g;
 
         public a(b bVar, o oVar, FunAdNativeViewHolder funAdNativeViewHolder) {
             Interceptable interceptable = $ic;
@@ -71,18 +71,18 @@ public class b extends b.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
                     return;
                 }
             }
-            this.f27876g = bVar;
-            this.f27874e = oVar;
-            this.f27875f = funAdNativeViewHolder;
+            this.f29394g = bVar;
+            this.f29392e = oVar;
+            this.f29393f = funAdNativeViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f27874e.m(true);
-                this.f27876g.O();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f27875f.getFunAdNativeView().getPageType()).param(TiebaStatic.Params.RESOURCE_ID, this.f27876g.g0()).param("obj_locate", 0));
+                this.f29392e.m(true);
+                this.f29394g.O();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f29393f.getFunAdNativeView().getPageType()).param(TiebaStatic.Params.RESOURCE_ID, this.f29394g.g0()).param("obj_locate", 0));
             }
         }
     }
@@ -113,26 +113,26 @@ public class b extends b.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
     public String g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pb".equals(this.p) ? this.f2422h == AdvertAppInfo.D4 ? "2" : "1" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pb".equals(this.p) ? this.f2424h == AdvertAppInfo.E4 ? "2" : "1" : "" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public FunAdNativeViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         FunAbsAdView funAdNativePbView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            BdUniqueId bdUniqueId = this.f2422h;
-            if (bdUniqueId == AdvertAppInfo.D4) {
+            BdUniqueId bdUniqueId = this.f2424h;
+            if (bdUniqueId == AdvertAppInfo.E4) {
                 funAdNativePbView = new FunAdNativeCommentView(this.m);
-            } else if (bdUniqueId == AdvertAppInfo.C4) {
+            } else if (bdUniqueId == AdvertAppInfo.D4) {
                 funAdNativePbView = new FunAdNativeFrsView(this.m);
             } else {
                 funAdNativePbView = new FunAdNativePbView(this.m);
             }
-            FunAdNativeViewHolder funAdNativeViewHolder = new FunAdNativeViewHolder(funAdNativePbView, this.m, this.f2422h);
+            FunAdNativeViewHolder funAdNativeViewHolder = new FunAdNativeViewHolder(funAdNativePbView, this.m, this.f2424h);
             funAdNativeViewHolder.setSid(this.n);
             funAdNativeViewHolder.setSceneKey(this.q);
             return funAdNativeViewHolder;
@@ -141,7 +141,7 @@ public class b extends b.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, n nVar, FunAdNativeViewHolder funAdNativeViewHolder) {
         InterceptResult invokeCommon;
@@ -165,18 +165,18 @@ public class b extends b.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
                 funAdNativeViewHolder.getFunAdNativeView().hideOrShowView(8);
                 return funAdNativeViewHolder.getView();
             }
-            if (!"personalize".equals(this.p) && !AdvertAppInfo.D4.equals(this.f2422h)) {
+            if (!"personalize".equals(this.p) && !AdvertAppInfo.E4.equals(this.f2424h)) {
                 this.n = c.e().d(this.q);
             }
-            BdUniqueId bdUniqueId = this.f2422h;
-            if (bdUniqueId == AdvertAppInfo.C4) {
+            BdUniqueId bdUniqueId = this.f2424h;
+            if (bdUniqueId == AdvertAppInfo.D4) {
                 if ("frs".equals(this.p)) {
                     b.a.r0.y0.a.i().C(this.m, this.n, b.a.r0.y0.a.b(this.p, d.p() ? "1" : "0"), String.valueOf(j));
                 } else if ("personalize".equals(this.p)) {
-                    b.a.r0.y0.a.i().B(this.m, this.n, b.a.r0.y0.a.b(this.p, d.J() ? "1" : "0"));
+                    b.a.r0.y0.a.i().B(this.m, this.n, b.a.r0.y0.a.b(this.p, d.M() ? "1" : "0"));
                 }
-            } else if (bdUniqueId == AdvertAppInfo.D4) {
-                b.a.r0.y0.a.i().D(this.m, this.n, b.a.r0.y0.a.b(this.p, d.G() ? "1" : "0"), oVar.e(), oVar.c());
+            } else if (bdUniqueId == AdvertAppInfo.E4) {
+                b.a.r0.y0.a.i().D(this.m, this.n, b.a.r0.y0.a.b(this.p, d.J() ? "1" : "0"), oVar.e(), oVar.c());
             }
             funAdNativeViewHolder.setFeedBackListener(new a(this, oVar, funAdNativeViewHolder));
             funAdNativeViewHolder.getFunAdNativeView().onChangedSkinType();
@@ -196,7 +196,7 @@ public class b extends b.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
         }
     }
 
-    @Override // b.a.r0.z2.t
+    @Override // b.a.r0.a3.t
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
@@ -217,7 +217,7 @@ public class b extends b.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
         }
     }
 
-    @Override // b.a.r0.z2.p
+    @Override // b.a.r0.a3.p
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -231,7 +231,7 @@ public class b extends b.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
         }
     }
 
-    @Override // b.a.r0.z2.p
+    @Override // b.a.r0.a3.p
     public void onPause() {
         V v;
         Interceptable interceptable = $ic;
@@ -241,7 +241,7 @@ public class b extends b.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
         ((FunAdNativeViewHolder) this.k).getFunAdNativeView().destroyDownloadButton();
     }
 
-    @Override // b.a.r0.z2.p
+    @Override // b.a.r0.a3.p
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {

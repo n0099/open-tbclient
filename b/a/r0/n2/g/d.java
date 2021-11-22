@@ -3,7 +3,7 @@ package b.a.r0.n2.g;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.n2.e.k;
 import com.baidu.adp.widget.design.TbTabLayout;
 import com.baidu.android.imsdk.internal.Constants;
@@ -38,7 +38,7 @@ public class d extends b.a.r0.b0.b<k> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<PersonCenterSmartAppPageView> f21493a;
+        public List<PersonCenterSmartAppPageView> f22989a;
 
         public a(d dVar, List<PersonCenterSmartAppPageView> list) {
             Interceptable interceptable = $ic;
@@ -55,13 +55,13 @@ public class d extends b.a.r0.b0.b<k> {
                     return;
                 }
             }
-            this.f21493a = list;
+            this.f22989a = list;
         }
 
         public void a(List<PersonCenterSmartAppPageView> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f21493a = list;
+                this.f22989a = list;
                 notifyDataSetChanged();
             }
         }
@@ -78,7 +78,7 @@ public class d extends b.a.r0.b0.b<k> {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21493a.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22989a.size() : invokeV.intValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -86,7 +86,7 @@ public class d extends b.a.r0.b0.b<k> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                int indexOf = this.f21493a.indexOf(obj);
+                int indexOf = this.f22989a.indexOf(obj);
                 if (indexOf == -1) {
                     return -2;
                 }
@@ -100,7 +100,7 @@ public class d extends b.a.r0.b0.b<k> {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) {
-                PersonCenterSmartAppPageView personCenterSmartAppPageView = this.f21493a.get(i2);
+                PersonCenterSmartAppPageView personCenterSmartAppPageView = this.f22989a.get(i2);
                 viewGroup.addView(personCenterSmartAppPageView);
                 return personCenterSmartAppPageView;
             }
@@ -145,7 +145,7 @@ public class d extends b.a.r0.b0.b<k> {
         this.o.setAdapter(aVar);
         this.p.setupWithViewPager(this.o);
         this.q.setVisibility(8);
-        k(h(), this.f14736e);
+        k(h(), this.f16223e);
     }
 
     @Override // b.a.r0.b0.b
@@ -220,7 +220,7 @@ public class d extends b.a.r0.b0.b<k> {
                     this.p.setVisibility(0);
                 }
                 this.r.a(this.n);
-                k(h(), this.f14736e);
+                k(h(), this.f16223e);
                 return;
             }
             n(8);

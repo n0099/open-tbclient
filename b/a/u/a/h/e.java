@@ -30,42 +30,42 @@ public class e {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && c.f29053a) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && c.f29922a) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && c.f29053a) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && c.f29922a) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void c(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && c.f29053a) {
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && c.f29922a) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && c.f29053a) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && c.f29922a) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && c.f29053a) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && c.f29922a) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && c.f29053a) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && c.f29922a) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }

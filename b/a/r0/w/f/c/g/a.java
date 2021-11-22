@@ -1,6 +1,6 @@
 package b.a.r0.w.f.c.g;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.r0.w.f.c.e.e;
 import b.a.r0.w.f.c.e.j;
 import com.baidu.ala.data.SdkLiveInfoData;
@@ -21,16 +21,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f24686a;
+    public boolean f26203a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f24687b;
+    public List<String> f26204b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<SdkLiveInfoData> f24688c;
+    public List<SdkLiveInfoData> f26205c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f24689d;
+    public List<n> f26206d;
 
     public a(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public class a {
                 return;
             }
         }
-        this.f24686a = false;
-        this.f24687b = new ArrayList();
-        this.f24688c = new ArrayList();
-        this.f24689d = new ArrayList();
+        this.f26203a = false;
+        this.f26204b = new ArrayList();
+        this.f26205c = new ArrayList();
+        this.f26206d = new ArrayList();
         a(alaTabLiveResponsedMessage.tabAllLiveInfo);
     }
 
@@ -62,7 +62,7 @@ public class a {
                 return false;
             }
             boolean e2 = e(jVar);
-            this.f24686a = jVar.f24615a;
+            this.f26203a = jVar.f26132a;
             return e2;
         }
         return invokeL.booleanValue;
@@ -71,16 +71,16 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24686a = false;
-            List<String> list = this.f24687b;
+            this.f26203a = false;
+            List<String> list = this.f26204b;
             if (list != null) {
                 list.clear();
             }
-            List<SdkLiveInfoData> list2 = this.f24688c;
+            List<SdkLiveInfoData> list2 = this.f26205c;
             if (list2 != null) {
                 list2.clear();
             }
-            List<n> list3 = this.f24689d;
+            List<n> list3 = this.f26206d;
             if (list3 != null) {
                 list3.clear();
             }
@@ -96,14 +96,14 @@ public class a {
             for (int i2 = 0; i2 < size; i2 += 2) {
                 e eVar = new e();
                 b.a.r0.w.f.a.a aVar = new b.a.r0.w.f.a.a();
-                aVar.f24495e = list.get(i2);
+                aVar.f26012e = list.get(i2);
                 aVar.j = true;
-                eVar.f24604e = aVar;
+                eVar.f26121e = aVar;
                 int i3 = i2 + 1;
                 if (i3 < size) {
                     b.a.r0.w.f.a.a aVar2 = new b.a.r0.w.f.a.a();
-                    aVar2.f24495e = list.get(i3);
-                    eVar.f24605f = aVar2;
+                    aVar2.f26012e = list.get(i3);
+                    eVar.f26122f = aVar2;
                     aVar2.k = true;
                 } else {
                     aVar.j = false;
@@ -121,8 +121,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.f24689d)) {
-                arrayList.addAll(this.f24689d);
+            if (!ListUtils.isEmpty(this.f26206d)) {
+                arrayList.addAll(this.f26206d);
             }
             return arrayList;
         }
@@ -136,7 +136,7 @@ public class a {
             if (jVar == null) {
                 return false;
             }
-            ArrayList<SdkLiveInfoData> arrayList = jVar.f24616b;
+            ArrayList<SdkLiveInfoData> arrayList = jVar.f26133b;
             if (ListUtils.isEmpty(arrayList)) {
                 return false;
             }
@@ -146,18 +146,18 @@ public class a {
                 SdkLiveInfoData next = it.next();
                 if (next != null && b.a.r0.w.f.c.c.c(next)) {
                     String str = next.liveId;
-                    if (!this.f24687b.contains(str)) {
+                    if (!this.f26204b.contains(str)) {
                         arrayList2.add(next);
-                        this.f24687b.add(str);
+                        this.f26204b.add(str);
                     }
                 }
             }
             if (ListUtils.isEmpty(arrayList2)) {
                 return false;
             }
-            this.f24688c.addAll(arrayList2);
-            ArrayList<n> c2 = c(this.f24688c);
-            this.f24689d = c2;
+            this.f26205c.addAll(arrayList2);
+            ArrayList<n> c2 = c(this.f26205c);
+            this.f26206d = c2;
             return !ListUtils.isEmpty(c2);
         }
         return invokeL.booleanValue;
@@ -166,6 +166,6 @@ public class a {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24686a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26203a : invokeV.booleanValue;
     }
 }

@@ -16,13 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.openid.IOpenID;
 import java.security.MessageDigest;
 /* loaded from: classes2.dex */
 public class ay implements ar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f70686a;
+    public static boolean f71606a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -46,19 +47,19 @@ public class ay implements ar {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ay f70687a;
+        public final /* synthetic */ ay f71607a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f149a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f70688b;
+        public String f71608b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f70689c;
+        public String f71609c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f70690d;
+        public String f71610d;
 
         public a(ay ayVar) {
             Interceptable interceptable = $ic;
@@ -75,11 +76,11 @@ public class ay implements ar {
                     return;
                 }
             }
-            this.f70687a = ayVar;
+            this.f71607a = ayVar;
             this.f149a = null;
-            this.f70688b = null;
-            this.f70689c = null;
-            this.f70690d = null;
+            this.f71608b = null;
+            this.f71609c = null;
+            this.f71610d = null;
         }
 
         public /* synthetic */ a(ay ayVar, az azVar) {
@@ -93,7 +94,7 @@ public class ay implements ar {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ay f70691a;
+        public final /* synthetic */ ay f71611a;
 
         public b(ay ayVar) {
             Interceptable interceptable = $ic;
@@ -110,7 +111,7 @@ public class ay implements ar {
                     return;
                 }
             }
-            this.f70691a = ayVar;
+            this.f71611a = ayVar;
         }
 
         public /* synthetic */ b(ay ayVar, az azVar) {
@@ -120,7 +121,7 @@ public class ay implements ar {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) && this.f70691a.f147a == null) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) && this.f71611a.f147a == null) {
                 new Thread(new ba(this, iBinder)).start();
             }
         }
@@ -145,7 +146,7 @@ public class ay implements ar {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
+                    obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
@@ -222,7 +223,7 @@ public class ay implements ar {
                 if (packageInfo != null) {
                     long longVersionCode = Build.VERSION.SDK_INT >= 28 ? packageInfo.getLongVersionCode() : packageInfo.versionCode;
                     boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
-                    f70686a = longVersionCode >= 1;
+                    f71606a = longVersionCode >= 1;
                     if (z) {
                         return true;
                     }
@@ -285,7 +286,7 @@ public class ay implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f70686a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f71606a : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
@@ -298,7 +299,7 @@ public class ay implements ar {
             if (this.f147a == null) {
                 return null;
             }
-            return this.f147a.f70688b;
+            return this.f147a.f71608b;
         }
         return (String) invokeV.objValue;
     }
@@ -312,7 +313,7 @@ public class ay implements ar {
             if (this.f147a == null) {
                 return null;
             }
-            return this.f147a.f70689c;
+            return this.f147a.f71609c;
         }
         return (String) invokeV.objValue;
     }
@@ -326,7 +327,7 @@ public class ay implements ar {
             if (this.f147a == null) {
                 return null;
             }
-            return this.f147a.f70690d;
+            return this.f147a.f71610d;
         }
         return (String) invokeV.objValue;
     }

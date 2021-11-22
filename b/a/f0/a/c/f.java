@@ -58,7 +58,7 @@ public class f {
                     } catch (Exception e2) {
                         e = e2;
                         fileInputStream = fileInputStream2;
-                        if (b.a.f0.a.b.a.f2781a.get().s()) {
+                        if (b.a.f0.a.b.a.f2874a.get().s()) {
                             throw new RuntimeException(e);
                         }
                         if (fileInputStream != null) {

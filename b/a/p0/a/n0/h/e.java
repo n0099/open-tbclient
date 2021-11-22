@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import b.a.p0.a.k;
-import b.a.p0.a.k2.g.h;
 import b.a.p0.a.n0.l.b;
+import b.a.p0.a.o2.g.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
@@ -37,13 +37,13 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6800a;
+    public static final boolean f7129a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f6801b;
+    public static final int f7130b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f6802c;
+    public static final int f7131c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -52,27 +52,27 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f6803e;
+        public final /* synthetic */ Set f7132e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f6804f;
+        public final /* synthetic */ boolean f7133f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.n.j.i.a f6805g;
+        public final /* synthetic */ b.a.p0.q.k.i.a f7134g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f6806h;
+        public final /* synthetic */ long f7135h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b.C0310b f6807i;
+        public final /* synthetic */ b.C0322b f7136i;
         public final /* synthetic */ e j;
 
-        public a(e eVar, Set set, boolean z, b.a.p0.n.j.i.a aVar, long j, b.C0310b c0310b) {
+        public a(e eVar, Set set, boolean z, b.a.p0.q.k.i.a aVar, long j, b.C0322b c0322b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, set, Boolean.valueOf(z), aVar, Long.valueOf(j), c0310b};
+                Object[] objArr = {eVar, set, Boolean.valueOf(z), aVar, Long.valueOf(j), c0322b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -83,11 +83,11 @@ public class e {
                 }
             }
             this.j = eVar;
-            this.f6803e = set;
-            this.f6804f = z;
-            this.f6805g = aVar;
-            this.f6806h = j;
-            this.f6807i = c0310b;
+            this.f7132e = set;
+            this.f7133f = z;
+            this.f7134g = aVar;
+            this.f7135h = j;
+            this.f7136i = c0322b;
         }
 
         @Override // java.lang.Runnable
@@ -95,21 +95,21 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HashSet hashSet = new HashSet();
-                Set set = this.f6803e;
+                Set set = this.f7132e;
                 if (set != null) {
                     hashSet.addAll(set);
                 }
-                Set<String> f2 = b.a.p0.a.a1.e.f();
+                Set<String> f2 = b.a.p0.a.a1.d.f();
                 hashSet.addAll(f2);
-                b.a.p0.a.e0.d.h("SwanAppDiskCleaner", "排除正在活动的小程：" + f2);
+                b.a.p0.a.e0.d.k("SwanAppDiskCleaner", "排除正在活动的小程：" + f2);
                 Set<String> b2 = b.a.p0.a.n0.h.b.b();
                 hashSet.addAll(b2);
-                b.a.p0.a.e0.d.h("SwanAppDiskCleaner", "排除正在下载中的小程：" + b2);
-                Map<String, PMSAppInfo> t = b.a.p0.n.g.a.h().t();
-                if (b.a.p0.a.n0.f.c().d().n(t)) {
-                    boolean unused = e.f6800a;
-                    b.a.p0.a.a1.e.d(hashSet, t);
-                    Map m = this.j.m(86400000L, t);
+                b.a.p0.a.e0.d.k("SwanAppDiskCleaner", "排除正在下载中的小程：" + b2);
+                Map<String, PMSAppInfo> v = b.a.p0.q.g.a.i().v();
+                if (b.a.p0.a.n0.f.c().d().n(v)) {
+                    boolean unused = e.f7129a;
+                    b.a.p0.a.a1.d.d(hashSet, v);
+                    Map m = this.j.m(86400000L, v);
                     if (m.isEmpty()) {
                         return;
                     }
@@ -119,20 +119,20 @@ public class e {
                     ArrayList arrayList3 = new ArrayList();
                     e.l(arrayList, arrayList2, arrayList3);
                     ArrayList arrayList4 = new ArrayList();
-                    int max = Math.max(10, this.f6804f ? e.f6801b : this.f6805g.f11196d);
+                    int max = Math.max(10, this.f7133f ? e.f7130b : this.f7134g.f11904d);
                     e.r(arrayList3, max, arrayList4);
-                    long j = this.f6805g.f11197e;
+                    long j = this.f7134g.f11905e;
                     e.q(arrayList3, j * 3600000, arrayList4, m);
-                    int max2 = Math.max(40, this.f6804f ? e.f6802c : this.f6805g.f11194b);
+                    int max2 = Math.max(40, this.f7133f ? e.f7131c : this.f7134g.f11902b);
                     e.r(arrayList2, max2, arrayList4);
-                    long j2 = this.f6805g.f11195c;
+                    long j2 = this.f7134g.f11903c;
                     e.q(arrayList2, 3600000 * j2, arrayList4, m);
-                    b.a.p0.a.e0.d.h("SwanAppDiskCleaner", "clean_internal_hour=" + this.f6806h + " pre_hold_count=" + max + " pre_force_clean_hour=" + j + " used_hold_count=" + max2 + " used_force_clean_hour=" + j2 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + StringUtils.LF);
-                    b.a.p0.a.n0.f.c().d().g(arrayList4, false, false, this.f6807i);
-                    b.a.p0.a.h0.m.r.a.c();
+                    b.a.p0.a.e0.d.k("SwanAppDiskCleaner", "clean_internal_hour=" + this.f7135h + " pre_hold_count=" + max + " pre_force_clean_hour=" + j + " used_hold_count=" + max2 + " used_force_clean_hour=" + j2 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + StringUtils.LF);
+                    b.a.p0.a.n0.f.c().d().g(arrayList4, false, false, this.f7136i);
+                    b.a.p0.a.h0.m.u.a.c();
                     return;
                 }
-                b.a.p0.a.e0.d.h("SwanAppDiskCleaner", "PMS数据库没有文件，不需要清理");
+                b.a.p0.a.e0.d.k("SwanAppDiskCleaner", "PMS数据库没有文件，不需要清理");
             }
         }
     }
@@ -183,11 +183,11 @@ public class e {
                 return;
             }
         }
-        f6800a = k.f6397a;
-        b.a.p0.a.c1.a.Z().getSwitch("swan_disk_level_pkg_hold_used", 0);
-        f6801b = 0;
-        b.a.p0.a.c1.a.Z().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
-        f6802c = 0;
+        f7129a = k.f6863a;
+        b.a.p0.a.c1.a.g0().getSwitch("swan_disk_level_pkg_hold_used", 0);
+        f7130b = 0;
+        b.a.p0.a.c1.a.g0().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
+        f7131c = 0;
     }
 
     public e() {
@@ -222,14 +222,14 @@ public class e {
     public static void l(@NonNull List<String> list, @NonNull List<String> list2, @NonNull List<String> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, list, list2, list3) == null) {
-            Set<String> h2 = b.a.p0.a.j0.c.b.h(AppRuntime.getAppContext().getContentResolver());
-            List<SwanFavorItemData> i2 = SwanFavorDataManager.h().i();
+            Set<String> i2 = b.a.p0.a.j0.c.b.i(AppRuntime.getAppContext().getContentResolver());
+            List<SwanFavorItemData> i3 = SwanFavorDataManager.h().i();
             HashSet hashSet = new HashSet();
-            for (SwanFavorItemData swanFavorItemData : i2) {
+            for (SwanFavorItemData swanFavorItemData : i3) {
                 hashSet.add(swanFavorItemData.getAppKey());
             }
             for (String str : list) {
-                if (!h2.contains(str) && !hashSet.contains(str)) {
+                if (!i2.contains(str) && !hashSet.contains(str)) {
                     list3.add(str);
                 } else {
                     list2.add(str);
@@ -293,31 +293,31 @@ public class e {
     }
 
     @AnyThread
-    public synchronized void i(@Nullable Set<String> set, boolean z, b.C0310b c0310b) {
+    public synchronized void i(@Nullable Set<String> set, boolean z, b.C0322b c0322b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{set, Boolean.valueOf(z), c0310b}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{set, Boolean.valueOf(z), c0322b}) == null) {
             synchronized (this) {
-                j(set, z, c0310b);
+                j(set, z, c0322b);
             }
         }
     }
 
     @AnyThread
-    public synchronized void j(@Nullable Set<String> set, boolean z, b.C0310b c0310b) {
+    public synchronized void j(@Nullable Set<String> set, boolean z, b.C0322b c0322b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), c0310b}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), c0322b}) == null) {
             synchronized (this) {
                 if (!ProcessUtils.isMainProcess()) {
-                    boolean z2 = f6800a;
+                    boolean z2 = f7129a;
                     return;
                 }
-                b.a.p0.a.e0.d.h("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
-                b.a.p0.n.j.i.a a2 = b.a.p0.n.j.i.b.b().a();
+                b.a.p0.a.e0.d.k("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
+                b.a.p0.q.k.i.a a2 = b.a.p0.q.k.i.b.b().a();
                 boolean z3 = z && c.a();
-                long j = a2.f11193a;
+                long j = a2.f11901a;
                 if (z3 || !o(3600000 * j)) {
                     h.a().putLong("clean_disk_check_time", System.currentTimeMillis());
-                    ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j, c0310b), "cleanDiskSpaceOptimized");
+                    ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j, c0322b), "cleanDiskSpaceOptimized");
                 }
             }
         }

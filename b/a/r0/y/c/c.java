@@ -11,27 +11,27 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Timer f27215a;
+    public static Timer f28718a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f27216b;
+    public static int f28719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f27217c;
+    public static ExecutorService f28720c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f27218e;
+        public final /* synthetic */ Runnable f28721e;
 
         public a(Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -48,14 +48,14 @@ public class c {
                     return;
                 }
             }
-            this.f27218e = runnable;
+            this.f28721e = runnable;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27218e.run();
+                this.f28721e.run();
             }
         }
     }
@@ -74,31 +74,31 @@ public class c {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f27216b = availableProcessors;
-        f27217c = Executors.newFixedThreadPool(availableProcessors);
+        f28719b = availableProcessors;
+        f28720c = Executors.newFixedThreadPool(availableProcessors);
     }
 
     public static void a() {
         Timer timer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (timer = f27215a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (timer = f28718a) == null) {
             return;
         }
         timer.cancel();
-        f27215a = null;
+        f28718a = null;
     }
 
     public static Timer b(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, runnable)) == null) {
-            Timer timer = f27215a;
+            Timer timer = f28718a;
             if (timer != null) {
                 return timer;
             }
-            f27215a = new Timer();
-            f27215a.scheduleAtFixedRate(new a(runnable), 0L, 2000L);
-            return f27215a;
+            f28718a = new Timer();
+            f28718a.scheduleAtFixedRate(new a(runnable), 0L, 2000L);
+            return f28718a;
         }
         return (Timer) invokeL.objValue;
     }
@@ -106,7 +106,7 @@ public class c {
     public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            f27217c.execute(runnable);
+            f28720c.execute(runnable);
         }
     }
 }

@@ -18,10 +18,10 @@ public final class SwanLoadingTips {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Lazy f44356a;
+    public final Lazy f45164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f44357b;
+    public int f45165b;
 
     public SwanLoadingTips() {
         Interceptable interceptable = $ic;
@@ -36,13 +36,13 @@ public final class SwanLoadingTips {
                 return;
             }
         }
-        this.f44356a = LazyKt__LazyJVMKt.lazy(SwanLoadingTips$loadingTips$2.INSTANCE);
+        this.f45164a = LazyKt__LazyJVMKt.lazy(SwanLoadingTips$loadingTips$2.INSTANCE);
     }
 
     public final String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (String[]) this.f44356a.getValue() : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (String[]) this.f45164a.getValue() : (String[]) invokeV.objValue;
     }
 
     public final String b() {
@@ -54,9 +54,9 @@ public final class SwanLoadingTips {
                 if (a2.length == 0) {
                     return "";
                 }
-                int i2 = this.f44357b;
+                int i2 = this.f45165b;
                 String str = a2[i2 % a2.length];
-                this.f44357b = i2 + 1;
+                this.f45165b = i2 + 1;
                 return str;
             }
             return "";

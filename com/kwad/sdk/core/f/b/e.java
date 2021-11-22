@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.samsung.android.deviceidservice.IDeviceIdService;
 /* loaded from: classes2.dex */
 public interface e extends IInterface {
 
@@ -18,7 +19,7 @@ public interface e extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f64571a;
+        public IBinder f65484a;
 
         public a(IBinder iBinder) {
             Interceptable interceptable = $ic;
@@ -35,7 +36,7 @@ public interface e extends IInterface {
                     return;
                 }
             }
-            this.f64571a = iBinder;
+            this.f65484a = iBinder;
         }
 
         public String a() {
@@ -46,8 +47,8 @@ public interface e extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     try {
-                        obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                        this.f64571a.transact(1, obtain, obtain2, 0);
+                        obtain.writeInterfaceToken(IDeviceIdService.Stub.DESCRIPTOR);
+                        this.f65484a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } catch (Exception e2) {
@@ -68,7 +69,7 @@ public interface e extends IInterface {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64571a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65484a : (IBinder) invokeV.objValue;
         }
     }
 }

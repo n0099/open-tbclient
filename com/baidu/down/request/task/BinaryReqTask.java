@@ -25,6 +25,7 @@ import com.baidu.down.statistic.TaskSpeedStat;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.URLRegUtils;
 import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -398,7 +399,7 @@ public class BinaryReqTask extends AbstractTask {
             if (!lowerCase.contains("m")) {
                 return lowerCase.contains("g") ? 1073741824L : 0L;
             }
-            String[] split = lowerCase.replace("m", "").split("\\.");
+            String[] split = lowerCase.replace("m", "").split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             if (split != null && split.length > 0) {
                 j = Long.parseLong(split[0]) * 1024 * 1024;
             }

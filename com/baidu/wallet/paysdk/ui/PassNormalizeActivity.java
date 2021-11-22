@@ -116,7 +116,7 @@ public class PassNormalizeActivity extends BeanActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PassNormalizeActivity f60182a;
+        public final /* synthetic */ PassNormalizeActivity f61104a;
 
         public /* synthetic */ a(PassNormalizeActivity passNormalizeActivity, AnonymousClass1 anonymousClass1) {
             this(passNormalizeActivity);
@@ -134,12 +134,12 @@ public class PassNormalizeActivity extends BeanActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 LogUtil.logd("onPageFinished url=" + str);
-                if (this.f60182a.mContent != null) {
-                    WalletGlobalUtils.safeDismissDialog(this.f60182a, -1);
+                if (this.f61104a.mContent != null) {
+                    WalletGlobalUtils.safeDismissDialog(this.f61104a, -1);
                 }
-                String property = DebugConfig.getInstance(this.f60182a.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
+                String property = DebugConfig.getInstance(this.f61104a.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
                 if (str != null && str.startsWith(property)) {
-                    this.f60182a.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
+                    this.f61104a.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
                 }
                 super.onPageFinished(webView, str);
             }
@@ -151,16 +151,16 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 LogUtil.logd("url=" + str);
                 if (str == null || !str.equals(TbDomainConfig.DOMAIN_HTTPS_BAIDU)) {
-                    if (this.f60182a.mContent != null) {
-                        PassNormalizeActivity passNormalizeActivity = this.f60182a;
+                    if (this.f61104a.mContent != null) {
+                        PassNormalizeActivity passNormalizeActivity = this.f61104a;
                         WalletGlobalUtils.safeShowDialog(passNormalizeActivity, -1, ResUtils.getString(passNormalizeActivity.mContent, "ebpay_loading"));
                     }
                     super.onPageStarted(webView, str, bitmap);
                     return;
                 }
-                PassUtil.backNormalized(this.f60182a.mContent, this.f60182a.type, null);
+                PassUtil.backNormalized(this.f61104a.mContent, this.f61104a.type, null);
                 DXMSdkSAUtils.onEventWithValues("normalizeVerify", Arrays.asList(QueryResponse.Options.CANCEL));
-                this.f60182a.finish();
+                this.f61104a.finish();
             }
         }
 
@@ -179,7 +179,7 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
                 if (str != null && (str.startsWith("sms") || str.startsWith("tel") || str.startsWith("bdscenter"))) {
                     try {
-                        this.f60182a.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.f61104a.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } catch (Throwable th) {
                         LogUtil.logd(th.getMessage());
@@ -207,7 +207,7 @@ public class PassNormalizeActivity extends BeanActivity {
                     return;
                 }
             }
-            this.f60182a = passNormalizeActivity;
+            this.f61104a = passNormalizeActivity;
         }
     }
 
@@ -335,7 +335,7 @@ public class PassNormalizeActivity extends BeanActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, com.baidu.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     @SuppressLint({"NewApi", "SetJavaScriptEnabled"})
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;

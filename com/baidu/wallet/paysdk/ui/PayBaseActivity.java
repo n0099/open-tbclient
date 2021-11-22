@@ -71,31 +71,31 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public x f60183a;
+    public x f61105a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayQueryRequest f60184b;
+    public PayQueryRequest f61106b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f60185c;
+    public boolean f61107c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownTimer f60186d;
+    public CountDownTimer f61108d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f60187e;
+    public long f61109e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ErrorContentResponse.LivingParam f60188f;
+    public ErrorContentResponse.LivingParam f61110f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f60189g;
+    public boolean f61111g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f60190h;
+    public View.OnClickListener f61112h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f60191i;
+    public View.OnClickListener f61113i;
     public View.OnClickListener j;
     public int mBeanId;
     public ErrorContentResponse mErrorContent;
@@ -116,15 +116,15 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             }
         }
         this.mBeanId = -1;
-        this.f60185c = false;
-        this.f60187e = 0L;
-        this.f60189g = false;
-        this.f60190h = new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.4
+        this.f61107c = false;
+        this.f61109e = 0L;
+        this.f61111g = false;
+        this.f61112h = new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PayBaseActivity f60207a;
+            public final /* synthetic */ PayBaseActivity f61129a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -141,34 +141,34 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                         return;
                     }
                 }
-                this.f60207a = this;
+                this.f61129a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    ErrorContentResponse.Operations[] operationsArr = this.f60207a.mGuidance.operations;
+                    ErrorContentResponse.Operations[] operationsArr = this.f61129a.mGuidance.operations;
                     if (operationsArr.length < 1) {
                         return;
                     }
                     int i4 = operationsArr.length >= 3 ? 2 : 0;
-                    this.f60207a.b(i4);
-                    this.f60207a.onNegativeBtnClick();
-                    if (this.f60207a.mGuidance.operations[i4].getAction() != null) {
-                        o action = this.f60207a.mGuidance.operations[i4].getAction();
-                        PayBaseActivity payBaseActivity = this.f60207a;
+                    this.f61129a.b(i4);
+                    this.f61129a.onNegativeBtnClick();
+                    if (this.f61129a.mGuidance.operations[i4].getAction() != null) {
+                        o action = this.f61129a.mGuidance.operations[i4].getAction();
+                        PayBaseActivity payBaseActivity = this.f61129a;
                         action.a(payBaseActivity.mGuidance.operations[i4], payBaseActivity.mAct);
                     }
                 }
             }
         };
-        this.f60191i = new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.5
+        this.f61113i = new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PayBaseActivity f60208a;
+            public final /* synthetic */ PayBaseActivity f61130a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -185,21 +185,21 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                         return;
                     }
                 }
-                this.f60208a = this;
+                this.f61130a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    PayBaseActivity payBaseActivity = this.f60208a;
+                    PayBaseActivity payBaseActivity = this.f61130a;
                     if (payBaseActivity.mGuidance.operations.length < 2) {
                         return;
                     }
                     payBaseActivity.b(1);
-                    if (this.f60208a.mGuidance.operations[1].getAction() != null) {
-                        o action = this.f60208a.mGuidance.operations[1].getAction();
-                        PayBaseActivity payBaseActivity2 = this.f60208a;
+                    if (this.f61130a.mGuidance.operations[1].getAction() != null) {
+                        o action = this.f61130a.mGuidance.operations[1].getAction();
+                        PayBaseActivity payBaseActivity2 = this.f61130a;
                         action.a(payBaseActivity2.mGuidance.operations[1], payBaseActivity2.mAct);
                     }
                 }
@@ -210,7 +210,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PayBaseActivity f60209a;
+            public final /* synthetic */ PayBaseActivity f61131a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -227,22 +227,22 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                         return;
                     }
                 }
-                this.f60209a = this;
+                this.f61131a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    ErrorContentResponse.Operations[] operationsArr = this.f60209a.mGuidance.operations;
+                    ErrorContentResponse.Operations[] operationsArr = this.f61131a.mGuidance.operations;
                     if (operationsArr.length < 2) {
                         return;
                     }
                     int i4 = operationsArr.length >= 3 ? 0 : 1;
-                    this.f60209a.b(i4);
-                    if (this.f60209a.mGuidance.operations[i4].getAction() != null) {
-                        o action = this.f60209a.mGuidance.operations[i4].getAction();
-                        PayBaseActivity payBaseActivity = this.f60209a;
+                    this.f61131a.b(i4);
+                    if (this.f61131a.mGuidance.operations[i4].getAction() != null) {
+                        o action = this.f61131a.mGuidance.operations[i4].getAction();
+                        PayBaseActivity payBaseActivity = this.f61131a;
                         action.a(payBaseActivity.mGuidance.operations[i4], payBaseActivity.mAct);
                     }
                 }
@@ -256,7 +256,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             int i2 = this.mBeanId;
             String str2 = BeanConstants.API_DO_PAY;
             if (i2 != 14 && i2 != 263 && (i2 != 13 || com.baidu.wallet.paysdk.a.b.a())) {
-                str2 = (this.mBeanId == 5 && g.f59588a == 1) ? BeanConstants.API_CHECK_CARD_INFO : "";
+                str2 = (this.mBeanId == 5 && g.f60510a == 1) ? BeanConstants.API_CHECK_CARD_INFO : "";
             }
             if (TextUtils.isEmpty(str2)) {
                 return;
@@ -287,7 +287,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, str) == null) {
             if (i2 == 12) {
-                this.f60185c = false;
+                this.f61107c = false;
                 if (TextUtils.isEmpty(str)) {
                     if (com.baidu.wallet.paysdk.a.b.a()) {
                         str = getString(ResUtils.string(this, "ebpay_pay_fail"));
@@ -299,16 +299,16 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 payResultContent.mErrorMsg = str;
                 if (i3 >= -1) {
                     WalletGlobalUtils.safeDismissDialog(this, 0);
-                    CountDownTimer countDownTimer = this.f60186d;
+                    CountDownTimer countDownTimer = this.f61108d;
                     if (countDownTimer != null) {
                         countDownTimer.cancel();
-                        this.f60186d = null;
+                        this.f61108d = null;
                     }
                     PayController.getInstance().payPaying(this, payResultContent, com.baidu.wallet.paysdk.a.b.a() ? 4 : 1);
                     return;
                 }
-                String str2 = "mTimeAmount=" + this.f60187e;
-                if (this.f60187e == 0) {
+                String str2 = "mTimeAmount=" + this.f61109e;
+                if (this.f61109e == 0) {
                     WalletGlobalUtils.safeDismissDialog(this, 0);
                     PayController.getInstance().payPaying(this, payResultContent, com.baidu.wallet.paysdk.a.b.a() ? 4 : 1);
                     StatisticManager.onEventWithValue("queryPayResultFail", String.valueOf(i3));
@@ -328,10 +328,10 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             if (i2 == 13 || i2 == 263) {
                 PayResponse payResponse = (PayResponse) obj;
                 if (payResponse != null && payResponse.checkResponseValidity()) {
-                    if (this.f60184b == null) {
-                        this.f60184b = new PayQueryRequest();
+                    if (this.f61106b == null) {
+                        this.f61106b = new PayQueryRequest();
                     }
-                    PayQueryRequest payQueryRequest = this.f60184b;
+                    PayQueryRequest payQueryRequest = this.f61106b;
                     payQueryRequest.mBankNo = payResponse.bank_no;
                     payQueryRequest.mOrderNo = payResponse.order_no;
                     if (com.baidu.wallet.paysdk.a.b.a()) {
@@ -349,23 +349,23 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                             PayController.getInstance().paySucess(this, payResultContent, 4);
                             return;
                         }
-                        this.f60184b.mName = PayQueryRequest.EASYPAY_NAME;
+                        this.f61106b.mName = PayQueryRequest.EASYPAY_NAME;
                         PayDataCache.getInstance().setSignSuccessTips(payResponse.sign_success_tips);
                         PayDataCache.getInstance().setAccountBankCard(payResponse.account_bank_card);
                     } else if (i2 == 263) {
-                        this.f60184b.mName = PayQueryRequest.CRDDITPAY_NAME;
+                        this.f61106b.mName = PayQueryRequest.CRDDITPAY_NAME;
                     } else {
-                        this.f60184b.mName = PayQueryRequest.EASYPAY_NAME;
+                        this.f61106b.mName = PayQueryRequest.EASYPAY_NAME;
                     }
                     if (payResponse.toShowH5ResultPage()) {
                         PayDataCache.getInstance().setH5ResultParams(new H5ResultParams(payResponse.redirect_sp_succpage_remain_time, payResponse.pay_result_url, payResponse.pay_result_params, payResponse.show_h5_result, CashierDeskPayResult.PayScenario.BankcardPay));
                     }
-                    PayRequestCache.getInstance().addBeanRequestToCache(this.f60184b.getRequestId(), this.f60184b);
+                    PayRequestCache.getInstance().addBeanRequestToCache(this.f61106b.getRequestId(), this.f61106b);
                     queryPayResult();
                 }
                 stopCountDown();
             } else if (i2 == 12) {
-                this.f60185c = false;
+                this.f61107c = false;
                 QueryPayResponse queryPayResponse = (QueryPayResponse) obj;
                 if (queryPayResponse != null && (str2 = queryPayResponse.trans_state) != null && "0".equals(str2)) {
                     String str3 = "######. query ok = " + System.currentTimeMillis();
@@ -405,7 +405,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     payResultContent2.redirect_sp_succpage_remain_time = queryPayResponse.redirect_sp_succpage_remain_time;
                     payResultContent2.fp_open_or_update_msg = queryPayResponse.fp_open_or_update_msg;
                     payResultContent2.payResultCashbackDetail = queryPayResponse.cashback_dialog_detail;
-                    CountDownTimer countDownTimer = this.f60186d;
+                    CountDownTimer countDownTimer = this.f61108d;
                     if (countDownTimer != null) {
                         countDownTimer.cancel();
                     }
@@ -422,8 +422,8 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     WalletGlobalUtils.safeDismissDialog(this, 0);
                     return;
                 }
-                String str6 = "mTimeAmount====" + this.f60187e;
-                if (this.f60187e == 0) {
+                String str6 = "mTimeAmount====" + this.f61109e;
+                if (this.f61109e == 0) {
                     WalletGlobalUtils.safeDismissDialog(this, 0);
                     StatisticManager.onEvent("queryPayResultFail");
                     showPaySuccessPage(false, new PayResultContent(), 1);
@@ -500,7 +500,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                         StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_ENTER, null, i3 + "", str);
                     }
                     ErrorContentResponse errorContentResponse3 = this.mErrorContent;
-                    this.f60188f = errorContentResponse3.living_param;
+                    this.f61110f = errorContentResponse3.living_param;
                     a(errorContentResponse3.guidance);
                     this.mGuidance = this.mErrorContent.guidance;
                     this.mPayErrorCode = i3;
@@ -523,7 +523,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, com.dxmpay.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Serializable serializable;
         Interceptable interceptable = $ic;
@@ -562,10 +562,10 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            CountDownTimer countDownTimer = this.f60186d;
+            CountDownTimer countDownTimer = this.f61108d;
             if (countDownTimer != null) {
                 countDownTimer.cancel();
-                this.f60186d = null;
+                this.f61108d = null;
             }
             BeanManager.getInstance().removeAllBeans("PayBaseActivity");
         }
@@ -634,7 +634,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60195a;
+                    public final /* synthetic */ PayBaseActivity f61117a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -651,7 +651,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60195a = this;
+                        this.f61117a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -662,8 +662,8 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY_CANCEL);
                             }
                             StatisticManager.onEvent(StatServiceEvent.EVENT_CLICK_CONFIRM_IN_QUIT_DIALOG);
-                            WalletGlobalUtils.safeDismissDialog(this.f60195a, 18);
-                            PayCallBackManager.callBackClientCancel(this.f60195a, "PayBaseActivity.onPrepareDialog().1");
+                            WalletGlobalUtils.safeDismissDialog(this.f61117a, 18);
+                            PayCallBackManager.callBackClientCancel(this.f61117a, "PayBaseActivity.onPrepareDialog().1");
                         }
                     }
                 });
@@ -672,7 +672,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60198a;
+                    public final /* synthetic */ PayBaseActivity f61120a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -689,7 +689,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60198a = this;
+                        this.f61120a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -697,7 +697,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatisticManager.onEvent(StatServiceEvent.EVENT_CLICK_CANCEL_IN_QUIT_DIALOG);
-                            WalletGlobalUtils.safeDismissDialog(this.f60198a, 18);
+                            WalletGlobalUtils.safeDismissDialog(this.f61120a, 18);
                         }
                     }
                 });
@@ -714,7 +714,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60199a;
+                    public final /* synthetic */ PayBaseActivity f61121a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -731,21 +731,21 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60199a = this;
+                        this.f61121a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PayBaseActivity payBaseActivity = this.f60199a;
+                            PayBaseActivity payBaseActivity = this.f61121a;
                             payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity.getActivity(), "ebpay_wallet_continue_pay"));
                             StatisticManager.onEvent("continueFromCardOverdue");
-                            WalletGlobalUtils.safeDismissDialog(this.f60199a, 34);
+                            WalletGlobalUtils.safeDismissDialog(this.f61121a, 34);
                             PayController payController = PayController.getInstance();
-                            PayBaseActivity payBaseActivity2 = this.f60199a;
+                            PayBaseActivity payBaseActivity2 = this.f61121a;
                             payController.updateCardInfoPay(payBaseActivity2, payBaseActivity2.mErrorContent);
-                            this.f60199a.finishWithoutAnim();
+                            this.f61121a.finishWithoutAnim();
                         }
                     }
                 });
@@ -754,7 +754,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60200a;
+                    public final /* synthetic */ PayBaseActivity f61122a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -771,22 +771,22 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60200a = this;
+                        this.f61122a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PayBaseActivity payBaseActivity = this.f60200a;
+                            PayBaseActivity payBaseActivity = this.f61122a;
                             payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity.getActivity(), "ebpay_use_other_paytype"));
                             PayRequest payRequest3 = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
                             if (payRequest3 != null) {
                                 payRequest3.clearMktSolution();
                             }
-                            WalletGlobalUtils.safeDismissDialog(this.f60200a, 34);
-                            PayController.getInstance().gotoPayTypePage(this.f60200a, false);
-                            this.f60200a.finishWithoutAnim();
+                            WalletGlobalUtils.safeDismissDialog(this.f61122a, 34);
+                            PayController.getInstance().gotoPayTypePage(this.f61122a, false);
+                            this.f61122a.finishWithoutAnim();
                         }
                     }
                 });
@@ -795,7 +795,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60201a;
+                    public final /* synthetic */ PayBaseActivity f61123a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -812,16 +812,16 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60201a = this;
+                        this.f61123a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f60201a.addDoPayorCheckCardStatistics("取消");
-                            this.f60201a.c(34);
-                            PayBaseActivity payBaseActivity = this.f60201a;
+                            this.f61123a.addDoPayorCheckCardStatistics("取消");
+                            this.f61123a.c(34);
+                            PayBaseActivity payBaseActivity = this.f61123a;
                             if (payBaseActivity instanceof WalletSmsActivity) {
                                 payBaseActivity.finishWithoutAnim();
                             }
@@ -837,7 +837,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60202a;
+                    public final /* synthetic */ PayBaseActivity f61124a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -854,7 +854,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60202a = this;
+                        this.f61124a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -862,10 +862,10 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatisticManager.onEvent("origPriceFromAlert");
-                            PayBaseActivity payBaseActivity = this.f60202a;
+                            PayBaseActivity payBaseActivity = this.f61124a;
                             payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity.getActivity(), "bd_wallet_pay_by_order_price"));
-                            WalletGlobalUtils.safeDismissDialog(this.f60202a, 35);
-                            this.f60202a.handleErrorContent();
+                            WalletGlobalUtils.safeDismissDialog(this.f61124a, 35);
+                            this.f61124a.handleErrorContent();
                         }
                     }
                 });
@@ -874,7 +874,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60203a;
+                    public final /* synthetic */ PayBaseActivity f61125a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -891,18 +891,18 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60203a = this;
+                        this.f61125a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PayBaseActivity payBaseActivity = this.f60203a;
+                            PayBaseActivity payBaseActivity = this.f61125a;
                             payBaseActivity.addDoPayorCheckCardStatistics(ResUtils.getString(payBaseActivity.getActivity(), "ebpay_use_other_paytype"));
-                            WalletGlobalUtils.safeDismissDialog(this.f60203a, 35);
-                            PayController.getInstance().gotoPayTypePage(this.f60203a, false);
-                            this.f60203a.finishWithoutAnim();
+                            WalletGlobalUtils.safeDismissDialog(this.f61125a, 35);
+                            PayController.getInstance().gotoPayTypePage(this.f61125a, false);
+                            this.f61125a.finishWithoutAnim();
                         }
                     }
                 });
@@ -911,7 +911,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60205a;
+                    public final /* synthetic */ PayBaseActivity f61127a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -928,15 +928,15 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60205a = this;
+                        this.f61127a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f60205a.addDoPayorCheckCardStatistics("取消");
-                            this.f60205a.c(35);
+                            this.f61127a.addDoPayorCheckCardStatistics("取消");
+                            this.f61127a.c(35);
                         }
                     }
                 });
@@ -950,7 +950,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60204a;
+                    public final /* synthetic */ PayBaseActivity f61126a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -967,15 +967,15 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60204a = this;
+                        this.f61126a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f60204a.mAct, 54);
-                            this.f60204a.onNegativeBtnClick();
+                            WalletGlobalUtils.safeDismissDialog(this.f61126a.mAct, 54);
+                            this.f61126a.onNegativeBtnClick();
                         }
                     }
                 });
@@ -984,7 +984,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60206a;
+                    public final /* synthetic */ PayBaseActivity f61128a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1001,16 +1001,16 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60206a = this;
+                        this.f61128a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f60206a.mAct, 54);
+                            WalletGlobalUtils.safeDismissDialog(this.f61128a.mAct, 54);
                             StatisticManager.onEvent("livingVerifyDialogRetry");
-                            this.f60206a.triggerLivingVerify();
+                            this.f61128a.triggerLivingVerify();
                         }
                     }
                 });
@@ -1025,8 +1025,8 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onResume();
-            if (this.f60189g) {
-                this.f60189g = false;
+            if (this.f61111g) {
+                this.f61111g = false;
                 WalletGlobalUtils.safeShowDialog(this, 54, "");
             }
             if (Build.VERSION.SDK_INT >= 10) {
@@ -1051,18 +1051,18 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     public void queryPayResult() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            if (this.f60183a == null) {
-                this.f60183a = (x) PayBeanFactory.getInstance().getBean((Context) this, 12, "PayBaseActivity");
+            if (this.f61105a == null) {
+                this.f61105a = (x) PayBeanFactory.getInstance().getBean((Context) this, 12, "PayBaseActivity");
             }
-            this.f60185c = true;
-            this.f60183a.setResponseCallback(this);
-            this.f60183a.execBean();
-            CountDownTimer countDownTimer = this.f60186d;
+            this.f61107c = true;
+            this.f61105a.setResponseCallback(this);
+            this.f61105a.execBean();
+            CountDownTimer countDownTimer = this.f61108d;
             if (countDownTimer != null) {
                 countDownTimer.cancel();
-                this.f60186d = null;
+                this.f61108d = null;
             }
-            long j = this.f60187e;
+            long j = this.f61109e;
             if (j <= 0) {
                 j = 20000;
             }
@@ -1071,7 +1071,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseActivity f60192a;
+                public final /* synthetic */ PayBaseActivity f61114a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1092,21 +1092,21 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                             return;
                         }
                     }
-                    this.f60192a = this;
+                    this.f61114a = this;
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f60192a.f60187e = 0L;
-                        if (this.f60192a.f60185c) {
+                        this.f61114a.f61109e = 0L;
+                        if (this.f61114a.f61107c) {
                             String str = "######. onFinish. query return = " + System.currentTimeMillis();
                             return;
                         }
-                        this.f60192a.f60185c = true;
-                        this.f60192a.f60183a.setResponseCallback(this.f60192a);
-                        this.f60192a.f60183a.execBean();
+                        this.f61114a.f61107c = true;
+                        this.f61114a.f61105a.setResponseCallback(this.f61114a);
+                        this.f61114a.f61105a.execBean();
                         String str2 = "######. onTick. query = " + System.currentTimeMillis();
                     }
                 }
@@ -1115,19 +1115,19 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 public void onTick(long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                        this.f60192a.f60187e = j2;
-                        if (this.f60192a.f60185c) {
+                        this.f61114a.f61109e = j2;
+                        if (this.f61114a.f61107c) {
                             String str = "######. onTick. query return = " + System.currentTimeMillis();
                             return;
                         }
                         String str2 = "######. onTick. query = " + System.currentTimeMillis() + " , remain millis = " + j2;
-                        this.f60192a.f60185c = true;
-                        this.f60192a.f60183a.setResponseCallback(this.f60192a);
-                        this.f60192a.f60183a.execBean();
+                        this.f61114a.f61107c = true;
+                        this.f61114a.f61105a.setResponseCallback(this.f61114a);
+                        this.f61114a.f61105a.execBean();
                     }
                 }
             };
-            this.f60186d = countDownTimer2;
+            this.f61108d = countDownTimer2;
             countDownTimer2.start();
         }
     }
@@ -1170,23 +1170,23 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             StatisticManager.onEvent("triggerLivingVerify");
             hideFullScreenLoading();
             PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-            if (LocalRouter.getInstance(this).isProviderExisted("livenessidentifyauth") && this.f60188f != null) {
+            if (LocalRouter.getInstance(this).isProviderExisted("livenessidentifyauth") && this.f61110f != null) {
                 HashMap hashMap = new HashMap();
                 hashMap.put(LightInvokerImpl.LIVENESS_SHOW_GUIDE_PAGE, "0");
                 hashMap.put("method", "DXMPayLivenessMatch");
                 hashMap.put("recogType", "authToken");
-                hashMap.put("authToken", this.f60188f.usertoken);
-                hashMap.put(LightInvokerImpl.SP_PARAMS, this.f60188f.sp_params);
-                hashMap.put("userDisplayName", this.f60188f.user_display_name);
+                hashMap.put("authToken", this.f61110f.usertoken);
+                hashMap.put(LightInvokerImpl.SP_PARAMS, this.f61110f.sp_params);
+                hashMap.put("userDisplayName", this.f61110f.user_display_name);
                 LocalRouter.getInstance(this).route(this, new RouterRequest().provider("livenessidentifyauth").action("livenessidentifyauth").data(hashMap), new RouterCallback(this, payRequest) { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.13
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayRequest f60196a;
+                    public final /* synthetic */ PayRequest f61118a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseActivity f60197b;
+                    public final /* synthetic */ PayBaseActivity f61119b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1203,8 +1203,8 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 return;
                             }
                         }
-                        this.f60197b = this;
-                        this.f60196a = payRequest;
+                        this.f61119b = this;
+                        this.f61118a = payRequest;
                     }
 
                     @Override // com.baidu.wallet.router.RouterCallback
@@ -1217,13 +1217,13 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 } else {
                                     StatisticManager.onEvent("triggerLivingVerifyFailWithErrorCode");
                                     if (i2 == -203 || i2 == -202 || i2 == -201 || i2 == -402) {
-                                        this.f60197b.f60189g = true;
+                                        this.f61119b.f61111g = true;
                                         return;
                                     }
                                 }
                                 if (hashMap2.get("value") != null) {
-                                    LivingVerifyResultModel a2 = this.f60197b.a(hashMap2.get("value").toString());
-                                    PayRequest payRequest2 = this.f60196a;
+                                    LivingVerifyResultModel a2 = this.f61119b.a(hashMap2.get("value").toString());
+                                    PayRequest payRequest2 = this.f61118a;
                                     if (payRequest2 != null && a2 != null) {
                                         payRequest2.mLivingKey = a2.callback_key;
                                     }
@@ -1232,11 +1232,11 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 StatisticManager.onEvent("triggerLivingVerifyFailWithErrorCode");
                             }
                             i2 = (i2 == -100 || i2 == 5) ? 10003 : 10003;
-                            PayRequest payRequest3 = this.f60196a;
+                            PayRequest payRequest3 = this.f61118a;
                             if (payRequest3 != null) {
                                 payRequest3.mLivingResultCode = i2 + "";
                             }
-                            this.f60197b.doLivingPay();
+                            this.f61119b.doLivingPay();
                         }
                     }
                 });
@@ -1287,7 +1287,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             if (TextUtils.equals(ErrorContentResponse.Operations.LIVING_AGAIN, guidance.operations[1].type)) {
                 StatisticManager.onEvent("livingVerifyDialogShow");
             }
-            promptDialog.setNegativeBtn(guidance.operations[0].getActionName(), this.f60190h);
+            promptDialog.setNegativeBtn(guidance.operations[0].getActionName(), this.f61112h);
             promptDialog.setPositiveBtn(guidance.operations[1].getActionName(), this.j);
         }
     }
@@ -1299,8 +1299,8 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             promptMultiBtnDialog.setCanceledOnTouchOutside(false);
             promptMultiBtnDialog.setMessage(StringUtil.parseColorString(guidance.prompt_body));
             promptMultiBtnDialog.setFirstBtn(guidance.operations[0].getActionName(), this.j);
-            promptMultiBtnDialog.setSecondBtn(guidance.operations[1].getActionName(), this.f60191i);
-            promptMultiBtnDialog.setThirdBtn(guidance.operations[2].getActionName(), this.f60190h);
+            promptMultiBtnDialog.setSecondBtn(guidance.operations[1].getActionName(), this.f61113i);
+            promptMultiBtnDialog.setThirdBtn(guidance.operations[2].getActionName(), this.f61112h);
         }
     }
 
@@ -1396,7 +1396,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             promptDialog.setTitleText(guidance.prompt_head);
             promptDialog.setMessage(StringUtil.parseColorString(guidance.prompt_body));
             promptDialog.hidePositiveButton();
-            promptDialog.setNegativeBtn(guidance.operations[0].getActionName(), this.f60190h);
+            promptDialog.setNegativeBtn(guidance.operations[0].getActionName(), this.f61112h);
         }
     }
 
@@ -1461,7 +1461,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseActivity f60210a;
+                public final /* synthetic */ PayBaseActivity f61132a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1478,7 +1478,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                             return;
                         }
                     }
-                    this.f60210a = this;
+                    this.f61132a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.beans.o
@@ -1486,8 +1486,8 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, obj, obj2) == null) {
                         StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, ErrorContentResponse.Operations.SEND_SMS);
-                        this.f60210a.a((ErrorContentResponse.Verify) null, true);
-                        this.f60210a.a();
+                        this.f61132a.a((ErrorContentResponse.Verify) null, true);
+                        this.f61132a.a();
                     }
                 }
             });
@@ -1496,7 +1496,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseActivity f60211a;
+                public final /* synthetic */ PayBaseActivity f61133a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1513,7 +1513,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                             return;
                         }
                     }
-                    this.f60211a = this;
+                    this.f61133a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.beans.o
@@ -1522,7 +1522,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, obj, obj2) == null) {
                         StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, ErrorContentResponse.Operations.LIVING_AGAIN);
                         StatisticManager.onEvent("livingVerifyDialogRetry");
-                        this.f60211a.triggerLivingVerify();
+                        this.f61133a.triggerLivingVerify();
                     }
                 }
             });
@@ -1531,7 +1531,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseActivity f60212a;
+                public final /* synthetic */ PayBaseActivity f61134a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1548,7 +1548,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                             return;
                         }
                     }
-                    this.f60212a = this;
+                    this.f61134a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.beans.o
@@ -1556,7 +1556,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, obj, obj2) == null) {
                         StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, ErrorContentResponse.Operations.BIND_OTHER_CARDS);
-                        PayBaseActivity payBaseActivity = this.f60212a;
+                        PayBaseActivity payBaseActivity = this.f61134a;
                         if (payBaseActivity instanceof BindCardImplActivity) {
                             ((BindCardImplActivity) payBaseActivity).handleBindOtherCard();
                         }
@@ -1568,7 +1568,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseActivity f60193a;
+                public final /* synthetic */ PayBaseActivity f61115a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1585,7 +1585,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                             return;
                         }
                     }
-                    this.f60193a = this;
+                    this.f61115a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.beans.o
@@ -1597,8 +1597,8 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                         if (payRequest != null) {
                             payRequest.clearMktSolution();
                         }
-                        PayController.getInstance().gotoPayTypePage(this.f60193a, false);
-                        this.f60193a.b();
+                        PayController.getInstance().gotoPayTypePage(this.f61115a, false);
+                        this.f61115a.b();
                     }
                 }
             });
@@ -1607,7 +1607,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseActivity f60194a;
+                public final /* synthetic */ PayBaseActivity f61116a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1624,7 +1624,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                             return;
                         }
                     }
-                    this.f60194a = this;
+                    this.f61116a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.beans.o
@@ -1633,7 +1633,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, obj, obj2) == null) {
                         StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, ErrorContentResponse.Operations.RETRY_PAY);
                         if (PayRequestCache.getInstance().isPaying()) {
-                            BaiduPayDelegate.getInstance().reOrderPay(this.f60194a.getActivity());
+                            BaiduPayDelegate.getInstance().reOrderPay(this.f61116a.getActivity());
                         }
                     }
                 }
@@ -1657,7 +1657,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         } else if ("3".equals(verifyType)) {
             triggerCardItemVerify(verify);
         } else if ("4".equals(verifyType)) {
-            this.f60188f = verify.living_param;
+            this.f61110f = verify.living_param;
             triggerLivingVerify();
         }
     }

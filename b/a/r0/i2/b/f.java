@@ -21,7 +21,7 @@ public class f extends b.a.r0.i2.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public ShareStorage.StorageModel f17950i;
+    public ShareStorage.StorageModel f19403i;
 
     /* loaded from: classes4.dex */
     public class a extends WebAuthListener {
@@ -29,7 +29,7 @@ public class f extends b.a.r0.i2.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f17951e;
+        public final /* synthetic */ f f19404e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class f extends b.a.r0.i2.b.a {
                     return;
                 }
             }
-            this.f17951e = fVar;
+            this.f19404e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class f extends b.a.r0.i2.b.a {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                BaseActivity baseActivity = this.f17951e.f17924b;
+                BaseActivity baseActivity = this.f19404e.f19377b;
                 baseActivity.showToast(String.format(baseActivity.getString(R.string.share_login_fail), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
             }
         }
@@ -64,7 +64,7 @@ public class f extends b.a.r0.i2.b.a {
         public void onSuccess(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.f17951e.f();
+                this.f19404e.f();
                 DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_SHARE, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
             }
         }
@@ -97,8 +97,8 @@ public class f extends b.a.r0.i2.b.a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null) {
             return;
         }
-        this.f17927e = cVar;
-        this.f17950i = (ShareStorage.StorageModel) new Gson().fromJson(cVar.f17948d, (Class<Object>) ShareStorage.StorageModel.class);
+        this.f19380e = cVar;
+        this.f19403i = (ShareStorage.StorageModel) new Gson().fromJson(cVar.f19401d, (Class<Object>) ShareStorage.StorageModel.class);
     }
 
     @Override // b.a.r0.i2.b.a
@@ -114,9 +114,9 @@ public class f extends b.a.r0.i2.b.a {
 
     public void r() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f17950i == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f19403i == null) {
             return;
         }
-        PassportSDK.getInstance().invokeV2ShareLogin(this.f17924b, new a(this), this.f17950i);
+        PassportSDK.getInstance().invokeV2ShareLogin(this.f19377b, new a(this), this.f19403i);
     }
 }

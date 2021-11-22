@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.item;
 
 import android.text.TextUtils;
-import b.a.q0.d1.u0;
+import b.a.q0.c1.t0;
 import b.a.q0.m.a;
 import b.a.q0.s.e0.b;
 import com.baidu.adp.framework.MessageManager;
@@ -43,7 +43,7 @@ public class InitAdTask extends LaunchTask {
             try {
                 MessageManager.getInstance().runTask(new CustomMessage<>(2921620), (Class) null);
                 MessageManager.getInstance().runTask(new CustomMessage<>(2016570), (Class) null);
-                String b2 = u0.b();
+                String b2 = t0.b();
                 if (!TextUtils.isEmpty(b2)) {
                     b.j().x("key_prologue_ad_useragent", b2);
                 }

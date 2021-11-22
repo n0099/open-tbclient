@@ -17,6 +17,7 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -793,7 +794,7 @@ public class InnerImportExportConfigUtil {
                             name = name.substring(name.lastIndexOf(File.separator) + 1);
                         }
                         if (!name.contains(".")) {
-                            name = mediaTextureData.path + ".png";
+                            name = mediaTextureData.path + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
                         }
                         FileUtils.saveBitmap2PNG(file.getPath(), name, c.g(context, mediaTextureData.path), 100);
                     }

@@ -1,105 +1,259 @@
 package b.a.q0.s0;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
+import androidx.core.view.InputDeviceCompat;
+import b.a.q0.s.g0.s.e;
+import b.a.q0.u.n;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13698a;
+    public static final Pattern f14488a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f13699b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f13700c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f13701d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f13702e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f13703f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f13704g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f13705h;
-
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-76080862, "Lb/a/q0/s0/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-76080862, "Lb/a/q0/s0/b;");
                 return;
             }
         }
-        this.f13703f = -1L;
-        this.f13704g = -1L;
-        this.f13705h = -1L;
+        f14488a = Pattern.compile("#([^#(]+)#", 2);
     }
 
-    public String a() {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            if (str.charAt(0) == '#' && str.charAt(str.length() - 1) == '#') {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str.length() + 2);
+            sb.append("#");
+            sb.append(str);
+            sb.append("#");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) ? c(tbPageContext, true, true) : invokeL.booleanValue;
+    }
+
+    public static boolean c(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            StringBuffer stringBuffer = new StringBuffer("http://tieba.baidu.com/n/video/opersquare?tab=hot&topic_name=");
+            int length = str.length();
+            if (length > 2 && str.charAt(0) == '#') {
+                int i2 = length - 1;
+                if (str.charAt(i2) == '#') {
+                    str2 = str.substring(1, i2);
+                    stringBuffer.append(str2);
+                    return stringBuffer.toString();
+                }
+            }
+            str2 = null;
+            stringBuffer.append(str2);
+            return stringBuffer.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? str != null && str.startsWith("#") && str.endsWith("#") && "".equals(str.substring(1, str.length() - 1).trim()) : invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? "#".equals(str) : invokeL.booleanValue;
+    }
+
+    public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13702e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? PluginPackageManager.O().b0("com.baidu.tieba.pluginHotTopic") : invokeV.booleanValue;
     }
 
-    public void b(String str) {
+    public static boolean h(boolean z) {
+        InterceptResult invokeZ;
+        boolean appResponseToIntentClass;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f13701d = str;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65544, null, z)) == null) {
+            if (PluginPackageManager.O().d0("com.baidu.tieba.pluginHotTopic")) {
+                if (z) {
+                    appResponseToIntentClass = TbadkCoreApplication.getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
+                } else {
+                    appResponseToIntentClass = TbadkCoreApplication.getInst().appResponseToIntentClass(HotSelectActivityConfig.class);
+                }
+                return appResponseToIntentClass;
+            }
+            return false;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public static boolean i(Spannable spannable, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, spannable, i2)) == null) {
+            if (spannable != null && !StringUtils.isNull(spannable.toString())) {
+                Matcher matcher = f14488a.matcher(spannable.toString());
+                while (matcher.find()) {
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    if (i2 > start && end > i2) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void j(n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, nVar) == null) {
+            int i2 = nVar.f14927b;
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? "" : "1" : TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM : "pb" : "frs" : "index"));
         }
     }
 
-    public void c(int i2) {
+    public static SpannableString k(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f13698a = i2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return new SpannableString("");
+            }
+            Matcher matcher = f14488a.matcher(str);
+            SpannableString spannableString = new SpannableString(str);
+            while (matcher.find()) {
+                int start = matcher.start();
+                int end = matcher.end();
+                if (!e(str.substring(start, end))) {
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+                }
+            }
+            return spannableString;
+        }
+        return (SpannableString) invokeL.objValue;
+    }
+
+    public static void l(Spannable spannable) {
+        ImageSpan[] imageSpanArr;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65548, null, spannable) == null) || spannable == null) {
+            return;
+        }
+        String obj = spannable.toString();
+        if (StringUtils.isNull(obj)) {
+            return;
+        }
+        Matcher matcher = f14488a.matcher(obj);
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                spannable.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+            }
         }
     }
 
-    public void d(String str) {
+    public static void m(SpanGroupEditText spanGroupEditText) {
+        int i2;
+        int i3;
+        ImageSpan[] imageSpanArr;
+        Object[] spans;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f13700c = str;
+        if (!(interceptable == null || interceptable.invokeL(65549, null, spanGroupEditText) == null) || spanGroupEditText == null || spanGroupEditText.getText() == null || spanGroupEditText.getSpanGroupManager() == null) {
+            return;
         }
-    }
-
-    public void e(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f13699b = i2;
+        SpanGroupManager spanGroupManager = spanGroupEditText.getSpanGroupManager();
+        if (spanGroupManager.E().size() > 0) {
+            e eVar = spanGroupManager.E().get(0);
+            i3 = eVar.f();
+            i2 = eVar.c();
+        } else {
+            i2 = 0;
+            i3 = 0;
         }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f13702e = str;
+        Editable text = spanGroupEditText.getText();
+        String obj = text.toString();
+        if (StringUtils.isNull(obj)) {
+            return;
         }
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "-netErrorCode-" + this.f13698a + "-serverCode-" + this.f13699b + "-dnsStatus-" + this.f13701d + "-exception-" + this.f13700c + "-url-" + this.f13702e + "-dataLenth-" + this.f13703f + "-fileLength-" + this.f13704g + "-contentLen-" + this.f13705h;
+        Matcher matcher = f14488a.matcher(obj);
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (end > i3 && i2 > end) {
+                for (Object obj2 : text.getSpans(i3, text.length(), Object.class)) {
+                    if ((obj2 instanceof EMRichTextAnyIconSpan) || (obj2 instanceof ForegroundColorSpan)) {
+                        text.removeSpan(obj2);
+                    }
+                }
+                spanGroupManager.delete(i3, i2, true);
+                i2 = -1;
+                i3 = 0;
+            }
+            if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) text.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                text.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

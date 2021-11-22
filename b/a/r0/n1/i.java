@@ -9,12 +9,12 @@ import android.text.TextUtils;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
 import b.a.q0.s.s.a;
 import b.a.q0.s.s.i;
-import b.a.r0.l3.j0.r;
-import b.a.r0.t3.c;
+import b.a.r0.m3.j0.r;
+import b.a.r0.u3.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -59,31 +59,31 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ImageViewerActivity f21322a;
+    public final ImageViewerActivity f22818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MultiImageView f21323b;
+    public MultiImageView f22819b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionJudgePolicy f21324c;
+    public PermissionJudgePolicy f22820c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f21325d;
+    public j f22821d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21326e;
+    public String f22822e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.t3.c f21327f;
+    public b.a.r0.u3.c f22823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PopupDialog f21328g;
+    public PopupDialog f22824g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.q0.s.s.i f21329h;
+    public b.a.q0.s.s.i f22825h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<b.a.q0.s.s.f> f21330i;
+    public List<b.a.q0.s.s.f> f22826i;
     public b.a.q0.s.s.f j;
     public b.a.q0.s.s.f k;
     public b.a.q0.s.s.f l;
@@ -106,7 +106,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f21331a;
+        public final /* synthetic */ i f22827a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i iVar, int i2) {
@@ -126,7 +126,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     return;
                 }
             }
-            this.f21331a = iVar;
+            this.f22827a = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -134,15 +134,15 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             r rVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof r) || this.f21331a.f21322a.isFinishing() || (rVar = (r) customResponsedMessage.getData()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof r) || this.f22827a.f22818a.isFinishing() || (rVar = (r) customResponsedMessage.getData()) == null) {
                 return;
             }
-            rVar.f20645c = null;
-            if (TextUtils.isEmpty(rVar.f20647e) || TextUtils.isEmpty(rVar.f20644b) || !rVar.f20644b.equals(this.f21331a.f21326e)) {
+            rVar.f22495c = null;
+            if (TextUtils.isEmpty(rVar.f22497e) || TextUtils.isEmpty(rVar.f22494b) || !rVar.f22494b.equals(this.f22827a.f22822e)) {
                 return;
             }
-            this.f21331a.f21323b.setCurrentImageQRInfo(rVar.f20647e);
-            this.f21331a.s(rVar.f20647e);
+            this.f22827a.f22819b.setCurrentImageQRInfo(rVar.f22497e);
+            this.f22827a.s(rVar.f22497e);
         }
     }
 
@@ -152,7 +152,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f21332a;
+        public final /* synthetic */ i f22828a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -169,14 +169,14 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     return;
                 }
             }
-            this.f21332a = iVar;
+            this.f22828a = iVar;
         }
 
         @Override // b.a.q0.s.s.i.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21332a.u();
+                this.f22828a.u();
             }
         }
     }
@@ -187,7 +187,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f21333a;
+        public final /* synthetic */ i f22829a;
 
         public c(i iVar) {
             Interceptable interceptable = $ic;
@@ -204,15 +204,15 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     return;
                 }
             }
-            this.f21333a = iVar;
+            this.f22829a = iVar;
         }
 
         @Override // b.a.q0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21333a.f21323b.downloadOriginImgAtIndex(this.f21333a.f21322a.calCurrentIndex());
-                this.f21333a.u();
+                this.f22829a.f22819b.downloadOriginImgAtIndex(this.f22829a.f22818a.calCurrentIndex());
+                this.f22829a.u();
             }
         }
     }
@@ -223,7 +223,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f21334a;
+        public final /* synthetic */ i f22830a;
 
         public d(i iVar) {
             Interceptable interceptable = $ic;
@@ -240,16 +240,16 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     return;
                 }
             }
-            this.f21334a = iVar;
+            this.f22830a = iVar;
         }
 
         @Override // b.a.q0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.r0.n1.d.a(this.f21334a.f21322a.getPageContext().getPageActivity(), this.f21334a.f21323b.getCurrentImageUrl());
-                this.f21334a.u();
-                this.f21334a.r(1);
+                b.a.r0.n1.d.a(this.f22830a.f22818a.getPageContext().getPageActivity(), this.f22830a.f22819b.getCurrentImageUrl());
+                this.f22830a.u();
+                this.f22830a.r(1);
             }
         }
     }
@@ -260,7 +260,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f21335a;
+        public final /* synthetic */ i f22831a;
 
         public e(i iVar) {
             Interceptable interceptable = $ic;
@@ -277,23 +277,23 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     return;
                 }
             }
-            this.f21335a = iVar;
+            this.f22831a = iVar;
         }
 
         @Override // b.a.q0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String currentImageUrl = this.f21335a.f21323b.getCurrentImageUrl();
+                String currentImageUrl = this.f22831a.f22819b.getCurrentImageUrl();
                 if (TbadkCoreApplication.getInst().isMainProcess(true)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, currentImageUrl));
                 } else {
-                    Intent intent = new Intent(b.a.q0.c0.d.f11980a);
-                    intent.putExtra(b.a.q0.c0.d.f11981b, currentImageUrl);
+                    Intent intent = new Intent(b.a.q0.c0.d.f12734a);
+                    intent.putExtra(b.a.q0.c0.d.f12735b, currentImageUrl);
                     TbadkCoreApplication.getInst().sendBroadcast(intent);
                 }
-                this.f21335a.u();
-                this.f21335a.r(2);
+                this.f22831a.u();
+                this.f22831a.r(2);
             }
         }
     }
@@ -304,7 +304,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f21336a;
+        public final /* synthetic */ i f22832a;
 
         public f(i iVar) {
             Interceptable interceptable = $ic;
@@ -321,25 +321,25 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     return;
                 }
             }
-            this.f21336a = iVar;
+            this.f22832a = iVar;
         }
 
         @Override // b.a.q0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Activity pageActivity = this.f21336a.f21322a.getPageContext().getPageActivity();
-                if (this.f21336a.f21324c == null) {
-                    this.f21336a.f21324c = new PermissionJudgePolicy();
+                Activity pageActivity = this.f22832a.f22818a.getPageContext().getPageActivity();
+                if (this.f22832a.f22820c == null) {
+                    this.f22832a.f22820c = new PermissionJudgePolicy();
                 }
-                this.f21336a.f21324c.clearRequestPermissionList();
-                this.f21336a.f21324c.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                if (this.f21336a.f21324c.startRequestPermission(pageActivity)) {
+                this.f22832a.f22820c.clearRequestPermissionList();
+                this.f22832a.f22820c.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                if (this.f22832a.f22820c.startRequestPermission(pageActivity)) {
                     return;
                 }
-                this.f21336a.C();
-                this.f21336a.u();
-                this.f21336a.r(3);
+                this.f22832a.C();
+                this.f22832a.u();
+                this.f22832a.r(3);
             }
         }
     }
@@ -350,7 +350,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f21337a;
+        public final /* synthetic */ i f22833a;
 
         public g(i iVar) {
             Interceptable interceptable = $ic;
@@ -367,17 +367,17 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     return;
                 }
             }
-            this.f21337a = iVar;
+            this.f22833a = iVar;
         }
 
         @Override // b.a.q0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21337a.y();
-                this.f21337a.u();
-                this.f21337a.r(4);
-                this.f21337a.q();
+                this.f22833a.y();
+                this.f22833a.u();
+                this.f22833a.r(4);
+                this.f22833a.q();
             }
         }
     }
@@ -388,7 +388,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f21338a;
+        public final /* synthetic */ i f22834a;
 
         /* loaded from: classes5.dex */
         public class a implements c.a {
@@ -396,21 +396,21 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f21339a;
+            public final /* synthetic */ String f22835a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ h f21340b;
+            public final /* synthetic */ h f22836b;
 
             /* renamed from: b.a.r0.n1.i$h$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C1047a implements a.e {
+            public class C1111a implements a.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f21341e;
+                public final /* synthetic */ a f22837e;
 
-                public C1047a(a aVar) {
+                public C1111a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -425,7 +425,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                             return;
                         }
                     }
-                    this.f21341e = aVar;
+                    this.f22837e = aVar;
                 }
 
                 @Override // b.a.q0.s.s.a.e
@@ -433,8 +433,8 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                         aVar.dismiss();
-                        a aVar2 = this.f21341e;
-                        aVar2.f21340b.f21338a.z(aVar2.f21339a);
+                        a aVar2 = this.f22837e;
+                        aVar2.f22836b.f22834a.z(aVar2.f22835a);
                     }
                 }
             }
@@ -514,55 +514,55 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                         return;
                     }
                 }
-                this.f21340b = hVar;
-                this.f21339a = str;
+                this.f22836b = hVar;
+                this.f22835a = str;
             }
 
-            @Override // b.a.r0.t3.c.a
+            @Override // b.a.r0.u3.c.a
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f21340b.f21338a.f21322a.getPageContext().getPageActivity());
+                    b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f22836b.f22834a.f22818a.getPageContext().getPageActivity());
                     aVar.setTitle((String) null);
                     aVar.setMessageShowCenter(true);
-                    aVar.setMessage(this.f21340b.f21338a.t(R.string.qr_url_risk_forbid));
-                    aVar.setPositiveButton(this.f21340b.f21338a.t(R.string.qr_url_risk_forbid_button), new c(this));
+                    aVar.setMessage(this.f22836b.f22834a.t(R.string.qr_url_risk_forbid));
+                    aVar.setPositiveButton(this.f22836b.f22834a.t(R.string.qr_url_risk_forbid_button), new c(this));
                     aVar.setCancelable(false);
                     aVar.setCanceledOnTouchOutside(false);
-                    aVar.create(this.f21340b.f21338a.f21322a.getPageContext()).show();
+                    aVar.create(this.f22836b.f22834a.f22818a.getPageContext()).show();
                 }
             }
 
-            @Override // b.a.r0.t3.c.a
+            @Override // b.a.r0.u3.c.a
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f21340b.f21338a.f21322a.getPageContext().getPageActivity());
+                    b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f22836b.f22834a.f22818a.getPageContext().getPageActivity());
                     aVar.setTitleShowCenter(true);
-                    aVar.setTitle(this.f21340b.f21338a.t(R.string.qr_url_jump_external_title));
+                    aVar.setTitle(this.f22836b.f22834a.t(R.string.qr_url_jump_external_title));
                     aVar.setMessageShowCenter(true);
-                    aVar.setMessage(this.f21340b.f21338a.t(R.string.qr_url_jump_external_message));
-                    aVar.setPositiveButton(this.f21340b.f21338a.t(R.string.confirm), new C1047a(this));
-                    aVar.setNegativeButton(this.f21340b.f21338a.t(R.string.cancel), new b(this));
+                    aVar.setMessage(this.f22836b.f22834a.t(R.string.qr_url_jump_external_message));
+                    aVar.setPositiveButton(this.f22836b.f22834a.t(R.string.confirm), new C1111a(this));
+                    aVar.setNegativeButton(this.f22836b.f22834a.t(R.string.cancel), new b(this));
                     aVar.setCancelable(false);
                     aVar.setCanceledOnTouchOutside(false);
-                    aVar.create(this.f21340b.f21338a.f21322a.getPageContext()).show();
+                    aVar.create(this.f22836b.f22834a.f22818a.getPageContext()).show();
                 }
             }
 
-            @Override // b.a.r0.t3.c.a
+            @Override // b.a.r0.u3.c.a
             public void c() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f21340b.f21338a.z(this.f21339a);
+                    this.f22836b.f22834a.z(this.f22835a);
                 }
             }
 
-            @Override // b.a.r0.t3.c.a
+            @Override // b.a.r0.u3.c.a
             public void onError(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                    l.M(this.f21340b.f21338a.f21322a.getPageContext().getPageActivity(), this.f21340b.f21338a.t(R.string.qr_scan_error));
+                    l.M(this.f22836b.f22834a.f22818a.getPageContext().getPageActivity(), this.f22836b.f22834a.t(R.string.qr_scan_error));
                 }
             }
         }
@@ -582,43 +582,43 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     return;
                 }
             }
-            this.f21338a = iVar;
+            this.f22834a = iVar;
         }
 
         @Override // b.a.q0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String currentImageQRInfo = this.f21338a.f21323b.getCurrentImageQRInfo();
+                String currentImageQRInfo = this.f22834a.f22819b.getCurrentImageQRInfo();
                 if (TextUtils.isEmpty(currentImageQRInfo) || "qr_none".equals(currentImageQRInfo)) {
                     return;
                 }
                 if (!l.D()) {
-                    l.M(this.f21338a.f21322a.getPageContext().getPageActivity(), this.f21338a.t(R.string.network_not_available));
+                    l.M(this.f22834a.f22818a.getPageContext().getPageActivity(), this.f22834a.t(R.string.network_not_available));
                     return;
                 }
-                if (this.f21338a.f21327f != null && !this.f21338a.f21327f.isCancelled()) {
-                    this.f21338a.f21327f.cancel();
+                if (this.f22834a.f22823f != null && !this.f22834a.f22823f.isCancelled()) {
+                    this.f22834a.f22823f.cancel();
                 }
-                this.f21338a.f21327f = new b.a.r0.t3.c(currentImageQRInfo, new a(this, currentImageQRInfo));
-                this.f21338a.f21327f.setPriority(3);
-                this.f21338a.f21327f.execute(new String[0]);
-                this.f21338a.u();
-                this.f21338a.r(5);
+                this.f22834a.f22823f = new b.a.r0.u3.c(currentImageQRInfo, new a(this, currentImageQRInfo));
+                this.f22834a.f22823f.setPriority(3);
+                this.f22834a.f22823f.execute(new String[0]);
+                this.f22834a.u();
+                this.f22834a.r(5);
             }
         }
     }
 
     /* renamed from: b.a.r0.n1.i$i  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1048i implements View.OnClickListener {
+    public class View$OnClickListenerC1112i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f21342e;
+        public final /* synthetic */ i f22838e;
 
-        public View$OnClickListenerC1048i(i iVar) {
+        public View$OnClickListenerC1112i(i iVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -633,7 +633,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     return;
                 }
             }
-            this.f21342e = iVar;
+            this.f22838e = iVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -641,7 +641,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             UrlDragImageView currentUrlDragImageView;
             String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21342e.f21323b == null || (currentUrlDragImageView = this.f21342e.f21323b.getCurrentUrlDragImageView()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22838e.f22819b == null || (currentUrlDragImageView = this.f22838e.f22819b.getCurrentUrlDragImageView()) == null) {
                 return;
             }
             ImageUrlData imageUrlData = currentUrlDragImageView.getmAssistUrlData();
@@ -653,7 +653,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                 str = "";
             }
             if (TextUtils.isEmpty(str2)) {
-                str2 = this.f21342e.f21323b.getCurrentImageUrl();
+                str2 = this.f22838e.f22819b.getCurrentImageUrl();
                 str = TbMd5.getNameMd5FromUrl(str2);
             }
             ShareItem shareItem = new ShareItem();
@@ -666,8 +666,8 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             if (!k.isEmpty(str2)) {
                 shareItem.v = Uri.parse(str2);
                 shareItem.Z = 2;
-                shareItem.r = this.f21342e.t(R.string.save_to_emotion);
-                shareItem.s = this.f21342e.t(R.string.save_to_emotion);
+                shareItem.r = this.f22838e.t(R.string.save_to_emotion);
+                shareItem.s = this.f22838e.t(R.string.save_to_emotion);
                 shareItem.w = str2;
                 Bundle bundle = new Bundle();
                 bundle.putString("path", "images");
@@ -679,7 +679,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                 shareItem.A = bundle;
             }
             new Bundle().putInt("obj_locate", 13);
-            new b.a.q0.t.g.g(this.f21342e.f21322a, null).m(shareItem);
+            new b.a.q0.t.g.g(this.f22838e.f22818a, null).m(shareItem);
         }
     }
 
@@ -689,13 +689,13 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f21343a;
+        public String f22839a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f21344b;
+        public byte[] f22840b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ i f21345c;
+        public final /* synthetic */ i f22841c;
 
         public j(i iVar, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -712,16 +712,16 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     return;
                 }
             }
-            this.f21345c = iVar;
-            this.f21343a = str;
-            this.f21344b = bArr;
+            this.f22841c = iVar;
+            this.f22839a = str;
+            this.f22840b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21345c.f21325d = null;
+                this.f22841c.f22821d = null;
                 super.cancel(true);
             }
         }
@@ -734,8 +734,8 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             String nameMd5FromUrl;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                Map<String, ImageUrlData> assistUrls = this.f21345c.f21322a.getAssistUrls();
-                if (this.f21343a != null && assistUrls != null) {
+                Map<String, ImageUrlData> assistUrls = this.f22841c.f22818a.getAssistUrls();
+                if (this.f22839a != null && assistUrls != null) {
                     ImageUrlData imageUrlData = null;
                     Iterator<Map.Entry<String, ImageUrlData>> it = assistUrls.entrySet().iterator();
                     while (true) {
@@ -743,7 +743,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                             break;
                         }
                         Map.Entry<String, ImageUrlData> next = it.next();
-                        if (next != null && next.getKey() != null && next.getValue() != null && next.getKey().contains(this.f21343a)) {
+                        if (next != null && next.getKey() != null && next.getValue() != null && next.getKey().contains(this.f22839a)) {
                             imageUrlData = next.getValue();
                             break;
                         }
@@ -751,22 +751,22 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                     if (imageUrlData != null) {
                         String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + StorageFile.getInstance().getDirectoryName(nameMd5FromUrl) + "/" + TbMd5.getNameMd5FromUrl(imageUrlData.originalUrl);
                         int[] imageFileWH = FileHelper.getImageFileWH(str);
-                        if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && FileHelper.copyImageFile(str, this.f21343a, this.f21345c.f21322a.getPageContext().getPageActivity()) == 0) {
-                            return this.f21345c.f21322a.getPageContext().getString(R.string.save_image_to_album);
+                        if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && FileHelper.copyImageFile(str, this.f22839a, this.f22841c.f22818a.getPageContext().getPageActivity()) == 0) {
+                            return this.f22841c.f22818a.getPageContext().getString(R.string.save_image_to_album);
                         }
                     }
                 }
-                String str2 = this.f21343a;
-                if (str2 != null && (bArr = this.f21344b) != null) {
-                    int saveImageFileByUser = FileHelper.saveImageFileByUser(str2, bArr, this.f21345c.f21322a.getPageContext().getPageActivity());
+                String str2 = this.f22839a;
+                if (str2 != null && (bArr = this.f22840b) != null) {
+                    int saveImageFileByUser = FileHelper.saveImageFileByUser(str2, bArr, this.f22841c.f22818a.getPageContext().getPageActivity());
                     if (saveImageFileByUser == -2) {
                         return FileHelper.getSdErrorString();
                     }
                     if (saveImageFileByUser == 0) {
-                        return this.f21345c.t(R.string.save_image_to_album);
+                        return this.f22841c.t(R.string.save_image_to_album);
                     }
                 }
-                return this.f21345c.t(R.string.save_fail);
+                return this.f22841c.t(R.string.save_fail);
             }
             return (String) invokeL.objValue;
         }
@@ -777,12 +777,12 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 super.onPostExecute((j) str);
-                if (!b.a.q0.b.d.y() || this.f21345c.t(R.string.save_fail).equals(str)) {
-                    this.f21345c.f21322a.showToast(str);
-                } else if (this.f21345c.p != null) {
-                    this.f21345c.p.g(this.f21345c.f21323b, this.f21345c.f21323b.getBottomHeight(), this.f21345c.x);
+                if (!b.a.q0.b.d.y() || this.f22841c.t(R.string.save_fail).equals(str)) {
+                    this.f22841c.f22818a.showToast(str);
+                } else if (this.f22841c.p != null) {
+                    this.f22841c.p.g(this.f22841c.f22819b, this.f22841c.f22819b.getBottomHeight(), this.f22841c.x);
                 }
-                this.f21345c.f21325d = null;
+                this.f22841c.f22821d = null;
             }
         }
     }
@@ -802,8 +802,8 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                 return;
             }
         }
-        this.f21326e = null;
-        this.f21330i = null;
+        this.f22822e = null;
+        this.f22826i = null;
         this.q = new a(this, 2921403);
         this.r = new c(this);
         this.s = new d(this);
@@ -811,8 +811,8 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         this.u = new f(this);
         this.v = new g(this);
         this.w = new h(this);
-        this.x = new View$OnClickListenerC1048i(this);
-        this.f21322a = imageViewerActivity;
+        this.x = new View$OnClickListenerC1112i(this);
+        this.f22818a = imageViewerActivity;
         imageViewerActivity.registerListener(this.q);
         this.p = new b.a.r0.n1.f(imageViewerActivity);
     }
@@ -820,15 +820,15 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j jVar = this.f21325d;
+            j jVar = this.f22821d;
             if (jVar != null) {
                 jVar.cancel();
-                this.f21325d = null;
+                this.f22821d = null;
             }
-            b.a.r0.t3.c cVar = this.f21327f;
+            b.a.r0.u3.c cVar = this.f22823f;
             if (cVar != null) {
                 cVar.cancel();
-                this.f21327f = null;
+                this.f22823f = null;
             }
             b.a.r0.n1.f fVar = this.p;
             if (fVar != null) {
@@ -840,7 +840,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f21326e = null;
+            this.f22822e = null;
         }
     }
 
@@ -848,10 +848,10 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                j jVar = new j(this, this.f21323b.getCurrentImageUrl(), this.f21323b.getCurrentImageData());
-                this.f21325d = jVar;
+                j jVar = new j(this, this.f22819b.getCurrentImageUrl(), this.f22819b.getCurrentImageData());
+                this.f22821d = jVar;
                 jVar.execute(new String[0]);
-                if (ImageViewerConfig.FROM_DISCOVER_BEAUTY.equals(this.f21322a.getFrom())) {
+                if (ImageViewerConfig.FROM_DISCOVER_BEAUTY.equals(this.f22818a.getFrom())) {
                     TiebaStatic.log("c12173");
                 }
             } catch (Exception unused) {
@@ -862,65 +862,65 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f21330i.clear();
-            String checkOriginImgStringAtIndex = this.f21323b.getCheckOriginImgStringAtIndex(this.f21322a.calCurrentIndex());
+            this.f22826i.clear();
+            String checkOriginImgStringAtIndex = this.f22819b.getCheckOriginImgStringAtIndex(this.f22818a.calCurrentIndex());
             if (checkOriginImgStringAtIndex != null) {
-                b.a.q0.s.s.f fVar = new b.a.q0.s.s.f(checkOriginImgStringAtIndex, this.f21329h);
+                b.a.q0.s.s.f fVar = new b.a.q0.s.s.f(checkOriginImgStringAtIndex, this.f22825h);
                 this.j = fVar;
                 fVar.l(this.r);
-                this.f21330i.add(this.j);
+                this.f22826i.add(this.j);
             }
-            b.a.q0.s.s.f fVar2 = new b.a.q0.s.s.f(t(R.string.save_to_local), this.f21329h);
+            b.a.q0.s.s.f fVar2 = new b.a.q0.s.s.f(t(R.string.save_to_local), this.f22825h);
             this.l = fVar2;
             fVar2.l(this.u);
-            this.f21330i.add(this.l);
-            ImageViewerActivity imageViewerActivity = this.f21322a;
+            this.f22826i.add(this.l);
+            ImageViewerActivity imageViewerActivity = this.f22818a;
             if (imageViewerActivity != null && !imageViewerActivity.isIsBJHThread()) {
-                b.a.q0.s.s.f fVar3 = new b.a.q0.s.s.f(t(R.string.save_to_emotion), this.f21329h);
+                b.a.q0.s.s.f fVar3 = new b.a.q0.s.s.f(t(R.string.save_to_emotion), this.f22825h);
                 this.m = fVar3;
                 fVar3.l(this.t);
-                this.f21330i.add(this.m);
+                this.f22826i.add(this.m);
             }
-            b.a.q0.s.s.f fVar4 = new b.a.q0.s.s.f(t(R.string.identify_image), this.f21329h);
+            b.a.q0.s.s.f fVar4 = new b.a.q0.s.s.f(t(R.string.identify_image), this.f22825h);
             this.k = fVar4;
             fVar4.l(this.s);
-            this.f21330i.add(this.k);
-            String currentImageQRInfo = this.f21323b.getCurrentImageQRInfo();
+            this.f22826i.add(this.k);
+            String currentImageQRInfo = this.f22819b.getCurrentImageQRInfo();
             if (!TextUtils.isEmpty(currentImageQRInfo) && !currentImageQRInfo.equals("qr_none")) {
-                b.a.q0.s.s.f fVar5 = new b.a.q0.s.s.f(t(R.string.image_qr_code), this.f21329h);
+                b.a.q0.s.s.f fVar5 = new b.a.q0.s.s.f(t(R.string.image_qr_code), this.f22825h);
                 this.o = fVar5;
                 fVar5.l(this.w);
-                this.f21330i.add(this.o);
+                this.f22826i.add(this.o);
             }
-            b.a.q0.s.s.f fVar6 = new b.a.q0.s.s.f(t(R.string.image_share), this.f21329h);
+            b.a.q0.s.s.f fVar6 = new b.a.q0.s.s.f(t(R.string.image_share), this.f22825h);
             this.n = fVar6;
             fVar6.l(this.v);
-            this.f21330i.add(this.n);
-            this.f21329h.l(new b(this));
-            this.f21329h.j(this.f21330i);
+            this.f22826i.add(this.n);
+            this.f22825h.l(new b(this));
+            this.f22825h.j(this.f22826i);
         }
     }
 
     public void E() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f21328g == null || this.f21322a.isFinishing()) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f22824g == null || this.f22818a.isFinishing()) {
             return;
         }
-        this.f21328g.showDialog();
+        this.f22824g.showDialog();
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.c
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String currentImageUrl = this.f21323b.getCurrentImageUrl();
+            String currentImageUrl = this.f22819b.getCurrentImageUrl();
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, currentImageUrl));
-            } else if (FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.f21322a.getPageContext(), null)) {
+            } else if (FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.f22818a.getPageContext(), null)) {
                 return;
             } else {
-                Intent intent = new Intent(b.a.q0.c0.d.f11980a);
-                intent.putExtra(b.a.q0.c0.d.f11981b, currentImageUrl);
+                Intent intent = new Intent(b.a.q0.c0.d.f12734a);
+                intent.putExtra(b.a.q0.c0.d.f12735b, currentImageUrl);
                 TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
             r(2);
@@ -931,13 +931,13 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     public void onSave() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Activity pageActivity = this.f21322a.getPageContext().getPageActivity();
-            if (this.f21324c == null) {
-                this.f21324c = new PermissionJudgePolicy();
+            Activity pageActivity = this.f22818a.getPageContext().getPageActivity();
+            if (this.f22820c == null) {
+                this.f22820c = new PermissionJudgePolicy();
             }
-            this.f21324c.clearRequestPermissionList();
-            this.f21324c.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (this.f21324c.startRequestPermission(pageActivity)) {
+            this.f22820c.clearRequestPermissionList();
+            this.f22820c.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (this.f22820c.startRequestPermission(pageActivity)) {
                 return;
             }
             C();
@@ -953,7 +953,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     public final void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            TiebaStatic.log(new StatisticItem("c13270").param("uid", this.f21322a.getUserId()).param("obj_type", i2));
+            TiebaStatic.log(new StatisticItem("c13270").param("uid", this.f22818a.getUserId()).param("obj_type", i2));
             int i3 = i2 == 1 ? 22 : i2 == 2 ? 21 : i2 == 3 ? 20 : 0;
             if (i3 != 0) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_type", i3));
@@ -964,18 +964,18 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
     public void s(String str) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.f21328g == null || this.f21322a.isFinishing() || !this.f21328g.isShowing() || TextUtils.isEmpty(str) || "qr_none".equals(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.f22824g == null || this.f22818a.isFinishing() || !this.f22824g.isShowing() || TextUtils.isEmpty(str) || "qr_none".equals(str)) {
             return;
         }
-        b.a.q0.s.s.f fVar = new b.a.q0.s.s.f(t(R.string.image_qr_code), this.f21329h);
+        b.a.q0.s.s.f fVar = new b.a.q0.s.s.f(t(R.string.image_qr_code), this.f22825h);
         this.o = fVar;
         fVar.l(this.w);
         boolean z = false;
         int i3 = 0;
         while (true) {
-            if (i3 < this.f21330i.size()) {
-                if (this.k != null && this.f21330i.get(i3) == this.k && (i2 = i3 + 1) <= this.f21330i.size()) {
-                    this.f21330i.add(i2, this.o);
+            if (i3 < this.f22826i.size()) {
+                if (this.k != null && this.f22826i.get(i3) == this.k && (i2 = i3 + 1) <= this.f22826i.size()) {
+                    this.f22826i.add(i2, this.o);
                     z = true;
                     break;
                 }
@@ -985,37 +985,37 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             }
         }
         if (!z) {
-            this.f21330i.add(this.o);
+            this.f22826i.add(this.o);
         }
-        this.f21329h.j(this.f21330i);
+        this.f22825h.j(this.f22826i);
     }
 
     public final String t(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? this.f21322a.getString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? this.f22818a.getString(i2) : (String) invokeI.objValue;
     }
 
     public void u() {
         PopupDialog popupDialog;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (popupDialog = this.f21328g) != null && popupDialog.isShowing()) {
-            this.f21328g.dismiss();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (popupDialog = this.f22824g) != null && popupDialog.isShowing()) {
+            this.f22824g.dismiss();
         }
     }
 
     public void v(@Nullable MultiImageView multiImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, multiImageView) == null) {
-            this.f21323b = multiImageView;
-            if (this.f21328g == null) {
-                this.f21329h = new b.a.q0.s.s.i(this.f21322a);
+            this.f22819b = multiImageView;
+            if (this.f22824g == null) {
+                this.f22825h = new b.a.q0.s.s.i(this.f22818a);
             }
-            if (this.f21330i == null) {
-                this.f21330i = new ArrayList();
+            if (this.f22826i == null) {
+                this.f22826i = new ArrayList();
             }
             D();
-            this.f21328g = new PopupDialog(this.f21322a.getPageContext(), this.f21329h);
+            this.f22824g = new PopupDialog(this.f22818a.getPageContext(), this.f22825h);
         }
     }
 
@@ -1029,23 +1029,23 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
                 return;
             }
             r rVar = new r();
-            rVar.f20643a = 0;
-            rVar.f20645c = imageBitmap;
-            String currentImageUrl = this.f21323b.getCurrentImageUrl();
+            rVar.f22493a = 0;
+            rVar.f22495c = imageBitmap;
+            String currentImageUrl = this.f22819b.getCurrentImageUrl();
             if (!TextUtils.isEmpty(currentImageUrl)) {
-                rVar.f20644b = String.valueOf(System.currentTimeMillis()) + TbMd5.getNameMd5FromUrl(currentImageUrl);
+                rVar.f22494b = String.valueOf(System.currentTimeMillis()) + TbMd5.getNameMd5FromUrl(currentImageUrl);
             } else {
-                rVar.f20644b = String.valueOf(BdUniqueId.gen().getId());
+                rVar.f22494b = String.valueOf(BdUniqueId.gen().getId());
             }
-            this.f21326e = rVar.f20644b;
-            this.f21322a.sendMessage(new CustomMessage(2921403, rVar));
+            this.f22822e = rVar.f22494b;
+            this.f22818a.sendMessage(new CustomMessage(2921403, rVar));
         }
     }
 
     public void x() {
         b.a.q0.s.s.i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (iVar = this.f21329h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (iVar = this.f22825h) == null) {
             return;
         }
         iVar.i();
@@ -1056,7 +1056,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         UrlDragImageView currentUrlDragImageView;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (multiImageView = this.f21323b) == null || (currentUrlDragImageView = multiImageView.getCurrentUrlDragImageView()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (multiImageView = this.f22819b) == null || (currentUrlDragImageView = multiImageView.getCurrentUrlDragImageView()) == null) {
             return;
         }
         ImageUrlData imageUrlData = currentUrlDragImageView.getmAssistUrlData();
@@ -1068,7 +1068,7 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             str = "";
         }
         if (TextUtils.isEmpty(str2)) {
-            str2 = this.f21323b.getCurrentImageUrl();
+            str2 = this.f22819b.getCurrentImageUrl();
             str = TbMd5.getNameMd5FromUrl(str2);
         }
         ShareItem shareItem = new ShareItem();
@@ -1093,13 +1093,13 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
         }
         shareItem.j = true;
         shareItem.E = 23;
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f21322a, shareItem, false);
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f22818a, shareItem, false);
         if (b.a.q0.b.d.x()) {
             shareDialogConfig.isImageViewerDialog = true;
-            shareDialogConfig.originImgText = this.f21323b.getCheckOriginImgStringAtIndex(this.f21322a.calCurrentIndex());
-            ImageViewerActivity imageViewerActivity = this.f21322a;
+            shareDialogConfig.originImgText = this.f22819b.getCheckOriginImgStringAtIndex(this.f22818a.calCurrentIndex());
+            ImageViewerActivity imageViewerActivity = this.f22818a;
             shareDialogConfig.showAddEmotion = (imageViewerActivity == null || imageViewerActivity.isIsBJHThread()) ? false : true;
-            String currentImageQRInfo = this.f21323b.getCurrentImageQRInfo();
+            String currentImageQRInfo = this.f22819b.getCurrentImageQRInfo();
             if (!TextUtils.isEmpty(currentImageQRInfo) && !currentImageQRInfo.equals("qr_none")) {
                 z = true;
             }
@@ -1111,13 +1111,13 @@ public class i implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b {
             shareDialogConfig.qrCodeClickListener = this.w;
             shareDialogConfig.onWeChatEmotionShareListener = this.x;
         }
-        this.f21322a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        this.f22818a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
     public final void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f21322a.getPageContext().getPageActivity(), null, str, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f22818a.getPageContext().getPageActivity(), null, str, false)));
         }
     }
 }

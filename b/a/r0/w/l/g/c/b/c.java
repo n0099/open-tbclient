@@ -16,13 +16,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25235a;
+    public String f26752a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25236b;
+    public int f26753b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f25237c;
+    public List<b> f26754c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -37,17 +37,17 @@ public class c {
                 return;
             }
         }
-        this.f25237c = new ArrayList();
+        this.f26754c = new ArrayList();
     }
 
     public List<b> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f25237c == null) {
-                this.f25237c = new ArrayList();
+            if (this.f26754c == null) {
+                this.f26754c = new ArrayList();
             }
-            return this.f25237c;
+            return this.f26754c;
         }
         return (List) invokeV.objValue;
     }
@@ -55,22 +55,22 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25235a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26752a : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.f25235a = jSONObject.optString("mark_type_name");
-            this.f25236b = jSONObject.optInt("mark_type_wear");
+            this.f26752a = jSONObject.optString("mark_type_name");
+            this.f26753b = jSONObject.optInt("mark_type_wear");
             JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     b bVar = new b();
                     bVar.n(optJSONArray.optJSONObject(i2));
-                    bVar.o(this.f25235a);
-                    bVar.p(this.f25236b);
-                    this.f25237c.add(bVar);
+                    bVar.o(this.f26752a);
+                    bVar.p(this.f26753b);
+                    this.f26754c.add(bVar);
                 }
             }
         }

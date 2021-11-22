@@ -15,64 +15,64 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f61243b = "request_finish";
+    public static String f62142b = "request_finish";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f61244c = "download_start";
+    public static String f62143c = "download_start";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f61245d = "download_finish";
+    public static String f62144d = "download_finish";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f61246e = "install_start";
+    public static String f62145e = "install_start";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f61247f = "install_finish";
+    public static String f62146f = "install_finish";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f61248g = "load_start";
+    public static String f62147g = "load_start";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f61249h = "load_finish";
+    public static String f62148h = "load_finish";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f61250i = "zeus_error";
+    public static String f62149i = "zeus_error";
     public static volatile b j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<com.bytedance.pangle.b.a> f61251a;
+    public final List<com.bytedance.pangle.b.a> f62150a;
 
     /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f61252a = 11000;
+        public static int f62151a = 11000;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f61253b = 12000;
+        public static int f62152b = 12000;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f61254c = 12001;
+        public static int f62153c = 12001;
 
         /* renamed from: d  reason: collision with root package name */
-        public static int f61255d = 20000;
+        public static int f62154d = 20000;
 
         /* renamed from: e  reason: collision with root package name */
-        public static int f61256e = 21000;
+        public static int f62155e = 21000;
 
         /* renamed from: f  reason: collision with root package name */
-        public static int f61257f = 21001;
+        public static int f62156f = 21001;
 
         /* renamed from: g  reason: collision with root package name */
-        public static int f61258g = 21002;
+        public static int f62157g = 21002;
 
         /* renamed from: h  reason: collision with root package name */
-        public static int f61259h = 22000;
+        public static int f62158h = 22000;
 
         /* renamed from: i  reason: collision with root package name */
-        public static int f61260i = 22001;
+        public static int f62159i = 22001;
         public static int j = 22002;
         public static int k = 22999;
         public static int l = 30000;
@@ -135,7 +135,7 @@ public class b {
                 return;
             }
         }
-        this.f61251a = new ArrayList();
+        this.f62150a = new ArrayList();
     }
 
     public static b a() {
@@ -155,8 +155,8 @@ public class b {
     public final void a(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, jSONObject, jSONObject2, jSONObject3) == null) {
-            synchronized (this.f61251a) {
-                for (com.bytedance.pangle.b.a aVar : this.f61251a) {
+            synchronized (this.f62150a) {
+                for (com.bytedance.pangle.b.a aVar : this.f62150a) {
                     aVar.a(str, jSONObject, jSONObject2, jSONObject3);
                 }
             }

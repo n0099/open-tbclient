@@ -10,12 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.infer.annotation.Nullsafe;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes11.dex */
 public final class Objects {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +31,7 @@ public final class Objects {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String className;
-        public final ValueHolder holderHead;
+        public ValueHolder holderHead;
         public ValueHolder holderTail;
         public boolean omitNullValues;
 
@@ -43,7 +41,6 @@ public final class Objects {
             public transient /* synthetic */ FieldHolder $fh;
             @Nullable
             public String name;
-            @Nullable
             public ValueHolder next;
             @Nullable
             public Object value;
@@ -115,20 +112,14 @@ public final class Objects {
                 sb.append(ExtendedMessageFormat.START_FE);
                 String str = "";
                 for (ValueHolder valueHolder = this.holderHead.next; valueHolder != null; valueHolder = valueHolder.next) {
-                    Object obj = valueHolder.value;
-                    if (!z || obj != null) {
+                    if (!z || valueHolder.value != null) {
                         sb.append(str);
                         String str2 = valueHolder.name;
                         if (str2 != null) {
                             sb.append(str2);
-                            sb.append(a.f34124h);
+                            sb.append(a.f34958h);
                         }
-                        if (obj != null && obj.getClass().isArray()) {
-                            String deepToString = Arrays.deepToString(new Object[]{obj});
-                            sb.append((CharSequence) deepToString, 1, deepToString.length() - 1);
-                        } else {
-                            sb.append(obj);
-                        }
+                        sb.append(valueHolder.value);
                         str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
                     }
                 }
@@ -288,21 +279,35 @@ public final class Objects {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, objArr)) == null) ? Arrays.hashCode(objArr) : invokeL.intValue;
     }
 
+    public static String simpleName(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) {
+            String replaceAll = cls.getName().replaceAll("\\$[0-9]+", "\\$");
+            int lastIndexOf = replaceAll.lastIndexOf(36);
+            if (lastIndexOf == -1) {
+                lastIndexOf = replaceAll.lastIndexOf(46);
+            }
+            return replaceAll.substring(lastIndexOf + 1);
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static ToStringHelper toStringHelper(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? new ToStringHelper(obj.getClass().getSimpleName(), null) : (ToStringHelper) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? new ToStringHelper(simpleName(obj.getClass()), null) : (ToStringHelper) invokeL.objValue;
     }
 
     public static ToStringHelper toStringHelper(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? new ToStringHelper(cls.getSimpleName(), null) : (ToStringHelper) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) ? new ToStringHelper(simpleName(cls), null) : (ToStringHelper) invokeL.objValue;
     }
 
     public static ToStringHelper toStringHelper(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? new ToStringHelper(str, null) : (ToStringHelper) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new ToStringHelper(str, null) : (ToStringHelper) invokeL.objValue;
     }
 }

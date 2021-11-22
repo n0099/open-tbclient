@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
-import b.a.p0.a.v1.c.f.c;
-import b.a.p0.a.v1.c.f.e;
+import b.a.p0.a.y1.c.f.c;
+import b.a.p0.a.y1.c.f.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
@@ -24,34 +24,34 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5619a;
+    public static final boolean f5909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f5620b;
+    public static f f5910b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f5621c;
+    public static g f5911c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f5622d;
+    public static final boolean f5912d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.h0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0233a implements d {
+    public class C0244a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f5623a;
+        public final /* synthetic */ e f5913a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent f5624b;
+        public final /* synthetic */ PrefetchEvent f5914b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f5625c;
+        public final /* synthetic */ a f5915c;
 
-        public C0233a(a aVar, e eVar, PrefetchEvent prefetchEvent) {
+        public C0244a(a aVar, e eVar, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,21 +66,21 @@ public final class a {
                     return;
                 }
             }
-            this.f5625c = aVar;
-            this.f5623a = eVar;
-            this.f5624b = prefetchEvent;
+            this.f5915c = aVar;
+            this.f5913a = eVar;
+            this.f5914b = prefetchEvent;
         }
 
         @Override // b.a.p0.a.h0.o.a.d
-        public void a(b.a.p0.a.v1.c.f.c cVar) {
+        public void a(b.a.p0.a.y1.c.f.c cVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null) {
                 return;
             }
-            if (a.f5622d || !cVar.C()) {
-                this.f5625c.f(cVar, this.f5624b, this.f5623a);
+            if (a.f5912d || !cVar.D()) {
+                this.f5915c.f(cVar, this.f5914b, this.f5913a);
             } else {
-                this.f5623a.a(cVar, null);
+                this.f5913a.a(cVar, null);
             }
         }
     }
@@ -91,7 +91,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f5626a;
+        public final /* synthetic */ d f5916a;
 
         public b(a aVar, d dVar) {
             Interceptable interceptable = $ic;
@@ -108,14 +108,14 @@ public final class a {
                     return;
                 }
             }
-            this.f5626a = dVar;
+            this.f5916a = dVar;
         }
 
-        @Override // b.a.p0.a.v1.c.f.c.b
-        public void a(b.a.p0.a.v1.c.f.c cVar) {
+        @Override // b.a.p0.a.y1.c.f.c.b
+        public void a(b.a.p0.a.y1.c.f.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                this.f5626a.a(cVar);
+                this.f5916a.a(cVar);
             }
         }
     }
@@ -126,12 +126,12 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.v1.c.f.c f5627b;
+        public final /* synthetic */ b.a.p0.a.y1.c.f.c f5917b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f5628c;
+        public final /* synthetic */ e f5918c;
 
-        public c(a aVar, b.a.p0.a.v1.c.f.c cVar, e eVar) {
+        public c(a aVar, b.a.p0.a.y1.c.f.c cVar, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,18 +146,18 @@ public final class a {
                     return;
                 }
             }
-            this.f5627b = cVar;
-            this.f5628c = eVar;
+            this.f5917b = cVar;
+            this.f5918c = eVar;
         }
 
-        @Override // b.a.p0.a.h0.c.a.a, b.a.p0.a.h0.c.a.b.InterfaceC0192b
+        @Override // b.a.p0.a.h0.c.a.a, b.a.p0.a.h0.c.a.b.InterfaceC0199b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.a();
-                boolean z = a.f5622d && this.f5627b.C();
-                if (this.f5627b.G() || z) {
-                    this.f5628c.a(this.f5627b, null);
+                boolean z = a.f5912d && this.f5917b.D();
+                if (this.f5917b.R() || z) {
+                    this.f5918c.a(this.f5917b, null);
                 }
             }
         }
@@ -165,12 +165,12 @@ public final class a {
 
     /* loaded from: classes.dex */
     public interface d {
-        void a(b.a.p0.a.v1.c.f.c cVar);
+        void a(b.a.p0.a.y1.c.f.c cVar);
     }
 
     /* loaded from: classes.dex */
     public interface e {
-        void a(@NonNull b.a.p0.a.v1.c.f.c cVar, @Nullable PMSAppInfo pMSAppInfo);
+        void a(@NonNull b.a.p0.a.y1.c.f.c cVar, @Nullable PMSAppInfo pMSAppInfo);
     }
 
     /* loaded from: classes.dex */
@@ -193,9 +193,9 @@ public final class a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v1.c.f.e.c
+        @Override // b.a.p0.a.y1.c.f.e.c
         /* renamed from: b */
-        public boolean a(String str, b.a.p0.a.v1.c.f.c cVar) {
+        public boolean a(String str, b.a.p0.a.y1.c.f.c cVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar)) == null) {
@@ -208,7 +208,7 @@ public final class a {
             return invokeLL.booleanValue;
         }
 
-        public /* synthetic */ f(C0233a c0233a) {
+        public /* synthetic */ f(C0244a c0244a) {
             this();
         }
     }
@@ -233,15 +233,15 @@ public final class a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v1.c.f.e.c
+        @Override // b.a.p0.a.y1.c.f.e.c
         /* renamed from: b */
-        public boolean a(String str, b.a.p0.a.v1.c.f.c cVar) {
+        public boolean a(String str, b.a.p0.a.y1.c.f.c cVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar)) == null) ? cVar.C() && TextUtils.equals(str, cVar.f8520g) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar)) == null) ? cVar.D() && TextUtils.equals(str, cVar.f9498g) : invokeLL.booleanValue;
         }
 
-        public /* synthetic */ g(C0233a c0233a) {
+        public /* synthetic */ g(C0244a c0244a) {
             this();
         }
     }
@@ -259,10 +259,10 @@ public final class a {
                 return;
             }
         }
-        f5619a = k.f6397a;
-        f5620b = new f(null);
-        f5621c = new g(null);
-        f5622d = b.a.p0.a.h0.o.e.a.m();
+        f5909a = k.f6863a;
+        f5910b = new f(null);
+        f5911c = new g(null);
+        f5912d = b.a.p0.a.h0.o.e.a.p();
     }
 
     public a() {
@@ -279,26 +279,26 @@ public final class a {
         }
     }
 
-    public static b.a.p0.a.v1.c.f.c c(@NonNull PrefetchEvent prefetchEvent) {
+    public static b.a.p0.a.y1.c.f.c c(@NonNull PrefetchEvent prefetchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, prefetchEvent)) == null) ? b.a.p0.a.v1.c.f.e.k().p(prefetchEvent.appId, f5620b) : (b.a.p0.a.v1.c.f.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, prefetchEvent)) == null) ? b.a.p0.a.y1.c.f.e.k().p(prefetchEvent.appId, f5910b) : (b.a.p0.a.y1.c.f.c) invokeL.objValue;
     }
 
-    public static b.a.p0.a.v1.c.f.c d(@NonNull PrefetchEvent prefetchEvent) {
+    public static b.a.p0.a.y1.c.f.c d(@NonNull PrefetchEvent prefetchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, prefetchEvent)) == null) ? b.a.p0.a.v1.c.f.e.k().p(prefetchEvent.appId, f5621c) : (b.a.p0.a.v1.c.f.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, prefetchEvent)) == null) ? b.a.p0.a.y1.c.f.e.k().p(prefetchEvent.appId, f5911c) : (b.a.p0.a.y1.c.f.c) invokeL.objValue;
     }
 
-    public final void e(@NonNull b.a.p0.a.v1.c.f.c cVar, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
+    public final void e(@NonNull b.a.p0.a.y1.c.f.c cVar, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, cVar, prefetchEvent, eVar) == null) {
             b.a.p0.a.h0.c.a.b.g(prefetchEvent.appId, "swan", prefetchEvent.scene, false, prefetchEvent.schema, new c(this, cVar, eVar));
         }
     }
 
-    public final void f(@NonNull b.a.p0.a.v1.c.f.c cVar, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
+    public final void f(@NonNull b.a.p0.a.y1.c.f.c cVar, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, prefetchEvent, eVar) == null) {
             e(cVar, prefetchEvent, eVar);
@@ -308,7 +308,7 @@ public final class a {
     public void g(@NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent, eVar) == null) {
-            h(prefetchEvent, new C0233a(this, eVar, prefetchEvent));
+            h(prefetchEvent, new C0244a(this, eVar, prefetchEvent));
         }
     }
 
@@ -316,28 +316,28 @@ public final class a {
     public final void h(@NonNull PrefetchEvent prefetchEvent, @NonNull d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, prefetchEvent, dVar) == null) {
-            b.a.p0.a.v1.c.f.c d2 = d(prefetchEvent);
+            b.a.p0.a.y1.c.f.c d2 = d(prefetchEvent);
             if (d2 != null) {
                 dVar.a(d2);
                 return;
             }
-            b.a.p0.a.v1.c.f.c c2 = c(prefetchEvent);
-            if (c2 != null && c2.G()) {
+            b.a.p0.a.y1.c.f.c c2 = c(prefetchEvent);
+            if (c2 != null && c2.R()) {
                 dVar.a(c2);
                 return;
             }
-            b.a.p0.a.v1.c.f.c e2 = b.a.p0.a.v1.c.f.e.k().e();
-            if (e2.C()) {
-                boolean z = f5619a;
+            b.a.p0.a.y1.c.f.c e2 = b.a.p0.a.y1.c.f.e.k().e();
+            if (e2.D()) {
+                boolean z = f5909a;
                 dVar.a(null);
-            } else if (e2.G()) {
-                boolean z2 = f5619a;
+            } else if (e2.R()) {
+                boolean z2 = f5909a;
                 dVar.a(e2);
             } else {
-                e2.Y(new b(this, dVar));
+                e2.j0(new b(this, dVar));
                 Bundle bundle = new Bundle();
                 bundle.putString("bundle_key_preload_preload_scene", "8");
-                b.a.p0.a.v1.c.f.b.m(b.a.p0.a.c1.a.b(), e2, bundle);
+                b.a.p0.a.y1.c.f.b.m(b.a.p0.a.c1.a.c(), e2, bundle);
             }
         }
     }

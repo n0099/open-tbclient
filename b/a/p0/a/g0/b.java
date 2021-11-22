@@ -1,10 +1,10 @@
 package b.a.p0.a.g0;
 
 import android.os.Bundle;
-import b.a.p0.a.e2.c.h;
+import b.a.p0.a.h2.c.h;
 import b.a.p0.a.k;
-import b.a.p0.a.v1.b.d;
-import b.a.p0.a.v1.b.f;
+import b.a.p0.a.y1.b.e;
+import b.a.p0.a.y1.b.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
@@ -22,11 +22,11 @@ public class b extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5096b;
+    public static final boolean f5239b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CookieManager f5097a;
+    public CookieManager f5240a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class b extends h {
                 return;
             }
         }
-        f5096b = k.f6397a;
+        f5239b = k.f6863a;
     }
 
     public b() {
@@ -57,8 +57,8 @@ public class b extends h {
                 return;
             }
         }
-        this.f5097a = null;
-        this.f5097a = new c();
+        this.f5240a = null;
+        this.f5240a = new c();
     }
 
     public final Bundle a(String str, String str2, int i2) {
@@ -74,18 +74,18 @@ public class b extends h {
         return (Bundle) invokeLLI.objValue;
     }
 
-    @Override // b.a.p0.a.e2.c.h, com.baidu.searchbox.http.cookie.CookieManager
+    @Override // b.a.p0.a.h2.c.h, com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return this.f5097a.getCookie(str);
+                return this.f5240a.getCookie(str);
             }
-            f b2 = d.b(a.class, a(str, "", 4));
-            if (b2.a()) {
-                String string = b2.f8485a.getString("result");
-                if (f5096b) {
+            g c2 = e.c(a.class, a(str, "", 4));
+            if (c2.a()) {
+                String string = c2.f9464a.getString("result");
+                if (f5239b) {
                     String str2 = "getCookie cookie : " + string;
                 }
                 return string;
@@ -101,11 +101,11 @@ public class b extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return this.f5097a.shouldAcceptCookie(str, str2);
+                return this.f5240a.shouldAcceptCookie(str, str2);
             }
-            f b2 = d.b(a.class, a(str, str2, 1));
-            if (b2.a()) {
-                return b2.f8485a.getBoolean("result");
+            g c2 = e.c(a.class, a(str, str2, 1));
+            if (c2.a()) {
+                return c2.f9464a.getBoolean("result");
             }
             return false;
         }
@@ -118,11 +118,11 @@ public class b extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return this.f5097a.shouldSendCookie(str, str2);
+                return this.f5240a.shouldSendCookie(str, str2);
             }
-            f b2 = d.b(a.class, a(str, str2, 2));
-            if (b2.a()) {
-                return b2.f8485a.getBoolean("result");
+            g c2 = e.c(a.class, a(str, str2, 2));
+            if (c2.a()) {
+                return c2.f9464a.getBoolean("result");
             }
             return false;
         }
@@ -134,15 +134,15 @@ public class b extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
             if (ProcessUtils.isMainProcess()) {
-                this.f5097a.storeCookie(str, list);
+                this.f5240a.storeCookie(str, list);
                 return;
             }
             Bundle bundle = new Bundle();
             bundle.putInt("type", 3);
             bundle.putString("param1", str);
             bundle.putStringArrayList("param2", (ArrayList) list);
-            d.b(a.class, bundle);
-            if (f5096b) {
+            e.c(a.class, bundle);
+            if (f5239b) {
                 String str2 = "set cookies for " + str;
             }
         }

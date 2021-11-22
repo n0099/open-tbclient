@@ -1,6 +1,6 @@
 package b.a.r0.w;
 
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -23,22 +23,22 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f24484a;
+    public JSONObject f26001a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f24485b;
+    public HttpMessageListener f26002b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f24486c;
+    public BdUniqueId f26003c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f24487d;
+    public BdUniqueId f26004d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f24488e;
+    public CustomMessageListener f26005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f24489f;
+    public CustomMessageListener f26006f;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -46,7 +46,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f24490a;
+        public final /* synthetic */ c f26007a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2) {
@@ -66,7 +66,7 @@ public class c {
                     return;
                 }
             }
-            this.f24490a = cVar;
+            this.f26007a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class c {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                this.f24490a.f24484a = null;
+                this.f26007a.f26001a = null;
             }
         }
     }
@@ -85,7 +85,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f24491a;
+        public final /* synthetic */ c f26008a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(c cVar, int i2) {
@@ -105,31 +105,31 @@ public class c {
                     return;
                 }
             }
-            this.f24491a = cVar;
+            this.f26008a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.A() && this.f24491a.f24484a != null) {
-                c cVar = this.f24491a;
-                cVar.h(cVar.f24484a, this.f24491a.f24487d);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.A() && this.f26008a.f26001a != null) {
+                c cVar = this.f26008a;
+                cVar.h(cVar.f26001a, this.f26008a.f26004d);
             }
         }
     }
 
     /* renamed from: b.a.r0.w.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1196c extends CustomMessageListener {
+    public class C1264c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f24492a;
+        public final /* synthetic */ c f26009a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1196c(c cVar, int i2) {
+        public C1264c(c cVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -146,7 +146,7 @@ public class c {
                     return;
                 }
             }
-            this.f24492a = cVar;
+            this.f26009a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -154,7 +154,7 @@ public class c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                this.f24492a.f((JSONObject) customResponsedMessage.getData());
+                this.f26009a.f((JSONObject) customResponsedMessage.getData());
             }
         }
     }
@@ -174,18 +174,18 @@ public class c {
                 return;
             }
         }
-        this.f24486c = BdUniqueId.gen();
-        this.f24487d = BdUniqueId.gen();
-        this.f24488e = new b(this, 2000994);
-        this.f24489f = new C1196c(this, 2921324);
-        if (this.f24485b == null) {
-            this.f24485b = new a(this, CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
+        this.f26003c = BdUniqueId.gen();
+        this.f26004d = BdUniqueId.gen();
+        this.f26005e = new b(this, 2000994);
+        this.f26006f = new C1264c(this, 2921324);
+        if (this.f26002b == null) {
+            this.f26002b = new a(this, CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
         }
-        MessageManager.getInstance().registerListener(this.f24485b);
-        MessageManager.getInstance().registerListener(this.f24488e);
-        this.f24489f.setTag(tbPageContext.getUniqueId());
-        this.f24489f.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f24489f);
+        MessageManager.getInstance().registerListener(this.f26002b);
+        MessageManager.getInstance().registerListener(this.f26005e);
+        this.f26006f.setTag(tbPageContext.getUniqueId());
+        this.f26006f.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f26006f);
     }
 
     public final void f(JSONObject jSONObject) {
@@ -194,19 +194,19 @@ public class c {
             return;
         }
         if (j.A()) {
-            h(jSONObject, this.f24486c);
+            h(jSONObject, this.f26003c);
         } else {
-            this.f24484a = jSONObject;
+            this.f26001a = jSONObject;
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f24485b);
-            MessageManager.getInstance().unRegisterListener(this.f24488e);
-            MessageManager.getInstance().unRegisterListener(this.f24489f);
-            this.f24484a = null;
+            MessageManager.getInstance().unRegisterListener(this.f26002b);
+            MessageManager.getInstance().unRegisterListener(this.f26005e);
+            MessageManager.getInstance().unRegisterListener(this.f26006f);
+            this.f26001a = null;
         }
     }
 

@@ -19,7 +19,7 @@ public class d implements SharedPreferences {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f29250a;
+    public SharedPreferences f30119a;
 
     @JvmOverloads
     public d(Context context, String fileName) {
@@ -39,7 +39,7 @@ public class d implements SharedPreferences {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(fileName, "fileName");
-        this.f29250a = context.getSharedPreferences(fileName, 0);
+        this.f30119a = context.getSharedPreferences(fileName, 0);
     }
 
     @Override // android.content.SharedPreferences
@@ -47,19 +47,29 @@ public class d implements SharedPreferences {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             return sharedPreferences.contains(str);
         }
         return invokeL.booleanValue;
     }
 
-    public final void e(String str, long j) {
+    public final void d(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             sharedPreferences.edit().putLong(str, j).apply();
+        }
+    }
+
+    public final void e(String key, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, key, str) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            SharedPreferences sharedPreferences = this.f30119a;
+            Intrinsics.checkNotNull(sharedPreferences);
+            sharedPreferences.edit().putString(key, str).apply();
         }
     }
 
@@ -67,28 +77,18 @@ public class d implements SharedPreferences {
     public SharedPreferences.Editor edit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             return sharedPreferences.edit();
         }
         return (SharedPreferences.Editor) invokeV.objValue;
     }
 
-    public final void f(String key, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, key, str) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            SharedPreferences sharedPreferences = this.f29250a;
-            Intrinsics.checkNotNull(sharedPreferences);
-            sharedPreferences.edit().putString(key, str).apply();
-        }
-    }
-
-    public final void g(String str) {
+    public final void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             sharedPreferences.edit().remove(str).apply();
         }
@@ -99,7 +99,7 @@ public class d implements SharedPreferences {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             return sharedPreferences.getAll();
         }
@@ -111,7 +111,7 @@ public class d implements SharedPreferences {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             return sharedPreferences.getBoolean(str, z);
         }
@@ -123,7 +123,7 @@ public class d implements SharedPreferences {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, str, f2)) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             return sharedPreferences.getFloat(str, f2);
         }
@@ -135,7 +135,7 @@ public class d implements SharedPreferences {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             return sharedPreferences.getInt(str, i2);
         }
@@ -147,7 +147,7 @@ public class d implements SharedPreferences {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             return sharedPreferences.getLong(str, j);
         }
@@ -159,7 +159,7 @@ public class d implements SharedPreferences {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             return sharedPreferences.getString(str, str2);
         }
@@ -171,7 +171,7 @@ public class d implements SharedPreferences {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, set)) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             return sharedPreferences.getStringSet(str, set);
         }
@@ -182,7 +182,7 @@ public class d implements SharedPreferences {
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onSharedPreferenceChangeListener) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             sharedPreferences.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
@@ -192,7 +192,7 @@ public class d implements SharedPreferences {
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
-            SharedPreferences sharedPreferences = this.f29250a;
+            SharedPreferences sharedPreferences = this.f30119a;
             Intrinsics.checkNotNull(sharedPreferences);
             sharedPreferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }

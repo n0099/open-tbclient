@@ -15,11 +15,11 @@ public class a implements LineHeightSpan {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f4039f;
+    public static final boolean f4179f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f4040e;
+    public final int f4180e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class a implements LineHeightSpan {
                 return;
             }
         }
-        f4039f = k.f6397a;
+        f4179f = k.f6863a;
     }
 
     public a(int i2) {
@@ -52,7 +52,7 @@ public class a implements LineHeightSpan {
                 return;
             }
         }
-        this.f4040e = i2;
+        this.f4180e = i2;
     }
 
     @Override // android.text.style.LineHeightSpan
@@ -60,23 +60,23 @@ public class a implements LineHeightSpan {
         int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), fontMetricsInt}) == null) {
-            if (f4039f) {
+            if (f4179f) {
                 String str = "chooseHeight :: in fm=" + fontMetricsInt;
-                String str2 = "chooseHeight :: in height=" + this.f4040e;
+                String str2 = "chooseHeight :: in height=" + this.f4180e;
             }
-            if (this.f4040e < 0 || (i6 = fontMetricsInt.descent - fontMetricsInt.ascent) < 0) {
+            if (this.f4180e < 0 || (i6 = fontMetricsInt.descent - fontMetricsInt.ascent) < 0) {
                 return;
             }
-            if (f4039f) {
+            if (f4179f) {
                 String str3 = "chooseHeight :: in originHeight=" + i6;
             }
-            int i7 = (this.f4040e - i6) / 2;
-            if (f4039f) {
+            int i7 = (this.f4180e - i6) / 2;
+            if (f4179f) {
                 String str4 = "chooseHeight :: in hafDiff=" + i7;
             }
             fontMetricsInt.descent += i7;
             fontMetricsInt.ascent -= i7;
-            if (f4039f) {
+            if (f4179f) {
                 String str5 = "chooseHeight :: out fm=" + fontMetricsInt;
             }
         }

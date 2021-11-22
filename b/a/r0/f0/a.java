@@ -21,17 +21,17 @@ public class a {
 
     /* renamed from: b.a.r0.f0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0834a implements a.e {
+    public static class C0899a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16326e;
+        public final /* synthetic */ TbPageContext f17826e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f16327f;
+        public final /* synthetic */ int f17827f;
 
-        public C0834a(TbPageContext tbPageContext, int i2) {
+        public C0899a(TbPageContext tbPageContext, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,8 +46,8 @@ public class a {
                     return;
                 }
             }
-            this.f16326e = tbPageContext;
-            this.f16327f = i2;
+            this.f17826e = tbPageContext;
+            this.f17827f = i2;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -55,7 +55,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f16326e.getPageActivity(), true, this.f16327f)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f17826e.getPageActivity(), true, this.f17827f)));
             }
         }
     }
@@ -101,7 +101,7 @@ public class a {
         b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(tbPageContext.getPageActivity());
         aVar.setContentViewSize(1);
         aVar.setMessage(tbPageContext.getString(R.string.account_not_the_same_as_pc));
-        aVar.setPositiveButton(R.string.change_account, new C0834a(tbPageContext, i2));
+        aVar.setPositiveButton(R.string.change_account, new C0899a(tbPageContext, i2));
         aVar.setNegativeButton(R.string.not_change_account, new b());
         aVar.create(tbPageContext).show();
     }

@@ -13,28 +13,28 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.view.IYYPayWayView;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class j implements IYYPayWayView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f72338a;
+    public Activity f73257a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Dialog f72339b;
+    public Dialog f73258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IYYPayWayView f72340c;
+    public IYYPayWayView f73259c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IYYPayWayView.b f72341d;
+    public IYYPayWayView.b f73260d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IPayCallback<CurrencyChargeMessage> f72342e;
+    public IPayCallback<CurrencyChargeMessage> f73261e;
 
     /* renamed from: f  reason: collision with root package name */
-    public i.a.a.e.k.c f72343f;
+    public i.a.a.e.k.c f73262f;
 
     public j(Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback, i.a.a.e.k.c cVar) {
         Interceptable interceptable = $ic;
@@ -52,12 +52,12 @@ public class j implements IYYPayWayView.a {
             }
         }
         RLog.info("PayWayViewCallback", "create PayWayViewCallback");
-        this.f72338a = activity;
-        this.f72339b = dialog;
-        this.f72340c = iYYPayWayView;
-        this.f72341d = bVar;
-        this.f72342e = iPayCallback;
-        this.f72343f = cVar;
+        this.f73257a = activity;
+        this.f73258b = dialog;
+        this.f73259c = iYYPayWayView;
+        this.f73260d = bVar;
+        this.f73261e = iPayCallback;
+        this.f73262f = cVar;
     }
 
     @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
@@ -65,7 +65,7 @@ public class j implements IYYPayWayView.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, fVar, cVar, appCustomExpand) == null) {
             RLog.info("PayWayViewCallback", "onStartPay");
-            this.f72343f.c(this.f72338a, fVar, cVar, this.f72339b, this.f72340c, appCustomExpand, this.f72341d, this.f72342e);
+            this.f73262f.c(this.f73257a, fVar, cVar, this.f73258b, this.f73259c, appCustomExpand, this.f73260d, this.f73261e);
         }
     }
 
@@ -74,7 +74,7 @@ public class j implements IYYPayWayView.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             RLog.info("PayWayViewCallback", "showPayWayDialog onInterruptePayFlow");
-            i.a.a.e.n.h.b(this.f72339b, PayDialogType.PAY_WAY_DIALOG);
+            i.a.a.e.n.h.b(this.f73258b, PayDialogType.PAY_WAY_DIALOG);
         }
     }
 
@@ -83,7 +83,7 @@ public class j implements IYYPayWayView.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
             RLog.info("PayWayViewCallback", "showPayWayDialog onRefreshViewFail");
-            i.a.a.e.n.h.b(this.f72339b, PayDialogType.PAY_WAY_DIALOG);
+            i.a.a.e.n.h.b(this.f73258b, PayDialogType.PAY_WAY_DIALOG);
         }
     }
 }

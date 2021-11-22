@@ -21,16 +21,16 @@ public class b implements b.a.w.d.b.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountManagerService f24764a;
+    public AccountManagerService f26281a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AppInfoService f24765b;
+    public AppInfoService f26282b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ToastService f24766c;
+    public ToastService f26283c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RouterService f24767d;
+    public RouterService f26284d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class b implements b.a.w.d.b.b {
                 return;
             }
         }
-        this.f24764a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
-        this.f24765b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.f24766c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
-        this.f24767d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
+        this.f26281a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
+        this.f26282b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        this.f26283c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
+        this.f26284d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
     }
 
     @Override // b.a.w.d.b.b
@@ -56,7 +56,7 @@ public class b implements b.a.w.d.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AccountManagerService accountManagerService = this.f24764a;
+            AccountManagerService accountManagerService = this.f26281a;
             return accountManagerService != null ? accountManagerService.getAccount().getUk() : "";
         }
         return (String) invokeV.objValue;
@@ -68,7 +68,7 @@ public class b implements b.a.w.d.b.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            return skinType == 1 ? "night" : skinType == 4 ? SkinManager.SKIN_TYPE_STR_DARK : "day";
+            return skinType == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : skinType == 4 ? SkinManager.SKIN_TYPE_STR_DARK : "day";
         }
         return (String) invokeV.objValue;
     }
@@ -76,10 +76,10 @@ public class b implements b.a.w.d.b.b {
     @Override // b.a.w.d.b.b
     public void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) || this.f24766c == null || context == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) || this.f26283c == null || context == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24766c.showNormal(context, str, 0);
+        this.f26283c.showNormal(context, str, 0);
     }
 
     @Override // b.a.w.d.b.b
@@ -87,14 +87,14 @@ public class b implements b.a.w.d.b.b {
         InterceptResult invokeV;
         AppInfoService appInfoService;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f24764a == null || (appInfoService = this.f24765b) == null) ? "" : this.f24764a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f26281a == null || (appInfoService = this.f26282b) == null) ? "" : this.f26281a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_") : (String) invokeV.objValue;
     }
 
     @Override // b.a.w.d.b.b
     public void invokeScheme(Context context, String str) {
         RouterService routerService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) || context == null || TextUtils.isEmpty(str) || (routerService = this.f24767d) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) || context == null || TextUtils.isEmpty(str) || (routerService = this.f26284d) == null) {
             return;
         }
         routerService.invokeScheme(context, str);

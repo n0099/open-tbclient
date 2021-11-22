@@ -25,31 +25,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f12755a;
+    public final Context f13505a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f12756b;
+    public final View f13506b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ThreadAchievementShareInfo.ParamBean f12757c;
+    public final ThreadAchievementShareInfo.ParamBean f13507c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f12758d;
+    public TbImageView f13508d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f12759e;
+    public ImageView f13509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12760f;
+    public TextView f13510f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12761g;
+    public TextView f13511g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f12762h;
+    public TextView f13512h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f12763i;
+    public TextView f13513i;
 
     public c(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
@@ -66,9 +66,9 @@ public class c {
                 return;
             }
         }
-        this.f12755a = context;
-        this.f12756b = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
-        this.f12757c = threadAchievementShareInfo.getParams();
+        this.f13505a = context;
+        this.f13506b = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
+        this.f13507c = threadAchievementShareInfo.getParams();
         c();
         b();
     }
@@ -76,39 +76,39 @@ public class c {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12756b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13506b : (View) invokeV.objValue;
     }
 
     public final void b() {
         ThreadAchievementShareInfo.ParamBean paramBean;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (paramBean = this.f12757c) == null || paramBean.getVideo_info() == null || TextUtils.isEmpty(this.f12757c.getVideo_info().getThumbnail_url())) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (paramBean = this.f13507c) == null || paramBean.getVideo_info() == null || TextUtils.isEmpty(this.f13507c.getVideo_info().getThumbnail_url())) {
             return;
         }
-        this.f12758d.startLoad(this.f12757c.getVideo_info().getThumbnail_url(), 10, false);
-        this.f12763i.setText(StringHelper.numFormatOverWanWithNegative(this.f12757c.getAgree_num()));
-        this.f12760f.setText(StringHelper.numFormatOverWanWithNegative(this.f12757c.getPost_num()));
+        this.f13508d.startLoad(this.f13507c.getVideo_info().getThumbnail_url(), 10, false);
+        this.f13513i.setText(StringHelper.numFormatOverWanWithNegative(this.f13507c.getAgree_num()));
+        this.f13510f.setText(StringHelper.numFormatOverWanWithNegative(this.f13507c.getPost_num()));
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f12760f = (TextView) this.f12756b.findViewById(R.id.comment_num);
-            this.f12761g = (TextView) this.f12756b.findViewById(R.id.comment_desc);
-            this.f12762h = (TextView) this.f12756b.findViewById(R.id.praise_desc);
-            TextView textView = (TextView) this.f12756b.findViewById(R.id.praise_num);
-            this.f12763i = textView;
+            this.f13510f = (TextView) this.f13506b.findViewById(R.id.comment_num);
+            this.f13511g = (TextView) this.f13506b.findViewById(R.id.comment_desc);
+            this.f13512h = (TextView) this.f13506b.findViewById(R.id.praise_desc);
+            TextView textView = (TextView) this.f13506b.findViewById(R.id.praise_num);
+            this.f13513i = textView;
             textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f12760f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f12762h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f12761g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            TbImageView tbImageView = (TbImageView) this.f12756b.findViewById(R.id.video_img);
-            this.f12758d = tbImageView;
+            this.f13510f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.f13512h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f13511g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            TbImageView tbImageView = (TbImageView) this.f13506b.findViewById(R.id.video_img);
+            this.f13508d = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.f12758d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f12758d.setPlaceHolder(2);
-            ImageView imageView = (ImageView) this.f12756b.findViewById(R.id.play_icon);
-            this.f12759e = imageView;
+            this.f13508d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f13508d.setPlaceHolder(2);
+            ImageView imageView = (ImageView) this.f13506b.findViewById(R.id.play_icon);
+            this.f13509e = imageView;
             imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
         }
     }

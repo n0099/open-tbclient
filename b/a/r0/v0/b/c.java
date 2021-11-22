@@ -6,7 +6,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.q0.d1.m0;
+import b.a.q0.c1.m0;
 import b.a.r0.x0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -38,7 +38,7 @@ public class c extends k<d, ManitoMemberItemViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f24254e;
+        public final /* synthetic */ c f25717e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class c extends k<d, ManitoMemberItemViewHolder> {
                     return;
                 }
             }
-            this.f24254e = cVar;
+            this.f25717e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -64,7 +64,7 @@ public class c extends k<d, ManitoMemberItemViewHolder> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 d dVar = (d) view.getTag();
                 TiebaStatic.log("c10624");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f24254e.f2419e, dVar.i(), dVar.g(), "")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f25717e.f2421e, dVar.i(), dVar.g(), "")));
             }
         }
     }
@@ -91,7 +91,7 @@ public class c extends k<d, ManitoMemberItemViewHolder> {
         this.x = new a(this);
     }
 
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         w0(i2, view, viewGroup, (d) obj, (ManitoMemberItemViewHolder) viewHolder);
         return view;
@@ -119,12 +119,12 @@ public class c extends k<d, ManitoMemberItemViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: v0 */
     public ManitoMemberItemViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ManitoMemberItemViewHolder(LayoutInflater.from(this.f2419e).inflate(R.layout.manito_item_member, (ViewGroup) null)) : (ManitoMemberItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ManitoMemberItemViewHolder(LayoutInflater.from(this.f2421e).inflate(R.layout.manito_item_member, (ViewGroup) null)) : (ManitoMemberItemViewHolder) invokeL.objValue;
     }
 
     public View w0(int i2, View view, ViewGroup viewGroup, d dVar, ManitoMemberItemViewHolder manitoMemberItemViewHolder) {
@@ -149,7 +149,7 @@ public class c extends k<d, ManitoMemberItemViewHolder> {
                 }
                 int color = SkinManager.getColor(R.color.CAM_X0301);
                 String numberUniformFormat = StringHelper.numberUniformFormat(dVar.a());
-                manitoMemberItemViewHolder.fans.setText(u0(String.format(this.f2419e.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+                manitoMemberItemViewHolder.fans.setText(u0(String.format(this.f2421e.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
                 manitoMemberItemViewHolder.getView().setTag(dVar);
                 manitoMemberItemViewHolder.getView().setOnClickListener(this.x);
                 manitoMemberItemViewHolder.mSkinType = this.r;

@@ -55,9 +55,9 @@ public interface b extends c {
 
     void j(long j);
 
-    void k0(long j);
+    void l0(long j);
 
-    void l0(boolean z);
+    void m0(boolean z);
 
     void n();
 

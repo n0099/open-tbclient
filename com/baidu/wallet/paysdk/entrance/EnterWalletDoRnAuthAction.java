@@ -38,10 +38,10 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f59678a;
+                public final /* synthetic */ RouterCallback f60600a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoRnAuthAction f59679b;
+                public final /* synthetic */ EnterWalletDoRnAuthAction f60601b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -58,20 +58,20 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f59679b = this;
-                    this.f59678a = routerCallback;
+                    this.f60601b = this;
+                    this.f60600a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.rnauth.RNAuthCallBack
                 public void onRNAuthResult(int i2, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.f59678a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.f60600a == null) {
                         return;
                     }
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, Integer.valueOf(i2));
                     hashMap2.put("authDesc", str);
-                    this.f59678a.onResult(0, hashMap2);
+                    this.f60600a.onResult(0, hashMap2);
                 }
             });
         }

@@ -15,23 +15,23 @@ public class a {
 
     public static void a(View view, b.a.q0.s.q.a aVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65536, null, view, aVar, i2) == null) || view == null || aVar == null || aVar.getThreadData() == null || StringUtils.isNull(aVar.getThreadData().s1())) {
+        if (!(interceptable == null || interceptable.invokeLLI(65536, null, view, aVar, i2) == null) || view == null || aVar == null || aVar.getThreadData() == null || StringUtils.isNull(aVar.getThreadData().t1())) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
         statisticItem.param("obj_source", 3);
         d2 threadData = aVar.getThreadData();
-        if (threadData.M1()) {
+        if (threadData.O1()) {
             statisticItem.param("obj_type", 1);
-        } else if (threadData.P1()) {
+        } else if (threadData.R1()) {
             statisticItem.param("obj_type", 2);
-        } else if (threadData.N1()) {
+        } else if (threadData.P1()) {
             statisticItem.param("obj_type", 3);
-        } else if (threadData.O1()) {
+        } else if (threadData.Q1()) {
             statisticItem.param("obj_type", 4);
         } else if (threadData.i0 == 0) {
             statisticItem.param("obj_type", 5);
-        } else if (threadData.E2()) {
+        } else if (threadData.G2()) {
             statisticItem.param("obj_type", 6);
         }
         if (aVar.getThreadData().J() != null) {
@@ -40,7 +40,7 @@ public class a {
         if (threadData.L() != null) {
             statisticItem.param("obj_id", threadData.L().oriUgcNid);
         } else {
-            statisticItem.param("obj_id", threadData.s1());
+            statisticItem.param("obj_id", threadData.t1());
         }
         statisticItem.param("obj_locate", i2);
         TiebaStatic.log(statisticItem);
@@ -51,23 +51,23 @@ public class a {
         if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
             d2 threadData = aVar.getThreadData();
-            if (threadData.M1()) {
+            if (threadData.O1()) {
                 statisticItem.param("obj_type", 1);
-            } else if (threadData.P1()) {
+            } else if (threadData.R1()) {
                 statisticItem.param("obj_type", 2);
-            } else if (threadData.N1()) {
+            } else if (threadData.P1()) {
                 statisticItem.param("obj_type", 3);
-            } else if (threadData.O1()) {
+            } else if (threadData.Q1()) {
                 statisticItem.param("obj_type", 4);
             } else if (threadData.i0 == 0) {
                 statisticItem.param("obj_type", 5);
-            } else if (threadData.E2()) {
+            } else if (threadData.G2()) {
                 statisticItem.param("obj_type", 6);
             }
             if (threadData.L() != null) {
                 statisticItem.param("obj_id", threadData.L().oriUgcNid);
             } else {
-                statisticItem.param("obj_id", threadData.s1());
+                statisticItem.param("obj_id", threadData.t1());
             }
             statisticItem.param("uid", threadData.J().getUserId());
             TiebaStatic.log(statisticItem);

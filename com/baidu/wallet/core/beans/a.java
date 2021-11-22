@@ -13,14 +13,14 @@ public class a implements RestHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f57987a = "X-Requested-Session-ID";
+    public static final String f58909a = "X-Requested-Session-ID";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f57988b = "X-Domain-From-Config";
+    public static final String f58910b = "X-Domain-From-Config";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f57989c;
+    public boolean f58911c;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class a implements RestHttpRequestInterceptor {
                 return;
             }
         }
-        this.f57989c = false;
-        this.f57989c = z;
+        this.f58911c = false;
+        this.f58911c = z;
     }
 
     @Override // com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor
@@ -46,9 +46,9 @@ public class a implements RestHttpRequestInterceptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) {
             if (dVar != null && dVar.a() != null) {
-                dVar.a().a(f57987a, Identifier.sessionID());
+                dVar.a().a(f58909a, Identifier.sessionID());
             }
-            dVar.a().a(f57988b, this.f57989c ? "1" : "0");
+            dVar.a().a(f58910b, this.f58911c ? "1" : "0");
         }
     }
 }

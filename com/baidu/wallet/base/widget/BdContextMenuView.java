@@ -26,10 +26,10 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f57439a = "BdContextMenuView";
+    public static final String f58361a = "BdContextMenuView";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f57440b = true;
+    public static final boolean f58362b = true;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mMenuLoaded;
 
@@ -206,10 +206,10 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BdMenuItem f57441a;
+                public final /* synthetic */ BdMenuItem f58363a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BdContextMenuView f57442b;
+                public final /* synthetic */ BdContextMenuView f58364b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -226,18 +226,18 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                             return;
                         }
                     }
-                    this.f57442b = this;
-                    this.f57441a = bdMenuItem;
+                    this.f58364b = this;
+                    this.f58363a = bdMenuItem;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     BdMenuItem.OnItemClickListener onClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f57441a.getOnClickListener()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f58363a.getOnClickListener()) == null) {
                         return;
                     }
-                    onClickListener.onClick(this.f57441a);
+                    onClickListener.onClick(this.f58363a);
                 }
             });
             if (!TextUtils.isEmpty(str)) {

@@ -13,10 +13,10 @@ public final class i implements g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ aa f33858a;
+    public final /* synthetic */ aa f34692a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h f33859b;
+    public final /* synthetic */ h f34693b;
 
     public i(h hVar, aa aaVar) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public final class i implements g {
                 return;
             }
         }
-        this.f33859b = hVar;
-        this.f33858a = aaVar;
+        this.f34693b = hVar;
+        this.f34692a = aaVar;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.g
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33858a.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34692a.a() : (String) invokeV.objValue;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.g
@@ -50,7 +50,7 @@ public final class i implements g {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            context = this.f33859b.f33857a;
+            context = this.f34693b.f34691a;
             return l.a(context.getApplicationContext());
         }
         return (ab) invokeV.objValue;
@@ -60,13 +60,13 @@ public final class i implements g {
     public final aa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33858a : (aa) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34692a : (aa) invokeV.objValue;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.g
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33858a.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34692a.c() : invokeV.booleanValue;
     }
 }

@@ -16,31 +16,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public class e extends b.a.e.e.r.c {
+public class e extends b.a.e.f.r.c {
     public static /* synthetic */ Interceptable $ic;
     public static Handler o;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public CoderException f1491c;
+    public CoderException f1487c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SocketMessage f1492d;
+    public SocketMessage f1488d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f1493e;
+    public volatile int f1489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f1494f;
+    public Runnable f1490f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f1495g;
+    public g f1491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f1496h;
+    public boolean f1492h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f1497i;
+    public int f1493i;
     public int j;
     public long k;
     public SocketMessageTask l;
@@ -53,7 +53,7 @@ public class e extends b.a.e.e.r.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f1498e;
+        public final /* synthetic */ e f1494e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class e extends b.a.e.e.r.c {
                     return;
                 }
             }
-            this.f1498e = eVar;
+            this.f1494e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1498e.A();
+                this.f1494e.A();
             }
         }
     }
@@ -113,19 +113,19 @@ public class e extends b.a.e.e.r.c {
                 return;
             }
         }
-        this.f1492d = null;
-        this.f1493e = 0;
-        this.f1494f = null;
-        this.f1495g = null;
-        this.f1496h = true;
-        this.f1497i = 0;
+        this.f1488d = null;
+        this.f1489e = 0;
+        this.f1490f = null;
+        this.f1491g = null;
+        this.f1492h = true;
+        this.f1493i = 0;
         this.j = 0;
         this.k = 0L;
         this.l = null;
         if (socketMessage != null && socketMessageTask != null) {
             this.l = socketMessageTask;
-            this.f1492d = socketMessage;
-            this.f1495g = gVar;
+            this.f1488d = socketMessage;
+            this.f1491g = gVar;
             return;
         }
         throw new InvalidParameterException("SenderData msg null");
@@ -134,12 +134,12 @@ public class e extends b.a.e.e.r.c {
     public final void A() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gVar = this.f1495g) != null && this.f1496h) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gVar = this.f1491g) != null && this.f1492h) {
             gVar.B(this);
         }
     }
 
-    @Override // b.a.e.e.r.f0
+    @Override // b.a.e.f.r.f0
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
@@ -148,17 +148,17 @@ public class e extends b.a.e.e.r.c {
         }
     }
 
-    @Override // b.a.e.e.r.f0
+    @Override // b.a.e.f.r.f0
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.k == 0) {
                 this.k = System.currentTimeMillis();
             }
-            int cmd = this.f1492d.getCmd();
+            int cmd = this.f1488d.getCmd();
             int length = e() != null ? e().length : 0;
-            long clientLogID = this.f1492d.getClientLogID();
-            int i2 = this.f1493e;
+            long clientLogID = this.f1488d.getClientLogID();
+            int i2 = this.f1489e;
             i.b("SenderData", cmd, clientLogID, i2, "StartSend", 0, "SenderData: start send size = " + length);
             o.removeCallbacks(u());
             if (this.l.getTimeOut() != null) {
@@ -168,20 +168,20 @@ public class e extends b.a.e.e.r.c {
         }
     }
 
-    @Override // b.a.e.e.r.f0
+    @Override // b.a.e.f.r.f0
     public void c() {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int cmd = this.f1492d.getCmd();
+            int cmd = this.f1488d.getCmd();
             if (e() != null) {
                 i2 = e().length;
-                this.f1492d.setEncodedBinarySize(i2);
+                this.f1488d.setEncodedBinarySize(i2);
             } else {
                 i2 = 0;
             }
-            long clientLogID = this.f1492d.getClientLogID();
-            int i3 = this.f1493e;
+            long clientLogID = this.f1488d.getClientLogID();
+            int i3 = this.f1489e;
             i.b("SenderData", cmd, clientLogID, i3, "FinishSend", 0, "SenderData: finish send  size = " + i2);
             if (!this.l.b()) {
                 o.removeCallbacks(u());
@@ -190,7 +190,7 @@ public class e extends b.a.e.e.r.c {
         }
     }
 
-    @Override // b.a.e.e.r.c
+    @Override // b.a.e.f.r.c
     public byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -198,26 +198,26 @@ public class e extends b.a.e.e.r.c {
             if (this.k == 0) {
                 this.k = System.currentTimeMillis();
             }
-            this.f1491c = null;
+            this.f1487c = null;
             b.a.e.c.e.c.j.b f2 = b.a.e.c.e.c.j.b.f();
-            this.f1493e = f.a().b();
-            SocketMessage socketMessage = this.f1492d;
+            this.f1489e = f.a().b();
+            SocketMessage socketMessage = this.f1488d;
             if (socketMessage != null) {
-                socketMessage.setSquencedId(this.f1493e);
+                socketMessage.setSquencedId(this.f1489e);
                 BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                SocketMessage socketMessage2 = this.f1492d;
+                SocketMessage socketMessage2 = this.f1488d;
                 long clientLogID = socketMessage2 == null ? -1L : socketMessage2.getClientLogID();
-                String valueOf = String.valueOf(this.f1493e & 4294967295L);
+                String valueOf = String.valueOf(this.f1489e & 4294967295L);
                 Object[] objArr = new Object[2];
                 objArr[0] = "cmd";
-                SocketMessage socketMessage3 = this.f1492d;
+                SocketMessage socketMessage3 = this.f1488d;
                 objArr[1] = Integer.valueOf(socketMessage3 == null ? -1 : socketMessage3.getCmd());
                 bdStatisticsManager.newDebug("seqid", clientLogID, valueOf, objArr);
             }
             try {
-                return f2.e(this.f1492d, this.f1493e, this.l.c(), this.l.getNeedEncrypt());
+                return f2.e(this.f1488d, this.f1489e, this.l.c(), this.l.getNeedEncrypt());
             } catch (CoderException e2) {
-                this.f1491c = e2;
+                this.f1487c = e2;
                 return null;
             }
         }
@@ -239,8 +239,8 @@ public class e extends b.a.e.e.r.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i2 = this.f1497i + 1;
-            this.f1497i = i2;
+            int i2 = this.f1493i + 1;
+            this.f1493i = i2;
             return i2;
         }
         return invokeV.intValue;
@@ -263,7 +263,7 @@ public class e extends b.a.e.e.r.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            SocketMessage socketMessage = this.f1492d;
+            SocketMessage socketMessage = this.f1488d;
             if (socketMessage != null) {
                 return socketMessage.getCmd();
             }
@@ -288,7 +288,7 @@ public class e extends b.a.e.e.r.c {
     public SocketMessage m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1492d : (SocketMessage) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1488d : (SocketMessage) invokeV.objValue;
     }
 
     public int n() {
@@ -306,19 +306,19 @@ public class e extends b.a.e.e.r.c {
     public int p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f1497i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f1493i : invokeV.intValue;
     }
 
     public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f1493e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f1489e : invokeV.intValue;
     }
 
     public CoderException r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f1491c : (CoderException) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f1487c : (CoderException) invokeV.objValue;
     }
 
     public long s() {
@@ -337,10 +337,10 @@ public class e extends b.a.e.e.r.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.f1494f == null) {
-                this.f1494f = new a(this);
+            if (this.f1490f == null) {
+                this.f1490f = new a(this);
             }
-            return this.f1494f;
+            return this.f1490f;
         }
         return (Runnable) invokeV.objValue;
     }
@@ -355,14 +355,14 @@ public class e extends b.a.e.e.r.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             j();
-            this.f1496h = false;
+            this.f1492h = false;
         }
     }
 
     public final void x(int i2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048598, this, i2) == null) && (gVar = this.f1495g) != null && this.f1496h) {
+        if ((interceptable == null || interceptable.invokeI(1048598, this, i2) == null) && (gVar = this.f1491g) != null && this.f1492h) {
             gVar.y(i2, this);
         }
     }
@@ -370,7 +370,7 @@ public class e extends b.a.e.e.r.c {
     public final void y() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (gVar = this.f1495g) != null && this.f1496h) {
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (gVar = this.f1491g) != null && this.f1492h) {
             gVar.z(this);
         }
     }
@@ -378,7 +378,7 @@ public class e extends b.a.e.e.r.c {
     public final void z() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (gVar = this.f1495g) != null && this.f1496h) {
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (gVar = this.f1491g) != null && this.f1492h) {
             gVar.A(this);
         }
     }

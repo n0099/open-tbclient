@@ -54,6 +54,7 @@ import androidx.annotation.Keep;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -665,6 +666,7 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         if (interceptable == null || interceptable.invokeL(1048655, this, bundle) == null) {
             this.mProxyActivity.zeusSuperOnCreate(bundle);
             com.bytedance.pangle.res.b.a(getLayoutInflater());
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -1814,19 +1816,19 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048796, this, intent, bundle)) == null) ? this.mProxyActivity.zeusSuperStartNextMatchingActivity(intent, bundle) : invokeLL.booleanValue;
     }
 
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle, PersistableBundle persistableBundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048656, this, bundle, persistableBundle) == null) {
-            this.mProxyActivity.zeusSuperOnCreate(bundle, persistableBundle);
-        }
-    }
-
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void setContentView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048745, this, view) == null) {
             this.mProxyActivity.zeusSuperSetContentView(view);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle, PersistableBundle persistableBundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048656, this, bundle, persistableBundle) == null) {
+            this.mProxyActivity.zeusSuperOnCreate(bundle, persistableBundle);
         }
     }
 

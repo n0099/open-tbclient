@@ -21,13 +21,13 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3824a;
+    public String f3918a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3825b;
+    public int f3919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Shader f3826c;
+    public Shader f3920c;
 
     public i(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
@@ -44,32 +44,32 @@ public class i {
                 return;
             }
         }
-        this.f3824a = "";
+        this.f3918a = "";
         e(jSONArray);
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3825b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3919b : invokeV.intValue;
     }
 
     public Shader b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3826c : (Shader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3920c : (Shader) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.equals(this.f3824a, "linearGradient") || TextUtils.equals(this.f3824a, "circularGradient") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.equals(this.f3918a, "linearGradient") || TextUtils.equals(this.f3918a, "circularGradient") : invokeV.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !TextUtils.isEmpty(this.f3824a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !TextUtils.isEmpty(this.f3918a) : invokeV.booleanValue;
     }
 
     public void e(JSONArray jSONArray) {
@@ -85,8 +85,8 @@ public class i {
                 if (TextUtils.equals(optString, "normal")) {
                     JSONArray optJSONArray = jSONArray.optJSONArray(1);
                     if (optJSONArray.length() == 4) {
-                        this.f3825b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
-                        this.f3824a = "normal";
+                        this.f3919b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
+                        this.f3918a = "normal";
                     }
                 } else if (TextUtils.equals(optString, "linearGradient") || TextUtils.equals(optString, "circularGradient")) {
                     JSONArray optJSONArray2 = jSONArray.optJSONArray(1);
@@ -113,16 +113,16 @@ public class i {
                     if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
                         JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
                         if (TextUtils.equals(optString, "linearGradient")) {
-                            this.f3826c = new LinearGradient(b.a.p0.a.v2.n0.g(optJSONObject2.optInt("x0")), b.a.p0.a.v2.n0.g(optJSONObject2.optInt("y0")), b.a.p0.a.v2.n0.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), b.a.p0.a.v2.n0.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
-                            this.f3824a = "linearGradient";
+                            this.f3920c = new LinearGradient(b.a.p0.a.z2.n0.g(optJSONObject2.optInt("x0")), b.a.p0.a.z2.n0.g(optJSONObject2.optInt("y0")), b.a.p0.a.z2.n0.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), b.a.p0.a.z2.n0.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
+                            this.f3918a = "linearGradient";
                             return;
                         }
-                        this.f3826c = new RadialGradient(b.a.p0.a.v2.n0.g(optJSONObject2.optInt("x")), b.a.p0.a.v2.n0.g(optJSONObject2.optInt("y")), b.a.p0.a.v2.n0.g(optJSONObject2.optInt(com.baidu.mapsdkplatform.comapi.map.r.f40168a)), iArr, fArr, Shader.TileMode.CLAMP);
-                        this.f3824a = "circularGradient";
+                        this.f3920c = new RadialGradient(b.a.p0.a.z2.n0.g(optJSONObject2.optInt("x")), b.a.p0.a.z2.n0.g(optJSONObject2.optInt("y")), b.a.p0.a.z2.n0.g(optJSONObject2.optInt(com.baidu.mapsdkplatform.comapi.map.r.f41000a)), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.f3918a = "circularGradient";
                     }
                 }
             } catch (Exception e2) {
-                if (b.a.p0.a.k.f6397a) {
+                if (b.a.p0.a.k.f6863a) {
                     e2.printStackTrace();
                 }
             }

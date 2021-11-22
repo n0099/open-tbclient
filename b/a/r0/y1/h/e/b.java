@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.j;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.s.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -30,19 +30,19 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f27724e;
+    public Context f29227e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.y1.h.e.g f27725f;
+    public b.a.r0.y1.h.e.g f29228f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f27726g;
+    public View.OnClickListener f29229g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f27727h;
+    public View.OnClickListener f29230h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f27728i;
+    public View.OnClickListener f29231i;
     public View.OnClickListener j;
     public b.a.r0.y1.h.f.a<Integer> k;
     public b.a.r0.y1.h.f.a<Void> l;
@@ -53,7 +53,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27729e;
+        public final /* synthetic */ b f29232e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f27729e = bVar;
+            this.f29232e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -78,7 +78,7 @@ public class b extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TailManagementActivityConfig tailManagementActivityConfig = new TailManagementActivityConfig(view.getContext());
-                tailManagementActivityConfig.getIntent().putExtra("list", new TailDataList(this.f27729e.f27725f.i()));
+                tailManagementActivityConfig.getIntent().putExtra("list", new TailDataList(this.f29232e.f29228f.i()));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tailManagementActivityConfig));
             }
         }
@@ -86,14 +86,14 @@ public class b extends BaseAdapter {
 
     /* renamed from: b.a.r0.y1.h.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class View$OnClickListenerC1355b implements View.OnClickListener {
+    public class View$OnClickListenerC1422b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27730e;
+        public final /* synthetic */ b f29233e;
 
-        public View$OnClickListenerC1355b(b bVar) {
+        public View$OnClickListenerC1422b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,14 +108,14 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f27730e = bVar;
+            this.f29233e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f27730e.f27724e, 1, false, 6);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f29233e.f29227e, 1, false, 6);
                 memberPayActivityConfig.setSceneId("4009001001");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -129,7 +129,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27731e;
+        public final /* synthetic */ b f29234e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f27731e = bVar;
+            this.f29234e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -155,13 +155,13 @@ public class b extends BaseAdapter {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view.getTag() == null) {
                 return;
             }
-            if (!this.f27731e.f27725f.g()) {
-                b bVar = this.f27731e;
-                bVar.i(bVar.f27724e.getString(R.string.become_member_to_use));
+            if (!this.f29234e.f29228f.g()) {
+                b bVar = this.f29234e;
+                bVar.i(bVar.f29227e.getString(R.string.become_member_to_use));
                 return;
             }
             TailData b2 = ((b.a.r0.y1.h.e.e) view.getTag()).b();
-            this.f27731e.f27725f.o(b2.getId(), !b2.isSelected());
+            this.f29234e.f29228f.o(b2.getId(), !b2.isSelected());
         }
     }
 
@@ -171,7 +171,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27732e;
+        public final /* synthetic */ b f29235e;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f27732e = bVar;
+            this.f29235e = bVar;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -196,7 +196,7 @@ public class b extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f27732e.f27724e, 1, false, 6);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f29235e.f29227e, 1, false, 6);
                 memberPayActivityConfig.setSceneId("4009001001");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -240,7 +240,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f27733a;
+        public final /* synthetic */ b f29236a;
 
         public f(b bVar) {
             Interceptable interceptable = $ic;
@@ -257,7 +257,7 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f27733a = bVar;
+            this.f29236a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -267,9 +267,9 @@ public class b extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, num}) == null) {
                 if (z) {
-                    l.M(this.f27733a.f27724e, str);
-                } else if (num != null && this.f27733a.f27725f.i() != null && this.f27733a.f27725f.i().size() != 0) {
-                    for (TailData tailData : this.f27733a.f27725f.i()) {
+                    l.M(this.f29236a.f29227e, str);
+                } else if (num != null && this.f29236a.f29228f.i() != null && this.f29236a.f29228f.i().size() != 0) {
+                    for (TailData tailData : this.f29236a.f29228f.i()) {
                         if (tailData.getId() == num.intValue()) {
                             tailData.setSelected(!tailData.isSelected());
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001344, Boolean.valueOf(tailData.isSelected())));
@@ -277,7 +277,7 @@ public class b extends BaseAdapter {
                             tailData.setSelected(false);
                         }
                     }
-                    this.f27733a.notifyDataSetChanged();
+                    this.f29236a.notifyDataSetChanged();
                 }
             }
         }
@@ -289,7 +289,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f27734a;
+        public final /* synthetic */ b f29237a;
 
         public g(b bVar) {
             Interceptable interceptable = $ic;
@@ -306,7 +306,7 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f27734a = bVar;
+            this.f29237a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -316,9 +316,9 @@ public class b extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, r7}) == null) {
                 if (z) {
-                    l.M(this.f27734a.f27724e, str);
+                    l.M(this.f29237a.f29227e, str);
                 } else {
-                    this.f27734a.notifyDataSetChanged();
+                    this.f29237a.notifyDataSetChanged();
                 }
             }
         }
@@ -339,16 +339,16 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f27727h = new a(this);
-        this.f27728i = new View$OnClickListenerC1355b(this);
+        this.f29230h = new a(this);
+        this.f29231i = new View$OnClickListenerC1422b(this);
         this.j = new c(this);
         this.k = new f(this);
         this.l = new g(this);
-        this.f27724e = context;
-        this.f27726g = onClickListener;
-        this.f27725f = gVar;
+        this.f29227e = context;
+        this.f29229g = onClickListener;
+        this.f29228f = gVar;
         gVar.n(this.k);
-        this.f27725f.p(this.l);
+        this.f29228f.p(this.l);
     }
 
     public final View d(View view) {
@@ -360,8 +360,8 @@ public class b extends BaseAdapter {
                 cVar = (b.a.r0.y1.h.e.c) view.getTag();
             } else {
                 cVar = new b.a.r0.y1.h.e.c();
-                view = cVar.a(this.f27724e);
-                cVar.c(this.f27726g);
+                view = cVar.a(this.f29227e);
+                cVar.c(this.f29229g);
                 cVar.b();
             }
             cVar.d(3);
@@ -376,8 +376,8 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
             if (view == null || !(view.getTag() instanceof b.a.r0.y1.h.e.d)) {
                 b.a.r0.y1.h.e.d dVar = new b.a.r0.y1.h.e.d();
-                View a2 = dVar.a(this.f27724e);
-                dVar.c(this.f27727h);
+                View a2 = dVar.a(this.f29227e);
+                dVar.c(this.f29230h);
                 dVar.b();
                 return a2;
             }
@@ -393,10 +393,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 >= this.f27725f.i().size()) {
+            if (i2 >= this.f29228f.i().size()) {
                 return null;
             }
-            return this.f27725f.i().get(i2);
+            return this.f29228f.i().get(i2);
         }
         return (TailData) invokeI.objValue;
     }
@@ -413,7 +413,7 @@ public class b extends BaseAdapter {
                 eVar = (b.a.r0.y1.h.e.e) view.getTag();
             } else {
                 eVar = new b.a.r0.y1.h.e.e();
-                view = eVar.a(this.f27724e);
+                view = eVar.a(this.f29227e);
                 eVar.e(this.j);
                 eVar.c();
             }
@@ -428,7 +428,7 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27725f.i().size() + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29228f.i().size() + 1 : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -443,10 +443,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if (this.f27725f.i().size() == 0) {
+            if (this.f29228f.i().size() == 0) {
                 return 2;
             }
-            return i2 == this.f27725f.i().size() ? 1 : 0;
+            return i2 == this.f29228f.i().size() ? 1 : 0;
         }
         return invokeI.intValue;
     }
@@ -489,8 +489,8 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view)) == null) {
             if (view == null || !(view.getTag() instanceof b.a.r0.y1.h.e.f)) {
                 b.a.r0.y1.h.e.f fVar = new b.a.r0.y1.h.e.f();
-                View a2 = fVar.a(this.f27724e);
-                fVar.c(this.f27728i);
+                View a2 = fVar.a(this.f29227e);
+                fVar.c(this.f29231i);
                 fVar.b();
                 return a2;
             }
@@ -503,11 +503,11 @@ public class b extends BaseAdapter {
     public final void i(String str) {
         b.a.e.a.f<?> a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (a2 = j.a(this.f27724e)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (a2 = j.a(this.f29227e)) == null) {
             return;
         }
         b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(a2.getPageActivity());
         aVar.setButtonTextColor(R.color.CAM_X0305);
-        aVar.setMessage(str).setNegativeButton(this.f27724e.getString(R.string.cancel), new e(this)).setPositiveButton(this.f27724e.getString(R.string.open_now), new d(this)).create(a2).show();
+        aVar.setMessage(str).setNegativeButton(this.f29227e.getString(R.string.cancel), new e(this)).setPositiveButton(this.f29227e.getString(R.string.open_now), new d(this)).create(a2).show();
     }
 }

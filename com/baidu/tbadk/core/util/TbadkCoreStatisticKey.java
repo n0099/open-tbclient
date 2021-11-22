@@ -91,6 +91,10 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_FE_FITE_PROGRAM_CLICK = "c13274";
     public static final String KEY_FLOAT_LAYER_CLICK = "c14129";
     public static final String KEY_FLOAT_LAYER_SHOW = "c14128";
+    public static final String KEY_FROM_FRS_START_VOICE_ROOM = "c14467";
+    public static final String KEY_FROM_FRS_VOICE_ROOM_LIST_ITEM_CLICK = "c14461";
+    public static final String KEY_FROM_FRS_VOICE_ROOM_LIST_ITEM_EXPOSE = "c14460";
+    public static final String KEY_FROM_FRS_VOICE_ROOM_LIST_PAGE_ENTER = "c14459";
     public static final String KEY_FRS_AD_LIST_ITEM_CLICK = "c13194";
     public static final String KEY_H5_OFFLINE_PACKAGE_DOWNLOAD = "c13435";
     public static final String KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK = "c14372";
@@ -142,6 +146,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_SMART_APP_HISTORY_DELETE_CLICK = "c13436";
     public static final String KEY_SMART_COLOR_FETCH_COLOR = "c14170";
     public static final String KEY_SPLASH_GOTO_MAIN_TAB = "c14375";
+    public static final String KEY_START_VOICE_ROOM = "c14464";
     public static final String KEY_TASK_ENTRANCE = "c13422";
     public static final String KEY_THREAD_ACHIEVEMENT_SHARE = "c10898";
     public static final String KEY_THREAD_FIRE_CLICK = "c14266";
@@ -163,6 +168,9 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK = "c14302";
     public static final String KEY_VIDEO_TAB_SHOW_PB_FLOAT_NUM = "c14300";
     public static final String KEY_VIDEO_TIME = "c11244";
+    public static final String KEY_VOICE_ROOM_LIST_ITEM_CLICK = "c14456";
+    public static final String KEY_VOICE_ROOM_LIST_ITEM_EXPOSE = "c14455";
+    public static final String KEY_VOICE_ROOM_LIST_PAGE_ENTER = "c14454";
     public static final String KEY_VOTE_BUTTON = "c13441";
     public static final String KEY_VOTE_PAGE = "c13440";
     public static final String KEY_WRITE_GOODS_NEW_DIALOG_CLICK = "c13959";

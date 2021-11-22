@@ -2,7 +2,8 @@ package com.baidu.swan.apps.swancore.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import b.a.p0.a.v2.l0;
+import androidx.core.view.InputDeviceCompat;
+import b.a.p0.a.z2.l0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -82,6 +83,12 @@ public class SwanCoreVersion extends SwanAppIPCData {
 
     public /* synthetic */ SwanCoreVersion(Parcel parcel, a aVar) {
         this(parcel);
+    }
+
+    public static String getTypeString(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? "" : "debug" : "remote" : "preset" : (String) invokeI.objValue;
     }
 
     @Override // android.os.Parcelable

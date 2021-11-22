@@ -1,6 +1,7 @@
 package com.baidu.fsg.base.restnet.b;
 
 import android.text.TextUtils;
+import androidx.webkit.ProxyConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +22,7 @@ public class b implements HostnameVerifier {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f37383a;
+    public final /* synthetic */ c f38213a;
 
     public b(c cVar) {
         Interceptable interceptable = $ic;
@@ -38,7 +39,7 @@ public class b implements HostnameVerifier {
                 return;
             }
         }
-        this.f37383a = cVar;
+        this.f38213a = cVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier
@@ -49,7 +50,7 @@ public class b implements HostnameVerifier {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
             try {
                 Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-                eVar = this.f37383a.f37388e;
+                eVar = this.f38213a.f38218e;
                 String n = eVar.a().n();
                 if (!TextUtils.isEmpty(n) && peerCertificates != null && peerCertificates.length > 0) {
                     X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];
@@ -61,7 +62,7 @@ public class b implements HostnameVerifier {
                                 if (n.equals(str2)) {
                                     return true;
                                 }
-                                if (str2 != null && str2.startsWith("*") && Pattern.compile(str2.replace("*", "(\\w*-*\\w*)")).matcher(n).matches()) {
+                                if (str2 != null && str2.startsWith(ProxyConfig.MATCH_ALL_SCHEMES) && Pattern.compile(str2.replace(ProxyConfig.MATCH_ALL_SCHEMES, "(\\w*-*\\w*)")).matcher(n).matches()) {
                                     return true;
                                 }
                             }

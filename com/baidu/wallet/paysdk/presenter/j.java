@@ -56,13 +56,13 @@ public class j extends k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f59880a;
+    public String f60802a;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayRequest f59881c;
+    public PayRequest f60803c;
 
     /* renamed from: d  reason: collision with root package name */
-    public s f59882d;
+    public s f60804d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(PayBaseBeanActivity payBaseBeanActivity) {
@@ -82,7 +82,7 @@ public class j extends k {
                 return;
             }
         }
-        this.f59881c = null;
+        this.f60803c = null;
     }
 
     private void h() {
@@ -94,10 +94,10 @@ public class j extends k {
             if (obj != null && (obj instanceof String)) {
                 str = (String) obj;
             }
-            if (this.f59881c == null || TextUtils.isEmpty(str)) {
+            if (this.f60803c == null || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f59881c.mSecurityParams = Base64.encodeBytes(str.getBytes());
+            this.f60803c.mSecurityParams = Base64.encodeBytes(str.getBytes());
         }
     }
 
@@ -106,7 +106,7 @@ public class j extends k {
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             if (l()) {
                 BankSignFactory bankSignFactory = BankSignFactory.getInstance();
-                PayBaseBeanActivity payBaseBeanActivity = this.f59885b;
+                PayBaseBeanActivity payBaseBeanActivity = this.f60807b;
                 com.baidu.wallet.paysdk.banksign.beans.b bVar = (com.baidu.wallet.paysdk.banksign.beans.b) bankSignFactory.getBean((Context) payBaseBeanActivity, 768, "PrecashierWelcomePresenter" + toString());
                 bVar.a(PayDataCache.getInstance().getSelectedCardNo());
                 bVar.setResponseCallback(this);
@@ -114,7 +114,7 @@ public class j extends k {
                 return;
             }
             f();
-            this.f59885b.finishWithoutAnim();
+            this.f60807b.finishWithoutAnim();
         }
     }
 
@@ -124,38 +124,38 @@ public class j extends k {
             PwdRequest pwdRequest = new PwdRequest();
             PayRequestCache.getInstance().addBeanRequestToCache(pwdRequest.getRequestId(), pwdRequest);
             if (PayDataCache.getInstance().hasBondCards()) {
-                Intent intent = new Intent(this.f59885b, AuthorizeSignActivity.class);
+                Intent intent = new Intent(this.f60807b, AuthorizeSignActivity.class);
                 if (com.baidu.wallet.paysdk.a.b.b()) {
                     intent.putExtra(AuthorizeSignActivity.AUTH_SIGN_TYPE, 2);
                 } else if (com.baidu.wallet.paysdk.a.b.c()) {
                     intent.putExtra(AuthorizeSignActivity.AUTH_SIGN_TYPE, 1);
                 }
-                this.f59885b.startActivity(intent);
-                this.f59885b.finishWithoutAnim();
+                this.f60807b.startActivity(intent);
+                this.f60807b.finishWithoutAnim();
                 return;
             }
             StatHelper.cachePayType(0);
             StatHelper.cachePayWay(4);
             StatHelper.statServiceEvent(PayStatServiceEvent.PAY_BIND_CARD_ENTER);
             StatisticManager.onEventStart(PayStatServiceEvent.PAY_BIND_CARD_DURATION);
-            BaiduPay.getInstance().bindCardAuth(this.f59885b, true);
+            BaiduPay.getInstance().bindCardAuth(this.f60807b, true);
         }
     }
 
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            PayRequest payRequest = this.f59881c;
+            PayRequest payRequest = this.f60803c;
             String str = payRequest != null ? payRequest.mParams : "";
             String str2 = "doRePayOrder->orderinfo:" + str;
-            PayRequest payRequest2 = this.f59881c;
+            PayRequest payRequest2 = this.f60803c;
             String payFrom = payRequest2 != null ? payRequest2.getPayFrom() : "";
             PayCallBack payBack = BaiduPay.getInstance().getPayBack();
             PayRequestCache.getInstance().clearPaySdkRequestCache();
             PayBaseBeanActivity.exitEbpay();
             HashMap hashMap = new HashMap();
             hashMap.put("pay_from", payFrom);
-            BaiduPay.getInstance().doPay(this.f59885b.getActivity(), str, payBack, hashMap);
+            BaiduPay.getInstance().doPay(this.f60807b.getActivity(), str, payBack, hashMap);
         }
     }
 
@@ -164,7 +164,7 @@ public class j extends k {
         CardData.BondCard selectedCard;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            PayRequest payRequest = this.f59881c;
+            PayRequest payRequest = this.f60803c;
             return (payRequest == null || (selectedCard = payRequest.getSelectedCard()) == null || 1 != selectedCard.is_sign_jump_bank) ? false : true;
         }
         return invokeV.booleanValue;
@@ -183,22 +183,22 @@ public class j extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
             if (bundle == null) {
-                this.f59881c = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+                this.f60803c = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             } else {
                 Serializable serializable = bundle.getSerializable("mPayRequest");
                 if (serializable != null && (serializable instanceof PayRequest)) {
-                    this.f59881c = (PayRequest) serializable;
+                    this.f60803c = (PayRequest) serializable;
                 }
                 Serializable serializable2 = bundle.getSerializable("mPayResponse");
                 if (serializable2 != null && (serializable2 instanceof DirectPayContentResponse)) {
                     PayDataCache.getInstance().setPayResponse((DirectPayContentResponse) serializable2);
                 }
             }
-            if (this.f59881c != null) {
-                PayRequestCache.getInstance().addBeanRequestToCache(this.f59881c.getRequestId(), this.f59881c);
+            if (this.f60803c != null) {
+                PayRequestCache.getInstance().addBeanRequestToCache(this.f60803c.getRequestId(), this.f60803c);
                 return true;
             }
-            PayCallBackManager.callBackClientCancel(this.f59885b, "PrecashierWelcomePresenter.initSaveInstanceData().1");
+            PayCallBackManager.callBackClientCancel(this.f60807b, "PrecashierWelcomePresenter.initSaveInstanceData().1");
             return false;
         }
         return invokeL.booleanValue;
@@ -209,23 +209,23 @@ public class j extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-            this.f59881c = payRequest;
+            this.f60803c = payRequest;
             if (payRequest != null && payRequest.checkRequestValidity()) {
-                if (this.f59882d == null) {
+                if (this.f60804d == null) {
                     PayBeanFactory payBeanFactory = PayBeanFactory.getInstance();
-                    PayBaseBeanActivity payBaseBeanActivity = this.f59885b;
-                    this.f59882d = (s) payBeanFactory.getBean((Context) payBaseBeanActivity, 1, "PrecashierWelcomePresenter" + toString());
+                    PayBaseBeanActivity payBaseBeanActivity = this.f60807b;
+                    this.f60804d = (s) payBeanFactory.getBean((Context) payBaseBeanActivity, 1, "PrecashierWelcomePresenter" + toString());
                 }
-                PayRequest payRequest2 = this.f59881c;
+                PayRequest payRequest2 = this.f60803c;
                 if (payRequest2 != null && !BaiduPay.PAY_FROM_BIND_CARD.equals(payRequest2.getPayFrom())) {
                     StatisticManager.onEventStart("createPreOrder");
                 }
-                this.f59882d.a(this.f59880a);
-                this.f59882d.setResponseCallback(this);
-                this.f59882d.execBean();
+                this.f60804d.a(this.f60802a);
+                this.f60804d.setResponseCallback(this);
+                this.f60804d.execBean();
                 return;
             }
-            PayCallBackManager.callBackClientCancel(this.f59885b, "PrecashierWelcomePresenter.loadData().1");
+            PayCallBackManager.callBackClientCancel(this.f60807b, "PrecashierWelcomePresenter.loadData().1");
         }
     }
 
@@ -233,7 +233,7 @@ public class j extends k {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            PayCallBackManager.callBackClientCancel(this.f59885b, "PrecashierWelcomePresenter.callBackCancel().1");
+            PayCallBackManager.callBackClientCancel(this.f60807b, "PrecashierWelcomePresenter.callBackCancel().1");
         }
     }
 
@@ -241,7 +241,7 @@ public class j extends k {
     public void d() {
         PayBaseBeanActivity payBaseBeanActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (payBaseBeanActivity = this.f59885b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (payBaseBeanActivity = this.f60807b) == null) {
             return;
         }
         payBaseBeanActivity.setFlagPaySdk();
@@ -261,14 +261,14 @@ public class j extends k {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (PayDataCache.getInstance().hasMobilePwd()) {
                 if (PayDataCache.getInstance().isFromPreCashier()) {
-                    PayController.getInstance().gotoPwdPay(this.f59885b);
+                    PayController.getInstance().gotoPwdPay(this.f60807b);
                     return;
-                } else if (this.f59881c.isWithHoldingValidity()) {
-                    PayController.getInstance().gotoWithholdPay(this.f59885b);
+                } else if (this.f60803c.isWithHoldingValidity()) {
+                    PayController.getInstance().gotoWithholdPay(this.f60807b);
                     return;
                 } else {
                     PayController payController = PayController.getInstance();
-                    PayBaseBeanActivity payBaseBeanActivity = this.f59885b;
+                    PayBaseBeanActivity payBaseBeanActivity = this.f60807b;
                     payController.gotoOrderConfirm(payBaseBeanActivity, payBaseBeanActivity.getIntent());
                     return;
                 }
@@ -277,12 +277,12 @@ public class j extends k {
             StatHelper.cachePayWay(4);
             if (PayDataCache.getInstance().hasBondCards()) {
                 PayController payController2 = PayController.getInstance();
-                PayBaseBeanActivity payBaseBeanActivity2 = this.f59885b;
+                PayBaseBeanActivity payBaseBeanActivity2 = this.f60807b;
                 payController2.selectCompletCards(payBaseBeanActivity2, payBaseBeanActivity2.getIntent());
                 return;
             }
             PayController payController3 = PayController.getInstance();
-            PayBaseBeanActivity payBaseBeanActivity3 = this.f59885b;
+            PayBaseBeanActivity payBaseBeanActivity3 = this.f60807b;
             payController3.bindCardPay(payBaseBeanActivity3, payBaseBeanActivity3.getIntent(), true);
         }
     }
@@ -315,11 +315,11 @@ public class j extends k {
                     com.baidu.wallet.paysdk.banksign.a.a.a().e(getJumpUrlResponse.webview_title);
                     BankSignPayFlow a2 = BankSignPayFlow.a();
                     a2.a(BankSignPayFlow.Action.ShowGuide);
-                    a2.a(this.f59885b);
+                    a2.a(this.f60807b);
                 } else {
                     f();
                 }
-                this.f59885b.finishWithoutAnim();
+                this.f60807b.finishWithoutAnim();
                 return;
             }
             DirectPayContentResponse directPayContentResponse = (DirectPayContentResponse) obj;
@@ -332,17 +332,17 @@ public class j extends k {
                 if (directPayPay != null && (easyPay = directPayPay.easypay) != null) {
                     easyPay.decrypt();
                 }
-                if (this.f59881c == null) {
-                    PayCallBackManager.callBackClientCancel(this.f59885b, "PrecashierWelcomePresenter.handleResponse().2");
+                if (this.f60803c == null) {
+                    PayCallBackManager.callBackClientCancel(this.f60807b, "PrecashierWelcomePresenter.handleResponse().2");
                     return;
                 }
                 UserData.SP sp = directPayContentResponse.sp;
                 if (sp != null && !TextUtils.isEmpty(sp.goods_name)) {
-                    this.f59881c.mGoodName = directPayContentResponse.sp.goods_name;
+                    this.f60803c.mGoodName = directPayContentResponse.sp.goods_name;
                 }
-                directPayContentResponse.storeResponse(this.f59885b);
+                directPayContentResponse.storeResponse(this.f60807b);
                 StatHelper.cachePayType("balance".equals(PayDataCache.getInstance().getDefaultPayType()) ? 1 : 0);
-                PayRequest payRequest = this.f59881c;
+                PayRequest payRequest = this.f60803c;
                 if (payRequest != null && !BaiduPay.PAY_FROM_BIND_CARD.equals(payRequest.getPayFrom()) && directPayContentResponse.misc != null) {
                     ArrayList<String> a3 = a(directPayContentResponse);
                     if (!TextUtils.isEmpty(a3.get(0)) && !TextUtils.isEmpty(a3.get(1))) {
@@ -351,37 +351,37 @@ public class j extends k {
                 }
                 PayData.DirectPayPay directPayPay2 = directPayContentResponse.pay;
                 if (directPayPay2 != null) {
-                    this.f59881c.setCalcPayment(directPayPay2.composite);
-                    this.f59881c.setRandomDiscount(directPayContentResponse.pay.random_discount);
+                    this.f60803c.setCalcPayment(directPayPay2.composite);
+                    this.f60803c.setRandomDiscount(directPayContentResponse.pay.random_discount);
                 }
                 if (directPayContentResponse.isWithHoldingValidity()) {
-                    this.f59881c.withholding = directPayContentResponse.authorize_common_cashdesk;
+                    this.f60803c.withholding = directPayContentResponse.authorize_common_cashdesk;
                 }
-                if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f59881c.mPayFrom)) {
+                if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f60803c.mPayFrom)) {
                     StatHelper.cachePayType(0);
                     StatHelper.cachePayWay(4);
                     a(directPayContentResponse.hasPwd(), directPayContentResponse.hasBindCards());
                     BindFastRequest bindFastRequest = new BindFastRequest();
                     bindFastRequest.mBindFrom = 1;
                     PayRequestCache.getInstance().addBeanRequestToCache(bindFastRequest.getRequestId(), bindFastRequest);
-                    this.f59885b.startActivity(new Intent(this.f59885b, BindCardImplActivity.class));
-                    this.f59885b.finishWithoutAnim();
+                    this.f60807b.startActivity(new Intent(this.f60807b, BindCardImplActivity.class));
+                    this.f60807b.finishWithoutAnim();
                     return;
-                } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f59881c.mPayFrom)) {
-                    this.f59881c.initPayStrategy(this.f59885b);
+                } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f60803c.mPayFrom)) {
+                    this.f60803c.initPayStrategy(this.f60807b);
                     StatHelper.cachePayType(0);
                     StatHelper.cachePayWay(3);
                     a(directPayContentResponse.hasPwd(), directPayContentResponse.hasBindCards());
                     j();
                     return;
                 } else {
-                    this.f59881c.initPayStrategy(this.f59885b);
+                    this.f60803c.initPayStrategy(this.f60807b);
                     if ("balance".equals(PayDataCache.getInstance().getDefaultPayType())) {
                         StatHelper.cachePayType(1);
                     } else {
                         StatHelper.cachePayType(0);
                     }
-                    if (this.f59881c.getPayWay() == 2) {
+                    if (this.f60803c.getPayWay() == 2) {
                         StatHelper.cachePayWay(1);
                     } else {
                         StatHelper.cachePayWay(0);
@@ -389,14 +389,14 @@ public class j extends k {
                     a(directPayContentResponse.hasPwd(), directPayContentResponse.hasBindCards());
                     if (PayDataCache.getInstance().isRemotePay()) {
                         b(directPayContentResponse);
-                        this.f59885b.finishWithoutAnim();
+                        this.f60807b.finishWithoutAnim();
                         return;
                     }
                     i();
                     return;
                 }
             }
-            PayCallBackManager.callBackClientCancel(this.f59885b, "PrecashierWelcomePresenter.handleResponse().1");
+            PayCallBackManager.callBackClientCancel(this.f60807b, "PrecashierWelcomePresenter.handleResponse().1");
         }
     }
 
@@ -407,7 +407,7 @@ public class j extends k {
             if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && directPayPay.easypay != null && directPayContentResponse.user != null) {
                 i();
             } else {
-                PayCallBackManager.callBackClientCancel(this.f59885b, "PrecashierWelcomePresenter.confirmRemotePayOrderInfo().1");
+                PayCallBackManager.callBackClientCancel(this.f60807b, "PrecashierWelcomePresenter.confirmRemotePayOrderInfo().1");
             }
         }
     }
@@ -416,27 +416,27 @@ public class j extends k {
         CardData.BondCard bondCard;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f59881c == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f60803c == null) {
             return;
         }
         StatHelper.cacheHasPwd(z);
         StatHelper.cacheHasBankCard(z2);
         String str2 = "0";
         String str3 = "-1";
-        if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f59881c.mPayFrom)) {
-            if (this.f59881c.getDefaultBankCardIdx() != null) {
-                str2 = this.f59881c.getDefaultBankCardIdx().bank_code;
-                str = this.f59881c.getDefaultBankCardIdx().card_type + "";
+        if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f60803c.mPayFrom)) {
+            if (this.f60803c.getDefaultBankCardIdx() != null) {
+                str2 = this.f60803c.getDefaultBankCardIdx().bank_code;
+                str = this.f60803c.getDefaultBankCardIdx().card_type + "";
                 str3 = str;
             }
             str2 = "-1";
         } else {
             if (PayDataCache.getInstance().hasMobilePwd()) {
-                if (this.f59881c.getPayPrice() != null && this.f59881c.getPayPrice().payType == PayRequest.PayPrice.PayType.BANKCARD && (bondCard = this.f59881c.mBondCard) != null) {
+                if (this.f60803c.getPayPrice() != null && this.f60803c.getPayPrice().payType == PayRequest.PayPrice.PayType.BANKCARD && (bondCard = this.f60803c.mBondCard) != null) {
                     str2 = bondCard.bank_code;
-                    str = this.f59881c.mBondCard.card_type + "";
+                    str = this.f60803c.mBondCard.card_type + "";
                     str3 = str;
-                } else if (this.f59881c.getPayPrice() != null && this.f59881c.getPayPrice().payType == PayRequest.PayPrice.PayType.BALANCE) {
+                } else if (this.f60803c.getPayPrice() != null && this.f60803c.getPayPrice().payType == PayRequest.PayPrice.PayType.BALANCE) {
                     str3 = "0";
                 }
             }
@@ -453,7 +453,7 @@ public class j extends k {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
             StatisticManager.onEventEnd("createPreOrder", i3);
             if (i3 == 5173 || i3 == 5172 || (i3 == 5171 && !TextUtils.isEmpty(str))) {
-                PayBaseBeanActivity payBaseBeanActivity = this.f59885b;
+                PayBaseBeanActivity payBaseBeanActivity = this.f60807b;
                 if (payBaseBeanActivity != null) {
                     WalletGlobalUtils.safeShowDialog(payBaseBeanActivity, 3, str);
                 }
@@ -471,9 +471,9 @@ public class j extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, directPayContentResponse)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            PayRequest payRequest = this.f59881c;
+            PayRequest payRequest = this.f60803c;
             String str = "\"\"";
-            String str2 = (payRequest == null || TextUtils.isEmpty(payRequest.mSpNO)) ? "\"\"" : this.f59881c.mSpNO;
+            String str2 = (payRequest == null || TextUtils.isEmpty(payRequest.mSpNO)) ? "\"\"" : this.f60803c.mSpNO;
             if (directPayContentResponse != null && (misc = directPayContentResponse.misc) != null) {
                 str = misc.getInsideTransOrder();
             }
@@ -500,12 +500,12 @@ public class j extends k {
             PromptDialog promptDialog = (PromptDialog) dialog;
             promptDialog.hideNegativeButton();
             promptDialog.setMessage(WalletGlobalUtils.showStr);
-            promptDialog.setPositiveBtn(ResUtils.getString(this.f59885b, "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.j.1
+            promptDialog.setPositiveBtn(ResUtils.getString(this.f60807b, "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.j.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ j f59883a;
+                public final /* synthetic */ j f60805a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -522,7 +522,7 @@ public class j extends k {
                             return;
                         }
                     }
-                    this.f59883a = this;
+                    this.f60805a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -530,7 +530,7 @@ public class j extends k {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         WalletGlobalUtils.DismissLoadingDialog();
-                        this.f59883a.f59885b.finish();
+                        this.f60805a.f60807b.finish();
                     }
                 }
             });
@@ -541,7 +541,7 @@ public class j extends k {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f59880a = str;
+            this.f60802a = str;
         }
     }
 }

@@ -13,16 +13,16 @@ public class k0 implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3850e;
+    public int f3944e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3851f;
+    public int f3945f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3852g;
+    public int f3946g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f3853h;
+    public i f3947h;
 
     public k0(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class k0 implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i iVar = this.f3853h;
+            i iVar = this.f3947h;
             return iVar != null && iVar.d();
         }
         return invokeV.booleanValue;
@@ -57,13 +57,13 @@ public class k0 implements Cloneable {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
                 if (jSONArray.length() > 3) {
-                    this.f3850e = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
-                    this.f3851f = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
-                    this.f3852g = jSONArray.optInt(2);
-                    this.f3853h = new i(jSONArray.optJSONArray(3));
+                    this.f3944e = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(0));
+                    this.f3945f = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(1));
+                    this.f3946g = jSONArray.optInt(2);
+                    this.f3947h = new i(jSONArray.optJSONArray(3));
                 }
             } catch (Exception e2) {
-                if (b.a.p0.a.k.f6397a) {
+                if (b.a.p0.a.k.f6863a) {
                     e2.printStackTrace();
                 }
             }

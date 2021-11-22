@@ -24,10 +24,10 @@ public class l extends BaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f59596a;
+    public BindFastRequest f60518a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PwdRequest f59597b;
+    public PwdRequest f60519b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> l(Context context) {
@@ -47,9 +47,9 @@ public class l extends BaseBean<Object> {
                 return;
             }
         }
-        this.f59596a = null;
-        this.f59597b = null;
-        this.f59597b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f60518a = null;
+        this.f60519b = null;
+        this.f60519b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -65,19 +65,19 @@ public class l extends BaseBean<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f59596a != null) {
+            if (this.f60518a != null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f59596a.getmBankCard())));
-                String handlePwdSimple = PasswordController.handlePwdSimple(this.f59597b.mPayPass);
+                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f60518a.getmBankCard())));
+                String handlePwdSimple = PasswordController.handlePwdSimple(this.f60519b.mPayPass);
                 String seed = PasswordController.getSeed();
-                String handlePwd = PasswordController.handlePwd(this.f59597b.mConfirmPayPass, seed);
+                String handlePwd = PasswordController.handlePwd(this.f60519b.mConfirmPayPass, seed);
                 arrayList.add(new RestNameValuePair("mobile_pwd", SecurePay.getInstance().encryptProxy(handlePwdSimple)));
                 arrayList.add(new RestNameValuePair("confirm_mobile_pwd", handlePwd));
-                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f59597b.mConfirmPayPass)));
+                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f60519b.mConfirmPayPass)));
                 arrayList.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
                 arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
-                arrayList.add(new RestNameValuePair("sms_token", this.f59596a.getSmsToken()));
-                arrayList.add(new RestNameValuePair("session_id", this.f59596a.getSessionId()));
+                arrayList.add(new RestNameValuePair("sms_token", this.f60518a.getSmsToken()));
+                arrayList.add(new RestNameValuePair("session_id", this.f60518a.getSessionId()));
                 return arrayList;
             }
             throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");

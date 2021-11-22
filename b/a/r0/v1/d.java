@@ -22,16 +22,16 @@ public class d extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f24339e;
+    public final Context f25802e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f24340f;
+    public ArrayList<String> f25803f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f24341g;
+    public final String f25804g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f24342h;
+    public boolean f25805h;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -45,10 +45,10 @@ public class d extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f24343a;
+        public TextView f25806a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f24344b;
+        public View f25807b;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -86,23 +86,23 @@ public class d extends BaseAdapter {
                 return;
             }
         }
-        this.f24339e = context;
-        this.f24340f = arrayList;
-        this.f24342h = true;
-        this.f24341g = context.getText(R.string.forum).toString();
+        this.f25802e = context;
+        this.f25803f = arrayList;
+        this.f25805h = true;
+        this.f25804g = context.getText(R.string.forum).toString();
     }
 
     public void a(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.f24340f = arrayList;
+            this.f25803f = arrayList;
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f24342h = z;
+            this.f25805h = z;
         }
     }
 
@@ -111,7 +111,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<String> arrayList = this.f24340f;
+            ArrayList<String> arrayList = this.f25803f;
             if (arrayList == null) {
                 return 0;
             }
@@ -129,7 +129,7 @@ public class d extends BaseAdapter {
             if (count <= 0 || i2 >= count) {
                 return null;
             }
-            return this.f24340f.get(i2);
+            return this.f25803f.get(i2);
         }
         return invokeI.objValue;
     }
@@ -149,10 +149,10 @@ public class d extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f24339e).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f25802e).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.f24343a = (TextView) view.findViewById(R.id.home_lv_search_forum);
-                bVar.f24344b = view.findViewById(R.id.home_dialog_lv_search_forum_divider);
+                bVar.f25806a = (TextView) view.findViewById(R.id.home_lv_search_forum);
+                bVar.f25807b = view.findViewById(R.id.home_dialog_lv_search_forum_divider);
                 view.setTag(bVar);
             } else {
                 bVar = (b) view.getTag();
@@ -162,13 +162,13 @@ public class d extends BaseAdapter {
                 return view;
             }
             String str = (String) item;
-            if (this.f24342h) {
-                bVar.f24343a.setText(str.concat(this.f24341g));
+            if (this.f25805h) {
+                bVar.f25806a.setText(str.concat(this.f25804g));
             } else {
-                bVar.f24343a.setText(str);
+                bVar.f25806a.setText(str);
             }
-            SkinManager.setViewTextColor(bVar.f24343a, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundColor(bVar.f24344b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.f25806a, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundColor(bVar.f25807b, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             return view;
         }

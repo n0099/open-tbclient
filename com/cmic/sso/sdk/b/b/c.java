@@ -13,7 +13,7 @@ public class c extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f61916a;
+    public final String f62815a;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class c extends g {
                 return;
             }
         }
-        this.f61916a = str;
+        this.f62815a = str;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61916a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62815a : (String) invokeV.objValue;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g

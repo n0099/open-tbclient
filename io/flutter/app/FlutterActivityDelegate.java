@@ -36,7 +36,7 @@ import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterRunArguments;
 import io.flutter.view.FlutterView;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class FlutterActivityDelegate implements FlutterActivityEvents, FlutterView.Provider, PluginRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SPLASH_SCREEN_META_DATA_KEY = "io.flutter.app.android.SplashScreenUntilFirstFrame";
@@ -48,7 +48,7 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
     public View launchView;
     public final ViewFactory viewFactory;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ViewFactory {
         FlutterNativeView createFlutterNativeView();
 

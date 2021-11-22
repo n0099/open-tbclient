@@ -212,7 +212,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
                 if (startNextDataSource()) {
                     return;
                 }
-                setFailure(dataSource.getFailureCause(), dataSource.getExtras());
+                setFailure(dataSource.getFailureCause());
             }
         }
 
@@ -222,7 +222,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
             if (interceptable == null || interceptable.invokeL(65545, this, dataSource) == null) {
                 maybeSetDataSourceWithResult(dataSource, dataSource.isFinished());
                 if (dataSource == getDataSourceWithResult()) {
-                    setResult(null, dataSource.isFinished(), dataSource.getExtras());
+                    setResult(null, dataSource.isFinished());
                 }
             }
         }

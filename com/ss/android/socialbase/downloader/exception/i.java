@@ -11,7 +11,7 @@ public class i extends Throwable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f69313a;
+    public String f70233a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(String str) {
@@ -31,12 +31,12 @@ public class i extends Throwable {
                 return;
             }
         }
-        this.f69313a = str;
+        this.f70233a = str;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69313a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70233a : (String) invokeV.objValue;
     }
 }

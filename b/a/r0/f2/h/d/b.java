@@ -20,16 +20,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SingleThreadEmotionHorizontalAdater f16541a;
+    public SingleThreadEmotionHorizontalAdater f18041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdListView f16542b;
+    public BdListView f18042b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f16543c;
+    public e f18043c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<EmotionPackageData> f16544d;
+    public List<EmotionPackageData> f18044d;
 
     public b(TbPageContext<?> tbPageContext, BdListView bdListView) {
         Interceptable interceptable = $ic;
@@ -46,15 +46,15 @@ public class b {
                 return;
             }
         }
-        this.f16542b = bdListView;
+        this.f18042b = bdListView;
         e eVar = new e(tbPageContext);
-        this.f16543c = eVar;
+        this.f18043c = eVar;
         eVar.c(TbadkCoreApplication.getInst().getSkinType());
-        this.f16542b.addHeaderView(this.f16543c.b());
-        this.f16544d = new ArrayList();
-        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.f16544d, tbPageContext);
-        this.f16541a = singleThreadEmotionHorizontalAdater;
-        this.f16542b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
+        this.f18042b.addHeaderView(this.f18043c.b());
+        this.f18044d = new ArrayList();
+        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.f18044d, tbPageContext);
+        this.f18041a = singleThreadEmotionHorizontalAdater;
+        this.f18042b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
     }
 
     public void update() {
@@ -66,14 +66,14 @@ public class b {
     public void update(List<EmotionPackageData> list) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null || (eVar = this.f16543c) == null || this.f16541a == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null || (eVar = this.f18043c) == null || this.f18041a == null) {
             return;
         }
         eVar.update(Integer.valueOf(list.size()));
-        this.f16544d.clear();
+        this.f18044d.clear();
         if (list != null) {
-            this.f16544d.addAll(list);
+            this.f18044d.addAll(list);
         }
-        this.f16541a.notifyDataSetChanged();
+        this.f18041a.notifyDataSetChanged();
     }
 }

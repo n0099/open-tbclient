@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,16 +23,16 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static OkHttpClient f22902a;
+    public static OkHttpClient f24423a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TurbonetContext f22903b;
+    public static TurbonetContext f24424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f22904c;
+    public static long f24425c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f22905d;
+    public static boolean f24426d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,8 +54,8 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            f22903b = g();
-            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(f22903b);
+            f24424b = g();
+            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(f24424b);
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
             builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
             return builder.build();
@@ -80,7 +81,7 @@ public class c {
         try {
             String externalStorageState = Environment.getExternalStorageState();
             equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
-            z = (equalsIgnoreCase || Environment.isExternalStorageRemovable() || externalStorageState.equalsIgnoreCase("shared")) ? false : true;
+            z = (equalsIgnoreCase || Environment.isExternalStorageRemovable() || externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) ? false : true;
         } catch (Exception unused) {
             File cacheDir = context.getCacheDir();
             if (cacheDir == null) {
@@ -101,10 +102,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f22902a == null) {
-                f22902a = a();
+            if (f24423a == null) {
+                f24423a = a();
             }
-            return f22902a;
+            return f24423a;
         }
         return (OkHttpClient) invokeV.objValue;
     }
@@ -162,21 +163,21 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            TurbonetContext turbonetContext = f22903b;
-            if (turbonetContext != null && f22904c == 0) {
-                f22904c = turbonetContext.c();
+            TurbonetContext turbonetContext = f24424b;
+            if (turbonetContext != null && f24425c == 0) {
+                f24425c = turbonetContext.c();
             }
-            return f22904c;
+            return f24425c;
         }
         return invokeV.longValue;
     }
 
     public static void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || f22905d) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || f24426d) {
             return;
         }
-        f22905d = true;
+        f24426d = true;
         try {
             c();
         } catch (Throwable th) {
@@ -189,7 +190,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-            f22903b = turbonetContext;
+            f24424b = turbonetContext;
             return turbonetContext;
         }
         return (TurbonetContext) invokeV.objValue;

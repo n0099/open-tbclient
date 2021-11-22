@@ -22,31 +22,31 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2879a;
+    public static final boolean f2972a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f2880b;
+    public static final int f2973b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f2881c;
+    public static final int f2974c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f2882d;
+    public static final int f2975d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ThreadFactory f2883e;
+    public static final ThreadFactory f2976e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BlockingQueue<Runnable> f2884f;
+    public static final BlockingQueue<Runnable> f2977f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.f0.d.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class ThreadFactoryC0068a implements ThreadFactory {
+    public static class ThreadFactoryC0070a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public ThreadFactoryC0068a() {
+        public ThreadFactoryC0070a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,10 +74,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Runnable f2885a;
+        public Runnable f2978a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2886b;
+        public String f2979b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public final class a {
             }
         }
 
-        public /* synthetic */ b(ThreadFactoryC0068a threadFactoryC0068a) {
+        public /* synthetic */ b(ThreadFactoryC0070a threadFactoryC0070a) {
             this();
         }
     }
@@ -126,15 +126,15 @@ public final class a {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVarArr)) == null) {
                 Process.setThreadPriority(10);
                 try {
-                    if (bVarArr[0] == null || bVarArr[0].f2885a == null) {
+                    if (bVarArr[0] == null || bVarArr[0].f2978a == null) {
                         return null;
                     }
-                    String str = !TextUtils.isEmpty(bVarArr[0].f2886b) ? bVarArr[0].f2886b : "noname";
+                    String str = !TextUtils.isEmpty(bVarArr[0].f2979b) ? bVarArr[0].f2979b : "noname";
                     Thread.currentThread().setName(str);
-                    if (a.f2879a) {
+                    if (a.f2972a) {
                         String str2 = "start to run task " + str;
                     }
-                    bVarArr[0].f2885a.run();
+                    bVarArr[0].f2978a.run();
                     return null;
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -144,7 +144,7 @@ public final class a {
             return invokeL.objValue;
         }
 
-        public /* synthetic */ c(ThreadFactoryC0068a threadFactoryC0068a) {
+        public /* synthetic */ c(ThreadFactoryC0070a threadFactoryC0070a) {
             this();
         }
     }
@@ -162,27 +162,27 @@ public final class a {
                 return;
             }
         }
-        f2879a = b.a.f0.a.a.a.f2779a;
+        f2972a = b.a.f0.a.a.a.f2872a;
         new Handler(Looper.getMainLooper());
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f2880b = availableProcessors;
-        f2881c = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f2882d = Math.max(2, f2880b - 1);
-        f2883e = new ThreadFactoryC0068a();
-        f2884f = new LinkedBlockingQueue();
-        if (f2879a) {
-            String str = "core pool size: " + f2881c + " max size: " + f2882d;
+        f2973b = availableProcessors;
+        f2974c = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f2975d = Math.max(2, f2973b - 1);
+        f2976e = new ThreadFactoryC0070a();
+        f2977f = new LinkedBlockingQueue();
+        if (f2972a) {
+            String str = "core pool size: " + f2974c + " max size: " + f2975d;
         }
-        int i2 = f2882d;
-        new ThreadPoolExecutor(i2, i2, 30L, TimeUnit.SECONDS, f2884f, f2883e).allowCoreThreadTimeOut(true);
+        int i2 = f2975d;
+        new ThreadPoolExecutor(i2, i2, 30L, TimeUnit.SECONDS, f2977f, f2976e).allowCoreThreadTimeOut(true);
     }
 
     public static void b(Runnable runnable, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, runnable, str) == null) {
             b bVar = new b(null);
-            bVar.f2885a = runnable;
-            bVar.f2886b = str;
+            bVar.f2978a = runnable;
+            bVar.f2979b = str;
             new c(null).execute(bVar);
         }
     }

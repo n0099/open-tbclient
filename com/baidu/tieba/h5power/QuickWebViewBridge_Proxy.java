@@ -1,10 +1,10 @@
 package com.baidu.tieba.h5power;
 
-import b.a.e.e.p.k;
-import b.a.r0.l3.n0.d.a;
-import b.a.r0.l3.n0.d.b;
-import b.a.r0.l3.n0.d.c;
-import b.a.r0.l3.n0.d.e;
+import b.a.e.f.p.k;
+import b.a.r0.m3.n0.d.a;
+import b.a.r0.m3.n0.d.b;
+import b.a.r0.m3.n0.d.c;
+import b.a.r0.m3.n0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
@@ -20,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.share.QzonePublish;
-import com.vivo.push.PushClientConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -61,12 +60,13 @@ public class QuickWebViewBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN);
         this.mNotificationNameList.add(CommonTbJsBridge.LOGIN_RESULT_TO_H5);
         this.mNotificationNameList.add(CommonTbJsBridge.RE_SHOW);
+        this.mNotificationNameList.add(CommonTbJsBridge.RE_HIDE);
         this.mNotificationNameList.add(CommonTbJsBridge.CLICK_GO_BACK_TO_H5);
         this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
         this.mNotificationNameList.add("RequestByNativeToH5");
     }
 
-    @Override // b.a.r0.l3.n0.d.a
+    @Override // b.a.r0.m3.n0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         int i2;
@@ -307,7 +307,7 @@ public class QuickWebViewBridge_Proxy extends a {
                 cVar2.y(0);
             } else if (b2.equals("system/checkAppInstall")) {
                 cVar2.r(true);
-                c checkAppInstall = this.mJsBridge.checkAppInstall(e2.optString(PushClientConstants.TAG_PKG_NAME));
+                c checkAppInstall = this.mJsBridge.checkAppInstall(e2.optString("pkgName"));
                 if (checkAppInstall != null) {
                     cVar2.x(checkAppInstall.f());
                     cVar2.t(checkAppInstall.b());
@@ -327,7 +327,7 @@ public class QuickWebViewBridge_Proxy extends a {
                 cVar2.y(0);
             } else if (b2.equals("system/startApp")) {
                 cVar2.r(true);
-                c startApp = this.mJsBridge.startApp(e2.optString(PushClientConstants.TAG_PKG_NAME), e2.optString("schema"));
+                c startApp = this.mJsBridge.startApp(e2.optString("pkgName"), e2.optString("schema"));
                 if (startApp != null) {
                     cVar2.x(startApp.f());
                     cVar2.t(startApp.b());
@@ -531,7 +531,7 @@ public class QuickWebViewBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // b.a.r0.l3.n0.d.a
+    @Override // b.a.r0.m3.n0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -557,6 +557,8 @@ public class QuickWebViewBridge_Proxy extends a {
                 cVar = this.mJsBridge.onUserLoginChanged(hashMap);
             } else if (str.equals(CommonTbJsBridge.RE_SHOW)) {
                 cVar = this.mJsBridge.reShow(hashMap);
+            } else if (str.equals(CommonTbJsBridge.RE_HIDE)) {
+                cVar = this.mJsBridge.reHide(hashMap);
             } else if (str.equals(CommonTbJsBridge.CLICK_GO_BACK_TO_H5)) {
                 cVar = this.mJsBridge.dealClickGoBackToH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.GO_BACK_FROM_NATIVE)) {

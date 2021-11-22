@@ -16,10 +16,10 @@ public class h2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13346a;
+    public int f14126a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13347b;
+    public String f14127b;
 
     public h2() {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class h2 {
                 return;
             }
         }
-        this.f13346a = 0;
-        this.f13347b = "";
+        this.f14126a = 0;
+        this.f14127b = "";
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13346a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14126a : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13347b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14127b : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -56,9 +56,9 @@ public class h2 {
             return;
         }
         try {
-            this.f13346a = jSONObject.optInt("is_lpost", 0);
+            this.f14126a = jSONObject.optInt("is_lpost", 0);
             jSONObject.optInt(TiebaStatic.Params.TOPIC_TYPE, 0);
-            this.f13347b = jSONObject.optString("link", "");
+            this.f14127b = jSONObject.optString("link", "");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -69,8 +69,8 @@ public class h2 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, topic) == null) || topic == null) {
             return;
         }
-        this.f13346a = topic.is_lpost.intValue();
+        this.f14126a = topic.is_lpost.intValue();
         topic.topic_type.intValue();
-        this.f13347b = topic.link;
+        this.f14127b = topic.link;
     }
 }

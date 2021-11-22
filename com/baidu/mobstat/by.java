@@ -17,22 +17,22 @@ public interface by {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f41204a;
+        public static final a f42036a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f41205b;
+        public static final a f42037b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f41206c;
+        public static final a f42038c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f41207d;
+        public static final a f42039d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f41208e;
+        public static final a f42040e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f41209f;
+        public static final /* synthetic */ a[] f42041f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,13 +48,13 @@ public interface by {
                     return;
                 }
             }
-            f41204a = new a("NOT_YET_CONNECTED", 0);
-            f41205b = new a("CONNECTING", 1);
-            f41206c = new a("OPEN", 2);
-            f41207d = new a("CLOSING", 3);
+            f42036a = new a("NOT_YET_CONNECTED", 0);
+            f42037b = new a("CONNECTING", 1);
+            f42038c = new a("OPEN", 2);
+            f42039d = new a("CLOSING", 3);
             a aVar = new a("CLOSED", 4);
-            f41208e = aVar;
-            f41209f = new a[]{f41204a, f41205b, f41206c, f41207d, aVar};
+            f42040e = aVar;
+            f42041f = new a[]{f42036a, f42037b, f42038c, f42039d, aVar};
         }
 
         public a(String str, int i2) {
@@ -85,7 +85,7 @@ public interface by {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f41209f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f42041f.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -95,10 +95,10 @@ public interface by {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f41210a;
+        public static final b f42042a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ b[] f41211b;
+        public static final /* synthetic */ b[] f42043b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -115,8 +115,8 @@ public interface by {
                 }
             }
             b bVar = new b("CLIENT", 0);
-            f41210a = bVar;
-            f41211b = new b[]{bVar};
+            f42042a = bVar;
+            f42043b = new b[]{bVar};
         }
 
         public b(String str, int i2) {
@@ -147,7 +147,7 @@ public interface by {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f41211b.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f42043b.clone() : (b[]) invokeV.objValue;
         }
     }
 

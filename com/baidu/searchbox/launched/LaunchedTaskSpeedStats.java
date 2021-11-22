@@ -220,72 +220,51 @@ public class LaunchedTaskSpeedStats {
         }
     }
 
-    public void beginSpeedNode(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.canStats) {
-            this.nodesMap.put(str, new SpeedStatisticsNode());
-        }
-    }
-
-    public void endSpeedNode(String str) {
-        SpeedStatisticsNode speedStatisticsNode;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.canStats && (speedStatisticsNode = this.nodesMap.get(str)) != null) {
-            speedStatisticsNode.end();
-        }
-    }
-
     public void endStatistics() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.canStats) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.canStats) {
             this.mEndTimeStamp = System.currentTimeMillis();
         }
     }
 
-    public boolean getStatsSwitch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.canStats : invokeV.booleanValue;
-    }
-
     public void setStatsSwitch(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             this.canStats = z;
         }
     }
 
     public void setUbcFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.mUbcFrom = str;
         }
     }
 
     public void setUbcPage(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.mUbcPage = str;
         }
     }
 
     public void setUbcType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.mUbcType = str;
         }
     }
 
     public void setUbcValue(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.mUbcValue = str;
         }
     }
 
     public void startStatistics() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.canStats = true;
             this.mStartTimeStamp = System.currentTimeMillis();
         }
@@ -294,7 +273,7 @@ public class LaunchedTaskSpeedStats {
     public void upload() {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (DEBUG) {
                 r0 = "endStatistics canStats:" + this.canStats;
             }

@@ -74,20 +74,20 @@ public class d {
             }
             for (int i2 = 0; i2 < length; i2++) {
                 if (1 == length) {
-                    jSONArray.put(b.a.e.e.p.c.j(c(publicKey, bytes)));
+                    jSONArray.put(b.a.e.f.p.c.j(c(publicKey, bytes)));
                 } else if (i2 != length - 1) {
                     byte[] bArr = new byte[116];
                     System.arraycopy(bytes, i2 * 116, bArr, 0, 116);
-                    jSONArray.put(b.a.e.e.p.c.j(c(publicKey, bArr)));
+                    jSONArray.put(b.a.e.f.p.c.j(c(publicKey, bArr)));
                 } else {
                     int i3 = i2 * 116;
                     int length2 = bytes.length - i3;
                     byte[] bArr2 = new byte[length2];
                     System.arraycopy(bytes, i3, bArr2, 0, length2);
-                    jSONArray.put(b.a.e.e.p.c.j(c(publicKey, bArr2)));
+                    jSONArray.put(b.a.e.f.p.c.j(c(publicKey, bArr2)));
                 }
             }
-            return b.a.e.e.p.c.j(jSONArray.toString().getBytes("UTF-8"));
+            return b.a.e.f.p.c.j(jSONArray.toString().getBytes("UTF-8"));
         }
         return (String) invokeLL.objValue;
     }

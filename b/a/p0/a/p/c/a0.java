@@ -1,18 +1,13 @@
 package b.a.p0.a.p.c;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import b.a.p0.a.p.d.s0;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
 /* loaded from: classes.dex */
-public class a0 implements s0 {
+public class a0 implements b.a.p0.a.p.d.q0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,27 +25,13 @@ public class a0 implements s0 {
         }
     }
 
-    @Override // b.a.p0.a.p.d.s0
-    public void a(@NonNull JSONArray jSONArray) {
+    @Override // b.a.p0.a.p.d.q0
+    public boolean a(Message message) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            return false;
         }
-    }
-
-    @Override // b.a.p0.a.p.d.s0
-    public b.a.p0.a.h0.o.h.c.a b(Context context, File file, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
-            return null;
-        }
-        return (b.a.p0.a.h0.o.h.c.a) invokeCommon.objValue;
-    }
-
-    @Override // b.a.p0.a.p.d.s0
-    public void c(@NonNull JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,13 +1,14 @@
 package com.baidu.tieba.tbadkCore.tiebaSwitchMsg;
 
 import android.text.TextUtils;
-import b.a.e.h.j.g.d;
+import b.a.e.i.j.g.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.adp.plugin.util.Util;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
@@ -73,7 +74,7 @@ public class Static {
                 if (TextUtils.isEmpty(M)) {
                     return;
                 }
-                String[] split = M.split("\\.");
+                String[] split = M.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 if (split.length != 0 && split.length != 3) {
                     String str = "";
                     for (int i2 = 0; i2 < split.length && i2 < 3; i2++) {
@@ -84,7 +85,7 @@ public class Static {
                 if (Util.c(string, M) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                     PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
                     PluginNetConfigInfos.PluginConfig R = PluginPackageManager.O().R(pluginConfig.package_name);
-                    b.a.e.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
+                    b.a.e.i.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
                     if (R == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
                         return;

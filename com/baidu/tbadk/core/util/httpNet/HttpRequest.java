@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import android.os.Build;
 import android.text.TextUtils;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.q0.j0.f;
 import b.a.q0.s.e0.b;
 import b.a.q0.s.l.c;
@@ -140,19 +140,19 @@ public class HttpRequest {
             }
             if (1 == I) {
                 if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                    a2 = a2 + "ka=open";
+                    a2 = a2 + "ka=open;";
                     z = true;
                 }
                 z = false;
             } else {
                 if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                    a2 = a2 + "ka=open";
+                    a2 = a2 + "ka=open;";
                     z = true;
                 }
                 z = false;
             }
-            b.a.e.e.j.b.a.s(z);
-            b.a.e.e.j.b.a.n(a2);
+            b.a.e.f.j.b.a.s(z);
+            b.a.e.f.j.b.a.n(a2 + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
                     iNetWorkCore.addPostData(TBS, f.f());
@@ -166,6 +166,9 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
             iNetWorkCore.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
             iNetWorkCore.addPostData("model", Build.MODEL);
+            iNetWorkCore.addPostData("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
+            iNetWorkCore.addPostData("brand", Build.BRAND);
+            iNetWorkCore.addPostData("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
             if (b.j().k("android_safe_sdk_open", 0) == 1) {
                 iNetWorkCore.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
             }
@@ -174,7 +177,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
-            iNetWorkCore.addPostData("is_teenager", b.a.q0.g1.b.c.d() ? "1" : "0");
+            iNetWorkCore.addPostData("is_teenager", b.a.q0.f1.b.c.d() ? "1" : "0");
         }
     }
 

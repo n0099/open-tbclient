@@ -1,10 +1,10 @@
 package b.a.r0.i0.i;
 
 import android.os.Message;
-import b.a.e.e.m.e;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.q;
+import b.a.e.f.m.e;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.q;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,17 +31,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f17859d;
+    public static c f19312d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Wire f17860a;
+    public Wire f19313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, b.a.r0.i0.i.a> f17861b;
+    public Map<String, b.a.r0.i0.i.a> f19314b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f17862c;
+    public Runnable f19315c;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -49,21 +49,21 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17863e;
+        public final /* synthetic */ c f19316e;
 
         /* renamed from: b.a.r0.i0.i.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0910a extends i0<Void> {
+        public class C0975a extends i0<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Map f17864a;
+            public final /* synthetic */ Map f19317a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f17865b;
+            public final /* synthetic */ a f19318b;
 
-            public C0910a(a aVar, Map map) {
+            public C0975a(a aVar, Map map) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,12 +78,12 @@ public class c {
                         return;
                     }
                 }
-                this.f17865b = aVar;
-                this.f17864a = map;
+                this.f19318b = aVar;
+                this.f19317a = map;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.q0.d1.i0
+            @Override // b.a.q0.c1.i0
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
@@ -91,15 +91,15 @@ public class c {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     WriteHistroyDataReqIdl.Builder builder = new WriteHistroyDataReqIdl.Builder();
                     builder.connect_point_list = new ArrayList();
-                    for (Map.Entry entry : this.f17864a.entrySet()) {
+                    for (Map.Entry entry : this.f19317a.entrySet()) {
                         ConnectPointData c2 = b.a.r0.i0.i.a.c((b.a.r0.i0.i.a) entry.getValue());
                         if (c2 != null) {
                             builder.connect_point_list.add(c2);
                         }
                     }
-                    this.f17865b.f17863e.g(builder.build(true).toByteArray());
+                    this.f19318b.f19316e.g(builder.build(true).toByteArray());
                     synchronized (c.class) {
-                        this.f17865b.f17863e.f17861b = null;
+                        this.f19318b.f19316e.f19314b = null;
                     }
                     return null;
                 }
@@ -122,7 +122,7 @@ public class c {
                     return;
                 }
             }
-            this.f17863e = cVar;
+            this.f19316e = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -131,12 +131,12 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (c.class) {
-                    map = this.f17863e.f17861b;
+                    map = this.f19316e.f19314b;
                 }
                 if (map == null) {
                     return;
                 }
-                l0.b(new C0910a(this, map), null);
+                l0.b(new C0975a(this, map), null);
             }
         }
     }
@@ -147,7 +147,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f17866a;
+        public final /* synthetic */ c f19319a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -164,20 +164,20 @@ public class c {
                     return;
                 }
             }
-            this.f17866a = cVar;
+            this.f19319a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         /* renamed from: a */
         public WriteHistroyDataReqIdl doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                byte[] f2 = this.f17866a.f();
+                byte[] f2 = this.f19319a.f();
                 if (f2 != null) {
                     try {
-                        return (WriteHistroyDataReqIdl) this.f17866a.f17860a.parseFrom(f2, WriteHistroyDataReqIdl.class);
+                        return (WriteHistroyDataReqIdl) this.f19319a.f19313a.parseFrom(f2, WriteHistroyDataReqIdl.class);
                     } catch (IOException e2) {
                         e2.printStackTrace();
                         return null;
@@ -191,14 +191,14 @@ public class c {
 
     /* renamed from: b.a.r0.i0.i.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0911c implements q<WriteHistroyDataReqIdl> {
+    public class C0976c implements q<WriteHistroyDataReqIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q f17867a;
+        public final /* synthetic */ q f19320a;
 
-        public C0911c(c cVar, q qVar) {
+        public C0976c(c cVar, q qVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -213,16 +213,16 @@ public class c {
                     return;
                 }
             }
-            this.f17867a = qVar;
+            this.f19320a = qVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.q
+        @Override // b.a.q0.c1.q
         /* renamed from: a */
         public void onReturnDataInUI(WriteHistroyDataReqIdl writeHistroyDataReqIdl) {
             q qVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, writeHistroyDataReqIdl) == null) || (qVar = this.f17867a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, writeHistroyDataReqIdl) == null) || (qVar = this.f19320a) == null) {
                 return;
             }
             qVar.onReturnDataInUI(writeHistroyDataReqIdl);
@@ -257,23 +257,23 @@ public class c {
                 return;
             }
         }
-        this.f17860a = new Wire(new Class[0]);
-        this.f17861b = null;
-        this.f17862c = new a(this);
+        this.f19313a = new Wire(new Class[0]);
+        this.f19314b = null;
+        this.f19315c = new a(this);
     }
 
     public static final c h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f17859d == null) {
+            if (f19312d == null) {
                 synchronized (c.class) {
-                    if (f17859d == null) {
-                        f17859d = new c();
+                    if (f19312d == null) {
+                        f19312d = new c();
                     }
                 }
             }
-            return f17859d;
+            return f19312d;
         }
         return (c) invokeV.objValue;
     }
@@ -328,8 +328,8 @@ public class c {
                     byteArrayOutputStream = null;
                 }
             } finally {
-                b.a.e.e.m.a.c(fileInputStream);
-                b.a.e.e.m.a.d(byteArrayOutputStream);
+                b.a.e.f.m.a.c(fileInputStream);
+                b.a.e.f.m.a.d(byteArrayOutputStream);
             }
         } catch (FileNotFoundException e6) {
             e = e6;
@@ -368,9 +368,9 @@ public class c {
                     BdLog.detailException(th);
                     b.a.r0.i0.d.c().a("save_dnsproxydata", th.getMessage());
                 }
-                b.a.e.e.m.a.d(fileOutputStream);
+                b.a.e.f.m.a.d(fileOutputStream);
             } catch (Throwable th2) {
-                b.a.e.e.m.a.d(fileOutputStream);
+                b.a.e.f.m.a.d(fileOutputStream);
                 throw th2;
             }
         }
@@ -379,7 +379,7 @@ public class c {
     public void i(q<WriteHistroyDataReqIdl> qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qVar) == null) {
-            l0.b(new b(this), new C0911c(this, qVar));
+            l0.b(new b(this), new C0976c(this, qVar));
         }
     }
 
@@ -387,12 +387,12 @@ public class c {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, map) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && map != null) {
             synchronized (c.class) {
-                this.f17861b = map;
+                this.f19314b = map;
             }
             if (e.a().hasMessages(0, this)) {
                 return;
             }
-            Message obtain = Message.obtain(e.a(), this.f17862c);
+            Message obtain = Message.obtain(e.a(), this.f19315c);
             obtain.what = 0;
             obtain.obj = this;
             e.a().sendMessageDelayed(obtain, 30000L);
@@ -403,7 +403,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             e.a().removeMessages(0, this);
-            e.a().post(this.f17862c);
+            e.a().post(this.f19315c);
         }
     }
 }

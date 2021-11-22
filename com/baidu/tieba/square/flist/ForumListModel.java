@@ -1,7 +1,7 @@
 package com.baidu.tieba.square.flist;
 
 import b.a.e.a.f;
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import b.a.q0.s.r.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;

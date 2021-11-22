@@ -22,7 +22,6 @@ import android.widget.ImageView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -50,7 +49,7 @@ import com.google.android.material.math.MathUtils;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public abstract class FabTransformationBehavior extends ExpandableTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +60,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     public final RectF tmpRectF1;
     public final RectF tmpRectF2;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class FabTransformationSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -366,7 +365,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
             } else {
                 ofFloat = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Z, -elevation);
             }
-            fabTransformationSpec.timings.getTiming(Key.ELEVATION).apply(ofFloat);
+            fabTransformationSpec.timings.getTiming("elevation").apply(ofFloat);
             list.add(ofFloat);
         }
     }

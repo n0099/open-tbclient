@@ -7,6 +7,7 @@ import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,17 +24,17 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f68504a;
+    public static volatile d f69424a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f68505c;
+    public static final String[] f69425c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f68506d;
+    public static final int[] f69426d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<a> f68507b;
+    public final LinkedList<a> f69427b;
 
     /* renamed from: com.ss.android.downloadlib.addownload.b.d$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -48,19 +49,19 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f68508a;
+        public final String f69428a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f68509b;
+        public final int f69429b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f68510c;
+        public final String f69430c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f68511d;
+        public final String f69431d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f68512e;
+        public final long f69432e;
 
         public /* synthetic */ a(String str, int i2, String str2, String str3, long j, AnonymousClass1 anonymousClass1) {
             this(str, i2, str2, str3, j);
@@ -81,11 +82,11 @@ public class d {
                     return;
                 }
             }
-            this.f68508a = str;
-            this.f68509b = i2;
-            this.f68510c = str2 != null ? str2.toLowerCase() : null;
-            this.f68511d = str3 != null ? str3.toLowerCase() : null;
-            this.f68512e = j;
+            this.f69428a = str;
+            this.f69429b = i2;
+            this.f69430c = str2 != null ? str2.toLowerCase() : null;
+            this.f69431d = str3 != null ? str3.toLowerCase() : null;
+            this.f69432e = j;
         }
     }
 
@@ -102,8 +103,8 @@ public class d {
                 return;
             }
         }
-        f68505c = new String[]{"com", "android", "ss"};
-        f68506d = new int[]{3101, 3102, 3103, 3201, 3202, 3203};
+        f69425c = new String[]{"com", "android", "ss"};
+        f69426d = new int[]{3101, 3102, 3103, 3201, 3202, 3203};
     }
 
     public d() {
@@ -119,21 +120,21 @@ public class d {
                 return;
             }
         }
-        this.f68507b = new LinkedList<>();
+        this.f69427b = new LinkedList<>();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f68504a == null) {
+            if (f69424a == null) {
                 synchronized (d.class) {
-                    if (f68504a == null) {
-                        f68504a = new d();
+                    if (f69424a == null) {
+                        f69424a = new d();
                     }
                 }
             }
-            return f68504a;
+            return f69424a;
         }
         return (d) invokeV.objValue;
     }
@@ -164,10 +165,10 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            synchronized (this.f68507b) {
-                Iterator<a> it = this.f68507b.iterator();
+            synchronized (this.f69427b) {
+                Iterator<a> it = this.f69427b.iterator();
                 while (it.hasNext()) {
-                    if (str.equals(it.next().f68508a)) {
+                    if (str.equals(it.next().f69428a)) {
                         it.remove();
                         return;
                     }
@@ -184,8 +185,8 @@ public class d {
             if (TextUtils.isEmpty(str) || (c2 = c(str)) == null) {
                 return;
             }
-            synchronized (this.f68507b) {
-                this.f68507b.add(c2);
+            synchronized (this.f69427b) {
+                this.f69427b.add(c2);
             }
         }
     }
@@ -210,24 +211,24 @@ public class d {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (this.f68507b.isEmpty()) {
+            if (this.f69427b.isEmpty()) {
                 return null;
             }
             String N = bVar.N();
             String e2 = bVar.e();
             String J = bVar.J();
             int I = bVar.I();
-            int length = f68506d.length;
+            int length = f69426d.length;
             a[] aVarArr = new a[length];
-            synchronized (this.f68507b) {
-                Iterator<a> it = this.f68507b.iterator();
+            synchronized (this.f69427b) {
+                Iterator<a> it = this.f69427b.iterator();
                 PackageInfo packageInfo = null;
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     next = it.next();
-                    if (next.f68512e >= bVar.C()) {
+                    if (next.f69432e >= bVar.C()) {
                         if (TextUtils.isEmpty(N)) {
                             if (packageInfo == null) {
                                 packageInfo = l.a(bVar);
@@ -239,12 +240,12 @@ public class d {
                                 }
                             }
                         }
-                        if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(next.f68511d)) {
+                        if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(next.f69431d)) {
                             N = N.toLowerCase();
-                            if (N.equals(next.f68511d)) {
+                            if (N.equals(next.f69431d)) {
                                 aVarArr[0] = next;
                                 break;
-                            } else if (N.contains(next.f68511d) || next.f68511d.contains(N)) {
+                            } else if (N.contains(next.f69431d) || next.f69431d.contains(N)) {
                                 break;
                             }
                         }
@@ -256,12 +257,12 @@ public class d {
                                 e2 = packageInfo.packageName;
                             }
                         }
-                        if (!TextUtils.isEmpty(e2) && !TextUtils.isEmpty(next.f68508a)) {
+                        if (!TextUtils.isEmpty(e2) && !TextUtils.isEmpty(next.f69428a)) {
                             e2 = e2.toLowerCase();
-                            if (e2.contains(next.f68508a) || next.f68508a.contains(e2)) {
+                            if (e2.contains(next.f69428a) || next.f69428a.contains(e2)) {
                                 break;
                             } else if (aVarArr[3] == null) {
-                                if (a(e2, next.f68508a)) {
+                                if (a(e2, next.f69428a)) {
                                     aVarArr[3] = next;
                                 }
                             }
@@ -275,9 +276,9 @@ public class d {
                                     J = packageInfo.versionName;
                                 }
                             }
-                            if (!TextUtils.isEmpty(J) && !TextUtils.isEmpty(next.f68510c)) {
+                            if (!TextUtils.isEmpty(J) && !TextUtils.isEmpty(next.f69430c)) {
                                 J = J.toLowerCase();
-                                if (J.equals(next.f68510c)) {
+                                if (J.equals(next.f69430c)) {
                                     aVarArr[4] = next;
                                 }
                             }
@@ -290,7 +291,7 @@ public class d {
                                         I = packageInfo.versionCode;
                                     }
                                 }
-                                if (I == next.f68509b) {
+                                if (I == next.f69429b) {
                                     aVarArr[5] = next;
                                 }
                             }
@@ -301,7 +302,7 @@ public class d {
             }
             for (i2 = 0; i2 < length; i2++) {
                 if (aVarArr[i2] != null) {
-                    return new Pair<>(aVarArr[i2], Integer.valueOf(f68506d[i2]));
+                    return new Pair<>(aVarArr[i2], Integer.valueOf(f69426d[i2]));
                 }
             }
             return null;
@@ -317,11 +318,11 @@ public class d {
                 return null;
             }
             b();
-            synchronized (this.f68507b) {
-                Iterator<a> it = this.f68507b.iterator();
+            synchronized (this.f69427b) {
+                Iterator<a> it = this.f69427b.iterator();
                 while (it.hasNext()) {
                     a next = it.next();
-                    if (next.f68512e > bVar.C()) {
+                    if (next.f69432e > bVar.C()) {
                         return next;
                     }
                 }
@@ -339,8 +340,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             try {
-                split = str.split("\\.");
-                split2 = str2.split("\\.");
+                split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -348,7 +349,7 @@ public class d {
                 int i2 = 0;
                 int i3 = 0;
                 for (String str3 : split) {
-                    String[] strArr = f68505c;
+                    String[] strArr = f69425c;
                     int length = strArr.length;
                     int i4 = 0;
                     while (true) {
@@ -396,9 +397,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            synchronized (this.f68507b) {
-                Iterator<a> it = this.f68507b.iterator();
-                while (it.hasNext() && currentTimeMillis - it.next().f68512e > 1800000) {
+            synchronized (this.f69427b) {
+                Iterator<a> it = this.f69427b.iterator();
+                while (it.hasNext() && currentTimeMillis - it.next().f69432e > 1800000) {
                     it.remove();
                 }
             }

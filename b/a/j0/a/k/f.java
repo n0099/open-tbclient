@@ -13,16 +13,16 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3094a = false;
+    public static boolean f3187a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f3095b = false;
+    public static boolean f3188b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f3096c = false;
+    public static boolean f3189c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f3097d = true;
+    public static boolean f3190d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,16 +61,16 @@ public class f {
                 return false;
             }
             if ("permission_location".equalsIgnoreCase(str)) {
-                return f3095b;
+                return f3188b;
             }
             if ("permission_storage".equalsIgnoreCase(str)) {
-                return f3096c;
+                return f3189c;
             }
             if ("permission_app_list".equalsIgnoreCase(str)) {
-                return f3097d;
+                return f3190d;
             }
             if ("permission_read_phone_state".equalsIgnoreCase(str)) {
-                return f3094a;
+                return f3187a;
             }
             return false;
         }

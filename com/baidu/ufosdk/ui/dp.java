@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class dp implements AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f56931a;
+    public final /* synthetic */ FeedbackListActivity f57853a;
 
     public dp(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class dp implements AdapterView.OnItemClickListener {
                 return;
             }
         }
-        this.f56931a = feedbackListActivity;
+        this.f57853a = feedbackListActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -43,22 +43,22 @@ public final class dp implements AdapterView.OnItemClickListener {
         List list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            list = this.f56931a.f56771e;
+            list = this.f57853a.f57693e;
             ((Map) list.get(i2)).put("newmsg", "0");
-            duVar = this.f56931a.u;
+            duVar = this.f57853a.u;
             duVar.notifyDataSetChanged();
             Intent intent = new Intent();
-            intent.setClass(this.f56931a, FeedbackInputActivity.class);
-            list2 = this.f56931a.f56771e;
+            intent.setClass(this.f57853a, FeedbackInputActivity.class);
+            list2 = this.f57853a.f57693e;
             intent.putExtra("msgid", (String) ((Map) list2.get(i2)).get("id"));
-            list3 = this.f56931a.f56771e;
+            list3 = this.f57853a.f57693e;
             intent.putExtra("appid", (String) ((Map) list3.get(i2)).get("appid"));
             intent.putExtra("fromList", true);
             intent.putExtra("fromEdit", false);
             if (com.baidu.ufosdk.f.h.a()) {
                 return;
             }
-            this.f56931a.startActivity(intent);
+            this.f57853a.startActivity(intent);
         }
     }
 }

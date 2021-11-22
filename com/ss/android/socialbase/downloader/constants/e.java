@@ -12,31 +12,31 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f69176a = "";
+    public static volatile String f70096a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f69177b = "";
+    public static volatile String f70097b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile String f69178c = "";
+    public static volatile String f70098c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f69179d = 512000;
+    public static long f70099d = 512000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f69180e = 50;
+    public static long f70100e = 50;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f69181f = 5242880;
+    public static long f70101f = 5242880;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f69182g = 31457280;
+    public static long f70102g = 31457280;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f69183h = 10485760;
+    public static long f70103h = 10485760;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final JSONObject f69184i;
+    public static final JSONObject f70104i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,7 +52,7 @@ public class e {
                 return;
             }
         }
-        f69184i = new JSONObject();
+        f70104i = new JSONObject();
     }
 
     public static void a(String str) {
@@ -60,6 +60,6 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        f69176a = str;
+        f70096a = str;
     }
 }

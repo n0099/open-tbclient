@@ -15,7 +15,6 @@ import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -57,25 +56,25 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3523c;
+    public static final String f3613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f3524d;
+    public static int f3614d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f3525a;
+    public final Context f3615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PublicKey f3526b;
+    public PublicKey f3616b;
 
     /* renamed from: b.a.n0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0098a implements Comparator<d> {
+    public class C0100a implements Comparator<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0098a(a aVar) {
+        public C0100a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,17 +97,17 @@ public final class a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, dVar2)) == null) {
-                int i2 = dVar2.f3529c - dVar.f3529c;
+                int i2 = dVar2.f3619c - dVar.f3619c;
                 if (i2 != 0) {
                     return i2;
                 }
-                if (dVar.f3528b && dVar2.f3528b) {
+                if (dVar.f3618b && dVar2.f3618b) {
                     return 0;
                 }
-                if (dVar.f3528b) {
+                if (dVar.f3618b) {
                     return -1;
                 }
-                if (dVar2.f3528b) {
+                if (dVar2.f3618b) {
                     return 1;
                 }
                 return i2;
@@ -244,18 +243,18 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ApplicationInfo f3527a;
+        public ApplicationInfo f3617a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f3528b;
+        public boolean f3618b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f3529c;
+        public int f3619c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f3530d;
+        public boolean f3620d;
 
-        public /* synthetic */ d(C0098a c0098a) {
+        public /* synthetic */ d(C0100a c0100a) {
             this();
         }
 
@@ -272,9 +271,9 @@ public final class a {
                     return;
                 }
             }
-            this.f3529c = 0;
-            this.f3530d = false;
-            this.f3528b = false;
+            this.f3619c = 0;
+            this.f3620d = false;
+            this.f3618b = false;
         }
     }
 
@@ -284,13 +283,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f3531a;
+        public String f3621a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3532b;
+        public String f3622b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f3533c;
+        public int f3623c;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -305,7 +304,7 @@ public final class a {
                     return;
                 }
             }
-            this.f3533c = 0;
+            this.f3623c = 0;
         }
 
         public static e a(String str) {
@@ -331,15 +330,15 @@ public final class a {
                     int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
                     if (!TextUtils.isEmpty(string)) {
                         e eVar = new e();
-                        eVar.f3531a = string;
-                        eVar.f3533c = length;
+                        eVar.f3621a = string;
+                        eVar.f3623c = length;
                         if (length >= 14) {
                             return eVar;
                         }
                         if (!TextUtils.isEmpty(str3)) {
                             str2 = str3;
                         }
-                        eVar.f3532b = str2;
+                        eVar.f3622b = str2;
                         return eVar;
                     }
                 } catch (Exception e2) {
@@ -364,16 +363,16 @@ public final class a {
                     return null;
                 }
                 e eVar = new e();
-                eVar.f3531a = str;
+                eVar.f3621a = str;
                 int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-                eVar.f3533c = length;
+                eVar.f3623c = length;
                 if (length >= 14) {
                     return eVar;
                 }
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "0";
                 }
-                eVar.f3532b = str2;
+                eVar.f3622b = str2;
                 return eVar;
             }
             return (e) invokeLL.objValue;
@@ -389,11 +388,11 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String str = this.f3532b;
+                String str = this.f3622b;
                 if (TextUtils.isEmpty(str)) {
                     str = "0";
                 }
-                return this.f3531a + "|" + str;
+                return this.f3621a + "|" + str;
             }
             return (String) invokeV.objValue;
         }
@@ -401,13 +400,13 @@ public final class a {
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d(this.f3533c) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d(this.f3623c) : invokeV.booleanValue;
         }
 
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g(this.f3532b) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g(this.f3622b) : invokeV.booleanValue;
         }
     }
 
@@ -419,7 +418,7 @@ public final class a {
         public static byte[] a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{48, -126, 3, 99, 48, -126, 2, 75, -96, 3, 2, 1, 2, 2, 4, 106, -93, 120, 122, 48, 13, 6, 9, ExifInterface.START_CODE, -122, 72, -122, -9, 13, 1, 1, 11, 5, 0, 48, 97, 49, 11, 48, 9, 6, 3, 85, 4, 6, 19, 2, 99, 110, 49, 16, 48, 14, 6, 3, 85, 4, 8, 19, 7, 98, Constants.SHORT_PING_CMD_TYPE, 105, 106, 105, 110, 103, 49, 16, 48, 14, 6, 3, 85, 4, 7, 19, 7, 104, 97, 105, 100, 105, 97, 110, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 10, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 11, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 3, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 48, 32, 23, 13, 49, 53, 49, 48, 50, 49, 48, 52, 51, 54, 51, 55, 90, 24, 15, 50, 48, 55, 48, 48, 55, 50, 52, 48, 52, 51, 54, 51, 55, 90, 48, 97, 49, 11, 48, 9, 6, 3, 85, 4, 6, 19, 2, 99, 110, 49, 16, 48, 14, 6, 3, 85, 4, 8, 19, 7, 98, Constants.SHORT_PING_CMD_TYPE, 105, 106, 105, 110, 103, 49, 16, 48, 14, 6, 3, 85, 4, 7, 19, 7, 104, 97, 105, 100, 105, 97, 110, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 10, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 11, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 3, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 48, -126, 1, 34, 48, 13, 6, 9, ExifInterface.START_CODE, -122, 72, -122, -9, 13, 1, 1, 1, 5, 0, 3, -126, 1, 15, 0, 48, -126, 1, 10, 2, -126, 1, 1, 0, -86, -91, -2, -41, ByteCompanionObject.MAX_VALUE, 37, -25, -33, 93, 51, -73, 32, -81, 61, 108, 37, 126, 14, -125, 125, ExifInterface.MARKER_SOF9, -29, 34, -60, 84, -67, -46, 125, -93, -67, -27, 97, 54, Base64.INTERNAL_PADDING, 0, -6, 83, 67, -116, 43, -24, 26, 88, -5, PublicSuffixDatabase.EXCEPTION_MARKER, 27, -105, 49, 76, -70, -32, 105, -48, 67, 69, 102, -111, -81, 93, -103, -18, 17, 55, 81, -34, -80, -76, -13, -84, 6, 91, 10, 48, -56, -1, UtilsBlink.VER_TYPE_SEPARATOR, 9, 23, 34, 6, 103, Base64.INTERNAL_PADDING, ExifInterface.MARKER_SOF13, 29, 70, -19, ExifInterface.MARKER_SOF13, 20, ExifInterface.MARKER_EOI, -43, -97, 75, 23, -124, -101, -71, -75, -107, -88, -13, -71, 80, 90, -76, -119, 51, -80, 118, ByteCompanionObject.MIN_VALUE, -12, -108, 98, -29, -27, 60, -119, -74, 110, 61, 51, -22, 53, 66, -99, -45, -25, 111, -121, 25, -72, ByteCompanionObject.MAX_VALUE, 3, 51, -100, 57, -90, 116, ExifInterface.MARKER_SOF5, -117, 74, -71, 121, 59, 19, -8, -109, PublicSuffixDatabase.EXCEPTION_MARKER, -14, 76, -105, -127, -23, 5, 99, -82, 22, -99, 51, 78, -26, 77, -52, -29, 121, ExifInterface.START_CODE, -76, 20, 2, 116, 111, -76, 2, -78, -90, ExifInterface.MARKER_SOF10, 81, 115, 82, 50, 124, -83, 96, 20, ExifInterface.MARKER_SOI, -118, 105, 90, -70, 120, -33, -110, StandardMessageCodec.LIST, -15, 38, 34, -125, -116, 69, ExifInterface.MARKER_SOF10, -103, -109, -124, 26, 94, -89, -98, -11, -66, 89, 48, -68, ExifInterface.MARKER_SOF13, 107, -60, StandardMessageCodec.LIST, 114, -71, 119, 49, ExifInterface.MARKER_APP1, -65, 113, -99, 3, -90, 79, -88, ExifInterface.MARKER_SOS, -87, -25, ExifInterface.MARKER_SOS, 41, 110, -25, 29, 49, 124, -76, -91, 77, -11, -90, 114, ExifInterface.MARKER_SOF1, 118, -22, -5, -124, 19, 22, -74, -75, 78, 28, ExifInterface.WEBP_VP8L_SIGNATURE, -69, 2, 3, 1, 0, 1, -93, PublicSuffixDatabase.EXCEPTION_MARKER, 48, 31, 48, 29, 6, 3, 85, 29, 14, 4, 22, 4, 20, -41, -108, PublicSuffixDatabase.EXCEPTION_MARKER, -126, -103, Base64.INTERNAL_PADDING, 115, -83, 99, 110, ExifInterface.MARKER_EOI, 110, -125, -118, -69, 87, -103, 30, StandardMessageCodec.LIST, ExifInterface.MARKER_SOF11, 48, 13, 6, 9, ExifInterface.START_CODE, -122, 72, -122, -9, 13, 1, 1, 11, 5, 0, 3, -126, 1, 1, 0, 0, -117, 0, -28, 51, 26, -4, -15, 86, ByteCompanionObject.MAX_VALUE, 14, -101, -48, 121, 115, ExifInterface.MARKER_SOF11, -72, -22, 4, -83, 49, 106, -15, -44, -116, -105, 19, 65, -32, 65, 92, 21, 51, 61, -21, -74, 71, 91, 64, 75, -72, -48, 102, 17, -120, -23, -68, 51, 23, -104, 107, 65, -30, 109, -6, 46, -44, -46, -73, ExifInterface.MARKER_SOF10, ExifInterface.MARKER_SOF9, 63, 77, ExifInterface.MARKER_SOF10, -11, ExifInterface.MARKER_SOF13, 27, -1, 114, 86, -80, 28, -89, 29, -20, 49, -8, 57, -7, -30, 61, -108, -6, -60, 113, UtilsBlink.VER_TYPE_SEPARATOR, -32, -93, 19, ExifInterface.MARKER_SOF2, -89, 106, 91, 96, -48, 90, ExifInterface.MARKER_SOF5, 46, 104, 111, -88, 51, ExifInterface.MARKER_EOI, 40, -36, -113, 86, -92, 25, 30, 94, -13, -15, ExifInterface.MARKER_SOF7, 59, -21, -111, 104, ExifInterface.MARKER_SOF14, -3, -121, -90, -43, 61, 105, -3, 57, 69, 51, -3, ExifInterface.MARKER_APP1, 105, -12, 19, 77, -82, -120, 121, 108, ExifInterface.MARKER_SOF1, -126, 46, -43, 14, -56, 21, ExifInterface.WEBP_VP8L_SIGNATURE, 63, -104, -7, 113, 57, 100, -9, -12, -101, 107, -77, ExifInterface.MARKER_SOF0, 91, -104, ExifInterface.MARKER_SOF3, 0, -7, -72, -19, 75, StandardMessageCodec.LIST, 111, ByteCompanionObject.MAX_VALUE, -115, -46, -99, -111, -93, -67, -42, -66, 32, 81, 70, 109, ExifInterface.MARKER_SOF7, 10, 19, ExifInterface.MARKER_SOF15, -44, 59, 21, 31, ExifInterface.MARKER_SOF3, ExifInterface.MARKER_SOF5, 83, -14, 43, 73, -88, 120, ExifInterface.MARKER_SOF6, -46, 46, 66, 41, -2, -70, -6, -42, 103, 8, 4, 89, 110, -122, 68, -86, 62, -68, 13, -117, Base64.INTERNAL_PADDING, -52, -6, 106, -91, 91, ExifInterface.MARKER_SOF2, -56, -26, -41, -109, 68, -102, -43, -29, 113, 43, -126, -127, 122, -47, -30, -96, -2, 78, 44, -92, ExifInterface.MARKER_SOS, -124, -102, 73, -105, -66, 5, -85, -7, 56} : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{48, -126, 3, 99, 48, -126, 2, 75, -96, 3, 2, 1, 2, 2, 4, 106, -93, 120, 122, 48, 13, 6, 9, 42, -122, 72, -122, -9, 13, 1, 1, 11, 5, 0, 48, 97, 49, 11, 48, 9, 6, 3, 85, 4, 6, 19, 2, 99, 110, 49, 16, 48, 14, 6, 3, 85, 4, 8, 19, 7, 98, Constants.SHORT_PING_CMD_TYPE, 105, 106, 105, 110, 103, 49, 16, 48, 14, 6, 3, 85, 4, 7, 19, 7, 104, 97, 105, 100, 105, 97, 110, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 10, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 11, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 3, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 48, 32, 23, 13, 49, 53, 49, 48, 50, 49, 48, 52, 51, 54, 51, 55, 90, 24, 15, 50, 48, 55, 48, 48, 55, 50, 52, 48, 52, 51, 54, 51, 55, 90, 48, 97, 49, 11, 48, 9, 6, 3, 85, 4, 6, 19, 2, 99, 110, 49, 16, 48, 14, 6, 3, 85, 4, 8, 19, 7, 98, Constants.SHORT_PING_CMD_TYPE, 105, 106, 105, 110, 103, 49, 16, 48, 14, 6, 3, 85, 4, 7, 19, 7, 104, 97, 105, 100, 105, 97, 110, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 10, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 11, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 49, 14, 48, StandardMessageCodec.LIST, 6, 3, 85, 4, 3, 19, 5, 98, 97, 105, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 48, -126, 1, 34, 48, 13, 6, 9, 42, -122, 72, -122, -9, 13, 1, 1, 1, 5, 0, 3, -126, 1, 15, 0, 48, -126, 1, 10, 2, -126, 1, 1, 0, -86, -91, -2, -41, ByteCompanionObject.MAX_VALUE, 37, -25, -33, 93, 51, -73, 32, -81, 61, 108, 37, 126, 14, -125, 125, -55, -29, 34, -60, 84, -67, -46, 125, -93, -67, -27, 97, 54, Base64.INTERNAL_PADDING, 0, -6, 83, 67, -116, 43, -24, 26, 88, -5, PublicSuffixDatabase.EXCEPTION_MARKER, 27, -105, 49, 76, -70, -32, 105, -48, 67, 69, 102, -111, -81, 93, -103, -18, 17, 55, 81, -34, -80, -76, -13, -84, 6, 91, 10, 48, -56, -1, UtilsBlink.VER_TYPE_SEPARATOR, 9, 23, 34, 6, 103, Base64.INTERNAL_PADDING, -51, 29, 70, -19, -51, 20, -39, -43, -97, 75, 23, -124, -101, -71, -75, -107, -88, -13, -71, 80, 90, -76, -119, 51, -80, 118, ByteCompanionObject.MIN_VALUE, -12, -108, 98, -29, -27, 60, -119, -74, 110, 61, 51, -22, 53, 66, -99, -45, -25, 111, -121, 25, -72, ByteCompanionObject.MAX_VALUE, 3, 51, -100, 57, -90, 116, -59, -117, 74, -71, 121, 59, 19, -8, -109, PublicSuffixDatabase.EXCEPTION_MARKER, -14, 76, -105, -127, -23, 5, 99, -82, 22, -99, 51, 78, -26, 77, -52, -29, 121, 42, -76, 20, 2, 116, 111, -76, 2, -78, -90, -54, 81, 115, 82, 50, 124, -83, 96, 20, -40, -118, 105, 90, -70, 120, -33, -110, StandardMessageCodec.LIST, -15, 38, 34, -125, -116, 69, -54, -103, -109, -124, 26, 94, -89, -98, -11, -66, 89, 48, -68, -51, 107, -60, StandardMessageCodec.LIST, 114, -71, 119, 49, -31, -65, 113, -99, 3, -90, 79, -88, -38, -87, -25, -38, 41, 110, -25, 29, 49, 124, -76, -91, 77, -11, -90, 114, -63, 118, -22, -5, -124, 19, 22, -74, -75, 78, 28, 47, -69, 2, 3, 1, 0, 1, -93, PublicSuffixDatabase.EXCEPTION_MARKER, 48, 31, 48, 29, 6, 3, 85, 29, 14, 4, 22, 4, 20, -41, -108, PublicSuffixDatabase.EXCEPTION_MARKER, -126, -103, Base64.INTERNAL_PADDING, 115, -83, 99, 110, -39, 110, -125, -118, -69, 87, -103, 30, StandardMessageCodec.LIST, -53, 48, 13, 6, 9, 42, -122, 72, -122, -9, 13, 1, 1, 11, 5, 0, 3, -126, 1, 1, 0, 0, -117, 0, -28, 51, 26, -4, -15, 86, ByteCompanionObject.MAX_VALUE, 14, -101, -48, 121, 115, -53, -72, -22, 4, -83, 49, 106, -15, -44, -116, -105, 19, 65, -32, 65, 92, 21, 51, 61, -21, -74, 71, 91, 64, 75, -72, -48, 102, 17, -120, -23, -68, 51, 23, -104, 107, 65, -30, 109, -6, 46, -44, -46, -73, -54, -55, 63, 77, -54, -11, -51, 27, -1, 114, 86, -80, 28, -89, 29, -20, 49, -8, 57, -7, -30, 61, -108, -6, -60, 113, UtilsBlink.VER_TYPE_SEPARATOR, -32, -93, 19, -62, -89, 106, 91, 96, -48, 90, -59, 46, 104, 111, -88, 51, -39, 40, -36, -113, 86, -92, 25, 30, 94, -13, -15, -57, 59, -21, -111, 104, -50, -3, -121, -90, -43, 61, 105, -3, 57, 69, 51, -3, -31, 105, -12, 19, 77, -82, -120, 121, 108, -63, -126, 46, -43, 14, -56, 21, 47, 63, -104, -7, 113, 57, 100, -9, -12, -101, 107, -77, -64, 91, -104, -61, 0, -7, -72, -19, 75, StandardMessageCodec.LIST, 111, ByteCompanionObject.MAX_VALUE, -115, -46, -99, -111, -93, -67, -42, -66, 32, 81, 70, 109, -57, 10, 19, -49, -44, 59, 21, 31, -61, -59, 83, -14, 43, 73, -88, 120, -58, -46, 46, 66, 41, -2, -70, -6, -42, 103, 8, 4, 89, 110, -122, 68, -86, 62, -68, 13, -117, Base64.INTERNAL_PADDING, -52, -6, 106, -91, 91, -62, -56, -26, -41, -109, 68, -102, -43, -29, 113, 43, -126, -127, 122, -47, -30, -96, -2, 78, 44, -92, -38, -124, -102, 73, -105, -66, 5, -85, -7, 56} : (byte[]) invokeV.objValue;
         }
     }
 
@@ -457,7 +456,7 @@ public final class a {
             }
         }
         String str = new String(c.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
-        f3523c = str + new String(c.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+        f3613c = str + new String(c.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
     }
 
     public a(Context context) {
@@ -475,7 +474,7 @@ public final class a {
                 return;
             }
         }
-        this.f3525a = context.getApplicationContext();
+        this.f3615a = context.getApplicationContext();
         t();
     }
 
@@ -598,7 +597,7 @@ public final class a {
                 return null;
             }
             try {
-                return new String(b.a(f3523c, f3523c, c.a(str.getBytes())));
+                return new String(b.a(f3613c, f3613c, c.a(str.getBytes())));
             } catch (Exception e2) {
                 m(e2);
                 return "";
@@ -617,25 +616,25 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<d> f2 = f(new Intent("com.baidu.intent.action.GALAXY").setPackage(this.f3525a.getPackageName()), true);
+            List<d> f2 = f(new Intent("com.baidu.intent.action.GALAXY").setPackage(this.f3615a.getPackageName()), true);
             boolean z = false;
             if (f2 != null && f2.size() != 0) {
-                z = f2.get(0).f3530d;
+                z = f2.get(0).f3620d;
             }
-            File file = new File(this.f3525a.getFilesDir(), "libcuid.so");
+            File file = new File(this.f3615a.getFilesDir(), "libcuid.so");
             e a2 = file.exists() ? e.a(p(c(file))) : null;
             if (a2 == null) {
-                f3524d |= 16;
+                f3614d |= 16;
                 List<d> f3 = f(new Intent("com.baidu.intent.action.GALAXY"), z);
                 if (f3 != null) {
-                    String str = com.baidu.fsg.face.base.b.c.f37774g;
-                    File filesDir = this.f3525a.getFilesDir();
-                    if (!com.baidu.fsg.face.base.b.c.f37774g.equals(filesDir.getName())) {
+                    String str = com.baidu.fsg.face.base.b.c.f38604g;
+                    File filesDir = this.f3615a.getFilesDir();
+                    if (!com.baidu.fsg.face.base.b.c.f38604g.equals(filesDir.getName())) {
                         str = filesDir.getName();
                     }
                     for (d dVar : f3) {
-                        if (!dVar.f3528b) {
-                            File file2 = new File(new File(dVar.f3527a.dataDir, str), "libcuid.so");
+                        if (!dVar.f3618b) {
+                            File file2 = new File(new File(dVar.f3617a.dataDir, str), "libcuid.so");
                             if (file2.exists() && (a2 = e.a(p(c(file2)))) != null) {
                                 break;
                             }
@@ -648,15 +647,15 @@ public final class a {
             }
             boolean n = n("android.permission.READ_EXTERNAL_STORAGE");
             if (a2 == null && n) {
-                f3524d |= 2;
+                f3614d |= 2;
                 a2 = o();
             }
             if (a2 == null) {
-                f3524d |= 8;
+                f3614d |= 8;
                 a2 = l();
             }
             if (a2 == null && n) {
-                f3524d |= 1;
+                f3614d |= 1;
                 a2 = s(q());
             }
             h(a2);
@@ -670,7 +669,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, z)) == null) {
             ArrayList arrayList = new ArrayList();
-            PackageManager packageManager = this.f3525a.getPackageManager();
+            PackageManager packageManager = this.f3615a.getPackageManager();
             List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
             if (queryBroadcastReceivers != null) {
                 for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
@@ -684,10 +683,10 @@ public final class a {
                                     byte[] a2 = c.a(string.getBytes("utf-8"));
                                     JSONObject jSONObject = new JSONObject(new String(a2));
                                     d dVar = new d(null);
-                                    dVar.f3529c = jSONObject.getInt("priority");
-                                    dVar.f3527a = resolveInfo.activityInfo.applicationInfo;
-                                    if (this.f3525a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        dVar.f3528b = true;
+                                    dVar.f3619c = jSONObject.getInt("priority");
+                                    dVar.f3617a = resolveInfo.activityInfo.applicationInfo;
+                                    if (this.f3615a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
+                                        dVar.f3618b = true;
                                     }
                                     if (z) {
                                         String string2 = bundle.getString("galaxy_sf");
@@ -700,9 +699,9 @@ public final class a {
                                                 strArr[i2] = jSONArray.getString(i2);
                                             }
                                             if (i(strArr, k(packageInfo.signatures))) {
-                                                byte[] j = j(c.a(string2.getBytes()), this.f3526b);
+                                                byte[] j = j(c.a(string2.getBytes()), this.f3616b);
                                                 if (j != null && Arrays.equals(j, g.a(a2))) {
-                                                    dVar.f3530d = true;
+                                                    dVar.f3620d = true;
                                                 }
                                             }
                                         }
@@ -716,7 +715,7 @@ public final class a {
                     }
                 }
             }
-            Collections.sort(arrayList, new C0098a(this));
+            Collections.sort(arrayList, new C0100a(this));
             return arrayList;
         }
         return (List) invokeLZ.objValue;
@@ -730,10 +729,10 @@ public final class a {
                 return false;
             }
             if (eVar.f()) {
-                eVar.f3532b = "O";
+                eVar.f3622b = "O";
                 return true;
             } else if (eVar.h()) {
-                eVar.f3532b = "0";
+                eVar.f3622b = "0";
                 return true;
             } else {
                 return false;
@@ -785,7 +784,7 @@ public final class a {
     public final boolean n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f3525a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f3615a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
     }
 
     public final e o() {
@@ -799,7 +798,7 @@ public final class a {
                     return null;
                 }
                 try {
-                    return e.a(new String(b.a(f3523c, f3523c, c.a(c2.getBytes()))));
+                    return e.a(new String(b.a(f3613c, f3613c, c.a(c2.getBytes()))));
                 } catch (Exception e2) {
                     m(e2);
                     return null;
@@ -838,7 +837,7 @@ public final class a {
                     sb.append(Part.CRLF);
                 }
                 bufferedReader.close();
-                String[] split = new String(b.a(f3523c, f3523c, c.a(sb.toString().getBytes()))).split("=");
+                String[] split = new String(b.a(f3613c, f3613c, c.a(sb.toString().getBytes()))).split("=");
                 if (split == null || split.length != 2) {
                     str2 = "";
                 } else {
@@ -875,7 +874,7 @@ public final class a {
                     try {
                         byteArrayInputStream = new ByteArrayInputStream(f.a());
                         try {
-                            this.f3526b = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+                            this.f3616b = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
                             byteArrayInputStream.close();
                         } catch (Exception e3) {
                             e2 = e3;
@@ -917,7 +916,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             try {
-                return Settings.System.getString(this.f3525a.getContentResolver(), str);
+                return Settings.System.getString(this.f3615a.getContentResolver(), str);
             } catch (Exception e2) {
                 m(e2);
                 return null;

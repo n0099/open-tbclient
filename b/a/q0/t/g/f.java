@@ -1,6 +1,6 @@
 package b.a.q0.t.g;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;

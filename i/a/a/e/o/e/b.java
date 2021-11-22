@@ -22,33 +22,33 @@ import i.a.a.e.n.l;
 import java.util.List;
 import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f72380e;
+    public final Context f73299e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<GiftBagItemInfo> f72381f;
+    public List<GiftBagItemInfo> f73300f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PayUIKitConfig f72382g;
+    public PayUIKitConfig f73301g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f72383a;
+        public TextView f73302a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f72384b;
+        public TextView f73303b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f72385c;
+        public ImageView f73304c;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -82,9 +82,9 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f72380e = context;
-        this.f72381f = list;
-        this.f72382g = payUIKitConfig;
+        this.f73299e = context;
+        this.f73300f = list;
+        this.f73301g = payUIKitConfig;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -94,11 +94,11 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<GiftBagItemInfo> list = this.f72381f;
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f72381f.size()) {
+            List<GiftBagItemInfo> list = this.f73300f;
+            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f73300f.size()) {
                 return null;
             }
-            return this.f72381f.get(i2);
+            return this.f73300f.get(i2);
         }
         return (GiftBagItemInfo) invokeI.objValue;
     }
@@ -107,7 +107,7 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72381f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73300f.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -124,29 +124,29 @@ public class b extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(new ContextThemeWrapper(this.f72380e, l.f72365a.a(this.f72382g))).inflate(getCount() <= 2 ? e.pay_ui_item_pay_gift_bag_big : e.pay_ui_item_pay_gift_bag_small, (ViewGroup) null);
+                view = LayoutInflater.from(new ContextThemeWrapper(this.f73299e, l.f73284a.a(this.f73301g))).inflate(getCount() <= 2 ? e.pay_ui_item_pay_gift_bag_big : e.pay_ui_item_pay_gift_bag_small, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.f72383a = (TextView) view.findViewById(d.tv_gift_name);
-                aVar.f72385c = (ImageView) view.findViewById(d.img_gift);
-                aVar.f72384b = (TextView) view.findViewById(d.tv_num);
+                aVar.f73302a = (TextView) view.findViewById(d.tv_gift_name);
+                aVar.f73304c = (ImageView) view.findViewById(d.img_gift);
+                aVar.f73303b = (TextView) view.findViewById(d.tv_num);
                 view.setTag(aVar);
             } else {
                 aVar = (a) view.getTag();
             }
             GiftBagItemInfo item = getItem(i2);
-            aVar.f72383a.setText(item.name);
+            aVar.f73302a.setText(item.name);
             if (item.count == 0) {
-                aVar.f72384b.setVisibility(4);
+                aVar.f73303b.setVisibility(4);
             } else {
-                aVar.f72384b.setVisibility(0);
-                TextView textView = aVar.f72384b;
+                aVar.f73303b.setVisibility(0);
+                TextView textView = aVar.f73303b;
                 textView.setText("x" + item.count);
             }
-            PayUIKitConfig payUIKitConfig = this.f72382g;
+            PayUIKitConfig payUIKitConfig = this.f73301g;
             if (payUIKitConfig == null && payUIKitConfig.imageLoaderSupplier == null) {
                 RLog.error("PayGiftBagAdapter", "getView error mPayUIKitConfig null", new Object[0]);
             } else {
-                this.f72382g.imageLoaderSupplier.onLoad(this.f72380e, aVar.f72385c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
+                this.f73301g.imageLoaderSupplier.onLoad(this.f73299e, aVar.f73304c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
             }
             return view;
         }

@@ -16,17 +16,17 @@ public class p0 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f13416h;
+    public static final BdUniqueId f14196h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13417e;
+    public boolean f14197e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13418f;
+    public String f14198f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ICardInfo f13419g;
+    public ICardInfo f14199g;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class p0 extends BaseCardInfo {
                 return;
             }
         }
-        f13416h = BdUniqueId.gen();
+        f14196h = BdUniqueId.gen();
     }
 
     public p0() {
@@ -61,35 +61,35 @@ public class p0 extends BaseCardInfo {
     public ICardInfo g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13419g : (ICardInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14199g : (ICardInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f13416h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14196h : (BdUniqueId) invokeV.objValue;
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ICardInfo i2 = b.a.r0.q1.o.b.i(this.f13418f);
-            this.f13419g = i2;
-            this.f13417e = i2 != null;
+            ICardInfo i2 = b.a.r0.q1.o.b.i(this.f14198f);
+            this.f14199g = i2;
+            this.f14197e = i2 != null;
         }
     }
 
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13417e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14197e : invokeV.booleanValue;
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f13418f = str;
+            this.f14198f = str;
         }
     }
 }

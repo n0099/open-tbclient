@@ -10,16 +10,16 @@ import h.o.d.j.i;
 import java.util.AbstractQueue;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a<E> extends AbstractQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReferenceArray<E> f72090e;
+    public final AtomicReferenceArray<E> f73009e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f72091f;
+    public final int f73010f;
 
     public a(int i2) {
         Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public abstract class a<E> extends AbstractQueue<E> {
             }
         }
         int b2 = i.b(i2);
-        this.f72091f = b2 - 1;
-        this.f72090e = new AtomicReferenceArray<>(b2);
+        this.f73010f = b2 - 1;
+        this.f73009e = new AtomicReferenceArray<>(b2);
     }
 
     public final int a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.f72091f & ((int) j) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.f73010f & ((int) j) : invokeJ.intValue;
     }
 
     public final int b(long j, int i2) {
@@ -56,7 +56,7 @@ public abstract class a<E> extends AbstractQueue<E> {
     public final E c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? d(this.f72090e, i2) : (E) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? d(this.f73009e, i2) : (E) invokeI.objValue;
     }
 
     @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection

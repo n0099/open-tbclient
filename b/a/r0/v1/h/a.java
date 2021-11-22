@@ -27,17 +27,17 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24350e;
+    public String f25813e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f24351f;
+    public List<String> f25814f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f24352g;
+    public Context f25815g;
 
     /* renamed from: b.a.r0.v1.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class C1190a {
+    public static /* synthetic */ class C1256a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -57,8 +57,8 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f24352g = context;
-        this.f24351f = arrayList;
+        this.f25815g = context;
+        this.f25814f = arrayList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,18 +72,18 @@ public class a extends BaseAdapter {
             if (count <= 0 || i2 >= count) {
                 return null;
             }
-            return this.f24351f.get(i2);
+            return this.f25814f.get(i2);
         }
         return (String) invokeI.objValue;
     }
 
     public void b(TextView textView, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f24350e)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f25813e)) {
             return;
         }
         String lowerCase = str.toLowerCase();
-        String lowerCase2 = this.f24350e.toLowerCase();
+        String lowerCase2 = this.f25813e.toLowerCase();
         if (!lowerCase.contains(lowerCase2)) {
             textView.setText(str);
             return;
@@ -91,14 +91,14 @@ public class a extends BaseAdapter {
         int indexOf = lowerCase.indexOf(lowerCase2);
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f24350e.length() + indexOf, 33);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f25813e.length() + indexOf, 33);
         textView.setText(spannableStringBuilder);
     }
 
     public void c(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f24351f = list;
+            this.f25814f = list;
             if (list != null) {
                 notifyDataSetChanged();
             }
@@ -110,7 +110,7 @@ public class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        this.f24350e = str.trim();
+        this.f25813e = str.trim();
     }
 
     @Override // android.widget.Adapter
@@ -118,7 +118,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<String> list = this.f24351f;
+            List<String> list = this.f25814f;
             if (list == null) {
                 return 0;
             }
@@ -141,11 +141,11 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f24352g).inflate(R.layout.search_suggest_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f25815g).inflate(R.layout.search_suggest_item, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.f24354b = view.findViewById(R.id.rootview);
-                bVar.f24355c = (TextView) view.findViewById(R.id.searchSuggestTitle);
-                bVar.f24356d = view.findViewById(R.id.searchItemSep);
+                bVar.f25817b = view.findViewById(R.id.rootview);
+                bVar.f25818c = (TextView) view.findViewById(R.id.searchSuggestTitle);
+                bVar.f25819d = view.findViewById(R.id.searchItemSep);
                 view.setTag(bVar);
             } else {
                 bVar = (b) view.getTag();
@@ -154,13 +154,13 @@ public class a extends BaseAdapter {
             if (StringUtils.isNull(item)) {
                 return view;
             }
-            b(bVar.f24355c, item);
+            b(bVar.f25818c, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != bVar.f24353a) {
-                bVar.f24353a = skinType;
-                SkinManager.setBackgroundResource(bVar.f24354b, R.drawable.addresslist_item_bg);
-                SkinManager.setViewTextColor(bVar.f24355c, R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(bVar.f24356d, R.color.CAM_X0204);
+            if (skinType != bVar.f25816a) {
+                bVar.f25816a = skinType;
+                SkinManager.setBackgroundResource(bVar.f25817b, R.drawable.addresslist_item_bg);
+                SkinManager.setViewTextColor(bVar.f25818c, R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(bVar.f25819d, R.color.CAM_X0204);
             }
             return view;
         }
@@ -173,16 +173,16 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f24353a;
+        public int f25816a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f24354b;
+        public View f25817b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f24355c;
+        public TextView f25818c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f24356d;
+        public View f25819d;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -199,10 +199,10 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f24353a = 3;
+            this.f25816a = 3;
         }
 
-        public /* synthetic */ b(a aVar, C1190a c1190a) {
+        public /* synthetic */ b(a aVar, C1256a c1256a) {
             this(aVar);
         }
     }

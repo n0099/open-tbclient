@@ -25,31 +25,31 @@ public class ak extends LinearLayout implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f40100a;
+    public ImageView f40932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f40101b;
+    public ImageView f40933b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f40102c;
+    public Context f40934c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Bitmap f40103d;
+    public Bitmap f40935d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f40104e;
+    public Bitmap f40936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f40105f;
+    public Bitmap f40937f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f40106g;
+    public Bitmap f40938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f40107h;
+    public Bitmap f40939h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bitmap f40108i;
+    public Bitmap f40940i;
     public Bitmap j;
     public Bitmap k;
     public int l;
@@ -77,28 +77,28 @@ public class ak extends LinearLayout implements View.OnTouchListener {
         }
         this.m = false;
         this.n = false;
-        this.f40102c = context;
+        this.f40934c = context;
         c();
-        if (this.f40103d == null || this.f40104e == null || this.f40105f == null || this.f40106g == null) {
+        if (this.f40935d == null || this.f40936e == null || this.f40937f == null || this.f40938g == null) {
             return;
         }
-        this.f40100a = new ImageView(this.f40102c);
-        this.f40101b = new ImageView(this.f40102c);
-        this.f40100a.setImageBitmap(this.f40103d);
-        this.f40101b.setImageBitmap(this.f40105f);
-        this.l = a(this.f40105f.getHeight() / 6);
-        a(this.f40100a, "main_topbtn_up.9.png");
-        a(this.f40101b, "main_bottombtn_up.9.png");
-        this.f40100a.setId(0);
-        this.f40101b.setId(1);
-        this.f40100a.setClickable(true);
-        this.f40101b.setClickable(true);
-        this.f40100a.setOnTouchListener(this);
-        this.f40101b.setOnTouchListener(this);
+        this.f40932a = new ImageView(this.f40934c);
+        this.f40933b = new ImageView(this.f40934c);
+        this.f40932a.setImageBitmap(this.f40935d);
+        this.f40933b.setImageBitmap(this.f40937f);
+        this.l = a(this.f40937f.getHeight() / 6);
+        a(this.f40932a, "main_topbtn_up.9.png");
+        a(this.f40933b, "main_bottombtn_up.9.png");
+        this.f40932a.setId(0);
+        this.f40933b.setId(1);
+        this.f40932a.setClickable(true);
+        this.f40933b.setClickable(true);
+        this.f40932a.setOnTouchListener(this);
+        this.f40933b.setOnTouchListener(this);
         setOrientation(1);
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        addView(this.f40100a);
-        addView(this.f40101b);
+        addView(this.f40932a);
+        addView(this.f40933b);
         this.n = true;
     }
 
@@ -122,50 +122,50 @@ public class ak extends LinearLayout implements View.OnTouchListener {
         }
         this.m = false;
         this.n = false;
-        this.f40102c = context;
+        this.f40934c = context;
         this.m = z;
-        this.f40100a = new ImageView(this.f40102c);
-        this.f40101b = new ImageView(this.f40102c);
+        this.f40932a = new ImageView(this.f40934c);
+        this.f40933b = new ImageView(this.f40934c);
         if (z) {
             d();
-            if (this.f40107h == null || this.f40108i == null || this.j == null || this.k == null) {
+            if (this.f40939h == null || this.f40940i == null || this.j == null || this.k == null) {
                 return;
             }
-            this.f40100a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f40101b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f40100a.setImageBitmap(this.f40107h);
-            this.f40101b.setImageBitmap(this.j);
+            this.f40932a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.f40933b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.f40932a.setImageBitmap(this.f40939h);
+            this.f40933b.setImageBitmap(this.j);
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setOrientation(0);
         } else {
             c();
-            Bitmap bitmap = this.f40103d;
-            if (bitmap == null || this.f40104e == null || this.f40105f == null || this.f40106g == null) {
+            Bitmap bitmap = this.f40935d;
+            if (bitmap == null || this.f40936e == null || this.f40937f == null || this.f40938g == null) {
                 return;
             }
-            this.f40100a.setImageBitmap(bitmap);
-            this.f40101b.setImageBitmap(this.f40105f);
-            this.l = a(this.f40105f.getHeight() / 6);
-            a(this.f40100a, "main_topbtn_up.9.png");
-            a(this.f40101b, "main_bottombtn_up.9.png");
+            this.f40932a.setImageBitmap(bitmap);
+            this.f40933b.setImageBitmap(this.f40937f);
+            this.l = a(this.f40937f.getHeight() / 6);
+            a(this.f40932a, "main_topbtn_up.9.png");
+            a(this.f40933b, "main_bottombtn_up.9.png");
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setOrientation(1);
         }
-        this.f40100a.setId(0);
-        this.f40101b.setId(1);
-        this.f40100a.setClickable(true);
-        this.f40101b.setClickable(true);
-        this.f40100a.setOnTouchListener(this);
-        this.f40101b.setOnTouchListener(this);
-        addView(this.f40100a);
-        addView(this.f40101b);
+        this.f40932a.setId(0);
+        this.f40933b.setId(1);
+        this.f40932a.setClickable(true);
+        this.f40933b.setClickable(true);
+        this.f40932a.setOnTouchListener(this);
+        this.f40933b.setOnTouchListener(this);
+        addView(this.f40932a);
+        addView(this.f40933b);
         this.n = true;
     }
 
     private int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? (int) ((this.f40102c.getResources().getDisplayMetrics().density * i2) + 0.5f) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? (int) ((this.f40934c.getResources().getDisplayMetrics().density * i2) + 0.5f) : invokeI.intValue;
     }
 
     private Bitmap a(String str) {
@@ -176,7 +176,7 @@ public class ak extends LinearLayout implements View.OnTouchListener {
             int densityDpi = SysOSUtil.getDensityDpi();
             float f2 = densityDpi > 480 ? 1.8f : (densityDpi <= 320 || densityDpi > 480) ? 1.2f : 1.5f;
             matrix.postScale(f2, f2);
-            Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.f40102c);
+            Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.f40934c);
             return Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
         }
         return (Bitmap) invokeL.objValue;
@@ -185,7 +185,7 @@ public class ak extends LinearLayout implements View.OnTouchListener {
     private void a(View view, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view, str) == null) {
-            Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.f40102c);
+            Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, this.f40934c);
             byte[] ninePatchChunk = a2.getNinePatchChunk();
             NinePatch.isNinePatchChunk(ninePatchChunk);
             view.setBackgroundDrawable(new NinePatchDrawable(a2, ninePatchChunk, new Rect(), null));
@@ -197,18 +197,18 @@ public class ak extends LinearLayout implements View.OnTouchListener {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            this.f40103d = a("main_icon_zoomin.png");
-            this.f40104e = a("main_icon_zoomin_dis.png");
-            this.f40105f = a("main_icon_zoomout.png");
-            this.f40106g = a("main_icon_zoomout_dis.png");
+            this.f40935d = a("main_icon_zoomin.png");
+            this.f40936e = a("main_icon_zoomin_dis.png");
+            this.f40937f = a("main_icon_zoomout.png");
+            this.f40938g = a("main_icon_zoomout_dis.png");
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            this.f40107h = a("wear_zoom_in.png");
-            this.f40108i = a("wear_zoom_in_pressed.png");
+            this.f40939h = a("wear_zoom_in.png");
+            this.f40940i = a("wear_zoom_in_pressed.png");
             this.j = a("wear_zoon_out.png");
             this.k = a("wear_zoom_out_pressed.png");
         }
@@ -217,7 +217,7 @@ public class ak extends LinearLayout implements View.OnTouchListener {
     public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.f40100a.setOnClickListener(onClickListener);
+            this.f40932a.setOnClickListener(onClickListener);
         }
     }
 
@@ -226,13 +226,13 @@ public class ak extends LinearLayout implements View.OnTouchListener {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f40100a.setEnabled(z);
+            this.f40932a.setEnabled(z);
             if (z) {
-                imageView = this.f40100a;
-                bitmap = this.f40103d;
+                imageView = this.f40932a;
+                bitmap = this.f40935d;
             } else {
-                imageView = this.f40100a;
-                bitmap = this.f40104e;
+                imageView = this.f40932a;
+                bitmap = this.f40936e;
             }
             imageView.setImageBitmap(bitmap);
         }
@@ -247,35 +247,35 @@ public class ak extends LinearLayout implements View.OnTouchListener {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Bitmap bitmap = this.f40103d;
+            Bitmap bitmap = this.f40935d;
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f40103d.recycle();
-                this.f40103d = null;
+                this.f40935d.recycle();
+                this.f40935d = null;
             }
-            Bitmap bitmap2 = this.f40104e;
+            Bitmap bitmap2 = this.f40936e;
             if (bitmap2 != null && !bitmap2.isRecycled()) {
-                this.f40104e.recycle();
-                this.f40104e = null;
+                this.f40936e.recycle();
+                this.f40936e = null;
             }
-            Bitmap bitmap3 = this.f40105f;
+            Bitmap bitmap3 = this.f40937f;
             if (bitmap3 != null && !bitmap3.isRecycled()) {
-                this.f40105f.recycle();
-                this.f40105f = null;
+                this.f40937f.recycle();
+                this.f40937f = null;
             }
-            Bitmap bitmap4 = this.f40106g;
+            Bitmap bitmap4 = this.f40938g;
             if (bitmap4 != null && !bitmap4.isRecycled()) {
-                this.f40106g.recycle();
-                this.f40106g = null;
+                this.f40938g.recycle();
+                this.f40938g = null;
             }
-            Bitmap bitmap5 = this.f40107h;
+            Bitmap bitmap5 = this.f40939h;
             if (bitmap5 != null && !bitmap5.isRecycled()) {
-                this.f40107h.recycle();
-                this.f40107h = null;
+                this.f40939h.recycle();
+                this.f40939h = null;
             }
-            Bitmap bitmap6 = this.f40108i;
+            Bitmap bitmap6 = this.f40940i;
             if (bitmap6 != null && !bitmap6.isRecycled()) {
-                this.f40108i.recycle();
-                this.f40108i = null;
+                this.f40940i.recycle();
+                this.f40940i = null;
             }
             Bitmap bitmap7 = this.j;
             if (bitmap7 != null && !bitmap7.isRecycled()) {
@@ -294,7 +294,7 @@ public class ak extends LinearLayout implements View.OnTouchListener {
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f40101b.setOnClickListener(onClickListener);
+            this.f40933b.setOnClickListener(onClickListener);
         }
     }
 
@@ -303,13 +303,13 @@ public class ak extends LinearLayout implements View.OnTouchListener {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f40101b.setEnabled(z);
+            this.f40933b.setEnabled(z);
             if (z) {
-                imageView = this.f40101b;
-                bitmap = this.f40105f;
+                imageView = this.f40933b;
+                bitmap = this.f40937f;
             } else {
-                imageView = this.f40101b;
-                bitmap = this.f40106g;
+                imageView = this.f40933b;
+                bitmap = this.f40938g;
             }
             imageView.setImageBitmap(bitmap);
         }
@@ -329,23 +329,23 @@ public class ak extends LinearLayout implements View.OnTouchListener {
                 if (id == 0) {
                     if (motionEvent.getAction() == 0) {
                         if (this.m) {
-                            imageView = this.f40100a;
-                            bitmap = this.f40108i;
+                            imageView = this.f40932a;
+                            bitmap = this.f40940i;
                             imageView.setImageBitmap(bitmap);
                             return false;
                         }
-                        imageView2 = this.f40100a;
+                        imageView2 = this.f40932a;
                         str = "main_topbtn_down.9.png";
                         a(imageView2, str);
                         return false;
                     } else if (motionEvent.getAction() == 1) {
                         if (this.m) {
-                            imageView = this.f40100a;
-                            bitmap = this.f40107h;
+                            imageView = this.f40932a;
+                            bitmap = this.f40939h;
                             imageView.setImageBitmap(bitmap);
                             return false;
                         }
-                        imageView2 = this.f40100a;
+                        imageView2 = this.f40932a;
                         str = "main_topbtn_up.9.png";
                         a(imageView2, str);
                         return false;
@@ -357,23 +357,23 @@ public class ak extends LinearLayout implements View.OnTouchListener {
                 } else {
                     if (motionEvent.getAction() == 0) {
                         if (this.m) {
-                            imageView = this.f40101b;
+                            imageView = this.f40933b;
                             bitmap = this.k;
                             imageView.setImageBitmap(bitmap);
                             return false;
                         }
-                        imageView2 = this.f40101b;
+                        imageView2 = this.f40933b;
                         str = "main_bottombtn_down.9.png";
                         a(imageView2, str);
                         return false;
                     } else if (motionEvent.getAction() == 1) {
                         if (this.m) {
-                            imageView = this.f40101b;
+                            imageView = this.f40933b;
                             bitmap = this.j;
                             imageView.setImageBitmap(bitmap);
                             return false;
                         }
-                        imageView2 = this.f40101b;
+                        imageView2 = this.f40933b;
                         str = "main_bottombtn_up.9.png";
                         a(imageView2, str);
                         return false;

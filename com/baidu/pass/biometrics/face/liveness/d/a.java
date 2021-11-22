@@ -20,31 +20,31 @@ public class a extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41877a;
+    public Context f42709a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewSwitcher f41878b;
+    public ViewSwitcher f42710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f41879c;
+    public LinearLayout f42711c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f41880d;
+    public TextView f42712d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f41881e;
+    public TextView f42713e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f41882f;
+    public TextView f42714f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41883g;
+    public TextView f42715g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f41884h;
+    public TextView f42716h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f41885i;
+    public TextView f42717i;
     public TextView j;
     public TextView k;
     public TextView l;
@@ -69,7 +69,7 @@ public class a extends Dialog {
                 return;
             }
         }
-        this.f41877a = context;
+        this.f42709a = context;
         a();
     }
 
@@ -78,18 +78,18 @@ public class a extends Dialog {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             setContentView(R.layout.layout_pass_liveness_alert_dialog);
             setCanceledOnTouchOutside(false);
-            this.f41878b = (ViewSwitcher) findViewById(R.id.view_switcher);
-            this.f41880d = (TextView) findViewById(R.id.dialog_title);
-            this.f41881e = (TextView) findViewById(R.id.dialog_msg);
-            this.f41882f = (TextView) findViewById(R.id.msg_text);
-            this.f41883g = (TextView) findViewById(R.id.pass_bio_dialog_time_left);
-            this.f41884h = (TextView) findViewById(R.id.pass_bio_dialog_time_center);
-            this.f41885i = (TextView) findViewById(R.id.pass_bio_dialog_time_right);
+            this.f42710b = (ViewSwitcher) findViewById(R.id.view_switcher);
+            this.f42712d = (TextView) findViewById(R.id.dialog_title);
+            this.f42713e = (TextView) findViewById(R.id.dialog_msg);
+            this.f42714f = (TextView) findViewById(R.id.msg_text);
+            this.f42715g = (TextView) findViewById(R.id.pass_bio_dialog_time_left);
+            this.f42716h = (TextView) findViewById(R.id.pass_bio_dialog_time_center);
+            this.f42717i = (TextView) findViewById(R.id.pass_bio_dialog_time_right);
             this.j = (TextView) findViewById(R.id.positive_btn);
             this.k = (TextView) findViewById(R.id.negative_btn);
             this.l = (TextView) findViewById(R.id.neutral_btn);
             this.m = (LinearLayout) findViewById(R.id.time_out_dialog_msg);
-            this.f41879c = (LinearLayout) findViewById(R.id.pass_bio_dialog_ll_content);
+            this.f42711c = (LinearLayout) findViewById(R.id.pass_bio_dialog_ll_content);
             CommonViewUtility.setViewClickAlpha(this.j, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.k, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.l, 0.2f);
@@ -99,15 +99,15 @@ public class a extends Dialog {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f41880d.setText(str);
+            this.f42712d.setText(str);
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f41881e.setVisibility(0);
-            this.f41881e.setText(str);
+            this.f42713e.setVisibility(0);
+            this.f42713e.setText(str);
         }
     }
 
@@ -115,9 +115,9 @@ public class a extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                this.f41880d.setVisibility(0);
+                this.f42712d.setVisibility(0);
             } else {
-                this.f41880d.setVisibility(8);
+                this.f42712d.setVisibility(8);
             }
         }
     }
@@ -132,7 +132,7 @@ public class a extends Dialog {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f41882f.setText(i2);
+            this.f42714f.setText(i2);
         }
     }
 
@@ -156,9 +156,9 @@ public class a extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if ((i2 < 1 ? 1 : Math.min(i2, 2)) == 2) {
-                this.f41878b.setDisplayedChild(0);
+                this.f42710b.setDisplayedChild(0);
             } else {
-                this.f41878b.setDisplayedChild(1);
+                this.f42710b.setDisplayedChild(1);
             }
         }
     }
@@ -166,8 +166,8 @@ public class a extends Dialog {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f41882f.setVisibility(0);
-            this.f41882f.setText(str);
+            this.f42714f.setVisibility(0);
+            this.f42714f.setText(str);
         }
     }
 
@@ -183,34 +183,34 @@ public class a extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.f41879c.setBackgroundDrawable(this.f41877a.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg_night));
-                this.f41880d.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_title_text_color));
-                this.f41881e.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_content_text_color_night));
-                this.f41882f.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
-                this.f41883g.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
-                this.f41884h.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
-                this.f41885i.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
-                this.k.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
-                this.j.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color_night));
-                this.l.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color_night));
-                this.k.setBackgroundDrawable(this.f41877a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
-                this.j.setBackgroundDrawable(this.f41877a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg_night));
-                this.l.setBackgroundDrawable(this.f41877a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg_night));
+                this.f42711c.setBackgroundDrawable(this.f42709a.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg_night));
+                this.f42712d.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_title_text_color));
+                this.f42713e.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_content_text_color_night));
+                this.f42714f.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
+                this.f42715g.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
+                this.f42716h.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
+                this.f42717i.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color_night));
+                this.k.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
+                this.j.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color_night));
+                this.l.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color_night));
+                this.k.setBackgroundDrawable(this.f42709a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
+                this.j.setBackgroundDrawable(this.f42709a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg_night));
+                this.l.setBackgroundDrawable(this.f42709a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg_night));
                 return;
             }
-            this.f41879c.setBackgroundDrawable(this.f41877a.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg));
-            this.f41880d.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_title_text_color));
-            this.f41881e.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_content_text_color));
-            this.f41882f.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
-            this.f41883g.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
-            this.f41884h.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
-            this.f41885i.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
-            this.k.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
-            this.j.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color));
-            this.l.setTextColor(this.f41877a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color));
-            this.k.setBackgroundDrawable(this.f41877a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
-            this.j.setBackgroundDrawable(this.f41877a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
-            this.l.setBackgroundDrawable(this.f41877a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
+            this.f42711c.setBackgroundDrawable(this.f42709a.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg));
+            this.f42712d.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_title_text_color));
+            this.f42713e.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_content_text_color));
+            this.f42714f.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
+            this.f42715g.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
+            this.f42716h.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
+            this.f42717i.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_time_out_msg_color));
+            this.k.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
+            this.j.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color));
+            this.l.setTextColor(this.f42709a.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color));
+            this.k.setBackgroundDrawable(this.f42709a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
+            this.j.setBackgroundDrawable(this.f42709a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
+            this.l.setBackgroundDrawable(this.f42709a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
         }
     }
 }

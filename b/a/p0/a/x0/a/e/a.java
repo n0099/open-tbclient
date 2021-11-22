@@ -3,8 +3,9 @@ package b.a.p0.a.x0.a.e;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-import b.a.p0.a.v2.q;
+import androidx.annotation.Nullable;
 import b.a.p0.a.x0.a.c;
+import b.a.p0.a.z2.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -25,17 +26,17 @@ public class a extends UnitedSchemeBaseInterceptor {
 
     /* renamed from: b.a.p0.a.x0.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0451a implements Runnable {
+    public class RunnableC0466a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f8944e;
+        public final /* synthetic */ Context f9288e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8945f;
+        public final /* synthetic */ String f9289f;
 
-        public RunnableC0451a(a aVar, Context context, String str) {
+        public RunnableC0466a(a aVar, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,15 +51,15 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.f8944e = context;
-            this.f8945f = str;
+            this.f9288e = context;
+            this.f9289f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.p0.a.x0.a.a.n().f(this.f8944e, this.f8945f);
+                b.a.p0.a.x0.a.a.n().f(this.f9288e, this.f9289f);
             }
         }
     }
@@ -69,7 +70,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8946e;
+        public final /* synthetic */ String f9290e;
 
         public b(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -86,14 +87,14 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.f8946e = str;
+            this.f9290e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean i2 = c.c().i(this.f8946e);
+                boolean i2 = c.c().i(this.f9290e);
                 b.a.p0.a.x0.a.a n = b.a.p0.a.x0.a.a.n();
                 n.p("cloneResult = " + i2);
             }
@@ -127,18 +128,31 @@ public class a extends UnitedSchemeBaseInterceptor {
         return (String) invokeL.objValue;
     }
 
+    public final boolean b(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            String trim = str.trim();
+            return (trim.length() == 0 || trim.contains(com.baidu.android.imsdk.retrieve.Constants.PATH_PARENT)) ? false : true;
+        }
+        return invokeL.booleanValue;
+    }
+
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
     public String getInterceptorName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
     public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, unitedSchemeEntity, callbackHandler)) == null) {
             Uri uri = unitedSchemeEntity.getUri();
             if (uri != null && TextUtils.equals(uri.getHost(), "swanAPI")) {
                 String path = uri.getPath();
@@ -147,18 +161,18 @@ public class a extends UnitedSchemeBaseInterceptor {
                 }
                 if (TextUtils.equals(path, "/clone")) {
                     String a2 = a(unitedSchemeEntity);
-                    if (TextUtils.isEmpty(a2)) {
-                        return false;
+                    if (b(a2)) {
+                        q.k(new RunnableC0466a(this, context, a2), "cloneSwanAppRunnable");
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                        return true;
                     }
-                    q.j(new RunnableC0451a(this, context, a2), "cloneSwanAppRunnable");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                    return true;
+                    return false;
                 } else if (TextUtils.equals(path, "/install")) {
                     String a3 = a(unitedSchemeEntity);
                     if (TextUtils.isEmpty(a3)) {
                         return false;
                     }
-                    q.j(new b(this, a3), "installSwanAppRunnable");
+                    q.k(new b(this, a3), "installSwanAppRunnable");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                     return true;
                 } else {

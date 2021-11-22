@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.game.strategy.message;
 
-import b.a.e.l.e.n;
-import b.a.r0.x0.c2.a.c.a;
-import b.a.r0.x0.c2.a.d.e;
+import b.a.e.m.e.n;
+import b.a.r0.x0.d2.a.c.a;
+import b.a.r0.x0.d2.a.d.e;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
@@ -88,8 +88,8 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
                 setError(error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = b.a.r0.x0.c2.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = b.a.r0.x0.c2.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = b.a.r0.x0.d2.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = b.a.r0.x0.d2.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }

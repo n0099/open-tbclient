@@ -20,23 +20,23 @@ public class i0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<ShareDialogConfig.From, Integer> f13797f;
+    public static final Map<ShareDialogConfig.From, Integer> f14565f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13798a;
+    public int f14566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13799b;
+    public int f14567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13800c;
+    public String f14568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13801d;
+    public int f14569d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Integer> f13802e;
+    public List<Integer> f14570e;
 
     static {
         InterceptResult invokeClinit;
@@ -52,16 +52,16 @@ public class i0 {
             }
         }
         HashMap hashMap = new HashMap();
-        f13797f = hashMap;
+        f14565f = hashMap;
         hashMap.put(ShareDialogConfig.From.Recommend, 1);
-        f13797f.put(ShareDialogConfig.From.Concern, 2);
-        f13797f.put(ShareDialogConfig.From.PB, 3);
-        f13797f.put(ShareDialogConfig.From.FRS, 4);
-        f13797f.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        f13797f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        f13797f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        f13797f.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        f13797f.put(ShareDialogConfig.From.HomeGameTab, 9);
+        f14565f.put(ShareDialogConfig.From.Concern, 2);
+        f14565f.put(ShareDialogConfig.From.PB, 3);
+        f14565f.put(ShareDialogConfig.From.FRS, 4);
+        f14565f.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        f14565f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        f14565f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        f14565f.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        f14565f.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
     public i0() {
@@ -81,26 +81,26 @@ public class i0 {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13801d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14569d : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13800c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14568c : (String) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() / 1000 >= ((long) this.f13798a) && System.currentTimeMillis() / 1000 <= ((long) this.f13799b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() / 1000 >= ((long) this.f14566a) && System.currentTimeMillis() / 1000 <= ((long) this.f14567b) : invokeV.booleanValue;
     }
 
     public boolean d(ShareDialogConfig.From from) {
         InterceptResult invokeL;
         Integer num;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) ? (this.f13802e == null || (num = f13797f.get(from)) == null || !this.f13802e.contains(num)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) ? (this.f14570e == null || (num = f14565f.get(from)) == null || !this.f14570e.contains(num)) ? false : true : invokeL.booleanValue;
     }
 
     public void e(JSONObject jSONObject) {
@@ -108,26 +108,26 @@ public class i0 {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f13798a = jSONObject.optInt(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY);
-        this.f13799b = jSONObject.optInt("end_time");
-        this.f13800c = jSONObject.optString("text");
-        this.f13801d = jSONObject.optInt("icon_exp");
+        this.f14566a = jSONObject.optInt(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY);
+        this.f14567b = jSONObject.optInt("end_time");
+        this.f14568c = jSONObject.optString("text");
+        this.f14569d = jSONObject.optInt("icon_exp");
         f(jSONObject.optString("page_list"));
     }
 
     public final void f(String str) {
         String[] split;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || b.a.e.e.p.k.isEmpty(str) || (split = str.split(",")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || b.a.e.f.p.k.isEmpty(str) || (split = str.split(",")) == null) {
             return;
         }
         for (String str2 : split) {
-            int e2 = b.a.e.e.m.b.e(str2, -1);
+            int e2 = b.a.e.f.m.b.e(str2, -1);
             if (e2 != -1) {
-                if (this.f13802e == null) {
-                    this.f13802e = new ArrayList();
+                if (this.f14570e == null) {
+                    this.f14570e = new ArrayList();
                 }
-                this.f13802e.add(Integer.valueOf(e2));
+                this.f14570e.add(Integer.valueOf(e2));
             }
         }
     }

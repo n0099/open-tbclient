@@ -48,10 +48,10 @@ public class c implements a.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public p f27829a;
+    public p f29347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FunAdCallback f27830b;
+    public final FunAdCallback f29348b;
 
     /* loaded from: classes6.dex */
     public class a implements a.l {
@@ -59,13 +59,13 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f27831a;
+        public final /* synthetic */ Activity f29349a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FunAdSlot f27832b;
+        public final /* synthetic */ FunAdSlot f29350b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FunAdLoadListener f27833c;
+        public final /* synthetic */ FunAdLoadListener f29351c;
 
         public a(c cVar, Activity activity, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
             Interceptable interceptable = $ic;
@@ -82,9 +82,9 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27831a = activity;
-            this.f27832b = funAdSlot;
-            this.f27833c = funAdLoadListener;
+            this.f29349a = activity;
+            this.f29350b = funAdSlot;
+            this.f29351c = funAdLoadListener;
         }
 
         @Override // b.a.r0.y0.a.l
@@ -92,7 +92,7 @@ public class c implements a.f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    FunAdSdk.getAdFactory().loadAd(this.f27831a, this.f27832b, this.f27833c);
+                    FunAdSdk.getAdFactory().loadAd(this.f29349a, this.f29350b, this.f29351c);
                 } catch (Exception e2) {
                     BdLog.e(e2);
                 }
@@ -106,13 +106,13 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.i f27834a;
+        public final /* synthetic */ a.i f29352a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.g f27835b;
+        public final /* synthetic */ a.g f29353b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f27836c;
+        public final /* synthetic */ c f29354c;
 
         public b(c cVar, a.i iVar, a.g gVar) {
             Interceptable interceptable = $ic;
@@ -129,16 +129,16 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27836c = cVar;
-            this.f27834a = iVar;
-            this.f27835b = gVar;
+            this.f29354c = cVar;
+            this.f29352a = iVar;
+            this.f29353b = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdClicked(String str, String str2, String str3) {
             a.i iVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || (iVar = this.f27834a) == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || (iVar = this.f29352a) == null) {
                 return;
             }
             iVar.onAdClicked(str, str2, str3);
@@ -148,7 +148,7 @@ public class c implements a.f {
         public void onAdClose(String str) {
             a.i iVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (iVar = this.f27834a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (iVar = this.f29352a) == null) {
                 return;
             }
             iVar.onAdClose(str);
@@ -158,11 +158,11 @@ public class c implements a.f {
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                a.i iVar = this.f27834a;
+                a.i iVar = this.f29352a;
                 if (iVar != null) {
                     iVar.onAdError(str);
                 }
-                this.f27836c.v("advert_show", str, 0, this.f27835b);
+                this.f29354c.v("advert_show", str, 0, this.f29353b);
             }
         }
 
@@ -170,11 +170,11 @@ public class c implements a.f {
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-                a.i iVar = this.f27834a;
+                a.i iVar = this.f29352a;
                 if (iVar != null) {
                     iVar.onAdShow(str, str2, str3);
                 }
-                this.f27836c.v("advert_show", str, 1, this.f27835b);
+                this.f29354c.v("advert_show", str, 1, this.f29353b);
             }
         }
 
@@ -182,7 +182,7 @@ public class c implements a.f {
         public void onRewardedVideo(String str) {
             a.i iVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iVar = this.f27834a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iVar = this.f29352a) == null) {
                 return;
             }
             iVar.onRewardedVideo(str);
@@ -191,29 +191,29 @@ public class c implements a.f {
 
     /* renamed from: b.a.r0.z0.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C1360c implements a.l {
+    public class C1428c implements a.l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunNativeAd f27837a;
+        public final /* synthetic */ FunNativeAd f29355a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f27838b;
+        public final /* synthetic */ Activity f29356b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f27839c;
+        public final /* synthetic */ ViewGroup f29357c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ List f27840d;
+        public final /* synthetic */ List f29358d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f27841e;
+        public final /* synthetic */ List f29359e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FunAdInteractionListener f27842f;
+        public final /* synthetic */ FunAdInteractionListener f29360f;
 
-        public C1360c(c cVar, FunNativeAd funNativeAd, Activity activity, ViewGroup viewGroup, List list, List list2, FunAdInteractionListener funAdInteractionListener) {
+        public C1428c(c cVar, FunNativeAd funNativeAd, Activity activity, ViewGroup viewGroup, List list, List list2, FunAdInteractionListener funAdInteractionListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -228,19 +228,19 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27837a = funNativeAd;
-            this.f27838b = activity;
-            this.f27839c = viewGroup;
-            this.f27840d = list;
-            this.f27841e = list2;
-            this.f27842f = funAdInteractionListener;
+            this.f29355a = funNativeAd;
+            this.f29356b = activity;
+            this.f29357c = viewGroup;
+            this.f29358d = list;
+            this.f29359e = list2;
+            this.f29360f = funAdInteractionListener;
         }
 
         @Override // b.a.r0.y0.a.l
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27837a.show(this.f27838b, this.f27839c, this.f27840d, this.f27841e, this.f27842f);
+                this.f29355a.show(this.f29356b, this.f29357c, this.f29358d, this.f29359e, this.f29360f);
             }
         }
     }
@@ -251,13 +251,13 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.i f27843a;
+        public final /* synthetic */ a.i f29361a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.g f27844b;
+        public final /* synthetic */ a.g f29362b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f27845c;
+        public final /* synthetic */ c f29363c;
 
         public d(c cVar, a.i iVar, a.g gVar) {
             Interceptable interceptable = $ic;
@@ -274,16 +274,16 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27845c = cVar;
-            this.f27843a = iVar;
-            this.f27844b = gVar;
+            this.f29363c = cVar;
+            this.f29361a = iVar;
+            this.f29362b = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdClicked(String str, String str2, String str3) {
             a.i iVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || (iVar = this.f27843a) == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || (iVar = this.f29361a) == null) {
                 return;
             }
             iVar.onAdClicked(str, str2, str3);
@@ -293,7 +293,7 @@ public class c implements a.f {
         public void onAdClose(String str) {
             a.i iVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (iVar = this.f27843a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (iVar = this.f29361a) == null) {
                 return;
             }
             iVar.onAdClose(str);
@@ -303,11 +303,11 @@ public class c implements a.f {
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                a.i iVar = this.f27843a;
+                a.i iVar = this.f29361a;
                 if (iVar != null) {
                     iVar.onAdError(str);
                 }
-                this.f27845c.v("advert_show", str, 0, this.f27844b);
+                this.f29363c.v("advert_show", str, 0, this.f29362b);
             }
         }
 
@@ -315,18 +315,18 @@ public class c implements a.f {
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-                a.i iVar = this.f27843a;
+                a.i iVar = this.f29361a;
                 if (iVar != null) {
                     iVar.onAdShow(str, str2, str3);
                 }
-                if (this.f27845c.f27829a != null) {
-                    this.f27845c.f27829a.f27871b = str;
-                    this.f27845c.f27829a.f27872c = str2;
+                if (this.f29363c.f29347a != null) {
+                    this.f29363c.f29347a.f29389b = str;
+                    this.f29363c.f29347a.f29390c = str2;
                 }
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     String str4 = "BEAR ad sspType=" + str2 + ", sid=" + str + " ,pid=" + str3;
                 }
-                this.f27845c.v("advert_show", str, 1, this.f27844b);
+                this.f29363c.v("advert_show", str, 1, this.f29362b);
             }
         }
 
@@ -334,7 +334,7 @@ public class c implements a.f {
         public void onRewardedVideo(String str) {
             a.i iVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iVar = this.f27843a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iVar = this.f29361a) == null) {
                 return;
             }
             iVar.onRewardedVideo(str);
@@ -347,19 +347,19 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f27846a;
+        public final /* synthetic */ Activity f29364a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f27847b;
+        public final /* synthetic */ ViewGroup f29365b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f27848c;
+        public final /* synthetic */ String f29366c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ FunAdInteractionListener f27849d;
+        public final /* synthetic */ FunAdInteractionListener f29367d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f27850e;
+        public final /* synthetic */ c f29368e;
 
         public e(c cVar, Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
             Interceptable interceptable = $ic;
@@ -376,24 +376,24 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27850e = cVar;
-            this.f27846a = activity;
-            this.f27847b = viewGroup;
-            this.f27848c = str;
-            this.f27849d = funAdInteractionListener;
+            this.f29368e = cVar;
+            this.f29364a = activity;
+            this.f29365b = viewGroup;
+            this.f29366c = str;
+            this.f29367d = funAdInteractionListener;
         }
 
         @Override // b.a.r0.y0.a.l
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FunSplashAd showSplash = FunAdSdk.getAdFactory().showSplash(this.f27846a, this.f27847b, this.f27848c, this.f27849d);
+                FunSplashAd showSplash = FunAdSdk.getAdFactory().showSplash(this.f29364a, this.f29365b, this.f29366c, this.f29367d);
                 if (showSplash != null) {
-                    this.f27850e.f27829a = new p();
-                    this.f27850e.f27829a.f27870a = showSplash;
+                    this.f29368e.f29347a = new p();
+                    this.f29368e.f29347a.f29388a = showSplash;
                 }
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    String str = "BEAR ad showSplash:" + this.f27850e.f27829a;
+                    String str = "BEAR ad showSplash:" + this.f29368e.f29347a;
                 }
             }
         }
@@ -405,7 +405,7 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f27851a;
+        public final /* synthetic */ c f29369a;
 
         public f(c cVar) {
             Interceptable interceptable = $ic;
@@ -422,14 +422,14 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27851a = cVar;
+            this.f29369a = cVar;
         }
 
         @Override // com.fun.ad.sdk.FunSplashAdInteractionListener
         public void onAdClicked(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f27851a.t(CommonStatisticKey.KEY_EYE_SPLASH_BEAR_CLICK);
+                this.f29369a.t(CommonStatisticKey.KEY_EYE_SPLASH_BEAR_CLICK);
             }
         }
     }
@@ -540,7 +540,7 @@ public class c implements a.f {
         public TTLocation getTTLocation() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new TTLocation(b.a.e.e.m.b.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d), b.a.e.e.m.b.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d)) : (TTLocation) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new TTLocation(b.a.e.f.m.b.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d), b.a.e.f.m.b.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d)) : (TTLocation) invokeV.objValue;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTCustomController
@@ -585,7 +585,7 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.l f27852a;
+        public final /* synthetic */ a.l f29370a;
 
         public i(c cVar, a.l lVar) {
             Interceptable interceptable = $ic;
@@ -602,7 +602,7 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27852a = lVar;
+            this.f29370a = lVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdSdk.SdkInitializeCallback
@@ -611,7 +611,7 @@ public class c implements a.f {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 GlobalSetting.setAgreePrivacyStrategy(GdtPrivacySwitch.isOpen());
                 GlobalSetting.setAllowLocation(GdtPrivacySwitch.isOpen());
-                a.l lVar = this.f27852a;
+                a.l lVar = this.f29370a;
                 if (lVar != null) {
                     lVar.a();
                 }
@@ -625,13 +625,13 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.h f27853a;
+        public final /* synthetic */ a.h f29371a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.g f27854b;
+        public final /* synthetic */ a.g f29372b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f27855c;
+        public final /* synthetic */ c f29373c;
 
         public j(c cVar, a.h hVar, a.g gVar) {
             Interceptable interceptable = $ic;
@@ -648,20 +648,20 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27855c = cVar;
-            this.f27853a = hVar;
-            this.f27854b = gVar;
+            this.f29373c = cVar;
+            this.f29371a = hVar;
+            this.f29372b = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdLoadListener
         public void onAdLoaded(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                a.h hVar = this.f27853a;
+                a.h hVar = this.f29371a;
                 if (hVar != null) {
                     hVar.a(str, 0);
                 }
-                this.f27855c.v("advert_load", str, 1, this.f27854b);
+                this.f29373c.v("advert_load", str, 1, this.f29372b);
             }
         }
 
@@ -669,11 +669,11 @@ public class c implements a.f {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                a.h hVar = this.f27853a;
+                a.h hVar = this.f29371a;
                 if (hVar != null) {
                     hVar.onError(str);
                 }
-                this.f27855c.v("advert_load", str, 0, this.f27854b);
+                this.f29373c.v("advert_load", str, 0, this.f29372b);
             }
         }
     }
@@ -684,13 +684,13 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f27856a;
+        public final /* synthetic */ Context f29374a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FunAdSlot f27857b;
+        public final /* synthetic */ FunAdSlot f29375b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FunAdLoadListener f27858c;
+        public final /* synthetic */ FunAdLoadListener f29376c;
 
         public k(c cVar, Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
             Interceptable interceptable = $ic;
@@ -707,16 +707,16 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27856a = context;
-            this.f27857b = funAdSlot;
-            this.f27858c = funAdLoadListener;
+            this.f29374a = context;
+            this.f29375b = funAdSlot;
+            this.f29376c = funAdLoadListener;
         }
 
         @Override // b.a.r0.y0.a.l
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FunAdSdk.getAdFactory().loadAd(this.f27856a, this.f27857b, this.f27858c);
+                FunAdSdk.getAdFactory().loadAd(this.f29374a, this.f29375b, this.f29376c);
             }
         }
     }
@@ -727,13 +727,13 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.i f27859a;
+        public final /* synthetic */ a.i f29377a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.g f27860b;
+        public final /* synthetic */ a.g f29378b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f27861c;
+        public final /* synthetic */ c f29379c;
 
         public l(c cVar, a.i iVar, a.g gVar) {
             Interceptable interceptable = $ic;
@@ -750,16 +750,16 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27861c = cVar;
-            this.f27859a = iVar;
-            this.f27860b = gVar;
+            this.f29379c = cVar;
+            this.f29377a = iVar;
+            this.f29378b = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdClicked(String str, String str2, String str3) {
             a.i iVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || (iVar = this.f27859a) == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || (iVar = this.f29377a) == null) {
                 return;
             }
             iVar.onAdClicked(str, str2, str3);
@@ -769,7 +769,7 @@ public class c implements a.f {
         public void onAdClose(String str) {
             a.i iVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (iVar = this.f27859a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (iVar = this.f29377a) == null) {
                 return;
             }
             iVar.onAdClose(str);
@@ -779,11 +779,11 @@ public class c implements a.f {
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                a.i iVar = this.f27859a;
+                a.i iVar = this.f29377a;
                 if (iVar != null) {
                     iVar.onAdError(str);
                 }
-                this.f27861c.v("advert_show", str, 0, this.f27860b);
+                this.f29379c.v("advert_show", str, 0, this.f29378b);
             }
         }
 
@@ -791,11 +791,11 @@ public class c implements a.f {
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-                a.i iVar = this.f27859a;
+                a.i iVar = this.f29377a;
                 if (iVar != null) {
                     iVar.onAdShow(str, str2, str3);
                 }
-                this.f27861c.v("advert_show", str, 1, this.f27860b);
+                this.f29379c.v("advert_show", str, 1, this.f29378b);
             }
         }
 
@@ -803,7 +803,7 @@ public class c implements a.f {
         public void onRewardedVideo(String str) {
             a.i iVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iVar = this.f27859a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iVar = this.f29377a) == null) {
                 return;
             }
             iVar.onRewardedVideo(str);
@@ -816,16 +816,16 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f27862a;
+        public final /* synthetic */ Activity f29380a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f27863b;
+        public final /* synthetic */ ViewGroup f29381b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f27864c;
+        public final /* synthetic */ String f29382c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ FunAdInteractionListener f27865d;
+        public final /* synthetic */ FunAdInteractionListener f29383d;
 
         public m(c cVar, Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
             Interceptable interceptable = $ic;
@@ -842,17 +842,17 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27862a = activity;
-            this.f27863b = viewGroup;
-            this.f27864c = str;
-            this.f27865d = funAdInteractionListener;
+            this.f29380a = activity;
+            this.f29381b = viewGroup;
+            this.f29382c = str;
+            this.f29383d = funAdInteractionListener;
         }
 
         @Override // b.a.r0.y0.a.l
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FunAdSdk.getAdFactory().showAd(this.f27862a, this.f27863b, this.f27864c, this.f27865d);
+                FunAdSdk.getAdFactory().showAd(this.f29380a, this.f29381b, this.f29382c, this.f29383d);
             }
         }
     }
@@ -863,7 +863,7 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f27866a;
+        public final /* synthetic */ String f29384a;
 
         public n(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -880,14 +880,14 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27866a = str;
+            this.f29384a = str;
         }
 
         @Override // b.a.r0.y0.a.l
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FunAdSdk.getAdFactory().destroyAd(this.f27866a);
+                FunAdSdk.getAdFactory().destroyAd(this.f29384a);
             }
         }
     }
@@ -898,13 +898,13 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.h f27867a;
+        public final /* synthetic */ a.h f29385a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a.g f27868b;
+        public final /* synthetic */ a.g f29386b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f27869c;
+        public final /* synthetic */ c f29387c;
 
         public o(c cVar, a.h hVar, a.g gVar) {
             Interceptable interceptable = $ic;
@@ -921,20 +921,20 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27869c = cVar;
-            this.f27867a = hVar;
-            this.f27868b = gVar;
+            this.f29387c = cVar;
+            this.f29385a = hVar;
+            this.f29386b = gVar;
         }
 
         @Override // com.fun.ad.sdk.FunAdLoadListener
         public void onAdLoaded(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                a.h hVar = this.f27867a;
+                a.h hVar = this.f29385a;
                 if (hVar != null) {
                     hVar.a(str, 0);
                 }
-                this.f27869c.v("advert_load", str, 1, this.f27868b);
+                this.f29387c.v("advert_load", str, 1, this.f29386b);
             }
         }
 
@@ -942,11 +942,11 @@ public class c implements a.f {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                a.h hVar = this.f27867a;
+                a.h hVar = this.f29385a;
                 if (hVar != null) {
                     hVar.onError(str);
                 }
-                this.f27869c.v("advert_load", str, 0, this.f27868b);
+                this.f29387c.v("advert_load", str, 0, this.f29386b);
             }
         }
     }
@@ -957,16 +957,16 @@ public class c implements a.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public FunSplashAd f27870a;
+        public FunSplashAd f29388a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27871b;
+        public String f29389b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27872c;
+        public String f29390c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f27873d;
+        public boolean f29391d;
 
         public p() {
             Interceptable interceptable = $ic;
@@ -981,9 +981,9 @@ public class c implements a.f {
                     return;
                 }
             }
-            this.f27871b = null;
-            this.f27872c = "cjs";
-            this.f27873d = false;
+            this.f29389b = null;
+            this.f29390c = "cjs";
+            this.f29391d = false;
         }
     }
 
@@ -1000,7 +1000,7 @@ public class c implements a.f {
                 return;
             }
         }
-        this.f27830b = new g(this);
+        this.f29348b = new g(this);
     }
 
     @Override // b.a.r0.y0.a.f
@@ -1023,7 +1023,7 @@ public class c implements a.f {
     public void c(Activity activity, @NonNull Object obj, a.i iVar, ViewGroup viewGroup, List<View> list, List<View> list2, a.g gVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, obj, iVar, viewGroup, list, list2, gVar}) == null) && !activity.isDestroyed() && (obj instanceof FunNativeAd)) {
-            u(new C1360c(this, (FunNativeAd) obj, activity, viewGroup, list, list2, new b(this, iVar, gVar)));
+            u(new C1428c(this, (FunNativeAd) obj, activity, viewGroup, list, list2, new b(this, iVar, gVar)));
         }
     }
 
@@ -1064,16 +1064,16 @@ public class c implements a.f {
         FunSplashAd funSplashAd;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-            p pVar = this.f27829a;
-            if (pVar == null || (funSplashAd = pVar.f27870a) == null || pVar.f27873d) {
+            p pVar = this.f29347a;
+            if (pVar == null || (funSplashAd = pVar.f29388a) == null || pVar.f29391d) {
                 return false;
             }
             boolean showMiniWindow = funSplashAd.showMiniWindow(activity, false, new f(this));
             if (TbadkCoreApplication.getInst().isDebugMode()) {
-                String str = "BEAR ad showMiniWindow: " + this.f27829a + ", isSucceed=" + showMiniWindow;
+                String str = "BEAR ad showMiniWindow: " + this.f29347a + ", isSucceed=" + showMiniWindow;
             }
             if (showMiniWindow) {
-                this.f27829a.f27873d = true;
+                this.f29347a.f29391d = true;
                 t(CommonStatisticKey.KEY_EYE_SPLASH_BEAR_SHOW);
             }
             return showMiniWindow;
@@ -1129,7 +1129,7 @@ public class c implements a.f {
     public void j(Context context, String str, a.h hVar, a.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048587, this, context, str, hVar, gVar) == null) {
-            u(new k(this, context, new FunAdSlot.Builder().setSid(str).setExpressWidth(b.a.e.e.p.l.k(context)).build(), new j(this, hVar, gVar)));
+            u(new k(this, context, new FunAdSlot.Builder().setSid(str).setExpressWidth(b.a.e.f.p.l.k(context)).build(), new j(this, hVar, gVar)));
         }
     }
 
@@ -1164,7 +1164,7 @@ public class c implements a.f {
                     builder.forbiddenPlatform(FunAdSdk.PLATFORM_KS);
                 }
                 builder.setAppName(application.getString(R.string.app_name)).setAppId("b122ce58b8954c27b6882f7987c08860").setUserId("").setUseTextureView(true).setTitleBarTheme(1).setVideoSoundEnable(false).setVideoDataFlowAutoStart(false).setLogEnabled(TbadkCoreApplication.getInst().isDebugMode()).setTTCustomController(new h(this)).setKsCanReadICCID(KsPrivacySwitch.isOpen()).setKsCanReadNearbyWifiList(KsPrivacySwitch.isOpen()).setKsCanReadMacAddress(KsPrivacySwitch.isOpen());
-                FunAdSdk.init(builder.build(), this.f27830b, new i(this, lVar));
+                FunAdSdk.init(builder.build(), this.f29348b, new i(this, lVar));
             }
         }
     }
@@ -1173,7 +1173,7 @@ public class c implements a.f {
     public void m(Activity activity, String str, a.h hVar, a.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048590, this, activity, str, hVar, gVar) == null) {
-            u(new a(this, activity, new FunAdSlot.Builder().setSid(str).setExpressWidth(b.a.e.e.p.l.k(activity)).build(), new o(this, hVar, gVar)));
+            u(new a(this, activity, new FunAdSlot.Builder().setSid(str).setExpressWidth(b.a.e.f.p.l.k(activity)).build(), new o(this, hVar, gVar)));
         }
     }
 
@@ -1187,20 +1187,20 @@ public class c implements a.f {
     }
 
     @Override // b.a.r0.y0.a.f
-    public b.a.r0.z3.g o(Object obj) {
+    public b.a.r0.a4.g o(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, obj)) == null) {
-            b.a.r0.z3.g gVar = null;
+            b.a.r0.a4.g gVar = null;
             if (obj instanceof FunNativeAd) {
                 FunNativeAd funNativeAd = (FunNativeAd) obj;
                 int i2 = b.a.r0.z0.b.i(funNativeAd);
                 if (i2 == -1) {
                     return null;
                 }
-                gVar = new b.a.r0.z3.g();
+                gVar = new b.a.r0.a4.g();
                 String c2 = b.a.r0.z0.b.c(funNativeAd, i2);
-                if (b.a.e.e.p.k.isEmpty(c2)) {
+                if (b.a.e.f.p.k.isEmpty(c2)) {
                     c2 = "推广";
                 }
                 gVar.k(c2);
@@ -1212,7 +1212,7 @@ public class c implements a.f {
             }
             return gVar;
         }
-        return (b.a.r0.z3.g) invokeL.objValue;
+        return (b.a.r0.a4.g) invokeL.objValue;
     }
 
     @Override // b.a.r0.y0.a.f
@@ -1220,21 +1220,21 @@ public class c implements a.f {
         FunSplashAd funSplashAd;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            p pVar = this.f27829a;
-            if (pVar != null && (funSplashAd = pVar.f27870a) != null) {
+            p pVar = this.f29347a;
+            if (pVar != null && (funSplashAd = pVar.f29388a) != null) {
                 funSplashAd.removeMiniWindow();
             }
-            this.f27829a = null;
+            this.f29347a = null;
         }
     }
 
     public final void t(String str) {
         p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (pVar = this.f27829a) == null || TextUtils.isEmpty(pVar.f27871b) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (pVar = this.f29347a) == null || TextUtils.isEmpty(pVar.f29389b) || str == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(str).param("obj_source", 6).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_PARAM2, this.f27829a.f27871b).param(TiebaStatic.Params.OBJ_TO, this.f27829a.f27872c));
+        TiebaStatic.log(new StatisticItem(str).param("obj_source", 6).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_PARAM2, this.f29347a.f29389b).param(TiebaStatic.Params.OBJ_TO, this.f29347a.f29390c));
     }
 
     public final void u(a.l lVar) {
@@ -1247,10 +1247,10 @@ public class c implements a.f {
     public final void v(String str, String str2, int i2, a.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048596, this, str, str2, i2, gVar) == null) {
-            b.a.e.e.n.a a2 = b.a.q0.q0.j.a();
+            b.a.e.f.n.a a2 = b.a.q0.q0.j.a();
             a2.b("type", "bear");
-            a2.b("locate", gVar.f27237a);
-            a2.b(SetImageWatermarkTypeReqMsg.SWITCH, gVar.f27238b);
+            a2.b("locate", gVar.f28740a);
+            a2.b(SetImageWatermarkTypeReqMsg.SWITCH, gVar.f28741b);
             a2.b("sid", str2);
             a2.c("isSuccess", Integer.valueOf(i2));
             BdStatisticsManager.getInstance().debug(str, a2);

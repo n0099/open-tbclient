@@ -16,19 +16,19 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f29264a;
+    public static final a f30133a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f29265b;
+    public static final a f30134b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.w.b.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1413a extends a {
+    public static class C1455a extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1413a() {
+        public C1455a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,10 +63,10 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Interpolator f29266c;
+        public final Interpolator f30135c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Interpolator f29267d;
+        public final Interpolator f30136d;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b() {
@@ -90,14 +90,14 @@ public abstract class a {
         public float a(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? this.f29266c.getInterpolation(f2) : invokeF.floatValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? this.f30135c.getInterpolation(f2) : invokeF.floatValue;
         }
 
         @Override // b.a.w.b.g.c.a
         public float b(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? this.f29267d.getInterpolation(f2) : invokeF.floatValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? this.f30136d.getInterpolation(f2) : invokeF.floatValue;
         }
 
         @Override // b.a.w.b.g.c.a
@@ -122,8 +122,8 @@ public abstract class a {
                     return;
                 }
             }
-            this.f29266c = new AccelerateInterpolator(f2);
-            this.f29267d = new DecelerateInterpolator(f2);
+            this.f30135c = new AccelerateInterpolator(f2);
+            this.f30136d = new DecelerateInterpolator(f2);
         }
     }
 
@@ -140,8 +140,8 @@ public abstract class a {
                 return;
             }
         }
-        f29264a = new b();
-        f29265b = new C1413a();
+        f30133a = new b();
+        f30134b = new C1455a();
     }
 
     public a() {
@@ -164,11 +164,11 @@ public abstract class a {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             if (i2 != 0) {
                 if (i2 == 1) {
-                    return f29265b;
+                    return f30134b;
                 }
                 throw new IllegalArgumentException("Unknown id: " + i2);
             }
-            return f29264a;
+            return f30133a;
         }
         return (a) invokeI.objValue;
     }

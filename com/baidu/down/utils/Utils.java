@@ -98,7 +98,7 @@ public class Utils {
         extMimeMap.put(".pct", "image/pict");
         extMimeMap.put(".pic", "image/pict");
         extMimeMap.put(".pict", "image/pict");
-        extMimeMap.put(".png", "image/png");
+        extMimeMap.put(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, "image/png");
         extMimeMap.put(".pnm", "image/x-portable-anymap");
         extMimeMap.put(".pnt", "image/x-macpaint");
         extMimeMap.put(".pntg", "image/x-macpaint");
@@ -143,8 +143,8 @@ public class Utils {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0050  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00b0  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00e1  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00b3  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e4  */
     /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -441,25 +441,33 @@ public class Utils {
                         if (activeNetworkInfo.getTypeName().toLowerCase().equals("wifi")) {
                             return "WF";
                         }
-                        switch (activeNetworkInfo.getSubtype()) {
-                            case 3:
-                            case 5:
-                            case 6:
-                            case 7:
-                            case 8:
-                            case 9:
-                            case 10:
-                            case 12:
-                            case 14:
-                            case 15:
-                                return "3G";
-                            case 4:
-                            case 11:
-                            default:
-                                return "2G";
-                            case 13:
-                                return "4G";
+                        int subtype = activeNetworkInfo.getSubtype();
+                        if (subtype != 3) {
+                            if (subtype != 20) {
+                                switch (subtype) {
+                                    case 5:
+                                    case 6:
+                                    case 7:
+                                    case 8:
+                                    case 9:
+                                    case 10:
+                                        return "3G";
+                                    default:
+                                        switch (subtype) {
+                                            case 12:
+                                            case 14:
+                                            case 15:
+                                                return "3G";
+                                            case 13:
+                                                return "4G";
+                                            default:
+                                                return "2G";
+                                        }
+                                }
+                            }
+                            return "5G";
                         }
+                        return "3G";
                     }
                 } catch (Exception unused) {
                     return "";

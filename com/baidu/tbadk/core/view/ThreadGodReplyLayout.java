@@ -15,14 +15,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.e.e.p.t;
-import b.a.q0.f1.n.f;
+import b.a.e.f.p.l;
+import b.a.e.f.p.t;
+import b.a.q0.e1.n.f;
 import b.a.q0.s.k;
 import b.a.q0.s.q.d2;
 import b.a.r0.b0.m;
-import b.a.r0.b0.u;
-import b.a.r0.c4.h;
+import b.a.r0.b0.v;
+import b.a.r0.d4.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -63,19 +63,19 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     public View.OnClickListener A;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f45430e;
+    public TextView f46280e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PlayVoiceBntNew f45431f;
+    public PlayVoiceBntNew f46281f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f45432g;
+    public FrameLayout f46282g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f45433h;
+    public TextView f46283h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ClickableHeaderImageView f45434i;
+    public ClickableHeaderImageView f46284i;
     public TextView j;
     public AgreeView k;
     public d2 l;
@@ -103,14 +103,14 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
 
         /* renamed from: com.baidu.tbadk.core.view.ThreadGodReplyLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC1704a implements Runnable {
+        public class RunnableC1742a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f45435e;
+            public final /* synthetic */ a f46285e;
 
-            public RunnableC1704a(a aVar) {
+            public RunnableC1742a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,17 +125,17 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                         return;
                     }
                 }
-                this.f45435e = aVar;
+                this.f46285e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45435e.m.f45430e.getLineCount() < 15) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46285e.m.f46280e.getLineCount() < 15) {
                     return;
                 }
-                int lineEnd = this.f45435e.m.f45430e.getLayout().getLineEnd(14);
-                this.f45435e.m.f45430e.setText(((Object) this.f45435e.m.f45430e.getText().subSequence(0, lineEnd - 1)) + "...");
+                int lineEnd = this.f46285e.m.f46280e.getLayout().getLineEnd(14);
+                this.f46285e.m.f46280e.setText(((Object) this.f46285e.m.f46280e.getText().subSequence(0, lineEnd - 1)) + "...");
             }
         }
 
@@ -162,15 +162,15 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.l = spannableStringBuilder;
         }
 
-        @Override // b.a.q0.f1.n.f, android.text.style.ClickableSpan
+        @Override // b.a.q0.e1.n.f, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                u.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_CLICK));
-                this.m.f45430e.setMaxLines(15);
-                this.m.f45430e.setEllipsize(TextUtils.TruncateAt.END);
-                this.m.f45430e.setText(this.l.toString());
-                this.m.f45430e.post(new RunnableC1704a(this));
+                v.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_CLICK));
+                this.m.f46280e.setMaxLines(15);
+                this.m.f46280e.setEllipsize(TextUtils.TruncateAt.END);
+                this.m.f46280e.setText(this.l.toString());
+                this.m.f46280e.post(new RunnableC1742a(this));
             }
         }
     }
@@ -181,7 +181,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadGodReplyLayout f45436e;
+        public final /* synthetic */ ThreadGodReplyLayout f46286e;
 
         public b(ThreadGodReplyLayout threadGodReplyLayout) {
             Interceptable interceptable = $ic;
@@ -198,17 +198,17 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     return;
                 }
             }
-            this.f45436e = threadGodReplyLayout;
+            this.f46286e = threadGodReplyLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int width = ((this.f45436e.u - this.f45436e.f45433h.getWidth()) / 2) + l.g(this.f45436e.getContext(), R.dimen.tbds26);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f45436e.f45433h.getLayoutParams();
+                int width = ((this.f46286e.u - this.f46286e.f46283h.getWidth()) / 2) + l.g(this.f46286e.getContext(), R.dimen.tbds26);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f46286e.f46283h.getLayoutParams();
                 layoutParams.setMargins(0, width, width, 0);
-                this.f45436e.f45433h.setLayoutParams(layoutParams);
+                this.f46286e.f46283h.setLayoutParams(layoutParams);
             }
         }
     }
@@ -219,7 +219,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadGodReplyLayout f45437e;
+        public final /* synthetic */ ThreadGodReplyLayout f46287e;
 
         public c(ThreadGodReplyLayout threadGodReplyLayout) {
             Interceptable interceptable = $ic;
@@ -236,20 +236,20 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     return;
                 }
             }
-            this.f45437e = threadGodReplyLayout;
+            this.f46287e = threadGodReplyLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45437e.m == null || this.f45437e.m.t() == null || StringUtils.isNull(this.f45437e.m.t().getName_show()) || StringUtils.isNull(this.f45437e.m.t().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46287e.m == null || this.f46287e.m.t() == null || StringUtils.isNull(this.f46287e.m.t().getName_show()) || StringUtils.isNull(this.f46287e.m.t().getUserId())) {
                 return;
             }
-            PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f45437e.n, this.f45437e.m.t().getUserId(), this.f45437e.m.t().getName_show());
-            personInfoActivityConfig.setSourceTid(this.f45437e.m.G());
+            PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f46287e.n, this.f46287e.m.t().getUserId(), this.f46287e.m.t().getName_show());
+            personInfoActivityConfig.setSourceTid(this.f46287e.m.G());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
-            if (this.f45437e.w != null) {
-                this.f45437e.w.onClick(view);
+            if (this.f46287e.w != null) {
+                this.f46287e.w.onClick(view);
             }
         }
     }
@@ -260,7 +260,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadGodReplyLayout f45438e;
+        public final /* synthetic */ ThreadGodReplyLayout f46288e;
 
         public d(ThreadGodReplyLayout threadGodReplyLayout) {
             Interceptable interceptable = $ic;
@@ -277,16 +277,16 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     return;
                 }
             }
-            this.f45438e = threadGodReplyLayout;
+            this.f46288e = threadGodReplyLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45438e.w == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46288e.w == null) {
                 return;
             }
-            this.f45438e.w.onClick(view);
+            this.f46288e.w.onClick(view);
         }
     }
 
@@ -335,16 +335,16 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     public void changeBgIceCreamColor() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ClickableHeaderImageView clickableHeaderImageView = this.f45434i;
+            ClickableHeaderImageView clickableHeaderImageView = this.f46284i;
             if (clickableHeaderImageView != null) {
                 clickableHeaderImageView.setPlaceHolder(1);
             }
-            int childCount = this.f45432g.getChildCount();
+            int childCount = this.f46282g.getChildCount();
             if (childCount <= 0) {
                 return;
             }
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.f45432g.getChildAt(i2);
+                View childAt = this.f46282g.getChildAt(i2);
                 if (childAt instanceof TbImageView) {
                     ((TbImageView) childAt).setPlaceHolder(2);
                 }
@@ -391,7 +391,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     public TextView getGodReplyContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45430e : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46280e : (TextView) invokeV.objValue;
     }
 
     public final void h(Context context) {
@@ -402,9 +402,9 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.o = inflate;
             this.p = (RelativeLayout) inflate.findViewById(R.id.god_comment_layout);
             ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) this.o.findViewById(R.id.god_reply_user_pendant_header);
-            this.f45434i = clickableHeaderImageView;
+            this.f46284i = clickableHeaderImageView;
             clickableHeaderImageView.setIsRound(true);
-            this.f45434i.setClickable(true);
+            this.f46284i.setClickable(true);
             TextView textView = (TextView) this.o.findViewById(R.id.god_reply_username_text);
             this.j = textView;
             textView.setOnClickListener(this.z);
@@ -412,11 +412,11 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.k = agreeView;
             agreeView.setAfterClickListener(this.A);
             this.k.setAgreeAlone(true);
-            this.f45430e = (TextView) this.o.findViewById(R.id.god_reply_content);
+            this.f46280e = (TextView) this.o.findViewById(R.id.god_reply_content);
             PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) this.o.findViewById(R.id.god_reply_voice_btn);
-            this.f45431f = playVoiceBntNew;
+            this.f46281f = playVoiceBntNew;
             playVoiceBntNew.setVisibility(8);
-            this.f45432g = (FrameLayout) this.o.findViewById(R.id.god_reply_image_layout);
+            this.f46282g = (FrameLayout) this.o.findViewById(R.id.god_reply_image_layout);
             int k = l.k(getContext());
             this.v = l.g(getContext(), R.dimen.tbds10);
             this.u = (((k - (l.g(getContext(), R.dimen.tbds44) * 2)) - (l.g(getContext(), R.dimen.tbds26) * 2)) - (this.v * 4)) / 5;
@@ -426,7 +426,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 int i3 = this.u;
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i3, i3);
                 layoutParams.leftMargin = (this.u + this.v) * i2;
-                this.f45432g.addView(tbImageView, layoutParams);
+                this.f46282g.addView(tbImageView, layoutParams);
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
                 tbImageView.setBorderSurroundContent(true);
@@ -437,8 +437,8 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 tbImageView.setOnClickListener(this);
                 tbImageView.setPlaceHolder(2);
             }
-            this.f45432g.setVisibility(8);
-            this.f45433h = (TextView) this.o.findViewById(R.id.god_reply_img_num);
+            this.f46282g.setVisibility(8);
+            this.f46283h = (TextView) this.o.findViewById(R.id.god_reply_img_num);
         }
     }
 
@@ -452,7 +452,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             d2 d2Var = this.l;
-            m.l(this.f45430e, d2Var == null ? null : d2Var.s1(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.f46280e, d2Var == null ? null : d2Var.t1(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -460,9 +460,9 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, spannableStringBuilder) == null) {
             if (spannableStringBuilder != null && !TextUtils.isEmpty(spannableStringBuilder.toString())) {
-                this.f45430e.setVisibility(0);
-                if (!t.b(this.y, this.f45430e.getPaint(), spannableStringBuilder.toString(), 5)) {
-                    this.f45430e.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+                this.f46280e.setVisibility(0);
+                if (!t.b(this.y, this.f46280e.getPaint(), spannableStringBuilder.toString(), 5)) {
+                    this.f46280e.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
                 } else {
                     SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(spannableStringBuilder);
                     SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(getResources().getString(R.string.text_expand_tail));
@@ -471,15 +471,15 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     }
                     int i2 = 2;
                     spannableStringBuilder3.setSpan(new a(this, 2, null, spannableStringBuilder2), 3, spannableStringBuilder3.length(), 17);
-                    StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.f45430e.getPaint(), (int) this.y, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+                    StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.f46280e.getPaint(), (int) this.y, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
                     float f2 = this.y;
                     if (staticLayout.getLineCount() >= 5) {
                         spannableStringBuilder.delete(staticLayout.getLineEnd(4), spannableStringBuilder.length());
                         f2 = this.y - staticLayout.getLineWidth(4);
                     }
                     CharSequence subSequence = spannableStringBuilder.subSequence(spannableStringBuilder.length() - 2, spannableStringBuilder.length());
-                    float measureText = this.f45430e.getPaint().measureText(spannableStringBuilder3.toString());
-                    while (measureText > this.f45430e.getPaint().measureText(subSequence.toString()) + f2) {
+                    float measureText = this.f46280e.getPaint().measureText(spannableStringBuilder3.toString());
+                    while (measureText > this.f46280e.getPaint().measureText(subSequence.toString()) + f2) {
                         i2++;
                         if (spannableStringBuilder.length() - i2 < 0) {
                             break;
@@ -489,14 +489,14 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     if (spannableStringBuilder.length() - i2 > 0) {
                         spannableStringBuilder.replace(spannableStringBuilder.length() - i2, spannableStringBuilder.length(), (CharSequence) spannableStringBuilder3);
                     }
-                    this.f45430e.setText(spannableStringBuilder);
-                    this.f45430e.setOnTouchListener(new h(spannableStringBuilder));
-                    u.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_SHOW));
+                    this.f46280e.setText(spannableStringBuilder);
+                    this.f46280e.setOnTouchListener(new h(spannableStringBuilder));
+                    v.b().a(new StatisticItem(TbadkCoreStatisticKey.GOD_REPLY_LAYOUT_FULL_TEXT_SHOW));
                 }
                 j();
                 return;
             }
-            this.f45430e.setVisibility(8);
+            this.f46280e.setVisibility(8);
         }
     }
 
@@ -513,7 +513,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         j();
         changeBgIceCreamColor();
         this.k.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.f45431f.changeSkin();
+        this.f46281f.changeSkin();
     }
 
     @Override // android.view.View.OnClickListener
@@ -533,7 +533,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         String str2 = "";
         if (d2Var != null) {
             str2 = d2Var.Z();
-            str = this.l.s1();
+            str = this.l.t1();
         } else {
             str = "";
         }
@@ -568,7 +568,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, d2Var) == null) {
             this.l = d2Var;
-            setData(d2Var != null ? d2Var.v1() : null);
+            setData(d2Var != null ? d2Var.w1() : null);
         }
     }
 
@@ -596,8 +596,8 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 list.clear();
             }
             if (!k.c().g()) {
-                this.f45432g.setVisibility(8);
-                this.f45433h.setVisibility(8);
+                this.f46282g.setVisibility(8);
+                this.f46283h.setVisibility(8);
                 return;
             }
             TbRichText M = postData.M();
@@ -614,15 +614,15 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     }
                 }
                 if (this.q.size() == 0) {
-                    this.f45432g.setVisibility(8);
-                    this.f45433h.setVisibility(8);
+                    this.f46282g.setVisibility(8);
+                    this.f46283h.setVisibility(8);
                     return;
                 }
-                this.f45432g.setVisibility(0);
+                this.f46282g.setVisibility(0);
                 int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
                 int i3 = 0;
-                for (int i4 = 0; i4 < this.f45432g.getChildCount(); i4++) {
-                    View childAt = this.f45432g.getChildAt(i4);
+                for (int i4 = 0; i4 < this.f46282g.getChildCount(); i4++) {
+                    View childAt = this.f46282g.getChildAt(i4);
                     if (childAt != null && (childAt instanceof TbImageView)) {
                         TbImageView tbImageView = (TbImageView) childAt;
                         tbImageView.clearCornerFlag();
@@ -648,18 +648,18 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                     int i5 = this.u;
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i5, i5);
                     layoutParams.leftMargin = (this.u + this.v) * 4;
-                    this.f45432g.addView(imageView, -1, layoutParams);
+                    this.f46282g.addView(imageView, -1, layoutParams);
                     imageView.setImageResource(R.drawable.shape_black_0_to_50_vertical);
-                    this.f45433h.setVisibility(0);
-                    this.f45433h.setText(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + (this.q.size() - 5));
-                    this.f45433h.post(new b(this));
+                    this.f46283h.setVisibility(0);
+                    this.f46283h.setText(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + (this.q.size() - 5));
+                    this.f46283h.post(new b(this));
                     return;
                 }
-                this.f45433h.setVisibility(8);
+                this.f46283h.setVisibility(8);
                 return;
             }
-            this.f45432g.setVisibility(8);
-            this.f45433h.setVisibility(8);
+            this.f46282g.setVisibility(8);
+            this.f46283h.setVisibility(8);
         }
     }
 
@@ -668,12 +668,12 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         if (!(interceptable == null || interceptable.invokeL(1048591, this, postData) == null) || postData == null) {
             return;
         }
-        this.f45434i.setData(postData.t());
+        this.f46284i.setData(postData.t());
         String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(postData.t().getName_show(), 14, "...");
         TextView textView = this.j;
         textView.setText(cutChineseAndEnglishWithSuffix + "：");
         if (this.l != null) {
-            postData.q().threadId = this.l.s1();
+            postData.q().threadId = this.l.t1();
         }
         postData.q().threadId = String.valueOf(postData.T());
         postData.q().objType = 3;
@@ -686,11 +686,11 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             TbRichTextVoiceInfo Y = postData.Y();
             this.r = Y;
             if (Y == null) {
-                this.f45431f.setVisibility(8);
+                this.f46281f.setVisibility(8);
                 return;
             }
-            this.f45431f.setVisibility(0);
-            this.f45431f.setTag(this.r);
+            this.f46281f.setVisibility(0);
+            this.f46281f.setTag(this.r);
         }
     }
 
@@ -711,7 +711,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 } else {
                     this.p.setPadding(0, 0, 0, l.g(getContext(), R.dimen.tbds0));
                 }
-                if (i(this.f45430e) || i(this.f45432g) || i(this.f45431f)) {
+                if (i(this.f46280e) || i(this.f46282g) || i(this.f46281f)) {
                     return;
                 }
                 setVisibility(8);

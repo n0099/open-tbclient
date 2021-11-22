@@ -38,13 +38,13 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f61427a;
+    public static String f62326a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f61428b;
+    public static String f62327b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, Integer> f61429c;
+    public static Map<String, Integer> f62328c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,20 +60,20 @@ public final class b {
                 return;
             }
         }
-        f61429c = new HashMap();
+        f62328c = new HashMap();
         if (h.a()) {
-            f61428b = Build.SUPPORTED_ABIS[0];
+            f62327b = Build.SUPPORTED_ABIS[0];
         } else {
-            f61428b = Build.CPU_ABI;
+            f62327b = Build.CPU_ABI;
         }
-        f61429c.put("arm64-v8a", 64);
-        f61429c.put("armeabi-v7a", 32);
-        f61429c.put("armeabi", 32);
-        f61429c.put("x86_64", 64);
-        f61429c.put("x86", 32);
-        f61429c.put("mips64", 64);
-        f61429c.put(IDevices.ABI_MIPS, 32);
-        f61427a = c();
+        f62328c.put("arm64-v8a", 64);
+        f62328c.put("armeabi-v7a", 32);
+        f62328c.put("armeabi", 32);
+        f62328c.put("x86_64", 64);
+        f62328c.put("x86", 32);
+        f62328c.put("mips64", 64);
+        f62328c.put(IDevices.ABI_MIPS, 32);
+        f62326a = c();
     }
 
     public static void a(File file, File file2, String str) {
@@ -89,13 +89,13 @@ public final class b {
             }
             try {
                 Map<String, List<ZipEntry>> a2 = a(zipFile);
-                boolean containsKey = a2.containsKey(f61427a);
+                boolean containsKey = a2.containsKey(f62326a);
                 ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper copyNativeLib pre-verify-matchHostAbi[" + containsKey + "], pkg=" + str);
                 if (containsKey) {
                     if (!a2.isEmpty()) {
                         linkedList = new LinkedList();
                         HashSet hashSet = new HashSet();
-                        String str2 = f61427a != null ? f61427a : f61428b;
+                        String str2 = f62326a != null ? f62326a : f62327b;
                         char c2 = 65535;
                         switch (str2.hashCode()) {
                             case -1073971299:
@@ -202,7 +202,7 @@ public final class b {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f61429c.get(a()).intValue() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f62328c.get(a()).intValue() : invokeV.intValue;
     }
 
     public static String c() {
@@ -355,7 +355,7 @@ public final class b {
                 ZipEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory() && compile.matcher(nextElement.getName()).matches() && (split = nextElement.getName().split(File.separator)) != null && split.length >= 2) {
                     String str = split[split.length - 2];
-                    if (f61429c.containsKey(str)) {
+                    if (f62328c.containsKey(str)) {
                         if (hashMap.get(str) == null) {
                             hashMap.put(str, new LinkedList());
                         }
@@ -435,12 +435,12 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = f61427a;
+            String str = f62326a;
             if (str != null) {
                 return str;
             }
             String c2 = c();
-            f61427a = c2;
+            f62326a = c2;
             return c2;
         }
         return (String) invokeV.objValue;
@@ -469,7 +469,7 @@ public final class b {
                         }
                         a(jSONObject, "processMode", String.valueOf(i2));
                         if (i2 != 0) {
-                            if (f61429c.get(str).intValue() == i2) {
+                            if (f62328c.get(str).intValue() == i2) {
                                 ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto2, sHostAbi=".concat(String.valueOf(str)));
                                 return str;
                             }
@@ -512,7 +512,7 @@ public final class b {
                     containsKey = true;
                     ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi [true] soEntries empty, ".concat(String.valueOf(file)));
                 } else {
-                    containsKey = a2.containsKey(f61427a);
+                    containsKey = a2.containsKey(f62326a);
                     if (containsKey) {
                         ZeusLogger.i(ZeusLogger.TAG_SO, "NativeLibHelper isPluginApkMatchHostAbi [" + containsKey + "], " + file);
                     } else {

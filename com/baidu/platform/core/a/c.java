@@ -34,14 +34,14 @@ public class c extends com.baidu.platform.base.e {
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
-            this.f42041a.a("qt", "ext");
-            this.f42041a.a("num", Constants.DEFAULT_UIN);
-            this.f42041a.a("l", "10");
-            this.f42041a.a("ie", "utf-8");
-            this.f42041a.a("oue", "1");
-            this.f42041a.a(UriUtil.LOCAL_RESOURCE_SCHEME, RetrieveTaskManager.KEY);
-            this.f42041a.a("fromproduct", "android_map_sdk");
-            this.f42041a.a("uid", str);
+            this.f42889a.a("qt", "ext");
+            this.f42889a.a("num", Constants.DEFAULT_UIN);
+            this.f42889a.a("l", "10");
+            this.f42889a.a("ie", "utf-8");
+            this.f42889a.a("oue", "1");
+            this.f42889a.a(UriUtil.LOCAL_RESOURCE_SCHEME, RetrieveTaskManager.KEY);
+            this.f42889a.a("fromproduct", "android_map_sdk");
+            this.f42889a.a("uid", str);
         }
     }
 

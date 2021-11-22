@@ -4,10 +4,13 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import b.a.e.k.i;
+import b.a.e.k.j;
 import b.a.p0.a.k;
-import b.a.p0.a.p.d.k0;
+import b.a.p0.a.p.d.n0;
 import b.a.q0.o0.d;
 import b.a.q0.o0.e;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -21,20 +24,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class a implements k0 {
+public class a implements n0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f24168b;
+    public static final boolean f25631b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f24169a;
+    public long f25632a;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +53,7 @@ public class a implements k0 {
                 return;
             }
         }
-        f24168b = k.f6397a;
+        f25631b = k.f6863a;
     }
 
     public a() {
@@ -66,23 +70,23 @@ public class a implements k0 {
         }
     }
 
-    @Override // b.a.p0.a.p.d.k0
+    @Override // b.a.p0.a.p.d.n0
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            boolean z = f24168b;
+            boolean z = f25631b;
             long l = b.a.q0.s.e0.b.j().l("smart_app_tid", 0L);
             String p = b.a.q0.s.e0.b.j().p("smart_app_id", "");
             String p2 = b.a.q0.s.e0.b.j().p("smart_app_name", "");
-            if (this.f24169a == 0 || l == 0) {
+            if (this.f25632a == 0 || l == 0) {
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis() - this.f24169a;
+            long currentTimeMillis = System.currentTimeMillis() - this.f25632a;
             d dVar = new d();
             dVar.y(currentTimeMillis);
             dVar.s(g());
             dVar.C(l);
-            dVar.f12787i = p;
+            dVar.f13537i = p;
             dVar.j = p2;
             dVar.x(h());
             e.b().j(true);
@@ -91,29 +95,33 @@ public class a implements k0 {
         }
     }
 
-    @Override // b.a.p0.a.p.d.k0
+    @Override // b.a.p0.a.p.d.n0
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // b.a.p0.a.p.d.k0
+    @Override // b.a.p0.a.p.d.n0
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f24168b) {
-                String str2 = "onAppForeground" + b.a.p0.a.a2.e.i().f3961f;
+            if (f25631b) {
+                String str2 = "onAppForeground" + b.a.p0.a.d2.e.L().f4474f;
             }
-            this.f24169a = System.currentTimeMillis();
+            File file = new File(i.b("libBaiduMapSDK_map_v5_4_4.so"));
+            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK_map_v5_4_4.so") == null && j.a(BdBaseApplication.getInst().getContext(), i.a("libBaiduMapSDK_map_v5_4_4.so"))) {
+                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK_map_v5_4_4.so", i.a("libBaiduMapSDK_map_v5_4_4.so"));
+            }
+            this.f25632a = System.currentTimeMillis();
         }
     }
 
-    @Override // b.a.p0.a.p.d.k0
+    @Override // b.a.p0.a.p.d.n0
     public void d(@NonNull SwanAppActivity swanAppActivity, int i2, @Nullable b.a.p0.a.f1.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i2, bVar) == null) {
-            boolean z = f24168b;
+            boolean z = f25631b;
             if (b.a.q0.s.e0.b.j().g("key_ai_app_guide_display", true)) {
                 b.a.q0.s.e0.b.j().t("key_ai_app_guide_display", false);
                 Intent intent = new Intent(swanAppActivity, DealIntentService.class);
@@ -123,14 +131,14 @@ public class a implements k0 {
         }
     }
 
-    @Override // b.a.p0.a.p.d.k0
+    @Override // b.a.p0.a.p.d.n0
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
     }
 
-    @Override // b.a.p0.a.p.d.k0
+    @Override // b.a.p0.a.p.d.n0
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {

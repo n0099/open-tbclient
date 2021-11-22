@@ -1,7 +1,7 @@
 package com.google.common.hash;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.d.i;
+import b.h.d.d.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class LongAdder extends Striped64 implements Serializable, i {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7249069246863182397L;
@@ -51,7 +51,7 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         }
     }
 
-    @Override // b.i.d.d.i
+    @Override // b.h.d.d.i
     public void add(long j) {
         int length;
         Striped64.b bVar;
@@ -67,7 +67,7 @@ public final class LongAdder extends Striped64 implements Serializable, i {
             int[] iArr = Striped64.threadHashCode.get();
             boolean z = true;
             if (iArr != null && bVarArr != null && (length = bVarArr.length) >= 1 && (bVar = bVarArr[(length - 1) & iArr[0]]) != null) {
-                long j3 = bVar.f63665a;
+                long j3 = bVar.f64565a;
                 z = bVar.a(j3, j3 + j);
                 if (z) {
                     return;
@@ -105,7 +105,7 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j + j2 : invokeCommon.longValue;
     }
 
-    @Override // b.i.d.d.i
+    @Override // b.h.d.d.i
     public void increment() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -134,7 +134,7 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         }
     }
 
-    @Override // b.i.d.d.i
+    @Override // b.h.d.d.i
     public long sum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -144,7 +144,7 @@ public final class LongAdder extends Striped64 implements Serializable, i {
             if (bVarArr != null) {
                 for (Striped64.b bVar : bVarArr) {
                     if (bVar != null) {
-                        j += bVar.f63665a;
+                        j += bVar.f64565a;
                     }
                 }
             }
@@ -163,8 +163,8 @@ public final class LongAdder extends Striped64 implements Serializable, i {
             if (bVarArr != null) {
                 for (Striped64.b bVar : bVarArr) {
                     if (bVar != null) {
-                        j += bVar.f63665a;
-                        bVar.f63665a = 0L;
+                        j += bVar.f64565a;
+                        bVar.f64565a = 0L;
                     }
                 }
             }

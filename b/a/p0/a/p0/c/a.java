@@ -2,9 +2,9 @@ package b.a.p0.a.p0.c;
 
 import android.content.Context;
 import android.widget.Toast;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.c2.f.a0;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.f2.e;
+import b.a.p0.a.f2.f.z;
+import b.a.p0.a.z2.q0;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -16,23 +16,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends a0 {
+public class a extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.p0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0339a implements Runnable {
+    public class RunnableC0351a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f7203e;
+        public final /* synthetic */ Context f7618e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7204f;
+        public final /* synthetic */ String f7619f;
 
-        public RunnableC0339a(a aVar, Context context, String str) {
+        public RunnableC0351a(a aVar, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,15 +47,15 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f7203e = context;
-            this.f7204f = str;
+            this.f7618e = context;
+            this.f7619f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Toast.makeText(this.f7203e, this.f7204f, 1).show();
+                Toast.makeText(this.f7618e, this.f7619f, 1).show();
             }
         }
     }
@@ -81,18 +81,18 @@ public class a extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            boolean z = a0.f4160b;
-            JSONObject a2 = a0.a(unitedSchemeEntity, "params");
+            boolean z = z.f5228b;
+            JSONObject a2 = z.a(unitedSchemeEntity, "params");
             if (a2 == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
                 return false;
             }
-            q0.b0(new RunnableC0339a(this, context, a2.optString("data", "")));
+            q0.e0(new RunnableC0351a(this, context, a2.optString("data", "")));
             return true;
         }
         return invokeLLLL.booleanValue;

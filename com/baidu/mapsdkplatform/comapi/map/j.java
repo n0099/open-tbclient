@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.ZeusMonitorType;
+import com.baidu.webkit.internal.monitor.MonitorType;
 import java.util.List;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -41,26 +41,26 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f40138a;
+    public static final String f40970a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f40139b;
+    public Handler f40971b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MapRenderer f40140c;
+    public MapRenderer f40972c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f40141d;
+    public int f40973d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40142e;
+    public int f40974e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GestureDetector f40143f;
+    public GestureDetector f40975f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f40144g;
+    public e f40976g;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -68,28 +68,28 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f40145a;
+        public float f40977a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f40146b;
+        public float f40978b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f40147c;
+        public float f40979c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f40148d;
+        public float f40980d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f40149e;
+        public boolean f40981e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f40150f;
+        public float f40982f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f40151g;
+        public float f40983g;
 
         /* renamed from: h  reason: collision with root package name */
-        public double f40152h;
+        public double f40984h;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "MultiTouch{x1=" + this.f40145a + ", x2=" + this.f40146b + ", y1=" + this.f40147c + ", y2=" + this.f40148d + ", mTwoTouch=" + this.f40149e + ", centerX=" + this.f40150f + ", centerY=" + this.f40151g + ", length=" + this.f40152h + ExtendedMessageFormat.END_FE;
+                return "MultiTouch{x1=" + this.f40977a + ", x2=" + this.f40978b + ", y1=" + this.f40979c + ", y2=" + this.f40980d + ", mTwoTouch=" + this.f40981e + ", centerX=" + this.f40982f + ", centerY=" + this.f40983g + ", length=" + this.f40984h + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -128,7 +128,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                 return;
             }
         }
-        f40138a = j.class.getSimpleName();
+        f40970a = j.class.getSimpleName();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -153,18 +153,18 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
             throw new RuntimeException("BDMapSDKException: when you create an mapview, the context can not be null");
         }
         setEGLContextClientVersion(2);
-        this.f40143f = new GestureDetector(context, this);
+        this.f40975f = new GestureDetector(context, this);
         EnvironmentUtilities.initAppDirectory(context);
-        if (this.f40144g == null) {
-            this.f40144g = new e(context, str, i2);
+        if (this.f40976g == null) {
+            this.f40976g = new e(context, str, i2);
         }
-        this.f40144g.a(context.hashCode());
+        this.f40976g.a(context.hashCode());
         g();
-        this.f40144g.a();
-        this.f40144g.a(zVar);
+        this.f40976g.a();
+        this.f40976g.a(zVar);
         h();
-        this.f40144g.a(this.f40139b);
-        this.f40144g.f();
+        this.f40976g.a(this.f40971b);
+        this.f40976g.f();
         setBackgroundColor(0);
     }
 
@@ -176,7 +176,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
             EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
             egl10.eglInitialize(eglGetDisplay, new int[2]);
             int[] iArr = new int[1];
-            return egl10.eglChooseConfig(eglGetDisplay, new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, i2, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, i3, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, i4, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, i5, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, i6, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, i7, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, new EGLConfig[100], 100, iArr) && iArr[0] > 0;
+            return egl10.eglChooseConfig(eglGetDisplay, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, i2, MonitorType.MONITOR_TYPE_INIT_WEBKIT, i3, 12322, i4, 12321, i5, 12325, i6, 12326, i7, 12344}, new EGLConfig[100], 100, iArr) && iArr[0] > 0;
         }
         return invokeCommon.booleanValue;
     }
@@ -196,9 +196,9 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                 setEGLConfigChooser(true);
             }
             MapRenderer mapRenderer = new MapRenderer(this, this);
-            this.f40140c = mapRenderer;
-            mapRenderer.a(this.f40144g.j);
-            setRenderer(this.f40140c);
+            this.f40972c = mapRenderer;
+            mapRenderer.a(this.f40976g.j);
+            setRenderer(this.f40972c);
             setRenderMode(1);
         }
     }
@@ -206,20 +206,20 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     private void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f40139b = new k(this);
+            this.f40971b = new k(this);
         }
     }
 
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40144g : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40976g : (e) invokeV.objValue;
     }
 
     public void a(float f2, float f3) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (eVar = this.f40144g) == null || eVar.f40121i == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (eVar = this.f40976g) == null || eVar.f40953i == null) {
             return;
         }
         eVar.b(f2, f3);
@@ -228,32 +228,32 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     public void a(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f40144g == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f40976g == null) {
             return;
         }
         Message message = new Message();
         message.what = 50;
-        message.obj = Long.valueOf(this.f40144g.j);
-        boolean q = this.f40144g.q();
+        message.obj = Long.valueOf(this.f40976g.j);
+        boolean q = this.f40976g.q();
         if (i2 != 3) {
             i3 = q ? 1 : 1;
-            this.f40139b.sendMessage(message);
+            this.f40971b.sendMessage(message);
         }
         i3 = 0;
         message.arg1 = i3;
-        this.f40139b.sendMessage(message);
+        this.f40971b.sendMessage(message);
     }
 
     public void a(String str, Rect rect) {
         e eVar;
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, rect) == null) || (eVar = this.f40144g) == null || (aVar = eVar.f40121i) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, rect) == null) || (eVar = this.f40976g) == null || (aVar = eVar.f40953i) == null) {
             return;
         }
         if (rect != null) {
             int i2 = rect.left;
-            int i3 = this.f40142e;
+            int i3 = this.f40974e;
             int i4 = rect.bottom;
             int i5 = i3 < i4 ? 0 : i3 - i4;
             int width = rect.width();
@@ -261,25 +261,25 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
             if (i2 < 0 || i5 < 0 || width <= 0 || height <= 0) {
                 return;
             }
-            if (width > this.f40141d) {
-                width = Math.abs(rect.width()) - (rect.right - this.f40141d);
+            if (width > this.f40973d) {
+                width = Math.abs(rect.width()) - (rect.right - this.f40973d);
             }
-            if (height > this.f40142e) {
-                height = Math.abs(rect.height()) - (rect.bottom - this.f40142e);
+            if (height > this.f40974e) {
+                height = Math.abs(rect.height()) - (rect.bottom - this.f40974e);
             }
             if (i2 > SysOSUtil.getScreenSizeX() || i5 > SysOSUtil.getScreenSizeY()) {
-                this.f40144g.f40121i.a(str, (Bundle) null);
+                this.f40976g.f40953i.a(str, (Bundle) null);
                 requestRender();
                 return;
             }
-            this.f40141d = width;
-            this.f40142e = height;
+            this.f40973d = width;
+            this.f40974e = height;
             Bundle bundle = new Bundle();
             bundle.putInt("x", i2);
             bundle.putInt("y", i5);
             bundle.putInt("width", width);
             bundle.putInt("height", height);
-            this.f40144g.f40121i.a(str, bundle);
+            this.f40976g.f40953i.a(str, bundle);
         } else {
             aVar.a(str, (Bundle) null);
         }
@@ -290,8 +290,8 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            e eVar = this.f40144g;
-            if (eVar == null || eVar.f40121i == null) {
+            e eVar = this.f40976g;
+            if (eVar == null || eVar.f40953i == null) {
                 return false;
             }
             return eVar.a(f2, f3, f4, f5);
@@ -302,7 +302,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     public void b() {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.f40144g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.f40976g) == null) {
             return;
         }
         eVar.u();
@@ -311,9 +311,9 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            e eVar = this.f40144g;
+            e eVar = this.f40976g;
             if (eVar != null) {
-                List<l> list = eVar.f40120h;
+                List<l> list = eVar.f40952h;
                 if (list != null) {
                     for (l lVar : list) {
                         if (lVar != null) {
@@ -321,11 +321,11 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                         }
                     }
                 }
-                this.f40144g.b(this.f40139b);
-                this.f40144g.b(i2);
-                this.f40144g = null;
+                this.f40976g.b(this.f40971b);
+                this.f40976g.b(i2);
+                this.f40976g = null;
             }
-            Handler handler = this.f40139b;
+            Handler handler = this.f40971b;
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
             }
@@ -336,8 +336,8 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            e eVar = this.f40144g;
-            if (eVar == null || eVar.f40121i == null) {
+            e eVar = this.f40976g;
+            if (eVar == null || eVar.f40953i == null) {
                 return false;
             }
             return eVar.d(f2, f3);
@@ -348,7 +348,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     public void c() {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (eVar = this.f40144g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (eVar = this.f40976g) == null) {
             return;
         }
         eVar.v();
@@ -358,8 +358,8 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            e eVar = this.f40144g;
-            if (eVar == null || eVar.f40121i == null) {
+            e eVar = this.f40976g;
+            if (eVar == null || eVar.f40953i == null) {
                 return false;
             }
             return eVar.c(f2, f3);
@@ -371,7 +371,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             getHolder().setFormat(-3);
-            this.f40144g.f40121i.s();
+            this.f40976g.f40953i.s();
         }
     }
 
@@ -379,8 +379,8 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            e eVar = this.f40144g;
-            if (eVar == null || eVar.f40121i == null) {
+            e eVar = this.f40976g;
+            if (eVar == null || eVar.f40953i == null) {
                 return false;
             }
             return eVar.c((int) f2, (int) f3);
@@ -392,7 +392,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             getHolder().setFormat(-1);
-            this.f40144g.f40121i.t();
+            this.f40976g.f40953i.t();
         }
     }
 
@@ -408,13 +408,13 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
-            e eVar = this.f40144g;
-            if (eVar == null || eVar.f40121i == null || !eVar.k) {
+            e eVar = this.f40976g;
+            if (eVar == null || eVar.f40953i == null || !eVar.k) {
                 return true;
             }
             GeoPoint b2 = eVar.b((int) motionEvent.getX(), (int) motionEvent.getY());
             if (b2 != null) {
-                List<l> list = this.f40144g.f40120h;
+                List<l> list = this.f40976g.f40952h;
                 if (list != null) {
                     for (l lVar : list) {
                         if (lVar != null) {
@@ -422,16 +422,16 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                         }
                     }
                 }
-                e eVar2 = this.f40144g;
-                if (eVar2.f40118f) {
+                e eVar2 = this.f40976g;
+                if (eVar2.f40950f) {
                     ab E = eVar2.E();
-                    E.f40067a += 1.0f;
-                    if (!this.f40144g.f40119g) {
-                        E.f40070d = b2.getLongitudeE6();
-                        E.f40071e = b2.getLatitudeE6();
+                    E.f40899a += 1.0f;
+                    if (!this.f40976g.f40951g) {
+                        E.f40902d = b2.getLongitudeE6();
+                        E.f40903e = b2.getLatitudeE6();
                     }
                     BaiduMap.mapStatusReason |= 1;
-                    this.f40144g.a(E, 300);
+                    this.f40976g.a(E, 300);
                     e.m = System.currentTimeMillis();
                     return true;
                 }
@@ -466,19 +466,19 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            e eVar = this.f40144g;
-            if (eVar == null || eVar.f40121i == null || !eVar.k) {
+            e eVar = this.f40976g;
+            if (eVar == null || eVar.f40953i == null || !eVar.k) {
                 return true;
             }
-            if (eVar.f40117e) {
+            if (eVar.f40949e) {
                 float sqrt = (float) Math.sqrt((f2 * f2) + (f3 * f3));
                 if (sqrt <= 500.0f) {
                     return false;
                 }
                 BaiduMap.mapStatusReason |= 1;
-                this.f40144g.A();
-                this.f40144g.a(34, (int) (sqrt * 0.6f), ((int) motionEvent2.getX()) | (((int) motionEvent2.getY()) << 16));
-                this.f40144g.M();
+                this.f40976g.A();
+                this.f40976g.a(34, (int) (sqrt * 0.6f), ((int) motionEvent2.getX()) | (((int) motionEvent2.getY()) << 16));
+                this.f40976g.M();
                 return true;
             }
             return false;
@@ -491,15 +491,15 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         e eVar;
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, motionEvent) == null) || (eVar = this.f40144g) == null || (aVar = eVar.f40121i) == null || !eVar.k) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, motionEvent) == null) || (eVar = this.f40976g) == null || (aVar = eVar.f40953i) == null || !eVar.k) {
             return;
         }
-        String a2 = aVar.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.f40144g.l);
+        String a2 = aVar.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.f40976g.l);
         if (a2 == null || a2.equals("")) {
-            List<l> list = this.f40144g.f40120h;
+            List<l> list = this.f40976g.f40952h;
             if (list != null) {
                 for (l lVar : list) {
-                    GeoPoint b2 = this.f40144g.b((int) motionEvent.getX(), (int) motionEvent.getY());
+                    GeoPoint b2 = this.f40976g.b((int) motionEvent.getX(), (int) motionEvent.getY());
                     if (lVar != null) {
                         lVar.c(b2);
                     }
@@ -508,14 +508,14 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
             }
             return;
         }
-        List<l> list2 = this.f40144g.f40120h;
+        List<l> list2 = this.f40976g.f40952h;
         if (list2 != null) {
             for (l lVar2 : list2) {
                 if (lVar2 != null) {
                     if (lVar2.b(a2)) {
-                        this.f40144g.p = true;
+                        this.f40976g.p = true;
                     } else {
-                        lVar2.c(this.f40144g.b((int) motionEvent.getX(), (int) motionEvent.getY()));
+                        lVar2.c(this.f40976g.b((int) motionEvent.getX(), (int) motionEvent.getY()));
                     }
                 }
             }
@@ -528,8 +528,8 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onPause();
-            e eVar = this.f40144g;
-            if (eVar == null || (aVar = eVar.f40121i) == null) {
+            e eVar = this.f40976g;
+            if (eVar == null || (aVar = eVar.f40953i) == null) {
                 return;
             }
             aVar.c();
@@ -541,11 +541,11 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onResume();
-            e eVar = this.f40144g;
-            if (eVar == null || eVar.f40121i == null) {
+            e eVar = this.f40976g;
+            if (eVar == null || eVar.f40953i == null) {
                 return;
             }
-            List<l> list = eVar.f40120h;
+            List<l> list = eVar.f40952h;
             if (list != null) {
                 for (l lVar : list) {
                     if (lVar != null) {
@@ -553,9 +553,9 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                     }
                 }
             }
-            this.f40144g.f40121i.g();
-            this.f40144g.f40121i.d();
-            this.f40144g.f40121i.n();
+            this.f40976g.f40953i.g();
+            this.f40976g.f40953i.d();
+            this.f40976g.f40953i.n();
             setRenderMode(1);
         }
     }
@@ -589,16 +589,16 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         List<l> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, motionEvent)) == null) {
-            e eVar = this.f40144g;
-            if (eVar != null && (aVar = eVar.f40121i) != null && eVar.k) {
-                String a2 = aVar.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.f40144g.l);
+            e eVar = this.f40976g;
+            if (eVar != null && (aVar = eVar.f40953i) != null && eVar.k) {
+                String a2 = aVar.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.f40976g.l);
                 JSONObject jSONObject2 = null;
                 if (a2 == null || a2.equals("")) {
-                    List<l> list2 = this.f40144g.f40120h;
+                    List<l> list2 = this.f40976g.f40952h;
                     if (list2 != null) {
                         for (l lVar : list2) {
                             if (lVar != null) {
-                                lVar.a(this.f40144g.b((int) motionEvent.getX(), (int) motionEvent.getY()));
+                                lVar.a(this.f40976g.b((int) motionEvent.getX(), (int) motionEvent.getY()));
                             }
                         }
                     }
@@ -613,7 +613,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                             jSONObject2 = jSONObject;
                             e.printStackTrace();
                             jSONObject = jSONObject2;
-                            list = this.f40144g.f40120h;
+                            list = this.f40976g.f40952h;
                             if (list != null) {
                             }
                             return true;
@@ -621,7 +621,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                     } catch (JSONException e3) {
                         e = e3;
                     }
-                    list = this.f40144g.f40120h;
+                    list = this.f40976g.f40952h;
                     if (list != null) {
                         for (l lVar2 : list) {
                             if (jSONObject != null && lVar2 != null) {
@@ -651,12 +651,12 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
-            e eVar = this.f40144g;
-            if (eVar == null || eVar.f40121i == null) {
+            e eVar = this.f40976g;
+            if (eVar == null || eVar.f40953i == null) {
                 return true;
             }
             super.onTouchEvent(motionEvent);
-            List<l> list = this.f40144g.f40120h;
+            List<l> list = this.f40976g.f40952h;
             if (list != null) {
                 for (l lVar : list) {
                     if (lVar != null) {
@@ -664,10 +664,10 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                     }
                 }
             }
-            if (this.f40143f.onTouchEvent(motionEvent)) {
+            if (this.f40975f.onTouchEvent(motionEvent)) {
                 return true;
             }
-            return this.f40144g.a(motionEvent);
+            return this.f40976g.a(motionEvent);
         }
         return invokeL.booleanValue;
     }
@@ -686,34 +686,34 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048602, this, surfaceHolder, i2, i3, i4) == null) {
             super.surfaceChanged(surfaceHolder, i2, i3, i4);
-            e eVar = this.f40144g;
-            if (eVar == null || eVar.f40121i == null) {
+            e eVar = this.f40976g;
+            if (eVar == null || eVar.f40953i == null) {
                 return;
             }
-            MapRenderer mapRenderer = this.f40140c;
-            mapRenderer.f40057a = i3;
-            mapRenderer.f40058b = i4;
-            this.f40141d = i3;
-            this.f40142e = i4;
-            mapRenderer.f40059c = 0;
+            MapRenderer mapRenderer = this.f40972c;
+            mapRenderer.f40889a = i3;
+            mapRenderer.f40890b = i4;
+            this.f40973d = i3;
+            this.f40974e = i4;
+            mapRenderer.f40891c = 0;
             ab E = eVar.E();
-            int i5 = E.f40072f;
+            int i5 = E.f40904f;
             if (i5 != 0 && i5 != -1) {
                 WinRound winRound = E.j;
             }
-            E.f40072f = -1;
-            int i6 = E.f40073g;
+            E.f40904f = -1;
+            int i6 = E.f40905g;
             if (i6 != 0 && i6 != -1) {
                 WinRound winRound2 = E.j;
             }
-            E.f40073g = -1;
+            E.f40905g = -1;
             WinRound winRound3 = E.j;
             winRound3.left = 0;
             winRound3.top = 0;
             winRound3.bottom = i4;
             winRound3.right = i3;
-            this.f40144g.a(E);
-            this.f40144g.a(this.f40141d, this.f40142e);
+            this.f40976g.a(E);
+            this.f40976g.a(this.f40973d, this.f40974e);
         }
     }
 

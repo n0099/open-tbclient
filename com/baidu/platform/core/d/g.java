@@ -3,6 +3,7 @@ package com.baidu.platform.core.d;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.route.IndoorRoutePlanOption;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,18 +35,18 @@ public class g extends com.baidu.platform.base.e {
     private void a(IndoorRoutePlanOption indoorRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, indoorRoutePlanOption) == null) {
-            this.f42041a.a("qt", "indoornavi");
-            this.f42041a.a("rp_format", "json");
-            this.f42041a.a("version", "1");
+            this.f42889a.a("qt", "indoornavi");
+            this.f42889a.a("rp_format", "json");
+            this.f42889a.a("version", "1");
             GeoPoint ll2mc = CoordUtil.ll2mc(indoorRoutePlanOption.mFrom.getLocation());
             if (ll2mc != null) {
                 String format = String.format("%f,%f", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6()));
-                this.f42041a.a("sn", (format + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
+                this.f42889a.a(IAdRequestParam.SN, (format + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
             }
             GeoPoint ll2mc2 = CoordUtil.ll2mc(indoorRoutePlanOption.mTo.getLocation());
             if (ll2mc2 != null) {
                 String format2 = String.format("%f,%f", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6()));
-                this.f42041a.a(com.baidu.fsg.base.statistics.h.f37503a, (format2 + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
+                this.f42889a.a(com.baidu.fsg.base.statistics.h.f38333a, (format2 + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
             }
         }
     }

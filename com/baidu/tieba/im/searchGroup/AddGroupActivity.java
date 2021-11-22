@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import b.a.e.c.g.c;
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
@@ -39,7 +39,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddGroupActivity f50546a;
+        public final /* synthetic */ AddGroupActivity f51458a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AddGroupActivity addGroupActivity, int i2) {
@@ -59,7 +59,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
                     return;
                 }
             }
-            this.f50546a = addGroupActivity;
+            this.f51458a = addGroupActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,22 +67,22 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f50546a.addGroupView.l(false);
+                this.f51458a.addGroupView.l(false);
                 if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
-                    this.f50546a.groupNotSearched();
+                    this.f51458a.groupNotSearched();
                 } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
-                    this.f50546a.groupNotSearched();
+                    this.f51458a.groupNotSearched();
                 } else {
                     ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                     if (responseSearchGroupMessage.getError() != 0) {
-                        this.f50546a.showError(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
+                        this.f51458a.showError(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
                         return;
                     }
                     List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                     if (searchResult == null || searchResult.size() <= 0) {
-                        this.f50546a.groupNotSearched();
+                        this.f51458a.groupNotSearched();
                     } else {
-                        this.f50546a.groupSearched(searchResult.get(0));
+                        this.f51458a.groupSearched(searchResult.get(0));
                     }
                 }
             }

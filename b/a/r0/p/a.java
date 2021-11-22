@@ -1,6 +1,6 @@
 package b.a.r0.p;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,13 +15,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f22121a;
+    public HashMap<String, b> f23598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Integer> f22122b;
+    public ArrayList<Integer> f23599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f22123c;
+    public c f23600c;
 
     public a(c cVar, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class a {
                 return;
             }
         }
-        this.f22122b = arrayList;
-        this.f22123c = cVar;
-        this.f22121a = new HashMap<>();
+        this.f23599b = arrayList;
+        this.f23600c = cVar;
+        this.f23598a = new HashMap<>();
     }
 
     public int a(String str, int i2) {
@@ -48,13 +48,13 @@ public class a {
         ArrayList<Integer> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
-            if (this.f22121a == null || k.isEmpty(str) || (arrayList = this.f22122b) == null || !arrayList.contains(Integer.valueOf(i2))) {
+            if (this.f23598a == null || k.isEmpty(str) || (arrayList = this.f23599b) == null || !arrayList.contains(Integer.valueOf(i2))) {
                 return 0;
             }
-            if (!this.f22121a.containsKey(str)) {
+            if (!this.f23598a.containsKey(str)) {
                 b(str);
             }
-            b bVar = this.f22121a.get(str);
+            b bVar = this.f23598a.get(str);
             if (bVar == null) {
                 return 0;
             }
@@ -65,17 +65,17 @@ public class a {
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f22121a == null || k.isEmpty(str) || this.f22123c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f23598a == null || k.isEmpty(str) || this.f23600c == null) {
             return;
         }
-        if (this.f22121a.containsKey(str)) {
-            b bVar = this.f22121a.get(str);
-            this.f22123c.b(this.f22122b, bVar);
-            this.f22121a.put(str, bVar);
+        if (this.f23598a.containsKey(str)) {
+            b bVar = this.f23598a.get(str);
+            this.f23600c.b(this.f23599b, bVar);
+            this.f23598a.put(str, bVar);
             return;
         }
         b bVar2 = new b();
-        this.f22123c.b(this.f22122b, bVar2);
-        this.f22121a.put(str, bVar2);
+        this.f23600c.b(this.f23599b, bVar2);
+        this.f23598a.put(str, bVar2);
     }
 }

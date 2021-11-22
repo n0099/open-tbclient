@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.install;
 
 import android.content.Intent;
-import b.a.e.h.g.d;
+import b.a.e.i.g.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;

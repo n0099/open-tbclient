@@ -14,7 +14,7 @@ public class bv extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f71479a;
+    public final /* synthetic */ XMPushService f72399a;
 
     public bv(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class bv extends Handler {
                 return;
             }
         }
-        this.f71479a = xMPushService;
+        this.f72399a = xMPushService;
     }
 
     @Override // android.os.Handler
@@ -48,13 +48,13 @@ public class bv extends Handler {
                             Message obtain = Message.obtain((Handler) null, 0);
                             obtain.what = 18;
                             Bundle bundle = new Bundle();
-                            str = this.f71479a.f858a;
+                            str = this.f72399a.f858a;
                             bundle.putString("xmsf_region", str);
                             obtain.setData(bundle);
                             message.replyTo.send(obtain);
                         }
                     } else if (message.obj != null) {
-                        this.f71479a.onStart((Intent) message.obj, 1);
+                        this.f72399a.onStart((Intent) message.obj, 1);
                     }
                 } catch (Throwable unused) {
                 }

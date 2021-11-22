@@ -13,19 +13,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9016a;
+    public String f9362a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9017b;
+    public long f9363b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9018c;
+    public String f9364c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9019d;
+    public String f9365d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9020e;
+    public String f9366e;
 
     public b(String str, long j, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
@@ -42,24 +42,24 @@ public class b {
                 return;
             }
         }
-        this.f9016a = str;
-        this.f9017b = j;
-        this.f9018c = str2;
-        this.f9019d = str3;
-        this.f9020e = str4;
+        this.f9362a = str;
+        this.f9363b = j;
+        this.f9364c = str2;
+        this.f9365d = str3;
+        this.f9366e = str4;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f9016a) || TextUtils.isEmpty(this.f9018c) || TextUtils.isEmpty(this.f9019d) || TextUtils.isEmpty(this.f9020e) || !b.a.p0.a.y0.g.g.a.a(this.f9017b)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f9362a) || TextUtils.isEmpty(this.f9364c) || TextUtils.isEmpty(this.f9365d) || TextUtils.isEmpty(this.f9366e) || !b.a.p0.a.y0.g.g.a.a(this.f9363b)) ? false : true : invokeV.booleanValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "roomName=" + this.f9016a + ";localUserId=" + this.f9017b + ";displayName=" + this.f9018c + ";rtcAppId=" + this.f9019d + ";token=" + this.f9020e;
+            return "roomName=" + this.f9362a + ";localUserId=" + this.f9363b + ";displayName=" + this.f9364c + ";rtcAppId=" + this.f9365d + ";token=" + this.f9366e;
         }
         return (String) invokeV.objValue;
     }

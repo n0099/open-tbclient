@@ -38,19 +38,19 @@ public class f extends b.a.r0.x0.k<b.a.r0.x0.n, FrsEmpertyItemViewHolder> {
         }
     }
 
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         u0(i2, view, viewGroup, (b.a.r0.x0.n) obj, (FrsEmpertyItemViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: t0 */
     public FrsEmpertyItemViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsEmpertyItemViewHolder(new View(this.f2419e)) : (FrsEmpertyItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsEmpertyItemViewHolder(new View(this.f2421e)) : (FrsEmpertyItemViewHolder) invokeL.objValue;
     }
 
     public View u0(int i2, View view, ViewGroup viewGroup, b.a.r0.x0.n nVar, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {

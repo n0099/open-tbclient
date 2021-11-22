@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.base.iddetect.IdCardActivity;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f extends j {
@@ -24,10 +25,10 @@ public class f extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f3581a;
+        public final /* synthetic */ int f3671a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f3582b;
+        public final /* synthetic */ f f3672b;
 
         public a(f fVar, long j, int i2) {
             Interceptable interceptable = $ic;
@@ -44,15 +45,15 @@ public class f extends j {
                     return;
                 }
             }
-            this.f3582b = fVar;
-            this.f3581a = i2;
+            this.f3672b = fVar;
+            this.f3671a = i2;
         }
 
         @Override // cn.com.chinatelecom.gateway.lib.PreCodeListener
         public void onResult(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f3582b.w(str, this.f3581a, 1);
+                this.f3672b.w(str, this.f3671a, 1);
             }
         }
     }
@@ -63,10 +64,10 @@ public class f extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f3583a;
+        public final /* synthetic */ int f3673a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f3584b;
+        public final /* synthetic */ f f3674b;
 
         public b(f fVar, int i2) {
             Interceptable interceptable = $ic;
@@ -83,15 +84,15 @@ public class f extends j {
                     return;
                 }
             }
-            this.f3584b = fVar;
-            this.f3583a = i2;
+            this.f3674b = fVar;
+            this.f3673a = i2;
         }
 
         @Override // cn.com.chinatelecom.gateway.lib.PreCodeListener
         public void onResult(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f3584b.w(str, this.f3583a, 3);
+                this.f3674b.w(str, this.f3673a, 3);
             }
         }
     }
@@ -102,16 +103,16 @@ public class f extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f3585f;
+        public final /* synthetic */ String f3675f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f3586g;
+        public final /* synthetic */ int f3676g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f3587h;
+        public final /* synthetic */ int f3677h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ f f3588i;
+        public final /* synthetic */ f f3678i;
 
         public c(f fVar, String str, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -128,10 +129,10 @@ public class f extends j {
                     return;
                 }
             }
-            this.f3588i = fVar;
-            this.f3585f = str;
-            this.f3586g = i2;
-            this.f3587h = i3;
+            this.f3678i = fVar;
+            this.f3675f = str;
+            this.f3676g = i2;
+            this.f3677h = i3;
         }
 
         @Override // b.a.n0.k.c
@@ -139,11 +140,11 @@ public class f extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject(this.f3585f);
+                    JSONObject jSONObject = new JSONObject(this.f3675f);
                     if (jSONObject.optInt("result", -1) == 0) {
-                        this.f3588i.z(jSONObject, this.f3586g, this.f3587h);
+                        this.f3678i.z(jSONObject, this.f3676g, this.f3677h);
                     } else {
-                        this.f3588i.x(jSONObject, this.f3586g, this.f3587h);
+                        this.f3678i.x(jSONObject, this.f3676g, this.f3677h);
                     }
                 } catch (Throwable th) {
                     b.a.n0.l.c.d(th);
@@ -158,16 +159,16 @@ public class f extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f3589f;
+        public final /* synthetic */ int f3679f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f3590g;
+        public final /* synthetic */ int f3680g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f3591h;
+        public final /* synthetic */ JSONObject f3681h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ f f3592i;
+        public final /* synthetic */ f f3682i;
 
         public d(f fVar, int i2, int i3, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -184,10 +185,10 @@ public class f extends j {
                     return;
                 }
             }
-            this.f3592i = fVar;
-            this.f3589f = i2;
-            this.f3590g = i3;
-            this.f3591h = jSONObject;
+            this.f3682i = fVar;
+            this.f3679f = i2;
+            this.f3680g = i3;
+            this.f3681h = jSONObject;
         }
 
         @Override // b.a.n0.k.c
@@ -196,27 +197,27 @@ public class f extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (b.a.n0.b.c.f3511c) {
-                        this.f3592i.e(this.f3589f, 1, 999, this.f3592i.f3621c, "device has risk.", this.f3590g);
+                    if (b.a.n0.b.c.f3601c) {
+                        this.f3682i.e(this.f3679f, 1, 999, this.f3682i.f3711c, "device has risk.", this.f3680g);
                         return;
                     }
-                    JSONObject optJSONObject = this.f3591h.optJSONObject("data");
-                    if (this.f3590g == 1) {
-                        this.f3592i.f3623e = optJSONObject.optString(YYInnerSSOLoginActivity.o, "");
-                        this.f3592i.f3625g = optJSONObject.optString("number", "");
-                        this.f3592i.f3624f = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
+                    JSONObject optJSONObject = this.f3681h.optJSONObject("data");
+                    if (this.f3680g == 1) {
+                        this.f3682i.f3713e = optJSONObject.optString(YYInnerSSOLoginActivity.o, "");
+                        this.f3682i.f3715g = optJSONObject.optString(IdCardActivity.KEY_NUMBER, "");
+                        this.f3682i.f3714f = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, this.f3592i.a(this.f3592i.f3625g));
+                        jSONObject.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, this.f3682i.a(this.f3682i.f3715g));
                         str = jSONObject.toString();
                     } else {
-                        this.f3592i.f3626h = optJSONObject.optString(YYInnerSSOLoginActivity.o, "");
-                        this.f3592i.f3627i = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
+                        this.f3682i.f3716h = optJSONObject.optString(YYInnerSSOLoginActivity.o, "");
+                        this.f3682i.f3717i = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
                         str = "preVerify success";
                     }
-                    this.f3592i.e(this.f3589f, 0, 0, this.f3592i.f3621c, str, this.f3590g);
+                    this.f3682i.e(this.f3679f, 0, 0, this.f3682i.f3711c, str, this.f3680g);
                 } catch (Throwable unused) {
-                    f fVar = this.f3592i;
-                    fVar.e(this.f3589f, 3, 2009, fVar.f3621c, "ct on handle pre login or verify unknown error.", this.f3590g);
+                    f fVar = this.f3682i;
+                    fVar.e(this.f3679f, 3, 2009, fVar.f3711c, "ct on handle pre login or verify unknown error.", this.f3680g);
                 }
             }
         }
@@ -228,16 +229,16 @@ public class f extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f3593f;
+        public final /* synthetic */ JSONObject f3683f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f3594g;
+        public final /* synthetic */ int f3684g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f3595h;
+        public final /* synthetic */ int f3685h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ f f3596i;
+        public final /* synthetic */ f f3686i;
 
         public e(f fVar, JSONObject jSONObject, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -254,10 +255,10 @@ public class f extends j {
                     return;
                 }
             }
-            this.f3596i = fVar;
-            this.f3593f = jSONObject;
-            this.f3594g = i2;
-            this.f3595h = i3;
+            this.f3686i = fVar;
+            this.f3683f = jSONObject;
+            this.f3684g = i2;
+            this.f3685h = i3;
         }
 
         @Override // b.a.n0.k.c
@@ -265,24 +266,24 @@ public class f extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    int optInt = this.f3593f.optInt("result", -1);
-                    String optString = this.f3593f.optString("msg", "");
-                    if (this.f3596i.f3621c != this.f3596i.f3622d && (optInt == -10009 || optInt == -10008)) {
-                        this.f3596i.e(this.f3594g, 3, 2002, this.f3596i.f3621c, "pre login error, wrong sim operator", this.f3595h);
+                    int optInt = this.f3683f.optInt("result", -1);
+                    String optString = this.f3683f.optString("msg", "");
+                    if (this.f3686i.f3711c != this.f3686i.f3712d && (optInt == -10009 || optInt == -10008)) {
+                        this.f3686i.e(this.f3684g, 3, 2002, this.f3686i.f3711c, "pre login error, wrong sim operator", this.f3685h);
                     } else {
-                        f fVar = this.f3596i;
-                        int i2 = this.f3594g;
-                        int i3 = this.f3596i.f3621c;
+                        f fVar = this.f3686i;
+                        int i2 = this.f3684g;
+                        int i3 = this.f3686i.f3711c;
                         StringBuilder sb = new StringBuilder();
                         sb.append("ct pre login error.");
                         sb.append(optString);
                         sb.append(", status ");
                         sb.append(optInt);
-                        fVar.e(i2, 2, optInt, i3, sb.toString(), this.f3595h);
+                        fVar.e(i2, 2, optInt, i3, sb.toString(), this.f3685h);
                     }
                 } catch (Throwable unused) {
-                    f fVar2 = this.f3596i;
-                    fVar2.e(this.f3594g, 3, 2009, fVar2.f3621c, "ct on handle pre login or verify unknown error.", this.f3595h);
+                    f fVar2 = this.f3686i;
+                    fVar2.e(this.f3684g, 3, 2009, fVar2.f3711c, "ct on handle pre login or verify unknown error.", this.f3685h);
                 }
             }
         }
@@ -307,7 +308,7 @@ public class f extends j {
             }
         }
         this.s = false;
-        this.f3621c = 3;
+        this.f3711c = 3;
     }
 
     @Override // b.a.n0.e.i
@@ -315,11 +316,11 @@ public class f extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
             super.h(context, i2);
-            if (!b.a.n0.b.a.h(this.f3619a).d()) {
-                e(i2, 3, 997, this.f3621c, "pre login error. sdk stop run.", 1);
+            if (!b.a.n0.b.a.h(this.f3709a).d()) {
+                e(i2, 3, 997, this.f3711c, "pre login error. sdk stop run.", 1);
             } else if (!r()) {
-                e(i2, 3, 2006, this.f3621c, "pre login error. ct has not valid config.", 1);
-            } else if (b.a.n0.b.a.h(this.f3619a).a()) {
+                e(i2, 3, 2006, this.f3711c, "pre login error. ct has not valid config.", 1);
+            } else if (b.a.n0.b.a.h(this.f3709a).a()) {
                 if (!this.s) {
                     System.currentTimeMillis();
                     CtAuth.init(0, 0, 8000, null);
@@ -327,7 +328,7 @@ public class f extends j {
                 }
                 CtAuth.requestPreAuthCode(context, i.m, i.n, new a(this, System.currentTimeMillis(), i2));
             } else {
-                e(i2, 3, 996, this.f3621c, "pre login error. ct sdk stop run.", 1);
+                e(i2, 3, 996, this.f3711c, "pre login error. ct sdk stop run.", 1);
             }
         }
     }
@@ -337,18 +338,18 @@ public class f extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2) == null) {
             super.o(context, i2);
-            if (!b.a.n0.b.a.h(this.f3619a).d()) {
-                e(i2, 3, 997, this.f3621c, "pre verify error. sdk stop run.", 3);
+            if (!b.a.n0.b.a.h(this.f3709a).d()) {
+                e(i2, 3, 997, this.f3711c, "pre verify error. sdk stop run.", 3);
             } else if (!r()) {
-                e(i2, 3, 2006, this.f3621c, "pre verify error. ct has not valid config.", 3);
-            } else if (b.a.n0.b.a.h(this.f3619a).a()) {
+                e(i2, 3, 2006, this.f3711c, "pre verify error. ct has not valid config.", 3);
+            } else if (b.a.n0.b.a.h(this.f3709a).a()) {
                 if (!this.s) {
                     CtAuth.init(0, 0, 8000, null);
                     this.s = true;
                 }
                 CtAuth.requestPreAuthCode(context, i.m, i.n, new b(this, i2));
             } else {
-                e(i2, 3, 996, this.f3621c, "pre verify error. ct sdk stop run.", 3);
+                e(i2, 3, 996, this.f3711c, "pre verify error. ct sdk stop run.", 3);
             }
         }
     }

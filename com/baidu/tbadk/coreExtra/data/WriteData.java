@@ -2,8 +2,8 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
-import b.a.r0.l3.s0.c;
+import b.a.e.f.p.k;
+import b.a.r0.m3.s0.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;

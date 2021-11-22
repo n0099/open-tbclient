@@ -2,7 +2,7 @@ package kotlin;
 
 import kotlin.internal.InlineOnly;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0010\u0005\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\n\n\u0002\b\r\u001a\u0014\u0010\u0002\u001a\u00020\u0001*\u00020\u0000H\u0087\b¢\u0006\u0004\b\u0002\u0010\u0003\u001a\u0014\u0010\u0002\u001a\u00020\u0001*\u00020\u0004H\u0087\b¢\u0006\u0004\b\u0002\u0010\u0005\u001a\u0014\u0010\u0006\u001a\u00020\u0001*\u00020\u0000H\u0087\b¢\u0006\u0004\b\u0006\u0010\u0003\u001a\u0014\u0010\u0006\u001a\u00020\u0001*\u00020\u0004H\u0087\b¢\u0006\u0004\b\u0006\u0010\u0005\u001a\u0014\u0010\u0007\u001a\u00020\u0001*\u00020\u0000H\u0087\b¢\u0006\u0004\b\u0007\u0010\u0003\u001a\u0014\u0010\u0007\u001a\u00020\u0001*\u00020\u0004H\u0087\b¢\u0006\u0004\b\u0007\u0010\u0005\u001a\u001b\u0010\t\u001a\u00020\u0000*\u00020\u00002\u0006\u0010\b\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\t\u0010\n\u001a\u001b\u0010\t\u001a\u00020\u0004*\u00020\u00042\u0006\u0010\b\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\t\u0010\u000b\u001a\u001b\u0010\f\u001a\u00020\u0000*\u00020\u00002\u0006\u0010\b\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\f\u0010\n\u001a\u001b\u0010\f\u001a\u00020\u0004*\u00020\u00042\u0006\u0010\b\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\f\u0010\u000b\u001a\u0014\u0010\r\u001a\u00020\u0000*\u00020\u0000H\u0087\b¢\u0006\u0004\b\r\u0010\u000e\u001a\u0014\u0010\r\u001a\u00020\u0004*\u00020\u0004H\u0087\b¢\u0006\u0004\b\r\u0010\u000f\u001a\u0014\u0010\u0010\u001a\u00020\u0000*\u00020\u0000H\u0087\b¢\u0006\u0004\b\u0010\u0010\u000e\u001a\u0014\u0010\u0010\u001a\u00020\u0004*\u00020\u0004H\u0087\b¢\u0006\u0004\b\u0010\u0010\u000f¨\u0006\u0011"}, d2 = {"", "", "countLeadingZeroBits", "(B)I", "", "(S)I", "countOneBits", "countTrailingZeroBits", "bitCount", "rotateLeft", "(BI)B", "(SI)S", "rotateRight", "takeHighestOneBit", "(B)B", "(S)S", "takeLowestOneBit", "kotlin-stdlib"}, k = 5, mv = {1, 1, 15}, pn = "", xi = 0, xs = "kotlin/NumbersKt")
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NumbersKt__NumbersKt extends NumbersKt__NumbersJVMKt {
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
@@ -85,7 +85,7 @@ public class NumbersKt__NumbersKt extends NumbersKt__NumbersJVMKt {
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
     public static final int countTrailingZeroBits(short s) {
-        return Integer.numberOfTrailingZeros(s | 65536);
+        return Integer.numberOfTrailingZeros(s | UShort.MIN_VALUE);
     }
 
     @SinceKotlin(version = "1.4")

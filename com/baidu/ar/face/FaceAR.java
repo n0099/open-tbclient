@@ -58,7 +58,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     public int nw;
     public b nx;
     public a.b ny;
-    public a.C1593a nz;
+    public a.C1630a nz;
 
     static {
         InterceptResult invokeClinit;
@@ -299,7 +299,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str3 = bVar2.pZ;
             String str4 = TAG;
             com.baidu.ar.h.b.c(str4, "classification result：" + this.ny.qg);
-            a.C1593a a2 = this.nx.a(this.ny);
+            a.C1630a a2 = this.nx.a(this.ny);
             if (a2 != null) {
                 this.nz = a2;
                 this.nw = c.a(a2.pO, str, str2, str3);

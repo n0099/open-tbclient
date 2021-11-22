@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.tabfeed.message;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.k0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

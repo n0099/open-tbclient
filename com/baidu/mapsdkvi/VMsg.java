@@ -17,16 +17,16 @@ public class VMsg {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f40441a = "VMsg";
+    public static final String f41273a = "VMsg";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f40442b;
+    public static Handler f41274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HandlerThread f40443c;
+    public static HandlerThread f41275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static VMsg f40444d;
+    public static VMsg f41276d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -77,7 +77,7 @@ public class VMsg {
                 return;
             }
         }
-        f40444d = new VMsg();
+        f41276d = new VMsg();
     }
 
     public VMsg() {
@@ -101,33 +101,33 @@ public class VMsg {
     public static void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            f40443c.quit();
-            f40443c = null;
-            f40442b.removeCallbacksAndMessages(null);
-            f40442b = null;
+            f41275c.quit();
+            f41275c = null;
+            f41274b.removeCallbacksAndMessages(null);
+            f41274b = null;
         }
     }
 
     public static VMsg getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f40444d : (VMsg) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f41276d : (VMsg) invokeV.objValue;
     }
 
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             HandlerThread handlerThread = new HandlerThread("VIMsgThread");
-            f40443c = handlerThread;
+            f41275c = handlerThread;
             handlerThread.start();
-            f40442b = new a(f40443c.getLooper());
+            f41274b = new a(f41275c.getLooper());
         }
     }
 
     public static void postMessage(int i2, int i3, int i4, long j) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) || (handler = f40442b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) || (handler = f41274b) == null) {
             return;
         }
         Message.obtain(handler, i2, i3, i4, j == 0 ? null : Long.valueOf(j)).sendToTarget();

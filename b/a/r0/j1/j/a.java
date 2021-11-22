@@ -1,6 +1,6 @@
 package b.a.r0.j1.j;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.r0.j1.l.o;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,19 +17,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeListView f18330a;
+    public BdTypeListView f19664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f18331b;
+    public c f19665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f18332c;
+    public b f19666c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f18333d;
+    public k f19667d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f18334e;
+    public List<b.a.e.m.e.a> f19668e;
 
     public a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -46,21 +46,21 @@ public class a {
                 return;
             }
         }
-        this.f18334e = new ArrayList();
+        this.f19668e = new ArrayList();
         a(hotRanklistActivity, bdTypeListView);
     }
 
     public final void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hotRanklistActivity, bdTypeListView) == null) {
-            this.f18331b = new c(hotRanklistActivity, b.a.r0.j1.l.c.m);
-            this.f18332c = new b(hotRanklistActivity, b.a.r0.j1.l.b.j);
-            this.f18333d = new k(hotRanklistActivity, o.k);
-            this.f18334e.add(this.f18331b);
-            this.f18334e.add(this.f18332c);
-            this.f18334e.add(this.f18333d);
-            this.f18330a = bdTypeListView;
-            bdTypeListView.addAdapters(this.f18334e);
+            this.f19665b = new c(hotRanklistActivity, b.a.r0.j1.l.c.m);
+            this.f19666c = new b(hotRanklistActivity, b.a.r0.j1.l.b.j);
+            this.f19667d = new k(hotRanklistActivity, o.k);
+            this.f19668e.add(this.f19665b);
+            this.f19668e.add(this.f19666c);
+            this.f19668e.add(this.f19667d);
+            this.f19664a = bdTypeListView;
+            bdTypeListView.addAdapters(this.f19668e);
         }
     }
 
@@ -73,15 +73,15 @@ public class a {
             } else {
                 arrayList = new ArrayList<>();
             }
-            k kVar = this.f18333d;
+            k kVar = this.f19667d;
             if (kVar != null) {
                 kVar.A0();
             }
-            c cVar = this.f18331b;
+            c cVar = this.f19665b;
             if (cVar != null) {
                 cVar.n0(str);
             }
-            BdTypeListView bdTypeListView = this.f18330a;
+            BdTypeListView bdTypeListView = this.f19664a;
             if (bdTypeListView != null) {
                 bdTypeListView.setData(arrayList);
             }

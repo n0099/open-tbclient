@@ -23,20 +23,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f3473d;
+    public static boolean f3563d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f3474e;
+    public static a f3564e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3475a;
+    public String f3565a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3476b;
+    public String f3566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f3477c;
+    public SharedPreferences f3567c;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class a {
                 return;
             }
         }
-        f3473d = AppConfig.isDebug();
+        f3563d = AppConfig.isDebug();
     }
 
     public a() {
@@ -74,14 +74,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f3474e == null) {
+            if (f3564e == null) {
                 synchronized (a.class) {
-                    if (f3474e == null) {
-                        f3474e = new a();
+                    if (f3564e == null) {
+                        f3564e = new a();
                     }
                 }
             }
-            return f3474e;
+            return f3564e;
         }
         return (a) invokeV.objValue;
     }
@@ -89,19 +89,19 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3476b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3566b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3475a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3565a : (String) invokeV.objValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f3477c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
+            this.f3567c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
             f();
             e();
         }
@@ -111,11 +111,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             String g2 = g();
-            this.f3476b = g2;
-            if (!TextUtils.isEmpty(g2) || TextUtils.isEmpty(this.f3475a)) {
+            this.f3566b = g2;
+            if (!TextUtils.isEmpty(g2) || TextUtils.isEmpty(this.f3565a)) {
                 return;
             }
-            this.f3476b = this.f3475a;
+            this.f3566b = this.f3565a;
             j();
         }
     }
@@ -124,9 +124,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             String i2 = i();
-            this.f3475a = i2;
+            this.f3565a = i2;
             if (TextUtils.isEmpty(i2)) {
-                this.f3475a = h();
+                this.f3565a = h();
             }
         }
     }
@@ -134,7 +134,7 @@ public class a {
     public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3477c.getString("channel", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3567c.getString("channel", null) : (String) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:26:0x0048, code lost:
@@ -164,16 +164,16 @@ public class a {
                                 try {
                                     inputStream.close();
                                 } catch (Exception unused) {
-                                    boolean z = f3473d;
+                                    boolean z = f3563d;
                                 }
                             }
                         } catch (Exception unused2) {
-                            boolean z2 = f3473d;
+                            boolean z2 = f3563d;
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
                                 } catch (Exception unused3) {
-                                    boolean z3 = f3473d;
+                                    boolean z3 = f3563d;
                                 }
                             }
                         }
@@ -183,14 +183,14 @@ public class a {
                             try {
                                 inputStream.close();
                             } catch (Exception unused4) {
-                                boolean z4 = f3473d;
+                                boolean z4 = f3563d;
                             }
                         }
                         if (bufferedReader != null) {
                             try {
                                 bufferedReader.close();
                             } catch (Exception unused5) {
-                                boolean z5 = f3473d;
+                                boolean z5 = f3563d;
                             }
                         }
                         throw th;
@@ -217,7 +217,7 @@ public class a {
             try {
                 bufferedReader.close();
             } catch (Exception unused8) {
-                boolean z6 = f3473d;
+                boolean z6 = f3563d;
             }
             return str;
         }
@@ -239,15 +239,15 @@ public class a {
                         openRawResource.close();
                         bufferedReader.close();
                     } catch (Exception unused) {
-                        boolean z = f3473d;
+                        boolean z = f3563d;
                         openRawResource.close();
                         bufferedReader.close();
                     }
                 } catch (Exception unused2) {
-                    boolean z2 = f3473d;
+                    boolean z2 = f3563d;
                 }
             } catch (Exception unused3) {
-                boolean z3 = f3473d;
+                boolean z3 = f3563d;
             }
             return str;
         }
@@ -257,7 +257,7 @@ public class a {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f3477c.edit().putString("channel", this.f3476b).apply();
+            this.f3567c.edit().putString("channel", this.f3566b).apply();
         }
     }
 }

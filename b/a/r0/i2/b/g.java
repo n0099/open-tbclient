@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.tbadk.TbPageContext;
@@ -82,11 +82,11 @@ public class g extends b {
     public void c(c cVar) {
         ShareStorage.StorageModel storageModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(cVar.f17948d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(cVar.f19401d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
             return;
         }
         this.q.startLoad(storageModel.url, 10, false);
         this.r.setText(storageModel.displayname);
-        this.s.setText(this.f17936a.getResources().getString(R.string.share_login_dialog_subtitle, storageModel.app));
+        this.s.setText(this.f19389a.getResources().getString(R.string.share_login_dialog_subtitle, storageModel.app));
     }
 }

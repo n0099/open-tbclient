@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ConcernTabRecommendTitleView extends b<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class ConcernTabRecommendTitleView extends b<g> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) || (viewHolder = this.m) == null) {
             return;
         }
-        if (gVar.f24834e) {
+        if (gVar.f26351e) {
             viewHolder.devider.setVisibility(0);
         } else {
             viewHolder.devider.setVisibility(8);

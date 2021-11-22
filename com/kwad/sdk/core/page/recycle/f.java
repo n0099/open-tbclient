@@ -15,10 +15,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final RecyclerView f64914a;
+    public final RecyclerView f65827a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final RecyclerView.LayoutManager f64915b;
+    public final RecyclerView.LayoutManager f65828b;
 
     public f(RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public class f {
                 return;
             }
         }
-        this.f64914a = recyclerView;
-        this.f64915b = recyclerView.getLayoutManager();
+        this.f65827a = recyclerView;
+        this.f65828b = recyclerView.getLayoutManager();
     }
 
     private View a(int i2, int i3, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            OrientationHelper createVerticalHelper = this.f64915b.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.f64915b) : OrientationHelper.createHorizontalHelper(this.f64915b);
+            OrientationHelper createVerticalHelper = this.f65828b.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.f65828b) : OrientationHelper.createHorizontalHelper(this.f65828b);
             int startAfterPadding = createVerticalHelper.getStartAfterPadding();
             int endAfterPadding = createVerticalHelper.getEndAfterPadding();
             int i4 = i3 > i2 ? 1 : -1;
             View view = null;
             while (i2 != i3) {
-                View childAt = this.f64915b.getChildAt(i2);
+                View childAt = this.f65828b.getChildAt(i2);
                 int decoratedStart = createVerticalHelper.getDecoratedStart(childAt);
                 int decoratedEnd = createVerticalHelper.getDecoratedEnd(childAt);
                 if (decoratedStart < endAfterPadding && decoratedEnd > startAfterPadding) {
@@ -86,11 +86,11 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View a2 = a(0, this.f64915b.getChildCount(), false, true);
+            View a2 = a(0, this.f65828b.getChildCount(), false, true);
             if (a2 == null) {
                 return -1;
             }
-            return this.f64914a.getChildAdapterPosition(a2);
+            return this.f65827a.getChildAdapterPosition(a2);
         }
         return invokeV.intValue;
     }
@@ -99,11 +99,11 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View a2 = a(this.f64915b.getChildCount() - 1, -1, false, true);
+            View a2 = a(this.f65828b.getChildCount() - 1, -1, false, true);
             if (a2 == null) {
                 return -1;
             }
-            return this.f64914a.getChildAdapterPosition(a2);
+            return this.f65827a.getChildAdapterPosition(a2);
         }
         return invokeV.intValue;
     }

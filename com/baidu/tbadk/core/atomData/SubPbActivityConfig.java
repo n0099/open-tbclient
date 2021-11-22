@@ -400,9 +400,9 @@ public class SubPbActivityConfig extends IntentConfig {
             intent.putExtra(KEY_ANTI, antiData);
             intent.putExtra(ICON_LIST, arrayList);
             intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z4);
-            intent.putExtra(KEY_IS_JUMP_FROM_VIDEO_TAB, z2);
+            intent.putExtra("is_jump_from_video_tab", z2);
             intent.putExtra(KEY_IS_JUMP_FROM_VIDEO_TAB_CHILD, i3);
-            intent.putExtra(KEY_IS_JUMP_FROM_VIDEO_MIDDLE, z5);
+            intent.putExtra("is_jump_from_video_middle", z5);
             return this;
         }
         return (SubPbActivityConfig) invokeCommon.objValue;

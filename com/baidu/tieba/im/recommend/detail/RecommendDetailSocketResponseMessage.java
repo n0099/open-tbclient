@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.recommend.detail;
 
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import b.a.q0.s.r.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;

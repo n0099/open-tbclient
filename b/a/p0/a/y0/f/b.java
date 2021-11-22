@@ -15,12 +15,12 @@ public class b extends b.a.p0.a.y0.b<b.a.p0.a.y0.f.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a implements a.InterfaceC0458a {
+    public class a implements a.InterfaceC0473a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f9006a;
+        public final /* synthetic */ b f9352a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -37,25 +37,25 @@ public class b extends b.a.p0.a.y0.b<b.a.p0.a.y0.f.a> {
                     return;
                 }
             }
-            this.f9006a = bVar;
+            this.f9352a = bVar;
         }
 
-        @Override // b.a.p0.a.y0.f.a.InterfaceC0458a
+        @Override // b.a.p0.a.y0.f.a.InterfaceC0473a
         public void a(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || this.f9006a.f8961b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || this.f9352a.f9307b == null) {
                 return;
             }
-            this.f9006a.f8961b.onCallback(this.f9006a, "onMediaMetadataExtracted", bundle);
+            this.f9352a.f9307b.onCallback(this.f9352a, "onMediaMetadataExtracted", bundle);
         }
 
-        @Override // b.a.p0.a.y0.f.a.InterfaceC0458a
+        @Override // b.a.p0.a.y0.f.a.InterfaceC0473a
         public void onRelease() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f9006a.f8961b == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f9352a.f9307b == null) {
                 return;
             }
-            this.f9006a.f8961b = null;
+            this.f9352a.f9307b = null;
         }
     }
 
@@ -77,8 +77,8 @@ public class b extends b.a.p0.a.y0.b<b.a.p0.a.y0.f.a> {
                 return;
             }
         }
-        ((b.a.p0.a.y0.f.a) this.f8962c).w(new a(this));
-        this.f8960a.a(new b.a.p0.a.y0.f.d.a());
-        this.f8960a.a(new b.a.p0.a.y0.f.d.b());
+        ((b.a.p0.a.y0.f.a) this.f9308c).w(new a(this));
+        this.f9306a.a(new b.a.p0.a.y0.f.d.a());
+        this.f9306a.a(new b.a.p0.a.y0.f.d.b());
     }
 }

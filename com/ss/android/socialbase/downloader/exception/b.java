@@ -11,7 +11,7 @@ public class b extends BaseException {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f69307a;
+    public final int f70227a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(int i2, int i3, String str) {
@@ -32,12 +32,12 @@ public class b extends BaseException {
                 return;
             }
         }
-        this.f69307a = i3;
+        this.f70227a = i3;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69307a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70227a : invokeV.intValue;
     }
 }

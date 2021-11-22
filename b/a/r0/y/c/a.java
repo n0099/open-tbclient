@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends BdAsyncTask<Void, String, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27192a;
+    public int f28695a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.r0.y.b.c f27193b;
+    public b.a.r0.y.b.c f28696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27194c;
+    public String f28697c;
 
     public a(String str, int i2, b.a.r0.y.b.c cVar) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public class a extends BdAsyncTask<Void, String, String> {
                 return;
             }
         }
-        this.f27192a = i2;
-        this.f27193b = cVar;
-        this.f27194c = str;
+        this.f28695a = i2;
+        this.f28696b = cVar;
+        this.f28697c = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,7 +53,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String str = this.f27194c;
+            String str = this.f28697c;
             if (str == null) {
                 return null;
             }
@@ -139,11 +139,11 @@ public class a extends BdAsyncTask<Void, String, String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             super.onPostExecute((a) str);
-            b.a.r0.y.b.c cVar = this.f27193b;
+            b.a.r0.y.b.c cVar = this.f28696b;
             if (cVar == null || str == null) {
                 return;
             }
-            cVar.a("", this.f27192a, str);
+            cVar.a("", this.f28695a, str);
         }
     }
 }

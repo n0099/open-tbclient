@@ -66,7 +66,7 @@ public class h extends b<b.a.r0.h0.g> {
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f14736e != i2) {
+            if (this.f16223e != i2) {
                 SkinManager.setBackgroundResource(i(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.z, R.color.CAM_X0205);
                 SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
@@ -75,7 +75,7 @@ public class h extends b<b.a.r0.h0.g> {
                 SkinManager.setViewTextColor(this.x, R.color.CAM_X0107, 1);
                 q(this.y);
             }
-            this.f14736e = i2;
+            this.f16223e = i2;
         }
     }
 
@@ -98,7 +98,7 @@ public class h extends b<b.a.r0.h0.g> {
             this.m.setDefaultBgResource(R.color.CAM_X0205);
             this.m.setDrawBorder(true);
             this.m.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.m.setBorderWidth(this.f14738g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.m.setBorderWidth(this.f16225g.getResources().getDimensionPixelSize(R.dimen.tbds1));
             this.m.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
             i().setOnClickListener(this);
             this.z = view.findViewById(R.id.divider_line);
@@ -128,7 +128,7 @@ public class h extends b<b.a.r0.h0.g> {
         this.p.setText(gVar.g().title_small);
         this.q.setText(String.valueOf(gVar.g().game_score));
         q(gVar);
-        this.x.setText(this.f14738g.getResources().getString(R.string.frs_game_score_user_score_num, StringHelper.numberUniform(gVar.g().game_score_num)));
+        this.x.setText(this.f16225g.getResources().getString(R.string.frs_game_score_user_score_num, StringHelper.numberUniform(gVar.g().game_score_num)));
     }
 
     public final void q(b.a.r0.h0.g gVar) {

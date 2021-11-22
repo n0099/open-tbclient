@@ -31,25 +31,25 @@ public class a extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static SparseArray<Integer> f23554h;
+    public static SparseArray<Integer> f25071h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static HashMap<b, Integer> f23555i;
+    public static HashMap<b, Integer> f25072i;
     public static HashMap<b, Integer> j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NewFriendsActivity f23556e;
+    public NewFriendsActivity f25073e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b.a.r0.l1.g.a> f23557f;
+    public List<b.a.r0.l1.g.a> f25074f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f23558g;
+    public c f25075g;
 
     /* renamed from: b.a.r0.t.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class C1147a {
+    public static /* synthetic */ class C1215a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -60,7 +60,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f23559a;
+        public boolean f25076a;
 
         public b(boolean z) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
                     return;
                 }
             }
-            this.f23559a = z;
+            this.f25076a = z;
         }
 
         public boolean equals(Object obj) {
@@ -87,7 +87,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
                 if (this == obj) {
                     return true;
                 }
-                return obj != null && b.class == obj.getClass() && this.f23559a == ((b) obj).f23559a;
+                return obj != null && b.class == obj.getClass() && this.f25076a == ((b) obj).f25076a;
             }
             return invokeL.booleanValue;
         }
@@ -96,7 +96,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 31 + (this.f23559a ? 1231 : 1237);
+                return 31 + (this.f25076a ? 1231 : 1237);
             }
             return invokeV.intValue;
         }
@@ -113,16 +113,16 @@ public class a extends BaseAdapter implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HeadImageView f23560a;
+        public HeadImageView f25077a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f23561b;
+        public TextView f25078b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f23562c;
+        public TextView f25079c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f23563d;
+        public TextView f25080d;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -142,20 +142,20 @@ public class a extends BaseAdapter implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 boolean z = false;
-                this.f23560a.startLoad(aVar.e(), 12, false);
-                this.f23561b.setText(aVar.d());
+                this.f25077a.startLoad(aVar.e(), 12, false);
+                this.f25078b.setText(aVar.d());
                 if (!TextUtils.isEmpty(aVar.a())) {
-                    this.f23562c.setText(aVar.a());
+                    this.f25079c.setText(aVar.a());
                 } else {
-                    this.f23562c.setText("");
+                    this.f25079c.setText("");
                 }
                 int f2 = aVar.f();
-                this.f23563d.setText(((Integer) a.f23554h.get(f2)).intValue());
-                this.f23563d.setEnabled((f2 == 0 || f2 == 1) ? true : true);
+                this.f25080d.setText(((Integer) a.f25071h.get(f2)).intValue());
+                this.f25080d.setEnabled((f2 == 0 || f2 == 1) ? true : true);
             }
         }
 
-        public /* synthetic */ d(C1147a c1147a) {
+        public /* synthetic */ d(C1215a c1215a) {
             this();
         }
     }
@@ -173,16 +173,16 @@ public class a extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        f23554h = new SparseArray<>();
-        f23555i = new HashMap<>();
+        f25071h = new SparseArray<>();
+        f25072i = new HashMap<>();
         j = new HashMap<>();
-        f23554h.put(0, Integer.valueOf(R.string.add));
-        f23554h.put(4, Integer.valueOf(R.string.added));
-        f23554h.put(1, Integer.valueOf(R.string.pass));
-        f23554h.put(2, Integer.valueOf(R.string.passed));
-        f23554h.put(3, Integer.valueOf(R.string.waiting));
-        f23555i.put(new b(false), Integer.valueOf(R.drawable.btn_pass));
-        f23555i.put(new b(true), Integer.valueOf(R.drawable.btn_all_blue));
+        f25071h.put(0, Integer.valueOf(R.string.add));
+        f25071h.put(4, Integer.valueOf(R.string.added));
+        f25071h.put(1, Integer.valueOf(R.string.pass));
+        f25071h.put(2, Integer.valueOf(R.string.passed));
+        f25071h.put(3, Integer.valueOf(R.string.waiting));
+        f25072i.put(new b(false), Integer.valueOf(R.drawable.btn_pass));
+        f25072i.put(new b(true), Integer.valueOf(R.drawable.btn_all_blue));
         j.put(new b(false), Integer.valueOf(R.color.btn_pass_text_color));
         j.put(new b(true), Integer.valueOf(R.color.btn_agree_text_color));
     }
@@ -202,18 +202,18 @@ public class a extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.f23556e = newFriendsActivity;
+        this.f25073e = newFriendsActivity;
     }
 
     public final int b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            List<b.a.r0.l1.g.a> list = this.f23557f;
+            List<b.a.r0.l1.g.a> list = this.f25074f;
             if (list != null) {
                 int size = list.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    if (j2 == this.f23557f.get(i2).b()) {
+                    if (j2 == this.f25074f.get(i2).b()) {
                         return i2;
                     }
                 }
@@ -230,15 +230,15 @@ public class a extends BaseAdapter implements View.OnClickListener {
     public b.a.r0.l1.g.a getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f23557f.get(i2) : (b.a.r0.l1.g.a) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f25074f.get(i2) : (b.a.r0.l1.g.a) invokeI.objValue;
     }
 
     public synchronized void d(b.a.r0.l1.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             synchronized (this) {
-                if (this.f23557f != null) {
-                    this.f23557f.remove(aVar);
+                if (this.f25074f != null) {
+                    this.f25074f.remove(aVar);
                 }
             }
         }
@@ -247,33 +247,33 @@ public class a extends BaseAdapter implements View.OnClickListener {
     public void e(List<b.a.r0.l1.g.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f23557f = list;
+            this.f25074f = list;
         }
     }
 
     public void f(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f23558g = cVar;
+            this.f25075g = cVar;
         }
     }
 
     public void g(b.a.r0.l1.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            if (this.f23557f == null) {
-                this.f23557f = new ArrayList();
+            if (this.f25074f == null) {
+                this.f25074f = new ArrayList();
             }
             if (aVar == null || aVar.b() == 0) {
                 return;
             }
             int b2 = b(aVar.b());
             if (b2 != -1) {
-                this.f23557f.remove(b2);
-                this.f23557f.add(0, aVar);
+                this.f25074f.remove(b2);
+                this.f25074f.add(0, aVar);
                 return;
             }
-            this.f23557f.add(0, aVar);
+            this.f25074f.add(0, aVar);
         }
     }
 
@@ -282,7 +282,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<b.a.r0.l1.g.a> list = this.f23557f;
+            List<b.a.r0.l1.g.a> list = this.f25074f;
             if (list == null) {
                 return 0;
             }
@@ -309,25 +309,25 @@ public class a extends BaseAdapter implements View.OnClickListener {
             } else {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.add_new_friend_list_item, (ViewGroup) null);
                 dVar = new d(null);
-                dVar.f23560a = (HeadImageView) view.findViewById(R.id.friend_icon);
-                dVar.f23561b = (TextView) view.findViewById(R.id.friend_name);
-                dVar.f23562c = (TextView) view.findViewById(R.id.friend_info);
-                dVar.f23563d = (TextView) view.findViewById(R.id.friend_add_btn);
+                dVar.f25077a = (HeadImageView) view.findViewById(R.id.friend_icon);
+                dVar.f25078b = (TextView) view.findViewById(R.id.friend_name);
+                dVar.f25079c = (TextView) view.findViewById(R.id.friend_info);
+                dVar.f25080d = (TextView) view.findViewById(R.id.friend_add_btn);
                 view.setTag(dVar);
             }
             b.a.r0.l1.g.a item = getItem(i2);
             dVar.a(item);
-            dVar.f23563d.setTag(Integer.valueOf(i2));
-            dVar.f23563d.setOnClickListener(this);
-            this.f23556e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f23556e.getLayoutMode().j(view);
-            Integer num = f23555i.get(new b(item.f() == 1));
+            dVar.f25080d.setTag(Integer.valueOf(i2));
+            dVar.f25080d.setOnClickListener(this);
+            this.f25073e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f25073e.getLayoutMode().j(view);
+            Integer num = f25072i.get(new b(item.f() == 1));
             if (num != null) {
-                SkinManager.setBackgroundResource(dVar.f23563d, num.intValue());
+                SkinManager.setBackgroundResource(dVar.f25080d, num.intValue());
             }
             Integer num2 = j.get(new b(item.f() == 1));
             if (num2 != null) {
-                SkinManager.setViewTextColor(dVar.f23563d, num2.intValue(), 1);
+                SkinManager.setViewTextColor(dVar.f25080d, num2.intValue(), 1);
             }
             return view;
         }
@@ -337,8 +337,8 @@ public class a extends BaseAdapter implements View.OnClickListener {
     public void h(List<b.a.r0.l1.g.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-            if (this.f23557f == null) {
-                this.f23557f = new ArrayList();
+            if (this.f25074f == null) {
+                this.f25074f = new ArrayList();
             }
             if (list != null) {
                 for (b.a.r0.l1.g.a aVar : list) {
@@ -351,11 +351,11 @@ public class a extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, view) == null) || this.f23558g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, view) == null) || this.f25075g == null) {
             return;
         }
         int id = view.getId();
         int intValue = ((Integer) view.getTag()).intValue();
-        this.f23558g.a(id, intValue, view, getItem(intValue));
+        this.f25075g.a(id, intValue, view, getItem(intValue));
     }
 }

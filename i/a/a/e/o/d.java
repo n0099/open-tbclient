@@ -1,10 +1,10 @@
 package i.a.a.e.o;
 
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface d extends i.a.a.e.o.a {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
     }

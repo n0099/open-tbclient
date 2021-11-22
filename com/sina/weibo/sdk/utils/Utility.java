@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,7 +77,7 @@ public class Utility {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             StringBuilder sb = new StringBuilder();
             String packageName = context.getPackageName();
-            String str = (TextUtils.isEmpty(packageName) || !packageName.contains("com.sina.weibo")) ? "weibosdk" : "weibo";
+            String str = (TextUtils.isEmpty(packageName) || !packageName.contains("com.sina.weibo")) ? "weibosdk" : PassProviderPlugin.LOGIN_TYPE_WEIBO;
             sb.append(Build.MANUFACTURER);
             sb.append("-");
             sb.append(Build.MODEL);

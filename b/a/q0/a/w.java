@@ -56,10 +56,10 @@ public class w {
             String queryParameter5 = uri.getQueryParameter(TiebaStatic.Params.OBJ_PARAM3);
             String queryParameter6 = uri.getQueryParameter("tid");
             String queryParameter7 = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
-            String queryParameter8 = uri.getQueryParameter(g.t);
-            String queryParameter9 = uri.getQueryParameter(g.u);
-            String queryParameter10 = uri.getQueryParameter(g.v);
-            String queryParameter11 = uri.getQueryParameter(g.w);
+            String queryParameter8 = uri.getQueryParameter(g.u);
+            String queryParameter9 = uri.getQueryParameter(g.v);
+            String queryParameter10 = uri.getQueryParameter(g.w);
+            String queryParameter11 = uri.getQueryParameter(g.x);
             String queryParameter12 = uri.getQueryParameter("obj_name");
             String queryParameter13 = uri.getQueryParameter("eqid");
             String queryParameter14 = uri.getQueryParameter("topic_id");
@@ -78,10 +78,10 @@ public class w {
             statisticItem.param("tid", queryParameter6);
             statisticItem.param("fid", queryParameter15);
             statisticItem.param("fname", queryParameter7);
-            statisticItem.param(g.t, queryParameter8);
-            statisticItem.param(g.u, queryParameter9);
-            statisticItem.param(g.v, queryParameter10);
-            statisticItem.param(g.w, queryParameter11);
+            statisticItem.param(g.u, queryParameter8);
+            statisticItem.param(g.v, queryParameter9);
+            statisticItem.param(g.w, queryParameter10);
+            statisticItem.param(g.x, queryParameter11);
             statisticItem.param("obj_source", queryParameter);
             statisticItem.param("obj_name", queryParameter12);
             statisticItem.param("query", queryParameter13);
@@ -108,7 +108,7 @@ public class w {
                 return "";
             }
             String uri2 = uri.toString();
-            return TextUtils.isEmpty(uri2) ? "" : (uri2.contains("unidispatch/openapp") || uri2.contains("donothing")) ? "5" : (uri2.contains("tbpb") || uri2.contains("unidispatch/pb")) ? "tbpb://tieba.baidu.com".equals(uri2) ? "5" : !TextUtils.isEmpty(uri.getQueryParameter(g.t)) ? "6" : "1" : (uri2.contains("invoke_frs") || uri2.contains("tbfrs") || uri2.contains("unidispatch/frs")) ? "2" : uri2.contains("tbwebview") ? "9" : (uri2.contains("tbusercenter") || uri2.contains("unidispatch/usercenter") || uri2.contains("usercenter")) ? "4" : (uri2.contains("tbtopicdetail") || uri2.contains("unidispatch/topicdetail")) ? "3" : uri2.contains("unidispatch/hotuserrank") ? "7" : g.f11779c.equals(uri.getPath()) ? "5" : "10";
+            return TextUtils.isEmpty(uri2) ? "" : (uri2.contains("unidispatch/openapp") || uri2.contains("donothing")) ? "5" : (uri2.contains("tbpb") || uri2.contains("unidispatch/pb")) ? "tbpb://tieba.baidu.com".equals(uri2) ? "5" : !TextUtils.isEmpty(uri.getQueryParameter(g.u)) ? "6" : "1" : (uri2.contains("invoke_frs") || uri2.contains("tbfrs") || uri2.contains("unidispatch/frs")) ? "2" : uri2.contains("tbwebview") ? "9" : (uri2.contains("tbusercenter") || uri2.contains("unidispatch/usercenter") || uri2.contains("usercenter")) ? "4" : (uri2.contains("tbtopicdetail") || uri2.contains("unidispatch/topicdetail")) ? "3" : uri2.contains("unidispatch/hotuserrank") ? "7" : g.f12530c.equals(uri.getPath()) ? "5" : "10";
         }
         return (String) invokeL.objValue;
     }

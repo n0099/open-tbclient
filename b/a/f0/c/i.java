@@ -5,7 +5,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.baidu.prologue.service.network.Als;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.PushClientConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,10 +22,10 @@ public class i extends e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2876a;
+    public static final boolean f2969a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f2877b;
+    public static final String[] f2970b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -65,8 +63,8 @@ public class i extends e {
                 return;
             }
         }
-        f2876a = b.a.f0.a.b.a.f2781a.get().s();
-        f2877b = new String[]{"deeplink", "open"};
+        f2969a = b.a.f0.a.b.a.f2874a.get().s();
+        f2970b = new String[]{"deeplink", "open"};
     }
 
     public i() {
@@ -88,7 +86,7 @@ public class i extends e {
         String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            for (String str : f2877b) {
+            for (String str : f2970b) {
                 hashMap.put("splash/ad/" + str, "splash_ad/" + str);
             }
         }
@@ -105,7 +103,7 @@ public class i extends e {
                 if (gVar.g()) {
                     return true;
                 }
-                if (f2876a) {
+                if (f2969a) {
                     String str = "invoke: " + gVar.f().toString();
                 }
                 char c2 = 65535;
@@ -119,7 +117,7 @@ public class i extends e {
                 }
                 if (c2 != 0) {
                     if (c2 != 1) {
-                        if (f2876a) {
+                        if (f2969a) {
                             throw new IllegalStateException("scheme action 不支持错误");
                         }
                         return false;
@@ -140,7 +138,7 @@ public class i extends e {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, gVar, aVar)) == null) {
             String str = gVar.c().get("params");
             if (TextUtils.isEmpty(str)) {
-                if (f2876a) {
+                if (f2969a) {
                     throw new IllegalStateException("action deeplink 没有params参数");
                 }
                 return false;
@@ -148,8 +146,8 @@ public class i extends e {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("appUrl");
-                String optString2 = jSONObject.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL);
-                String optString3 = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
+                String optString2 = jSONObject.optString("webUrl");
+                String optString3 = jSONObject.optString("pkgName");
                 if (!TextUtils.isEmpty(optString) && b.a.f0.a.c.i.b(context, optString)) {
                     h(Als.Area.DEEPLINK_RESULT_APP);
                     return true;
@@ -176,18 +174,18 @@ public class i extends e {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, gVar, aVar)) == null) {
             String str = gVar.c().get("params");
             if (TextUtils.isEmpty(str)) {
-                if (f2876a) {
+                if (f2969a) {
                     throw new IllegalStateException("action deeplink 没有params参数");
                 }
                 return false;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL);
+                String optString = jSONObject.optString("webUrl");
                 if (TextUtils.isEmpty(optString)) {
                     optString = jSONObject.optString("innerUrl");
                 }
-                if (f2876a) {
+                if (f2969a) {
                     String str2 = "openUrl: " + optString;
                 }
                 return g(optString, aVar);
@@ -202,19 +200,19 @@ public class i extends e {
     public final boolean g(@NonNull String str, b.a.f0.c.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, aVar)) == null) ? b.a.f0.a.b.a.f2781a.get().v(str, new a(this, aVar)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, aVar)) == null) ? b.a.f0.a.b.a.f2874a.get().v(str, new a(this, aVar)) : invokeLL.booleanValue;
     }
 
     public final void h(Als.Area area) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, area) == null) {
-            if (!TextUtils.isEmpty(b.a.f0.b.g.c.f2834a)) {
+            if (!TextUtils.isEmpty(b.a.f0.b.g.c.f2927a)) {
                 Als.c cVar = new Als.c(Als.Type.DEEP_LINK);
                 cVar.l(Als.Page.NA_DEEPLINK);
                 cVar.e(area);
-                cVar.m(b.a.f0.b.g.c.f2834a);
+                cVar.m(b.a.f0.b.g.c.f2927a);
                 Als.e(cVar);
-            } else if (f2876a) {
+            } else if (f2969a) {
                 throw new IllegalStateException("全局数据仓库获取数据失败，打点失败...");
             }
         }

@@ -19,7 +19,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseDialogModel f62524a;
+    public BaseDialogModel f63425a;
 
     /* loaded from: classes11.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
@@ -64,7 +64,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
                 return;
             }
         }
-        this.f62524a = baseDialogModel;
+        this.f63425a = baseDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +72,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f62524a);
+            baseHolder.binding.setViewModel(this.f63425a);
         }
     }
 

@@ -1,7 +1,6 @@
 package b.a.w.b.f;
 
 import android.content.Context;
-import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +23,7 @@ public class e {
             if (j < 10000) {
                 return i2 + context.getString(b.a.w.c.a.e.live_feed_page_person_unit);
             }
-            if (j < CoolPraiseView.BILLION) {
+            if (j < 100000000) {
                 string = context.getString(b.a.w.c.a.e.live_feed_page_million_unit);
                 valueOf = Float.valueOf(i2 / 10000.0f);
             } else {

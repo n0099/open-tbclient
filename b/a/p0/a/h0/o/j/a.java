@@ -1,24 +1,14 @@
 package b.a.p0.a.h0.o.j;
 
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes.dex */
-public class a {
+public class a implements b.a.p0.a.z2.g1.c<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public File f5705a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f5706b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f5707c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,9 +24,17 @@ public class a {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // b.a.p0.a.z2.g1.c
+    /* renamed from: a */
+    public void onCallback(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5705a != null : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
+            hybridUbcFlow.J("3334");
+            hybridUbcFlow.I(HybridUbcFlow.SubmitStrategy.PREFETCH_NA);
+            hybridUbcFlow.E("from", "swan");
+            hybridUbcFlow.E("type", "unknown");
+            hybridUbcFlow.E("source", "unknown");
+        }
     }
 }

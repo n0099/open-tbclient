@@ -2,7 +2,7 @@ package b.a.r0.w.l.g.d;
 
 import android.content.Context;
 import android.widget.RelativeLayout;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.ala.AlaCmdConfigCustom;
@@ -26,28 +26,28 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f25261a;
+    public Context f26778a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f25262b;
+    public RelativeLayout f26779b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IImageFramePlayerViewController f25263c;
+    public IImageFramePlayerViewController f26780c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlaEffectPreviewView f25264d;
+    public AlaEffectPreviewView f26781d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlaEnterEffectData f25265e;
+    public AlaEnterEffectData f26782e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f25266f;
+    public int f26783f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IFrameCallback f25267g;
+    public IFrameCallback f26784g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f25268h;
+    public c f26785h;
 
     /* loaded from: classes5.dex */
     public class a implements IFrameCallback {
@@ -55,7 +55,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f25269a;
+        public final /* synthetic */ b f26786a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -72,19 +72,19 @@ public class b {
                     return;
                 }
             }
-            this.f25269a = bVar;
+            this.f26786a = bVar;
         }
 
         @Override // com.baidu.ala.gift.IFrameCallback
         public void onFrameEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.b(this.f25269a);
-                if (this.f25269a.f25266f > 0 || this.f25269a.f25265e == null) {
+                b.b(this.f26786a);
+                if (this.f26786a.f26783f > 0 || this.f26786a.f26782e == null) {
                     return;
                 }
-                b bVar = this.f25269a;
-                bVar.g(bVar.f25265e);
+                b bVar = this.f26786a;
+                bVar.g(bVar.f26782e);
             }
         }
 
@@ -105,14 +105,14 @@ public class b {
 
     /* renamed from: b.a.r0.w.l.g.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1235b implements c {
+    public class C1303b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f25270a;
+        public final /* synthetic */ b f26787a;
 
-        public C1235b(b bVar) {
+        public C1303b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,25 +127,25 @@ public class b {
                     return;
                 }
             }
-            this.f25270a = bVar;
+            this.f26787a = bVar;
         }
 
         @Override // b.a.r0.w.l.g.d.b.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.b(this.f25270a);
-                if (this.f25270a.f25265e != null) {
-                    if (this.f25270a.f25265e.type != 1 || this.f25270a.f25266f > 0) {
-                        if (this.f25270a.f25265e.type == 0) {
-                            b bVar = this.f25270a;
-                            bVar.g(bVar.f25265e);
+                b.b(this.f26787a);
+                if (this.f26787a.f26782e != null) {
+                    if (this.f26787a.f26782e.type != 1 || this.f26787a.f26783f > 0) {
+                        if (this.f26787a.f26782e.type == 0) {
+                            b bVar = this.f26787a;
+                            bVar.g(bVar.f26782e);
                             return;
                         }
                         return;
                     }
-                    b bVar2 = this.f25270a;
-                    bVar2.g(bVar2.f25265e);
+                    b bVar2 = this.f26787a;
+                    bVar2.g(bVar2.f26782e);
                 }
             }
         }
@@ -171,27 +171,27 @@ public class b {
                 return;
             }
         }
-        this.f25266f = 2;
-        this.f25267g = new a(this);
-        this.f25268h = new C1235b(this);
-        this.f25261a = context;
-        this.f25262b = relativeLayout;
+        this.f26783f = 2;
+        this.f26784g = new a(this);
+        this.f26785h = new C1303b(this);
+        this.f26778a = context;
+        this.f26779b = relativeLayout;
     }
 
     public static /* synthetic */ int b(b bVar) {
-        int i2 = bVar.f25266f;
-        bVar.f25266f = i2 - 1;
+        int i2 = bVar.f26783f;
+        bVar.f26783f = i2 - 1;
         return i2;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            IImageFramePlayerViewController iImageFramePlayerViewController = this.f25263c;
+            IImageFramePlayerViewController iImageFramePlayerViewController = this.f26780c;
             if (iImageFramePlayerViewController != null) {
                 iImageFramePlayerViewController.onDestroy();
             }
-            AlaEffectPreviewView alaEffectPreviewView = this.f25264d;
+            AlaEffectPreviewView alaEffectPreviewView = this.f26781d;
             if (alaEffectPreviewView != null) {
                 alaEffectPreviewView.onDestory();
             }
@@ -203,15 +203,15 @@ public class b {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) == null) {
-            if (this.f25263c == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.f25261a)) != null && runTask.getData() != null) {
+            if (this.f26780c == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.f26778a)) != null && runTask.getData() != null) {
                 IImageFramePlayerViewController iImageFramePlayerViewController = (IImageFramePlayerViewController) runTask.getData();
-                this.f25263c = iImageFramePlayerViewController;
-                iImageFramePlayerViewController.setFrameCallback(this.f25267g);
+                this.f26780c = iImageFramePlayerViewController;
+                iImageFramePlayerViewController.setFrameCallback(this.f26784g);
             }
-            IImageFramePlayerViewController iImageFramePlayerViewController2 = this.f25263c;
+            IImageFramePlayerViewController iImageFramePlayerViewController2 = this.f26780c;
             if (iImageFramePlayerViewController2 != null) {
                 if (iImageFramePlayerViewController2.getAnimView().getParent() == null) {
-                    this.f25262b.addView(this.f25263c.getAnimView(), new RelativeLayout.LayoutParams(-1, l.i(this.f25261a)));
+                    this.f26779b.addView(this.f26780c.getAnimView(), new RelativeLayout.LayoutParams(-1, l.i(this.f26778a)));
                 }
                 AlaDynamicGiftAndNativeData alaDynamicGiftAndNativeData = new AlaDynamicGiftAndNativeData();
                 AlaDynamicGift alaDynamicGift = alaEnterEffectData.gift;
@@ -221,8 +221,8 @@ public class b {
                     alaDynamicGiftConfigInfo.oppositeY = 0.6499999761581421d;
                 }
                 alaDynamicGiftAndNativeData.upZipDirPath = AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName;
-                this.f25263c.setData(alaDynamicGiftAndNativeData);
-                this.f25263c.startAnim();
+                this.f26780c.setData(alaDynamicGiftAndNativeData);
+                this.f26780c.startAnim();
             }
         }
     }
@@ -230,19 +230,19 @@ public class b {
     public final void f(AlaEnterEffectData alaEnterEffectData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaEnterEffectData) == null) {
-            if (this.f25264d == null) {
-                AlaEffectPreviewView alaEffectPreviewView = new AlaEffectPreviewView(this.f25261a);
-                this.f25264d = alaEffectPreviewView;
-                alaEffectPreviewView.setAnimCompleteCallback(this.f25268h);
+            if (this.f26781d == null) {
+                AlaEffectPreviewView alaEffectPreviewView = new AlaEffectPreviewView(this.f26778a);
+                this.f26781d = alaEffectPreviewView;
+                alaEffectPreviewView.setAnimCompleteCallback(this.f26785h);
             }
-            if (this.f25264d.getParent() == null) {
+            if (this.f26781d.getParent() == null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams.addRule(2, R.id.effet_name_tv);
-                layoutParams.bottomMargin = this.f25261a.getResources().getDimensionPixelSize(R.dimen.ds51);
-                this.f25262b.addView(this.f25264d, layoutParams);
+                layoutParams.bottomMargin = this.f26778a.getResources().getDimensionPixelSize(R.dimen.ds51);
+                this.f26779b.addView(this.f26781d, layoutParams);
             }
-            this.f25264d.setData(alaEnterEffectData);
-            this.f25264d.startAnimtion();
+            this.f26781d.setData(alaEnterEffectData);
+            this.f26781d.startAnimtion();
         }
     }
 
@@ -251,10 +251,10 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, alaEnterEffectData) == null) || alaEnterEffectData == null) {
             return;
         }
-        this.f25265e = alaEnterEffectData;
+        this.f26782e = alaEnterEffectData;
         int i2 = alaEnterEffectData.type;
         if (i2 == 1) {
-            this.f25266f = 2;
+            this.f26783f = 2;
             e(alaEnterEffectData);
             f(alaEnterEffectData);
         } else if (i2 == 0) {

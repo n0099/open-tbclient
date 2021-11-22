@@ -23,7 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
@@ -1291,7 +1290,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
             }
             if (this.mOrientationHelper.getDecoratedStart(getChildAt(i2)) < this.mOrientationHelper.getStartAfterPadding()) {
                 i4 = 16644;
-                i5 = ZeusMonitorType.MONITOR_TYPE_RENDERER_CRASHED;
+                i5 = 16388;
             } else {
                 i4 = 4161;
                 i5 = 4097;

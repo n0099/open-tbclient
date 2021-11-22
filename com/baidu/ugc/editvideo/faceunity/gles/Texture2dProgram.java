@@ -2,7 +2,6 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 
 import android.opengl.GLES20;
 import android.text.TextUtils;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import b.a.x0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
@@ -466,7 +465,7 @@ public class Texture2dProgram {
     public void onDrawArraysPre() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, Key.ALPHA), this.mAlpha);
+            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "alpha"), this.mAlpha);
             if (this.mProgramType == ProgramType.TEXTURE_2D_BLEND) {
                 GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "thresholdSensitivity"), 0.5f);
                 GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "smoothing"), 0.2f);

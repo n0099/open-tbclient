@@ -3,9 +3,9 @@ package b.a.r0.w.f.c;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
+import b.a.e.f.p.j;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -87,7 +87,7 @@ public class c {
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, d2Var, str) == null) {
             if (!j.z()) {
                 l.J(context, context.getString(R.string.no_network_guide));
-            } else if (context == null || d2Var == null || d2Var.J() == null || d2Var.l1() == null) {
+            } else if (context == null || d2Var == null || d2Var.J() == null || d2Var.m1() == null) {
             } else {
                 if (TbadkCoreApplication.getCurrentAccount() != null) {
                     String userId = d2Var.J().getUserId();
@@ -99,7 +99,7 @@ public class c {
                     z = false;
                 }
                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                alaLiveInfoCoreData.fillWithInfoData(d2Var.l1());
+                alaLiveInfoCoreData.fillWithInfoData(d2Var.m1());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
             }
         }
@@ -111,8 +111,8 @@ public class c {
             return;
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.liveID = b.a.e.e.m.b.g(sdkLiveInfoData.liveId, 0L);
-        alaLiveInfoCoreData.threadId = b.a.e.e.m.b.g(sdkLiveInfoData.tid, 0L);
+        alaLiveInfoCoreData.liveID = b.a.e.f.m.b.g(sdkLiveInfoData.liveId, 0L);
+        alaLiveInfoCoreData.threadId = b.a.e.f.m.b.g(sdkLiveInfoData.tid, 0L);
         SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
         if (liveAuthor != null) {
             alaLiveInfoCoreData.userName = liveAuthor.name;

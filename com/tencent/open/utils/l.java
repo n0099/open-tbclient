@@ -65,22 +65,22 @@ public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f70161a = "";
+    public static String f71081a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f70162b = "";
+    public static String f71082b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f70163c = "";
+    public static String f71083c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f70164d = "";
+    public static String f71084d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f70165e = -1;
+    public static int f71085e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f70166f = "0123456789ABCDEF";
+    public static String f71086f = "0123456789ABCDEF";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -89,13 +89,13 @@ public class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f70169a;
+        public String f71089a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f70170b;
+        public long f71090b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f70171c;
+        public long f71091c;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -112,10 +112,10 @@ public class l {
                     return;
                 }
             }
-            this.f70169a = str;
-            this.f70170b = i2;
+            this.f71089a = str;
+            this.f71090b = i2;
             if (str != null) {
-                this.f70171c = str.length();
+                this.f71091c = str.length();
             }
         }
     }
@@ -412,7 +412,7 @@ public class l {
                 return "";
             }
             String d2 = d(context, str);
-            f70163c = d2;
+            f71083c = d2;
             return d2;
         }
         return (String) invokeLL.objValue;
@@ -472,7 +472,7 @@ public class l {
                 return "";
             }
             b(context, str);
-            return f70162b;
+            return f71082b;
         }
         return (String) invokeLL.objValue;
     }
@@ -530,7 +530,7 @@ public class l {
                 return "";
             }
             b(context, str);
-            return f70161a;
+            return f71081a;
         }
         return (String) invokeLL.objValue;
     }
@@ -543,10 +543,10 @@ public class l {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f70162b = str2;
-            f70161a = str2.substring(0, str2.lastIndexOf(46));
-            f70164d = f70162b.substring(f70162b.lastIndexOf(46) + 1, f70162b.length());
-            f70165e = packageInfo.versionCode;
+            f71082b = str2;
+            f71081a = str2.substring(0, str2.lastIndexOf(46));
+            f71084d = f71082b.substring(f71082b.lastIndexOf(46) + 1, f71082b.length());
+            f71085e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             SLog.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -706,7 +706,7 @@ public class l {
                         cursor.close();
                     }
                     try {
-                        parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f40168a);
+                        parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f41000a);
                         try {
                             fileInputStream = new FileInputStream(parcelFileDescriptor.getFileDescriptor());
                             try {
@@ -900,10 +900,10 @@ public class l {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f70167a;
+                public final /* synthetic */ Context f71087a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Bundle f70168b;
+                public final /* synthetic */ Bundle f71088b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -920,8 +920,8 @@ public class l {
                             return;
                         }
                     }
-                    this.f70167a = context;
-                    this.f70168b = bundle;
+                    this.f71087a = context;
+                    this.f71088b = bundle;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -929,7 +929,7 @@ public class l {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            HttpUtils.openUrl2(this.f70167a, "https://cgi.qplus.com/report/report", "GET", this.f70168b);
+                            HttpUtils.openUrl2(this.f71087a, "https://cgi.qplus.com/report/report", "GET", this.f71088b);
                         } catch (Exception e2) {
                             SLog.e("openSDK_LOG.Util", "reportBernoulli has exception: " + e2.getMessage());
                         }
@@ -1162,7 +1162,7 @@ public class l {
                     }
                     return bArr2;
                 } catch (Throwable th) {
-                    SLog.e(Util.f34816b, "xor Exception! ", th);
+                    SLog.e(Util.f35645b, "xor Exception! ", th);
                 }
             }
             return bArr;

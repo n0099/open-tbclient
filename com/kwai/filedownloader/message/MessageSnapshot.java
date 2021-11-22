@@ -20,10 +20,10 @@ public abstract class MessageSnapshot implements Parcelable, c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f67007a;
+    public boolean f67920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f67008b;
+    public final int f67921b;
 
     /* loaded from: classes2.dex */
     public static class NoFieldException extends IllegalStateException {
@@ -166,7 +166,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == -3) {
                     jVar = z ? new d.b(parcel) : new h.b(parcel);
                 } else if (readByte == -1) {
-                    jVar = z ? new d.C1946d(parcel) : new h.d(parcel);
+                    jVar = z ? new d.C1986d(parcel) : new h.d(parcel);
                 } else if (readByte == 1) {
                     jVar = z ? new d.f(parcel) : new h.f(parcel);
                 } else if (readByte == 2) {
@@ -174,11 +174,11 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == 3) {
                     jVar = z ? new d.g(parcel) : new h.g(parcel);
                 } else if (readByte == 5) {
-                    jVar = z ? new d.h(parcel) : new h.C1947h(parcel);
+                    jVar = z ? new d.h(parcel) : new h.C1987h(parcel);
                 } else if (readByte != 6) {
                     messageSnapshot = null;
                     if (messageSnapshot == null) {
-                        messageSnapshot.f67007a = z;
+                        messageSnapshot.f67920a = z;
                         return messageSnapshot;
                     }
                     throw new IllegalStateException("Can't restore the snapshot because unknown status: " + ((int) readByte));
@@ -216,7 +216,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 return;
             }
         }
-        this.f67008b = i2;
+        this.f67921b = i2;
     }
 
     public MessageSnapshot(Parcel parcel) {
@@ -234,7 +234,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 return;
             }
         }
-        this.f67008b = parcel.readInt();
+        this.f67921b = parcel.readInt();
     }
 
     public int a() {
@@ -340,22 +340,22 @@ public abstract class MessageSnapshot implements Parcelable, c {
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f67008b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f67921b : invokeV.intValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f67007a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f67920a : invokeV.booleanValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
-            parcel.writeByte(this.f67007a ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.f67920a ? (byte) 1 : (byte) 0);
             parcel.writeByte(b());
-            parcel.writeInt(this.f67008b);
+            parcel.writeInt(this.f67921b);
         }
     }
 }

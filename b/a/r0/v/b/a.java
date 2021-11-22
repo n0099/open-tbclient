@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.a.g;
 import b.a.q0.a.h;
 import com.baidu.adp.framework.MessageManager;
@@ -37,17 +37,17 @@ public final class a {
 
     /* renamed from: b.a.r0.v.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class View$OnClickListenerC1174a implements View.OnClickListener {
+    public static class View$OnClickListenerC1239a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f24119e;
+        public final /* synthetic */ h f25582e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PopupWindow f24120f;
+        public final /* synthetic */ PopupWindow f25583f;
 
-        public View$OnClickListenerC1174a(h hVar, PopupWindow popupWindow) {
+        public View$OnClickListenerC1239a(h hVar, PopupWindow popupWindow) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,8 +62,8 @@ public final class a {
                     return;
                 }
             }
-            this.f24119e = hVar;
-            this.f24120f = popupWindow;
+            this.f25582e = hVar;
+            this.f25583f = popupWindow;
         }
 
         @Override // android.view.View.OnClickListener
@@ -71,26 +71,26 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.go_to_aiapps_go) {
-                    if (b.a.e.a.b.g().b() != null && !StringUtils.isNull(this.f24119e.f())) {
-                        Uri parse = Uri.parse(this.f24119e.f());
+                    if (b.a.e.a.b.g().b() != null && !StringUtils.isNull(this.f25582e.f())) {
+                        Uri parse = Uri.parse(this.f25582e.f());
                         if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
                             TiebaStatic.log(new StatisticItem("c13391").param("obj_type", parse.getQueryParameter("obj_type")).param("obj_source", parse.getQueryParameter("obj_source")));
                         }
-                        if (this.f24119e.f().startsWith(g.f11777a)) {
-                            Uri.Builder buildUpon = Uri.parse(this.f24119e.f()).buildUpon();
-                            buildUpon.appendQueryParameter(g.A, g.a0);
+                        if (this.f25582e.f().startsWith(g.f12528a)) {
+                            Uri.Builder buildUpon = Uri.parse(this.f25582e.f()).buildUpon();
+                            buildUpon.appendQueryParameter(g.B, g.c0);
                             parse = buildUpon.build();
                         }
                         UtilHelper.dealOneScheme(b.a.e.a.b.g().b(), parse.toString());
                     }
                     try {
-                        this.f24120f.dismiss();
+                        this.f25583f.dismiss();
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
                 } else if (view.getId() == R.id.go_to_aiapps_cancel) {
                     try {
-                        this.f24120f.dismiss();
+                        this.f25583f.dismiss();
                     } catch (Throwable th2) {
                         BdLog.e(th2);
                     }
@@ -105,13 +105,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f24121e;
+        public final /* synthetic */ String f25584e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f24122f;
+        public final /* synthetic */ h f25585f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PopupWindow f24123g;
+        public final /* synthetic */ PopupWindow f25586g;
 
         public b(String str, h hVar, PopupWindow popupWindow) {
             Interceptable interceptable = $ic;
@@ -128,9 +128,9 @@ public final class a {
                     return;
                 }
             }
-            this.f24121e = str;
-            this.f24122f = hVar;
-            this.f24123g = popupWindow;
+            this.f25584e = str;
+            this.f25585f = hVar;
+            this.f25586g = popupWindow;
         }
 
         @Override // android.view.View.OnClickListener
@@ -138,16 +138,16 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.go_to_aiapps_go) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, this.f24121e));
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.f24122f.j).param("obj_source", "tb_password").param("obj_name", this.f24122f.f11794h).param("obj_param1", this.f24122f.k.intValue()));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, this.f25584e));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.f25585f.j).param("obj_source", "tb_password").param("obj_name", this.f25585f.f12545h).param("obj_param1", this.f25585f.k.intValue()));
                     try {
-                        this.f24123g.dismiss();
+                        this.f25586g.dismiss();
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
                 } else if (view.getId() == R.id.go_to_aiapps_cancel) {
                     try {
-                        this.f24123g.dismiss();
+                        this.f25586g.dismiss();
                     } catch (Throwable th2) {
                         BdLog.e(th2);
                     }
@@ -158,7 +158,7 @@ public final class a {
 
     public static PopupWindow a(h hVar) {
         InterceptResult invokeL;
-        View.OnClickListener view$OnClickListenerC1174a;
+        View.OnClickListener view$OnClickListenerC1239a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hVar)) == null) {
             Activity b2 = b.a.e.a.b.g().b();
@@ -179,7 +179,7 @@ public final class a {
             tbImageView.setAutoChangeStyle(false);
             PopupWindow popupWindow = new PopupWindow(b2);
             if (hVar.g() != 3) {
-                view$OnClickListenerC1174a = new b(f2, hVar, popupWindow);
+                view$OnClickListenerC1239a = new b(f2, hVar, popupWindow);
                 if (!StringUtils.isNull(hVar.c())) {
                     tbImageView.startLoad(hVar.c(), 10, false);
                 } else {
@@ -187,10 +187,10 @@ public final class a {
                 }
             } else {
                 tbImageView.setImageResource(R.drawable.toastpic_scheme);
-                view$OnClickListenerC1174a = new View$OnClickListenerC1174a(hVar, popupWindow);
+                view$OnClickListenerC1239a = new View$OnClickListenerC1239a(hVar, popupWindow);
             }
-            textView.setOnClickListener(view$OnClickListenerC1174a);
-            textView2.setOnClickListener(view$OnClickListenerC1174a);
+            textView.setOnClickListener(view$OnClickListenerC1239a);
+            textView2.setOnClickListener(view$OnClickListenerC1239a);
             textView.setText(hVar.b());
             textView2.setText(hVar.a());
             textView3.setText(hVar.e());

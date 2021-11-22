@@ -19,13 +19,13 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Collection;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ConstructorConstructor constructorConstructor;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class Adapter<E> extends TypeAdapter<Collection<E>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

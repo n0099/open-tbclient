@@ -1,5 +1,6 @@
 package kotlin.jvm.internal;
 
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.lang.annotation.Annotation;
@@ -107,7 +108,7 @@ public final class TypeReference implements KType {
     public final String asString(KTypeProjection kTypeProjection) {
         String valueOf;
         if (kTypeProjection.getVariance() == null) {
-            return "*";
+            return ProxyConfig.MATCH_ALL_SCHEMES;
         }
         KType type = kTypeProjection.getType();
         if (!(type instanceof TypeReference)) {

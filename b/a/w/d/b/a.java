@@ -1,13 +1,13 @@
 package b.a.w.d.b;
 /* loaded from: classes6.dex */
 public interface a {
-    void onViewDestroy();
+    void b();
 
-    void onViewPause();
+    void c();
 
-    void onViewResume();
+    void d();
 
-    void onViewStart();
+    void e();
 
-    void onViewStop();
+    void g();
 }

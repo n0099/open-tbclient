@@ -8,10 +8,12 @@ import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.h0.u.g;
 import b.a.p0.a.k;
-import b.a.p0.a.u.e.j.d;
-import b.a.p0.a.u.e.j.h;
+import b.a.p0.a.u.e.i.e;
+import b.a.p0.a.u.e.i.g;
+import b.a.p0.a.u.e.i.j;
+import b.a.p0.a.u1.h;
+import b.a.p0.a.u2.d;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,44 +37,53 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import okhttp3.HttpUrl;
 import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final boolean f5720g;
-
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f5721h;
+    public static final boolean f6029h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static volatile b f6030i;
+    public static final Map<String, g> j;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f5722a;
+    public final List<String> f6031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f5723b;
-    @Nullable
+    public List<String> f6032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f5724c;
+    public Map<String, JSONObject> f6033c;
+    @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f5725d;
+    public Map<String, String> f6034d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f5726e;
+    public Map<String, String> f6035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f5727f;
+    public boolean f6036f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public AtomicInteger f6037g;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -80,13 +91,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5728e;
+        public final /* synthetic */ String f6038e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f5729f;
+        public final /* synthetic */ boolean f6039f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f5730g;
+        public final /* synthetic */ b f6040g;
 
         public a(b bVar, String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -103,75 +114,80 @@ public class b {
                     return;
                 }
             }
-            this.f5730g = bVar;
-            this.f5728e = str;
-            this.f5729f = z;
+            this.f6040g = bVar;
+            this.f6038e = str;
+            this.f6039f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Set<String> g2 = b.a.p0.a.b2.a.c.g(this.f5728e);
-                int i2 = 0;
-                if (b.f5720g) {
+                Set<String> g2 = b.a.p0.a.e2.a.c.g(this.f6038e);
+                if (b.f6029h) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("startPreLink appId=");
-                    sb.append(this.f5728e);
+                    sb.append(this.f6038e);
                     sb.append(" preLinkSet=");
                     sb.append(g2 == null ? 0 : g2.size());
                     sb.append(", hotLaunch=");
-                    sb.append(this.f5729f);
+                    sb.append(this.f6039f);
                     sb.toString();
                 }
                 if (g2 != null && !g2.isEmpty()) {
-                    this.f5730g.f5722a.clear();
-                    this.f5730g.f5727f.set(0);
-                    this.f5730g.f5723b = new ArrayList(g2);
+                    this.f6040g.u(true);
+                    this.f6040g.f6031a.clear();
+                    this.f6040g.f6037g.set(0);
+                    b.j.clear();
+                    this.f6040g.f6032b = new ArrayList(g2);
+                    int i2 = 0;
                     for (String str : g2) {
                         if (!TextUtils.isEmpty(str)) {
                             if (i2 >= 5) {
                                 return;
                             }
-                            String e2 = h.e(str);
+                            String e2 = j.e(str);
                             if (!TextUtils.isEmpty(e2)) {
-                                this.f5730g.f5722a.add(e2);
-                                this.f5730g.f(i2, str, e2, true);
+                                this.f6040g.f6031a.add(e2);
+                                this.f6040g.j(this.f6038e, i2, str, e2, true);
                                 i2++;
                             }
                         }
                     }
                     return;
                 }
-                this.f5730g.r("校验失败", "请在开发者后台配置 prelink");
+                this.f6040g.z("校验失败", "请在开发者后台配置 prelink");
             }
         }
     }
 
     /* renamed from: b.a.p0.a.h0.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0244b implements StatResponseCallback {
+    public class C0256b implements StatResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5731e;
+        public final /* synthetic */ String f6041e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f5732f;
+        public final /* synthetic */ long f6042f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f5733g;
+        public final /* synthetic */ boolean f6043g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f5734h;
+        public final /* synthetic */ int f6044h;
 
-        public C0244b(b bVar, String str, boolean z, int i2) {
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ b f6045i;
+
+        public C0256b(b bVar, String str, long j, boolean z, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, str, Boolean.valueOf(z), Integer.valueOf(i2)};
+                Object[] objArr = {bVar, str, Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -181,16 +197,17 @@ public class b {
                     return;
                 }
             }
-            this.f5734h = bVar;
-            this.f5731e = str;
-            this.f5732f = z;
-            this.f5733g = i2;
+            this.f6045i = bVar;
+            this.f6041e = str;
+            this.f6042f = j;
+            this.f6043g = z;
+            this.f6044h = i2;
         }
 
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && b.f5720g) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && b.f6029h) {
                 String str = "doPrelink: onFail: " + exc.getMessage();
             }
         }
@@ -198,7 +215,7 @@ public class b {
         @Override // com.baidu.searchbox.http.callback.StatResponseCallback
         public void onSuccess(Object obj, int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i2) == null) && b.f5720g) {
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i2) == null) && b.f6029h) {
                 String str = "doPrelink: onSuccess: " + i2;
             }
         }
@@ -208,27 +225,29 @@ public class b {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i2, networkStatRecord)) == null) {
-                if (b.f5720g) {
+                if (b.f6029h) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("doPrelink: parseResponse: url: ");
-                    sb.append(this.f5731e);
+                    sb.append(this.f6041e);
                     sb.append(" response: ");
                     sb.append(response == null ? StringUtil.NULL_STRING : Integer.valueOf(response.code()));
                     sb.toString();
                 }
+                this.f6045i.t(this.f6042f, System.currentTimeMillis(), this.f6041e, networkStatRecord);
                 if (networkStatRecord != null) {
                     long j = networkStatRecord.dnsEndTs - networkStatRecord.dnsStartTs;
                     long j2 = networkStatRecord.connTs - networkStatRecord.startTs;
-                    if (b.f5720g) {
-                        String str = "doPrelink: hit: url: " + this.f5731e;
+                    if (b.f6029h) {
+                        String str = "doPrelink: hit: url: " + this.f6041e;
                         String str2 = "doPrelink: isConnReused: " + networkStatRecord.isConnReused;
                         String str3 = "doPrelink: dnsTime: " + j + " connTime: " + j2;
                     }
                     int code = response != null ? response.code() : 0;
-                    if (this.f5732f) {
-                        this.f5734h.q(this.f5733g, "预连接请求返回", "code=" + code + " dns解析时长=" + j + "ms 网络连接时长=" + j2 + "ms url=" + this.f5731e);
+                    if (this.f6043g) {
+                        this.f6045i.y(this.f6044h, "预连接请求返回", "code=" + code + " dns解析时长=" + j + "ms 网络连接时长=" + j2 + "ms url=" + this.f6041e);
                     }
                 }
+                this.f6045i.u(false);
                 return response;
             }
             return invokeLIL.objValue;
@@ -241,23 +260,26 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f5735a;
+        public final /* synthetic */ long f6046a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f5736b;
+        public final /* synthetic */ String f6047b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5737c;
+        public final /* synthetic */ boolean f6048c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ b f5738d;
+        public final /* synthetic */ int f6049d;
 
-        public c(b bVar, boolean z, int i2, String str) {
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b f6050e;
+
+        public c(b bVar, long j, String str, boolean z, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, Boolean.valueOf(z), Integer.valueOf(i2), str};
+                Object[] objArr = {bVar, Long.valueOf(j), str, Boolean.valueOf(z), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -267,29 +289,37 @@ public class b {
                     return;
                 }
             }
-            this.f5738d = bVar;
-            this.f5735a = z;
-            this.f5736b = i2;
-            this.f5737c = str;
+            this.f6050e = bVar;
+            this.f6046a = j;
+            this.f6047b = str;
+            this.f6048c = z;
+            this.f6049d = i2;
         }
 
         @Override // com.baidu.searchbox.v8engine.net.NetRequestCallback
         public void onFailed(int i2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && this.f5735a) {
-                b bVar = this.f5738d;
-                int i3 = this.f5736b;
-                bVar.q(i3, "预连接请求返回", "code=" + i2 + " msg=" + str);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+                if (this.f6048c) {
+                    b bVar = this.f6050e;
+                    int i3 = this.f6049d;
+                    bVar.y(i3, "预连接请求返回", "code=" + i2 + " msg=" + str);
+                }
+                this.f6050e.u(false);
             }
         }
 
         @Override // com.baidu.searchbox.v8engine.net.NetRequestCallback
         public void onSucceeded(String str, int i2, Map<String, String> map) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, map) == null) && this.f5735a) {
-                b bVar = this.f5738d;
-                int i3 = this.f5736b;
-                bVar.q(i3, "预连接请求返回", "code=" + i2 + " url=" + this.f5737c);
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, map) == null) {
+                this.f6050e.t(this.f6046a, System.currentTimeMillis(), this.f6047b, null);
+                if (this.f6048c) {
+                    b bVar = this.f6050e;
+                    int i3 = this.f6049d;
+                    bVar.y(i3, "预连接请求返回", "code=" + i2 + " url=" + this.f6047b);
+                }
+                this.f6050e.u(false);
             }
         }
     }
@@ -307,8 +337,9 @@ public class b {
                 return;
             }
         }
-        f5720g = k.f6397a;
-        f5721h = null;
+        f6029h = k.f6863a;
+        f6030i = null;
+        j = new ConcurrentHashMap();
     }
 
     public b() {
@@ -324,64 +355,269 @@ public class b {
                 return;
             }
         }
-        this.f5722a = Collections.synchronizedList(new ArrayList());
-        this.f5725d = new LinkedHashMap();
-        this.f5726e = false;
-        this.f5727f = new AtomicInteger(0);
+        this.f6031a = Collections.synchronizedList(new ArrayList());
+        this.f6033c = new HashMap();
+        this.f6035e = new LinkedHashMap();
+        this.f6036f = false;
+        this.f6037g = new AtomicInteger(0);
     }
 
-    public static b g() {
+    public static void D(String str, long j2, long j3, long j4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+            g gVar = j.get(str);
+            if (gVar == null) {
+                gVar = new g();
+            }
+            if (j2 > 0) {
+                gVar.f8707a = j2;
+            }
+            if (j3 > 0) {
+                gVar.f8708b = j3;
+            }
+            if (j4 > 0) {
+                gVar.f8709c = j4;
+            }
+            j.put(str, gVar);
+        }
+    }
+
+    public static b k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f5721h == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (f6030i == null) {
                 synchronized (b.class) {
-                    if (f5721h == null) {
-                        f5721h = new b();
+                    if (f6030i == null) {
+                        f6030i = new b();
                     }
                 }
             }
-            return f5721h;
+            return f6030i;
         }
         return (b) invokeV.objValue;
     }
 
-    @WorkerThread
-    public final void f(int i2, @NonNull String str, @NonNull String str2, boolean z) {
+    @NonNull
+    public final synchronized String A() {
+        InterceptResult invokeV;
+        String sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, Boolean.valueOf(z)}) == null) {
-            if (f5720g) {
-                r0 = "doPrelink: " + str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("========== prelink start ==========");
+                sb2.append(Part.CRLF);
+                for (Map.Entry<String, String> entry : this.f6035e.entrySet()) {
+                    if (entry != null) {
+                        sb2.append("----- ");
+                        sb2.append(entry.getKey());
+                        sb2.append(": ");
+                        sb2.append(entry.getValue());
+                        sb2.append("\r\n\r\n");
+                    }
+                }
+                sb2.append("========== prelink end ==========");
+                sb2.append(Part.CRLF);
+                sb = sb2.toString();
             }
-            if (d.b()) {
-                j(i2, str, str2, z);
+            return sb;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void B(@NonNull String str, @NonNull String str2, @NonNull NetInfo netInfo) {
+        HybridUbcFlow d2;
+        NetInfo.SwanExtra.Timing timing;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, netInfo) == null) && n() && this.f6034d != null && this.f6037g.get() != this.f6031a.size() && this.f6034d.containsValue(str)) {
+            StringBuilder sb = new StringBuilder();
+            boolean z = false;
+            sb.append("url=");
+            sb.append(str2);
+            sb.append("; ");
+            if (netInfo.getSocket() != null) {
+                z = netInfo.getSocket().mReused;
+                sb.append("连接是否复用=");
+                sb.append(netInfo.getSocket().mReused);
+                sb.append("; ");
+            }
+            NetInfo.Timing timing2 = netInfo.getTiming();
+            if (timing2 != null) {
+                sb.append("DNS耗时=");
+                sb.append(timing2.mDns / 1000);
+                sb.append("ms; ");
+                sb.append("连接耗时=");
+                sb.append(timing2.mConnect / 1000);
+                sb.append("ms; ");
+            }
+            y(this.f6037g.incrementAndGet() - 1, "业务方第一个同域名请求返回", sb.toString());
+            if (this.f6037g.get() != 1 || (d2 = h.d("startup")) == null || timing2 == null) {
                 return;
             }
-            b.a.p0.m.d.a aVar = new b.a.p0.m.d.a();
-            aVar.f11034b = "HEAD";
-            HttpRequestBuilder a2 = b.a.p0.m.e.b.a(aVar);
-            a2.setHeader("Referer", h.d());
-            aVar.f11033a = str;
-            aVar.f11038f = true;
-            aVar.f11039g = false;
-            aVar.f11040h = true;
-            b.a.p0.m.e.a.g().t(a2, aVar);
-            HttpRequest build = a2.enableStat(true).build();
-            if (z) {
-                q(i2, "校验通过", "开始向 url=" + str + " 发送预连接 HEAD 请求");
+            g remove = j.remove(str);
+            long j2 = remove != null ? remove.f8707a : 0L;
+            NetInfo.SwanExtra swanExtra = netInfo.getSwanExtra();
+            long currentTimeMillis = (swanExtra == null || (timing = swanExtra.mTiming) == null) ? System.currentTimeMillis() : timing.mConnectTime + j2;
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("request_network_start");
+            ubcFlowEvent.h(j2);
+            d2.F(ubcFlowEvent);
+            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("request_network_conn");
+            ubcFlowEvent2.h((timing2.mConnect / 1000) + j2);
+            d2.F(ubcFlowEvent2);
+            UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("request_dns_start");
+            ubcFlowEvent3.h(j2);
+            d2.F(ubcFlowEvent3);
+            UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("request_dns_end");
+            ubcFlowEvent4.h((timing2.mDns / 1000) + j2);
+            d2.F(ubcFlowEvent4);
+            UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("request_network_response");
+            ubcFlowEvent5.h(currentTimeMillis);
+            d2.F(ubcFlowEvent5);
+            if (remove != null) {
+                UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("request_interpret_start");
+                ubcFlowEvent6.h(remove.f8708b);
+                d2.F(ubcFlowEvent6);
+                UbcFlowEvent ubcFlowEvent7 = new UbcFlowEvent("request_interpret_end");
+                ubcFlowEvent7.h(remove.f8709c);
+                d2.F(ubcFlowEvent7);
             }
-            build.executeStat(new C0244b(this, str, z, i2));
+            d2.D("connResued", String.valueOf(z));
         }
     }
 
-    public Set<String> h(String str, boolean z) {
+    public void C(@NonNull String str, @NonNull HttpUrl httpUrl, NetworkStatRecord networkStatRecord) {
+        long j2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, httpUrl, networkStatRecord) == null) || !n() || networkStatRecord == null || this.f6034d == null || this.f6037g.get() == this.f6031a.size()) {
+            return;
+        }
+        synchronized (b.class) {
+            if (this.f6034d.containsValue(str)) {
+                this.f6037g.incrementAndGet();
+                long j3 = networkStatRecord.dnsEndTs;
+                long j4 = networkStatRecord.dnsStartTs;
+                long j5 = networkStatRecord.connTs;
+                long j6 = networkStatRecord.startTs;
+                long j7 = j3 - j4;
+                long j8 = (j5 - j6) - j7;
+                if (f6029h) {
+                    StringBuilder sb = new StringBuilder();
+                    j2 = j3;
+                    sb.append("tryRecordNetworkStat: ");
+                    sb.append(httpUrl);
+                    sb.toString();
+                    String str2 = "tryRecordNetworkStat: isConnReused: " + networkStatRecord.isConnReused;
+                    String str3 = "tryRecordNetworkStat: dnsTime: " + j7 + " connTime: " + j8;
+                } else {
+                    j2 = j3;
+                }
+                y(this.f6037g.get() - 1, "业务方第一个同域名请求返回", " 连接是否复用=" + networkStatRecord.isConnReused + " dns解析时长=" + j7 + "ms 网络连接时长=" + j8 + "ms url=" + httpUrl);
+                if (this.f6037g.get() <= 1) {
+                    HybridUbcFlow p = h.p("startup");
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("request_network_start");
+                    ubcFlowEvent.h(j6);
+                    p.F(ubcFlowEvent);
+                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("request_network_conn");
+                    ubcFlowEvent2.h(j5);
+                    p.F(ubcFlowEvent2);
+                    UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("request_dns_start");
+                    ubcFlowEvent3.h(j4);
+                    p.F(ubcFlowEvent3);
+                    UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("request_dns_end");
+                    ubcFlowEvent4.h(j2);
+                    p.F(ubcFlowEvent4);
+                    UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("request_network_response");
+                    ubcFlowEvent5.h(networkStatRecord.responseTs);
+                    p.F(ubcFlowEvent5);
+                    UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("request_send_header");
+                    ubcFlowEvent6.h(networkStatRecord.sendHeaderTs);
+                    p.F(ubcFlowEvent6);
+                    UbcFlowEvent ubcFlowEvent7 = new UbcFlowEvent("request_receive_header");
+                    ubcFlowEvent7.h(networkStatRecord.receiveHeaderTs);
+                    p.F(ubcFlowEvent7);
+                    p.D("connResued", String.valueOf(networkStatRecord.isConnReused));
+                }
+            }
+        }
+    }
+
+    public boolean i(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || o()) {
+                return false;
+            }
+            if (f6029h) {
+                String str2 = "contains preLink request: " + this.f6034d.containsValue(str);
+            }
+            return this.f6034d.containsValue(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @WorkerThread
+    public final void j(String str, int i2, @NonNull String str2, @NonNull String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Boolean.valueOf(z)}) == null) {
+            if (f6029h) {
+                String str4 = "doPrelink: " + str2;
+            }
+            if (!b.a.p0.a.h0.q.a.b(null, str, str2)) {
+                if (z) {
+                    y(i2, "预取阶段已连接", "url=" + str2 + " 不需要再次prelink");
+                }
+                if (f6029h) {
+                    String str5 = "预取阶段已连接:, 不需要再连接，url = " + str2;
+                    return;
+                }
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            b.a.p0.a.h0.q.a.d(str, str2);
+            if (e.d()) {
+                p(i2, str2, str3, z);
+                return;
+            }
+            b.a.p0.p.d.a aVar = new b.a.p0.p.d.a();
+            aVar.f11721b = "HEAD";
+            HttpRequestBuilder a2 = b.a.p0.p.e.b.a(aVar);
+            a2.setHeader("Referer", j.d());
+            aVar.f11720a = str2;
+            aVar.f11725f = true;
+            aVar.f11726g = false;
+            aVar.f11727h = true;
+            b.a.p0.p.e.a.g().u(a2, aVar);
+            HttpRequest build = a2.enableStat(true).build();
+            if (z) {
+                y(i2, "校验通过", "开始向 url=" + str2 + " 发送预连接 HEAD 请求");
+            }
+            build.executeStat(new C0256b(this, str2, currentTimeMillis, z, i2));
+        }
+    }
+
+    public long l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            g gVar = j.get(str);
+            if (gVar != null) {
+                return gVar.f8707a;
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public Set<String> m(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return Collections.emptySet();
             }
-            Set<String> g2 = b.a.p0.a.b2.a.c.g(str);
+            Set<String> g2 = b.a.p0.a.e2.a.c.g(str);
             if (g2 == null) {
                 return Collections.emptySet();
             }
@@ -405,56 +641,70 @@ public class b {
         return (Set) invokeLZ.objValue;
     }
 
-    public final boolean i() {
+    public final boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f5722a.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !this.f6031a.isEmpty() : invokeV.booleanValue;
     }
 
-    public final void j(int i2, @NonNull String str, @NonNull String str2, boolean z) {
-        b.a.p0.a.h0.l.a O;
+    public final boolean o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, str2, Boolean.valueOf(z)}) == null) && (O = g.M().O()) != null && (O.f() instanceof b.a.p0.a.l0.a)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            Map<String, String> map = this.f6034d;
+            return map == null || map.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void p(int i2, @NonNull String str, @NonNull String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), str, str2, Boolean.valueOf(z)}) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            b.a.p0.a.h0.l.a W = b.a.p0.a.h0.u.g.U().W();
+            if (W == null || !(W.g() instanceof b.a.p0.a.l0.a)) {
+                return;
+            }
             NetRequestParam.Builder builder = new NetRequestParam.Builder();
             builder.setUrl(str);
             builder.setMethod((byte) 2);
             NetRequestParam build = builder.build();
-            build.setNetRequestCallback(new c(this, z, i2, str));
-            b.a.p0.a.l0.a aVar = (b.a.p0.a.l0.a) O.f();
-            if (aVar.n0() != null) {
+            build.setNetRequestCallback(new c(this, currentTimeMillis, str, z, i2));
+            b.a.p0.a.l0.a aVar = (b.a.p0.a.l0.a) W.g();
+            if (aVar.p0() != null) {
                 if (z) {
-                    q(i2, "校验通过", "开始向 url=" + str + " 发送预连接 HEAD 请求");
+                    y(i2, "校验通过", "开始向 url=" + str + " 发送预连接 HEAD 请求");
                 }
-                aVar.n0().execute(build);
+                aVar.p0().execute(build);
             }
         }
     }
 
-    public synchronized void k(@NonNull String str, @NonNull String str2) {
+    public synchronized void q(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
             synchronized (this) {
-                if (i()) {
-                    if (this.f5727f.get() == this.f5722a.size()) {
-                        if (f5720g) {
+                if (n()) {
+                    if (this.f6037g.get() == this.f6031a.size()) {
+                        if (f6029h) {
                             String str3 = "onBusinessRequest doRequest: " + str2;
                         }
-                    } else if (this.f5723b == null || !this.f5723b.contains(str2)) {
-                        String e2 = h.e(str2);
-                        if (e2 != null && this.f5722a.contains(e2)) {
-                            if (this.f5724c == null) {
-                                this.f5724c = new ArrayMap();
-                            } else if (this.f5724c.containsKey(e2)) {
+                    } else if (this.f6032b == null || !this.f6032b.contains(str2)) {
+                        String e2 = j.e(str2);
+                        if (e2 != null && this.f6031a.contains(e2)) {
+                            if (this.f6034d == null) {
+                                this.f6034d = new ArrayMap();
+                            } else if (this.f6034d.containsKey(e2)) {
                                 return;
                             }
-                            this.f5724c.put(e2, str);
-                            if (f5720g) {
+                            this.f6034d.put(e2, str);
+                            if (f6029h) {
                                 String str4 = "onBusinessRequest hit: " + str2;
                             }
-                            q(this.f5724c.size() - 1, "业务方触发第一个同域名请求", "url=" + str2);
+                            y(this.f6034d.size() - 1, "业务方触发第一个同域名请求", "url=" + str2);
                             return;
                         }
-                        if (f5720g) {
+                        if (f6029h) {
                             String str5 = "onBusinessRequest: miss tag " + str2;
                         }
                     }
@@ -463,32 +713,32 @@ public class b {
         }
     }
 
-    public synchronized void l(@NonNull String str, @NonNull HttpUrl httpUrl) {
+    public synchronized void r(@NonNull String str, @NonNull HttpUrl httpUrl) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, httpUrl) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, httpUrl) == null) {
             synchronized (this) {
-                if (i()) {
-                    if (this.f5727f.get() == this.f5722a.size()) {
-                        if (f5720g) {
+                if (n()) {
+                    if (this.f6037g.get() == this.f6031a.size()) {
+                        if (f6029h) {
                             String str2 = "onBusinessRequest doRequest: " + httpUrl;
                         }
                         return;
                     }
                     String host = httpUrl.host();
-                    if (host != null && this.f5722a.contains(host)) {
-                        if (this.f5724c == null) {
-                            this.f5724c = new ArrayMap();
-                        } else if (this.f5724c.containsKey(host)) {
+                    if (host != null && this.f6031a.contains(host)) {
+                        if (this.f6034d == null) {
+                            this.f6034d = new ArrayMap();
+                        } else if (this.f6034d.containsKey(host)) {
                             return;
                         }
-                        this.f5724c.put(host, str);
-                        if (f5720g) {
+                        this.f6034d.put(host, str);
+                        if (f6029h) {
                             String str3 = "onBusinessRequest hit: " + httpUrl;
                         }
-                        q(this.f5724c.size() - 1, "业务方触发第一个同域名请求", "url=" + httpUrl);
+                        y(this.f6034d.size() - 1, "业务方触发第一个同域名请求", "url=" + httpUrl);
                         return;
                     }
-                    if (f5720g) {
+                    if (f6029h) {
                         String str4 = "onBusinessRequest: miss tag " + httpUrl.toString();
                     }
                 }
@@ -497,205 +747,137 @@ public class b {
     }
 
     @WorkerThread
-    public void m(@Nullable String str) {
+    public void s(@NonNull String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                boolean z = f5720g;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                boolean z = f6029h;
                 return;
             }
-            String e2 = h.e(str);
+            String e2 = j.e(str2);
             if (TextUtils.isEmpty(e2)) {
                 return;
             }
-            f(-1, str, e2, false);
+            j(str, -1, str2, e2, false);
         }
     }
 
-    public synchronized void n() {
+    public final synchronized void t(long j2, long j3, String str, NetworkStatRecord networkStatRecord) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, networkStatRecord}) == null) {
             synchronized (this) {
-                boolean z = f5720g;
-                if (f5721h == null) {
-                    return;
+                if (this.f6036f && !TextUtils.isEmpty(str)) {
+                    b.a.p0.a.d2.e a0 = b.a.p0.a.d2.e.a0();
+                    if (a0 != null && !TextUtils.isEmpty(a0.V().V())) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("url", str);
+                            jSONObject.put("na_request", networkStatRecord == null ? "1" : "0");
+                            jSONObject.put("start", j2);
+                            jSONObject.put("end", j3);
+                            if (networkStatRecord != null) {
+                                jSONObject.put("net_type", networkStatRecord.netType);
+                                jSONObject.put("start_connect", networkStatRecord.startTs);
+                                jSONObject.put("start_dns", networkStatRecord.dnsStartTs);
+                                jSONObject.put("end_dns", networkStatRecord.dnsEndTs);
+                                jSONObject.put("on_connect", networkStatRecord.connTs);
+                                jSONObject.put("send_header", networkStatRecord.sendHeaderTs);
+                                jSONObject.put("recv_header", networkStatRecord.receiveHeaderTs);
+                                jSONObject.put("response", networkStatRecord.responseTs);
+                                jSONObject.put("response_finish", networkStatRecord.finishTs);
+                            }
+                            this.f6033c.put(str, jSONObject);
+                        } catch (JSONException e2) {
+                            if (f6029h) {
+                                e2.printStackTrace();
+                            }
+                        }
+                        JSONArray jSONArray = new JSONArray();
+                        for (String str2 : this.f6033c.keySet()) {
+                            jSONArray.put(this.f6033c.get(str2));
+                        }
+                        h.p("startup").D("prelinks", jSONArray.toString());
+                        if (f6029h) {
+                            String str3 = "in start app process, real prelink url - " + str;
+                        }
+                    }
                 }
-                f5721h = null;
             }
         }
     }
 
-    public void o() {
+    public final void u(boolean z) {
+        HybridUbcFlow d2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && f5720g) {
-            this.f5722a.clear();
-            this.f5724c = null;
+        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || (d2 = h.d("startup")) == null) {
+            return;
+        }
+        UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(z ? "prelink_request_start" : "prelink_request_end");
+        ubcFlowEvent.h(System.currentTimeMillis());
+        d2.F(ubcFlowEvent);
+    }
+
+    public synchronized void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            synchronized (this) {
+                boolean z = f6029h;
+                if (f6030i == null) {
+                    return;
+                }
+                f6030i = null;
+            }
+        }
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && f6029h) {
+            this.f6031a.clear();
+            j.clear();
+            this.f6034d = null;
         }
     }
 
     @AnyThread
-    public synchronized void p(@Nullable String str, boolean z) {
+    public synchronized void x(@Nullable String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048593, this, str, z) == null) {
             synchronized (this) {
                 if (TextUtils.isEmpty(str)) {
-                    boolean z2 = f5720g;
-                } else if (!z && this.f5726e) {
-                    boolean z3 = f5720g;
+                    boolean z2 = f6029h;
+                } else if (!z && this.f6036f) {
+                    boolean z3 = f6029h;
                 } else {
-                    this.f5726e = true;
+                    this.f6033c.clear();
+                    this.f6036f = true;
                     ExecutorUtilsExt.postOnElastic(new a(this, str, z), "SwanPrelink", 0);
                 }
             }
         }
     }
 
-    public synchronized void q(@IntRange(from = -1) int i2, @NonNull String str, @NonNull String str2) {
+    public synchronized void y(@IntRange(from = -1) int i2, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048586, this, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048594, this, i2, str, str2) == null) {
             synchronized (this) {
                 if (i2 >= 0) {
                     str = PreferencesUtil.LEFT_MOUNT + i2 + PreferencesUtil.RIGHT_MOUNT + str;
                 }
-                if (this.f5725d.containsKey(str)) {
+                if (this.f6035e.containsKey(str)) {
                     return;
                 }
-                this.f5725d.put(str, str2);
-                b.a.p0.a.q2.d.k.update((b.a.p0.a.q2.c<String>) s());
+                this.f6035e.put(str, str2);
+                d.k.update((b.a.p0.a.u2.c<String>) A());
             }
         }
     }
 
-    public synchronized void r(@NonNull String str, @NonNull String str2) {
+    public synchronized void z(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) {
             synchronized (this) {
-                q(-1, str, str2);
-            }
-        }
-    }
-
-    @NonNull
-    public final synchronized String s() {
-        InterceptResult invokeV;
-        String sb;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            synchronized (this) {
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("========== prelink start ==========");
-                sb2.append(Part.CRLF);
-                for (Map.Entry<String, String> entry : this.f5725d.entrySet()) {
-                    if (entry != null) {
-                        sb2.append("----- ");
-                        sb2.append(entry.getKey());
-                        sb2.append(": ");
-                        sb2.append(entry.getValue());
-                        sb2.append("\r\n\r\n");
-                    }
-                }
-                sb2.append("========== prelink end ==========");
-                sb2.append(Part.CRLF);
-                sb = sb2.toString();
-            }
-            return sb;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void t(@NonNull String str, @NonNull String str2, @NonNull NetInfo netInfo) {
-        HybridUbcFlow d2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048589, this, str, str2, netInfo) == null) && i() && this.f5724c != null && this.f5727f.get() != this.f5722a.size() && this.f5724c.containsValue(str)) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("url=");
-            sb.append(str2);
-            sb.append("; ");
-            if (netInfo.getSocket() != null) {
-                sb.append("连接是否复用=");
-                sb.append(netInfo.getSocket().mReused);
-                sb.append("; ");
-            }
-            NetInfo.Timing timing = netInfo.getTiming();
-            if (timing != null) {
-                sb.append("DNS耗时=");
-                sb.append(timing.mDns / 1000);
-                sb.append("ms; ");
-                sb.append("连接耗时=");
-                sb.append(timing.mConnect / 1000);
-                sb.append("ms; ");
-            }
-            q(this.f5727f.incrementAndGet() - 1, "业务方第一个同域名请求返回", sb.toString());
-            if (this.f5727f.get() != 1 || (d2 = b.a.p0.a.r1.h.d("startup")) == null || timing == null) {
-                return;
-            }
-            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("request_network_start");
-            ubcFlowEvent.h(0L);
-            d2.C(ubcFlowEvent);
-            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("request_network_conn");
-            ubcFlowEvent2.h(timing.mConnect / 1000);
-            d2.C(ubcFlowEvent2);
-            UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("request_dns_start");
-            ubcFlowEvent3.h(0L);
-            d2.C(ubcFlowEvent3);
-            UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("request_dns_end");
-            ubcFlowEvent4.h(timing.mDns / 1000);
-            d2.C(ubcFlowEvent4);
-        }
-    }
-
-    public void u(@NonNull String str, @NonNull HttpUrl httpUrl, NetworkStatRecord networkStatRecord) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, str, httpUrl, networkStatRecord) == null) || !i() || networkStatRecord == null || this.f5724c == null || this.f5727f.get() == this.f5722a.size()) {
-            return;
-        }
-        synchronized (b.class) {
-            if (this.f5724c.containsValue(str)) {
-                this.f5727f.incrementAndGet();
-                long j2 = networkStatRecord.dnsEndTs;
-                long j3 = networkStatRecord.dnsStartTs;
-                long j4 = networkStatRecord.connTs;
-                long j5 = networkStatRecord.startTs;
-                long j6 = j2 - j3;
-                long j7 = (j4 - j5) - j6;
-                if (f5720g) {
-                    StringBuilder sb = new StringBuilder();
-                    j = j2;
-                    sb.append("tryRecordNetworkStat: ");
-                    sb.append(httpUrl);
-                    sb.toString();
-                    String str2 = "tryRecordNetworkStat: isConnReused: " + networkStatRecord.isConnReused;
-                    String str3 = "tryRecordNetworkStat: dnsTime: " + j6 + " connTime: " + j7;
-                } else {
-                    j = j2;
-                }
-                q(this.f5727f.get() - 1, "业务方第一个同域名请求返回", " 连接是否复用=" + networkStatRecord.isConnReused + " dns解析时长=" + j6 + "ms 网络连接时长=" + j7 + "ms url=" + httpUrl);
-                if (this.f5727f.get() <= 1) {
-                    HybridUbcFlow p = b.a.p0.a.r1.h.p("startup");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("request_network_start");
-                    ubcFlowEvent.h(j5);
-                    p.C(ubcFlowEvent);
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("request_network_conn");
-                    ubcFlowEvent2.h(j4);
-                    p.C(ubcFlowEvent2);
-                    UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("request_dns_start");
-                    ubcFlowEvent3.h(j3);
-                    p.C(ubcFlowEvent3);
-                    UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("request_dns_end");
-                    ubcFlowEvent4.h(j);
-                    p.C(ubcFlowEvent4);
-                    UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("request_network_response");
-                    ubcFlowEvent5.h(networkStatRecord.responseTs);
-                    p.C(ubcFlowEvent5);
-                    UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("request_send_header");
-                    ubcFlowEvent6.h(networkStatRecord.sendHeaderTs);
-                    p.C(ubcFlowEvent6);
-                    UbcFlowEvent ubcFlowEvent7 = new UbcFlowEvent("request_receive_header");
-                    ubcFlowEvent7.h(networkStatRecord.receiveHeaderTs);
-                    p.C(ubcFlowEvent7);
-                    p.A("connResued", String.valueOf(networkStatRecord.isConnReused));
-                }
+                y(-1, str, str2);
             }
         }
     }

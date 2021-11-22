@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.MemoryTrimType;
-import com.facebook.imagepipeline.cache.MemoryCache;
+import com.facebook.imagepipeline.cache.CountingMemoryCache;
 /* loaded from: classes11.dex */
-public class BitmapMemoryCacheTrimStrategy implements MemoryCache.CacheTrimStrategy {
+public class BitmapMemoryCacheTrimStrategy implements CountingMemoryCache.CacheTrimStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BitmapMemoryCacheTrimStrategy";
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class BitmapMemoryCacheTrimStrategy implements MemoryCache.CacheTrimStrat
         }
     }
 
-    @Override // com.facebook.imagepipeline.cache.MemoryCache.CacheTrimStrategy
+    @Override // com.facebook.imagepipeline.cache.CountingMemoryCache.CacheTrimStrategy
     public double getTrimRatio(MemoryTrimType memoryTrimType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

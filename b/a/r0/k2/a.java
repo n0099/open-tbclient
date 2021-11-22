@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class a<T> extends b.a.e.e.k.b<T> {
+public abstract class a<T> extends b.a.e.f.k.b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(b.a.e.e.k.c cVar, int i2, int i3) {
+    public a(b.a.e.f.k.c cVar, int i2, int i3) {
         super(cVar, i2, i3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,7 +22,7 @@ public abstract class a<T> extends b.a.e.e.k.b<T> {
             if ((i4 & 1) != 0) {
                 int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((b.a.e.e.k.c) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                super((b.a.e.f.k.c) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

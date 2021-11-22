@@ -239,7 +239,7 @@ public class PbVideoActivityConfig extends IntentConfig {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra("thread_id", d2Var.s1());
+            intent.putExtra("thread_id", d2Var.t1());
             intent.putExtra("is_good", d2Var.q0());
             intent.putExtra("is_top", d2Var.r0());
             intent.putExtra("thread_time", d2Var.v0());

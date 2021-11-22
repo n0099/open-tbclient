@@ -13,12 +13,12 @@ import com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.AccountDelayMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ConsumeConfirmMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a implements IAppPayServiceListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f72473a;
+    public static final a f73392a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class a implements IAppPayServiceListener {
                 return;
             }
         }
-        f72473a = new a();
+        f73392a = new a();
     }
 
     public a() {

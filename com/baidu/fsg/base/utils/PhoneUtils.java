@@ -59,31 +59,31 @@ public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37587a = "PhoneUtils";
+    public static final String f38417a = "PhoneUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37588b = "_rim_pay.preferences";
+    public static final String f38418b = "_rim_pay.preferences";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37589c = "cuid_1";
+    public static final String f38419c = "cuid_1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f37590d = "cuid_2";
+    public static final String f38420d = "cuid_2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f37591e = "wime";
+    public static final String f38421e = "wime";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f37592f = "identity_code";
+    public static final String f38422f = "identity_code";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f37593g = "phone_number";
+    public static final String f38423g = "phone_number";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f37594h = "card_no";
+    public static final String f38424h = "card_no";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f37595i = "valid_date";
+    public static final String f38425i = "valid_date";
     public static final String j = "cvv2";
     public static final String k = "imei";
     public static final String l = "nettype";
@@ -104,10 +104,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f37596a = "processor";
+        public static final String f38426a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f37597b = "features";
+        public static final String f38427b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -192,7 +192,7 @@ public final class PhoneUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String str = (String) SharedPreferencesUtils.getParam(context, f37588b, "imei", "");
+            String str = (String) SharedPreferencesUtils.getParam(context, f38418b, "imei", "");
             if (!TextUtils.isEmpty(str)) {
                 if (ApollonConstants.DEBUG) {
                     String str2 = "从文件里面获取imei号=" + str;
@@ -222,7 +222,7 @@ public final class PhoneUtils {
             for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
                 stringBuffer.append((char) (random.nextInt(10) | 48));
             }
-            SharedPreferencesUtils.setParam(context, f37588b, "imei", stringBuffer.toString());
+            SharedPreferencesUtils.setParam(context, f38418b, "imei", stringBuffer.toString());
             return stringBuffer.toString();
         }
         return (String) invokeL.objValue;

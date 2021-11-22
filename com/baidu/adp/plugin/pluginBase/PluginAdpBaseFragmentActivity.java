@@ -11,10 +11,10 @@ import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.b;
 import b.a.e.a.i;
-import b.a.e.e.l.d;
-import b.a.e.e.p.l;
-import b.a.e.f.a.h;
-import b.a.e.l.e.q;
+import b.a.e.f.l.d;
+import b.a.e.f.p.l;
+import b.a.e.g.a.h;
+import b.a.e.m.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -43,7 +43,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseFragmentActivity f34485e;
+        public final /* synthetic */ PluginAdpBaseFragmentActivity f35317e;
 
         public a(PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
                     return;
                 }
             }
-            this.f34485e = pluginAdpBaseFragmentActivity;
+            this.f35317e = pluginAdpBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity = this.f34485e;
+                PluginAdpBaseFragmentActivity pluginAdpBaseFragmentActivity = this.f35317e;
                 pluginAdpBaseFragmentActivity.onPreLoad(pluginAdpBaseFragmentActivity.onGetPreLoadListView());
             }
         }

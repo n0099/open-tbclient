@@ -7,15 +7,13 @@ import android.text.TextUtils;
 import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
-import b.a.e.e.m.b;
-import b.a.e.e.p.k;
+import b.a.e.f.m.b;
+import b.a.e.f.p.k;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
@@ -509,7 +507,7 @@ public class StringHelper extends k {
                 j = 0;
             }
             String valueOf = String.valueOf(j);
-            if (j < CoolPraiseView.BILLION) {
+            if (j < 100000000) {
                 if (j >= 10000000) {
                     float f2 = ((float) j) / 10000.0f;
                     long j2 = j / 10000;
@@ -520,10 +518,10 @@ public class StringHelper extends k {
                 }
                 return valueOf;
             }
-            long j3 = j % CoolPraiseView.BILLION;
+            long j3 = j % 100000000;
             if (j3 != 0) {
                 double d2 = ((float) j) / 1.0E8f;
-                double d3 = j / CoolPraiseView.BILLION;
+                double d3 = j / 100000000;
                 if (j3 > 999999.0d) {
                     str = String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
                 } else {
@@ -531,7 +529,7 @@ public class StringHelper extends k {
                 }
                 return str;
             }
-            return (j / CoolPraiseView.BILLION) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
         }
         return (String) invokeJ.objValue;
     }
@@ -545,7 +543,7 @@ public class StringHelper extends k {
                 j = 0;
             }
             String valueOf = String.valueOf(j);
-            if (j < CoolPraiseView.BILLION) {
+            if (j < 100000000) {
                 if (j >= 1000000) {
                     float f2 = ((float) j) / 10000.0f;
                     long j2 = j / 10000;
@@ -556,10 +554,10 @@ public class StringHelper extends k {
                 }
                 return valueOf;
             }
-            long j3 = j % CoolPraiseView.BILLION;
+            long j3 = j % 100000000;
             if (j3 != 0) {
                 double d2 = ((float) j) / 1.0E8f;
-                double d3 = j / CoolPraiseView.BILLION;
+                double d3 = j / 100000000;
                 if (j3 > 999999.0d) {
                     str = String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
                 } else {
@@ -567,7 +565,7 @@ public class StringHelper extends k {
                 }
                 return str;
             }
-            return (j / CoolPraiseView.BILLION) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
         }
         return (String) invokeJ.objValue;
     }
@@ -1551,7 +1549,7 @@ public class StringHelper extends k {
             if (((float) round) > f2) {
                 round--;
             }
-            return round + ExifInterface.LONGITUDE_WEST;
+            return round + "W";
         }
         return (String) invokeJ.objValue;
     }
@@ -1605,13 +1603,13 @@ public class StringHelper extends k {
                 DecimalFormat decimalFormat = new DecimalFormat("#.#");
                 float f2 = ((float) j) / 10000.0f;
                 if (f2 < 1000.0f) {
-                    return decimalFormat.format(f2) + ExifInterface.LONGITUDE_WEST;
+                    return decimalFormat.format(f2) + "W";
                 }
                 long round = Math.round(f2);
                 if (((float) round) > f2) {
                     round--;
                 }
-                return round + ExifInterface.LONGITUDE_WEST;
+                return round + "W";
             }
             return String.valueOf(j);
         }
@@ -1690,7 +1688,7 @@ public class StringHelper extends k {
             if (round >= 9999) {
                 return "9999W+";
             }
-            return j + ExifInterface.LONGITUDE_WEST;
+            return j + "W";
         }
         return (String) invokeJ.objValue;
     }
@@ -1715,7 +1713,7 @@ public class StringHelper extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65639, null, j)) == null) {
             if (j > 99999) {
-                return ((int) (((float) j) / 10000.0f)) + ExifInterface.LONGITUDE_WEST;
+                return ((int) (((float) j) / 10000.0f)) + "W";
             } else if (j < 0) {
                 return "0";
             } else {
@@ -1730,7 +1728,7 @@ public class StringHelper extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65640, null, j)) == null) {
             if (j > 9999) {
-                return ((int) (((float) j) / 10000.0f)) + ExifInterface.LONGITUDE_WEST;
+                return ((int) (((float) j) / 10000.0f)) + "W";
             } else if (j < 0) {
                 return "0";
             } else {
@@ -1755,7 +1753,7 @@ public class StringHelper extends k {
             if (((float) round) > f3) {
                 round--;
             }
-            return round + ExifInterface.LONGITUDE_WEST;
+            return round + "W";
         }
         return (String) invokeF.objValue;
     }
@@ -1768,7 +1766,7 @@ public class StringHelper extends k {
                 return "9999W+";
             }
             if (j >= 10000000) {
-                return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+                return String.valueOf(j / 10000) + "W";
             }
             int i2 = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
             if (i2 > 0) {
@@ -1793,7 +1791,7 @@ public class StringHelper extends k {
                 return "9999W+";
             }
             if (j >= 10000000) {
-                return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+                return String.valueOf(j / 10000) + "W";
             }
             int i2 = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
             if (i2 > 0) {
@@ -1818,7 +1816,7 @@ public class StringHelper extends k {
                 return "9999W+";
             }
             if (j >= 10000000) {
-                return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+                return String.valueOf(j / 10000) + "W";
             }
             int i2 = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
             if (i2 > 0) {
@@ -1831,7 +1829,7 @@ public class StringHelper extends k {
                 return "-9999W+";
             }
             if (j <= -10000000) {
-                return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+                return String.valueOf(j / 10000) + "W";
             }
             int i3 = (j > (-10000L) ? 1 : (j == (-10000L) ? 0 : -1));
             if (i3 < 0) {
@@ -1858,7 +1856,7 @@ public class StringHelper extends k {
                 return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
             } else {
                 if (j < 10000000) {
-                    return (j / 10000) + ExifInterface.LONGITUDE_WEST;
+                    return (j / 10000) + "W";
                 }
                 float f2 = ((float) (j / 1000000)) / 10.0f;
                 if (f2 >= 9999.0f) {
@@ -1948,9 +1946,9 @@ public class StringHelper extends k {
             } else if (j < 10000000) {
                 float f2 = ((float) (j / 1000)) / 10.0f;
                 if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + ExifInterface.LONGITUDE_WEST;
+                    return ((int) f2) + "W";
                 }
-                return f2 + ExifInterface.LONGITUDE_WEST;
+                return f2 + "W";
             } else {
                 float f3 = ((float) (j / 1000000)) / 10.0f;
                 if (f3 >= 9999.0f) {
@@ -1975,7 +1973,7 @@ public class StringHelper extends k {
             if (j < 10000) {
                 return j + "";
             } else if (j < 10000000) {
-                return String.format("%.1f", Double.valueOf(j / 10000.0d)) + ExifInterface.LONGITUDE_WEST;
+                return String.format("%.1f", Double.valueOf(j / 10000.0d)) + "W";
             } else {
                 float f2 = ((float) (j / 1000000)) / 10.0f;
                 if (f2 >= 9999.0f) {
@@ -2004,9 +2002,9 @@ public class StringHelper extends k {
             if (d2 < 9999000.0d) {
                 float f2 = ((float) (j / 1000)) / 10.0f;
                 if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + ExifInterface.LONGITUDE_WEST;
+                    return ((int) f2) + "W";
                 }
-                return f2 + ExifInterface.LONGITUDE_WEST;
+                return f2 + "W";
             } else if (d2 < 9.9999E10d) {
                 float f3 = ((float) (j / 1000000)) / 10.0f;
                 if (f3 % 1.0f == 0.0f) {
@@ -2034,7 +2032,7 @@ public class StringHelper extends k {
                 if (format.endsWith(".0")) {
                     format = format.substring(0, format.length() - 2);
                 }
-                return format + ExifInterface.LONGITUDE_WEST;
+                return format + "W";
             } else {
                 String format2 = String.format("%.1f", Double.valueOf((j / 1000000.0d) / 10.0d));
                 if (format2.endsWith(".0")) {
@@ -2094,9 +2092,9 @@ public class StringHelper extends k {
             } else if (j < 9999000.0d) {
                 float f2 = ((float) (j / 1000)) / 10.0f;
                 if (f2 % 1.0f == 0.0f) {
-                    return ((int) f2) + ExifInterface.LONGITUDE_WEST;
+                    return ((int) f2) + "W";
                 }
-                return f2 + ExifInterface.LONGITUDE_WEST;
+                return f2 + "W";
             } else {
                 return "999.9W";
             }
@@ -2374,7 +2372,7 @@ public class StringHelper extends k {
             if (((float) round) > f2) {
                 round--;
             }
-            return round + ExifInterface.LONGITUDE_WEST;
+            return round + "W";
         }
         return (String) invokeJ.objValue;
     }
@@ -2521,11 +2519,11 @@ public class StringHelper extends k {
                 j = 0;
             }
             String valueOf = String.valueOf(j);
-            if (j >= CoolPraiseView.BILLION) {
-                if (j % CoolPraiseView.BILLION != 0) {
+            if (j >= 100000000) {
+                if (j % 100000000 != 0) {
                     return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
                 }
-                return (j / CoolPraiseView.BILLION) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+                return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
             } else if (j >= 1000000) {
                 float f2 = ((float) j) / 10000.0f;
                 long j2 = j / 10000;

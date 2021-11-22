@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.aggregation;
 
 import android.text.TextUtils;
 import b.a.e.a.f;
-import b.a.r0.x0.r1.g;
+import b.a.r0.x0.s1.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -32,19 +32,19 @@ public class VideoAggregationModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48396e;
+    public int f49260e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48397f;
+    public String f49261f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48398g;
+    public String f49262g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48399h;
+    public String f49263h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48400i;
+    public String f49264i;
     public boolean j;
     public c k;
     public final HttpMessageListener l;
@@ -109,7 +109,7 @@ public class VideoAggregationModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAggregationModel f48401a;
+        public final /* synthetic */ VideoAggregationModel f49265a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VideoAggregationModel videoAggregationModel, int i2) {
@@ -129,7 +129,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48401a = videoAggregationModel;
+            this.f49265a = videoAggregationModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -138,21 +138,21 @@ public class VideoAggregationModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003360 || !(httpResponsedMessage instanceof VideoAggregationResponseMessage)) {
-                    this.f48401a.k.a("error");
+                    this.f49265a.k.a("error");
                     return;
                 }
-                this.f48401a.j = false;
+                this.f49265a.j = false;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                    this.f48401a.k.b(videoAggregationResponseMessage.mDataList, this.f48401a.f48396e == 1, videoAggregationResponseMessage.mHasMore);
+                    this.f49265a.k.b(videoAggregationResponseMessage.mDataList, this.f49265a.f49260e == 1, videoAggregationResponseMessage.mHasMore);
                     return;
                 }
-                VideoAggregationModel.z(this.f48401a);
+                VideoAggregationModel.z(this.f49265a);
                 String errorString = httpResponsedMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
                     errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                 }
-                this.f48401a.k.a(errorString);
+                this.f49265a.k.a(errorString);
             }
         }
     }
@@ -163,7 +163,7 @@ public class VideoAggregationModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAggregationModel f48402a;
+        public final /* synthetic */ VideoAggregationModel f49266a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(VideoAggregationModel videoAggregationModel, int i2) {
@@ -183,7 +183,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48402a = videoAggregationModel;
+            this.f49266a = videoAggregationModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -192,21 +192,21 @@ public class VideoAggregationModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoAggregationResponseMessage)) {
-                    this.f48402a.k.a("error");
+                    this.f49266a.k.a("error");
                     return;
                 }
-                this.f48402a.j = false;
+                this.f49266a.j = false;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                    this.f48402a.k.b(videoAggregationResponseMessage.mDataList, this.f48402a.f48396e == 1, videoAggregationResponseMessage.mHasMore);
+                    this.f49266a.k.b(videoAggregationResponseMessage.mDataList, this.f49266a.f49260e == 1, videoAggregationResponseMessage.mHasMore);
                     return;
                 }
-                VideoAggregationModel.z(this.f48402a);
+                VideoAggregationModel.z(this.f49266a);
                 String errorString = httpResponsedMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
                     errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                 }
-                this.f48402a.k.a(errorString);
+                this.f49266a.k.a(errorString);
             }
         }
     }
@@ -249,15 +249,15 @@ public class VideoAggregationModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int z(VideoAggregationModel videoAggregationModel) {
-        int i2 = videoAggregationModel.f48396e;
-        videoAggregationModel.f48396e = i2 - 1;
+        int i2 = videoAggregationModel.f49260e;
+        videoAggregationModel.f49260e = i2 - 1;
         return i2;
     }
 
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48396e = 0;
+            this.f49260e = 0;
             loadData();
         }
     }
@@ -265,21 +265,21 @@ public class VideoAggregationModel extends BdBaseModel {
     public void B(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f48397f = str;
+            this.f49261f = str;
         }
     }
 
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f48400i = str;
+            this.f49264i = str;
         }
     }
 
     public void D(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f48399h = str;
+            this.f49263h = str;
         }
     }
 
@@ -301,21 +301,21 @@ public class VideoAggregationModel extends BdBaseModel {
         HttpMessage httpMessage;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (TextUtils.isEmpty(this.f48397f) || this.j) {
+            if (TextUtils.isEmpty(this.f49261f) || this.j) {
                 return false;
             }
             this.j = true;
-            if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f48398g)) {
+            if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f49262g)) {
                 httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_AGGREGATION);
-                httpMessage.addParam("fid", this.f48397f);
+                httpMessage.addParam("fid", this.f49261f);
             } else {
                 httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION);
-                httpMessage.addParam("tid", this.f48397f);
-                httpMessage.addParam("st_type", this.f48399h);
-                httpMessage.addParam("yuelaou_locate", this.f48400i);
+                httpMessage.addParam("tid", this.f49261f);
+                httpMessage.addParam("st_type", this.f49263h);
+                httpMessage.addParam("yuelaou_locate", this.f49264i);
             }
-            int i2 = this.f48396e + 1;
-            this.f48396e = i2;
+            int i2 = this.f49260e + 1;
+            this.f49260e = i2;
             httpMessage.addParam("pn", i2);
             sendMessage(httpMessage);
             return true;
@@ -338,7 +338,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f48398g = str;
+            this.f49262g = str;
         }
     }
 }

@@ -1,6 +1,6 @@
 package b.a.r0.i2.d;
 
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.q0.s.l.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -22,19 +22,19 @@ public class a extends b.a.q0.s.l.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f17966c;
+    public static a f19421c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a.InterfaceC0685a f17967b;
+    public final a.InterfaceC0720a f19422b;
 
     /* renamed from: b.a.r0.i2.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0915a implements a.InterfaceC0685a {
+    public class C0981a implements a.InterfaceC0720a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0915a(a aVar) {
+        public C0981a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,23 +50,23 @@ public class a extends b.a.q0.s.l.a {
             }
         }
 
-        @Override // b.a.q0.s.l.a.InterfaceC0685a
-        public void a(String str, int i2, String str2) {
+        @Override // b.a.q0.s.l.a.InterfaceC0720a
+        public void onBeforeLogin(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) && i2 == 1) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // b.a.q0.s.l.a.InterfaceC0720a
+        public void onFailure(String str, int i2, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, str2) == null) && i2 == 1) {
                 ReloginManager.g().f(null);
             }
         }
 
-        @Override // b.a.q0.s.l.a.InterfaceC0685a
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        @Override // b.a.q0.s.l.a.InterfaceC0685a
-        public void c(AccountData accountData) {
+        @Override // b.a.q0.s.l.a.InterfaceC0720a
+        public void onSuccess(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921613));
@@ -102,26 +102,26 @@ public class a extends b.a.q0.s.l.a {
                 return;
             }
         }
-        this.f17967b = new C0915a(this);
+        this.f19422b = new C0981a(this);
     }
 
     public static a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f17966c == null) {
-                f17966c = new a();
+            if (f19421c == null) {
+                f19421c = new a();
             }
-            return f17966c;
+            return f19421c;
         }
         return (a) invokeV.objValue;
     }
 
     @Override // b.a.q0.s.l.a
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0685a interfaceC0685a) {
+    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0720a interfaceC0720a) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, interfaceC0685a)) == null) ? b.a.r0.z1.b.a(str, str2, str3, str4, interfaceC0685a) : (BdAsyncTask) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, interfaceC0720a)) == null) ? b.a.r0.z1.b.a(str, str2, str3, str4, interfaceC0720a) : (BdAsyncTask) invokeLLLLL.objValue;
     }
 
     @Override // b.a.q0.s.l.a
@@ -142,9 +142,9 @@ public class a extends b.a.q0.s.l.a {
             }
             a.b bVar2 = new a.b();
             try {
-                bVar2.f13137a = split[0];
+                bVar2.f13917a = split[0];
                 if (split.length >= 2) {
-                    bVar2.f13138b = split[1];
+                    bVar2.f13918b = split[1];
                 }
                 return bVar2;
             } catch (Exception e2) {
@@ -166,7 +166,7 @@ public class a extends b.a.q0.s.l.a {
             if (currentAccountObj != null) {
                 a.b d2 = d(currentAccountObj.getBDUSS());
                 if (d2 != null) {
-                    b.a.r0.z1.b.a(currentAccountObj.getAccount(), d2.f13137a, d2.f13138b, currentAccountObj.getStoken(), this.f17967b);
+                    b.a.r0.z1.b.a(currentAccountObj.getAccount(), d2.f13917a, d2.f13918b, currentAccountObj.getStoken(), this.f19422b);
                     return;
                 }
                 return;

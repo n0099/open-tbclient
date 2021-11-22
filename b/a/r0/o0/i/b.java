@@ -3,7 +3,7 @@ package b.a.r0.o0.i;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.o0.i.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -25,28 +25,28 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f21676a;
+    public TbPageContext f23175a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f21677b;
+    public View f23176b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RankListViewController.RankListViewHolder f21678c;
+    public RankListViewController.RankListViewHolder f23177c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f21679d;
+    public TextView f23178d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f21680e;
+    public TextView f23179e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21681f;
+    public String f23180f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21682g;
+    public int f23181g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f21683h;
+    public View.OnClickListener f23182h;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -54,7 +54,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f21684e;
+        public final /* synthetic */ b f23183e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -71,23 +71,23 @@ public class b {
                     return;
                 }
             }
-            this.f21684e = bVar;
+            this.f23183e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (TextUtils.isEmpty(this.f21684e.f21681f)) {
-                    this.f21684e.f21676a.showToast(R.string.load_error_retry);
+                if (TextUtils.isEmpty(this.f23183e.f23180f)) {
+                    this.f23183e.f23175a.showToast(R.string.load_error_retry);
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(this.f21684e.f21676a, new String[]{this.f21684e.f21681f});
-                if (this.f21684e.f21682g == 0) {
+                UrlManager.getInstance().dealOneLink(this.f23183e.f23175a, new String[]{this.f23183e.f23180f});
+                if (this.f23183e.f23181g == 0) {
                     return;
                 }
-                if (this.f21684e.f21682g != 2) {
-                    if (this.f21684e.f21682g == 1) {
+                if (this.f23183e.f23181g != 2) {
+                    if (this.f23183e.f23181g == 1) {
                         StatisticItem statisticItem = new StatisticItem("c13669");
                         statisticItem.param("obj_locate", 2);
                         TiebaStatic.log(statisticItem);
@@ -118,25 +118,25 @@ public class b {
                 return;
             }
         }
-        this.f21683h = new a(this);
-        this.f21676a = tbPageContext;
-        this.f21677b = view;
+        this.f23182h = new a(this);
+        this.f23175a = tbPageContext;
+        this.f23176b = view;
         RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view.findViewById(R.id.user_view));
-        this.f21678c = rankListViewHolder;
+        this.f23177c = rankListViewHolder;
         rankListViewHolder.setViewHolderType(1);
-        this.f21679d = (TextView) view.findViewById(R.id.get_influence);
+        this.f23178d = (TextView) view.findViewById(R.id.get_influence);
         TextView textView = (TextView) view.findViewById(R.id.rank_num);
-        this.f21680e = textView;
-        textView.setTextSize(0, l.g(this.f21676a.getPageActivity(), R.dimen.tbfontsize46));
-        this.f21679d.setOnClickListener(this.f21683h);
+        this.f23179e = textView;
+        textView.setTextSize(0, l.g(this.f23175a.getPageActivity(), R.dimen.tbfontsize46));
+        this.f23178d.setOnClickListener(this.f23182h);
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f21678c.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.f21678c.itemView, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.f21679d, R.color.CAM_X0302);
+            this.f23177c.onChangeSkinType(i2);
+            SkinManager.setBackgroundColor(this.f23177c.itemView, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.f23178d, R.color.CAM_X0302);
         }
     }
 
@@ -145,21 +145,21 @@ public class b {
         MetaData metaData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            if (cVar != null && (bVar = cVar.f21701c) != null && (metaData = bVar.f21696f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
-                this.f21677b.setVisibility(0);
-                this.f21678c.bindData(cVar.f21701c);
-                this.f21678c.hideIntroAndLikeButton();
-                this.f21681f = cVar.f21703e;
+            if (cVar != null && (bVar = cVar.f23200c) != null && (metaData = bVar.f23195f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
+                this.f23176b.setVisibility(0);
+                this.f23177c.bindData(cVar.f23200c);
+                this.f23177c.hideIntroAndLikeButton();
+                this.f23180f = cVar.f23202e;
                 return;
             }
-            this.f21677b.setVisibility(8);
+            this.f23176b.setVisibility(8);
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f21682g = i2;
+            this.f23181g = i2;
         }
     }
 }

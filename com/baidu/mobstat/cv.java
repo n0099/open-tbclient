@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ public class cv extends cy implements ct {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41265a;
+    public String f42097a;
 
     public cv() {
         Interceptable interceptable = $ic;
@@ -27,7 +28,7 @@ public class cv extends cy implements ct {
                 return;
             }
         }
-        this.f41265a = "*";
+        this.f42097a = ProxyConfig.MATCH_ALL_SCHEMES;
     }
 
     @Override // com.baidu.mobstat.ct
@@ -35,7 +36,7 @@ public class cv extends cy implements ct {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             if (str != null) {
-                this.f41265a = str;
+                this.f42097a = str;
                 return;
             }
             throw new IllegalArgumentException("http resource descriptor must not be null");
@@ -46,6 +47,6 @@ public class cv extends cy implements ct {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41265a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42097a : (String) invokeV.objValue;
     }
 }

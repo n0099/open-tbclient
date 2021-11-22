@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.z2.z;
+import b.a.r0.a3.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -30,7 +30,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<DownloadCacheKey, b.a.r0.r.e.h.a> f22970a;
+    public final Map<DownloadCacheKey, b.a.r0.r.e.h.a> f24502a;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -43,7 +43,7 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f22971a;
+        public static final e f24503a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,7 +59,7 @@ public class e {
                     return;
                 }
             }
-            f22971a = new e(null);
+            f24503a = new e(null);
         }
     }
 
@@ -70,13 +70,13 @@ public class e {
     public static e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f22971a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f24503a : (e) invokeV.objValue;
     }
 
     public b.a.r0.r.e.h.a a(DownloadCacheKey downloadCacheKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadCacheKey)) == null) ? this.f22970a.get(downloadCacheKey) : (b.a.r0.r.e.h.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadCacheKey)) == null) ? this.f24502a.get(downloadCacheKey) : (b.a.r0.r.e.h.a) invokeL.objValue;
     }
 
     @NonNull
@@ -114,14 +114,14 @@ public class e {
                 aVar.g();
             }
         }
-        b.a.r0.z2.b.b(str);
+        b.a.r0.a3.b.b(str);
         f.g().j(context, adDownloadData);
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            b.a.r0.r.e.i.a.f22996a.get().a(str);
+            b.a.r0.r.e.i.a.f24528a.get().a(str);
             f(b.a.r0.r.e.b.c().a(g(str)), 702);
         }
     }
@@ -130,7 +130,7 @@ public class e {
         DownloadCacheKey g2;
         b.a.r0.r.e.h.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, adDownloadData, i2) == null) || (g2 = g(adDownloadData.adId())) == null || (aVar = this.f22970a.get(g2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, adDownloadData, i2) == null) || (g2 = g(adDownloadData.adId())) == null || (aVar = this.f24502a.get(g2)) == null) {
             return;
         }
         aVar.j(i2, adDownloadData.getPkgName(), adDownloadData.getExtInfo(), adDownloadData);
@@ -144,7 +144,7 @@ public class e {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            for (Map.Entry<DownloadCacheKey, b.a.r0.r.e.h.a> entry : this.f22970a.entrySet()) {
+            for (Map.Entry<DownloadCacheKey, b.a.r0.r.e.h.a> entry : this.f24502a.entrySet()) {
                 if (entry.getKey() != null && entry.getKey().sameAd(str)) {
                     return entry.getKey();
                 }
@@ -162,7 +162,7 @@ public class e {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            for (Map.Entry<DownloadCacheKey, b.a.r0.r.e.h.a> entry : this.f22970a.entrySet()) {
+            for (Map.Entry<DownloadCacheKey, b.a.r0.r.e.h.a> entry : this.f24502a.entrySet()) {
                 if (entry.getKey() != null && entry.getKey().sameUrl(str)) {
                     return entry.getKey();
                 }
@@ -175,10 +175,10 @@ public class e {
     public void i(@NonNull DownloadCacheKey downloadCacheKey, b.a.r0.r.e.h.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, downloadCacheKey, dVar) == null) {
-            b.a.r0.r.e.h.a aVar = this.f22970a.get(downloadCacheKey);
+            b.a.r0.r.e.h.a aVar = this.f24502a.get(downloadCacheKey);
             if (aVar == null) {
                 aVar = new b.a.r0.r.e.h.a(downloadCacheKey);
-                this.f22970a.put(downloadCacheKey, aVar);
+                this.f24502a.put(downloadCacheKey, aVar);
             }
             if (dVar != null) {
                 aVar.e(dVar);
@@ -189,7 +189,7 @@ public class e {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            b.a.r0.r.e.i.a.f22996a.get().d(str);
+            b.a.r0.r.e.i.a.f24528a.get().d(str);
             f(b.a.r0.r.e.b.c().a(g(str)), 703);
         }
     }
@@ -198,11 +198,11 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            HashSet hashSet = new HashSet(this.f22970a.size());
+            HashSet hashSet = new HashSet(this.f24502a.size());
             if (TextUtils.isEmpty(str)) {
                 return hashSet;
             }
-            for (Map.Entry<DownloadCacheKey, b.a.r0.r.e.h.a> entry : this.f22970a.entrySet()) {
+            for (Map.Entry<DownloadCacheKey, b.a.r0.r.e.h.a> entry : this.f24502a.entrySet()) {
                 if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                     hashSet.add(entry.getValue());
                 }
@@ -220,7 +220,7 @@ public class e {
                 i(downloadCacheKey, dVar);
             }
             AdDownloadData a2 = b.a.r0.r.e.b.c().a(downloadCacheKey);
-            b.a.r0.r.e.i.a.f22996a.get().b(downloadCacheKey, a2);
+            b.a.r0.r.e.i.a.f24528a.get().b(downloadCacheKey, a2);
             f(a2, 701);
             return downloadCacheKey.mAdId;
         }
@@ -235,7 +235,7 @@ public class e {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, context, downloadCacheKey, str)) == null) {
             boolean b2 = z.b(str);
             if (!b2) {
-                b.a.r0.z2.b.c(new File(str));
+                b.a.r0.a3.b.c(new File(str));
             }
             if (downloadCacheKey != null && (a2 = b.a.r0.r.e.b.c().a(downloadCacheKey)) != null) {
                 if (TextUtils.isEmpty(a2.pkgName())) {
@@ -244,9 +244,9 @@ public class e {
                 if (TextUtils.isEmpty(downloadCacheKey.mPackageName)) {
                     downloadCacheKey.mPackageName = a2.pkgName();
                 }
-                b.a.r0.r.e.h.a aVar = this.f22970a.get(downloadCacheKey);
-                if (aVar != null && (downloadCacheKey2 = aVar.f22992c) != null && TextUtils.isEmpty(downloadCacheKey2.mPackageName)) {
-                    aVar.f22992c.mPackageName = a2.pkgName();
+                b.a.r0.r.e.h.a aVar = this.f24502a.get(downloadCacheKey);
+                if (aVar != null && (downloadCacheKey2 = aVar.f24524c) != null && TextUtils.isEmpty(downloadCacheKey2.mPackageName)) {
+                    aVar.f24524c.mPackageName = a2.pkgName();
                 }
                 a2.extra().setPercentAndStatus(100, DownloadStatus.STATUS_SUCCESS);
                 a2.extra().setDownloadPath(str);
@@ -301,7 +301,7 @@ public class e {
     public void q(DownloadCacheKey downloadCacheKey, b.a.r0.r.e.h.d dVar) {
         b.a.r0.r.e.h.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048591, this, downloadCacheKey, dVar) == null) || (aVar = this.f22970a.get(downloadCacheKey)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048591, this, downloadCacheKey, dVar) == null) || (aVar = this.f24502a.get(downloadCacheKey)) == null) {
             return;
         }
         aVar.i(dVar);
@@ -320,7 +320,7 @@ public class e {
                 return;
             }
         }
-        this.f22970a = new HashMap();
+        this.f24502a = new HashMap();
         f.g().k();
     }
 }

@@ -27,10 +27,10 @@ public class b implements l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Integer> f68953a;
+    public List<Integer> f69873a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BroadcastReceiver f68954b;
+    public BroadcastReceiver f69874b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -64,16 +64,16 @@ public class b implements l {
         for (DownloadInfo downloadInfo : list) {
             a(N, downloadInfo, b2, i2);
         }
-        List<Integer> list2 = this.f68953a;
-        if (list2 == null || list2.isEmpty() || this.f68954b != null) {
+        List<Integer> list2 = this.f69873a;
+        if (list2 == null || list2.isEmpty() || this.f69874b != null) {
             return;
         }
-        this.f68954b = new BroadcastReceiver(this) { // from class: com.ss.android.socialbase.appdownloader.d.b.2
+        this.f69874b = new BroadcastReceiver(this) { // from class: com.ss.android.socialbase.appdownloader.d.b.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f68958a;
+            public final /* synthetic */ b f69878a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -90,7 +90,7 @@ public class b implements l {
                         return;
                     }
                 }
-                this.f68958a = this;
+                this.f69878a = this;
             }
 
             @Override // android.content.BroadcastReceiver
@@ -105,10 +105,10 @@ public class b implements l {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Context f68959a;
+                            public final /* synthetic */ Context f69879a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f68960b;
+                            public final /* synthetic */ AnonymousClass2 f69880b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -125,8 +125,8 @@ public class b implements l {
                                         return;
                                     }
                                 }
-                                this.f68960b = this;
-                                this.f68959a = applicationContext;
+                                this.f69880b = this;
+                                this.f69879a = applicationContext;
                             }
 
                             @Override // java.lang.Runnable
@@ -134,15 +134,15 @@ public class b implements l {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     try {
-                                        if (this.f68960b.f68958a.f68953a != null && !this.f68960b.f68958a.f68953a.isEmpty()) {
-                                            int size = this.f68960b.f68958a.f68953a.size();
+                                        if (this.f69880b.f69878a.f69873a != null && !this.f69880b.f69878a.f69873a.isEmpty()) {
+                                            int size = this.f69880b.f69878a.f69873a.size();
                                             Integer[] numArr = new Integer[size];
-                                            this.f68960b.f68958a.f68953a.toArray(numArr);
-                                            this.f68960b.f68958a.f68953a.clear();
+                                            this.f69880b.f69878a.f69873a.toArray(numArr);
+                                            this.f69880b.f69878a.f69873a.clear();
                                             for (int i3 = 0; i3 < size; i3++) {
-                                                DownloadInfo downloadInfo2 = Downloader.getInstance(this.f68959a).getDownloadInfo(numArr[i3].intValue());
+                                                DownloadInfo downloadInfo2 = Downloader.getInstance(this.f69879a).getDownloadInfo(numArr[i3].intValue());
                                                 if (downloadInfo2 != null && (downloadInfo2.getRealStatus() == -5 || (downloadInfo2.getRealStatus() == -2 && downloadInfo2.isPauseReserveOnWifi()))) {
-                                                    this.f68960b.f68958a.a(this.f68959a, downloadInfo2, true, 2);
+                                                    this.f69880b.f69878a.a(this.f69879a, downloadInfo2, true, 2);
                                                 }
                                             }
                                         }
@@ -153,11 +153,11 @@ public class b implements l {
                             }
                         });
                         try {
-                            applicationContext.unregisterReceiver(this.f68958a.f68954b);
+                            applicationContext.unregisterReceiver(this.f69878a.f69874b);
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
-                        this.f68958a.f68954b = null;
+                        this.f69878a.f69874b = null;
                     }
                 }
             }
@@ -165,10 +165,10 @@ public class b implements l {
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            N.registerReceiver(this.f68954b, intentFilter);
+            N.registerReceiver(this.f69874b, intentFilter);
         } catch (Throwable th) {
             th.printStackTrace();
-            this.f68954b = null;
+            this.f69874b = null;
         }
     }
 
@@ -189,13 +189,13 @@ public class b implements l {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ List f68955a;
+                    public final /* synthetic */ List f69875a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f68956b;
+                    public final /* synthetic */ int f69876b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ b f68957c;
+                    public final /* synthetic */ b f69877c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -212,9 +212,9 @@ public class b implements l {
                                 return;
                             }
                         }
-                        this.f68957c = this;
-                        this.f68955a = list;
-                        this.f68956b = i2;
+                        this.f69877c = this;
+                        this.f69875a = list;
+                        this.f69876b = i2;
                     }
 
                     @Override // java.lang.Runnable
@@ -222,7 +222,7 @@ public class b implements l {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f68957c.b(this.f68955a, this.f68956b);
+                                this.f69877c.b(this.f69875a, this.f69876b);
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
@@ -276,12 +276,12 @@ public class b implements l {
                         boolean z5 = a2.a("failed_resume_need_wifi", 1) == 1;
                         boolean z6 = a2.a("failed_resume_need_wait_wifi", 0) == 1;
                         if (!z && z5 && z6) {
-                            if (this.f68953a == null) {
-                                this.f68953a = new ArrayList();
+                            if (this.f69873a == null) {
+                                this.f69873a = new ArrayList();
                             }
                             int id = downloadInfo.getId();
-                            if (!this.f68953a.contains(Integer.valueOf(id))) {
-                                this.f68953a.add(Integer.valueOf(id));
+                            if (!this.f69873a.contains(Integer.valueOf(id))) {
+                                this.f69873a.add(Integer.valueOf(id));
                             }
                             downloadInfo.setOnlyWifi(true);
                             r.a().a(downloadInfo);
@@ -345,12 +345,12 @@ public class b implements l {
                         m2.a(downloadInfo, 5, i2);
                     }
                 } else {
-                    if (this.f68953a == null) {
-                        this.f68953a = new ArrayList();
+                    if (this.f69873a == null) {
+                        this.f69873a = new ArrayList();
                     }
                     int id2 = downloadInfo.getId();
-                    if (!this.f68953a.contains(Integer.valueOf(id2))) {
-                        this.f68953a.add(Integer.valueOf(id2));
+                    if (!this.f69873a.contains(Integer.valueOf(id2))) {
+                        this.f69873a.add(Integer.valueOf(id2));
                     }
                     r.a().a(downloadInfo);
                     a(downloadInfo, context);

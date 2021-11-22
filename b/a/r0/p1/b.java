@@ -17,7 +17,7 @@ public class b extends BdAsyncTask<String, Integer, Download> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ClientUpdateInfo f22143a;
+    public ClientUpdateInfo f23620a;
 
     public b(ClientUpdateInfo clientUpdateInfo) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class b extends BdAsyncTask<String, Integer, Download> {
                 return;
             }
         }
-        this.f22143a = clientUpdateInfo;
+        this.f23620a = clientUpdateInfo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,10 +44,10 @@ public class b extends BdAsyncTask<String, Integer, Download> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            if (this.f22143a == null) {
+            if (this.f23620a == null) {
                 return null;
             }
-            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.f22143a, null);
+            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.f23620a, null);
             return null;
         }
         return (Download) invokeL.objValue;

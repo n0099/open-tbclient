@@ -1,8 +1,8 @@
 package com.fun.ad.sdk.internal.api.ripper;
 
-import b.g.i0;
-import b.g.o0;
-import b.g.r;
+import b.f.i0;
+import b.f.o0;
+import b.f.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,11 +24,11 @@ public abstract class BaseAdRipper implements AdRipper {
     public static AdRipper FAKE_AD_RIPPER;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Random f62841a;
+    public static final Random f63741a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<Object, RippedAd> f62842b;
+    public final HashMap<Object, RippedAd> f63742b;
     public final Ssp.Pid mPid;
 
     static {
@@ -45,7 +45,7 @@ public abstract class BaseAdRipper implements AdRipper {
             }
         }
         FAKE_AD_RIPPER = new r();
-        f62841a = new Random();
+        f63741a = new Random();
     }
 
     public BaseAdRipper(Ssp.Pid pid) {
@@ -63,7 +63,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 return;
             }
         }
-        this.f62842b = new HashMap<>();
+        this.f63742b = new HashMap<>();
         this.mPid = pid;
     }
 
@@ -71,8 +71,8 @@ public abstract class BaseAdRipper implements AdRipper {
     public final void destroy(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            synchronized (this.f62842b) {
-                this.f62842b.remove(obj);
+            synchronized (this.f63742b) {
+                this.f63742b.remove(obj);
             }
         }
     }
@@ -82,8 +82,8 @@ public abstract class BaseAdRipper implements AdRipper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            synchronized (this.f62842b) {
-                RippedAd rippedAd = this.f62842b.get(obj);
+            synchronized (this.f63742b) {
+                RippedAd rippedAd = this.f63742b.get(obj);
                 if (rippedAd != null) {
                     return rippedAd;
                 }
@@ -91,7 +91,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 if (rippedAdInternal == null) {
                     return null;
                 }
-                this.f62842b.put(obj, rippedAdInternal);
+                this.f63742b.put(obj, rippedAdInternal);
                 return rippedAdInternal;
             }
         }
@@ -106,7 +106,7 @@ public abstract class BaseAdRipper implements AdRipper {
         i0 i0Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, obj, str) == null) && BuildConfig.IS_ADM_REPORT.booleanValue() && obj != null) {
-            float nextFloat = f62841a.nextFloat();
+            float nextFloat = f63741a.nextFloat();
             if (nextFloat >= this.mPid.sample) {
                 LogPrinter.d("Forbid report with sample %.2f ratio:%.2f", Float.valueOf(nextFloat), Float.valueOf(this.mPid.sample));
                 return;
@@ -136,19 +136,19 @@ public abstract class BaseAdRipper implements AdRipper {
                 jSONObject.put("dpU", rippedAdInternal.deepLinkUrl);
                 jSONObject.put("convU", rippedAdInternal.convUrl);
                 jSONObject.put("st", "ld");
-                o0<i0> o0Var = i0.f31167b;
+                o0<i0> o0Var = i0.f32025b;
                 synchronized (o0Var) {
-                    if (o0Var.f31222a == null) {
-                        o0Var.f31222a = o0Var.a();
+                    if (o0Var.f32080a == null) {
+                        o0Var.f32080a = o0Var.a();
                     }
-                    i0Var = o0Var.f31222a;
+                    i0Var = o0Var.f32080a;
                 }
                 i0Var.d("adM", jSONObject);
             } catch (JSONException e2) {
                 LogPrinter.e(e2);
             }
-            synchronized (this.f62842b) {
-                this.f62842b.put(obj, rippedAdInternal);
+            synchronized (this.f63742b) {
+                this.f63742b.put(obj, rippedAdInternal);
             }
         }
     }

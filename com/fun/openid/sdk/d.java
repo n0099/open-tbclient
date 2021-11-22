@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
-import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes11.dex */
@@ -27,10 +26,10 @@ public class d implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f62895a;
+        public boolean f63795a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f62896b;
+        public final LinkedBlockingQueue<IBinder> f63796b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,19 +44,19 @@ public class d implements f {
                     return;
                 }
             }
-            this.f62895a = false;
-            this.f62896b = new LinkedBlockingQueue<>();
+            this.f63795a = false;
+            this.f63796b = new LinkedBlockingQueue<>();
         }
 
         public IBinder a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f62895a) {
+                if (this.f63795a) {
                     throw new IllegalStateException();
                 }
-                this.f62895a = true;
-                return this.f62896b.poll(5L, TimeUnit.SECONDS);
+                this.f63795a = true;
+                return this.f63796b.poll(5L, TimeUnit.SECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -67,7 +66,7 @@ public class d implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 try {
-                    this.f62896b.put(iBinder);
+                    this.f63796b.put(iBinder);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -113,7 +112,7 @@ public class d implements f {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                        obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
                         a2.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         String readString = obtain2.readString();

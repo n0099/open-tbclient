@@ -17,10 +17,10 @@ public abstract class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, h> f2913a;
+    public static final HashMap<String, h> f3006a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, b> f2914b;
+    public static final ConcurrentHashMap<String, b> f3007b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -42,19 +42,19 @@ public abstract class h {
                 return;
             }
         }
-        f2913a = new HashMap<>();
-        f2914b = new ConcurrentHashMap<>();
+        f3006a = new HashMap<>();
+        f3007b = new ConcurrentHashMap<>();
     }
 
     public static void a(String str, IBinder iBinder, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65537, null, str, iBinder, z) == null) {
             if (Binder.getCallingUid() == Process.myUid()) {
-                if (f2913a.get(str) == null) {
+                if (f3006a.get(str) == null) {
                     b bVar = new b(null);
-                    bVar.f2915a = iBinder;
-                    bVar.f2916b = z;
-                    f2914b.put(str, bVar);
+                    bVar.f3008a = iBinder;
+                    bVar.f3009b = z;
+                    f3007b.put(str, bVar);
                     return;
                 }
                 throw new IllegalArgumentException();
@@ -67,17 +67,17 @@ public abstract class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            h hVar = f2913a.get(str);
+            h hVar = f3006a.get(str);
             if (hVar != null) {
                 hVar.b();
                 return hVar.c();
             }
-            b bVar = f2914b.get(str);
+            b bVar = f3007b.get(str);
             if (bVar != null) {
-                if (!bVar.f2916b && Binder.getCallingUid() != Process.myUid()) {
+                if (!bVar.f3009b && Binder.getCallingUid() != Process.myUid()) {
                     throw new SecurityException();
                 }
-                return bVar.f2915a;
+                return bVar.f3008a;
             }
             return null;
         }
@@ -89,7 +89,7 @@ public abstract class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (Binder.getCallingUid() == Process.myUid()) {
-                return f2914b.remove(str) != null;
+                return f3007b.remove(str) != null;
             }
             throw new SecurityException();
         }
@@ -111,10 +111,10 @@ public abstract class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f2915a;
+        public IBinder f3008a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2916b;
+        public boolean f3009b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public abstract class h {
                     return;
                 }
             }
-            this.f2916b = false;
+            this.f3009b = false;
         }
 
         public /* synthetic */ b(a aVar) {

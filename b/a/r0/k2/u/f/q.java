@@ -25,19 +25,19 @@ public class q extends BaseAdapter implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19368e;
+    public Context f20934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.q0.d0.b f19369f;
+    public b.a.q0.d0.b f20935f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<ImageFileInfo> f19370g;
+    public LinkedList<ImageFileInfo> f20936g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19371h;
+    public int f20937h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19372i;
+    public int f20938i;
     public c j;
 
     /* loaded from: classes5.dex */
@@ -46,7 +46,7 @@ public class q extends BaseAdapter implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f19373e;
+        public final /* synthetic */ ViewGroup f20939e;
 
         public a(q qVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public class q extends BaseAdapter implements View.OnClickListener {
                     return;
                 }
             }
-            this.f19373e = viewGroup;
+            this.f20939e = viewGroup;
         }
 
         @Override // b.a.q0.c0.b
-        public void imageLoaded(b.a.e.l.d.a aVar, String str, boolean z) {
+        public void imageLoaded(b.a.e.m.d.a aVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f19373e.findViewWithTag(str)) == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f20939e.findViewWithTag(str)) == null || aVar == null) {
                 return;
             }
             tbImageView.invalidate();
@@ -78,15 +78,15 @@ public class q extends BaseAdapter implements View.OnClickListener {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends b.a.e.e.l.c<b.a.e.l.d.a> {
+    public class b extends b.a.e.f.l.c<b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f19374a;
+        public final /* synthetic */ ViewGroup f20940a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f19375b;
+        public final /* synthetic */ String f20941b;
 
         public b(q qVar, ViewGroup viewGroup, String str) {
             Interceptable interceptable = $ic;
@@ -103,16 +103,16 @@ public class q extends BaseAdapter implements View.OnClickListener {
                     return;
                 }
             }
-            this.f19374a = viewGroup;
-            this.f19375b = str;
+            this.f20940a = viewGroup;
+            this.f20941b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.l.c
-        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || (tbImageView = (TbImageView) this.f19374a.findViewWithTag(this.f19375b)) == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || (tbImageView = (TbImageView) this.f20940a.findViewWithTag(this.f20941b)) == null || aVar == null) {
                 return;
             }
             tbImageView.invalidate();
@@ -132,13 +132,13 @@ public class q extends BaseAdapter implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f19376a;
+        public TbImageView f20942a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinearLayout f19377b;
+        public LinearLayout f20943b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f19378c;
+        public ImageView f20944c;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -170,13 +170,13 @@ public class q extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.f19368e = null;
-        this.f19369f = new b.a.q0.d0.b();
-        this.f19370g = null;
-        this.f19368e = context;
-        int k = b.a.e.e.p.l.k(context);
-        this.f19372i = k;
-        this.f19371h = ((k - (b.a.e.e.p.l.g(this.f19368e, b.a.r0.k2.g.tbds44) * 2)) - (b.a.e.e.p.l.g(this.f19368e, b.a.r0.k2.g.tbds10) * 2)) / 3;
+        this.f20934e = null;
+        this.f20935f = new b.a.q0.d0.b();
+        this.f20936g = null;
+        this.f20934e = context;
+        int k = b.a.e.f.p.l.k(context);
+        this.f20938i = k;
+        this.f20937h = ((k - (b.a.e.f.p.l.g(this.f20934e, b.a.r0.k2.g.tbds44) * 2)) - (b.a.e.f.p.l.g(this.f20934e, b.a.r0.k2.g.tbds10) * 2)) / 3;
     }
 
     public final void a(ImageFileInfo imageFileInfo, d dVar, ViewGroup viewGroup) {
@@ -184,27 +184,27 @@ public class q extends BaseAdapter implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeLLL(1048576, this, imageFileInfo, dVar, viewGroup) == null) || imageFileInfo == null) {
             return;
         }
-        int i2 = this.f19371h;
+        int i2 = this.f20937h;
         ImageOperation g2 = b.a.q0.d0.i.d.g(i2, i2);
         imageFileInfo.clearPageActions();
         imageFileInfo.addPageAction(g2);
         if (imageFileInfo.getImageType() == 0) {
-            b.a.e.l.d.a c2 = this.f19369f.c(imageFileInfo, true);
-            dVar.f19376a.setTag(imageFileInfo.toCachedKey(true));
+            b.a.e.m.d.a c2 = this.f20935f.c(imageFileInfo, true);
+            dVar.f20942a.setTag(imageFileInfo.toCachedKey(true));
             if (c2 != null) {
-                dVar.f19376a.invalidate();
+                dVar.f20942a.invalidate();
             } else {
-                this.f19369f.d(imageFileInfo, new a(this, viewGroup), true);
+                this.f20935f.d(imageFileInfo, new a(this, viewGroup), true);
             }
-            dVar.f19376a.setTagStr(this.f19368e.getString(b.a.r0.k2.l.edit));
+            dVar.f20942a.setTagStr(this.f20934e.getString(b.a.r0.k2.l.edit));
         } else if (imageFileInfo.getImageType() == 1) {
             String filePath = imageFileInfo.getFilePath();
-            if (!b.a.e.e.p.k.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
-                String g3 = b.a.e.e.l.d.h().g(filePath, 20);
-                dVar.f19376a.setTag(g3);
-                b.a.e.e.l.d.h().k(filePath, 20, new b(this, viewGroup, g3), 0, 0, null, null, filePath, Boolean.FALSE, null);
+            if (!b.a.e.f.p.k.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
+                String g3 = b.a.e.f.l.d.h().g(filePath, 20);
+                dVar.f20942a.setTag(g3);
+                b.a.e.f.l.d.h().k(filePath, 20, new b(this, viewGroup, g3), 0, 0, null, null, filePath, Boolean.FALSE, null);
             }
-            dVar.f19376a.setTagStr("");
+            dVar.f20942a.setTagStr("");
         }
     }
 
@@ -218,7 +218,7 @@ public class q extends BaseAdapter implements View.OnClickListener {
     public void c(LinkedList<ImageFileInfo> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, linkedList) == null) {
-            this.f19370g = linkedList;
+            this.f20936g = linkedList;
         }
     }
 
@@ -227,7 +227,7 @@ public class q extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinkedList<ImageFileInfo> linkedList = this.f19370g;
+            LinkedList<ImageFileInfo> linkedList = this.f20936g;
             if (linkedList == null) {
                 return 0;
             }
@@ -241,12 +241,12 @@ public class q extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            LinkedList<ImageFileInfo> linkedList = this.f19370g;
+            LinkedList<ImageFileInfo> linkedList = this.f20936g;
             if (linkedList == null) {
                 return null;
             }
             if (linkedList.size() - 1 >= i2) {
-                return this.f19370g.get(i2);
+                return this.f20936g.get(i2);
             }
             return 0;
         }
@@ -270,20 +270,20 @@ public class q extends BaseAdapter implements View.OnClickListener {
             if (view == null) {
                 dVar = new d();
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(b.a.r0.k2.j.pb_editor_imgs_item, (ViewGroup) null);
-                dVar.f19376a = (TbImageView) view2.findViewById(b.a.r0.k2.i.iv_photo_live);
-                dVar.f19377b = (LinearLayout) view2.findViewById(b.a.r0.k2.i.layout_del);
-                dVar.f19378c = (ImageView) view2.findViewById(b.a.r0.k2.i.delete_photo_live);
-                dVar.f19376a.setOnClickListener(this);
-                dVar.f19376a.setTagTextSize(b.a.e.e.p.l.g(this.f19368e, b.a.r0.k2.g.tbds30));
-                dVar.f19376a.setDrawBorder(true);
-                dVar.f19376a.setDrawCorner(false);
-                dVar.f19376a.setRadius(0);
-                dVar.f19377b.setOnClickListener(this);
-                dVar.f19376a.setGifIconSupport(true);
-                dVar.f19376a.setLongIconSupport(true);
-                SkinManager.setBackgroundResource(dVar.f19378c, b.a.r0.k2.h.icon_delete_img);
-                ViewGroup.LayoutParams layoutParams = dVar.f19376a.getLayoutParams();
-                int i3 = this.f19371h;
+                dVar.f20942a = (TbImageView) view2.findViewById(b.a.r0.k2.i.iv_photo_live);
+                dVar.f20943b = (LinearLayout) view2.findViewById(b.a.r0.k2.i.layout_del);
+                dVar.f20944c = (ImageView) view2.findViewById(b.a.r0.k2.i.delete_photo_live);
+                dVar.f20942a.setOnClickListener(this);
+                dVar.f20942a.setTagTextSize(b.a.e.f.p.l.g(this.f20934e, b.a.r0.k2.g.tbds30));
+                dVar.f20942a.setDrawBorder(true);
+                dVar.f20942a.setDrawCorner(false);
+                dVar.f20942a.setRadius(0);
+                dVar.f20943b.setOnClickListener(this);
+                dVar.f20942a.setGifIconSupport(true);
+                dVar.f20942a.setLongIconSupport(true);
+                SkinManager.setBackgroundResource(dVar.f20944c, b.a.r0.k2.h.icon_delete_img);
+                ViewGroup.LayoutParams layoutParams = dVar.f20942a.getLayoutParams();
+                int i3 = this.f20937h;
                 layoutParams.width = i3;
                 layoutParams.height = i3;
                 view2.setTag(dVar);
@@ -291,12 +291,12 @@ public class q extends BaseAdapter implements View.OnClickListener {
                 view2 = view;
                 dVar = (d) view.getTag();
             }
-            LinkedList<ImageFileInfo> linkedList = this.f19370g;
+            LinkedList<ImageFileInfo> linkedList = this.f20936g;
             if (linkedList != null && linkedList.size() - 1 >= i2) {
-                a(this.f19370g.get(i2), dVar, viewGroup);
-                TbImageView tbImageView = dVar.f19376a;
+                a(this.f20936g.get(i2), dVar, viewGroup);
+                TbImageView tbImageView = dVar.f20942a;
                 tbImageView.setTag(tbImageView.getId(), Integer.valueOf(i2));
-                dVar.f19377b.setTag(Integer.valueOf(i2));
+                dVar.f20943b.setTag(Integer.valueOf(i2));
             }
             return view2;
         }

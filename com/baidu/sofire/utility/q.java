@@ -12,12 +12,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f43197a;
+    public static final String[] f44143a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public final class q {
                 return;
             }
         }
-        f43197a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        f44143a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
     public static String a(String str) {
@@ -68,7 +68,7 @@ public final class q {
                 if (i2 < 0) {
                     i2 += 256;
                 }
-                stringBuffer.append(f43197a[i2 / 16] + f43197a[i2 % 16]);
+                stringBuffer.append(f44143a[i2 / 16] + f44143a[i2 % 16]);
             }
             return stringBuffer.toString();
         }

@@ -67,8 +67,8 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
     public Context H;
     public int I;
     public b.a.r0.k2.s.c J;
-    public b.a.r0.b0.c0<b.a.q0.s.q.a> K;
-    public a.InterfaceC0088a L;
+    public b.a.r0.b0.d0<b.a.q0.s.q.a> K;
+    public a.InterfaceC0090a L;
     public int s;
     public boolean t;
     public boolean u;
@@ -84,7 +84,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r f19383a;
+        public final /* synthetic */ r f20945a;
 
         public a(r rVar) {
             Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                     return;
                 }
             }
-            this.f19383a = rVar;
+            this.f20945a = rVar;
         }
 
         @Override // b.a.r0.k2.s.c.a
@@ -119,9 +119,9 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                if (this.f19383a.A != null) {
-                    this.f19383a.A.a(view);
-                    this.f19383a.A.onSingleTapConfirmed(motionEvent);
+                if (this.f20945a.A != null) {
+                    this.f20945a.A.a(view);
+                    this.f20945a.A.onSingleTapConfirmed(motionEvent);
                     return true;
                 }
                 return true;
@@ -134,7 +134,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
-                if (b.a.q0.g1.b.c.d()) {
+                if (b.a.q0.f1.b.c.d()) {
                     return true;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004021, 2));
@@ -145,12 +145,12 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends b.a.r0.b0.c0<b.a.q0.s.q.a> {
+    public class b extends b.a.r0.b0.d0<b.a.q0.s.q.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ r f19384b;
+        public final /* synthetic */ r f20946b;
 
         public b(r rVar) {
             Interceptable interceptable = $ic;
@@ -167,24 +167,24 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                     return;
                 }
             }
-            this.f19384b = rVar;
+            this.f20946b = rVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
         public void a(View view, b.a.q0.s.q.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, aVar) == null) {
                 super.a(view, aVar);
-                if (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().y1 == null || this.f19384b.v == null) {
+                if (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().y1 == null || this.f20946b.v == null) {
                     return;
                 }
                 OriginalThreadInfo originalThreadInfo = aVar.getThreadData().y1;
-                String Q = this.f19384b.v.Q();
-                String str = originalThreadInfo.f45040f;
+                String Q = this.f20946b.v.Q();
+                String str = originalThreadInfo.f45889f;
                 int i2 = 1;
-                int i3 = originalThreadInfo.f45035a;
+                int i3 = originalThreadInfo.f45884a;
                 if (i3 == 3) {
                     i2 = 2;
                 } else if (i3 == 4) {
@@ -199,12 +199,12 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements a.InterfaceC0088a {
+    public class c implements a.InterfaceC0090a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r f19385a;
+        public final /* synthetic */ r f20947a;
 
         public c(r rVar) {
             Interceptable interceptable = $ic;
@@ -221,20 +221,20 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                     return;
                 }
             }
-            this.f19385a = rVar;
+            this.f20947a = rVar;
         }
 
-        @Override // b.a.l.a.InterfaceC0088a
+        @Override // b.a.l.a.InterfaceC0090a
         public void a(b.a.q0.s.q.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || aVar.getThreadData() == null || aVar.getThreadData().y1 == null) {
                 return;
             }
             OriginalThreadInfo originalThreadInfo = aVar.getThreadData().y1;
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f19385a.H);
-            pbActivityConfig.createNormalCfg(originalThreadInfo.f45040f, originalThreadInfo.n, null);
-            pbActivityConfig.setForumId(String.valueOf(originalThreadInfo.f45039e));
-            pbActivityConfig.setStartFrom(this.f19385a.I);
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f20947a.H);
+            pbActivityConfig.createNormalCfg(originalThreadInfo.f45889f, originalThreadInfo.n, null);
+            pbActivityConfig.setForumId(String.valueOf(originalThreadInfo.f45888e));
+            pbActivityConfig.setStartFrom(this.f20947a.I);
             pbActivityConfig.setBjhData(originalThreadInfo.p);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
         }
@@ -246,19 +246,19 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFirstFloorViewHolder f19386a;
+        public final /* synthetic */ PbFirstFloorViewHolder f20948a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PostData f19387b;
+        public final /* synthetic */ PostData f20949b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ View f19388c;
+        public final /* synthetic */ View f20950c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f19389d;
+        public final /* synthetic */ int f20951d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f19390e;
+        public final /* synthetic */ r f20952e;
 
         public d(r rVar, PbFirstFloorViewHolder pbFirstFloorViewHolder, PostData postData, View view, int i2) {
             Interceptable interceptable = $ic;
@@ -275,25 +275,25 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                     return;
                 }
             }
-            this.f19390e = rVar;
-            this.f19386a = pbFirstFloorViewHolder;
-            this.f19387b = postData;
-            this.f19388c = view;
-            this.f19389d = i2;
+            this.f20952e = rVar;
+            this.f20948a = pbFirstFloorViewHolder;
+            this.f20949b = postData;
+            this.f20950c = view;
+            this.f20951d = i2;
         }
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.w
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f19386a.richText.getLayoutParams();
-                layoutParams.topMargin = this.f19390e.g0(b.a.r0.k2.g.ds16);
-                int g0 = this.f19390e.g0(b.a.r0.k2.g.ds34);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20948a.richText.getLayoutParams();
+                layoutParams.topMargin = this.f20952e.g0(b.a.r0.k2.g.ds16);
+                int g0 = this.f20952e.g0(b.a.r0.k2.g.ds34);
                 layoutParams.bottomMargin = g0;
                 layoutParams.leftMargin = g0;
                 layoutParams.rightMargin = g0;
-                this.f19386a.richText.setLayoutParams(layoutParams);
-                this.f19390e.o0(this.f19386a, this.f19387b, this.f19388c, this.f19389d);
+                this.f20948a.richText.setLayoutParams(layoutParams);
+                this.f20952e.o0(this.f20948a, this.f20949b, this.f20950c, this.f20951d);
             }
         }
     }
@@ -406,7 +406,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         if (interceptable == null || interceptable.invokeL(1048579, this, pbFirstFloorViewHolder) == null) {
             pbFirstFloorViewHolder.pbItemViewRoot.setOnTouchListener(this.A);
             pbFirstFloorViewHolder.pbItemViewRoot.setOnLongClickListener(this.B);
-            b.a.r0.k2.u.f.c1.a aVar = this.m.getPbActivity().mEvent;
+            b.a.r0.k2.u.f.d1.a aVar = this.m.getPbActivity().mEvent;
             pbFirstFloorViewHolder.richText.setOnLongClickListener(this.B);
             pbFirstFloorViewHolder.richText.setOnTouchListener(this.J);
             pbFirstFloorViewHolder.richText.setItemOrderOrDownloadListener(this.D);
@@ -415,7 +415,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             pbFirstFloorViewHolder.richText.setOnImageClickListener(this.z);
             pbFirstFloorViewHolder.richText.setOnImageTouchListener(this.J);
             pbFirstFloorViewHolder.richText.setmGridEmptyClickListener(new e(this));
-            pbFirstFloorViewHolder.richText.setOnEmotionClickListener(aVar.f19145e);
+            pbFirstFloorViewHolder.richText.setOnEmotionClickListener(aVar.f20712e);
             pbFirstFloorViewHolder.mTailContent.setOnClickListener(this.y);
             pbFirstFloorViewHolder.mForumEnterButtonContainer.setAfterItemClickListener(this.y);
             pbFirstFloorViewHolder.mPbBusinessPromotionContainer.setAfterItemClickListener(this.y);
@@ -492,7 +492,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         }
     }
 
-    @Override // b.a.r0.k2.u.f.n, b.a.e.l.e.a
+    @Override // b.a.r0.k2.u.f.n, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         z0(i2, view, viewGroup, (PostData) obj, (PbFirstFloorViewHolder) viewHolder);
         return view;
@@ -546,7 +546,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         if (!(interceptable == null || interceptable.invokeLLZ(1048594, this, tbRichTextView, view, z) == null) || tbRichTextView == null) {
             return;
         }
-        int min = Math.min(((((b.a.e.e.p.l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - tbRichTextView.getPaddingLeft()) - tbRichTextView.getPaddingRight()) - (z ? g0(b.a.r0.k2.g.ds80) : 0), this.s);
+        int min = Math.min(((((b.a.e.f.p.l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - tbRichTextView.getPaddingLeft()) - tbRichTextView.getPaddingRight()) - (z ? g0(b.a.r0.k2.g.ds80) : 0), this.s);
         tbRichTextView.getLayoutStrategy().q(min);
         tbRichTextView.getLayoutStrategy().p((int) (min * 1.618f));
     }
@@ -604,16 +604,16 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             }
             b.a.r0.k2.r.f fVar = this.v;
             if (fVar != null && fVar.O() != null) {
-                pbFirstFloorViewHolder.mViewStubController.b(postData.F(), str, str2, j, b.a.e.e.m.b.g(this.v.O().f0(), 0L), b.a.e.e.m.b.g(postData.G(), 0L));
+                pbFirstFloorViewHolder.mViewStubController.b(postData.F(), str, str2, j, b.a.e.f.m.b.g(this.v.O().f0(), 0L), b.a.e.f.m.b.g(postData.G(), 0L));
             }
             if (this.n.getPbView().G1()) {
                 pbFirstFloorViewHolder.richText.setVisibility(8);
             }
             b.a.r0.k2.r.f fVar2 = this.v;
-            if (fVar2 != null && fVar2.O() != null && this.v.O().F1() != null) {
-                q2 F1 = this.v.O().F1();
-                String a2 = F1.a();
-                if (StringUtils.isNull(F1.b())) {
+            if (fVar2 != null && fVar2.O() != null && this.v.O().H1() != null) {
+                q2 H1 = this.v.O().H1();
+                String a2 = H1.a();
+                if (StringUtils.isNull(H1.b())) {
                     return;
                 }
                 if (!StringUtils.isNull(a2)) {
@@ -628,8 +628,8 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                 threadSkinView.setVisibility(8);
             }
             b.a.r0.k2.r.f fVar3 = this.v;
-            if (fVar3 != null && fVar3.O() != null && this.v.O().E2() && (threadForumEnterButtonContainer = pbFirstFloorViewHolder.mForumEnterButtonContainer) != null) {
-                threadForumEnterButtonContainer.setPadding(threadForumEnterButtonContainer.getPaddingLeft(), b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), b.a.r0.k2.g.tbds29), pbFirstFloorViewHolder.mForumEnterButtonContainer.getPaddingRight(), pbFirstFloorViewHolder.mForumEnterButtonContainer.getPaddingBottom());
+            if (fVar3 != null && fVar3.O() != null && this.v.O().G2() && (threadForumEnterButtonContainer = pbFirstFloorViewHolder.mForumEnterButtonContainer) != null) {
+                threadForumEnterButtonContainer.setPadding(threadForumEnterButtonContainer.getPaddingLeft(), b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), b.a.r0.k2.g.tbds29), pbFirstFloorViewHolder.mForumEnterButtonContainer.getPaddingRight(), pbFirstFloorViewHolder.mForumEnterButtonContainer.getPaddingBottom());
             }
         }
         pbFirstFloorViewHolder.richText.getLayoutStrategy().x(b.a.r0.k2.h.pic_video);
@@ -662,7 +662,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         }
         pbFirstFloorViewHolder.richText.setIsFromCDN(this.q);
         b.a.r0.k2.r.f fVar5 = this.v;
-        if (fVar5 != null && fVar5.O() != null && this.v.O().e2()) {
+        if (fVar5 != null && fVar5.O() != null && this.v.O().g2()) {
             q0(pbFirstFloorViewHolder, this.v.O().B0());
         }
         b.a.r0.k2.r.f fVar6 = this.v;
@@ -683,7 +683,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         }
         if (this.v.O() != null) {
             pbFirstFloorViewHolder.richText.setTid(this.v.Q());
-            pbFirstFloorViewHolder.richText.setIsUseGridImage(this.v.O().N1());
+            pbFirstFloorViewHolder.richText.setIsUseGridImage(this.v.O().P1());
             pbFirstFloorViewHolder.richText.setmIsGridImageSupportLongPress(true);
         }
         b.a.r0.k2.r.f fVar8 = this.v;
@@ -825,7 +825,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
     }
 
     public final void p0(PbFirstFloorViewHolder pbFirstFloorViewHolder, PostData postData, View view, int i2) {
-        b.a.r0.k2.r.l lVar;
+        b.a.r0.k2.r.m mVar;
         boolean z;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLI(1048597, this, pbFirstFloorViewHolder, postData, view, i2) == null) || pbFirstFloorViewHolder == null || postData == null) {
@@ -857,7 +857,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             o0(pbFirstFloorViewHolder, postData, view, i2);
         }
         b.a.r0.k2.r.f fVar = this.v;
-        if (fVar != null && fVar.O() != null && this.v.O().E2() && this.v.O().q1() != null && b.a.e.e.p.k.isEmpty(this.v.l().getName())) {
+        if (fVar != null && fVar.O() != null && this.v.O().G2() && this.v.O().r1() != null && b.a.e.f.p.k.isEmpty(this.v.l().getName())) {
             pbFirstFloorViewHolder.showBlankViewAboveRichText(true, (int) TbadkCoreApplication.getInst().getResources().getDimension(b.a.r0.k2.g.tbds28));
         } else if (postData.M() != null && !ListUtils.isEmpty(postData.M().y())) {
             pbFirstFloorViewHolder.showBlankViewAboveRichText(true, (int) TbadkCoreApplication.getInst().getResources().getDimension(b.a.r0.k2.g.tbds30));
@@ -877,19 +877,19 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         }
         b.a.r0.k2.r.f fVar2 = this.v;
         if (fVar2 != null && x0(fVar2.O())) {
-            pbFirstFloorViewHolder.mVoteView.setDataForPb(this.v.O().I0(), this.v.O().s1(), this.v.m());
+            pbFirstFloorViewHolder.mVoteView.setDataForPb(this.v.O().I0(), this.v.O().t1(), this.v.m());
             if (postData.M() != null && !ListUtils.isEmpty(postData.M().y())) {
-                pbFirstFloorViewHolder.mVoteView.setMarginTop(b.a.e.e.p.l.g(this.H, b.a.r0.k2.g.tbds26));
+                pbFirstFloorViewHolder.mVoteView.setMarginTop(b.a.e.f.p.l.g(this.H, b.a.r0.k2.g.tbds26));
             } else {
-                pbFirstFloorViewHolder.mVoteView.setMarginTop(b.a.e.e.p.l.g(this.H, b.a.r0.k2.g.tbds0));
+                pbFirstFloorViewHolder.mVoteView.setMarginTop(b.a.e.f.p.l.g(this.H, b.a.r0.k2.g.tbds0));
             }
             pbFirstFloorViewHolder.mVoteView.setVisibility(0);
         } else {
             pbFirstFloorViewHolder.mVoteView.setVisibility(8);
         }
         b.a.r0.k2.r.f fVar3 = this.v;
-        if (fVar3 != null && fVar3.O() != null && this.v.O().e1() != null && this.v.O().q1() == null) {
-            pbFirstFloorViewHolder.mAppletsCellView.setData(this.v.O().e1());
+        if (fVar3 != null && fVar3.O() != null && this.v.O().f1() != null && this.v.O().r1() == null) {
+            pbFirstFloorViewHolder.mAppletsCellView.setData(this.v.O().f1());
             pbFirstFloorViewHolder.mAppletsCellView.setVisibility(0);
             b.a.r0.k2.r.f fVar4 = this.v;
             if (fVar4 != null && fVar4.l() != null) {
@@ -905,13 +905,13 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         }
         J0();
         b.a.r0.k2.r.f fVar6 = this.v;
-        if (fVar6 != null && (lVar = fVar6.f18764h) != null) {
+        if (fVar6 != null && (mVar = fVar6.f20300h) != null) {
             if (pbFirstFloorViewHolder.mVoteTailTv != null) {
-                if (TextUtils.isEmpty(lVar.e())) {
+                if (TextUtils.isEmpty(mVar.e())) {
                     pbFirstFloorViewHolder.mVoteTailTv.setVisibility(8);
                 } else {
                     pbFirstFloorViewHolder.mVoteTailTv.setVisibility(0);
-                    pbFirstFloorViewHolder.mVoteTailTv.setText(this.v.f18764h.e());
+                    pbFirstFloorViewHolder.mVoteTailTv.setText(this.v.f20300h.e());
                 }
             }
             if (pbFirstFloorViewHolder.mPbListContent != null && pbFirstFloorViewHolder.mManagerSelectView.h() == null) {
@@ -943,7 +943,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         }
         b.a.r0.k2.r.f fVar7 = this.v;
         if (fVar7 != null && fVar7.O() != null && !x0(this.v.O()) && (!ListUtils.isEmpty(this.v.O().A0()) || !ListUtils.isEmpty(this.v.O().c0()))) {
-            b.a.q0.d1.o0 o0Var = new b.a.q0.d1.o0();
+            b.a.q0.c1.o0 o0Var = new b.a.q0.c1.o0();
             PbLinkGoodsRootView pbLinkGoodsRootView = new PbLinkGoodsRootView(this.H);
             b.a.r0.k2.r.f fVar8 = this.v;
             pbLinkGoodsRootView.bindData(fVar8, o0Var.a(fVar8.O().A0(), this.v.O().c0()), this.v.n(), this.n, o0Var.b());
@@ -956,11 +956,11 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
 
     public final void q0(PbFirstFloorViewHolder pbFirstFloorViewHolder, b.a.q0.s.q.r0 r0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048598, this, pbFirstFloorViewHolder, r0Var) == null) || r0Var == null || b.a.e.e.p.k.isEmpty(r0Var.e()) || r0Var.c() != b.a.q0.s.q.r0.f13428g) {
+        if (!(interceptable == null || interceptable.invokeLL(1048598, this, pbFirstFloorViewHolder, r0Var) == null) || r0Var == null || b.a.e.f.p.k.isEmpty(r0Var.e()) || r0Var.c() != b.a.q0.s.q.r0.f14208g) {
             return;
         }
         if (!r0Var.f()) {
-            pbFirstFloorViewHolder.richText.getLayoutStrategy().m(b.a.e.e.p.l.g(this.H, b.a.r0.k2.g.ds48));
+            pbFirstFloorViewHolder.richText.getLayoutStrategy().m(b.a.e.f.p.l.g(this.H, b.a.r0.k2.g.ds48));
         }
         pbFirstFloorViewHolder.mViewStubController.c(r0Var);
     }
@@ -1005,7 +1005,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
     public final int t0(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), i2) : invokeI.intValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:55:0x0128  */
@@ -1013,51 +1013,51 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final b.a.r0.k2.u.f.d1.a u0(PostData postData) {
+    public final b.a.r0.k2.u.f.e1.a u0(PostData postData) {
         InterceptResult invokeL;
-        b.a.r0.k2.u.f.d1.a aVar;
+        b.a.r0.k2.u.f.e1.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048603, this, postData)) != null) {
-            return (b.a.r0.k2.u.f.d1.a) invokeL.objValue;
+            return (b.a.r0.k2.u.f.e1.a) invokeL.objValue;
         }
         if (postData != null && postData.L() != null && postData.L().h()) {
             BaijiahaoData baijiahaoData = postData.L().p;
             Item item = postData.L().B;
             if (!postData.L().m && !postData.E0()) {
                 if (item != null && item.item_id.longValue() != 0) {
-                    if (postData.L().f45035a != 0 && postData.L().f45035a != 1) {
-                        if (postData.L().f45035a == 3) {
-                            aVar = new b.a.r0.k2.u.f.d1.g(this.n.getPageContext());
+                    if (postData.L().f45884a != 0 && postData.L().f45884a != 1) {
+                        if (postData.L().f45884a == 3) {
+                            aVar = new b.a.r0.k2.u.f.e1.g(this.n.getPageContext());
                         } else {
-                            aVar = new b.a.r0.k2.u.f.d1.e(this.n.getPageContext());
+                            aVar = new b.a.r0.k2.u.f.e1.e(this.n.getPageContext());
                         }
                     } else {
-                        aVar = new b.a.r0.k2.u.f.d1.f(this.n.getPageContext());
+                        aVar = new b.a.r0.k2.u.f.e1.f(this.n.getPageContext());
                     }
                 } else if (baijiahaoData != null && postData.L().i()) {
                     int i2 = baijiahaoData.oriUgcType;
                     if (i2 == 1) {
-                        aVar = new b.a.r0.k2.u.f.d1.b(this.n.getPageContext(), this.I);
+                        aVar = new b.a.r0.k2.u.f.e1.b(this.n.getPageContext(), this.I);
                     } else if (i2 == 2) {
-                        aVar = new b.a.r0.k2.u.f.d1.i(this.n.getPageContext(), this.I);
+                        aVar = new b.a.r0.k2.u.f.e1.i(this.n.getPageContext(), this.I);
                     } else if (i2 == 3) {
-                        aVar = new b.a.r0.k2.u.f.d1.h(this.n.getPageContext(), this.I);
+                        aVar = new b.a.r0.k2.u.f.e1.h(this.n.getPageContext(), this.I);
                     } else if (i2 != 4) {
-                        aVar = new b.a.r0.k2.u.f.d1.c(this.n.getPageContext(), this.I);
+                        aVar = new b.a.r0.k2.u.f.e1.c(this.n.getPageContext(), this.I);
                     } else {
-                        aVar = new b.a.r0.k2.u.f.d1.i(this.n.getPageContext(), this.I);
+                        aVar = new b.a.r0.k2.u.f.e1.i(this.n.getPageContext(), this.I);
                     }
-                } else if (postData.L().f45035a != 0 && postData.L().f45035a != 1) {
-                    if (postData.L().f45035a == 3) {
-                        aVar = new b.a.r0.k2.u.f.d1.i(this.n.getPageContext(), this.I);
+                } else if (postData.L().f45884a != 0 && postData.L().f45884a != 1) {
+                    if (postData.L().f45884a == 3) {
+                        aVar = new b.a.r0.k2.u.f.e1.i(this.n.getPageContext(), this.I);
                     }
                 } else {
-                    aVar = new b.a.r0.k2.u.f.d1.h(this.n.getPageContext(), this.I);
+                    aVar = new b.a.r0.k2.u.f.e1.h(this.n.getPageContext(), this.I);
                 }
             } else {
-                aVar = new b.a.r0.k2.u.f.d1.d(this.n.getPageContext(), this.I);
+                aVar = new b.a.r0.k2.u.f.e1.d(this.n.getPageContext(), this.I);
             }
-            return aVar != null ? new b.a.r0.k2.u.f.d1.c(this.n.getPageContext(), this.I) : aVar;
+            return aVar != null ? new b.a.r0.k2.u.f.e1.c(this.n.getPageContext(), this.I) : aVar;
         }
         aVar = null;
         if (aVar != null) {
@@ -1078,7 +1078,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             if (fVar == null || fVar.O() == null) {
                 return false;
             }
-            return this.v.O().S1();
+            return this.v.O().U1();
         }
         return invokeV.booleanValue;
     }
@@ -1090,7 +1090,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: y0 */
     public PbFirstFloorViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -1123,7 +1123,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                 this.E = true;
                 CompatibleUtile.getInstance().closeViewGpu(listView);
             }
-            pbFirstFloorViewHolder.mYoungsterTipTv.setVisibility(b.a.q0.g1.b.c.d() ? 0 : 8);
+            pbFirstFloorViewHolder.mYoungsterTipTv.setVisibility(b.a.q0.f1.b.c.d() ? 0 : 8);
             return view;
         }
         return (View) invokeCommon.objValue;

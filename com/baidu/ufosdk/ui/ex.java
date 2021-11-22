@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ex implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ev f57001a;
+    public final /* synthetic */ ev f57923a;
 
     public ex(ev evVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class ex implements Runnable {
                 return;
             }
         }
-        this.f57001a = evVar;
+        this.f57923a = evVar;
     }
 
     @Override // java.lang.Runnable
@@ -40,15 +40,15 @@ public final class ex implements Runnable {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i2 = this.f57001a.f56998i;
+            i2 = this.f57923a.f57920i;
             JSONArray jSONArray = null;
-            String trim = i2 != -1 ? this.f57001a.f56991b.getText().toString().trim() : null;
-            i3 = this.f57001a.f56997h;
+            String trim = i2 != -1 ? this.f57923a.f57913b.getText().toString().trim() : null;
+            i3 = this.f57923a.f57919h;
             if (i3 != -1) {
-                arrayList = this.f57001a.m;
+                arrayList = this.f57923a.m;
                 jSONArray = new JSONArray((Collection) arrayList);
             }
-            ev.a(this.f57001a, trim, jSONArray);
+            ev.a(this.f57923a, trim, jSONArray);
         }
     }
 }

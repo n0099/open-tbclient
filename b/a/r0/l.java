@@ -39,7 +39,7 @@ public final class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f19942e;
+        public final /* synthetic */ Context f21464e;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -56,14 +56,14 @@ public final class l {
                     return;
                 }
             }
-            this.f19942e = context;
+            this.f21464e = context;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.q0.m.a.j(this.f19942e, "http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
+                b.a.q0.m.a.j(this.f21464e, "http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
             }
         }
     }
@@ -74,7 +74,7 @@ public final class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f19943e;
+        public final /* synthetic */ Context f21465e;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -91,14 +91,14 @@ public final class l {
                     return;
                 }
             }
-            this.f19943e = context;
+            this.f21465e = context;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.q0.m.a.j(this.f19943e, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
+                b.a.q0.m.a.j(this.f21465e, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
             }
         }
     }

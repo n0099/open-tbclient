@@ -1,7 +1,7 @@
 package b.a.q0.t.c;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.l3.p0.f;
+import b.a.r0.m3.p0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,13 +14,13 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13810a;
+    public int f14578a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13811b;
+    public String f14579b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f.c f13812c;
+    public f.c f14580c;
 
     /* loaded from: classes4.dex */
     public static class a extends c {
@@ -28,7 +28,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13813b;
+        public String f14581b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(boolean z, String str) {
@@ -48,7 +48,7 @@ public class m {
                     return;
                 }
             }
-            this.f13813b = str;
+            this.f14581b = str;
         }
     }
 
@@ -58,7 +58,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13814b;
+        public String f14582b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(boolean z, String str) {
@@ -78,7 +78,7 @@ public class m {
                     return;
                 }
             }
-            this.f13814b = str;
+            this.f14582b = str;
         }
     }
 
@@ -88,7 +88,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f13815a;
+        public boolean f14583a;
 
         public c(boolean z) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class m {
                     return;
                 }
             }
-            this.f13815a = z;
+            this.f14583a = z;
         }
     }
 
@@ -124,8 +124,8 @@ public class m {
                 return;
             }
         }
-        this.f13810a = i2;
-        this.f13811b = str;
+        this.f14578a = i2;
+        this.f14579b = str;
     }
 
     public static m a(String str) {
@@ -155,25 +155,25 @@ public class m {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13811b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14579b : (String) invokeV.objValue;
     }
 
     public f.c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13812c : (f.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14580c : (f.c) invokeV.objValue;
     }
 
     public void g(f.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f13812c = cVar;
+            this.f14580c = cVar;
         }
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13810a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14578a : invokeV.intValue;
     }
 }

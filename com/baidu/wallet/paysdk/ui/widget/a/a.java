@@ -42,13 +42,13 @@ public class a extends AuthorizeInfoView.b {
         }
         if (obj instanceof Authorize) {
             Authorize authorize = (Authorize) obj;
-            this.f60401a.setLogo(authorize.sp_logo_url);
-            this.f60401a.setTitle(authorize.sp_company_title);
-            this.f60401a.setTips(authorize.authorize_action_desc);
+            this.f61323a.setLogo(authorize.sp_logo_url);
+            this.f61323a.setTitle(authorize.sp_company_title);
+            this.f61323a.setTips(authorize.authorize_action_desc);
             String[] strArr = authorize.authorize_desc;
             int i2 = 0;
             if (strArr != null && strArr.length > 0) {
-                this.f60401a.setDesc(strArr[0]);
+                this.f61323a.setDesc(strArr[0]);
             }
             if (authorize.detail_info == null) {
                 return;
@@ -67,12 +67,12 @@ public class a extends AuthorizeInfoView.b {
                     }
                     i2++;
                 } else {
-                    this.f60401a.setTipMessage(sb.toString());
+                    this.f61323a.setTipMessage(sb.toString());
                     return;
                 }
             }
         } else if (obj instanceof UserData.UserModel) {
-            this.f60401a.setPhone(((UserData.UserModel) obj).authorize_display_name);
+            this.f61323a.setPhone(((UserData.UserModel) obj).authorize_display_name);
         }
     }
 }

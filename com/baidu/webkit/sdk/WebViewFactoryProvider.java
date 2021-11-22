@@ -264,8 +264,6 @@ public abstract class WebViewFactoryProvider {
 
         void removeMainFrameIdInfo(int i2);
 
-        void setAbTestSwitch(String str);
-
         void setAltServiceToBlink(String str);
 
         void setAppId(String str);
@@ -421,7 +419,7 @@ public abstract class WebViewFactoryProvider {
     public interface Statics {
         int AdBlockInit(String str, boolean z);
 
-        void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map);
+        void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map, boolean z3);
 
         void addVirtualMemoryListener(WebView.IVirtualMemoryListener iVirtualMemoryListener);
 

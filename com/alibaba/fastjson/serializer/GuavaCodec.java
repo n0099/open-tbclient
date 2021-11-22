@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
-import b.i.d.c.q0;
+import b.h.d.c.q0;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.baidu.android.imsdk.internal.Constants;

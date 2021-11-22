@@ -13,7 +13,7 @@ public class d implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PermissionsHelperActivity f42003a;
+    public final /* synthetic */ PermissionsHelperActivity f42835a;
 
     public d(PermissionsHelperActivity permissionsHelperActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class d implements View.OnClickListener {
                 return;
             }
         }
-        this.f42003a = permissionsHelperActivity;
+        this.f42835a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,8 +38,8 @@ public class d implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", this.f42003a.getPackageName(), null));
-            this.f42003a.startActivityForResult(intent, 8000);
+            intent.setData(Uri.fromParts("package", this.f42835a.getPackageName(), null));
+            this.f42835a.startActivityForResult(intent, 8000);
         }
     }
 }

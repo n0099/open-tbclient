@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

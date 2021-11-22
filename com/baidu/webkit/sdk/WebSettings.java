@@ -38,7 +38,6 @@ public abstract class WebSettings implements Observer {
     public static final int MIXED_CONTENT_NEVER_ALLOW = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object lockObject;
-    public boolean mAdblockEnable;
     public boolean mEnableJsPrompt;
     public String mWebviewFrameName;
 
@@ -816,7 +815,10 @@ public abstract class WebSettings implements Observer {
     public boolean getADblockEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAdblockEnable : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public abstract boolean getAllowContentAccess();
@@ -1242,7 +1244,6 @@ public abstract class WebSettings implements Observer {
     public void setADblockEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048660, this, z) == null) {
-            this.mAdblockEnable = z;
         }
     }
 

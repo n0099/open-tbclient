@@ -32,7 +32,7 @@ public class e {
             try {
                 jSONObject.put("errCode", str);
                 jSONObject.put("errMsg", com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", b.a.p0.f.i.r.b.a(str));
+                jSONObject.put("errDes", b.a.p0.h.i.s.b.a(str));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

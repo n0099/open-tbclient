@@ -12,7 +12,7 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12857a;
+    public String f13607a;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -27,12 +27,12 @@ public class j {
                 return;
             }
         }
-        this.f12857a = null;
+        this.f13607a = null;
     }
 
-    public static b.a.e.e.n.a a() {
+    public static b.a.e.f.n.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? BdStatisticsManager.getInstance().getStatsItem("pfmonitor") : (b.a.e.e.n.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? BdStatisticsManager.getInstance().getStatsItem("pfmonitor") : (b.a.e.f.n.a) invokeV.objValue;
     }
 }

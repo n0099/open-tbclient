@@ -43,10 +43,10 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f64170a;
+    public static Context f65083a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, com.kwad.sdk.collector.e> f64171b;
+    public static Map<String, com.kwad.sdk.collector.e> f65084b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -54,7 +54,7 @@ public class i {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static com.kwad.sdk.core.g.a.c f64172c;
+        public static com.kwad.sdk.core.g.a.c f65085c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,7 +106,7 @@ public class i {
             int i3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                com.kwad.sdk.core.g.a.c cVar = f64172c;
+                com.kwad.sdk.core.g.a.c cVar = f65085c;
                 if (cVar != null) {
                     return cVar;
                 }
@@ -147,9 +147,9 @@ public class i {
                                 i4 = a(cellInfo);
                             }
                         }
-                        f64172c = new com.kwad.sdk.core.g.a.c(i3, i2, i4);
+                        f65085c = new com.kwad.sdk.core.g.a.c(i3, i2, i4);
                     }
-                    return f64172c;
+                    return f65085c;
                 }
                 return null;
             }
@@ -163,16 +163,16 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public d f64173c;
+        public d f65086c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d f64174d;
+        public d f65087d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d f64175e;
+        public d f65088e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f64176f;
+        public boolean f65089f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(Context context, boolean z) {
@@ -192,7 +192,7 @@ public class i {
                     return;
                 }
             }
-            this.f64176f = false;
+            this.f65089f = false;
             if (z && 0 == 0) {
                 d(context);
             }
@@ -203,17 +203,17 @@ public class i {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
                 ArrayList arrayList = new ArrayList();
-                d dVar = this.f64173c;
+                d dVar = this.f65086c;
                 if (dVar != null) {
-                    arrayList.add(com.kwad.sdk.collector.a.e.a(dVar.a(), this.f64173c.b()));
+                    arrayList.add(com.kwad.sdk.collector.a.e.a(dVar.a(), this.f65086c.b()));
                 }
-                d dVar2 = this.f64174d;
+                d dVar2 = this.f65087d;
                 if (dVar2 != null) {
-                    arrayList.add(com.kwad.sdk.collector.a.e.a(dVar2.a(), this.f64174d.b()));
+                    arrayList.add(com.kwad.sdk.collector.a.e.a(dVar2.a(), this.f65087d.b()));
                 }
-                d dVar3 = this.f64175e;
+                d dVar3 = this.f65088e;
                 if (dVar3 != null) {
-                    arrayList.add(com.kwad.sdk.collector.a.e.a(dVar3.a(), this.f64175e.b()));
+                    arrayList.add(com.kwad.sdk.collector.a.e.a(dVar3.a(), this.f65088e.b()));
                 }
                 return arrayList;
             }
@@ -261,16 +261,16 @@ public class i {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ List f64177a;
+                        public final /* synthetic */ List f65090a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ CountDownLatch f64178b;
+                        public final /* synthetic */ CountDownLatch f65091b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ SensorManager f64179c;
+                        public final /* synthetic */ SensorManager f65092c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ b f64180d;
+                        public final /* synthetic */ b f65093d;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -287,10 +287,10 @@ public class i {
                                     return;
                                 }
                             }
-                            this.f64180d = this;
-                            this.f64177a = arrayList;
-                            this.f64178b = countDownLatch;
-                            this.f64179c = sensorManager;
+                            this.f65093d = this;
+                            this.f65090a = arrayList;
+                            this.f65091b = countDownLatch;
+                            this.f65092c = sensorManager;
                         }
 
                         @Override // android.hardware.SensorEventListener
@@ -298,9 +298,9 @@ public class i {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, sensorEvent) == null) {
                                 com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "onSensorChanged, type: " + sensorEvent.sensor.getType());
-                                this.f64177a.add(com.kwad.sdk.collector.a.e.a(sensorEvent, System.currentTimeMillis()));
-                                this.f64178b.countDown();
-                                this.f64179c.unregisterListener(this);
+                                this.f65090a.add(com.kwad.sdk.collector.a.e.a(sensorEvent, System.currentTimeMillis()));
+                                this.f65091b.countDown();
+                                this.f65092c.unregisterListener(this);
                             }
                         }
                     })) {
@@ -311,16 +311,16 @@ public class i {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ List f64181a;
+                        public final /* synthetic */ List f65094a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ CountDownLatch f64182b;
+                        public final /* synthetic */ CountDownLatch f65095b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ SensorManager f64183c;
+                        public final /* synthetic */ SensorManager f65096c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ b f64184d;
+                        public final /* synthetic */ b f65097d;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -337,10 +337,10 @@ public class i {
                                     return;
                                 }
                             }
-                            this.f64184d = this;
-                            this.f64181a = arrayList;
-                            this.f64182b = countDownLatch;
-                            this.f64183c = sensorManager;
+                            this.f65097d = this;
+                            this.f65094a = arrayList;
+                            this.f65095b = countDownLatch;
+                            this.f65096c = sensorManager;
                         }
 
                         @Override // android.hardware.SensorEventListener
@@ -348,9 +348,9 @@ public class i {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, sensorEvent) == null) {
                                 com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "onSensorChanged, type: " + sensorEvent.sensor.getType());
-                                this.f64181a.add(com.kwad.sdk.collector.a.e.a(sensorEvent, System.currentTimeMillis()));
-                                this.f64182b.countDown();
-                                this.f64183c.unregisterListener(this);
+                                this.f65094a.add(com.kwad.sdk.collector.a.e.a(sensorEvent, System.currentTimeMillis()));
+                                this.f65095b.countDown();
+                                this.f65096c.unregisterListener(this);
                             }
                         }
                     })) {
@@ -361,16 +361,16 @@ public class i {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ List f64185a;
+                        public final /* synthetic */ List f65098a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ CountDownLatch f64186b;
+                        public final /* synthetic */ CountDownLatch f65099b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ SensorManager f64187c;
+                        public final /* synthetic */ SensorManager f65100c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ b f64188d;
+                        public final /* synthetic */ b f65101d;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -387,10 +387,10 @@ public class i {
                                     return;
                                 }
                             }
-                            this.f64188d = this;
-                            this.f64185a = arrayList;
-                            this.f64186b = countDownLatch;
-                            this.f64187c = sensorManager;
+                            this.f65101d = this;
+                            this.f65098a = arrayList;
+                            this.f65099b = countDownLatch;
+                            this.f65100c = sensorManager;
                         }
 
                         @Override // android.hardware.SensorEventListener
@@ -398,9 +398,9 @@ public class i {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, sensorEvent) == null) {
                                 com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "onSensorChanged, type: " + sensorEvent.sensor.getType());
-                                this.f64185a.add(com.kwad.sdk.collector.a.e.a(sensorEvent, System.currentTimeMillis()));
-                                this.f64186b.countDown();
-                                this.f64187c.unregisterListener(this);
+                                this.f65098a.add(com.kwad.sdk.collector.a.e.a(sensorEvent, System.currentTimeMillis()));
+                                this.f65099b.countDown();
+                                this.f65100c.unregisterListener(this);
                             }
                         }
                     })) {
@@ -429,7 +429,7 @@ public class i {
                     return null;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                if (this.f64176f) {
+                if (this.f65089f) {
                     return e(context);
                 }
                 List<com.kwad.sdk.collector.a.e> a2 = a();
@@ -455,12 +455,12 @@ public class i {
             }
             int type = sensorEvent.sensor.getType();
             if (type == 1) {
-                this.f64173c = new d(sensorEvent);
+                this.f65086c = new d(sensorEvent);
             } else if (type == 4) {
-                this.f64174d = new d(sensorEvent);
+                this.f65087d = new d(sensorEvent);
             } else if (type != 9) {
             } else {
-                this.f64175e = new d(sensorEvent);
+                this.f65088e = new d(sensorEvent);
             }
         }
     }
@@ -498,10 +498,10 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SensorEvent f64189a;
+        public SensorEvent f65102a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f64190b;
+        public long f65103b;
 
         public d(SensorEvent sensorEvent) {
             Interceptable interceptable = $ic;
@@ -518,20 +518,20 @@ public class i {
                     return;
                 }
             }
-            this.f64189a = sensorEvent;
-            this.f64190b = System.currentTimeMillis();
+            this.f65102a = sensorEvent;
+            this.f65103b = System.currentTimeMillis();
         }
 
         public SensorEvent a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64189a : (SensorEvent) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65102a : (SensorEvent) invokeV.objValue;
         }
 
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64190b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65103b : invokeV.longValue;
         }
     }
 
@@ -574,9 +574,9 @@ public class i {
                 }
                 com.kwad.sdk.collector.a.f fVar = new com.kwad.sdk.collector.a.f();
                 if (Build.VERSION.SDK_INT >= 22) {
-                    fVar.f64145b = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoCount();
+                    fVar.f65058b = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoCount();
                 }
-                fVar.f64144a = ap.a(context, (TelephonyManager) null);
+                fVar.f65057a = ap.a(context, (TelephonyManager) null);
                 return fVar;
             }
             return (com.kwad.sdk.collector.a.f) invokeL.objValue;
@@ -596,7 +596,7 @@ public class i {
                 return;
             }
         }
-        f64171b = new HashMap();
+        f65084b = new HashMap();
     }
 
     @Nullable
@@ -617,9 +617,9 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            com.kwad.sdk.collector.e eVar = f64171b.get(str);
+            com.kwad.sdk.collector.e eVar = f65084b.get(str);
             if (eVar != null) {
-                return (T) eVar.a(f64170a);
+                return (T) eVar.a(f65083a);
             }
             return null;
         }
@@ -634,36 +634,36 @@ public class i {
         boolean N = com.kwad.sdk.core.config.c.N();
         com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "sensorEnable2: " + N);
         if (d()) {
-            if (f64171b.containsKey("baseStationEnable")) {
+            if (f65084b.containsKey("baseStationEnable")) {
                 boolean U = com.kwad.sdk.core.config.c.U();
-                com.kwad.sdk.collector.e eVar = f64171b.get("baseStationEnable");
+                com.kwad.sdk.collector.e eVar = f65084b.get("baseStationEnable");
                 if (eVar != null) {
                     eVar.a(U);
                 }
             }
-            if (f64171b.containsKey("sensorEventEnable")) {
+            if (f65084b.containsKey("sensorEventEnable")) {
                 boolean N2 = com.kwad.sdk.core.config.c.N();
-                com.kwad.sdk.collector.e eVar2 = f64171b.get("sensorEventEnable");
+                com.kwad.sdk.collector.e eVar2 = f65084b.get("sensorEventEnable");
                 if (eVar2 != null) {
                     eVar2.a(N2);
                 }
             }
-            if (f64171b.containsKey("simCardInfoEnable")) {
+            if (f65084b.containsKey("simCardInfoEnable")) {
                 boolean M = com.kwad.sdk.core.config.c.M();
-                com.kwad.sdk.collector.e eVar3 = f64171b.get("simCardInfoEnable");
+                com.kwad.sdk.collector.e eVar3 = f65084b.get("simCardInfoEnable");
                 if (eVar3 != null) {
                     eVar3.a(M);
                 }
             }
         } else {
-            f64170a = context.getApplicationContext();
-            f64171b.put("baseStationEnable", new a(com.kwad.sdk.core.config.c.U()));
-            f64171b.put("sensorEventEnable", new b(f64170a, com.kwad.sdk.core.config.c.N()));
-            f64171b.put("simCardInfoEnable", new e(com.kwad.sdk.core.config.c.M()));
+            f65083a = context.getApplicationContext();
+            f65084b.put("baseStationEnable", new a(com.kwad.sdk.core.config.c.U()));
+            f65084b.put("sensorEventEnable", new b(f65083a, com.kwad.sdk.core.config.c.N()));
+            f65084b.put("simCardInfoEnable", new e(com.kwad.sdk.core.config.c.M()));
             com.kwad.sdk.collector.a.c.a(context);
         }
-        for (com.kwad.sdk.collector.e eVar4 : f64171b.values()) {
-            com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "collector: " + eVar4.f64163a + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar4.getClass().getSimpleName());
+        for (com.kwad.sdk.collector.e eVar4 : f65084b.values()) {
+            com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "collector: " + eVar4.f65076a + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar4.getClass().getSimpleName());
         }
     }
 
@@ -697,6 +697,6 @@ public class i {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f64170a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f65083a != null : invokeV.booleanValue;
     }
 }

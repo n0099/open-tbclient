@@ -1,6 +1,6 @@
 package b.a.r0.h1.c.f;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,19 +17,19 @@ public class b implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17026e;
+    public int f18494e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f17027f;
+    public String f18495f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f17028g;
+    public boolean f18496g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f17029h;
+    public boolean f18497h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f17030i;
+    public BdUniqueId f18498i;
 
     static {
         InterceptResult invokeClinit;
@@ -61,13 +61,13 @@ public class b implements n {
                 return;
             }
         }
-        this.f17030i = k;
+        this.f18498i = k;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17030i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18498i : (BdUniqueId) invokeV.objValue;
     }
 }

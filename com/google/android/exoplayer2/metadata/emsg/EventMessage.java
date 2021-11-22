@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.metadata.emsg;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import b.i.b.a.i0.v;
+import b.h.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;

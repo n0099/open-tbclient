@@ -29,6 +29,7 @@ import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.arface.bean.Sticker;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +56,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     public a beautyEnableStatus;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57074i;
+    public int f57996i;
     public Map<BeautyType, Object> mBeautyMap;
     public long mCurrPosition;
     public DuMixCallback mDuMixCallback;
@@ -111,7 +112,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         this.mSkipARAfterSetup = true;
         this.savePic = false;
         this.beautyEnableStatus = new b.a.a0.a.f.a();
-        this.f57074i = 0;
+        this.f57996i = 0;
         this.mEffectHolder = new a.l(this) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -384,8 +385,8 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65553, this, i2, i3) == null) {
-            this.f57074i++;
-            if (this.mSyncInputContent && this.savePic && (i4 = this.f57074i) <= 2) {
+            this.f57996i++;
+            if (this.mSyncInputContent && this.savePic && (i4 = this.f57996i) <= 2) {
                 if (i4 == 1) {
                     u.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.3
                         public static /* synthetic */ Interceptable $ic;
@@ -423,7 +424,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
                 GLES20.glViewport(0, 0, this.mPreviewWidth, this.mPreviewHeight);
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                 fullFrameRect.drawFrame(i2, GlUtil.IDENTITY_MATRIX);
-                ThreadPool.b().e(new Runnable(this, "input-" + this.f57074i + "—" + System.currentTimeMillis() + ".png", MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.4
+                ThreadPool.b().e(new Runnable(this, "input-" + this.f57996i + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AREditProcessor this$0;
@@ -461,7 +462,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
                 GLES20.glViewport(0, 0, this.mPreviewWidth, this.mPreviewHeight);
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                 fullFrameRect.drawFrame(i3, GlUtil.IDENTITY_MATRIX);
-                ThreadPool.b().e(new Runnable(this, "ar-" + this.f57074i + "—" + System.currentTimeMillis() + ".png", MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.5
+                ThreadPool.b().e(new Runnable(this, "ar-" + this.f57996i + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AREditProcessor this$0;
@@ -499,7 +500,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
                 GLES20.glViewport(0, 0, this.mPreviewWidth, this.mPreviewHeight);
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                 fullFrameRect.drawFrame(this.mFboInputTexId, GlUtil.IDENTITY_MATRIX);
-                ThreadPool.b().e(new Runnable(this, "fbo-" + this.f57074i + "—" + System.currentTimeMillis() + ".png", MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.6
+                ThreadPool.b().e(new Runnable(this, "fbo-" + this.f57996i + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AREditProcessor this$0;

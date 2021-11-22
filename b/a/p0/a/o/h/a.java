@@ -12,9 +12,9 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.w;
-import b.a.p0.f.i.k.d.a;
-import b.a.p0.f.i.r.g;
+import b.a.p0.a.z2.w;
+import b.a.p0.h.i.k.d.a;
+import b.a.p0.h.i.s.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -35,34 +35,34 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends b.a.p0.a.v1.a.a.a {
+public class a extends b.a.p0.a.y1.a.a.a {
     public static /* synthetic */ Interceptable $ic;
     public static final String j;
     public static boolean k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bundle f7075f;
+    public Bundle f7413f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f7076g;
+    public boolean f7414g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdDownloadService.a f7077h;
+    public AdDownloadService.a f7415h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ServiceConnection f7078i;
+    public ServiceConnection f7416i;
 
     /* renamed from: b.a.p0.a.o.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class ServiceConnectionC0327a implements ServiceConnection {
+    public class ServiceConnectionC0334a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f7079e;
+        public final /* synthetic */ a f7417e;
 
-        public ServiceConnectionC0327a(a aVar) {
+        public ServiceConnectionC0334a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,17 +77,17 @@ public class a extends b.a.p0.a.v1.a.a.a {
                     return;
                 }
             }
-            this.f7079e = aVar;
+            this.f7417e = aVar;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.f7079e.f7077h = (AdDownloadService.a) iBinder;
-                boolean z = k.f6397a;
-                a aVar = this.f7079e;
-                aVar.l(aVar.f7075f);
+                this.f7417e.f7415h = (AdDownloadService.a) iBinder;
+                boolean z = k.f6863a;
+                a aVar = this.f7417e;
+                aVar.l(aVar.f7413f);
             }
         }
 
@@ -95,8 +95,8 @@ public class a extends b.a.p0.a.v1.a.a.a {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f7079e.f7077h = null;
-                boolean z = k.f6397a;
+                this.f7417e.f7415h = null;
+                boolean z = k.f6863a;
             }
         }
     }
@@ -107,13 +107,13 @@ public class a extends b.a.p0.a.v1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f7080e;
+        public final /* synthetic */ int f7418e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f7081f;
+        public final /* synthetic */ int f7419f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f7082g;
+        public final /* synthetic */ a f7420g;
 
         public b(a aVar, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -130,18 +130,18 @@ public class a extends b.a.p0.a.v1.a.a.a {
                     return;
                 }
             }
-            this.f7082g = aVar;
-            this.f7080e = i2;
-            this.f7081f = i3;
+            this.f7420g = aVar;
+            this.f7418e = i2;
+            this.f7419f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7082g.f8460d.putInt("state", this.f7080e);
-                this.f7082g.f8460d.putInt("progress", this.f7081f);
-                this.f7082g.c();
+                this.f7420g.f9436d.putInt("state", this.f7418e);
+                this.f7420g.f9436d.putInt("progress", this.f7419f);
+                this.f7420g.c();
             }
         }
     }
@@ -152,10 +152,10 @@ public class a extends b.a.p0.a.v1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f7083e;
+        public final /* synthetic */ String f7421e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f7084f;
+        public final /* synthetic */ a f7422f;
 
         public c(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -172,16 +172,16 @@ public class a extends b.a.p0.a.v1.a.a.a {
                     return;
                 }
             }
-            this.f7084f = aVar;
-            this.f7083e = str;
+            this.f7422f = aVar;
+            this.f7421e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7084f.f8460d.putString("packageName", this.f7083e);
-                this.f7084f.c();
+                this.f7422f.f9436d.putString("packageName", this.f7421e);
+                this.f7422f.c();
             }
         }
     }
@@ -191,10 +191,10 @@ public class a extends b.a.p0.a.v1.a.a.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f7085a;
+        public static final /* synthetic */ int[] f7423a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f7086b;
+        public static final /* synthetic */ int[] f7424b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -211,95 +211,95 @@ public class a extends b.a.p0.a.v1.a.a.a {
                 }
             }
             int[] iArr = new int[DownloadState.values().length];
-            f7086b = iArr;
+            f7424b = iArr;
             try {
                 iArr[DownloadState.NOT_START.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f7086b[DownloadState.WAIT.ordinal()] = 2;
+                f7424b[DownloadState.WAIT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f7086b[DownloadState.PREPARE_DOWNLOAD.ordinal()] = 3;
+                f7424b[DownloadState.PREPARE_DOWNLOAD.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f7086b[DownloadState.DOWNLOADED.ordinal()] = 4;
+                f7424b[DownloadState.DOWNLOADED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f7086b[DownloadState.DOWNLOADING.ordinal()] = 5;
+                f7424b[DownloadState.DOWNLOADING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f7086b[DownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
+                f7424b[DownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f7086b[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 7;
+                f7424b[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f7086b[DownloadState.DELETED.ordinal()] = 8;
+                f7424b[DownloadState.DELETED.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             int[] iArr2 = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
-            f7085a = iArr2;
+            f7423a = iArr2;
             try {
                 iArr2[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f7085a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
+                f7423a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f7085a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
+                f7423a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f7085a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
+                f7423a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                f7085a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 5;
+                f7423a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 5;
             } catch (NoSuchFieldError unused13) {
             }
             try {
-                f7085a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 6;
+                f7423a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 6;
             } catch (NoSuchFieldError unused14) {
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class e implements b.a.p0.f.i.k.f.c {
+    public class e implements b.a.p0.h.i.k.f.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f7087a;
+        public final String f7425a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f7088b;
+        public final String f7426b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f7089c;
+        public final /* synthetic */ a f7427c;
 
         /* renamed from: b.a.p0.a.o.h.a$e$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0328a extends a.d<Boolean> {
+        public class C0335a extends a.d<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b.a.p0.f.i.k.f.d f7090a;
+            public final /* synthetic */ b.a.p0.h.i.k.f.d f7428a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ e f7091b;
+            public final /* synthetic */ e f7429b;
 
-            public C0328a(e eVar, b.a.p0.f.i.k.f.d dVar) {
+            public C0335a(e eVar, b.a.p0.h.i.k.f.d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -314,22 +314,22 @@ public class a extends b.a.p0.a.v1.a.a.a {
                         return;
                     }
                 }
-                this.f7091b = eVar;
-                this.f7090a = dVar;
+                this.f7429b = eVar;
+                this.f7428a = dVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.p0.f.i.k.d.a.d
+            @Override // b.a.p0.h.i.k.d.a.d
             /* renamed from: b */
             public void a(Boolean bool) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
                     super.a(bool);
                     if (bool.booleanValue()) {
-                        boolean z = k.f6397a;
-                        b.a.p0.f.i.k.f.d dVar = this.f7090a;
-                        dVar.b(dVar.g(this.f7091b.f7088b));
-                        this.f7091b.f7089c.setResult(DownloadState.INSTALLED.value(), Integer.parseInt(HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP));
+                        boolean z = k.f6863a;
+                        b.a.p0.h.i.k.f.d dVar = this.f7428a;
+                        dVar.b(dVar.g(this.f7429b.f7426b));
+                        this.f7429b.f7427c.setResult(DownloadState.INSTALLED.value(), Integer.parseInt(HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP));
                     }
                 }
             }
@@ -350,88 +350,88 @@ public class a extends b.a.p0.a.v1.a.a.a {
                     return;
                 }
             }
-            this.f7089c = aVar;
-            this.f7087a = str;
-            this.f7088b = str2;
+            this.f7427c = aVar;
+            this.f7425a = str;
+            this.f7426b = str2;
         }
 
-        @Override // b.a.p0.f.i.k.f.c
+        @Override // b.a.p0.h.i.k.f.c
         public void a() {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7089c.setResult(DownloadState.DOWNLOADED.value(), Integer.parseInt(HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP));
-                boolean z = k.f6397a;
-                String str2 = this.f7087a;
-                if (TextUtils.isEmpty(str2) && (str = this.f7088b) != null) {
-                    str2 = this.f7089c.v(str);
-                    this.f7089c.w(str2);
+                this.f7427c.setResult(DownloadState.DOWNLOADED.value(), Integer.parseInt(HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP));
+                boolean z = k.f6863a;
+                String str2 = this.f7425a;
+                if (TextUtils.isEmpty(str2) && (str = this.f7426b) != null) {
+                    str2 = this.f7427c.v(str);
+                    this.f7427c.w(str2);
                 }
                 if (TextUtils.isEmpty(str2)) {
                     return;
                 }
-                Uri parse = Uri.parse(this.f7088b);
-                b.a.p0.f.i.k.f.d m = b.a.p0.f.i.k.d.a.m(this.f7089c.getContext(), null);
-                m.f(str2, parse, new C0328a(this, m));
+                Uri parse = Uri.parse(this.f7426b);
+                b.a.p0.h.i.k.f.d m = b.a.p0.h.i.k.d.a.m(this.f7427c.getContext(), null);
+                m.f(str2, parse, new C0335a(this, m));
             }
         }
 
-        @Override // b.a.p0.f.i.k.f.c
+        @Override // b.a.p0.h.i.k.f.c
         public void b(DownloadException downloadException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
-                this.f7089c.setResult(DownloadState.DOWNLOAD_FAILED.value(), Integer.parseInt("-1"));
+                this.f7427c.setResult(DownloadState.DOWNLOAD_FAILED.value(), Integer.parseInt("-1"));
             }
         }
 
-        @Override // b.a.p0.f.i.k.f.c
+        @Override // b.a.p0.h.i.k.f.c
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f7089c.setResult(DownloadState.DELETED.value(), Integer.parseInt("0"));
-                boolean z = k.f6397a;
+                this.f7427c.setResult(DownloadState.DELETED.value(), Integer.parseInt("0"));
+                boolean z = k.f6863a;
             }
         }
 
-        @Override // b.a.p0.f.i.k.f.c
+        @Override // b.a.p0.h.i.k.f.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f7089c.setResult(DownloadState.NOT_START.value(), Integer.parseInt("0"));
-                boolean z = k.f6397a;
+                this.f7427c.setResult(DownloadState.NOT_START.value(), Integer.parseInt("0"));
+                boolean z = k.f6863a;
             }
         }
 
-        @Override // b.a.p0.f.i.k.f.c
+        @Override // b.a.p0.h.i.k.f.c
         public void e(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 String n = a.n(j, j2);
-                this.f7089c.setResult(DownloadState.DOWNLOADING.value(), Integer.parseInt(n));
-                if (k.f6397a) {
+                this.f7427c.setResult(DownloadState.DOWNLOADING.value(), Integer.parseInt(n));
+                if (k.f6863a) {
                     String str = "下载进度" + n;
                 }
             }
         }
 
-        @Override // b.a.p0.f.i.k.f.c
+        @Override // b.a.p0.h.i.k.f.c
         public void f(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 String n = a.n(j, j2);
-                this.f7089c.setResult(DownloadState.DOWNLOAD_PAUSED.value(), Integer.parseInt(n));
-                if (k.f6397a) {
+                this.f7427c.setResult(DownloadState.DOWNLOAD_PAUSED.value(), Integer.parseInt(n));
+                if (k.f6863a) {
                     String str = "下载暂停" + n;
                 }
             }
         }
 
-        @Override // b.a.p0.f.i.k.f.c
+        @Override // b.a.p0.h.i.k.f.c
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f7089c.setResult(DownloadState.DOWNLOADING.value(), Integer.parseInt("0"));
-                boolean z = k.f6397a;
+                this.f7427c.setResult(DownloadState.DOWNLOADING.value(), Integer.parseInt("0"));
+                boolean z = k.f6863a;
             }
         }
     }
@@ -466,8 +466,8 @@ public class a extends b.a.p0.a.v1.a.a.a {
                 return;
             }
         }
-        this.f7076g = false;
-        this.f7078i = new ServiceConnectionC0327a(this);
+        this.f7414g = false;
+        this.f7416i = new ServiceConnectionC0334a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -504,16 +504,16 @@ public class a extends b.a.p0.a.v1.a.a.a {
     public void setResult(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65547, this, i2, i3) == null) {
-            b.a.p0.a.a2.d.i().post(new b(this, i2, i3));
+            b.a.p0.a.d2.d.L().post(new b(this, i2, i3));
             z();
         }
     }
 
-    @Override // b.a.p0.a.v1.a.a.a
+    @Override // b.a.p0.a.y1.a.a.a
     public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            this.f7075f = bundle;
+            this.f7413f = bundle;
             if (SwanAppDownloadAction.SwanAppDownloadType.find(bundle.getString("type")) == SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE) {
                 y();
                 return;
@@ -525,15 +525,15 @@ public class a extends b.a.p0.a.v1.a.a.a {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f7076g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f7414g) {
             return;
         }
-        this.f7076g = true;
+        this.f7414g = true;
         Context context = getContext();
         Intent intent = new Intent();
         intent.setAction("com.baidu.swan.game.ad.downloader.core.AdDownloadService");
         intent.setPackage(j);
-        context.bindService(intent, this.f7078i, 128);
+        context.bindService(intent, this.f7416i, 128);
     }
 
     public void l(@NonNull Bundle bundle) {
@@ -543,8 +543,8 @@ public class a extends b.a.p0.a.v1.a.a.a {
                 SwanAppDownloadAction.SwanAppDownloadType find = SwanAppDownloadAction.SwanAppDownloadType.find(bundle.getString("type"));
                 JSONObject d2 = w.d(bundle.getString(PushConstants.PARAMS, null));
                 String optString = d2.optString("url");
-                if (!TextUtils.isEmpty(optString) && this.f7077h != null) {
-                    switch (d.f7085a[find.ordinal()]) {
+                if (!TextUtils.isEmpty(optString) && this.f7415h != null) {
+                    switch (d.f7423a[find.ordinal()]) {
                         case 1:
                             s(d2, optString);
                             return;
@@ -576,7 +576,7 @@ public class a extends b.a.p0.a.v1.a.a.a {
     public final void o(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f7077h.a(this.f7077h.b(str));
+            this.f7415h.a(this.f7415h.b(str));
         }
     }
 
@@ -590,7 +590,7 @@ public class a extends b.a.p0.a.v1.a.a.a {
     public final void q(@NonNull JSONObject jSONObject, @NonNull String str) {
         DownloadInfo b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, str) == null) || (b2 = this.f7077h.b(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, str) == null) || (b2 = this.f7415h.b(str)) == null) {
             return;
         }
         g.c(b2.getPath(), false);
@@ -599,14 +599,14 @@ public class a extends b.a.p0.a.v1.a.a.a {
     public final void r(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f7077h.c(this.f7077h.b(str));
+            this.f7415h.c(this.f7415h.b(str));
         }
     }
 
     public final void s(@NonNull JSONObject jSONObject, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, jSONObject, str) == null) {
-            DownloadInfo b2 = this.f7077h.b(str);
+            DownloadInfo b2 = this.f7415h.b(str);
             int value = DownloadState.NOT_START.value();
             int parseInt = Integer.parseInt("0");
             if (b2 == null) {
@@ -615,7 +615,7 @@ public class a extends b.a.p0.a.v1.a.a.a {
             }
             long progress = b2.getProgress();
             long size = b2.getSize();
-            switch (d.f7086b[DownloadState.convert(b2.getStatus()).ordinal()]) {
+            switch (d.f7424b[DownloadState.convert(b2.getStatus()).ordinal()]) {
                 case 1:
                 case 2:
                 case 3:
@@ -650,14 +650,14 @@ public class a extends b.a.p0.a.v1.a.a.a {
     public final void t(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f7077h.d(this.f7077h.b(str));
+            this.f7415h.d(this.f7415h.b(str));
         }
     }
 
     public final void u(@NonNull JSONObject jSONObject, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, jSONObject, str) == null) {
-            DownloadInfo b2 = this.f7077h.b(str);
+            DownloadInfo b2 = this.f7415h.b(str);
             String optString = jSONObject.optString("name");
             String m = m();
             if (TextUtils.isEmpty(m)) {
@@ -676,7 +676,7 @@ public class a extends b.a.p0.a.v1.a.a.a {
                 b2 = aVar.a();
             }
             b2.setDownloadListener(new e(this, optString, str));
-            this.f7077h.e(b2);
+            this.f7415h.e(b2);
         }
     }
 
@@ -684,7 +684,7 @@ public class a extends b.a.p0.a.v1.a.a.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            DownloadInfo b2 = this.f7077h.b(str);
+            DownloadInfo b2 = this.f7415h.b(str);
             return b2 == null ? "" : b2.getPackageName();
         }
         return (String) invokeL.objValue;
@@ -693,7 +693,7 @@ public class a extends b.a.p0.a.v1.a.a.a {
     public final void w(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            b.a.p0.a.a2.d.i().post(new c(this, str));
+            b.a.p0.a.d2.d.L().post(new c(this, str));
         }
     }
 
@@ -724,13 +724,13 @@ public class a extends b.a.p0.a.v1.a.a.a {
 
     public void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.f7076g) {
-            this.f7076g = false;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.f7414g) {
+            this.f7414g = false;
             Context context = getContext();
             Intent intent = new Intent();
             intent.setAction("com.baidu.swan.game.ad.downloader.core.AdDownloadService");
             intent.setPackage(j);
-            context.unbindService(this.f7078i);
+            context.unbindService(this.f7416i);
         }
     }
 }

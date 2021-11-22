@@ -15,7 +15,6 @@ import javax.annotation.Nullable;
 public abstract class SoSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_FLAG_ALLOW_IMPLICIT_PROVISION = 1;
-    @Deprecated
     public static final int LOAD_FLAG_ALLOW_SOURCE_CHANGE = 2;
     public static final int LOAD_FLAG_MIN_CUSTOM_FLAG = 4;
     public static final int LOAD_RESULT_CORRUPTED_LIB_FILE = 3;
@@ -46,44 +45,24 @@ public abstract class SoSource {
         }
     }
 
-    @Nullable
-    public String[] getLibraryDependencies(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return null;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    @Nullable
-    public String getLibraryPath(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public String[] getSoSourceAbis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? SysUtil.getSupportedAbis() : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? SysUtil.getSupportedAbis() : (String[]) invokeV.objValue;
     }
 
     public abstract int loadLibrary(String str, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException;
 
     public void prepare(int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
         }
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getClass().getName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getClass().getName() : (String) invokeV.objValue;
     }
 
     @Nullable

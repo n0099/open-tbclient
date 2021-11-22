@@ -17,14 +17,14 @@ public class a extends PopupWindow {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f17156a;
+    public TbPageContext f18624a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC0881a f17157b;
+    public InterfaceC0949a f18625b;
 
     /* renamed from: b.a.r0.h1.e.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0881a {
+    public interface InterfaceC0949a {
         void a();
     }
 
@@ -47,7 +47,7 @@ public class a extends PopupWindow {
                 return;
             }
         }
-        this.f17156a = tbPageContext;
+        this.f18624a = tbPageContext;
     }
 
     public void a() {
@@ -57,10 +57,10 @@ public class a extends PopupWindow {
         }
     }
 
-    public void b(InterfaceC0881a interfaceC0881a) {
+    public void b(InterfaceC0949a interfaceC0949a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0881a) == null) {
-            this.f17157b = interfaceC0881a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0949a) == null) {
+            this.f18625b = interfaceC0949a;
         }
     }
 
@@ -68,9 +68,9 @@ public class a extends PopupWindow {
     public void dismiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            InterfaceC0881a interfaceC0881a = this.f17157b;
-            if (interfaceC0881a != null) {
-                interfaceC0881a.a();
+            InterfaceC0949a interfaceC0949a = this.f18625b;
+            if (interfaceC0949a != null) {
+                interfaceC0949a.a();
             } else {
                 super.dismiss();
             }
@@ -84,7 +84,7 @@ public class a extends PopupWindow {
             if (Build.VERSION.SDK_INT >= 24) {
                 Rect rect = new Rect();
                 view.getGlobalVisibleRect(rect);
-                setHeight(ViewCommonUtil.getScreenFullSize(this.f17156a.getPageActivity())[1] - rect.bottom);
+                setHeight(ViewCommonUtil.getScreenFullSize(this.f18624a.getPageActivity())[1] - rect.bottom);
             }
             super.showAsDropDown(view);
         }
@@ -97,7 +97,7 @@ public class a extends PopupWindow {
             if (Build.VERSION.SDK_INT >= 24) {
                 Rect rect = new Rect();
                 view.getGlobalVisibleRect(rect);
-                setHeight(ViewCommonUtil.getScreenFullSize(this.f17156a.getPageActivity())[1] - rect.bottom);
+                setHeight(ViewCommonUtil.getScreenFullSize(this.f18624a.getPageActivity())[1] - rect.bottom);
             }
             super.showAsDropDown(view, i2, i3);
         }

@@ -15,25 +15,25 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f68966a;
+    public Context f69886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68967b;
+    public int f69887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68968c;
+    public String f69888c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68969d;
+    public String f69889d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68970e;
+    public String f69890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f68971f;
+    public String f69891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.notification.a f68972g;
+    public com.ss.android.socialbase.downloader.notification.a f69892g;
 
     public b(Context context, int i2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
@@ -51,15 +51,15 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
             }
         }
         if (context != null) {
-            this.f68966a = context.getApplicationContext();
+            this.f69886a = context.getApplicationContext();
         } else {
-            this.f68966a = com.ss.android.socialbase.downloader.downloader.c.N();
+            this.f69886a = com.ss.android.socialbase.downloader.downloader.c.N();
         }
-        this.f68967b = i2;
-        this.f68968c = str;
-        this.f68969d = str2;
-        this.f68970e = str3;
-        this.f68971f = str4;
+        this.f69887b = i2;
+        this.f69888c = str;
+        this.f69889d = str2;
+        this.f69890e = str3;
+        this.f69891f = str4;
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.d
@@ -68,10 +68,10 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f68972g == null && (context = this.f68966a) != null) {
-                return new a(context, this.f68967b, this.f68968c, this.f68969d, this.f68970e, this.f68971f);
+            if (this.f69892g == null && (context = this.f69886a) != null) {
+                return new a(context, this.f69887b, this.f69888c, this.f69889d, this.f69890e, this.f69891f);
             }
-            return this.f68972g;
+            return this.f69892g;
         }
         return (com.ss.android.socialbase.downloader.notification.a) invokeV.objValue;
     }
@@ -79,7 +79,7 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
     @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
     public void onFailed(DownloadInfo downloadInfo, BaseException baseException) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo, baseException) == null) || downloadInfo == null || this.f68966a == null || !downloadInfo.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification()) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo, baseException) == null) || downloadInfo == null || this.f69886a == null || !downloadInfo.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification()) {
             return;
         }
         super.onFailed(downloadInfo, baseException);
@@ -124,7 +124,7 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
     @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
     public void onSuccessed(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, downloadInfo) == null) || downloadInfo == null || this.f68966a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, downloadInfo) == null) || downloadInfo == null || this.f69886a == null) {
             return;
         }
         if (downloadInfo.canShowNotification() && (!downloadInfo.isAutoInstallWithoutNotification() || !downloadInfo.isAutoInstall())) {
@@ -150,7 +150,7 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
                 return;
             }
         }
-        this.f68966a = com.ss.android.socialbase.downloader.downloader.c.N();
-        this.f68972g = aVar;
+        this.f69886a = com.ss.android.socialbase.downloader.downloader.c.N();
+        this.f69892g = aVar;
     }
 }

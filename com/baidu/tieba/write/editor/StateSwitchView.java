@@ -26,16 +26,16 @@ public class StateSwitchView extends EditorInfoView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f55824f;
+    public String f56746f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f55825g;
+    public String f56747g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55826h;
+    public int f56748h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f55827i;
+    public int f56749i;
     public boolean j;
     public AbsSvgType k;
     public AbsSvgType l;
@@ -50,7 +50,7 @@ public class StateSwitchView extends EditorInfoView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StateSwitchView f55828e;
+        public final /* synthetic */ StateSwitchView f56750e;
 
         public a(StateSwitchView stateSwitchView) {
             Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public class StateSwitchView extends EditorInfoView {
                     return;
                 }
             }
-            this.f55828e = stateSwitchView;
+            this.f56750e = stateSwitchView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55828e.n.I();
+                this.f56750e.n.I();
             }
         }
     }
@@ -140,7 +140,7 @@ public class StateSwitchView extends EditorInfoView {
                 if (this.j && (absSvgType2 = this.l) != null) {
                     drawable2 = absSvgType2.getDrawable();
                 } else {
-                    int i3 = this.f55827i;
+                    int i3 = this.f56749i;
                     drawable2 = i3 > 0 ? SkinManager.getDrawable(i3) : null;
                 }
                 if (drawable2 != null) {
@@ -152,7 +152,7 @@ public class StateSwitchView extends EditorInfoView {
                 if (this.j && (absSvgType = this.k) != null) {
                     drawable = absSvgType.getDrawable();
                 } else {
-                    drawable = this.f55827i > 0 ? SkinManager.getDrawable(this.f55826h) : null;
+                    drawable = this.f56749i > 0 ? SkinManager.getDrawable(this.f56748h) : null;
                 }
                 if (drawable != null) {
                     drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
@@ -167,9 +167,9 @@ public class StateSwitchView extends EditorInfoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.m == 1) {
-                setText(this.f55825g);
+                setText(this.f56747g);
             } else {
-                setText(this.f55824f);
+                setText(this.f56746f);
             }
         }
     }
@@ -219,8 +219,8 @@ public class StateSwitchView extends EditorInfoView {
     public void setLeftStateDrawable(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            this.f55826h = i2;
-            this.f55827i = i3;
+            this.f56748h = i2;
+            this.f56749i = i3;
             this.j = false;
             e();
         }
@@ -240,8 +240,8 @@ public class StateSwitchView extends EditorInfoView {
     public void setStateString(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.f55824f = str;
-            this.f55825g = str2;
+            this.f56746f = str;
+            this.f56747g = str2;
             f();
         }
     }

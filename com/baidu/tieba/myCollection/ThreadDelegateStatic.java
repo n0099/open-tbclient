@@ -62,7 +62,7 @@ public class ThreadDelegateStatic extends b {
                 if (aVar.getContext() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
                     return;
                 }
-                fragmentTabStructure.f12612a.setArguments(new Bundle());
+                fragmentTabStructure.f13359a.setArguments(new Bundle());
             }
         }
     }
@@ -105,9 +105,9 @@ public class ThreadDelegateStatic extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f12612a = ThreadFragment.newInstance();
-            cVar.f12616e = 1;
-            cVar.f12613b = R.string.collect_thread;
+            cVar.f13359a = ThreadFragment.newInstance();
+            cVar.f13363e = 1;
+            cVar.f13360b = R.string.collect_thread;
             return cVar;
         }
         return (c) invokeV.objValue;

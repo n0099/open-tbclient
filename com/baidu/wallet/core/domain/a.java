@@ -5,31 +5,31 @@ import androidx.annotation.NonNull;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f57992a = "life_host";
+    public static final String f58914a = "life_host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f57993b = "xinyongka_host";
+    public static final String f58915b = "xinyongka_host";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f57994c = "nfc_host";
+    public static final String f58916c = "nfc_host";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f57995d = "app_host";
+    public static final String f58917d = "app_host";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f57996e = "dxm_host";
+    public static final String f58918e = "dxm_host";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f57997f = "zhifu_host";
+    public static final String f58919f = "zhifu_host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f57998g = "comet_host";
+    public static final String f58920g = "comet_host";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f57999h = "my_host";
+    public static final String f58921h = "my_host";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f58000i = "init_host";
+    public static final String f58922i = "init_host";
     public static final String j = "sensors_host";
     public static final String k = "hawking_host";
     public static final String l = "net_check_host";

@@ -1,141 +1,101 @@
 package b.a.p0.a.h0.i;
 
-import android.os.Looper;
-import androidx.annotation.StringRes;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.v2.q0;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import b.a.p0.a.n2.n;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile int f5365a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class a implements Runnable {
+    public static class a implements SwanAppNetworkUtils.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f5366e;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f5563a;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f5367f;
-
-        public a(int i2, int i3) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f5366e = i2;
-            this.f5367f = i3;
+            this.f5563a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
+        public void onResult(int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.c(this.f5366e, this.f5367f);
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+                e.b(this.f5563a, i2);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1597462541, "Lb/a/p0/a/h0/i/e;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1597462541, "Lb/a/p0/a/h0/i/e;");
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            SwanAppNetworkUtils.b(new a(str));
         }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static void b(String str, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f5365a < 2 : invokeV.booleanValue;
-    }
-
-    public static void c(@StringRes int i2, int i3) {
-        SwanAppActivity activity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65539, null, i2, i3) == null) || (activity = b.a.p0.a.g1.f.T().getActivity()) == null || activity.isFinishing()) {
-            return;
-        }
-        if (i3 != 1) {
-            b.a.p0.a.z1.b.f.e.f(activity, i2).F();
-        } else {
-            b.a.p0.a.z1.b.f.e.f(activity, i2).H();
+        if (interceptable == null || interceptable.invokeLI(65537, null, str, i2) == null) {
+            c(str, i2 != 1 ? i2 != 2 ? i2 != 3 ? "unknown" : "offline" : "bad" : "good");
         }
     }
 
-    public static void d(@StringRes int i2, int i3) {
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3) == null) {
-            if (Looper.getMainLooper() == Looper.myLooper()) {
-                c(i2, i3);
-            } else {
-                q0.X(new a(i2, i3));
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            d(str, str2, null);
+        }
+    }
+
+    public static void d(String str, String str2, @Nullable String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            e(str, str2, str3, 0, 0, 0, 0L);
+        }
+    }
+
+    public static void e(String str, String str2, @Nullable String str3, int i2, int i3, int i4, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+            b.a.p0.a.n2.s.e eVar = new b.a.p0.a.n2.s.e();
+            eVar.f7379a = "swan";
+            eVar.f7380b = str;
+            eVar.a("appid", b.a.p0.a.d2.d.J().getAppId());
+            eVar.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
+            if (!TextUtils.isEmpty(str3)) {
+                eVar.a("request", str3);
+                eVar.a("request_total", String.valueOf(i2));
+                eVar.a("request_fail", String.valueOf(i3));
+                eVar.a("request_slow", String.valueOf(i4));
+                eVar.a("error_duration", String.valueOf(j));
             }
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            f5365a = 0;
-        }
-    }
-
-    public static void f(@StringRes int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2) == null) {
-            if (b.a.p0.a.r1.l.b.d() != 2 || b.a.p0.a.w2.e.D == null) {
-                g(i2, 0);
-            }
-        }
-    }
-
-    public static synchronized void g(@StringRes int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65543, null, i2, i3) == null) {
-            synchronized (e.class) {
-                int i4 = f5365a;
-                if (i4 == 0) {
-                    f5365a = 1;
-                    System.currentTimeMillis();
-                    d(i2, i3);
-                } else if (i4 == 1) {
-                    f5365a = 2;
-                    d(i2, i3);
-                    i.i("toast提示个数已达2个");
-                }
-            }
+            eVar.a("jserror", b.a.p0.a.h0.i.g.a.c.d().c() ? "1" : "0");
+            eVar.a("isShow", d.b() ? "1" : "0");
+            n.x("1619", eVar);
         }
     }
 }

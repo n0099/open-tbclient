@@ -10,7 +10,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f58283a = "HomePage_UsePrivacyEye";
+    public static String f59205a = "HomePage_UsePrivacyEye";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

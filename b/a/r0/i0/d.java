@@ -15,7 +15,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f17826a;
+    public static volatile d f19279a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,14 +51,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f17826a == null) {
+            if (f19279a == null) {
                 synchronized (d.class) {
-                    if (f17826a == null) {
-                        f17826a = new d();
+                    if (f19279a == null) {
+                        f19279a = new d();
                     }
                 }
             }
-            return f17826a;
+            return f19279a;
         }
         return (d) invokeV.objValue;
     }
@@ -69,7 +69,7 @@ public class d {
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
                 return;
             }
-            b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "dnsproxy_error");
             if (!TextUtils.isEmpty(str)) {
                 statsItem.b("reason", str);
@@ -87,7 +87,7 @@ public class d {
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3)) {
                 return;
             }
-            b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "dnsproxy_event");
             if (!TextUtils.isEmpty(str)) {
                 statsItem.b("key", str);

@@ -31,22 +31,22 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f61481a;
+    public static final Object f62380a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f61482b;
+    public static final Object f62381b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f61483c;
+    public static final Object f62382c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<String, Boolean> f61484d;
+    public static final Map<String, Boolean> f62383d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Map<String, e> f61485e;
+    public static final Map<String, e> f62384e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f61486f;
+    public static d f62385f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,32 +62,32 @@ public final class b {
                 return;
             }
         }
-        f61481a = new Object();
-        f61482b = new Object();
-        f61483c = new Object();
-        f61484d = new ConcurrentHashMap();
-        f61485e = new ConcurrentHashMap();
+        f62380a = new Object();
+        f62381b = new Object();
+        f62382c = new Object();
+        f62383d = new ConcurrentHashMap();
+        f62384e = new ConcurrentHashMap();
     }
 
     public static e a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Boolean bool = f61484d.get(str);
+            Boolean bool = f62383d.get(str);
             if (bool == null || !bool.booleanValue()) {
-                f61485e.remove(str);
+                f62384e.remove(str);
             }
-            if (f61485e.get(str) == null) {
-                synchronized (f61482b) {
+            if (f62384e.get(str) == null) {
+                synchronized (f62381b) {
                     e eVar = (e) a("service", str);
                     if (eVar == null) {
                         ZeusLogger.e(ZeusLogger.TAG_SERVER, "getServiceManager failed!!!");
                         return null;
                     }
-                    f61485e.put(str, eVar);
+                    f62384e.put(str, eVar);
                 }
             }
-            return f61485e.get(str);
+            return f62384e.get(str);
         }
         return (e) invokeL.objValue;
     }
@@ -96,21 +96,21 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Boolean bool = f61484d.get(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
+            Boolean bool = f62383d.get(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
             if (bool == null || !bool.booleanValue()) {
-                f61486f = null;
+                f62385f = null;
             }
-            if (f61486f == null) {
-                synchronized (f61483c) {
+            if (f62385f == null) {
+                synchronized (f62382c) {
                     d dVar = (d) a("package", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
                     if (dVar == null) {
                         ZeusLogger.e(ZeusLogger.TAG_SERVER, "getPackageManager failed!!!");
                         return null;
                     }
-                    f61486f = dVar;
+                    f62385f = dVar;
                 }
             }
-            return f61486f;
+            return f62385f;
         }
         return (d) invokeV.objValue;
     }
@@ -135,7 +135,7 @@ public final class b {
                     call.setClassLoader(AbsServerManager.class.getClassLoader());
                     a aVar = (a) call.getParcelable(AbsServerManager.BUNDLE_BINDER);
                     if (aVar != null) {
-                        iBinder = aVar.f61480a;
+                        iBinder = aVar.f62379a;
                         if (iBinder != null && iBinder.isBinderAlive()) {
                             try {
                                 char c2 = 0;
@@ -144,10 +144,10 @@ public final class b {
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ String f61487a;
+                                    public final /* synthetic */ String f62386a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ IBinder f61488b;
+                                    public final /* synthetic */ IBinder f62387b;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -164,17 +164,17 @@ public final class b {
                                                 return;
                                             }
                                         }
-                                        this.f61487a = str2;
-                                        this.f61488b = iBinder;
+                                        this.f62386a = str2;
+                                        this.f62387b = iBinder;
                                     }
 
                                     @Override // android.os.IBinder.DeathRecipient
                                     public final void binderDied() {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                            b.f61484d.put(this.f61487a, Boolean.FALSE);
+                                            b.f62383d.put(this.f62386a, Boolean.FALSE);
                                             ZeusLogger.e(ZeusLogger.TAG_SERVER, "generateServerManager binderDied.");
-                                            HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.f61488b);
+                                            HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.f62387b);
                                             for (ServiceConnection serviceConnection : hashMap.keySet()) {
                                                 Iterator<ComponentName> it = hashMap.get(serviceConnection).iterator();
                                                 while (it.hasNext()) {
@@ -184,7 +184,7 @@ public final class b {
                                         }
                                     }
                                 }, 0);
-                                f61484d.put(str2, Boolean.TRUE);
+                                f62383d.put(str2, Boolean.TRUE);
                                 hashCode = str.hashCode();
                                 if (hashCode == -807062458) {
                                     if (hashCode == 1984153269 && str.equals("service")) {
@@ -223,10 +223,10 @@ public final class b {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f61487a;
+                        public final /* synthetic */ String f62386a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ IBinder f61488b;
+                        public final /* synthetic */ IBinder f62387b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -243,17 +243,17 @@ public final class b {
                                     return;
                                 }
                             }
-                            this.f61487a = str2;
-                            this.f61488b = iBinder;
+                            this.f62386a = str2;
+                            this.f62387b = iBinder;
                         }
 
                         @Override // android.os.IBinder.DeathRecipient
                         public final void binderDied() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                b.f61484d.put(this.f61487a, Boolean.FALSE);
+                                b.f62383d.put(this.f62386a, Boolean.FALSE);
                                 ZeusLogger.e(ZeusLogger.TAG_SERVER, "generateServerManager binderDied.");
-                                HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.f61488b);
+                                HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.f62387b);
                                 for (ServiceConnection serviceConnection : hashMap.keySet()) {
                                     Iterator<ComponentName> it = hashMap.get(serviceConnection).iterator();
                                     while (it.hasNext()) {
@@ -263,7 +263,7 @@ public final class b {
                             }
                         }
                     }, 0);
-                    f61484d.put(str2, Boolean.TRUE);
+                    f62383d.put(str2, Boolean.TRUE);
                     hashCode = str.hashCode();
                     if (hashCode == -807062458) {
                     }

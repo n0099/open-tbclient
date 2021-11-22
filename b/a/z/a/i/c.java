@@ -26,13 +26,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30030a;
+    public String f30899a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30031b;
+    public String f30900b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30032c;
+    public String f30901c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public class c {
                 return;
             }
         }
-        this.f30030a = null;
-        this.f30031b = null;
-        this.f30032c = null;
-        this.f30032c = "video_session";
+        this.f30899a = null;
+        this.f30900b = null;
+        this.f30901c = null;
+        this.f30901c = "video_session";
         b(b.a.z.a.c.a());
     }
 
@@ -69,10 +69,10 @@ public class c {
                 return;
             }
         }
-        this.f30030a = null;
-        this.f30031b = null;
-        this.f30032c = null;
-        this.f30032c = str;
+        this.f30899a = null;
+        this.f30900b = null;
+        this.f30901c = null;
+        this.f30901c = str;
         b(b.a.z.a.c.a());
     }
 
@@ -212,15 +212,15 @@ public class c {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f30030a) || TextUtils.isEmpty(this.f30031b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f30899a) || TextUtils.isEmpty(this.f30900b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f30030a;
+            String str = this.f30899a;
             if (g(str)) {
-                String str2 = this.f30031b;
+                String str2 = this.f30900b;
                 f(str2);
                 if (h(str, str2)) {
                     f(str);
@@ -246,14 +246,14 @@ public class c {
 
     public void e(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f30030a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f30899a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
             try {
-                d(this.f30030a, bArr, Part.CRLF);
+                d(this.f30899a, bArr, Part.CRLF);
             } catch (AssertionError unused) {
                 e.e("DpStatFileWriter", "write data to file fail");
             }
@@ -270,7 +270,7 @@ public class c {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                this.f30032c.equals("live_show_session");
+                this.f30901c.equals("live_show_session");
                 bufferedReader.close();
                 inputStreamReader.close();
                 fileInputStream.close();

@@ -85,7 +85,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /* JADX WARN: Code restructure failed: missing block: B:18:0x002b, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, b.a.e.e.h.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, b.a.e.f.h.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

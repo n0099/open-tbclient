@@ -9,9 +9,9 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static b.a.r.d.a a(Context context) {
+    public static b.a.r.e.a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? b.e(context).c() : (b.a.r.d.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? b.f(context).d() : (b.a.r.e.a) invokeL.objValue;
     }
 }

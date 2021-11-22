@@ -2,7 +2,7 @@ package b.a.r0.w.f.b.a;
 
 import android.widget.BaseAdapter;
 import b.a.e.a.f;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.ala.square.IAlaSquareTabController;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,22 +19,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f24521a;
+    public f f26038a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f24522b;
+    public BdTypeListView f26039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<b.a.e.l.e.a> f24523c;
+    public final List<b.a.e.m.e.a> f26040c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f24524d;
+    public a f26041d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.w.f.h.a.a f24525e;
+    public b.a.r0.w.f.h.a.a f26042e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.w.f.h.a.b f24526f;
+    public b.a.r0.w.f.h.a.b f26043f;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -51,49 +51,49 @@ public class b {
                 return;
             }
         }
-        this.f24523c = new ArrayList();
-        this.f24521a = tbPageContext;
-        this.f24522b = bdTypeListView;
+        this.f26040c = new ArrayList();
+        this.f26038a = tbPageContext;
+        this.f26039b = bdTypeListView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b.a.r0.w.f.h.a.b bVar = new b.a.r0.w.f.h.a.b((TbPageContext) this.f24521a);
-            this.f24526f = bVar;
+            b.a.r0.w.f.h.a.b bVar = new b.a.r0.w.f.h.a.b((TbPageContext) this.f26038a);
+            this.f26043f = bVar;
             bVar.j0(1);
-            b.a.r0.w.f.h.a.a aVar = new b.a.r0.w.f.h.a.a((TbPageContext) this.f24521a);
-            this.f24525e = aVar;
+            b.a.r0.w.f.h.a.a aVar = new b.a.r0.w.f.h.a.a((TbPageContext) this.f26038a);
+            this.f26042e = aVar;
             aVar.j0(1);
-            this.f24524d = new a((TbPageContext) this.f24521a, b.a.r0.w.f.b.b.b.j);
-            this.f24523c.add(this.f24526f);
-            this.f24523c.add(this.f24525e);
-            this.f24523c.add(this.f24524d);
-            this.f24522b.addAdapters(this.f24523c);
+            this.f26041d = new a((TbPageContext) this.f26038a, b.a.r0.w.f.b.b.b.j);
+            this.f26040c.add(this.f26043f);
+            this.f26040c.add(this.f26042e);
+            this.f26040c.add(this.f26041d);
+            this.f26039b.addAdapters(this.f26040c);
         }
     }
 
     public void b() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f24522b) != null && (bdTypeListView.getAdapter2() instanceof BaseAdapter)) {
-            this.f24522b.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f26039b) != null && (bdTypeListView.getAdapter2() instanceof BaseAdapter)) {
+            this.f26039b.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void c(b.a.r0.w.f.h.d.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            this.f24526f.l0(fVar);
-            this.f24525e.l0(fVar);
+            this.f26043f.l0(fVar);
+            this.f26042e.l0(fVar);
         }
     }
 
     public void d(List<n> list) {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (bdTypeListView = this.f24522b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (bdTypeListView = this.f26039b) == null) {
             return;
         }
         bdTypeListView.setData(list);
@@ -102,15 +102,15 @@ public class b {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f24526f.k0(i2);
-            this.f24525e.k0(i2);
+            this.f26043f.k0(i2);
+            this.f26042e.k0(i2);
         }
     }
 
     public void f(IAlaSquareTabController iAlaSquareTabController) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, iAlaSquareTabController) == null) {
-            this.f24524d.l0(iAlaSquareTabController);
+            this.f26041d.l0(iAlaSquareTabController);
         }
     }
 }

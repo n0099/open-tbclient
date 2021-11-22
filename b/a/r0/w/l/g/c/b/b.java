@@ -18,31 +18,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25226a;
+    public String f26743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f25227b;
+    public int f26744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25228c;
+    public int f26745c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f25229d;
+    public int f26746d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25230e;
+    public String f26747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25231f;
+    public String f26748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f25232g;
+    public String f26749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f25233h;
+    public int f26750h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f25234i;
+    public int f26751i;
     public String j;
     public String k;
     public List<d> l;
@@ -69,7 +69,7 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25232g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26749g : (String) invokeV.objValue;
     }
 
     public String b() {
@@ -93,37 +93,37 @@ public class b {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25229d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26746d : invokeV.intValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25230e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26747e : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25231f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26748f : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25233h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26750h : invokeV.intValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f25228c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26745c : invokeV.intValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f25226a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26743a : (String) invokeV.objValue;
     }
 
     public String i() {
@@ -135,37 +135,37 @@ public class b {
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f25234i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f26751i : invokeV.intValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f25227b == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f26744b == 1 : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f25228c == 9 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f26745c == 9 : invokeV.booleanValue;
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f25228c == 10 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f26745c == 10 : invokeV.booleanValue;
     }
 
     public void n(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
-            this.f25228c = jSONObject.optInt("type");
-            this.f25229d = jSONObject.optInt("mark_id");
-            this.f25230e = jSONObject.optString("mark_name");
-            this.f25232g = jSONObject.optString("description");
-            this.f25234i = jSONObject.optInt("wear_status");
-            this.f25231f = jSONObject.optString("mark_pic");
-            this.f25233h = jSONObject.optInt("mark_rank");
+            this.f26745c = jSONObject.optInt("type");
+            this.f26746d = jSONObject.optInt("mark_id");
+            this.f26747e = jSONObject.optString("mark_name");
+            this.f26749g = jSONObject.optString("description");
+            this.f26751i = jSONObject.optInt("wear_status");
+            this.f26748f = jSONObject.optString("mark_pic");
+            this.f26750h = jSONObject.optInt("mark_rank");
             jSONObject.optInt("width");
             jSONObject.optInt("height");
             jSONObject.optInt("weight");
@@ -184,8 +184,8 @@ public class b {
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
             if (optJSONObject != null) {
-                this.m = b.a.e.e.m.b.e(optJSONObject.optString("props_id"), -1);
-                this.n = b.a.e.e.m.b.g(optJSONObject.optString("price"), 0L);
+                this.m = b.a.e.f.m.b.e(optJSONObject.optString("props_id"), -1);
+                this.n = b.a.e.f.m.b.g(optJSONObject.optString("price"), 0L);
                 optJSONObject.optString("buy_cycle");
                 optJSONObject.optInt("buy_staus");
             }
@@ -200,21 +200,21 @@ public class b {
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f25226a = str;
+            this.f26743a = str;
         }
     }
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f25227b = i2;
+            this.f26744b = i2;
         }
     }
 
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f25234i = i2;
+            this.f26751i = i2;
         }
     }
 }

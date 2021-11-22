@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.f.p.l;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import b.a.l.a;
 import b.a.l.d;
 import b.a.l.g0;
@@ -14,9 +14,9 @@ import b.a.l.l0;
 import b.a.l.n0;
 import b.a.l.p0;
 import b.a.l.s0;
-import b.a.l.v0.a;
-import b.a.r0.b0.c0;
-import b.a.r0.b0.e0.k;
+import b.a.l.w0.a;
+import b.a.r0.b0.d0;
+import b.a.r0.b0.f0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0.p.f {
+public class f extends b.a.e.m.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0.p.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
@@ -40,10 +40,10 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
     public int p;
     public int q;
     public boolean r;
-    public c0<k> s;
+    public d0<k> s;
 
     /* loaded from: classes5.dex */
-    public class a extends c0<k> {
+    public class a extends d0<k> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +64,7 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
         public void a(View view, k kVar) {
             Interceptable interceptable = $ic;
@@ -110,15 +110,15 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
     }
 
     /* loaded from: classes5.dex */
-    public class c implements a.InterfaceC0088a {
+    public class c implements a.InterfaceC0090a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g0 f22189a;
+        public final /* synthetic */ g0 f23666a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f22190b;
+        public final /* synthetic */ f f23667b;
 
         public c(f fVar, g0 g0Var) {
             Interceptable interceptable = $ic;
@@ -135,31 +135,31 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
                     return;
                 }
             }
-            this.f22190b = fVar;
-            this.f22189a = g0Var;
+            this.f23667b = fVar;
+            this.f23666a = g0Var;
         }
 
-        @Override // b.a.l.a.InterfaceC0088a
+        @Override // b.a.l.a.InterfaceC0090a
         public void a(b.a.q0.s.q.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || aVar.getThreadData() == null || aVar.getThreadData().y1 == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB(aVar.getThreadData().y1, this.f22190b.f2419e, 4);
-            b.a.r0.p2.a.a(this.f22189a.f(), aVar, 6);
+            ThreadCardUtils.jumpToPB(aVar.getThreadData().y1, this.f23667b.f2421e, 4);
+            b.a.r0.p2.a.a(this.f23666a.f(), aVar, 6);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements a.InterfaceC0088a {
+    public class d implements a.InterfaceC0090a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f22191a;
+        public final /* synthetic */ s0 f23668a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f22192b;
+        public final /* synthetic */ f f23669b;
 
         public d(f fVar, s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -176,18 +176,18 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
                     return;
                 }
             }
-            this.f22192b = fVar;
-            this.f22191a = s0Var;
+            this.f23669b = fVar;
+            this.f23668a = s0Var;
         }
 
-        @Override // b.a.l.a.InterfaceC0088a
+        @Override // b.a.l.a.InterfaceC0090a
         public void a(b.a.q0.s.q.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || aVar.getThreadData() == null || aVar.getThreadData().y1 == null) {
                 return;
             }
-            ThreadCardUtils.jumpToPB(aVar.getThreadData().y1, this.f22192b.f2419e, 4);
-            b.a.r0.p2.a.a(this.f22191a.f(), aVar, 6);
+            ThreadCardUtils.jumpToPB(aVar.getThreadData().y1, this.f23669b.f2421e, 4);
+            b.a.r0.p2.a.a(this.f23668a.f(), aVar, 6);
         }
     }
 
@@ -197,7 +197,7 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f22193e;
+        public final /* synthetic */ f f23670e;
 
         public e(f fVar) {
             Interceptable interceptable = $ic;
@@ -214,21 +214,21 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
                     return;
                 }
             }
-            this.f22193e = fVar;
+            this.f23670e = fVar;
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof k) && (view.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 k kVar = (k) nVar;
                 kVar.k = 1;
-                if (this.f22193e.s != null) {
-                    this.f22193e.s.a(threadCardViewHolder.getView(), kVar);
+                if (this.f23670e.s != null) {
+                    this.f23670e.s.a(threadCardViewHolder.getView(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((b.a.q0.s.q.a) kVar, view.getContext(), 4, false);
-                threadCardViewHolder.getCardView().n(new a.C0090a(1));
+                threadCardViewHolder.getCardView().n(new a.C0092a(1));
             }
         }
     }
@@ -267,7 +267,7 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public ThreadCardViewHolder<k> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -288,9 +288,9 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
             bVar.o(dVar);
             g0 g0Var = new g0(this.n);
             g0Var.m(Boolean.FALSE);
-            g0Var.q(l.g(this.f2419e, R.dimen.tbds9));
+            g0Var.q(l.g(this.f2421e, R.dimen.tbds9));
             bVar.n(g0Var);
-            bVar.l().g(l.g(this.f2419e, R.dimen.tbds25));
+            bVar.l().g(l.g(this.f2421e, R.dimen.tbds25));
             g0 g0Var2 = new g0(this.n);
             g0Var2.m(Boolean.TRUE);
             g0Var2.x(UtilHelper.getDimenPixelSize(R.dimen.M_W_X005), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), UtilHelper.getDimenPixelSize(R.dimen.M_W_X005), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
@@ -304,8 +304,8 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
             bVar.h(new b.a.l.k(this.n.getPageActivity()));
             n0 n0Var = new n0(this.n.getPageActivity());
             b.a.q0.s.q.f fVar = new b.a.q0.s.q.f();
-            fVar.f13300b = 3;
-            fVar.f13306h = 3;
+            fVar.f14080b = 3;
+            fVar.f14086h = 3;
             n0Var.u(fVar);
             n0Var.v(8);
             n0Var.z(6);
@@ -323,13 +323,13 @@ public class f extends b.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements b.a.r0
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: k0 */
     public View Z(int i2, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
-            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f14748e == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f16235e == null) {
                 return null;
             }
             kVar.K(kVar.position + 1);

@@ -23,16 +23,16 @@ public class a implements b<LocationEvent> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f12684e;
+    public c f13434e;
 
     /* renamed from: b.a.q0.j0.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0666a extends c {
+    public class C0702a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0666a(a aVar, int i2, boolean z) {
+        public C0702a(a aVar, int i2, boolean z) {
             super(i2, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -70,8 +70,8 @@ public class a implements b<LocationEvent> {
             }
             if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
                 LocationModel.A(locationData);
-                b.a.r0.l3.o0.b.a().g(System.currentTimeMillis());
-                b.a.r0.l3.o0.b.a().e(locationEvent.locationData);
+                b.a.r0.m3.o0.b.a().g(System.currentTimeMillis());
+                b.a.r0.m3.o0.b.a().e(locationEvent.locationData);
             }
             h.i(locationEvent);
         }
@@ -90,7 +90,7 @@ public class a implements b<LocationEvent> {
                 return;
             }
         }
-        this.f12684e = new C0666a(this, 303017, true);
+        this.f13434e = new C0702a(this, 303017, true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -104,8 +104,8 @@ public class a implements b<LocationEvent> {
                 return false;
             }
             if (locationEvent.getType() == 3) {
-                MessageManager.getInstance().unRegisterListener(this.f12684e);
-                MessageManager.getInstance().registerListener(this.f12684e);
+                MessageManager.getInstance().unRegisterListener(this.f13434e);
+                MessageManager.getInstance().registerListener(this.f13434e);
                 LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
                 locationSocketRequestMessage.setLat(locationEvent.lat);
                 locationSocketRequestMessage.setLng(locationEvent.lng);
@@ -117,7 +117,7 @@ public class a implements b<LocationEvent> {
                 locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
                 MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
             } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                b.a.r0.l3.o0.b.a().e(locationEvent.locationData);
+                b.a.r0.m3.o0.b.a().e(locationEvent.locationData);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
             }

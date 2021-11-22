@@ -14,10 +14,10 @@ public final class aa extends com.vivo.push.y {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f70200a;
+    public HashMap<String, String> f71120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f70201b;
+    public long f71121b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa() {
@@ -40,7 +40,7 @@ public final class aa extends com.vivo.push.y {
     public final void a(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.f70200a = hashMap;
+            this.f71120a = hashMap;
         }
     }
 
@@ -48,8 +48,8 @@ public final class aa extends com.vivo.push.y {
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            aVar.a("ReporterCommand.EXTRA_PARAMS", this.f70200a);
-            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f70201b);
+            aVar.a("ReporterCommand.EXTRA_PARAMS", this.f71120a);
+            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f71121b);
         }
     }
 
@@ -57,8 +57,8 @@ public final class aa extends com.vivo.push.y {
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f70200a = (HashMap) aVar.c("ReporterCommand.EXTRA_PARAMS");
-            this.f70201b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f70201b);
+            this.f71120a = (HashMap) aVar.c("ReporterCommand.EXTRA_PARAMS");
+            this.f71121b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f71121b);
         }
     }
 
@@ -67,7 +67,7 @@ public final class aa extends com.vivo.push.y {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "ReporterCommand（" + this.f70201b + SmallTailInfo.EMOTION_SUFFIX;
+            return "ReporterCommand（" + this.f71121b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -90,6 +90,6 @@ public final class aa extends com.vivo.push.y {
                 return;
             }
         }
-        this.f70201b = j;
+        this.f71121b = j;
     }
 }

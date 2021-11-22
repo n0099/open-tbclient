@@ -1,7 +1,7 @@
 package b.a.r0.h1.k.b.b;
 
-import b.a.e.l.e.n;
-import b.a.e.l.e.s;
+import b.a.e.m.e.n;
+import b.a.e.m.e.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -17,19 +17,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f17634a;
+    public TbPageContext f19103a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f17635b;
+    public List<b.a.e.m.e.a> f19104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f17636c;
+    public s f19105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f17637d;
+    public a f19106d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f17638e;
+    public c f19107e;
 
     public b(TbPageContext tbPageContext, s sVar) {
         Interceptable interceptable = $ic;
@@ -46,27 +46,27 @@ public class b {
                 return;
             }
         }
-        this.f17634a = tbPageContext;
-        this.f17636c = sVar;
+        this.f19103a = tbPageContext;
+        this.f19105c = sVar;
         a();
-        this.f17636c.addAdapters(this.f17635b);
+        this.f19105c.addAdapters(this.f19104b);
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f17635b = new ArrayList();
-            this.f17637d = new a(this.f17634a);
-            this.f17638e = new c(this.f17634a);
-            this.f17635b.add(this.f17637d);
-            this.f17635b.add(this.f17638e);
+            this.f19104b = new ArrayList();
+            this.f19106d = new a(this.f19103a);
+            this.f19107e = new c(this.f19103a);
+            this.f19104b.add(this.f19106d);
+            this.f19104b.add(this.f19107e);
         }
     }
 
     public void b() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.f17636c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.f19105c) == null) {
             return;
         }
         sVar.getListAdapter().notifyDataSetChanged();
@@ -75,14 +75,14 @@ public class b {
     public void c(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f17636c.setData(list);
+            this.f19105c.setData(list);
         }
     }
 
     public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            for (b.a.e.l.e.a aVar : this.f17635b) {
+            for (b.a.e.m.e.a aVar : this.f19104b) {
                 aVar.e0(bdUniqueId);
             }
         }

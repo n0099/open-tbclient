@@ -10,16 +10,16 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f70926a;
+    public static final int f71846a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f70927b;
+    public static final int f71847b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f70928c;
+    public static final int f71848c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f70929d;
+    public static final int f71849d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,10 +35,10 @@ public final class f {
                 return;
             }
         }
-        f70926a = a(1, 3);
-        f70927b = a(1, 4);
-        f70928c = a(2, 0);
-        f70929d = a(3, 2);
+        f71846a = a(1, 3);
+        f71847b = a(1, 4);
+        f71848c = a(2, 0);
+        f71849d = a(3, 2);
     }
 
     public static int a(int i2) {

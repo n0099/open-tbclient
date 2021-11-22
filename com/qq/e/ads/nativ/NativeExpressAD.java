@@ -51,13 +51,13 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f67878g;
+    public volatile int f68799g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile int f67879h;
+    public volatile int f68800h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<Integer> f67880i;
+    public List<Integer> f68801i;
     public VideoOption j;
     public ADSize k;
     public NativeExpressADListener l;
@@ -69,10 +69,10 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NativeExpressADListener f67881a;
+        public NativeExpressADListener f68802a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NativeExpressMediaListener f67882b;
+        public NativeExpressMediaListener f68803b;
 
         public ADListenerAdapter(NativeExpressADListener nativeExpressADListener) {
             Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                     return;
                 }
             }
-            this.f67881a = nativeExpressADListener;
+            this.f68802a = nativeExpressADListener;
         }
 
         public ADListenerAdapter(NativeExpressMediaListener nativeExpressMediaListener) {
@@ -107,7 +107,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                     return;
                 }
             }
-            this.f67882b = nativeExpressMediaListener;
+            this.f68803b = nativeExpressMediaListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
@@ -126,7 +126,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                     case 9:
                     case 10:
                     case 22:
-                        NativeExpressAD.a(this.f67881a, aDEvent);
+                        NativeExpressAD.a(this.f68802a, aDEvent);
                         return;
                     case 11:
                     case 12:
@@ -138,7 +138,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                     case 18:
                     case 19:
                     case 21:
-                        NativeExpressAD.a(this.f67882b, aDEvent);
+                        NativeExpressAD.a(this.f68803b, aDEvent);
                         return;
                     case 20:
                     default:
@@ -184,7 +184,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                 return;
             }
         }
-        this.f67880i = Collections.synchronizedList(new ArrayList());
+        this.f68801i = Collections.synchronizedList(new ArrayList());
         this.l = nativeExpressADListener;
         if (a(aDSize)) {
             return;
@@ -207,7 +207,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                 return;
             }
         }
-        this.f67880i = Collections.synchronizedList(new ArrayList());
+        this.f68801i = Collections.synchronizedList(new ArrayList());
         this.l = nativeExpressADListener;
         if (a(aDSize)) {
             return;
@@ -337,20 +337,20 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, neadi) == null) {
             super.a((NativeExpressAD) neadi);
-            neadi.setMinVideoDuration(this.f67878g);
-            neadi.setMaxVideoDuration(this.f67879h);
+            neadi.setMinVideoDuration(this.f68799g);
+            neadi.setMaxVideoDuration(this.f68800h);
             VideoOption videoOption = this.j;
             if (videoOption != null) {
                 setVideoOption(videoOption);
             }
-            synchronized (this.f67880i) {
-                Iterator<Integer> it = this.f67880i.iterator();
+            synchronized (this.f68801i) {
+                Iterator<Integer> it = this.f68801i.iterator();
                 while (it.hasNext()) {
-                    if (this.f67798a != 0) {
+                    if (this.f68719a != 0) {
                         if (this.m != null) {
-                            ((NEADI) this.f67798a).loadAd(it.next().intValue(), this.m);
+                            ((NEADI) this.f68719a).loadAd(it.next().intValue(), this.m);
                         } else {
-                            ((NEADI) this.f67798a).loadAd(it.next().intValue());
+                            ((NEADI) this.f68719a).loadAd(it.next().intValue());
                         }
                     }
                 }
@@ -372,7 +372,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t != 0) {
                 return ((NEADI) t).getAdNetWorkName();
             }
@@ -396,12 +396,12 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                 setAdParams(loadAdParams);
             }
             if (!b()) {
-                synchronized (this.f67880i) {
-                    this.f67880i.add(Integer.valueOf(i2));
+                synchronized (this.f68801i) {
+                    this.f68801i.add(Integer.valueOf(i2));
                 }
                 return;
             }
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t == 0) {
                 a("loadAD");
                 return;
@@ -426,13 +426,13 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
     public void setMaxVideoDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f67879h = i2;
-            if (this.f67879h > 0 && this.f67878g > this.f67879h) {
+            this.f68800h = i2;
+            if (this.f68800h > 0 && this.f68799g > this.f68800h) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t != 0) {
-                ((NEADI) t).setMaxVideoDuration(this.f67879h);
+                ((NEADI) t).setMaxVideoDuration(this.f68800h);
             }
         }
     }
@@ -440,13 +440,13 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
     public void setMinVideoDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f67878g = i2;
-            if (this.f67879h > 0 && this.f67878g > this.f67879h) {
+            this.f68799g = i2;
+            if (this.f68800h > 0 && this.f68799g > this.f68800h) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t != 0) {
-                ((NEADI) t).setMinVideoDuration(this.f67878g);
+                ((NEADI) t).setMinVideoDuration(this.f68799g);
             }
         }
     }
@@ -455,7 +455,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, videoOption) == null) {
             this.j = videoOption;
-            T t = this.f67798a;
+            T t = this.f68719a;
             if (t == 0 || videoOption == null) {
                 return;
             }

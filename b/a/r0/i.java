@@ -25,10 +25,10 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final NewLogoActivity f17811a;
+    public final NewLogoActivity f19264a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.r0.f0.e f17812b;
+    public b.a.r0.f0.e f19265b;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -36,7 +36,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f17813a;
+        public final /* synthetic */ i f19266a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i iVar, int i2) {
@@ -56,7 +56,7 @@ public class i {
                     return;
                 }
             }
-            this.f17813a = iVar;
+            this.f19266a = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class i {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Integer)) {
                 return;
             }
-            this.f17813a.b(((Integer) customResponsedMessage.getData()).intValue(), false);
+            this.f19266a.b(((Integer) customResponsedMessage.getData()).intValue(), false);
         }
     }
 
@@ -85,36 +85,36 @@ public class i {
                 return;
             }
         }
-        this.f17811a = newLogoActivity;
+        this.f19264a = newLogoActivity;
         c();
     }
 
     public final void b(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.f17811a).createNormalCfg(i2);
+            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.f19264a).createNormalCfg(i2);
             if (z) {
                 createNormalCfg.getIntent().putExtra(MainTabActivityConfig.SHOW_AD_FRAGMENT, true);
             }
-            this.f17811a.sendMessage(new CustomMessage(2015002, createNormalCfg));
-            this.f17811a.finish();
+            this.f19264a.sendMessage(new CustomMessage(2015002, createNormalCfg));
+            this.f19264a.finish();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_END_STAMP_KEY);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.f17811a.getClass().getSimpleName()).param("obj_param1", 4));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.f19264a.getClass().getSimpleName()).param("obj_param1", 4));
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f17811a.registerListener(new a(this, 2921639));
-            this.f17812b = new b.a.r0.f0.e(this.f17811a);
+            this.f19264a.registerListener(new a(this, 2921639));
+            this.f19265b = new b.a.r0.f0.e(this.f19264a);
         }
     }
 
     public void d() {
         b.a.r0.f0.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (eVar = this.f17812b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (eVar = this.f19265b) == null) {
             return;
         }
         eVar.i();
@@ -123,7 +123,7 @@ public class i {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b.a.r0.f0.d.b(this.f17811a).a();
+            b.a.r0.f0.d.b(this.f19264a).a();
             LogoActivityConfig.mFromSpacial = false;
         }
     }
@@ -132,18 +132,18 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                this.f17812b.j();
+                this.f19265b.j();
                 return;
             }
             if (z) {
                 LaunchTaskSchedule.getInstance().start(4);
             }
-            if (!this.f17811a.isFromHotSplash() && !this.f17811a.isFromShortcut()) {
-                if (this.f17811a.isTaskRoot()) {
+            if (!this.f19264a.isFromHotSplash() && !this.f19264a.isFromShortcut()) {
+                if (this.f19264a.isTaskRoot()) {
                     b(2, true);
                     return;
                 } else {
-                    this.f17811a.finish();
+                    this.f19264a.finish();
                     return;
                 }
             }

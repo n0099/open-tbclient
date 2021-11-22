@@ -14,13 +14,13 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f34618a;
+    public int f35450a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34619b;
+    public int f35451b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34620c;
+    public int f35452c;
 
     public GridSpaceItemDecoration(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.f34618a = i2;
-        this.f34619b = i3;
-        this.f34620c = i4;
+        this.f35450a = i2;
+        this.f35451b = i3;
+        this.f35452c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -49,12 +49,12 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
             if (layoutParams.getSpanIndex() != -1) {
                 if (layoutParams.getSpanIndex() % 2 == 0) {
-                    rect.left = this.f34618a;
-                    rect.right = this.f34619b;
+                    rect.left = this.f35450a;
+                    rect.right = this.f35451b;
                     return;
                 }
-                rect.left = this.f34619b;
-                rect.right = this.f34620c;
+                rect.left = this.f35451b;
+                rect.right = this.f35452c;
             }
         }
     }

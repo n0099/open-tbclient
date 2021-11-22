@@ -36,31 +36,31 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61025a;
+    public String f61945a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61026b;
+    public int f61946b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61027c;
+    public int f61947c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61028d;
+    public int f61948d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61029e;
+    public String f61949e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f61030f;
+    public int f61950f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61031g;
+    public String f61951g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61032h;
+    public String f61952h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f61033i;
+    public String f61953i;
     public String j;
     public String k;
     public String l;
@@ -101,7 +101,7 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, context, bVar)) == null) {
-            if (TextUtils.isEmpty(this.f61031g)) {
+            if (TextUtils.isEmpty(this.f61951g)) {
                 int e2 = e(context);
                 int f2 = f(context);
                 String str = Build.MANUFACTURER;
@@ -127,12 +127,12 @@ public final class a {
                 stringBuffer.append(h2);
                 stringBuffer.append("_");
                 stringBuffer.append(str5);
-                this.f61031g = bVar.a(stringBuffer.toString().replace(".", "-"));
+                this.f61951g = bVar.a(stringBuffer.toString().replace(".", "-"));
             }
-            if (TextUtils.isEmpty(this.f61031g)) {
+            if (TextUtils.isEmpty(this.f61951g)) {
                 throw new RuntimeException("BdLogBase: get ua null!");
             }
-            return this.f61031g;
+            return this.f61951g;
         }
         return (String) invokeLL.objValue;
     }
@@ -141,13 +141,13 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, bVar)) == null) {
-            if (TextUtils.isEmpty(this.f61025a)) {
-                this.f61025a = bVar.e();
+            if (TextUtils.isEmpty(this.f61945a)) {
+                this.f61945a = bVar.e();
             }
-            if (TextUtils.isEmpty(this.f61025a)) {
+            if (TextUtils.isEmpty(this.f61945a)) {
                 throw new RuntimeException("BdLogBase: get cuid null!");
             }
-            return this.f61025a;
+            return this.f61945a;
         }
         return (String) invokeL.objValue;
     }
@@ -178,28 +178,32 @@ public final class a {
                     return "wifi";
                 }
                 if (activeNetworkInfo.getType() == 0) {
-                    switch (activeNetworkInfo.getSubtype()) {
-                        case 1:
-                        case 2:
-                        case 4:
-                        case 7:
-                        case 11:
-                            return "2g";
-                        case 3:
-                        case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 12:
-                        case 14:
-                        case 15:
-                            return "3g";
-                        case 13:
-                            return "4g";
-                        default:
-                            return "unknown";
+                    int subtype = activeNetworkInfo.getSubtype();
+                    if (subtype != 20) {
+                        switch (subtype) {
+                            case 1:
+                            case 2:
+                            case 4:
+                            case 7:
+                            case 11:
+                                return "2g";
+                            case 3:
+                            case 5:
+                            case 6:
+                            case 8:
+                            case 9:
+                            case 10:
+                            case 12:
+                            case 14:
+                            case 15:
+                                return "3g";
+                            case 13:
+                                return "4g";
+                            default:
+                                return "unknown";
+                        }
                     }
+                    return "5g";
                 }
                 return "unknown";
             } catch (Exception e2) {
@@ -214,13 +218,13 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, bVar)) == null) {
-            if (TextUtils.isEmpty(this.f61032h)) {
-                this.f61032h = bVar.c();
+            if (TextUtils.isEmpty(this.f61952h)) {
+                this.f61952h = bVar.c();
             }
-            if (TextUtils.isEmpty(this.f61032h)) {
+            if (TextUtils.isEmpty(this.f61952h)) {
                 throw new RuntimeException("BdLogBase: get from null!");
             }
-            return this.f61032h;
+            return this.f61952h;
         }
         return (String) invokeL.objValue;
     }
@@ -241,13 +245,13 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, bVar)) == null) {
-            if (TextUtils.isEmpty(this.f61033i)) {
-                this.f61033i = bVar.d();
+            if (TextUtils.isEmpty(this.f61953i)) {
+                this.f61953i = bVar.d();
             }
-            if (TextUtils.isEmpty(this.f61033i)) {
+            if (TextUtils.isEmpty(this.f61953i)) {
                 throw new RuntimeException("BdLogBase: get Cfrom null!");
             }
-            return this.f61033i;
+            return this.f61953i;
         }
         return (String) invokeL.objValue;
     }
@@ -258,7 +262,7 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             b.a().g();
             String b2 = b(context);
-            return b2.equals("2g") || b2.equals("3g") || b2.equals("4g");
+            return b2.equals("2g") || b2.equals("3g") || b2.equals("4g") || b2.equals("5g");
         }
         return invokeL.booleanValue;
     }
@@ -286,9 +290,9 @@ public final class a {
         if (interceptable == null || interceptable.invokeL(65547, this, context) == null) {
             try {
                 DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-                this.f61026b = displayMetrics.widthPixels;
-                this.f61027c = displayMetrics.heightPixels;
-                this.f61028d = displayMetrics.densityDpi;
+                this.f61946b = displayMetrics.widthPixels;
+                this.f61947c = displayMetrics.heightPixels;
+                this.f61948d = displayMetrics.densityDpi;
             } catch (Exception e2) {
                 c.a(e2);
             }
@@ -299,10 +303,10 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, context)) == null) {
-            if (this.f61026b == 0) {
+            if (this.f61946b == 0) {
                 d(context);
             }
-            return this.f61026b;
+            return this.f61946b;
         }
         return invokeL.intValue;
     }
@@ -331,10 +335,10 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, context)) == null) {
-            if (this.f61027c == 0) {
+            if (this.f61947c == 0) {
                 d(context);
             }
-            return this.f61027c;
+            return this.f61947c;
         }
         return invokeL.intValue;
     }
@@ -352,10 +356,10 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, context)) == null) {
-            if (this.f61028d == 0) {
+            if (this.f61948d == 0) {
                 d(context);
             }
-            return this.f61028d;
+            return this.f61948d;
         }
         return invokeL.intValue;
     }
@@ -365,14 +369,14 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, context)) == null) {
             try {
-                if (TextUtils.isEmpty(this.f61029e)) {
+                if (TextUtils.isEmpty(this.f61949e)) {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                    this.f61029e = packageInfo.versionName;
-                    this.f61029e = this.f61029e.substring(0, this.f61029e.length() - 1) + "1";
-                    this.f61030f = packageInfo.versionCode;
-                    c.e("BdLogSDK", "mVersionName = " + this.f61029e);
+                    this.f61949e = packageInfo.versionName;
+                    this.f61949e = this.f61949e.substring(0, this.f61949e.length() - 1) + "1";
+                    this.f61950f = packageInfo.versionCode;
+                    c.e("BdLogSDK", "mVersionName = " + this.f61949e);
                 }
-                return this.f61029e;
+                return this.f61949e;
             } catch (Exception e2) {
                 c.a(e2);
                 return "1.0.0.0";
@@ -386,17 +390,17 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, this, context)) == null) {
             try {
-                if (this.f61030f <= 0) {
+                if (this.f61950f <= 0) {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                    this.f61029e = packageInfo.versionName;
-                    this.f61029e = this.f61029e.substring(0, this.f61029e.length() - 1) + "1";
-                    this.f61030f = packageInfo.versionCode;
-                    c.e("BdLogSDK", "mVersionName = " + this.f61029e);
+                    this.f61949e = packageInfo.versionName;
+                    this.f61949e = this.f61949e.substring(0, this.f61949e.length() - 1) + "1";
+                    this.f61950f = packageInfo.versionCode;
+                    c.e("BdLogSDK", "mVersionName = " + this.f61949e);
                 }
             } catch (Exception e2) {
                 c.a(e2);
             }
-            return this.f61030f;
+            return this.f61950f;
         }
         return invokeL.intValue;
     }
@@ -965,10 +969,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
             com.baidu.webkit.logsdk.b.c d2 = b.a().e().d(str);
-            if ("full".equals(d2.f61066a)) {
+            if ("full".equals(d2.f61986a)) {
                 return a(context);
             }
-            HashSet<String> hashSet = d2.f61068c;
+            HashSet<String> hashSet = d2.f61988c;
             JSONObject jSONObject = new JSONObject();
             if (hashSet != null) {
                 try {

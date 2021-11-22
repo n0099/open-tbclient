@@ -3,12 +3,12 @@ package b.a.r0.k2.y;
 import android.util.SparseArray;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
+import b.a.r0.a3.t;
+import b.a.r0.a3.y;
 import b.a.r0.k2.r.f;
 import b.a.r0.k2.u.f.l;
-import b.a.r0.l3.j0.p;
-import b.a.r0.z2.t;
-import b.a.r0.z2.y;
+import b.a.r0.m3.j0.p;
 import com.baidu.adp.widget.ListView.BdRecyclerAdapter;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -39,31 +39,31 @@ public class c extends b.a.r0.k2.y.h.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ReplyFragment f19728a;
+    public ReplyFragment f21265a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f19729b;
+    public BdTypeRecyclerView f21266b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f19730c;
+    public f f21267c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<b.a.e.l.e.a> f19731d;
+    public final List<b.a.e.m.e.a> f21268d;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f19732e;
+    public l f21269e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbReplyLoadMoreAdapter f19733f;
+    public PbReplyLoadMoreAdapter f21270f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.e.l.e.a f19734g;
+    public b.a.e.m.e.a f21271g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.e.l.e.a f19735h;
+    public b.a.e.m.e.a f21272h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19736i;
+    public boolean f21273i;
     public ArrayList<PostData> j;
     public ArrayList<n> k;
     public String l;
@@ -90,8 +90,8 @@ public class c extends b.a.r0.k2.y.h.a {
                 return;
             }
         }
-        this.f19731d = new ArrayList();
-        this.f19736i = true;
+        this.f21268d = new ArrayList();
+        this.f21273i = true;
         this.l = null;
         this.m = true;
         this.n = false;
@@ -100,8 +100,8 @@ public class c extends b.a.r0.k2.y.h.a {
         this.q = null;
         this.r = null;
         this.s = null;
-        this.f19728a = replyFragment;
-        this.f19729b = bdTypeRecyclerView;
+        this.f21265a = replyFragment;
+        this.f21266b = bdTypeRecyclerView;
         d();
     }
 
@@ -115,25 +115,25 @@ public class c extends b.a.r0.k2.y.h.a {
     public final void b(p pVar) {
         ForumData l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) || pVar == null || this.f19730c == null || pVar.getAdvertAppInfo() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) || pVar == null || this.f21267c == null || pVar.getAdvertAppInfo() == null) {
             return;
         }
-        pVar.getAdvertAppInfo().g4 = new b.a.q0.s.q.e();
-        if (this.f19730c.y() != null) {
-            pVar.getAdvertAppInfo().g4.f13277b = this.f19730c.y().a();
+        pVar.getAdvertAppInfo().h4 = new b.a.q0.s.q.e();
+        if (this.f21267c.y() != null) {
+            pVar.getAdvertAppInfo().h4.f14057b = this.f21267c.y().a();
         }
-        pVar.getAdvertAppInfo().g4.f13276a = pVar.K0();
-        if (this.f19730c.l() != null && (l = this.f19730c.l()) != null) {
-            pVar.getAdvertAppInfo().g4.f13279d = l.getId();
-            pVar.getAdvertAppInfo().g4.f13280e = l.getFirst_class();
-            pVar.getAdvertAppInfo().g4.f13281f = l.getSecond_class();
+        pVar.getAdvertAppInfo().h4.f14056a = pVar.K0();
+        if (this.f21267c.l() != null && (l = this.f21267c.l()) != null) {
+            pVar.getAdvertAppInfo().h4.f14059d = l.getId();
+            pVar.getAdvertAppInfo().h4.f14060e = l.getFirst_class();
+            pVar.getAdvertAppInfo().h4.f14061f = l.getSecond_class();
         }
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            pVar.getAdvertAppInfo().g4.f13282g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
+            pVar.getAdvertAppInfo().h4.f14062g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
         }
-        pVar.getAdvertAppInfo().g4.f13283h = pVar.getAdvertAppInfo().e4;
-        pVar.getAdvertAppInfo().g4.f13284i = false;
+        pVar.getAdvertAppInfo().h4.f14063h = pVar.getAdvertAppInfo().f4;
+        pVar.getAdvertAppInfo().h4.f14064i = false;
     }
 
     public final boolean c(ArrayList<PostData> arrayList, int i2) {
@@ -153,24 +153,24 @@ public class c extends b.a.r0.k2.y.h.a {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            l lVar = new l(this.f19728a.getVideoPbFragment(), PostData.y0);
-            this.f19732e = lVar;
-            lVar.X0(this.f19728a.getVideoPbFragment());
-            this.f19733f = new PbReplyLoadMoreAdapter(this.f19728a.getVideoPbFragment(), PostData.E0);
-            this.f19734g = y.o().a(this.f19728a.getVideoPbFragment().getBaseFragmentActivity(), AdvertAppInfo.s4);
-            this.f19735h = y.o().a(this.f19728a.getVideoPbFragment().getBaseFragmentActivity(), AdvertAppInfo.u4);
-            this.f19731d.add(this.f19734g);
-            this.f19731d.add(this.f19735h);
-            this.f19731d.add(this.f19732e);
-            this.f19731d.add(this.f19733f);
-            this.f19729b.addAdapters(this.f19731d);
+            l lVar = new l(this.f21265a.getVideoPbFragment(), PostData.y0);
+            this.f21269e = lVar;
+            lVar.X0(this.f21265a.getVideoPbFragment());
+            this.f21270f = new PbReplyLoadMoreAdapter(this.f21265a.getVideoPbFragment(), PostData.E0);
+            this.f21271g = y.o().a(this.f21265a.getVideoPbFragment().getBaseFragmentActivity(), AdvertAppInfo.t4);
+            this.f21272h = y.o().a(this.f21265a.getVideoPbFragment().getBaseFragmentActivity(), AdvertAppInfo.v4);
+            this.f21268d.add(this.f21271g);
+            this.f21268d.add(this.f21272h);
+            this.f21268d.add(this.f21269e);
+            this.f21268d.add(this.f21270f);
+            this.f21266b.addAdapters(this.f21268d);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (this.f19729b.getAdapter() instanceof BdRecyclerAdapter)) {
-            this.f19729b.getAdapter().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (this.f21266b.getAdapter() instanceof BdRecyclerAdapter)) {
+            this.f21266b.getAdapter().notifyDataSetChanged();
         }
     }
 
@@ -179,7 +179,7 @@ public class c extends b.a.r0.k2.y.h.a {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || fVar == null) {
             return;
         }
-        this.f19730c = fVar;
+        this.f21267c = fVar;
         if (fVar != null && fVar.O() != null && fVar.O().J() != null) {
             this.l = fVar.O().J().getUserId();
         }
@@ -187,22 +187,22 @@ public class c extends b.a.r0.k2.y.h.a {
             this.j = new ArrayList<>();
         }
         this.j.clear();
-        f fVar2 = this.f19730c;
-        if (fVar2 != null && fVar2.F() != null && this.f19730c.F().size() > 0) {
-            this.j.addAll(this.f19730c.F());
+        f fVar2 = this.f21267c;
+        if (fVar2 != null && fVar2.F() != null && this.f21267c.F().size() > 0) {
+            this.j.addAll(this.f21267c.F());
         }
-        this.f19732e.t(fVar);
-        this.f19732e.setFromCDN(this.n);
-        this.f19732e.q(this.l);
-        this.f19732e.c(this.m);
-        this.f19732e.e(this.p);
-        this.f19732e.m(this.o);
-        this.f19732e.p(this.q);
-        this.f19732e.d(this.s);
-        this.f19732e.W0(this.r);
-        this.f19733f.k0(this.p);
+        this.f21269e.t(fVar);
+        this.f21269e.setFromCDN(this.n);
+        this.f21269e.q(this.l);
+        this.f21269e.c(this.m);
+        this.f21269e.e(this.p);
+        this.f21269e.m(this.o);
+        this.f21269e.p(this.q);
+        this.f21269e.d(this.s);
+        this.f21269e.W0(this.r);
+        this.f21270f.k0(this.p);
         n();
-        b.a.e.l.e.a aVar = this.f19735h;
+        b.a.e.m.e.a aVar = this.f21272h;
         if (aVar != null && (aVar instanceof t)) {
             ((t) aVar).k(this.n);
         }
@@ -227,7 +227,7 @@ public class c extends b.a.r0.k2.y.h.a {
         if (z) {
             arrayList.remove(postData);
         }
-        BdTypeRecyclerView bdTypeRecyclerView = this.f19729b;
+        BdTypeRecyclerView bdTypeRecyclerView = this.f21266b;
         if (bdTypeRecyclerView != null) {
             this.k = arrayList;
             bdTypeRecyclerView.setData(arrayList);
@@ -244,7 +244,7 @@ public class c extends b.a.r0.k2.y.h.a {
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f19736i = z;
+            this.f21273i = z;
         }
     }
 
@@ -288,11 +288,11 @@ public class c extends b.a.r0.k2.y.h.a {
         p pVar;
         p pVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (fVar = this.f19730c) == null || fVar.a0 || fVar.b0 == 2) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (fVar = this.f21267c) == null || fVar.a0 || fVar.b0 == 2) {
             return;
         }
         ArrayList<PostData> F = fVar.F();
-        ArrayList<p> e2 = this.f19730c.e();
+        ArrayList<p> e2 = this.f21267c.e();
         if (e2 == null || e2.isEmpty() || F == null || F.isEmpty()) {
             return;
         }
@@ -320,12 +320,12 @@ public class c extends b.a.r0.k2.y.h.a {
         while (it3.hasNext()) {
             p next3 = it3.next();
             if (next3.getAdvertAppInfo() != null) {
-                int U4 = next3.getAdvertAppInfo().U4();
-                if (U4 != 0) {
-                    b.a.r0.z2.l0.d.k(next3, U4);
-                    if (U4 != 28 && U4 != 31) {
-                        next3.getAdvertAppInfo().Z3 = -1001;
-                        String str = "updateAppData，Data InValidate: " + U4;
+                int W4 = next3.getAdvertAppInfo().W4();
+                if (W4 != 0) {
+                    b.a.r0.a3.l0.d.k(next3, W4);
+                    if (W4 != 28 && W4 != 31) {
+                        next3.getAdvertAppInfo().a4 = -1001;
+                        String str = "updateAppData，Data InValidate: " + W4;
                     }
                 }
                 sparseArray.put(next3.getPosition(), next3);
@@ -335,7 +335,7 @@ public class c extends b.a.r0.k2.y.h.a {
         for (int i2 = 0; i2 < sparseArray.size(); i2++) {
             p pVar3 = (p) sparseArray.get(sparseArray.keyAt(i2));
             if (pVar3 != null && (pVar2 = (p) hashMap.put(pVar3.I0(), pVar3)) != null) {
-                b.a.r0.z2.l0.d.k(pVar2, 30);
+                b.a.r0.a3.l0.d.k(pVar2, 30);
             }
         }
         sparseArray.clear();
@@ -351,34 +351,34 @@ public class c extends b.a.r0.k2.y.h.a {
         Collections.sort(arrayList);
         for (int i4 = 0; i4 < arrayList.size(); i4++) {
             p pVar4 = (p) sparseArray.get(((Integer) arrayList.get(i4)).intValue());
-            if (this.f19730c.l() != null) {
-                pVar4.I0 = this.f19730c.l().getId();
+            if (this.f21267c.l() != null) {
+                pVar4.I0 = this.f21267c.l().getId();
             }
-            if (this.f19730c.O() != null) {
-                pVar4.L0 = b.a.e.e.m.b.g(this.f19730c.O().f0(), 0L);
+            if (this.f21267c.O() != null) {
+                pVar4.L0 = b.a.e.f.m.b.g(this.f21267c.O().f0(), 0L);
             }
-            f fVar2 = this.f19730c;
+            f fVar2 = this.f21267c;
             if (fVar2 != null && fVar2.y() != null) {
-                pVar4.M0 = this.f19730c.y().a();
+                pVar4.M0 = this.f21267c.y().a();
             }
             b(pVar4);
-            int position = pVar4.getPosition() + this.f19730c.Z;
+            int position = pVar4.getPosition() + this.f21267c.Z;
             if (position >= F.size()) {
                 pVar4.O0 = position;
-                b.a.r0.z2.l0.d.l(pVar4, 2, position + i4, b.a.r0.q1.o.k.a.k(arrayList));
+                b.a.r0.a3.l0.d.l(pVar4, 2, position + i4, b.a.r0.q1.o.k.a.k(arrayList));
                 return;
             }
-            if (!this.f19736i) {
+            if (!this.f21273i) {
                 position--;
                 pVar4.O0 = position;
             }
             if (position < 0) {
-                b.a.r0.z2.l0.d.k(pVar4, 23);
+                b.a.r0.a3.l0.d.k(pVar4, 23);
             } else if (c(F, position)) {
-                b.a.r0.z2.l0.d.k(pVar4, 1);
+                b.a.r0.a3.l0.d.k(pVar4, 1);
             } else {
                 F.add(position, pVar4);
-                TiebaStatic.eventStat(this.f19728a.getPageContext().getPageActivity(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", pVar4.getAdvertAppInfo().p4);
+                TiebaStatic.eventStat(this.f21265a.getPageContext().getPageActivity(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", pVar4.getAdvertAppInfo().q4);
             }
         }
     }

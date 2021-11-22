@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.httpNet;
 
 import android.net.Proxy;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

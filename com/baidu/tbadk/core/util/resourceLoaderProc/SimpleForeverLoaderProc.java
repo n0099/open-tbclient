@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.text.TextUtils;
-import b.a.e.e.a.d;
-import b.a.e.e.a.f.c;
-import b.a.e.e.l.b;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
-import b.a.e.l.d.a;
+import b.a.e.f.a.d;
+import b.a.e.f.a.f.c;
+import b.a.e.f.l.b;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
+import b.a.e.m.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -90,13 +90,13 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f1859a = diskCancelWorker;
+            bVar.f1862a = diskCancelWorker;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, b.a.e.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, b.a.e.f.l.e
     public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -115,10 +115,10 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(createDiskPicOperate);
-                bVar.f1859a = diskCancelWorker;
+                bVar.f1862a = diskCancelWorker;
             }
             if (!d.f().a(createDiskPicOperate)) {
-                b.a.e.e.l.a.f(false, 0L);
+                b.a.e.f.l.a.f(false, 0L);
                 return null;
             }
             int i4 = j.H() ? 300 : 2000;
@@ -129,7 +129,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
                 }
             }
             a createImageFromDiskPicOperate = createDiskPicOperate.isSuccess() ? createImageFromDiskPicOperate(createDiskPicOperate, str2, i2, i3) : null;
-            b.a.e.e.l.a.f(createImageFromDiskPicOperate != null, System.currentTimeMillis() - currentTimeMillis);
+            b.a.e.f.l.a.f(createImageFromDiskPicOperate != null, System.currentTimeMillis() - currentTimeMillis);
             return createImageFromDiskPicOperate;
         }
         return (a) invokeCommon.objValue;

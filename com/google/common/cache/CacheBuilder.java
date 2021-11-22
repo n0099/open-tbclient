@@ -1,15 +1,15 @@
 package com.google.common.cache;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.j;
-import b.i.d.a.n;
-import b.i.d.a.r;
-import b.i.d.a.t;
-import b.i.d.b.c;
-import b.i.d.b.d;
-import b.i.d.b.f;
-import b.i.d.b.i;
-import b.i.d.b.j;
+import b.h.d.a.j;
+import b.h.d.a.n;
+import b.h.d.a.r;
+import b.h.d.a.t;
+import b.h.d.b.c;
+import b.h.d.b.d;
+import b.h.d.b.f;
+import b.h.d.b.i;
+import b.h.d.b.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,51 +25,51 @@ import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class CacheBuilder<K, V> {
     public static /* synthetic */ Interceptable $ic;
-    public static final r<? extends b.i.d.b.b> q;
+    public static final r<? extends b.h.d.b.b> q;
     public static final d r;
     public static final t s;
     public static final Logger t;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f63149a;
+    public boolean f64049a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63150b;
+    public int f64050b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63151c;
+    public int f64051c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f63152d;
+    public long f64052d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f63153e;
+    public long f64053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j<? super K, ? super V> f63154f;
+    public j<? super K, ? super V> f64054f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LocalCache.Strength f63155g;
+    public LocalCache.Strength f64055g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LocalCache.Strength f63156h;
+    public LocalCache.Strength f64056h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f63157i;
+    public long f64057i;
     public long j;
     public long k;
     public Equivalence<Object> l;
     public Equivalence<Object> m;
     public i<? super K, ? super V> n;
     public t o;
-    public r<? extends b.i.d.b.b> p;
+    public r<? extends b.h.d.b.b> p;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class NullListener implements i<Object, Object> {
         public static final /* synthetic */ NullListener[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -125,7 +125,7 @@ public final class CacheBuilder<K, V> {
             return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NullListener[]) $VALUES.clone() : (NullListener[]) invokeV.objValue;
         }
 
-        @Override // b.i.d.b.i
+        @Override // b.h.d.b.i
         public void onRemoval(RemovalNotification<Object, Object> removalNotification) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, removalNotification) == null) {
@@ -134,7 +134,7 @@ public final class CacheBuilder<K, V> {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class OneWeigher implements j<Object, Object> {
         public static final /* synthetic */ OneWeigher[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -190,7 +190,7 @@ public final class CacheBuilder<K, V> {
             return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OneWeigher[]) $VALUES.clone() : (OneWeigher[]) invokeV.objValue;
         }
 
-        @Override // b.i.d.b.j
+        @Override // b.h.d.b.j
         public int weigh(Object obj, Object obj2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -201,8 +201,8 @@ public final class CacheBuilder<K, V> {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class a implements b.i.d.b.b {
+    /* loaded from: classes11.dex */
+    public static class a implements b.h.d.b.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -220,42 +220,42 @@ public final class CacheBuilder<K, V> {
             }
         }
 
-        @Override // b.i.d.b.b
+        @Override // b.h.d.b.b
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             }
         }
 
-        @Override // b.i.d.b.b
+        @Override // b.h.d.b.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
-        @Override // b.i.d.b.b
+        @Override // b.h.d.b.b
         public void c(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             }
         }
 
-        @Override // b.i.d.b.b
+        @Override // b.h.d.b.b
         public void d(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             }
         }
 
-        @Override // b.i.d.b.b
+        @Override // b.h.d.b.b
         public void e(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             }
         }
 
-        @Override // b.i.d.b.b
+        @Override // b.h.d.b.b
         public d f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -263,7 +263,7 @@ public final class CacheBuilder<K, V> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class b extends t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -282,7 +282,7 @@ public final class CacheBuilder<K, V> {
             }
         }
 
-        @Override // b.i.d.a.t
+        @Override // b.h.d.a.t
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -325,12 +325,12 @@ public final class CacheBuilder<K, V> {
                 return;
             }
         }
-        this.f63149a = true;
-        this.f63150b = -1;
-        this.f63151c = -1;
-        this.f63152d = -1L;
-        this.f63153e = -1L;
-        this.f63157i = -1L;
+        this.f64049a = true;
+        this.f64050b = -1;
+        this.f64051c = -1;
+        this.f64052d = -1L;
+        this.f64053e = -1L;
+        this.f64057i = -1L;
         this.j = -1L;
         this.k = -1L;
         this.p = q;
@@ -346,9 +346,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strength)) == null) {
-            n.A(this.f63155g == null, "Key strength was already set to %s", this.f63155g);
+            n.A(this.f64055g == null, "Key strength was already set to %s", this.f64055g);
             n.p(strength);
-            this.f63155g = strength;
+            this.f64055g = strength;
             return this;
         }
         return (CacheBuilder) invokeL.objValue;
@@ -358,9 +358,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strength)) == null) {
-            n.A(this.f63156h == null, "Value strength was already set to %s", this.f63156h);
+            n.A(this.f64056h == null, "Value strength was already set to %s", this.f64056h);
             n.p(strength);
-            this.f63156h = strength;
+            this.f64056h = strength;
             return this;
         }
         return (CacheBuilder) invokeL.objValue;
@@ -391,18 +391,18 @@ public final class CacheBuilder<K, V> {
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.google.common.cache.CacheBuilder<K, V> */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: b.i.d.b.j<? super K1 extends K, ? super V1 extends V> */
+    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: b.h.d.b.j<? super K1 extends K, ? super V1 extends V> */
     /* JADX WARN: Multi-variable type inference failed */
     public <K1 extends K, V1 extends V> CacheBuilder<K1, V1> E(j<? super K1, ? super V1> jVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jVar)) == null) {
-            n.w(this.f63154f == null);
-            if (this.f63149a) {
-                n.z(this.f63152d == -1, "weigher can not be combined with maximum size", this.f63152d);
+            n.w(this.f64054f == null);
+            if (this.f64049a) {
+                n.z(this.f64052d == -1, "weigher can not be combined with maximum size", this.f64052d);
             }
             n.p(jVar);
-            this.f63154f = jVar;
+            this.f64054f = jVar;
             return this;
         }
         return (CacheBuilder) invokeL.objValue;
@@ -439,11 +439,11 @@ public final class CacheBuilder<K, V> {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.f63154f == null) {
-                n.x(this.f63153e == -1, "maximumWeight requires weigher");
-            } else if (this.f63149a) {
-                n.x(this.f63153e != -1, "weigher requires maximumWeight");
-            } else if (this.f63153e == -1) {
+            if (this.f64054f == null) {
+                n.x(this.f64053e == -1, "maximumWeight requires weigher");
+            } else if (this.f64049a) {
+                n.x(this.f64053e != -1, "weigher requires maximumWeight");
+            } else if (this.f64053e == -1) {
                 t.log(Level.WARNING, "ignoring weigher specified without maximumWeight");
             }
         }
@@ -453,9 +453,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            n.y(this.f63151c == -1, "concurrency level was already set to %s", this.f63151c);
+            n.y(this.f64051c == -1, "concurrency level was already set to %s", this.f64051c);
             n.d(i2 > 0);
-            this.f63151c = i2;
+            this.f64051c = i2;
             return this;
         }
         return (CacheBuilder) invokeI.objValue;
@@ -477,9 +477,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048587, this, j, timeUnit)) == null) {
-            n.z(this.f63157i == -1, "expireAfterWrite was already set to %s ns", this.f63157i);
+            n.z(this.f64057i == -1, "expireAfterWrite was already set to %s ns", this.f64057i);
             n.j(j >= 0, "duration cannot be negative: %s %s", j, timeUnit);
-            this.f63157i = timeUnit.toNanos(j);
+            this.f64057i = timeUnit.toNanos(j);
             return this;
         }
         return (CacheBuilder) invokeJL.objValue;
@@ -489,7 +489,7 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = this.f63151c;
+            int i2 = this.f64051c;
             if (i2 == -1) {
                 return 4;
             }
@@ -515,7 +515,7 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j = this.f63157i;
+            long j = this.f64057i;
             if (j == -1) {
                 return 0L;
             }
@@ -528,7 +528,7 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            int i2 = this.f63150b;
+            int i2 = this.f64050b;
             if (i2 == -1) {
                 return 16;
             }
@@ -540,23 +540,23 @@ public final class CacheBuilder<K, V> {
     public Equivalence<Object> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? (Equivalence) b.i.d.a.j.a(this.l, m().defaultEquivalence()) : (Equivalence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? (Equivalence) b.h.d.a.j.a(this.l, m().defaultEquivalence()) : (Equivalence) invokeV.objValue;
     }
 
     public LocalCache.Strength m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (LocalCache.Strength) b.i.d.a.j.a(this.f63155g, LocalCache.Strength.STRONG) : (LocalCache.Strength) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (LocalCache.Strength) b.h.d.a.j.a(this.f64055g, LocalCache.Strength.STRONG) : (LocalCache.Strength) invokeV.objValue;
     }
 
     public long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.f63157i == 0 || this.j == 0) {
+            if (this.f64057i == 0 || this.j == 0) {
                 return 0L;
             }
-            return this.f63154f == null ? this.f63152d : this.f63153e;
+            return this.f64054f == null ? this.f64052d : this.f64053e;
         }
         return invokeV.longValue;
     }
@@ -577,10 +577,10 @@ public final class CacheBuilder<K, V> {
     public <K1 extends K, V1 extends V> i<K1, V1> p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (i) b.i.d.a.j.a(this.n, NullListener.INSTANCE) : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (i) b.h.d.a.j.a(this.n, NullListener.INSTANCE) : (i) invokeV.objValue;
     }
 
-    public r<? extends b.i.d.b.b> q() {
+    public r<? extends b.h.d.b.b> q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.p : (r) invokeV.objValue;
@@ -599,49 +599,49 @@ public final class CacheBuilder<K, V> {
     public Equivalence<Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (Equivalence) b.i.d.a.j.a(this.m, t().defaultEquivalence()) : (Equivalence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (Equivalence) b.h.d.a.j.a(this.m, t().defaultEquivalence()) : (Equivalence) invokeV.objValue;
     }
 
     public LocalCache.Strength t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? (LocalCache.Strength) b.i.d.a.j.a(this.f63156h, LocalCache.Strength.STRONG) : (LocalCache.Strength) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? (LocalCache.Strength) b.h.d.a.j.a(this.f64056h, LocalCache.Strength.STRONG) : (LocalCache.Strength) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            j.b c2 = b.i.d.a.j.c(this);
-            int i2 = this.f63150b;
+            j.b c2 = b.h.d.a.j.c(this);
+            int i2 = this.f64050b;
             if (i2 != -1) {
                 c2.b("initialCapacity", i2);
             }
-            int i3 = this.f63151c;
+            int i3 = this.f64051c;
             if (i3 != -1) {
                 c2.b("concurrencyLevel", i3);
             }
-            long j = this.f63152d;
+            long j = this.f64052d;
             if (j != -1) {
                 c2.c("maximumSize", j);
             }
-            long j2 = this.f63153e;
+            long j2 = this.f64053e;
             if (j2 != -1) {
                 c2.c("maximumWeight", j2);
             }
-            if (this.f63157i != -1) {
-                c2.d("expireAfterWrite", this.f63157i + NotificationStyle.NOTIFICATION_STYLE);
+            if (this.f64057i != -1) {
+                c2.d("expireAfterWrite", this.f64057i + NotificationStyle.NOTIFICATION_STYLE);
             }
             if (this.j != -1) {
                 c2.d("expireAfterAccess", this.j + NotificationStyle.NOTIFICATION_STYLE);
             }
-            LocalCache.Strength strength = this.f63155g;
+            LocalCache.Strength strength = this.f64055g;
             if (strength != null) {
-                c2.d("keyStrength", b.i.d.a.a.c(strength.toString()));
+                c2.d("keyStrength", b.h.d.a.a.c(strength.toString()));
             }
-            LocalCache.Strength strength2 = this.f63156h;
+            LocalCache.Strength strength2 = this.f64056h;
             if (strength2 != null) {
-                c2.d("valueStrength", b.i.d.a.a.c(strength2.toString()));
+                c2.d("valueStrength", b.h.d.a.a.c(strength2.toString()));
             }
             if (this.l != null) {
                 c2.h("keyEquivalence");
@@ -657,10 +657,10 @@ public final class CacheBuilder<K, V> {
         return (String) invokeV.objValue;
     }
 
-    public <K1 extends K, V1 extends V> b.i.d.b.j<K1, V1> u() {
+    public <K1 extends K, V1 extends V> b.h.d.b.j<K1, V1> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? (b.i.d.b.j) b.i.d.a.j.a(this.f63154f, OneWeigher.INSTANCE) : (b.i.d.b.j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? (b.h.d.b.j) b.h.d.a.j.a(this.f64054f, OneWeigher.INSTANCE) : (b.h.d.b.j) invokeV.objValue;
     }
 
     public CacheBuilder<K, V> v(Equivalence<Object> equivalence) {
@@ -679,11 +679,11 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048604, this, j)) == null) {
-            n.z(this.f63152d == -1, "maximum size was already set to %s", this.f63152d);
-            n.z(this.f63153e == -1, "maximum weight was already set to %s", this.f63153e);
-            n.x(this.f63154f == null, "maximum size can not be combined with weigher");
+            n.z(this.f64052d == -1, "maximum size was already set to %s", this.f64052d);
+            n.z(this.f64053e == -1, "maximum weight was already set to %s", this.f64053e);
+            n.x(this.f64054f == null, "maximum size can not be combined with weigher");
             n.e(j >= 0, "maximum size must not be negative");
-            this.f63152d = j;
+            this.f64052d = j;
             return this;
         }
         return (CacheBuilder) invokeJ.objValue;
@@ -693,9 +693,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048605, this, j)) == null) {
-            n.z(this.f63153e == -1, "maximum weight was already set to %s", this.f63153e);
-            n.z(this.f63152d == -1, "maximum size was already set to %s", this.f63152d);
-            this.f63153e = j;
+            n.z(this.f64053e == -1, "maximum weight was already set to %s", this.f64053e);
+            n.z(this.f64052d == -1, "maximum size was already set to %s", this.f64052d);
+            this.f64053e = j;
             n.e(j >= 0, "maximum weight must not be negative");
             return this;
         }
@@ -703,7 +703,7 @@ public final class CacheBuilder<K, V> {
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.google.common.cache.CacheBuilder<K, V> */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: b.i.d.b.i<? super K1 extends K, ? super V1 extends V> */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: b.h.d.b.i<? super K1 extends K, ? super V1 extends V> */
     /* JADX WARN: Multi-variable type inference failed */
     public <K1 extends K, V1 extends V> CacheBuilder<K1, V1> z(i<? super K1, ? super V1> iVar) {
         InterceptResult invokeL;

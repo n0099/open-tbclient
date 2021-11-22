@@ -19,7 +19,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.FrsTabInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AttentionResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,19 +56,19 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
             JSONObject optJSONObject2 = jSONArray.optJSONObject(i2);
             if (optJSONObject2 != null) {
                 j jVar = new j();
-                jVar.f14141a = optJSONObject2.optString("id");
-                jVar.f14142b = optJSONObject2.optString("avatar");
-                jVar.f14143c = optJSONObject2.optString("name");
-                jVar.f14144d = optJSONObject2.optInt("level_id");
-                jVar.f14145e = optJSONObject2.optInt("this_week_post") == 1;
+                jVar.f14908a = optJSONObject2.optString("id");
+                jVar.f14909b = optJSONObject2.optString("avatar");
+                jVar.f14910c = optJSONObject2.optString("name");
+                jVar.f14911d = optJSONObject2.optInt("level_id");
+                jVar.f14912e = optJSONObject2.optInt("this_week_post") == 1;
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("block_pop_info");
                 if (optJSONObject3 != null) {
-                    jVar.f14146f = optJSONObject3.optInt("can_post") == 1;
-                    jVar.f14147g = optJSONObject3.optString("block_info");
+                    jVar.f14913f = optJSONObject3.optInt("can_post") == 1;
+                    jVar.f14914g = optJSONObject3.optString("block_info");
                 }
                 JSONArray optJSONArray = optJSONObject2.optJSONArray("tab_info");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    jVar.f14148h = new ArrayList();
+                    jVar.f14915h = new ArrayList();
                     for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                         JSONObject optJSONObject4 = optJSONArray.optJSONObject(i3);
                         if (optJSONObject4 != null) {
@@ -83,14 +83,14 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                             builder.tab_code = optJSONObject4.optString("tab_code");
                             builder.tab_version = Integer.valueOf(optJSONObject4.optInt("tab_version"));
                             builder.is_default = Integer.valueOf(optJSONObject4.optInt(AddressField.KEY_IS_DEFAULT));
-                            jVar.f14148h.add(new FrsTabItemData(builder.build(true)));
+                            jVar.f14915h.add(new FrsTabItemData(builder.build(true)));
                         }
                     }
                 }
                 jVar.j = optJSONObject2.optInt("is_forum_business_account") == 1;
                 if (optJSONObject2.optInt("has_postpre") == 1 && (optJSONObject = optJSONObject2.optJSONObject("post_prefix")) != null) {
                     PostPrefixData postPrefixData = new PostPrefixData();
-                    jVar.f14149i = postPrefixData;
+                    jVar.f14916i = postPrefixData;
                     postPrefixData.parserJson(optJSONObject);
                 }
                 this.mSelectForumDataList.add(jVar);

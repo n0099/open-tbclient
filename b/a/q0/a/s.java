@@ -25,7 +25,7 @@ public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static View.OnClickListener f11842a;
+    public static View.OnClickListener f12593a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -78,7 +78,7 @@ public class s {
                 return;
             }
         }
-        f11842a = new a();
+        f12593a = new a();
     }
 
     public static void a(MotionEvent motionEvent, int i2, long j) {
@@ -137,7 +137,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             if (e()) {
-                d.y().E();
+                d.y().F();
             } else {
                 c(i2, j, MissionEvent.MESSAGE_PAUSE);
             }
@@ -148,7 +148,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             if (e()) {
-                d.y().F();
+                d.y().G();
             } else {
                 c(i2, j, MissionEvent.MESSAGE_TOUCH);
             }
@@ -159,7 +159,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             if (e()) {
-                d.y().K(i2, j);
+                d.y().L(i2, j);
             } else {
                 c(i2, j, MissionEvent.MESSAGE_ACTIVITY);
             }
@@ -176,7 +176,7 @@ public class s {
             }
             b.a.q0.s.s.e f2 = b.a.q0.s.s.e.f(d2.getPageActivity(), completeTaskToastData.message);
             f2.g(completeTaskToastData.duration);
-            f2.h(f11842a);
+            f2.h(f12593a);
             f2.i(completeTaskToastData);
             f2.j();
             return f2;
@@ -188,7 +188,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
             if (e()) {
-                d.y().P(i2, j);
+                d.y().Q(i2, j);
             } else {
                 b(i2, i3, j, "onResume");
             }

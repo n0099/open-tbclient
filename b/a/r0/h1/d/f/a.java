@@ -20,13 +20,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17065a;
+    public int f18533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17066b;
+    public String f18534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<a0> f17067c;
+    public final List<a0> f18535c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class a {
                 return;
             }
         }
-        this.f17065a = 1;
-        this.f17066b = "https://boxnovel.baidu.com/boxnovel/haokan";
-        this.f17067c = new ArrayList();
+        this.f18533a = 1;
+        this.f18534b = "https://boxnovel.baidu.com/boxnovel/haokan";
+        this.f18535c = new ArrayList();
         List<a0> g2 = g();
         if (ListUtils.isEmpty(g2)) {
             return;
         }
-        this.f17067c.addAll(g2);
+        this.f18535c.addAll(g2);
     }
 
     public a0 a(int i2, String str, String str2, String str3) {
@@ -56,10 +56,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, str3})) == null) {
             a0 a0Var = new a0();
-            a0Var.f13735a = i2;
-            a0Var.f13736b = str;
-            a0Var.f13737c = str2;
-            a0Var.f13738d = str3;
+            a0Var.f14500a = i2;
+            a0Var.f14501b = str;
+            a0Var.f14502c = str2;
+            a0Var.f14503d = str3;
             return a0Var;
         }
         return (a0) invokeCommon.objValue;
@@ -70,9 +70,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, str2)) == null) {
             a0 a0Var = new a0();
-            a0Var.f13735a = i2;
-            a0Var.f13736b = str;
-            a0Var.f13737c = str2;
+            a0Var.f14500a = i2;
+            a0Var.f14501b = str;
+            a0Var.f14502c = str2;
             return a0Var;
         }
         return (a0) invokeILL.objValue;
@@ -92,7 +92,7 @@ public class a {
             arrayList.add(b(201, e(R.string.tab_name_campus), "campus"));
             arrayList.add(b(201, e(R.string.tab_name_animes), "animes"));
             arrayList.add(b(201, e(R.string.tab_name_sports), "sports"));
-            arrayList.add(a(202, e(R.string.tab_name_novel), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.f17066b));
+            arrayList.add(a(202, e(R.string.tab_name_novel), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.f18534b));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -101,7 +101,7 @@ public class a {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17065a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18533a : invokeV.intValue;
     }
 
     public final String e(int i2) {
@@ -113,7 +113,7 @@ public class a {
     public List<a0> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17067c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f18535c : (List) invokeV.objValue;
     }
 
     public final List<a0> g() {
@@ -132,8 +132,8 @@ public class a {
             }
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 a0 a0Var = new a0();
-                a0Var.b(jSONArray.getJSONObject(i2));
-                if (!a0Var.a()) {
+                a0Var.e(jSONArray.getJSONObject(i2));
+                if (!a0Var.c()) {
                     arrayList.add(a0Var);
                 }
             }

@@ -7,7 +7,6 @@ import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.ss.android.download.api.constant.BaseConstants;
 import com.ss.android.downloadlib.addownload.j;
 /* loaded from: classes2.dex */
 public class a {
@@ -26,9 +25,9 @@ public class a {
                 return false;
             }
             if (j.i().optInt("market_url_opt", 1) == 0) {
-                return BaseConstants.SCHEME_MARKET.equals(scheme);
+                return "market".equals(scheme);
             }
-            return BaseConstants.SCHEME_MARKET.equals(scheme) || "appmarket".equals(scheme) || "oaps".equals(scheme) || "oppomarket".equals(scheme) || "mimarket".equals(scheme) || "vivomarket".equals(scheme) || "vivoMarket".equals(scheme) || "gomarket".equals(scheme) || "goMarket".equals(scheme) || "mstore".equals(scheme) || "samsungapps".equals(scheme);
+            return "market".equals(scheme) || "appmarket".equals(scheme) || "oaps".equals(scheme) || "oppomarket".equals(scheme) || "mimarket".equals(scheme) || "vivomarket".equals(scheme) || "vivoMarket".equals(scheme) || "gomarket".equals(scheme) || "goMarket".equals(scheme) || "mstore".equals(scheme) || "samsungapps".equals(scheme);
         }
         return invokeL.booleanValue;
     }

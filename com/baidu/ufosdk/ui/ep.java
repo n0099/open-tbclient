@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ep extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f56976a;
+    public int f57898a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56977b;
+    public String f57899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public eq f56978c;
+    public eq f57900c;
 
     public ep(String str, eq eqVar) {
         Interceptable interceptable = $ic;
@@ -37,19 +37,19 @@ public final class ep extends ClickableSpan {
                 return;
             }
         }
-        this.f56976a = -11821318;
-        this.f56977b = str;
-        this.f56978c = eqVar;
+        this.f57898a = -11821318;
+        this.f57899b = str;
+        this.f57900c = eqVar;
     }
 
     @Override // android.text.style.ClickableSpan
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            com.baidu.ufosdk.f.c.a("text clicked!!!" + this.f56977b);
-            eq eqVar = this.f56978c;
+            com.baidu.ufosdk.f.c.a("text clicked!!!" + this.f57899b);
+            eq eqVar = this.f57900c;
             if (eqVar != null) {
-                eqVar.a(this.f56977b);
+                eqVar.a(this.f57899b);
             }
         }
     }
@@ -59,7 +59,7 @@ public final class ep extends ClickableSpan {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
             super.updateDrawState(textPaint);
-            textPaint.setColor(this.f56976a);
+            textPaint.setColor(this.f57898a);
         }
     }
 }

@@ -2,10 +2,10 @@ package b.a.r0.l1.t;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.d.l;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.q;
+import b.a.e.f.d.l;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.q;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -23,7 +23,7 @@ public class b extends b.a.r0.l1.t.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f20393b;
+    public static b f21915b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -32,16 +32,16 @@ public class b extends b.a.r0.l1.t.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f20394a;
+        public final /* synthetic */ String f21916a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f20395b;
+        public final /* synthetic */ String f21917b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f20396c;
+        public final /* synthetic */ long f21918c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ b f20397d;
+        public final /* synthetic */ b f21919d;
 
         public a(b bVar, String str, String str2, long j) {
             Interceptable interceptable = $ic;
@@ -58,22 +58,22 @@ public class b extends b.a.r0.l1.t.a {
                     return;
                 }
             }
-            this.f20397d = bVar;
-            this.f20394a = str;
-            this.f20395b = str2;
-            this.f20396c = j;
+            this.f21919d = bVar;
+            this.f21916a = str;
+            this.f21917b = str2;
+            this.f21918c = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                GroupSettingItemData a2 = this.f20397d.a(this.f20394a, this.f20395b);
+                GroupSettingItemData a2 = this.f21919d.a(this.f21916a, this.f21917b);
                 if (a2 != null && a2.isAlreadyApply()) {
-                    if (System.currentTimeMillis() - a2.getLastApplyTimeStamp() <= this.f20396c) {
+                    if (System.currentTimeMillis() - a2.getLastApplyTimeStamp() <= this.f21918c) {
                         return Boolean.FALSE;
                     }
                 }
@@ -85,20 +85,20 @@ public class b extends b.a.r0.l1.t.a {
 
     /* renamed from: b.a.r0.l1.t.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1015b extends i0<Void> {
+    public class C1083b extends i0<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupSettingItemData f20398a;
+        public final /* synthetic */ GroupSettingItemData f21920a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f20399b;
+        public final /* synthetic */ String f21921b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f20400c;
+        public final /* synthetic */ b f21922c;
 
-        public C1015b(b bVar, GroupSettingItemData groupSettingItemData, String str) {
+        public C1083b(b bVar, GroupSettingItemData groupSettingItemData, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,19 +113,19 @@ public class b extends b.a.r0.l1.t.a {
                     return;
                 }
             }
-            this.f20400c = bVar;
-            this.f20398a = groupSettingItemData;
-            this.f20399b = str;
+            this.f21922c = bVar;
+            this.f21920a = groupSettingItemData;
+            this.f21921b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f20400c.b().g(this.f20399b, OrmObject.jsonStrWithObject(this.f20398a));
+                this.f21922c.b().g(this.f21921b, OrmObject.jsonStrWithObject(this.f21920a));
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -138,10 +138,10 @@ public class b extends b.a.r0.l1.t.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f20401a;
+        public final /* synthetic */ String f21923a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f20402b;
+        public final /* synthetic */ b f21924b;
 
         public c(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -158,18 +158,18 @@ public class b extends b.a.r0.l1.t.a {
                     return;
                 }
             }
-            this.f20402b = bVar;
-            this.f20401a = str;
+            this.f21924b = bVar;
+            this.f21923a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f20402b.b().remove(this.f20401a);
+                this.f21924b.b().remove(this.f21923a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -189,7 +189,7 @@ public class b extends b.a.r0.l1.t.a {
                 return;
             }
         }
-        f20393b = new b();
+        f21915b = new b();
     }
 
     public b() {
@@ -209,7 +209,7 @@ public class b extends b.a.r0.l1.t.a {
     public static b k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f20393b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f21915b : (b) invokeV.objValue;
     }
 
     @Override // b.a.r0.l1.t.a
@@ -234,8 +234,8 @@ public class b extends b.a.r0.l1.t.a {
                 l<String> b2 = b();
                 String str = uid + "@" + gid;
                 String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-                synchronized (this.f20389a) {
-                    this.f20389a.put(str, groupSettingItemData);
+                synchronized (this.f21911a) {
+                    this.f21911a.put(str, groupSettingItemData);
                 }
                 b2.g(str, jsonStrWithObject);
             } else if (TbConfig.getDebugSwitch()) {
@@ -253,10 +253,10 @@ public class b extends b.a.r0.l1.t.a {
             String gid = groupSettingItemData.getGid();
             if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
                 String str = uid + "@" + gid;
-                synchronized (this.f20389a) {
-                    this.f20389a.put(str, groupSettingItemData);
+                synchronized (this.f21911a) {
+                    this.f21911a.put(str, groupSettingItemData);
                 }
-                l0.c(new C1015b(this, groupSettingItemData, str), qVar);
+                l0.c(new C1083b(this, groupSettingItemData, str), qVar);
             } else if (TbConfig.getDebugSwitch()) {
                 throw new RuntimeException("key param is null");
             }
@@ -269,8 +269,8 @@ public class b extends b.a.r0.l1.t.a {
             return;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.f20389a) {
-            this.f20389a.remove(str3);
+        synchronized (this.f21911a) {
+            this.f21911a.remove(str3);
         }
         l0.c(new c(this, str3), qVar);
     }
@@ -287,8 +287,8 @@ public class b extends b.a.r0.l1.t.a {
                 return null;
             }
             String str3 = str + "@" + str2;
-            synchronized (this.f20389a) {
-                ChatSetting chatSetting = this.f20389a.get(str3);
+            synchronized (this.f21911a) {
+                ChatSetting chatSetting = this.f21911a.get(str3);
                 groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
             }
             if (groupSettingItemData == null) {

@@ -10,7 +10,7 @@ import io.reactivex.Flowable;
 import io.reactivex.internal.fuseable.ScalarCallable;
 import io.reactivex.internal.subscriptions.ScalarSubscription;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class FlowableJust<T> extends Flowable<T> implements ScalarCallable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

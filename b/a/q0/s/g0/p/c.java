@@ -34,10 +34,10 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (Intrinsics.areEqual(ItemCardHelper.f45539a, str)) {
+            if (Intrinsics.areEqual(ItemCardHelper.f46389a, str)) {
                 return 1;
             }
-            return Intrinsics.areEqual(ItemCardHelper.f45540b, str) ? 2 : 9;
+            return Intrinsics.areEqual(ItemCardHelper.f46390b, str) ? 2 : 9;
         }
         return invokeL.intValue;
     }

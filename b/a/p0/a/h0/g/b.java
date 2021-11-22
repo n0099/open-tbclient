@@ -13,10 +13,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f5228a = -1;
+    public static int f5410a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b.a.p0.a.k2.g.g f5229b;
+    public static b.a.p0.a.o2.g.g f5411b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,34 +48,34 @@ public class b {
         }
     }
 
-    public static b.a.p0.a.k2.g.g a() {
+    public static b.a.p0.a.o2.g.g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f5229b == null) {
+            if (f5411b == null) {
                 synchronized (b.class) {
-                    if (f5229b == null) {
-                        f5229b = new b.a.p0.a.k2.g.g("swan_about_page_sp", true);
+                    if (f5411b == null) {
+                        f5411b = new b.a.p0.a.o2.g.g("swan_about_page_sp", true);
                     }
                 }
             }
-            return f5229b;
+            return f5411b;
         }
-        return (b.a.p0.a.k2.g.g) invokeV.objValue;
+        return (b.a.p0.a.o2.g.g) invokeV.objValue;
     }
 
     public static String b() {
         InterceptResult invokeV;
-        String k;
+        String N;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            b.a.p0.a.a2.e P = b.a.p0.a.a2.e.P();
-            if (P == null) {
-                k = b.a.p0.a.v.a.a(b.a.p0.a.a2.d.g().getAppId());
+            b.a.p0.a.d2.e a0 = b.a.p0.a.d2.e.a0();
+            if (a0 == null) {
+                N = b.a.p0.a.v.a.a(b.a.p0.a.d2.d.J().getAppId());
             } else {
-                k = P.k();
+                N = a0.N();
             }
-            return "pref_tool_" + k;
+            return "pref_tool_" + N;
         }
         return (String) invokeV.objValue;
     }
@@ -84,10 +84,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f5228a == -1) {
-                f5228a = a().getInt(b(), 0);
+            if (f5410a == -1) {
+                f5410a = a().getInt(b(), 0);
             }
-            return f5228a == 1;
+            return f5410a == 1;
         }
         return invokeV.booleanValue;
     }

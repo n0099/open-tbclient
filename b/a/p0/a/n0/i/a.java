@@ -1,7 +1,7 @@
 package b.a.p0.a.n0.i;
 
 import b.a.p0.a.k;
-import b.a.p0.a.k2.g.h;
+import b.a.p0.a.o2.g.h;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6808a;
+    public static final boolean f7137a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class a {
                 return;
             }
         }
-        f6808a = k.f6397a;
+        f7137a = k.f6863a;
     }
 
     public static String a(int i2, String str) {
@@ -45,7 +45,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             long j = h.a().getLong(a(i2, "launch_time"), 0L);
-            if (f6808a) {
+            if (f7137a) {
                 String str = "frame_type : " + i2 + " , launch time : " + j;
             }
             return j;
@@ -59,7 +59,7 @@ public class a {
             String a2 = a(i2, "launch_time");
             long currentTimeMillis = System.currentTimeMillis();
             h.a().putLong(a2, currentTimeMillis);
-            if (f6808a) {
+            if (f7137a) {
                 String str = "frame_type : " + i2 + " , launch time : " + currentTimeMillis;
             }
         }

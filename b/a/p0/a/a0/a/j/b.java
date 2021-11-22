@@ -17,19 +17,19 @@ public class b implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Stack<b> f3798e;
+    public Stack<b> f3892e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f3799f;
+    public Paint f3893f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f3800g;
+    public Paint f3894g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f3801h;
+    public Paint f3895h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextPaint f3802i;
+    public TextPaint f3896i;
     public Path j;
     public boolean k;
     public CanvasView l;
@@ -54,11 +54,11 @@ public class b implements Cloneable {
                 return;
             }
         }
-        this.f3798e = new Stack<>();
-        this.f3799f = new Paint();
-        this.f3800g = new Paint();
-        this.f3801h = new Paint();
-        this.f3802i = new TextPaint();
+        this.f3892e = new Stack<>();
+        this.f3893f = new Paint();
+        this.f3894g = new Paint();
+        this.f3895h = new Paint();
+        this.f3896i = new TextPaint();
         this.j = new Path();
         this.k = false;
         this.n = -1;
@@ -89,9 +89,9 @@ public class b implements Cloneable {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paint) == null) || paint == null) {
             return;
         }
-        if (this.l != null && (k0Var = this.m) != null && (iVar = k0Var.f3853h) != null && !iVar.c()) {
+        if (this.l != null && (k0Var = this.m) != null && (iVar = k0Var.f3947h) != null && !iVar.c()) {
             k0 k0Var2 = this.m;
-            paint.setShadowLayer(k0Var2.f3852g, k0Var2.f3850e, k0Var2.f3851f, k0Var2.f3853h.a());
+            paint.setShadowLayer(k0Var2.f3946g, k0Var2.f3944e, k0Var2.f3945f, k0Var2.f3947h.a());
         }
         int i2 = this.n;
         if (i2 < 0 || i2 > 255) {
@@ -104,32 +104,32 @@ public class b implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.q = -16777216;
-            this.f3800g.setStyle(Paint.Style.STROKE);
-            this.f3799f.setColor(-16777216);
-            this.f3800g.setColor(-16777216);
-            this.f3801h.setColor(-16777216);
-            this.f3802i.setColor(-16777216);
-            this.f3800g.setStrokeWidth(b.a.p0.a.v2.n0.g(1.0f));
-            this.f3800g.setAntiAlias(true);
-            this.f3802i.setAntiAlias(true);
-            this.f3801h.setAntiAlias(true);
+            this.f3894g.setStyle(Paint.Style.STROKE);
+            this.f3893f.setColor(-16777216);
+            this.f3894g.setColor(-16777216);
+            this.f3895h.setColor(-16777216);
+            this.f3896i.setColor(-16777216);
+            this.f3894g.setStrokeWidth(b.a.p0.a.z2.n0.g(1.0f));
+            this.f3894g.setAntiAlias(true);
+            this.f3896i.setAntiAlias(true);
+            this.f3895h.setAntiAlias(true);
             this.j.reset();
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f3798e.empty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f3892e.empty()) {
             return;
         }
-        b pop = this.f3798e.pop();
-        this.f3799f = pop.f3799f;
-        this.f3800g = pop.f3800g;
-        this.f3801h = pop.f3801h;
-        this.f3802i = pop.f3802i;
+        b pop = this.f3892e.pop();
+        this.f3893f = pop.f3893f;
+        this.f3894g = pop.f3894g;
+        this.f3895h = pop.f3895h;
+        this.f3896i = pop.f3896i;
         this.j = pop.j;
         this.k = pop.k;
-        this.f3798e = pop.f3798e;
+        this.f3892e = pop.f3892e;
         this.m = pop.m;
         this.n = pop.n;
         this.o = pop.o;
@@ -141,15 +141,15 @@ public class b implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             b bVar = (b) super.clone();
-            bVar.f3799f = new Paint(this.f3799f);
-            bVar.f3800g = new Paint(this.f3800g);
-            bVar.f3801h = new Paint(this.f3801h);
-            bVar.f3802i = new TextPaint(this.f3802i);
+            bVar.f3893f = new Paint(this.f3893f);
+            bVar.f3894g = new Paint(this.f3894g);
+            bVar.f3895h = new Paint(this.f3895h);
+            bVar.f3896i = new TextPaint(this.f3896i);
             bVar.j = new Path(this.j);
             bVar.o = this.o;
             bVar.p = this.p;
             bVar.q = this.q;
-            this.f3798e.push(bVar);
+            this.f3892e.push(bVar);
         }
     }
 }

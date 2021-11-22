@@ -64,15 +64,15 @@ public final class p extends Handler {
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
             } else if (i2 != 4) {
                 parse = null;
-                query = oVar.f62909a.getContentResolver().query(parse, null, null, null, null);
+                query = oVar.f63809a.getContentResolver().query(parse, null, null, null, null);
                 if (query != null) {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
                 }
-                q.f62916g = r2;
-                Context context = q.f62910a;
-                synchronized (q.f62913d) {
-                    q.f62913d.notify();
+                q.f63816g = r2;
+                Context context = q.f63810a;
+                synchronized (q.f63813d) {
+                    q.f63813d.notify();
                 }
                 return;
             } else {
@@ -85,12 +85,12 @@ public final class p extends Handler {
             str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
         parse = Uri.parse(str);
-        query = oVar.f62909a.getContentResolver().query(parse, null, null, null, null);
+        query = oVar.f63809a.getContentResolver().query(parse, null, null, null, null);
         if (query != null) {
         }
-        q.f62916g = r2;
-        Context context2 = q.f62910a;
-        synchronized (q.f62913d) {
+        q.f63816g = r2;
+        Context context2 = q.f63810a;
+        synchronized (q.f63813d) {
         }
     }
 }

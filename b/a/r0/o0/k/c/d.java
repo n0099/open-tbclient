@@ -20,19 +20,19 @@ public class d extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21740e;
+    public String f23239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21741f;
+    public int f23240f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21742g;
+    public int f23241g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<b> f21743h;
+    public List<b> f23242h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<c> f21744i;
+    public List<c> f23243i;
 
     static {
         InterceptResult invokeClinit;
@@ -63,7 +63,7 @@ public class d extends BaseCardInfo {
                 return;
             }
         }
-        this.f21742g = 0;
+        this.f23241g = 0;
     }
 
     public final c g() {
@@ -89,10 +89,10 @@ public class d extends BaseCardInfo {
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21740e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23239e : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class d extends BaseCardInfo {
     public List<b> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21743h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23242h : (List) invokeV.objValue;
     }
 
     public final b k() {
@@ -110,15 +110,15 @@ public class d extends BaseCardInfo {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f21742g < i().size()) {
-                bVar = i().get(this.f21742g);
-            } else if (this.f21741f >= i().size()) {
+            if (this.f23241g < i().size()) {
+                bVar = i().get(this.f23241g);
+            } else if (this.f23240f >= i().size()) {
                 return null;
             } else {
-                this.f21742g = 0;
-                bVar = i().get(this.f21742g);
+                this.f23241g = 0;
+                bVar = i().get(this.f23241g);
             }
-            this.f21742g++;
+            this.f23241g++;
             return bVar;
         }
         return (b) invokeV.objValue;
@@ -127,13 +127,13 @@ public class d extends BaseCardInfo {
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21741f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23240f : invokeV.intValue;
     }
 
     public List<c> p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21744i : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23243i : (List) invokeV.objValue;
     }
 
     public List<c> q() {
@@ -144,7 +144,7 @@ public class d extends BaseCardInfo {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            if (this.f21741f == 2) {
+            if (this.f23240f == 2) {
                 if (g() != null) {
                     arrayList.add(g());
                 }
@@ -167,28 +167,28 @@ public class d extends BaseCardInfo {
     public void t(List<b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f21743h = list;
+            this.f23242h = list;
         }
     }
 
     public void w(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f21741f = i2;
+            this.f23240f = i2;
         }
     }
 
     public final void x(List<c> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-            this.f21744i = list;
+            this.f23243i = list;
         }
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f21740e = str;
+            this.f23239e = str;
         }
     }
 }

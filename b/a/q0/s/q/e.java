@@ -20,31 +20,31 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13276a;
+    public String f14056a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13277b;
+    public int f14057b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13278c;
+    public String f14058c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13279d;
+    public String f14059d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13280e;
+    public String f14060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13281f;
+    public String f14061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13282g;
+    public String f14062g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13283h;
+    public String f14063h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13284i;
+    public boolean f14064i;
 
     static {
         InterceptResult invokeClinit;
@@ -85,127 +85,127 @@ public class e {
     public static void b(AdvertAppInfo advertAppInfo) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) || advertAppInfo == null || (eVar = advertAppInfo.g4) == null || eVar.f13284i || a(eVar.f13283h)) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) || advertAppInfo == null || (eVar = advertAppInfo.h4) == null || eVar.f14064i || a(eVar.f14063h)) {
             return;
         }
-        b.a.r0.z2.l0.c b2 = b.a.r0.z2.l0.g.b(advertAppInfo, 3, eVar.f13277b);
-        b2.h(eVar.f13276a);
-        b2.a("isCache", eVar.f13278c);
-        b2.e(eVar.f13280e);
-        b2.f(eVar.f13281f);
-        b2.g(eVar.f13279d);
-        b2.a("vc", eVar.f13282g);
-        b2.v(eVar.f13283h);
-        b.a.r0.z2.l0.e.b().d(b2);
+        b.a.r0.a3.l0.c b2 = b.a.r0.a3.l0.g.b(advertAppInfo, 3, eVar.f14057b);
+        b2.h(eVar.f14056a);
+        b2.a("isCache", eVar.f14058c);
+        b2.e(eVar.f14060e);
+        b2.f(eVar.f14061f);
+        b2.g(eVar.f14059d);
+        b2.a("vc", eVar.f14062g);
+        b2.v(eVar.f14063h);
+        b.a.r0.a3.l0.e.b().d(b2);
         b.a.r0.q1.o.h.c.g(b.a.r0.q1.o.h.c.e(advertAppInfo));
-        eVar.f13284i = true;
-        j.add(eVar.f13283h);
+        eVar.f14064i = true;
+        j.add(eVar.f14063h);
     }
 
     public static void c(e eVar, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{eVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || eVar == null || eVar.f13284i || a(eVar.f13283h)) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{eVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || eVar == null || eVar.f14064i || a(eVar.f14063h)) {
             return;
         }
-        b.a.r0.z2.l0.c g2 = b.a.r0.z2.l0.g.g(z ? 13 : 3, i2, eVar.f13277b);
-        g2.h(eVar.f13276a);
-        g2.a("isCache", String.valueOf(eVar.f13278c));
-        g2.e(eVar.f13280e);
-        g2.f(eVar.f13281f);
-        g2.g(eVar.f13279d);
-        g2.a("vc", eVar.f13282g);
-        g2.v(eVar.f13283h);
-        b.a.r0.z2.l0.e.b().d(g2);
-        eVar.f13284i = true;
-        j.add(eVar.f13283h);
+        b.a.r0.a3.l0.c g2 = b.a.r0.a3.l0.g.g(z ? 13 : 3, i2, eVar.f14057b);
+        g2.h(eVar.f14056a);
+        g2.a("isCache", String.valueOf(eVar.f14058c));
+        g2.e(eVar.f14060e);
+        g2.f(eVar.f14061f);
+        g2.g(eVar.f14059d);
+        g2.a("vc", eVar.f14062g);
+        g2.v(eVar.f14063h);
+        b.a.r0.a3.l0.e.b().d(g2);
+        eVar.f14064i = true;
+        j.add(eVar.f14063h);
     }
 
-    public static void d(b.a.r0.b0.e0.d dVar) {
+    public static void d(b.a.r0.b0.f0.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, dVar) == null) || dVar == null || dVar.g() == null || dVar.g().g4 == null || dVar.g().g4.f13284i || a(dVar.g().g4.f13283h)) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, dVar) == null) || dVar == null || dVar.g() == null || dVar.g().h4 == null || dVar.g().h4.f14064i || a(dVar.g().h4.f14063h)) {
             return;
         }
-        dVar.g().h4 = dVar.g().g4.f13276a;
-        b.a.r0.z2.l0.c c2 = b.a.r0.z2.l0.g.c(dVar.g(), 3, dVar.g().g4.f13277b);
-        c2.v(dVar.g().g4.f13283h);
-        b.a.r0.z2.l0.e.b().d(c2);
+        dVar.g().i4 = dVar.g().h4.f14056a;
+        b.a.r0.a3.l0.c c2 = b.a.r0.a3.l0.g.c(dVar.g(), 3, dVar.g().h4.f14057b);
+        c2.v(dVar.g().h4.f14063h);
+        b.a.r0.a3.l0.e.b().d(c2);
         b.a.r0.q1.o.h.c.g(b.a.r0.q1.o.h.c.e(dVar.g()));
-        dVar.g().g4.f13284i = true;
-        j.add(dVar.g().g4.f13283h);
+        dVar.g().h4.f14064i = true;
+        j.add(dVar.g().h4.f14063h);
     }
 
     public static void e(e eVar, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{eVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || eVar == null || eVar.f13284i || a(eVar.f13283h)) {
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{eVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || eVar == null || eVar.f14064i || a(eVar.f14063h)) {
             return;
         }
-        b.a.r0.z2.l0.c g2 = b.a.r0.z2.l0.g.g(z ? 13 : 3, i2, eVar.f13277b);
-        g2.h(eVar.f13276a);
-        g2.v(eVar.f13283h);
-        b.a.r0.z2.l0.e.b().d(g2);
-        eVar.f13284i = true;
-        j.add(eVar.f13283h);
+        b.a.r0.a3.l0.c g2 = b.a.r0.a3.l0.g.g(z ? 13 : 3, i2, eVar.f14057b);
+        g2.h(eVar.f14056a);
+        g2.v(eVar.f14063h);
+        b.a.r0.a3.l0.e.b().d(g2);
+        eVar.f14064i = true;
+        j.add(eVar.f14063h);
     }
 
-    public static void f(b.a.r0.l3.j0.p pVar) {
+    public static void f(b.a.r0.m3.j0.p pVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65543, null, pVar) == null) || pVar == null || pVar.getAdvertAppInfo() == null) {
             return;
         }
-        e eVar = pVar.getAdvertAppInfo().g4;
-        if (pVar.P0 || !(eVar == null || eVar.f13284i || a(eVar.f13283h))) {
-            pVar.J0 = eVar.f13280e;
-            pVar.K0 = eVar.f13281f;
-            pVar.I0 = eVar.f13279d;
+        e eVar = pVar.getAdvertAppInfo().h4;
+        if (pVar.P0 || !(eVar == null || eVar.f14064i || a(eVar.f14063h))) {
+            pVar.J0 = eVar.f14060e;
+            pVar.K0 = eVar.f14061f;
+            pVar.I0 = eVar.f14059d;
             int i2 = 3;
             if (pVar != null && pVar.L0() != null && pVar.L0().forFree()) {
                 i2 = 103;
             }
-            b.a.r0.z2.l0.c e2 = b.a.r0.z2.l0.g.e(pVar, i2);
-            e2.v(eVar.f13283h);
-            b.a.r0.z2.l0.e.b().d(e2);
+            b.a.r0.a3.l0.c e2 = b.a.r0.a3.l0.g.e(pVar, i2);
+            e2.v(eVar.f14063h);
+            b.a.r0.a3.l0.e.b().d(e2);
             if (!pVar.P0) {
                 b.a.r0.q1.o.h.c.g(b.a.r0.q1.o.h.c.e(pVar.getAdvertAppInfo()));
             }
-            eVar.f13284i = true;
-            j.add(eVar.f13283h);
+            eVar.f14064i = true;
+            j.add(eVar.f14063h);
         }
     }
 
     public static void g(e eVar, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{eVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || eVar == null || eVar.f13284i || a(eVar.f13283h)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{eVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || eVar == null || eVar.f14064i || a(eVar.f14063h)) {
             return;
         }
         int i3 = z ? 13 : 3;
-        b.a.r0.z2.l0.c cVar = new b.a.r0.z2.l0.c();
+        b.a.r0.a3.l0.c cVar = new b.a.r0.a3.l0.c();
         cVar.i(i3);
-        if ("PB_BANNER".equals(eVar.f13276a)) {
+        if ("PB_BANNER".equals(eVar.f14056a)) {
             cVar.d(-1);
             cVar.x(-1);
         } else {
             cVar.d(i2);
-            cVar.x(eVar.f13277b);
+            cVar.x(eVar.f14057b);
         }
-        cVar.h(eVar.f13276a);
-        cVar.e(eVar.f13280e);
-        cVar.f(eVar.f13281f);
-        cVar.g(eVar.f13279d);
-        cVar.a("vc", eVar.f13282g);
-        cVar.v(eVar.f13283h);
-        b.a.r0.z2.l0.e.b().d(cVar);
-        eVar.f13284i = true;
-        j.add(eVar.f13283h);
+        cVar.h(eVar.f14056a);
+        cVar.e(eVar.f14060e);
+        cVar.f(eVar.f14061f);
+        cVar.g(eVar.f14059d);
+        cVar.a("vc", eVar.f14062g);
+        cVar.v(eVar.f14063h);
+        b.a.r0.a3.l0.e.b().d(cVar);
+        eVar.f14064i = true;
+        j.add(eVar.f14063h);
     }
 
     public static void h(b.a.f.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, dVar) == null) || dVar == null || dVar.i() == null || dVar.f2727i || TextUtils.isEmpty(dVar.i().f2729b) || a(dVar.i().f2729b)) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, dVar) == null) || dVar == null || dVar.i() == null || dVar.f2820i || TextUtils.isEmpty(dVar.i().f2822b) || a(dVar.i().f2822b)) {
             return;
         }
-        b.a.r0.z2.l0.e.b().d(b.a.r0.z2.l0.g.a(dVar, 3, dVar.k()));
+        b.a.r0.a3.l0.e.b().d(b.a.r0.a3.l0.g.a(dVar, 3, dVar.k()));
         b.a.r0.q1.o.h.c.g(dVar);
-        dVar.f2727i = true;
-        j.add(dVar.i().f2729b);
+        dVar.f2820i = true;
+        j.add(dVar.i().f2822b);
     }
 }

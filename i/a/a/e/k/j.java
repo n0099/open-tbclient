@@ -13,22 +13,22 @@ import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class j implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72242a;
+    public int f73161a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72243b;
+    public int f73162b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayUIKitConfig f72244c;
+    public PayUIKitConfig f73163c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i.a.a.e.l.b f72245d;
+    public i.a.a.e.l.b f73164d;
 
     public j(int i2, int i3, PayUIKitConfig payUIKitConfig, i.a.a.e.l.b bVar) {
         Interceptable interceptable = $ic;
@@ -45,17 +45,17 @@ public class j implements b {
                 return;
             }
         }
-        this.f72242a = i2;
-        this.f72243b = i3;
-        this.f72244c = payUIKitConfig;
-        this.f72245d = bVar;
+        this.f73161a = i2;
+        this.f73162b = i3;
+        this.f73163c = payUIKitConfig;
+        this.f73164d = bVar;
     }
 
     @Override // i.a.a.e.k.b
     public void a(Activity activity, PayFlowType payFlowType, i.a.a.e.l.f fVar, i.a.a.e.l.c cVar, AppCustomExpand appCustomExpand, IPayCallback iPayCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, payFlowType, fVar, cVar, appCustomExpand, iPayCallback, str}) == null) {
-            i.a.a.e.l.b bVar = this.f72245d;
+            i.a.a.e.l.b bVar = this.f73164d;
             if (bVar == null) {
                 RLog.error("PayCoreImpl", "payRequest error modelProvider null", new Object[0]);
                 return;
@@ -63,15 +63,15 @@ public class j implements b {
             i.a.a.b.b.a.a b2 = bVar.b(payFlowType);
             b2.q(iPayCallback);
             b2.o(activity);
-            b2.t(cVar.f72346a);
-            b2.u(fVar.f72356a);
+            b2.t(cVar.f73265a);
+            b2.u(fVar.f73275a);
             b2.p(appCustomExpand);
             b2.y(str);
-            PayType payType = fVar.f72356a;
+            PayType payType = fVar.f73275a;
             if (payType == PayType.DXM_PAY_KJ || payType == PayType.UNION_PAY) {
-                b2.v(i.a.a.e.l.e.b(this.f72244c));
+                b2.v(i.a.a.e.l.e.b(this.f73163c));
             }
-            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.f72242a, this.f72243b);
+            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.f73161a, this.f73162b);
             if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
                 middleRevenue.getMiddlePayService().a(b2);
             } else {

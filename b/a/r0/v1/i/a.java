@@ -12,23 +12,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f24401a;
+    public static Map<String, String> f25864a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (f24401a == null) {
+            if (f25864a == null) {
                 try {
                     Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
                     declaredField.setAccessible(true);
-                    f24401a = (Map) declaredField.get(null);
+                    f25864a = (Map) declaredField.get(null);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            return f24401a;
+            return f25864a;
         }
         return (Map) invokeV.objValue;
     }

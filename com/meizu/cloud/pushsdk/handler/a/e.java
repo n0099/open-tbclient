@@ -28,7 +28,7 @@ public class e extends a<MessageV3> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        b.l.a.a.a.d("AbstractMessageHandler", "start ThroughMessageHandler match");
+        b.j.a.a.a.d("AbstractMessageHandler", "start ThroughMessageHandler match");
         if (a(1, g(intent))) {
             if (PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction())) {
                 if ("message".equals(i(intent))) {

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.NotFoundException;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class FieldParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Object[][] FOUR_DIGIT_DATA_LENGTH;

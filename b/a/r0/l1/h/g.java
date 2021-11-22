@@ -19,13 +19,13 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f20142a;
+    public static String f21664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SQLiteDatabase f20143b;
+    public static volatile SQLiteDatabase f21665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, SQLiteDatabase> f20144c;
+    public static HashMap<String, SQLiteDatabase> f21666c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class g {
                 return;
             }
         }
-        f20144c = new HashMap<>();
+        f21666c = new HashMap<>();
     }
 
     public static void a(String str) {
@@ -99,7 +99,7 @@ public class g {
                 }
                 return linkedList;
             } finally {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
             }
         }
         return (LinkedList) invokeV.objValue;
@@ -118,19 +118,19 @@ public class g {
                     return null;
                 }
                 String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-                if (f20144c.containsKey(str)) {
-                    return f20144c.get(str);
+                if (f21666c.containsKey(str)) {
+                    return f21666c.get(str);
                 }
-                if (f20143b != null && str.equals(f20142a) && f20143b.isOpen()) {
-                    return f20143b;
+                if (f21665b != null && str.equals(f21664a) && f21665b.isOpen()) {
+                    return f21665b;
                 }
-                if (f20143b != null) {
-                    b.a.e.e.p.m.b(f20143b);
+                if (f21665b != null) {
+                    b.a.e.f.p.m.b(f21665b);
                 }
                 f fVar = new f(TbadkCoreApplication.getInst().getApp(), str);
-                f20142a = str;
-                f20143b = fVar.getWritableDatabase();
-                return f20143b;
+                f21664a = str;
+                f21665b = fVar.getWritableDatabase();
+                return f21665b;
             }
         }
         return (SQLiteDatabase) invokeV.objValue;

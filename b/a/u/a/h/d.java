@@ -18,13 +18,13 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f29054a;
+    public static Context f29923a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f29055b;
+    public static d f29924b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static File f29056c;
+    public static File f29925c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public d() {
@@ -46,7 +46,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (Environment.getExternalStorageState().equals("mounted")) {
-                File file = new File(f29054a.getExternalFilesDir("Log").getPath() + "/");
+                File file = new File(f29923a.getExternalFilesDir("Log").getPath() + "/");
                 String str = "file path ..." + file.getPath();
                 if (!file.exists()) {
                     file.mkdirs();
@@ -73,7 +73,7 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
                 Class<?> cls = Class.forName("com.baidu.android.imsdk.internal.IMConfigInternal");
-                String valueOf = String.valueOf(cls.getMethod("getSDKVersionValue", Context.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(new Object(), new Object[0]), f29054a));
+                String valueOf = String.valueOf(cls.getMethod("getSDKVersionValue", Context.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(new Object(), new Object[0]), f29923a));
                 return String.format("%s.%s.%s", valueOf.substring(0, 1), valueOf.substring(1, 2), valueOf.substring(2, 3));
             } catch (Exception e2) {
                 e2.getMessage();
@@ -89,15 +89,15 @@ public class d {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f29054a == null || f29055b == null || (file = f29056c) == null || !file.exists()) {
-                f29054a = context;
-                f29055b = new d();
-                f29056c = a();
+            if (f29923a == null || f29924b == null || (file = f29925c) == null || !file.exists()) {
+                f29923a = context;
+                f29924b = new d();
+                f29925c = a();
                 e("imsdkversion:" + b());
                 e("lcpsdkversion:" + d());
-                String str = "LogFilePath is: " + f29056c.getPath();
+                String str = "LogFilePath is: " + f29925c.getPath();
             }
-            return f29055b;
+            return f29924b;
         }
         return (d) invokeL.objValue;
     }
@@ -111,12 +111,12 @@ public class d {
     public static void e(Object obj) {
         File file;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj) == null) || f29054a == null || f29055b == null || (file = f29056c) == null || !file.exists()) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj) == null) || f29923a == null || f29924b == null || (file = f29925c) == null || !file.exists()) {
             return;
         }
         String str = System.currentTimeMillis() + ":" + obj.toString();
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f29056c, true));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f29925c, true));
             bufferedWriter.write(str);
             bufferedWriter.write(Part.CRLF);
             bufferedWriter.flush();

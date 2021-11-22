@@ -20,7 +20,7 @@ public class a extends d {
 
     /* renamed from: b.a.p0.a.u0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0419a {
+    public static /* synthetic */ class C0444a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -31,12 +31,12 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8433a;
+        public String f8968a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f8434b;
+        public final /* synthetic */ a f8969b;
 
-        public /* synthetic */ b(a aVar, String str, C0419a c0419a) {
+        public /* synthetic */ b(a aVar, String str, C0444a c0444a) {
             this(aVar, str);
         }
 
@@ -44,7 +44,7 @@ public class a extends d {
         public void a(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f8434b.d(this.f8433a, jSONObject == null ? new b.a.p0.a.u.h.b(0) : new b.a.p0.a.u.h.b(0, jSONObject));
+                this.f8969b.d(this.f8968a, jSONObject == null ? new b.a.p0.a.u.h.b(0) : new b.a.p0.a.u.h.b(0, jSONObject));
             }
         }
 
@@ -52,8 +52,7 @@ public class a extends d {
         public void onFail(int i2, @Nullable String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                boolean z = d.f8000c;
-                this.f8434b.d(this.f8433a, str == null ? new b.a.p0.a.u.h.b(i2) : new b.a.p0.a.u.h.b(i2, str));
+                this.f8969b.d(this.f8968a, str == null ? new b.a.p0.a.u.h.b(i2) : new b.a.p0.a.u.h.b(i2, str));
             }
         }
 
@@ -72,8 +71,8 @@ public class a extends d {
                     return;
                 }
             }
-            this.f8434b = aVar;
-            this.f8433a = str;
+            this.f8969b = aVar;
+            this.f8968a = str;
         }
     }
 
@@ -102,7 +101,6 @@ public class a extends d {
         public void a(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                boolean z = d.f8000c;
             }
         }
 
@@ -110,11 +108,10 @@ public class a extends d {
         public void onFail(int i2, @Nullable String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                boolean z = d.f8000c;
             }
         }
 
-        public /* synthetic */ c(a aVar, C0419a c0419a) {
+        public /* synthetic */ c(a aVar, C0444a c0444a) {
             this(aVar);
         }
     }
@@ -139,52 +136,61 @@ public class a extends d {
         }
     }
 
-    public b.a.p0.a.u.h.b q(String str) {
+    @Override // b.a.p0.a.u.c.d
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GameCenter" : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.a.u.c.d
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GameCenterApi" : (String) invokeV.objValue;
+    }
+
+    public b.a.p0.a.u.h.b x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (d.f8000c) {
-                String str2 = "postGameCenterMessage: " + str;
-            }
-            Pair<b.a.p0.a.u.h.b, JSONObject> b2 = b.a.p0.a.u.i.b.b("Api-GameCenterApi", str);
-            b.a.p0.a.u.h.b bVar = (b.a.p0.a.u.h.b) b2.first;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#postGameCenterMessage", false);
+            Pair<b.a.p0.a.u.h.b, JSONObject> s = s(str);
+            b.a.p0.a.u.h.b bVar = (b.a.p0.a.u.h.b) s.first;
             if (!bVar.isSuccess()) {
-                b.a.p0.a.e0.d.b("Api-GameCenterApi", "parse fail");
+                b.a.p0.a.e0.d.c("GameCenterApi", "parse fail");
                 return bVar;
             }
-            JSONObject jSONObject = (JSONObject) b2.second;
+            JSONObject jSONObject = (JSONObject) s.second;
             String optString = jSONObject.optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                b.a.p0.a.e0.d.b("Api-GameCenterApi", "empty cb");
+                b.a.p0.a.e0.d.c("GameCenterApi", "empty cb");
                 return new b.a.p0.a.u.h.b(202, "empty cb");
             }
-            return s(jSONObject, new b(this, optString, null));
+            return z(jSONObject, new b(this, optString, null));
         }
         return (b.a.p0.a.u.h.b) invokeL.objValue;
     }
 
-    public b.a.p0.a.u.h.b r(String str) {
+    public b.a.p0.a.u.h.b y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (d.f8000c) {
-                String str2 = "postGameCenterMessageSync: " + str;
-            }
-            Pair<b.a.p0.a.u.h.b, JSONObject> b2 = b.a.p0.a.u.i.b.b("Api-GameCenterApi", str);
-            b.a.p0.a.u.h.b bVar = (b.a.p0.a.u.h.b) b2.first;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            Pair<b.a.p0.a.u.h.b, JSONObject> s = s(str);
+            b.a.p0.a.u.h.b bVar = (b.a.p0.a.u.h.b) s.first;
             if (!bVar.isSuccess()) {
-                b.a.p0.a.e0.d.b("Api-GameCenterApi", "parse fail");
+                b.a.p0.a.e0.d.c("GameCenterApi", "parse fail");
                 return bVar;
             }
-            return s((JSONObject) b2.second, new c(this, null));
+            return z((JSONObject) s.second, new c(this, null));
         }
         return (b.a.p0.a.u.h.b) invokeL.objValue;
     }
 
-    public final b.a.p0.a.u.h.b s(@NonNull JSONObject jSONObject, @NonNull b.a.p0.a.u0.b bVar) {
+    public final b.a.p0.a.u.h.b z(@NonNull JSONObject jSONObject, @NonNull b.a.p0.a.u0.b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, bVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, jSONObject, bVar)) == null) {
             String optString = jSONObject.optString(RetrieveTaskManager.KEY);
             if (TextUtils.isEmpty(optString)) {
                 return new b.a.p0.a.u.h.b(202, "empty api name");
@@ -193,7 +199,7 @@ public class a extends d {
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
-            b.a.p0.a.u.h.b a2 = b.a.p0.a.c1.a.m0().a(optString, optJSONObject, bVar);
+            b.a.p0.a.u.h.b a2 = b.a.p0.a.c1.a.v0().a(optString, optJSONObject, bVar);
             return a2 == null ? new b.a.p0.a.u.h.b(0) : a2;
         }
         return (b.a.p0.a.u.h.b) invokeLL.objValue;

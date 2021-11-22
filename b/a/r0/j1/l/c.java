@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
 /* loaded from: classes4.dex */
-public class c implements b.a.e.l.e.n {
+public class c implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18433e;
+    public String f19767e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18434f;
+    public String f19768f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18435g;
+    public String f19769g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18436h;
+    public int f19770h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f18437i;
+    public long f19771i;
     public String j;
     public int k;
     public long l;
@@ -66,7 +66,7 @@ public class c implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f18436h = -1;
+        this.f19770h = -1;
     }
 
     public long a() {
@@ -78,13 +78,13 @@ public class c implements b.a.e.l.e.n {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18437i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19771i : invokeV.longValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18433e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19767e : (String) invokeV.objValue;
     }
 
     public String g() {
@@ -93,7 +93,7 @@ public class c implements b.a.e.l.e.n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class c implements b.a.e.l.e.n {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f18435g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19769g : (String) invokeV.objValue;
     }
 
     public int i() {
@@ -115,13 +115,13 @@ public class c implements b.a.e.l.e.n {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f18434f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f19768f : (String) invokeV.objValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f18436h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19770h : invokeV.intValue;
     }
 
     public void n(TopicList topicList) {
@@ -129,7 +129,7 @@ public class c implements b.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, topicList) == null) || topicList == null) {
             return;
         }
-        this.f18437i = topicList.topic_id.longValue();
+        this.f19771i = topicList.topic_id.longValue();
         this.j = topicList.topic_name;
         this.k = topicList.tag.intValue();
         this.l = topicList.discuss_num.longValue();
@@ -141,9 +141,9 @@ public class c implements b.a.e.l.e.n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, topicListModule) == null) {
             try {
-                this.f18433e = topicListModule.module_title;
-                this.f18434f = topicListModule.tips;
-                this.f18435g = topicListModule.rule_jump_url;
+                this.f19767e = topicListModule.module_title;
+                this.f19768f = topicListModule.tips;
+                this.f19769g = topicListModule.rule_jump_url;
             } catch (Exception e2) {
                 BdLog.e(e2.toString());
             }
@@ -153,7 +153,7 @@ public class c implements b.a.e.l.e.n {
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f18436h = i2;
+            this.f19770h = i2;
         }
     }
 }

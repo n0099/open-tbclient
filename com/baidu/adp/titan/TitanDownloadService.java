@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import androidx.annotation.Nullable;
-import b.a.e.k.f;
-import b.a.e.k.h;
-import b.a.e.k.i;
+import b.a.e.l.f;
+import b.a.e.l.h;
+import b.a.e.l.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,10 +29,10 @@ public class TitanDownloadService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f34493e;
+        public final /* synthetic */ f f35325e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f34494f;
+        public final /* synthetic */ TitanDownloadService f35326f;
 
         public a(TitanDownloadService titanDownloadService, f fVar) {
             Interceptable interceptable = $ic;
@@ -49,15 +49,15 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f34494f = titanDownloadService;
-            this.f34493e = fVar;
+            this.f35326f = titanDownloadService;
+            this.f35325e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i.f(this.f34494f.mContext, "com.baidu.titan.patch", this.f34493e);
+                i.f(this.f35326f.mContext, "com.baidu.titan.patch", this.f35325e);
             }
         }
     }
@@ -68,10 +68,10 @@ public class TitanDownloadService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f34495a;
+        public int f35327a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f34496b;
+        public final /* synthetic */ TitanDownloadService f35328b;
 
         public b(TitanDownloadService titanDownloadService, int i2) {
             Interceptable interceptable = $ic;
@@ -88,15 +88,15 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f34496b = titanDownloadService;
-            this.f34495a = i2;
+            this.f35328b = titanDownloadService;
+            this.f35327a = i2;
         }
 
-        @Override // b.a.e.k.f
+        @Override // b.a.e.l.f
         public void a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-                this.f34496b.stopSelf(this.f34495a);
+                this.f35328b.stopSelf(this.f35327a);
             }
         }
     }

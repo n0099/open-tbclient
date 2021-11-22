@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,16 +40,16 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f68866a;
+    public static final char[] f69786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object[] f68867b;
+    public static Object[] f69787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object[] f68868c;
+    public static Object[] f69788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f68869d;
+    public static String f69789d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,10 +65,10 @@ public class l {
                 return;
             }
         }
-        f68867b = new Object[0];
-        f68868c = new Object[73];
-        f68866a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f68869d = null;
+        f69787b = new Object[0];
+        f69788c = new Object[73];
+        f69786a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f69789d = null;
     }
 
     public static boolean a(String str) {
@@ -451,10 +452,10 @@ public class l {
                 PackageInfo packageInfo = com.ss.android.downloadlib.addownload.j.getContext().getPackageManager().getPackageInfo(str, 0);
                 if (packageInfo != null) {
                     cVar.b(packageInfo.versionCode);
-                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f68496b);
+                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f69416b);
                     n g2 = com.ss.android.downloadlib.addownload.j.g();
                     if (g2 != null && g2.a() && !a(packageInfo.versionCode, i2, packageInfo.versionName, str2)) {
-                        cVar.a(com.ss.android.downloadlib.addownload.b.c.f68497c);
+                        cVar.a(com.ss.android.downloadlib.addownload.b.c.f69417c);
                     }
                 }
             } catch (Exception e2) {
@@ -562,8 +563,8 @@ public class l {
                     if (str.equals(str2)) {
                         return 0;
                     }
-                    String[] split = str.split("\\.");
-                    String[] split2 = str2.split("\\.");
+                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                     int min = Math.min(split.length, split2.length);
                     int i2 = 0;
                     int i3 = 0;

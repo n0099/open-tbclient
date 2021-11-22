@@ -25,10 +25,10 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40136a;
+    public static int f40968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f40137b;
+    public static Context f40969b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public class i {
                 return;
             }
         }
-        f40137b = BMapManager.getContext();
+        f40969b = BMapManager.getContext();
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
             throw new BaiduMapSDKException("the version of map is not match with base");
         }
@@ -59,16 +59,16 @@ public class i {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (f40136a == 0) {
-                if (f40137b == null) {
+            if (f40968a == 0) {
+                if (f40969b == null) {
                     throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
                 }
                 VMsg.init();
-                AppEngine.InitEngine(f40137b);
+                AppEngine.InitEngine(f40969b);
                 AppEngine.StartSocketProc();
-                NetworkUtil.updateNetworkProxy(f40137b);
+                NetworkUtil.updateNetworkProxy(f40969b);
             }
-            f40136a++;
+            f40968a++;
         }
     }
 
@@ -141,8 +141,8 @@ public class i {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            int i2 = f40136a - 1;
-            f40136a = i2;
+            int i2 = f40968a - 1;
+            f40968a = i2;
             if (i2 == 0) {
                 AppEngine.UnInitEngine();
                 VMsg.destroy();

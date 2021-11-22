@@ -16,7 +16,7 @@ public class d extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<String, String[]> f29330b;
+    public static final HashMap<String, String[]> f30199b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class d extends b {
                 return;
             }
         }
-        f29330b = new HashMap<>();
+        f30199b = new HashMap<>();
     }
 
     public d() {
@@ -48,24 +48,24 @@ public class d extends b {
                 return;
             }
         }
-        f29330b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
-        f29330b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
-        f29330b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
-        f29330b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
-        f29330b.put("color_F5F5F51", new String[]{"#F5F5F5", "", "", ""});
-        f29330b.put("color_F5F5F52", new String[]{"#F5F5F5", "", "", ""});
-        f29330b.put("color_F5F5F53", new String[]{"#F5F5F5", "", "", ""});
-        f29330b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
-        f29330b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
-        f29330b.put("color_858585", new String[]{"#858585", "", "", ""});
-        f29330b.put("color_525252", new String[]{"#525252", "", "", ""});
-        f29330b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
-        f29330b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
-        f29330b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
-        f29330b.put("color_8585852", new String[]{"#858585", "", "", ""});
-        f29330b.put("color_5252522", new String[]{"#525252", "", "", ""});
-        f29330b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
-        f29330b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
+        f30199b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
+        f30199b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
+        f30199b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
+        f30199b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
+        f30199b.put("color_F5F5F51", new String[]{"#F5F5F5", "", "", ""});
+        f30199b.put("color_F5F5F52", new String[]{"#F5F5F5", "", "", ""});
+        f30199b.put("color_F5F5F53", new String[]{"#F5F5F5", "", "", ""});
+        f30199b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
+        f30199b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
+        f30199b.put("color_858585", new String[]{"#858585", "", "", ""});
+        f30199b.put("color_525252", new String[]{"#525252", "", "", ""});
+        f30199b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
+        f30199b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
+        f30199b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
+        f30199b.put("color_8585852", new String[]{"#858585", "", "", ""});
+        f30199b.put("color_5252522", new String[]{"#525252", "", "", ""});
+        f30199b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
+        f30199b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
     }
 
     @Override // b.a.w.i.b
@@ -73,10 +73,10 @@ public class d extends b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
-            if (f29330b.containsKey(str)) {
-                String str2 = f29330b.get(str)[0];
+            if (f30199b.containsKey(str)) {
+                String str2 = f30199b.get(str)[0];
                 if (z) {
-                    str2 = f29330b.get(str)[3];
+                    str2 = f30199b.get(str)[3];
                 }
                 if (j.a(str2)) {
                     return -16777216;

@@ -57,6 +57,23 @@ public class V8Engine implements JSRuntime {
     public static boolean APP_DEBUG = false;
     public static final long CLOCKS_PER_SEC = 1000;
     public static final float DEFAULT_FRAMES = 16.666666f;
+    public static final int INVOKE_NATIVE_METHOD_ERROR_ENGINE_IS_NULL = 1;
+    public static final int INVOKE_NATIVE_METHOD_ERROR_HAS_NULL_PARAM = 4;
+    public static final int INVOKE_NATIVE_METHOD_ERROR_MUST_CALL_ON_V8_THREAD = 2;
+    public static final int INVOKE_NATIVE_METHOD_ERROR_PARAM_IS_NULL = 3;
+    public static final int INVOKE_NATIVE_METHOD_ERROR_USE_DESTROYED_ENGINE = 5;
+    public static final int INVOKE_NATIVE_METHOD_NO_ERROR = 0;
+    public static final int SET_NET_REQUEST_ERROR_ENGINE_PTR_IS_NULLPTR = 1;
+    public static final int SET_NET_REQUEST_ERROR_JAVA_NET_REQUEST_HAS_BEEN_SET_BEFORE = 196608;
+    public static final int SET_NET_REQUEST_ERROR_MUST_CALL_ON_V8_THREAD = 256;
+    public static final int SET_NET_REQUEST_ERROR_NET_REQUEST_OBJECT_IS_NULL = 2;
+    public static final int SET_NET_REQUEST_ERROR_NOT_SUPPORT_DIFFERENT_JAVA_NET_REQUEST_OBJ = 65536;
+    public static final int SET_NET_REQUEST_ERROR_REGISTER_NA_REQUEST_FAILED_CAN_NOT_FIND_SWAN_NATIVE = 262145;
+    public static final int SET_NET_REQUEST_ERROR_REGISTER_NA_REQUEST_FAILED_HAS_KEY_BUT_NOT_ALLOWED_OVERWRITING = 262144;
+    public static final int SET_NET_REQUEST_ERROR_UNKNOWN = 3;
+    public static final int SET_NET_REQUEST_ERROR_USE_DESTROYED_ENGINE = 512;
+    public static final int SET_NET_REQUEST_ERROR_V8NET_FUNCTION_TABLE_DELEGATE_NOT_READY = 131072;
+    public static final int SET_NET_REQUEST_NO_ERROR = 0;
     public static final String TAG = "V8Engine";
     public static final String TYPE_V8 = "v8";
     public static int mSurfaceViewHeight;
@@ -70,10 +87,10 @@ public class V8Engine implements JSRuntime {
     public transient /* synthetic */ FieldHolder $fh;
     public AssetManager mAssetManager;
     public String mBuildInV8BinPath;
-    public V8EngineConfiguration.CacheInfo mCacheInfo;
     public V8EngineConfiguration.CodeCacheSetting mCodeCacheSetting;
     public ComponentCallbacks2 mComponentCallbacks2;
     public ArrayList<V8EngineConsole> mConsoles;
+    public CustomJsCodeCacheHandler mCustomJsCodeCacheHandler;
     public String mDecodeBdfile;
     public File mDiskCodeCachePathFile;
     public JavaScriptExceptionDelegate mExceptionDelegate;
@@ -87,8 +104,10 @@ public class V8Engine implements JSRuntime {
     public InspectorNativeClient mInspectorNativeClient;
     public AtomicBoolean mIsDestroyed;
     public boolean mIsWorker;
+    @Deprecated
     public V8EngineConfiguration.JSCacheCallback mJSCacheCallback;
     public JavaBoundObjectManager mJavaBoundObjectManager;
+    public JsCodeCacheCallback mJsCodeCacheCallback;
     public Object mMainGlobalObject;
     public String mMainPackageBasePath;
     public long mNativeV8Engine;
@@ -97,6 +116,7 @@ public class V8Engine implements JSRuntime {
     public volatile boolean mPaused;
     public PerformanceJsonBean mPerformanceJsonBean;
     public volatile boolean mReady;
+    public volatile boolean mSetMemSetMemMemoryEnable;
     public Vector<Runnable> mSuspendableTasks;
     public V8ThreadDelegatePolicy mThreadDelegatePolicy;
     public String mThreadName;
@@ -245,6 +265,7 @@ public class V8Engine implements JSRuntime {
         this.mThreadName = "V8JavaScriptContext";
         this.mWorkerFactoryDelegate = null;
         this.mIsWorker = false;
+        this.mSetMemSetMemMemoryEnable = false;
         initialize(context, str, str2, v8ThreadDelegatePolicy, obj, obj2);
     }
 
@@ -266,9 +287,39 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    private int checkBeforeInvokeNativeMethod(boolean z, boolean z2, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), objArr})) == null) {
+            if (z) {
+                if (objArr == null) {
+                    return 3;
+                }
+                for (Object obj : objArr) {
+                    if (obj == null) {
+                        return 4;
+                    }
+                }
+            }
+            if (this.mNativeV8Engine == 0 || this.mIsDestroyed.get()) {
+                return 5;
+            }
+            if (z2) {
+                if (this.mThreadDelegatePolicy.getThread() == null) {
+                    return 2;
+                }
+                if (this.mThreadDelegatePolicy.getThread() != null && this.mThreadDelegatePolicy.getThread() != Thread.currentThread()) {
+                    return 2;
+                }
+            }
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
     public static void checkValid(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             long id = Thread.currentThread().getId();
             if (j2 == 0 || j2 == id) {
                 if (j == 0) {
@@ -283,16 +334,16 @@ public class V8Engine implements JSRuntime {
     private boolean checkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
-            Log.w(TAG, "[mario] version: 1.3.2.3 nativeVersion: " + nativeGetVersionName());
-            return "1.3.2.3".equals(nativeGetVersionName()) && 3 == nativeGetVersionCode();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
+            Log.w(TAG, "[mario] version: 1.3.6.1 nativeVersion: " + nativeGetVersionName());
+            return "1.3.6.1".equals(nativeGetVersionName()) && 1 == nativeGetVersionCode();
         }
         return invokeV.booleanValue;
     }
 
     public static void clearCrashKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65565, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65566, null, str) == null) {
             try {
                 if (sClearCrashKeyMethod == null) {
                     sClearCrashKeyMethod = Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("clearCrashKey", String.class);
@@ -306,7 +357,7 @@ public class V8Engine implements JSRuntime {
 
     private void delegateRunnable(Runnable runnable, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65566, this, runnable, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65567, this, runnable, z) == null) {
             V8ThreadDelegatePolicy v8ThreadDelegatePolicy = this.mThreadDelegatePolicy;
             if (v8ThreadDelegatePolicy == null) {
                 Log.e(TAG, "delegate runnable failed. please init thread delegate policy");
@@ -329,7 +380,7 @@ public class V8Engine implements JSRuntime {
 
     private void delegateRunnableAsync(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65567, this, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(65568, this, runnable) == null) {
             V8ThreadDelegatePolicy v8ThreadDelegatePolicy = this.mThreadDelegatePolicy;
             if (v8ThreadDelegatePolicy != null) {
                 v8ThreadDelegatePolicy.doDelegateRunnable(runnable);
@@ -341,7 +392,7 @@ public class V8Engine implements JSRuntime {
 
     public static void dumpJavaStackTraceToLogcat(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65569, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65570, null, str) == null) {
             StackTraceElement[] stackTraceElementArr = Thread.getAllStackTraces().get(Thread.currentThread());
             Log.w(str, "================Java StackTrace================");
             if (stackTraceElementArr != null) {
@@ -356,7 +407,7 @@ public class V8Engine implements JSRuntime {
     /* JADX INFO: Access modifiers changed from: private */
     public void evaluateJavascriptImpl(String str, ValueCallback<String> valueCallback, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65570, this, new Object[]{str, valueCallback, str2, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65571, this, new Object[]{str, valueCallback, str2, Boolean.valueOf(z)}) == null) {
             if (this.mIsDestroyed.get()) {
                 Log.w(TAG, "v8engine has been destroyed or not init. please init firstly.");
                 return;
@@ -372,13 +423,13 @@ public class V8Engine implements JSRuntime {
     public static Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? sAppContext : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? sAppContext : (Context) invokeV.objValue;
     }
 
     private String getBuildInV8BinPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, this)) == null) {
             if (this.mBuildInV8BinPath == null) {
                 this.mBuildInV8BinPath = getAppContext().getApplicationInfo().nativeLibraryDir + File.separator + "libcom.baidu.zeus.so";
             }
@@ -390,7 +441,7 @@ public class V8Engine implements JSRuntime {
     public static V8Engine getInstance(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65574, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65575, null, j)) == null) {
             synchronized (sEngines) {
                 V8Engine v8Engine = sEngines.get(Long.valueOf(j));
                 if (v8Engine == null || v8Engine.mIsDestroyed.get()) {
@@ -405,7 +456,7 @@ public class V8Engine implements JSRuntime {
     private final MemoryInfo getMemoryInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65575, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65576, this)) == null) {
             Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
             Debug.getMemoryInfo(memoryInfo);
             MemoryInfo memoryInfo2 = new MemoryInfo();
@@ -437,7 +488,7 @@ public class V8Engine implements JSRuntime {
     private String getTrimPath(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65576, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -453,7 +504,7 @@ public class V8Engine implements JSRuntime {
     private AssetManager getV8BinAssetManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65577, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65578, this)) == null) {
             if (this.mV8BinAssetManager == null) {
                 try {
                     String str = this.mExternalV8BinPath;
@@ -477,7 +528,7 @@ public class V8Engine implements JSRuntime {
 
     private void initialize(Context context, String str, String str2, V8ThreadDelegatePolicy v8ThreadDelegatePolicy, Object obj, Object obj2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65578, this, new Object[]{context, str, str2, v8ThreadDelegatePolicy, obj, obj2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65579, this, new Object[]{context, str, str2, v8ThreadDelegatePolicy, obj, obj2}) == null) {
             Context applicationContext = context.getApplicationContext();
             sAppContext = applicationContext;
             if (applicationContext != null) {
@@ -594,7 +645,6 @@ public class V8Engine implements JSRuntime {
                 this.mThreadDelegatePolicy = v8ThreadDelegatePolicy;
                 this.mMainGlobalObject = obj;
                 this.mOpenGlobalObject = obj2;
-                this.mCacheInfo = new V8EngineConfiguration.CacheInfo(null, false);
                 V8NetFunctionTable.addOnCronetThreadInitializedListener(new ValueCallback<Long>(this) { // from class: com.baidu.searchbox.v8engine.V8Engine.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -638,7 +688,7 @@ public class V8Engine implements JSRuntime {
     public static boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) ? APP_DEBUG : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) ? APP_DEBUG : invokeV.booleanValue;
     }
 
     public static native void nativeDeleteJsReleaser(long j, long j2, boolean z);
@@ -665,9 +715,13 @@ public class V8Engine implements JSRuntime {
 
     private native boolean nativeSetCodeCacheSetting(long j, String str, String str2, int i2, String[] strArr, int i3, long j2);
 
+    private native int nativeSetCustomJsCodeCacheHandler(long j, Object obj);
+
+    private native int nativeSetJavaNetRequest(long j, Object obj);
+
     private native void nativeSetMainPackageBasePath(long j, String str);
 
-    private native boolean nativeSetNetRequest(long j, Object obj);
+    private native void nativeSetMemSetMemoryEnable(long j, boolean z);
 
     private native void nativeSetUserAgent(long j, String str);
 
@@ -680,7 +734,7 @@ public class V8Engine implements JSRuntime {
 
     private void onDebugConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65597, this, str) == null) || this.mConsoles == null) {
+        if (!(interceptable == null || interceptable.invokeL(65600, this, str) == null) || this.mConsoles == null) {
             return;
         }
         for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
@@ -690,7 +744,7 @@ public class V8Engine implements JSRuntime {
 
     private void onErrorConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65598, this, str) == null) || this.mConsoles == null) {
+        if (!(interceptable == null || interceptable.invokeL(65601, this, str) == null) || this.mConsoles == null) {
             return;
         }
         for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
@@ -700,7 +754,7 @@ public class V8Engine implements JSRuntime {
 
     private void onInfoConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65599, this, str) == null) || this.mConsoles == null) {
+        if (!(interceptable == null || interceptable.invokeL(65602, this, str) == null) || this.mConsoles == null) {
             return;
         }
         for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
@@ -708,21 +762,24 @@ public class V8Engine implements JSRuntime {
         }
     }
 
-    private void onJsCacheCallback(String str, boolean z) {
-        V8EngineConfiguration.JSCacheCallback jSCacheCallback;
+    private void onJsCodeCacheFinished(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65600, this, str, z) == null) || (jSCacheCallback = this.mJSCacheCallback) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLZ(65603, this, str, str2, z) == null) {
+            try {
+                if (this.mJsCodeCacheCallback != null) {
+                    this.mJsCodeCacheCallback.onJsCodeCacheFinished(new JsCodeCacheResult(str, str2, z));
+                } else if (this.mJSCacheCallback != null) {
+                    this.mJSCacheCallback.onCacheResult(new V8EngineConfiguration.CacheInfo(str2, z));
+                }
+            } catch (Throwable th) {
+                Log.w(TAG, "onJsCodeCacheFinished invoke failed. please check the exception message.", th);
+            }
         }
-        V8EngineConfiguration.CacheInfo cacheInfo = this.mCacheInfo;
-        cacheInfo.jsPath = str;
-        cacheInfo.cached = z;
-        jSCacheCallback.onCacheResult(cacheInfo);
     }
 
     private void onLogConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65601, this, str) == null) || this.mConsoles == null) {
+        if (!(interceptable == null || interceptable.invokeL(65604, this, str) == null) || this.mConsoles == null) {
             return;
         }
         for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
@@ -732,7 +789,7 @@ public class V8Engine implements JSRuntime {
 
     private void onReady() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65602, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65605, this) == null) {
             this.mReady = true;
             if (this.mHandlers != null) {
                 for (V8StatusListener v8StatusListener : new ArrayList(this.mHandlers)) {
@@ -744,7 +801,7 @@ public class V8Engine implements JSRuntime {
 
     private void onTraceConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65603, this, str) == null) || this.mConsoles == null) {
+        if (!(interceptable == null || interceptable.invokeL(65606, this, str) == null) || this.mConsoles == null) {
             return;
         }
         for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
@@ -754,7 +811,7 @@ public class V8Engine implements JSRuntime {
 
     private void onWarnConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65604, this, str) == null) || this.mConsoles == null) {
+        if (!(interceptable == null || interceptable.invokeL(65607, this, str) == null) || this.mConsoles == null) {
             return;
         }
         for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
@@ -764,7 +821,7 @@ public class V8Engine implements JSRuntime {
 
     private synchronized void postSuspendableTasks() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65608, this) == null) {
             synchronized (this) {
                 if (this.mSuspendableTasks != null && !this.mSuspendableTasks.isEmpty() && !this.mIsDestroyed.get()) {
                     Iterator<Runnable> it = this.mSuspendableTasks.iterator();
@@ -784,7 +841,7 @@ public class V8Engine implements JSRuntime {
 
     public static void regiestMessageChannelForT7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65607, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65610, null) == null) {
             try {
                 Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("setMessageChannalFunctoinTable", Long.TYPE).invoke(null, Long.valueOf(nativeGetChannelFunctionTable()));
             } catch (Throwable th) {
@@ -803,7 +860,7 @@ public class V8Engine implements JSRuntime {
 
     public static void setCrashKeyValue(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65612, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65615, null, str, str2) == null) {
             try {
                 if (sSetCrashKeyValueMethod == null) {
                     sSetCrashKeyValueMethod = Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("setCrashKeyValue", String.class, String.class);
@@ -818,7 +875,7 @@ public class V8Engine implements JSRuntime {
     public static String toColorRGBA(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65613, null, str)) == null) ? nativeToColorRGBA(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65616, null, str)) == null) ? nativeToColorRGBA(str) : (String) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1683,9 +1740,25 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    public int setCustomJsCodeCacheHandler(CustomJsCodeCacheHandler customJsCodeCacheHandler) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, customJsCodeCacheHandler)) == null) {
+            int checkBeforeInvokeNativeMethod = checkBeforeInvokeNativeMethod(true, false, customJsCodeCacheHandler);
+            if (checkBeforeInvokeNativeMethod == 0 && (checkBeforeInvokeNativeMethod = nativeSetCustomJsCodeCacheHandler(this.mNativeV8Engine, customJsCodeCacheHandler)) == 0) {
+                this.mCustomJsCodeCacheHandler = customJsCodeCacheHandler;
+            }
+            if (checkBeforeInvokeNativeMethod != 0) {
+                Log.w(TAG, "setCustomJsCodeCacheHandler调用失败, 错误码: " + checkBeforeInvokeNativeMethod);
+            }
+            return checkBeforeInvokeNativeMethod;
+        }
+        return invokeL.intValue;
+    }
+
     public void setExternalV8BinFilesPath(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
             if (str == null) {
                 this.mExternalV8BinPath = null;
                 return;
@@ -1697,42 +1770,77 @@ public class V8Engine implements JSRuntime {
 
     public void setFileSystemDelegatePolicy(V8FileSystemDelegatePolicy v8FileSystemDelegatePolicy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, v8FileSystemDelegatePolicy) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, v8FileSystemDelegatePolicy) == null) {
             this.mFileSystemDelegatePolicy = v8FileSystemDelegatePolicy;
         }
     }
 
     public void setInspectorChannel(InspectorNativeChannel inspectorNativeChannel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, inspectorNativeChannel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, inspectorNativeChannel) == null) {
             this.mInspectorChannel = inspectorNativeChannel;
         }
     }
 
     public void setIsWorker(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
             this.mIsWorker = z;
         }
     }
 
+    @Deprecated
     public void setJSCacheCallback(V8EngineConfiguration.JSCacheCallback jSCacheCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, jSCacheCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, jSCacheCallback) == null) {
             this.mJSCacheCallback = jSCacheCallback;
         }
     }
 
+    public int setJavaNetRequest(NetRequest netRequest) {
+        InterceptResult invokeL;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, netRequest)) == null) {
+            if (netRequest == null) {
+                i2 = 2;
+            } else if (this.mNativeV8Engine == 0 || this.mIsDestroyed.get()) {
+                i2 = 512;
+            } else if (this.mThreadDelegatePolicy.getThread() == null || !(this.mThreadDelegatePolicy.getThread() == null || this.mThreadDelegatePolicy.getThread() == Thread.currentThread())) {
+                i2 = 256;
+            } else {
+                int nativeSetJavaNetRequest = nativeSetJavaNetRequest(this.mNativeV8Engine, netRequest);
+                if (nativeSetJavaNetRequest == 0) {
+                    this.mNetRequest = netRequest;
+                    netRequest.bindV8Engine(this);
+                }
+                i2 = nativeSetJavaNetRequest;
+            }
+            if (i2 != 0) {
+                Log.w(TAG, "[mario-request] setJavaNetRequest调用失败, 错误码: " + i2);
+            }
+            return i2;
+        }
+        return invokeL.intValue;
+    }
+
     public void setJavaScriptExceptionDelegate(JavaScriptExceptionDelegate javaScriptExceptionDelegate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, javaScriptExceptionDelegate) == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, javaScriptExceptionDelegate) == null) {
             this.mExceptionDelegate = javaScriptExceptionDelegate;
+        }
+    }
+
+    public void setJsCodeCacheCallback(JsCodeCacheCallback jsCodeCacheCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048634, this, jsCodeCacheCallback) == null) {
+            this.mJsCodeCacheCallback = jsCodeCacheCallback;
         }
     }
 
     public void setMainPackageBasePath(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
             String trimPath = getTrimPath(str);
             if (trimPath == null) {
                 Log.e(TAG, "mainPacakge path is empty");
@@ -1744,29 +1852,40 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    public void setMemSetMemoryEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048636, this, z) == null) {
+            Log.i(TAG, "[V8Dispose] Set MemSetMemory enable = " + z);
+            boolean z2 = false;
+            if (z) {
+                String[] strArr = {"MI 6X", "MI 6X MIKU", "REDMI NOTE 5", "REDMI NOTE 7", "V1814A", "V1814T", "V1816A", "V1816T", "VIVO X21", "VIVO X21A", "VIVO X21UD", "VIVO X21UD A", "VIVO Z3X"};
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= 13) {
+                        break;
+                    } else if (strArr[i2].equals(Build.MODEL.toUpperCase())) {
+                        z2 = true;
+                        break;
+                    } else {
+                        i2++;
+                    }
+                }
+                this.mSetMemSetMemMemoryEnable = z2;
+                return;
+            }
+            this.mSetMemSetMemMemoryEnable = false;
+        }
+    }
+
     public boolean setNetRequest(NetRequest netRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, netRequest)) == null) {
-            this.mNetRequest = netRequest;
-            if (netRequest != null) {
-                boolean nativeSetNetRequest = nativeSetNetRequest(this.mNativeV8Engine, netRequest);
-                if (nativeSetNetRequest) {
-                    this.mNetRequest.bindV8Engine(this);
-                    return nativeSetNetRequest;
-                }
-                Log.w(TAG, "[mario-request] NA-NetRequest对象初始化失败.");
-                return nativeSetNetRequest;
-            }
-            Log.w(TAG, "[mario-request] Java-NetRequest对象为空, naRequest初始化失败");
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, netRequest)) == null) ? setJavaNetRequest(netRequest) == 0 : invokeL.booleanValue;
     }
 
     public void setPreferredFramesPerSecond(short s) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{Short.valueOf(s)}) == null) || s <= 0 || s > 60) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Short.valueOf(s)}) == null) || s <= 0 || s > 60) {
             return;
         }
         this.mFramesInterval = (float) (1000 / s);
@@ -1774,14 +1893,14 @@ public class V8Engine implements JSRuntime {
 
     public void setThreadName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
             this.mThreadName = str;
         }
     }
 
     public void setUserAgent(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048636, this, str) == null) || TextUtils.equals(str, this.mUserAgent)) {
+        if (!(interceptable == null || interceptable.invokeL(1048640, this, str) == null) || TextUtils.equals(str, this.mUserAgent)) {
             return;
         }
         this.mUserAgent = str;
@@ -1790,14 +1909,14 @@ public class V8Engine implements JSRuntime {
 
     public void setWorkerFactoryDelegate(WorkerFactory workerFactory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, workerFactory) == null) {
+        if (interceptable == null || interceptable.invokeL(1048641, this, workerFactory) == null) {
             this.mWorkerFactoryDelegate = workerFactory;
         }
     }
 
     public synchronized void startEngine() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
             synchronized (this) {
                 if (this.mThreadDelegatePolicy != null) {
                     this.mThreadDelegatePolicy.startV8Engine(this);
@@ -1810,16 +1929,17 @@ public class V8Engine implements JSRuntime {
 
     public void startEngineInternal() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
-            Log.i(TAG, "[V8Dispose][mario] java version = 1.3.2.3, nativeVersion = " + nativeGetVersionName());
+        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
+            Log.i(TAG, "[V8Dispose][mario] java version = 1.3.6.1, nativeVersion = " + nativeGetVersionName());
             try {
             } catch (Exception e2) {
                 Log.e(TAG, Log.getStackTraceString(e2));
             }
             if (!checkVersion()) {
-                throw new Exception("[mario] java version and native version dismatch  version: 1.3.2.3 nativeVersion: " + nativeGetVersionName());
+                throw new Exception("[mario] java version and native version dismatch  version: 1.3.6.1 nativeVersion: " + nativeGetVersionName());
             }
             this.mTimer.initialize(this, new Handler(Looper.getMainLooper()));
+            nativeSetMemSetMemoryEnable(this.mNativeV8Engine, this.mSetMemSetMemMemoryEnable);
             initializeV8();
             InspectorNativeChannel inspectorNativeChannel = this.mInspectorChannel;
             if (inspectorNativeChannel != null) {
@@ -1834,12 +1954,12 @@ public class V8Engine implements JSRuntime {
     public String threadName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.mThreadName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.mThreadName : (String) invokeV.objValue;
     }
 
     public void throwJSException(JSExceptionType jSExceptionType, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048641, this, jSExceptionType, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048645, this, jSExceptionType, str) == null) {
             runOnJSThread(new Runnable(this, jSExceptionType, str) { // from class: com.baidu.searchbox.v8engine.V8Engine.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1882,7 +2002,7 @@ public class V8Engine implements JSRuntime {
 
     public void throwJSExceptionForOpenData(JSExceptionType jSExceptionType, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048642, this, jSExceptionType, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048646, this, jSExceptionType, str) == null) {
             runOnJSThread(new Runnable(this, jSExceptionType, str) { // from class: com.baidu.searchbox.v8engine.V8Engine.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1926,7 +2046,7 @@ public class V8Engine implements JSRuntime {
     public boolean useCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, codeCacheSetting)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, codeCacheSetting)) == null) {
             Context appContext = getAppContext();
             if (appContext == null) {
                 Log.w(TAG, "[CodeCache] SetCodeCacheSetting failed. Context is null");
@@ -1956,7 +2076,7 @@ public class V8Engine implements JSRuntime {
     public String userAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.mUserAgent : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.mUserAgent : (String) invokeV.objValue;
     }
 
     @NotProguard
@@ -2008,7 +2128,7 @@ public class V8Engine implements JSRuntime {
 
     private void delegateRunnableAsync(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65568, this, runnable, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65569, this, runnable, j) == null) {
             V8ThreadDelegatePolicy v8ThreadDelegatePolicy = this.mThreadDelegatePolicy;
             if (v8ThreadDelegatePolicy != null) {
                 v8ThreadDelegatePolicy.doDelegateRunnable(runnable, j);
@@ -2021,7 +2141,7 @@ public class V8Engine implements JSRuntime {
     public static void runOnJSThread(long j, Runnable runnable) {
         V8Engine v8Engine;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(65610, null, j, runnable) == null) || (v8Engine = getInstance(j)) == null) {
+        if (!(interceptable == null || interceptable.invokeJL(65613, null, j, runnable) == null) || (v8Engine = getInstance(j)) == null) {
             return;
         }
         v8Engine.runOnJSThread(runnable);
@@ -2043,7 +2163,7 @@ public class V8Engine implements JSRuntime {
         InterceptResult invokeV;
         V8Engine v8Engine;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             long id = Thread.currentThread().getId();
             synchronized (sEngines) {
                 Iterator<V8Engine> it = sEngines.values().iterator();

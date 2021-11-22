@@ -1,6 +1,7 @@
 package com.baidu.fsg.base.restnet.http;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
@@ -34,31 +35,31 @@ public class a implements b<String, String> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37419a = "Host";
+    public static final String f38249a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37420b = "Accept";
+    public static final String f38250b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37421c = "Accept-Charset";
+    public static final String f38251c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f37422d = "Accept-Encoding";
+    public static final String f38252d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f37423e = "Accept-Language";
+    public static final String f38253e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f37424f = "Allow";
+    public static final String f38254f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f37425g = "Cache-Control";
+    public static final String f38255g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f37426h = "Content-Disposition";
+    public static final String f38256h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f37427i = "Content-Encoding";
+    public static final String f38257i = "Content-Encoding";
     public static final String j = "Content-Length";
     public static final String k = "Content-Type";
     public static final String l = "Date";
@@ -295,7 +296,7 @@ public class a implements b<String, String> {
                     if (indexOf != -1) {
                         str = str.substring(0, indexOf);
                     }
-                    if (!str.equals("*")) {
+                    if (!str.equals(ProxyConfig.MATCH_ALL_SCHEMES)) {
                         arrayList.add(Charset.forName(str));
                     }
                 }

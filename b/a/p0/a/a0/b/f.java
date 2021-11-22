@@ -7,7 +7,7 @@ import android.graphics.Rect;
 import android.text.TextUtils;
 import android.view.View;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.n0;
+import b.a.p0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -61,7 +61,7 @@ public class f extends a {
             this.u = jSONObject.optString("fileType");
             this.v = (float) jSONObject.optDouble("quality");
         } catch (Exception e2) {
-            if (k.f6397a) {
+            if (k.f6863a) {
                 e2.printStackTrace();
             }
         }
@@ -73,7 +73,7 @@ public class f extends a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.equals(this.u, "jpg") : invokeV.booleanValue;
     }
 
-    @Override // b.a.p0.a.a0.b.a, b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.a0.b.a, b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,9 +104,9 @@ public class f extends a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, str)) == null) {
             if (view != null && !TextUtils.isEmpty(str)) {
                 try {
-                    Bitmap y = n0.y(view, view.getWidth(), view.getHeight());
-                    int width = y.getWidth();
-                    int height = y.getHeight();
+                    Bitmap x = n0.x(view, view.getWidth(), view.getHeight());
+                    int width = x.getWidth();
+                    int height = x.getHeight();
                     if (this.o >= 0 && this.o < width) {
                         i2 = this.o;
                         this.o = i2;
@@ -122,8 +122,8 @@ public class f extends a {
                                     this.s = this.s > 0 ? this.q : this.s;
                                     int i6 = this.t > 0 ? this.r : this.t;
                                     this.t = i6;
-                                    Bitmap createBitmap = Bitmap.createBitmap(this.s, i6, y.getConfig());
-                                    new Canvas(createBitmap).drawBitmap(y, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
+                                    Bitmap createBitmap = Bitmap.createBitmap(this.s, i6, x.getConfig());
+                                    new Canvas(createBitmap).drawBitmap(x, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
                                     Bitmap.CompressFormat compressFormat = !i() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
                                     file = new File(str);
                                     if (file.exists()) {
@@ -136,7 +136,7 @@ public class f extends a {
                                     FileOutputStream fileOutputStream = new FileOutputStream(file);
                                     createBitmap.compress(compressFormat, (int) (this.v * 100.0f), fileOutputStream);
                                     fileOutputStream.flush();
-                                    b.a.p0.t.d.d(fileOutputStream);
+                                    b.a.p0.w.d.d(fileOutputStream);
                                     return true;
                                 }
                                 i5 = height - this.p;
@@ -145,8 +145,8 @@ public class f extends a {
                                 if (this.t > 0) {
                                 }
                                 this.t = i6;
-                                Bitmap createBitmap2 = Bitmap.createBitmap(this.s, i6, y.getConfig());
-                                new Canvas(createBitmap2).drawBitmap(y, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
+                                Bitmap createBitmap2 = Bitmap.createBitmap(this.s, i6, x.getConfig());
+                                new Canvas(createBitmap2).drawBitmap(x, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
                                 if (!i()) {
                                 }
                                 file = new File(str);
@@ -158,7 +158,7 @@ public class f extends a {
                                 FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                                 createBitmap2.compress(compressFormat, (int) (this.v * 100.0f), fileOutputStream2);
                                 fileOutputStream2.flush();
-                                b.a.p0.t.d.d(fileOutputStream2);
+                                b.a.p0.w.d.d(fileOutputStream2);
                                 return true;
                             }
                             i4 = width - this.o;
@@ -170,8 +170,8 @@ public class f extends a {
                                 if (this.t > 0) {
                                 }
                                 this.t = i6;
-                                Bitmap createBitmap22 = Bitmap.createBitmap(this.s, i6, y.getConfig());
-                                new Canvas(createBitmap22).drawBitmap(y, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
+                                Bitmap createBitmap22 = Bitmap.createBitmap(this.s, i6, x.getConfig());
+                                new Canvas(createBitmap22).drawBitmap(x, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
                                 if (!i()) {
                                 }
                                 file = new File(str);
@@ -183,7 +183,7 @@ public class f extends a {
                                 FileOutputStream fileOutputStream22 = new FileOutputStream(file);
                                 createBitmap22.compress(compressFormat, (int) (this.v * 100.0f), fileOutputStream22);
                                 fileOutputStream22.flush();
-                                b.a.p0.t.d.d(fileOutputStream22);
+                                b.a.p0.w.d.d(fileOutputStream22);
                                 return true;
                             }
                             i5 = height - this.p;
@@ -192,8 +192,8 @@ public class f extends a {
                             if (this.t > 0) {
                             }
                             this.t = i6;
-                            Bitmap createBitmap222 = Bitmap.createBitmap(this.s, i6, y.getConfig());
-                            new Canvas(createBitmap222).drawBitmap(y, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
+                            Bitmap createBitmap222 = Bitmap.createBitmap(this.s, i6, x.getConfig());
+                            new Canvas(createBitmap222).drawBitmap(x, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
                             if (!i()) {
                             }
                             file = new File(str);
@@ -205,7 +205,7 @@ public class f extends a {
                             FileOutputStream fileOutputStream222 = new FileOutputStream(file);
                             createBitmap222.compress(compressFormat, (int) (this.v * 100.0f), fileOutputStream222);
                             fileOutputStream222.flush();
-                            b.a.p0.t.d.d(fileOutputStream222);
+                            b.a.p0.w.d.d(fileOutputStream222);
                             return true;
                         }
                         i3 = 0;
@@ -221,8 +221,8 @@ public class f extends a {
                             if (this.t > 0) {
                             }
                             this.t = i6;
-                            Bitmap createBitmap2222 = Bitmap.createBitmap(this.s, i6, y.getConfig());
-                            new Canvas(createBitmap2222).drawBitmap(y, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
+                            Bitmap createBitmap2222 = Bitmap.createBitmap(this.s, i6, x.getConfig());
+                            new Canvas(createBitmap2222).drawBitmap(x, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
                             if (!i()) {
                             }
                             file = new File(str);
@@ -234,7 +234,7 @@ public class f extends a {
                             FileOutputStream fileOutputStream2222 = new FileOutputStream(file);
                             createBitmap2222.compress(compressFormat, (int) (this.v * 100.0f), fileOutputStream2222);
                             fileOutputStream2222.flush();
-                            b.a.p0.t.d.d(fileOutputStream2222);
+                            b.a.p0.w.d.d(fileOutputStream2222);
                             return true;
                         }
                         i4 = width - this.o;
@@ -247,8 +247,8 @@ public class f extends a {
                         if (this.t > 0) {
                         }
                         this.t = i6;
-                        Bitmap createBitmap22222 = Bitmap.createBitmap(this.s, i6, y.getConfig());
-                        new Canvas(createBitmap22222).drawBitmap(y, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
+                        Bitmap createBitmap22222 = Bitmap.createBitmap(this.s, i6, x.getConfig());
+                        new Canvas(createBitmap22222).drawBitmap(x, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
                         if (!i()) {
                         }
                         file = new File(str);
@@ -260,7 +260,7 @@ public class f extends a {
                         FileOutputStream fileOutputStream22222 = new FileOutputStream(file);
                         createBitmap22222.compress(compressFormat, (int) (this.v * 100.0f), fileOutputStream22222);
                         fileOutputStream22222.flush();
-                        b.a.p0.t.d.d(fileOutputStream22222);
+                        b.a.p0.w.d.d(fileOutputStream22222);
                         return true;
                     }
                     i2 = 0;
@@ -280,8 +280,8 @@ public class f extends a {
                         if (this.t > 0) {
                         }
                         this.t = i6;
-                        Bitmap createBitmap222222 = Bitmap.createBitmap(this.s, i6, y.getConfig());
-                        new Canvas(createBitmap222222).drawBitmap(y, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
+                        Bitmap createBitmap222222 = Bitmap.createBitmap(this.s, i6, x.getConfig());
+                        new Canvas(createBitmap222222).drawBitmap(x, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
                         if (!i()) {
                         }
                         file = new File(str);
@@ -293,7 +293,7 @@ public class f extends a {
                         FileOutputStream fileOutputStream222222 = new FileOutputStream(file);
                         createBitmap222222.compress(compressFormat, (int) (this.v * 100.0f), fileOutputStream222222);
                         fileOutputStream222222.flush();
-                        b.a.p0.t.d.d(fileOutputStream222222);
+                        b.a.p0.w.d.d(fileOutputStream222222);
                         return true;
                     }
                     i3 = 0;
@@ -310,8 +310,8 @@ public class f extends a {
                     if (this.t > 0) {
                     }
                     this.t = i6;
-                    Bitmap createBitmap2222222 = Bitmap.createBitmap(this.s, i6, y.getConfig());
-                    new Canvas(createBitmap2222222).drawBitmap(y, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
+                    Bitmap createBitmap2222222 = Bitmap.createBitmap(this.s, i6, x.getConfig());
+                    new Canvas(createBitmap2222222).drawBitmap(x, new Rect(this.o, this.p, this.o + this.q, this.p + this.r), new Rect(0, 0, this.s, this.t), new Paint());
                     if (!i()) {
                     }
                     file = new File(str);
@@ -323,14 +323,14 @@ public class f extends a {
                     FileOutputStream fileOutputStream2222222 = new FileOutputStream(file);
                     createBitmap2222222.compress(compressFormat, (int) (this.v * 100.0f), fileOutputStream2222222);
                     fileOutputStream2222222.flush();
-                    b.a.p0.t.d.d(fileOutputStream2222222);
+                    b.a.p0.w.d.d(fileOutputStream2222222);
                     return true;
                 } catch (Exception e2) {
-                    if (k.f6397a) {
+                    if (k.f6863a) {
                         e2.printStackTrace();
                     }
                 } catch (OutOfMemoryError e3) {
-                    if (k.f6397a) {
+                    if (k.f6863a) {
                         e3.printStackTrace();
                     }
                 }

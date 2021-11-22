@@ -124,7 +124,7 @@ public class NHHeadItem extends BaseItemView {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NHHeadItem f58514a;
+            public final /* synthetic */ NHHeadItem f59436a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -141,7 +141,7 @@ public class NHHeadItem extends BaseItemView {
                         return;
                     }
                 }
-                this.f58514a = this;
+                this.f59436a = this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -151,7 +151,7 @@ public class NHHeadItem extends BaseItemView {
                     return;
                 }
                 DXMSdkSAUtils.onEventWithValues("clickHomePageItem", Arrays.asList("登录按钮"));
-                this.f58514a.getWalletInterface().login();
+                this.f59436a.getWalletInterface().login();
             }
         });
         this.mEye.setImageResource(ResUtils.drawable(getContext(), com.baidu.wallet.home.storage.a.a(getContext()) ? "wallet_home_nh_new_eye_close" : "wallet_home_nh_new_eye_open"));
@@ -160,7 +160,7 @@ public class NHHeadItem extends BaseItemView {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NHHeadItem f58515a;
+            public final /* synthetic */ NHHeadItem f59437a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -177,7 +177,7 @@ public class NHHeadItem extends BaseItemView {
                         return;
                     }
                 }
-                this.f58515a = this;
+                this.f59437a = this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -186,7 +186,7 @@ public class NHHeadItem extends BaseItemView {
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                     return;
                 }
-                this.f58515a.getWalletInterface().onEyeMaskBtnClick();
+                this.f59437a.getWalletInterface().onEyeMaskBtnClick();
             }
         });
         boolean z = getWalletInterface() != null && getWalletInterface().isLoginData();
@@ -223,10 +223,10 @@ public class NHHeadItem extends BaseItemView {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ HomeCfgResponse.DataButton f58516a;
+                    public final /* synthetic */ HomeCfgResponse.DataButton f59438a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ NHHeadItem f58517b;
+                    public final /* synthetic */ NHHeadItem f59439b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -243,8 +243,8 @@ public class NHHeadItem extends BaseItemView {
                                 return;
                             }
                         }
-                        this.f58517b = this;
-                        this.f58516a = dataButton;
+                        this.f59439b = this;
+                        this.f59438a = dataButton;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -253,8 +253,8 @@ public class NHHeadItem extends BaseItemView {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                             return;
                         }
-                        b walletInterface = this.f58517b.getWalletInterface();
-                        HomeCfgResponse.DataButton dataButton2 = this.f58516a;
+                        b walletInterface = this.f59439b.getWalletInterface();
+                        HomeCfgResponse.DataButton dataButton2 = this.f59438a;
                         walletInterface.jump(dataButton2.name, dataButton2.type, dataButton2.link_addr, false);
                     }
                 });

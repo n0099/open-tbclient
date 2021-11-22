@@ -5,34 +5,34 @@ import android.text.TextUtils;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67609a;
+    public String f68522a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67610b;
+    public String f68523b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67611c;
+    public String f68524c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67612d;
+    public String f68525d;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f67613a;
+        public String f68526a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f67614b;
+        public String f68527b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f67615c;
+        public String f68528c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f67616d;
+        public String f68529d;
 
         public a a(String str) {
-            this.f67613a = str;
+            this.f68526a = str;
             return this;
         }
 
@@ -41,17 +41,17 @@ public class d {
         }
 
         public a b(String str) {
-            this.f67614b = str;
+            this.f68527b = str;
             return this;
         }
 
         public a c(String str) {
-            this.f67615c = str;
+            this.f68528c = str;
             return this;
         }
 
         public a d(String str) {
-            this.f67616d = str;
+            this.f68529d = str;
             return this;
         }
     }
@@ -60,10 +60,10 @@ public class d {
     }
 
     public d(a aVar) {
-        this.f67609a = !TextUtils.isEmpty(aVar.f67613a) ? aVar.f67613a : "";
-        this.f67610b = !TextUtils.isEmpty(aVar.f67614b) ? aVar.f67614b : "";
-        this.f67611c = !TextUtils.isEmpty(aVar.f67615c) ? aVar.f67615c : "";
-        this.f67612d = TextUtils.isEmpty(aVar.f67616d) ? "" : aVar.f67616d;
+        this.f68522a = !TextUtils.isEmpty(aVar.f68526a) ? aVar.f68526a : "";
+        this.f68523b = !TextUtils.isEmpty(aVar.f68527b) ? aVar.f68527b : "";
+        this.f68524c = !TextUtils.isEmpty(aVar.f68528c) ? aVar.f68528c : "";
+        this.f68525d = TextUtils.isEmpty(aVar.f68529d) ? "" : aVar.f68529d;
     }
 
     public static a a() {
@@ -72,26 +72,26 @@ public class d {
 
     public String b() {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
-        cVar.a("task_id", this.f67609a);
-        cVar.a("seq_id", this.f67610b);
-        cVar.a("push_timestamp", this.f67611c);
-        cVar.a("device_id", this.f67612d);
+        cVar.a("task_id", this.f68522a);
+        cVar.a("seq_id", this.f68523b);
+        cVar.a("push_timestamp", this.f68524c);
+        cVar.a("device_id", this.f68525d);
         return cVar.toString();
     }
 
     public String c() {
-        return this.f67609a;
+        return this.f68522a;
     }
 
     public String d() {
-        return this.f67610b;
+        return this.f68523b;
     }
 
     public String e() {
-        return this.f67611c;
+        return this.f68524c;
     }
 
     public String f() {
-        return this.f67612d;
+        return this.f68525d;
     }
 }

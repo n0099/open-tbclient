@@ -17,31 +17,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f68339a;
+    public Context f69259a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68340b;
+    public String f69260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68341c;
+    public String f69261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68342d;
+    public String f69262d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68343e;
+    public String f69263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f68344f;
+    public boolean f69264f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f68345g;
+    public Drawable f69265g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC1965b f68346h;
+    public InterfaceC2003b f69266h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f68347i;
+    public View f69267i;
     public int j;
 
     /* renamed from: com.ss.android.download.api.model.b$1  reason: invalid class name */
@@ -57,32 +57,32 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f68348a;
+        public View f69268a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f68349b;
+        public int f69269b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f68350c;
+        public Context f69270c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f68351d;
+        public String f69271d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f68352e;
+        public String f69272e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f68353f;
+        public String f69273f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f68354g;
+        public String f69274g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f68355h;
+        public boolean f69275h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Drawable f68356i;
-        public InterfaceC1965b j;
+        public Drawable f69276i;
+        public InterfaceC2003b j;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -99,14 +99,14 @@ public class b {
                     return;
                 }
             }
-            this.f68350c = context;
+            this.f69270c = context;
         }
 
         public a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f68351d = str;
+                this.f69271d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -116,7 +116,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f68352e = str;
+                this.f69272e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -126,7 +126,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f68353f = str;
+                this.f69273f = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -136,7 +136,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                this.f68354g = str;
+                this.f69274g = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -146,7 +146,7 @@ public class b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f68355h = z;
+                this.f69275h = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -156,17 +156,17 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
-                this.f68356i = drawable;
+                this.f69276i = drawable;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public a a(InterfaceC1965b interfaceC1965b) {
+        public a a(InterfaceC2003b interfaceC2003b) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1965b)) == null) {
-                this.j = interfaceC1965b;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC2003b)) == null) {
+                this.j = interfaceC2003b;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -176,7 +176,7 @@ public class b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f68349b = i2;
+                this.f69269b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -191,7 +191,7 @@ public class b {
 
     /* renamed from: com.ss.android.download.api.model.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC1965b {
+    public interface InterfaceC2003b {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -218,16 +218,16 @@ public class b {
                 return;
             }
         }
-        this.f68344f = true;
-        this.f68339a = aVar.f68350c;
-        this.f68340b = aVar.f68351d;
-        this.f68341c = aVar.f68352e;
-        this.f68342d = aVar.f68353f;
-        this.f68343e = aVar.f68354g;
-        this.f68344f = aVar.f68355h;
-        this.f68345g = aVar.f68356i;
-        this.f68346h = aVar.j;
-        this.f68347i = aVar.f68348a;
-        this.j = aVar.f68349b;
+        this.f69264f = true;
+        this.f69259a = aVar.f69270c;
+        this.f69260b = aVar.f69271d;
+        this.f69261c = aVar.f69272e;
+        this.f69262d = aVar.f69273f;
+        this.f69263e = aVar.f69274g;
+        this.f69264f = aVar.f69275h;
+        this.f69265g = aVar.f69276i;
+        this.f69266h = aVar.j;
+        this.f69267i = aVar.f69268a;
+        this.j = aVar.f69269b;
     }
 }

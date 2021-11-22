@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.a0;
+import b.a.r0.b0.b0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public class b extends b.a.r0.b0.b<d2> implements a0 {
+public class b extends b.a.r0.b0.b<d2> implements b0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
@@ -45,7 +45,7 @@ public class b extends b.a.r0.b0.b<d2> implements a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f25125e;
+        public final /* synthetic */ b f26642e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -62,17 +62,17 @@ public class b extends b.a.r0.b0.b<d2> implements a0 {
                     return;
                 }
             }
-            this.f25125e = bVar;
+            this.f26642e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25125e.o == null || this.f25125e.f() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26642e.o == null || this.f26642e.f() == null) {
                 return;
             }
-            this.f25125e.f().a(view, this.f25125e.o);
-            TiebaStatic.log(new StatisticItem("c11844").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f25125e.o.T()));
+            this.f26642e.f().a(view, this.f26642e.o);
+            TiebaStatic.log(new StatisticItem("c11844").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f26642e.o.T()));
         }
     }
 
@@ -107,7 +107,7 @@ public class b extends b.a.r0.b0.b<d2> implements a0 {
         this.u = (TextView) i4.findViewById(R.id.ala_recommend_live);
     }
 
-    @Override // b.a.r0.b0.a0
+    @Override // b.a.r0.b0.b0
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -124,7 +124,7 @@ public class b extends b.a.r0.b0.b<d2> implements a0 {
     @Override // b.a.r0.b0.b
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || this.f14736e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || this.f16223e == i2) {
             return;
         }
         SkinManager.setBackgroundResource(this.t, R.drawable.ala_live_card_start_live_selector);
@@ -136,7 +136,7 @@ public class b extends b.a.r0.b0.b<d2> implements a0 {
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0108);
         SkinManager.setBackgroundColor(this.v, R.color.CAM_X0201);
-        this.f14736e = i2;
+        this.f16223e = i2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -179,7 +179,7 @@ public class b extends b.a.r0.b0.b<d2> implements a0 {
         }
     }
 
-    @Override // b.a.r0.b0.a0
+    @Override // b.a.r0.b0.b0
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {

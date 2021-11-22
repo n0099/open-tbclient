@@ -21,32 +21,32 @@ public class RefreshLoadingDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f57892a = "RefreshLoadingView";
+    public static final String f58814a = "RefreshLoadingView";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f57893b;
+    public Paint f58815b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f57894c;
+    public Paint f58816c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f57895d;
+    public int f58817d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57896e;
+    public int f58818e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57897f;
+    public int f58819f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f57898g;
+    public RectF f58820g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f57899h;
+    public Path f58821h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57900i;
+    public int f58822i;
     public Context j;
 
     public RefreshLoadingDrawable(Context context, int i2, int i3) {
@@ -64,40 +64,40 @@ public class RefreshLoadingDrawable extends Drawable {
                 return;
             }
         }
-        this.f57893b = new Paint();
-        this.f57894c = new Paint();
-        this.f57898g = new RectF();
-        this.f57899h = new Path();
+        this.f58815b = new Paint();
+        this.f58816c = new Paint();
+        this.f58820g = new RectF();
+        this.f58821h = new Path();
         i2 = i2 < 0 ? 0 : i2;
-        this.f57895d = i3;
+        this.f58817d = i3;
         Context applicationContext = DxmApplicationContextImpl.getApplicationContext(context);
         this.j = applicationContext;
         int dip2px = DisplayUtils.dip2px(applicationContext, 1.0f);
-        this.f57896e = dip2px;
+        this.f58818e = dip2px;
         int i6 = i2 + (dip2px * 2);
-        this.f57900i = i6;
-        this.f57893b.setAntiAlias(true);
-        this.f57893b.setDither(true);
-        this.f57893b.setColor(this.f57895d);
-        this.f57893b.setStyle(Paint.Style.STROKE);
-        this.f57893b.setStrokeJoin(Paint.Join.ROUND);
-        this.f57893b.setStrokeCap(Paint.Cap.ROUND);
-        this.f57893b.setStrokeWidth(this.f57896e);
-        this.f57894c.set(this.f57893b);
-        RectF rectF = this.f57898g;
-        int i7 = this.f57896e;
-        int i8 = this.f57900i;
+        this.f58822i = i6;
+        this.f58815b.setAntiAlias(true);
+        this.f58815b.setDither(true);
+        this.f58815b.setColor(this.f58817d);
+        this.f58815b.setStyle(Paint.Style.STROKE);
+        this.f58815b.setStrokeJoin(Paint.Join.ROUND);
+        this.f58815b.setStrokeCap(Paint.Cap.ROUND);
+        this.f58815b.setStrokeWidth(this.f58818e);
+        this.f58816c.set(this.f58815b);
+        RectF rectF = this.f58820g;
+        int i7 = this.f58818e;
+        int i8 = this.f58822i;
         rectF.set(i7, i7, i8 - i7, i8 - i7);
-        this.f57899h.reset();
+        this.f58821h.reset();
         float f2 = i6;
         float f3 = 0.5f * f2;
         float f4 = 0.25f * f2;
-        this.f57899h.moveTo(f3, f4);
+        this.f58821h.moveTo(f3, f4);
         float f5 = f2 * 0.75f;
-        this.f57899h.lineTo(f5, f3);
-        this.f57899h.lineTo(f3, f5);
-        this.f57899h.lineTo(f4, f3);
-        this.f57899h.close();
+        this.f58821h.lineTo(f5, f3);
+        this.f58821h.lineTo(f3, f5);
+        this.f58821h.lineTo(f4, f3);
+        this.f58821h.close();
     }
 
     public static RefreshLoadingDrawable newInstanceBlue(Context context) {
@@ -122,10 +122,10 @@ public class RefreshLoadingDrawable extends Drawable {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.drawArc(this.f57898g, -90.0f, (this.f57897f * 360.0f) / 100.0f, false, this.f57893b);
-            if (this.f57897f >= 100) {
-                this.f57894c.setColor(this.f57895d);
-                canvas.drawPath(this.f57899h, this.f57894c);
+            canvas.drawArc(this.f58820g, -90.0f, (this.f58819f * 360.0f) / 100.0f, false, this.f58815b);
+            if (this.f58819f >= 100) {
+                this.f58816c.setColor(this.f58817d);
+                canvas.drawPath(this.f58821h, this.f58816c);
             }
         }
     }
@@ -134,14 +134,14 @@ public class RefreshLoadingDrawable extends Drawable {
     public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57900i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58822i : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57900i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58822i : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -177,10 +177,10 @@ public class RefreshLoadingDrawable extends Drawable {
             if (i2 > 100) {
                 i2 = 100;
             }
-            if (this.f57897f == i2) {
+            if (this.f58819f == i2) {
                 return;
             }
-            this.f57897f = i2;
+            this.f58819f = i2;
         }
     }
 }

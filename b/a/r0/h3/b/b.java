@@ -1,5 +1,0 @@
-package b.a.r0.h3.b;
-/* loaded from: classes4.dex */
-public interface b {
-    boolean isFromHotSplash();
-}

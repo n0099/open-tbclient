@@ -1,28 +1,34 @@
 package b.a.e.f.a;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.widget.ImageView;
-import com.baidu.adp.newwidget.ImageView.DrawerArgs;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public class c extends a {
+public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect q;
 
-    public c() {
+    /* renamed from: a  reason: collision with root package name */
+    public b f1588a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public volatile e f1589b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public DiskFileOperate f1590c;
+
+    public c(b bVar, DiskFileOperate diskFileOperate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, diskFileOperate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,70 +38,63 @@ public class c extends a {
                 return;
             }
         }
-        this.q = new Rect();
-    }
-
-    @Override // b.a.e.f.a.a
-    public void a(d dVar, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, imageView) == null) {
-            DrawerArgs drawerArgs = this.k;
-            if (drawerArgs.f34427c) {
-                float f2 = drawerArgs.f34428d / 2.0f;
-                if (!drawerArgs.f34431g) {
-                    this.f2177g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
-                    return;
-                }
-                int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
-                int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
-                RectF rectF = this.f2176f;
-                PointF b2 = b(rectF.left, rectF.top, this.f2175e);
-                RectF rectF2 = this.f2176f;
-                PointF b3 = b(rectF2.right, rectF2.bottom, this.f2175e);
-                this.f2177g.set(Math.max((int) b2.x, 0) + f2, Math.max((int) b2.y, 0) + f2, Math.min((int) b3.x, width) - f2, Math.min((int) b3.y, height) - f2);
-            }
-        }
-    }
-
-    @Override // b.a.e.f.a.a
-    public void f(Canvas canvas, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) && this.k.f34427c) {
-            canvas.drawRect(this.f2177g, this.f2173c);
-        }
-    }
-
-    @Override // b.a.e.f.a.a
-    public void h(Canvas canvas, d dVar, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, dVar, imageView) == null) {
-            Matrix matrix = this.f2175e;
-            if (matrix != null) {
-                canvas.concat(matrix);
-            }
-            if (dVar.e()) {
-                Bitmap bitmap = dVar.f2184a.getBitmap();
-                this.q.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                canvas.drawBitmap(bitmap, this.q, this.f2176f, this.f2172b);
-            } else if (dVar.d()) {
-                this.q.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2185b.g(canvas, this.q, this.f2176f, this.f2172b);
-            }
-        }
-    }
-
-    @Override // b.a.e.f.a.a
-    public void i(Canvas canvas, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, canvas, imageView) == null) || this.k.m == 0) {
+        this.f1588a = null;
+        this.f1589b = null;
+        this.f1590c = null;
+        if (bVar != null && diskFileOperate != null) {
+            this.f1588a = bVar;
+            this.f1590c = diskFileOperate;
             return;
         }
-        int scrollX = imageView.getScrollX();
-        int scrollY = imageView.getScrollY();
-        canvas.translate(scrollX, scrollY);
-        this.n.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-        this.f2174d.setColor(this.k.m);
-        canvas.drawRect(this.n, this.f2174d);
-        canvas.translate(-scrollX, -scrollY);
+        throw new InvalidParameterException("DiskFileTask parameter null");
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public DiskFileOperate doInBackground(DiskFileOperate... diskFileOperateArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskFileOperateArr)) == null) {
+            this.f1589b = new e(this.f1588a, this.f1590c);
+            this.f1589b.call();
+            return this.f1590c;
+        }
+        return (DiskFileOperate) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: c */
+    public void onPostExecute(DiskFileOperate diskFileOperate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskFileOperate) == null) {
+            super.onPostExecute(diskFileOperate);
+            if (diskFileOperate != null) {
+                this.f1590c.callback(diskFileOperate.isSuccess());
+            } else {
+                this.f1590c.callback(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.cancel();
+            if (this.f1589b != null) {
+                this.f1589b.b();
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreCancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onPreCancel();
+            this.f1590c.callback(false);
+        }
     }
 }

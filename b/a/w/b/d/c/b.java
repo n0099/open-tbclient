@@ -13,10 +13,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29197a;
+    public String f30066a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f29198b;
+    public long f30067b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, jSONObject, z) == null) {
             if (jSONObject != null) {
-                this.f29197a = jSONObject.optString("start_live_scheme");
-                this.f29198b = jSONObject.optLong("timeout_refresh_time");
+                this.f30066a = jSONObject.optString("start_live_scheme");
+                this.f30067b = jSONObject.optLong("timeout_refresh_time");
                 if (z) {
                     b.a.w.b.f.c.d("live_feed_page_config_cache_key", jSONObject.toString());
                 }
@@ -48,8 +48,8 @@ public class b {
                 }
                 try {
                     JSONObject jSONObject2 = new JSONObject(a2);
-                    this.f29197a = jSONObject2.optString("start_live_scheme");
-                    this.f29198b = jSONObject2.optLong("timeout_refresh_time");
+                    this.f30066a = jSONObject2.optString("start_live_scheme");
+                    this.f30067b = jSONObject2.optLong("timeout_refresh_time");
                 } catch (JSONException unused) {
                     b.a.w.b.f.c.e("live_feed_page_config_cache_key");
                 }

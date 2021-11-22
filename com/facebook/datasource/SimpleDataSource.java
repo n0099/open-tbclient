@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-import java.util.Map;
 /* loaded from: classes11.dex */
 public class SimpleDataSource<T> extends AbstractDataSource<T> {
     public static /* synthetic */ Interceptable $ic;
@@ -50,10 +49,10 @@ public class SimpleDataSource<T> extends AbstractDataSource<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.facebook.datasource.SimpleDataSource<T> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.facebook.datasource.AbstractDataSource
-    public boolean setResult(T t, boolean z, Map<String, Object> map) {
-        InterceptResult invokeCommon;
+    public boolean setResult(T t, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{t, Boolean.valueOf(z), map})) == null) ? super.setResult(Preconditions.checkNotNull(t), z, map) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, t, z)) == null) ? super.setResult(Preconditions.checkNotNull(t), z) : invokeLZ.booleanValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.facebook.datasource.SimpleDataSource<T> */
@@ -61,6 +60,6 @@ public class SimpleDataSource<T> extends AbstractDataSource<T> {
     public boolean setResult(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) ? super.setResult(Preconditions.checkNotNull(t), true, null) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) ? super.setResult(Preconditions.checkNotNull(t), true) : invokeL.booleanValue;
     }
 }

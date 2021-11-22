@@ -16,7 +16,7 @@ public class PolyFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42088e;
+    public boolean f43012e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PolyFrameLayout(Context context) {
@@ -39,10 +39,10 @@ public class PolyFrameLayout extends FrameLayout {
         }
     }
 
-    public void a(boolean z) {
+    public void interceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f42088e = z;
+            this.f43012e = z;
         }
     }
 
@@ -51,7 +51,7 @@ public class PolyFrameLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.f42088e) {
+            if (this.f43012e) {
                 return true;
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -99,6 +99,6 @@ public class PolyFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f42088e = false;
+        this.f43012e = false;
     }
 }

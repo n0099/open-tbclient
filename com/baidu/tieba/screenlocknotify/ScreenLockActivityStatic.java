@@ -1,7 +1,7 @@
 package com.baidu.tieba.screenlocknotify;
 
 import android.content.Intent;
-import b.a.r0.b3.a;
+import b.a.r0.c3.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -37,7 +37,7 @@ public class ScreenLockActivityStatic {
             TbadkCoreApplication.getInst().getApp().startService(new Intent(TbadkCoreApplication.getInst().getApp(), ScreenLockNotifyService.class));
         } catch (Exception e2) {
             BdLog.e(e2);
-            b.a.e.h.h.a b2 = b.a.e.h.h.a.b();
+            b.a.e.i.h.a b2 = b.a.e.i.h.a.b();
             b2.r("plugin_load", "screenlock_failed", null, e2.getMessage() + "---" + e2.getClass().getName());
         }
     }

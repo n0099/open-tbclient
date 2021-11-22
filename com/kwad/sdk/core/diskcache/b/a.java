@@ -19,14 +19,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f64396a;
+    public static a f65309a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.diskcache.a.a f64397b;
+    public com.kwad.sdk.core.diskcache.a.a f65310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f64398c;
+    public Context f65311c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f64396a == null) {
+            if (f65309a == null) {
                 synchronized (a.class) {
-                    if (f64396a == null) {
-                        f64396a = new a();
+                    if (f65309a == null) {
+                        f65309a = new a();
                     }
                 }
             }
-            return f64396a;
+            return f65309a;
         }
         return (a) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.f64397b == null) {
+            if (this.f65310b == null) {
                 com.kwad.sdk.core.d.a.e("DiskCache", "diskLruCache should be init before use");
                 return true;
             }
@@ -74,13 +74,13 @@ public class a {
     @SuppressLint({"MissingPermission"})
     public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && this.f64397b == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && this.f65310b == null) {
             try {
-                this.f64398c = bVar.f64399a;
-                if (!bVar.f64402d.exists()) {
-                    bVar.f64402d.mkdirs();
+                this.f65311c = bVar.f65312a;
+                if (!bVar.f65315d.exists()) {
+                    bVar.f65315d.mkdirs();
                 }
-                this.f64397b = com.kwad.sdk.core.diskcache.a.a.a(bVar.f64402d, bVar.f64400b, 1, bVar.f64401c * 1024 * 1024);
+                this.f65310b = com.kwad.sdk.core.diskcache.a.a.a(bVar.f65315d, bVar.f65313b, 1, bVar.f65314c * 1024 * 1024);
             } catch (IOException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -92,27 +92,27 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || d() || TextUtils.isEmpty(str)) {
             return;
         }
-        c.a(this.f64397b, str, d.a(str));
+        c.a(this.f65310b, str, d.a(str));
     }
 
     public boolean a(String str, c.a aVar) {
         InterceptResult invokeLL;
         File b2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar)) == null) ? (d() || TextUtils.isEmpty(str) || !c.a(this.f64397b, str, d.a(str), aVar) || (b2 = b(str)) == null || !b2.exists()) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar)) == null) ? (d() || TextUtils.isEmpty(str) || !c.a(this.f65310b, str, d.a(str), aVar) || (b2 = b(str)) == null || !b2.exists()) ? false : true : invokeLL.booleanValue;
     }
 
     public boolean a(String str, @NonNull String str2, c.a aVar) {
         InterceptResult invokeLLL;
         File b2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, aVar)) == null) ? (d() || TextUtils.isEmpty(str) || !c.a(this.f64397b, str, d.a(str2), aVar) || (b2 = b(str2)) == null || !b2.exists()) ? false : true : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, aVar)) == null) ? (d() || TextUtils.isEmpty(str) || !c.a(this.f65310b, str, d.a(str2), aVar) || (b2 = b(str2)) == null || !b2.exists()) ? false : true : invokeLLL.booleanValue;
     }
 
     public File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64397b.a() : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f65310b.a() : (File) invokeV.objValue;
     }
 
     @Nullable
@@ -132,7 +132,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
-                this.f64397b.c();
+                this.f65310b.c();
             } catch (IOException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -145,7 +145,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             try {
                 d.a(str, "cacheKey is not allowed empty");
-                return this.f64397b.b(d.a(str));
+                return this.f65310b.b(d.a(str));
             } catch (IOException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
                 return false;

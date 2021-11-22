@@ -11,6 +11,7 @@ import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,26 +64,26 @@ public class f extends d {
                     try {
                         byteArrayOutputStream.close();
                     } catch (IOException e2) {
-                        new b.c(this.f35778a).a(Log.getStackTraceString(e2)).a();
+                        new b.c(this.f36607a).a(Log.getStackTraceString(e2)).a();
                     }
                     try {
                         eVar.a();
                     } catch (IOException e3) {
-                        new b.c(this.f35778a).a(Log.getStackTraceString(e3)).a();
+                        new b.c(this.f36607a).a(Log.getStackTraceString(e3)).a();
                     }
                     return byteArray;
                 } catch (Exception e4) {
-                    new b.c(this.f35778a).a(Log.getStackTraceString(e4)).a();
+                    new b.c(this.f36607a).a(Log.getStackTraceString(e4)).a();
                     try {
                         byteArrayOutputStream.close();
                     } catch (IOException e5) {
-                        new b.c(this.f35778a).a(Log.getStackTraceString(e5)).a();
+                        new b.c(this.f36607a).a(Log.getStackTraceString(e5)).a();
                     }
                     try {
                         eVar.a();
                         return null;
                     } catch (IOException e6) {
-                        new b.c(this.f35778a).a(Log.getStackTraceString(e6)).a();
+                        new b.c(this.f36607a).a(Log.getStackTraceString(e6)).a();
                         return null;
                     }
                 }
@@ -90,12 +91,12 @@ public class f extends d {
                 try {
                     byteArrayOutputStream.close();
                 } catch (IOException e7) {
-                    new b.c(this.f35778a).a(Log.getStackTraceString(e7)).a();
+                    new b.c(this.f36607a).a(Log.getStackTraceString(e7)).a();
                 }
                 try {
                     eVar.a();
                 } catch (IOException e8) {
-                    new b.c(this.f35778a).a(Log.getStackTraceString(e8)).a();
+                    new b.c(this.f36607a).a(Log.getStackTraceString(e8)).a();
                 }
                 throw th;
             }
@@ -127,10 +128,10 @@ public class f extends d {
             try {
                 try {
                     eVar.a((int) s);
-                    if (s != h.f35793f.b() && s != h.f35794g.b()) {
+                    if (s != h.f36622f.b() && s != h.f36623g.b()) {
                         eVar.a((int) com.baidu.android.pushservice.a.a());
                         eVar.b(0);
-                        eVar.a(a(m.d(this.f35778a, this.f35778a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
+                        eVar.a(a(m.d(this.f36607a, this.f36607a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
                         eVar.b(-76508268);
                         eVar.b(1);
                         eVar.b(length);
@@ -139,30 +140,30 @@ public class f extends d {
                         }
                     }
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    com.baidu.android.pushservice.e.c.a(this.f35778a, byteArrayOutputStream);
+                    com.baidu.android.pushservice.e.c.a(this.f36607a, byteArrayOutputStream);
                     try {
                         eVar.a();
                     } catch (Exception e2) {
-                        new b.c(this.f35778a).a(Log.getStackTraceString(e2)).a();
+                        new b.c(this.f36607a).a(Log.getStackTraceString(e2)).a();
                     }
                     return byteArray;
                 } catch (Throwable th) {
-                    com.baidu.android.pushservice.e.c.a(this.f35778a, byteArrayOutputStream);
+                    com.baidu.android.pushservice.e.c.a(this.f36607a, byteArrayOutputStream);
                     try {
                         eVar.a();
                     } catch (Exception e3) {
-                        new b.c(this.f35778a).a(Log.getStackTraceString(e3)).a();
+                        new b.c(this.f36607a).a(Log.getStackTraceString(e3)).a();
                     }
                     throw th;
                 }
             } catch (Exception e4) {
-                new b.c(this.f35778a).a(Log.getStackTraceString(e4)).a();
-                com.baidu.android.pushservice.e.c.a(this.f35778a, byteArrayOutputStream);
+                new b.c(this.f36607a).a(Log.getStackTraceString(e4)).a();
+                com.baidu.android.pushservice.e.c.a(this.f36607a, byteArrayOutputStream);
                 try {
                     eVar.a();
                     return null;
                 } catch (Exception e5) {
-                    new b.c(this.f35778a).a(Log.getStackTraceString(e5)).a();
+                    new b.c(this.f36607a).a(Log.getStackTraceString(e5)).a();
                     return null;
                 }
             }
@@ -179,7 +180,7 @@ public class f extends d {
             com.baidu.android.pushservice.j.d dVar = new com.baidu.android.pushservice.j.d(byteArrayInputStream);
             short c2 = dVar.c();
             e eVar = new e(c2);
-            if (c2 != h.f35794g.b() && c2 != h.f35793f.b()) {
+            if (c2 != h.f36623g.b() && c2 != h.f36622f.b()) {
                 dVar.c();
                 dVar.b();
                 dVar.a(new byte[16]);
@@ -194,7 +195,7 @@ public class f extends d {
                     bArr2 = new byte[b2];
                     dVar.a(bArr2);
                 }
-                eVar.f35781b = bArr2;
+                eVar.f36610b = bArr2;
             }
             byteArrayInputStream.close();
             dVar.a();
@@ -212,18 +213,18 @@ public class f extends d {
             if (bArr != null) {
                 gVar.a(bArr);
             }
-            e eVar = new e(h.f35792e.b());
+            e eVar = new e(h.f36621e.b());
             try {
-                eVar.f35781b = a(h.f35792e.b(), a(Long.parseLong(str), gVar));
+                eVar.f36610b = a(h.f36621e.b(), a(Long.parseLong(str), gVar));
                 a(eVar);
             } catch (NumberFormatException e2) {
-                new b.c(this.f35778a).a(Log.getStackTraceString(e2)).a();
+                new b.c(this.f36607a).a(Log.getStackTraceString(e2)).a();
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x016a A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x016b  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x016b A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x016c  */
     @Override // com.baidu.android.pushservice.message.d
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -235,18 +236,18 @@ public class f extends d {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("channel_token", com.baidu.android.pushservice.k.a(this.f35778a).b());
-                jSONObject.put("channel_id", com.baidu.android.pushservice.k.a(this.f35778a).a());
-                if (com.baidu.android.pushservice.b.d.b(this.f35778a)) {
-                    jSONObject.put("new_channel_token", com.baidu.android.pushservice.k.a(this.f35778a).d());
-                    jSONObject.put("new_channel_id", com.baidu.android.pushservice.k.a(this.f35778a).c());
+                jSONObject.put("channel_token", com.baidu.android.pushservice.k.a(this.f36607a).b());
+                jSONObject.put("channel_id", com.baidu.android.pushservice.k.a(this.f36607a).a());
+                if (com.baidu.android.pushservice.b.d.b(this.f36607a)) {
+                    jSONObject.put("new_channel_token", com.baidu.android.pushservice.k.a(this.f36607a).d());
+                    jSONObject.put("new_channel_id", com.baidu.android.pushservice.k.a(this.f36607a).c());
                 }
-                jSONObject.put("sa_mode", com.baidu.android.pushservice.b.d.a(this.f35778a).b());
-                jSONObject.put("highest_version", com.baidu.android.pushservice.b.d.a(this.f35778a).c());
+                jSONObject.put("sa_mode", com.baidu.android.pushservice.b.d.a(this.f36607a).b());
+                jSONObject.put("highest_version", com.baidu.android.pushservice.b.d.a(this.f36607a).c());
                 jSONObject.put("period", 1800);
                 jSONObject.put("channel_type", 3);
                 jSONObject.put("tinyheart", 1);
-                if (m.o(this.f35778a)) {
+                if (m.o(this.f36607a)) {
                     jSONObject.put("connect_version", 3);
                     String str2 = Build.MANUFACTURER;
                     if (!TextUtils.isEmpty(str2) && str2.length() <= 128) {
@@ -255,12 +256,12 @@ public class f extends d {
                 } else {
                     jSONObject.put("connect_version", 2);
                 }
-                jSONObject.put("app_alone_conn", com.baidu.android.pushservice.b.d.e(this.f35778a) ? 1 : 0);
-                jSONObject.put("pkg_name", this.f35778a.getPackageName());
-                jSONObject.put("proxy_conn", com.baidu.android.pushservice.b.d.c(this.f35778a) ? 1 : 0);
-                jSONObject.put("noti_enable", com.baidu.android.pushservice.j.h.b(this.f35778a));
-                if (this.f35778a.getPackageName().equals("com.baidu.searchbox")) {
-                    jSONObject.put("pkg_version", m.a(this.f35778a));
+                jSONObject.put("app_alone_conn", com.baidu.android.pushservice.b.d.e(this.f36607a) ? 1 : 0);
+                jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, this.f36607a.getPackageName());
+                jSONObject.put("proxy_conn", com.baidu.android.pushservice.b.d.c(this.f36607a) ? 1 : 0);
+                jSONObject.put("noti_enable", com.baidu.android.pushservice.j.h.b(this.f36607a));
+                if (this.f36607a.getPackageName().equals("com.baidu.searchbox")) {
+                    jSONObject.put("pkg_version", m.a(this.f36607a));
                 }
                 jSONObject.put("tiny_msghead", 1);
                 jSONObject.put("alarm_function", 1);
@@ -269,7 +270,7 @@ public class f extends d {
                 if (!TextUtils.isEmpty(str3)) {
                     jSONObject2.put("model", str3);
                 }
-                String cuid = DeviceId.getCUID(this.f35778a);
+                String cuid = DeviceId.getCUID(this.f36607a);
                 if (!TextUtils.isEmpty(cuid)) {
                     jSONObject2.put("cuid", cuid);
                 }
@@ -279,14 +280,14 @@ public class f extends d {
                 str = jSONObject.toString();
             } catch (Exception e2) {
                 e = e2;
-                cVar = new b.c(this.f35778a);
+                cVar = new b.c(this.f36607a);
                 cVar.a(Log.getStackTraceString(e)).a();
                 str = null;
                 if (TextUtils.isEmpty(str)) {
                 }
             } catch (UnsatisfiedLinkError e3) {
                 e = e3;
-                cVar = new b.c(this.f35778a);
+                cVar = new b.c(this.f36607a);
                 cVar.a(Log.getStackTraceString(e)).a();
                 str = null;
                 if (TextUtils.isEmpty(str)) {
@@ -295,10 +296,10 @@ public class f extends d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            byte[] a2 = a(h.f35789b.b(), str.getBytes());
-            e eVar = new e(h.f35789b.b());
-            eVar.f35781b = a2;
-            eVar.f35782c = true;
+            byte[] a2 = a(h.f36618b.b(), str.getBytes());
+            e eVar = new e(h.f36618b.b());
+            eVar.f36610b = a2;
+            eVar.f36611c = true;
             eVar.a(false);
             a(eVar);
         }
@@ -311,17 +312,17 @@ public class f extends d {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) || eVar == null) {
             return;
         }
-        a aVar = new a(this.f35778a);
-        h a3 = h.a(eVar.f35780a);
+        a aVar = new a(this.f36607a);
+        h a3 = h.a(eVar.f36609a);
         c a4 = aVar.a(a3);
-        if (a4 == null || (a2 = a4.a(eVar)) == null || !eVar.f35783d) {
+        if (a4 == null || (a2 = a4.a(eVar)) == null || !eVar.f36612d) {
             return;
         }
-        e eVar2 = new e(eVar.f35780a);
-        if (a3 == h.f35792e) {
-            eVar2.f35781b = a(h.f35792e.b(), a(eVar.e().e(), a2));
-        } else if (a3 == h.f35794g || a3 == h.f35790c) {
-            eVar2.f35781b = a(eVar.f35780a, (byte[]) null);
+        e eVar2 = new e(eVar.f36609a);
+        if (a3 == h.f36621e) {
+            eVar2.f36610b = a(h.f36621e.b(), a(eVar.e().e(), a2));
+        } else if (a3 == h.f36623g || a3 == h.f36619c) {
+            eVar2.f36610b = a(eVar.f36609a, (byte[]) null);
         }
         a(eVar2);
     }
@@ -337,10 +338,10 @@ public class f extends d {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            byte[] a2 = a(h.f35793f.b(), (byte[]) null);
-            e eVar = new e(h.f35793f.b());
-            eVar.f35781b = a2;
-            eVar.f35782c = true;
+            byte[] a2 = a(h.f36622f.b(), (byte[]) null);
+            e eVar = new e(h.f36622f.b());
+            eVar.f36610b = a2;
+            eVar.f36611c = true;
             eVar.a(true);
             a(eVar);
         }

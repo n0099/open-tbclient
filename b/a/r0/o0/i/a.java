@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.q0.d1.m0;
+import b.a.q0.c1.m0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -41,31 +41,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f21665a;
+    public final String f23164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f21666b;
+    public final long f23165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21667c;
+    public int f23166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f21668d;
+    public View f23167d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f21669e;
+    public TextView f23168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f21670f;
+    public TextView f23169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21671g;
+    public TextView f23170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f21672h;
+    public ImageView f23171h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f21673i;
+    public ImageView f23172i;
     public ImageView j;
     public ImageView k;
     public ImageView l;
@@ -84,14 +84,14 @@ public class a {
 
     /* renamed from: b.a.r0.o0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1061a implements View.OnClickListener {
+    public class View$OnClickListenerC1129a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21674e;
+        public final /* synthetic */ a f23173e;
 
-        public View$OnClickListenerC1061a(a aVar) {
+        public View$OnClickListenerC1129a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,20 +106,20 @@ public class a {
                     return;
                 }
             }
-            this.f21674e = aVar;
+            this.f23173e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f21674e.f21666b > 0) {
+                if (this.f23173e.f23165b > 0) {
                     StatisticItem statisticItem = new StatisticItem("c13671");
-                    statisticItem.param("fid", this.f21674e.f21666b);
+                    statisticItem.param("fid", this.f23173e.f23165b);
                     TiebaStatic.log(statisticItem);
                 }
-                HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(this.f21674e.f21668d.getContext());
-                hotUserRankActivityConfig.setCategory(this.f21674e.u);
+                HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(this.f23173e.f23167d.getContext());
+                hotUserRankActivityConfig.setCategory(this.f23173e.u);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
             }
         }
@@ -131,7 +131,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21675e;
+        public final /* synthetic */ a f23174e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -148,27 +148,27 @@ public class a {
                     return;
                 }
             }
-            this.f21675e = aVar;
+            this.f23174e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view.getId() != this.f21675e.v.getId() || this.f21675e.w == null || this.f21675e.w.f21687c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view.getId() != this.f23174e.v.getId() || this.f23174e.w == null || this.f23174e.w.f23186c == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f21675e.f21668d.getContext(), this.f21675e.w.f21687c.getUserId(), this.f21675e.w.f21687c.getName_show())));
-            if (!TextUtils.isEmpty(this.f21675e.f21665a)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f23174e.f23167d.getContext(), this.f23174e.w.f23186c.getUserId(), this.f23174e.w.f23186c.getName_show())));
+            if (!TextUtils.isEmpty(this.f23174e.f23164a)) {
                 StatisticItem statisticItem = new StatisticItem("c13659");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f21675e.w.f21685a);
-                statisticItem.param(TiebaStatic.Params.FRIEND_UID, this.f21675e.w.f21687c.rankNum);
+                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f23174e.w.f23184a);
+                statisticItem.param(TiebaStatic.Params.FRIEND_UID, this.f23174e.w.f23186c.rankNum);
                 TiebaStatic.log(statisticItem);
                 return;
             }
             StatisticItem statisticItem2 = new StatisticItem("c13683");
-            statisticItem2.param("uid", this.f21675e.w.f21687c.getUserId());
-            statisticItem2.param("fid", this.f21675e.f21666b);
+            statisticItem2.param("uid", this.f23174e.w.f23186c.getUserId());
+            statisticItem2.param("fid", this.f23174e.f23165b);
             TiebaStatic.log(statisticItem2);
         }
     }
@@ -188,38 +188,38 @@ public class a {
                 return;
             }
         }
-        this.f21667c = 3;
+        this.f23166c = 3;
         this.x = new b(this);
-        this.f21668d = view;
-        this.f21665a = str;
-        this.f21666b = j;
+        this.f23167d = view;
+        this.f23164a = str;
+        this.f23165b = j;
         View findViewById = view.findViewById(R.id.top_container);
         this.v = findViewById;
         findViewById.setOnClickListener(this.x);
         TextView textView = (TextView) view.findViewById(R.id.rank_name);
-        this.f21669e = textView;
+        this.f23168e = textView;
         textView.getPaint().setFakeBoldText(true);
-        this.f21670f = (TextView) view.findViewById(R.id.top_user_name);
-        this.f21671g = (TextView) view.findViewById(R.id.rank_data);
-        this.f21672h = (ImageView) view.findViewById(R.id.img_left_top_cover);
-        this.f21673i = (ImageView) view.findViewById(R.id.img_left_bottom_cover);
+        this.f23169f = (TextView) view.findViewById(R.id.top_user_name);
+        this.f23170g = (TextView) view.findViewById(R.id.rank_data);
+        this.f23171h = (ImageView) view.findViewById(R.id.img_left_top_cover);
+        this.f23172i = (ImageView) view.findViewById(R.id.img_left_bottom_cover);
         this.j = (ImageView) view.findViewById(R.id.img_center_top_cover);
         this.k = (ImageView) view.findViewById(R.id.img_right_top_cover);
         this.l = (ImageView) view.findViewById(R.id.img_right_bottom_cover);
         IrregularImageView irregularImageView = (IrregularImageView) view.findViewById(R.id.img_user_head);
         this.m = irregularImageView;
         irregularImageView.setErrorRes(R.drawable.pic_list_avatar);
-        this.f21672h.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_rule_line100, 1, false));
-        this.f21673i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_circle, 1, false));
+        this.f23171h.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_rule_line100, 1, false));
+        this.f23172i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_circle, 1, false));
         this.j.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_line, 1, false));
         this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_circle2, 1, false));
         this.l.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_line2, 1, false));
         TextView textView2 = (TextView) view.findViewById(R.id.text_compute_method);
         this.n = textView2;
-        textView2.setText(this.f21668d.getResources().getString(R.string.hot_user_rank_influence_desc));
+        textView2.setText(this.f23167d.getResources().getString(R.string.hot_user_rank_influence_desc));
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.hot_rank_entry);
         this.o = relativeLayout;
-        relativeLayout.setOnClickListener(new View$OnClickListenerC1061a(this));
+        relativeLayout.setOnClickListener(new View$OnClickListenerC1129a(this));
         this.p = (ImageView) view.findViewById(R.id.hot_rank_entry_crown);
         this.q = (TextView) view.findViewById(R.id.hot_rank_entry_describe);
         this.t = (ImageView) view.findViewById(R.id.hot_rank_entry_first_tag);
@@ -287,10 +287,10 @@ public class a {
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f21667c == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f23166c == i2) {
             return;
         }
-        this.f21667c = i2;
+        this.f23166c = i2;
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
         SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.p, R.drawable.svg_icon_mask_crown24, SvgManager.SvgResourceStateType.NORMAL);
         SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.t, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
@@ -306,32 +306,32 @@ public class a {
             if (aVar == null) {
                 return;
             }
-            this.f21669e.setText(aVar.f21685a);
-            if (aVar.f21687c != null) {
-                String str = aVar.f21686b;
+            this.f23168e.setText(aVar.f23184a);
+            if (aVar.f23186c != null) {
+                String str = aVar.f23185b;
                 if (m0.d(str) > 10) {
-                    str = m0.m(aVar.f21686b, 10) + "...";
+                    str = m0.m(aVar.f23185b, 10) + "...";
                 }
-                this.f21670f.setText(String.format(this.f21668d.getContext().getResources().getString(R.string.hot_user_rank_top_name), str));
+                this.f23169f.setText(String.format(this.f23167d.getContext().getResources().getString(R.string.hot_user_rank_top_name), str));
             }
-            if (aVar.f21688d == 0) {
-                this.f21671g.setVisibility(8);
+            if (aVar.f23187d == 0) {
+                this.f23170g.setVisibility(8);
             } else {
-                this.f21671g.setVisibility(0);
-                this.f21671g.setText(String.format(this.f21668d.getContext().getString(R.string.hot_user_rank_data), StringHelper.getDateStringMdChinease(aVar.f21688d * 1000)));
+                this.f23170g.setVisibility(0);
+                this.f23170g.setText(String.format(this.f23167d.getContext().getString(R.string.hot_user_rank_data), StringHelper.getDateStringMdChinease(aVar.f23187d * 1000)));
             }
-            this.m.setImage(aVar.f21689e, h(this.f21668d.getContext()), R.drawable.mask_list_avatar);
-            TiebaFieldsInfo tiebaFieldsInfo = aVar.f21690f;
+            this.m.setImage(aVar.f23188e, h(this.f23167d.getContext()), R.drawable.mask_list_avatar);
+            TiebaFieldsInfo tiebaFieldsInfo = aVar.f23189f;
             if (tiebaFieldsInfo != null && !z && !TextUtils.isEmpty(tiebaFieldsInfo.tieba_name)) {
                 this.o.setVisibility(0);
-                this.q.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.cat_hot_rank), aVar.f21690f.tieba_name));
-                List<String> i2 = i(aVar.f21690f.user_rank);
+                this.q.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.cat_hot_rank), aVar.f23189f.tieba_name));
+                List<String> i2 = i(aVar.f23189f.user_rank);
                 this.r.setData(i2);
                 g(i2);
-                this.u = aVar.f21690f.tieba_name;
-                if (this.f21666b > 0) {
+                this.u = aVar.f23189f.tieba_name;
+                if (this.f23165b > 0) {
                     StatisticItem statisticItem = new StatisticItem("c13670");
-                    statisticItem.param("fid", this.f21666b);
+                    statisticItem.param("fid", this.f23165b);
                     TiebaStatic.log(statisticItem);
                     return;
                 }

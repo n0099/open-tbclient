@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import b.a.p0.a.c1.d.h;
+import b.a.p0.a.c1.d.i;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
@@ -20,7 +20,7 @@ import java.nio.charset.Charset;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class b implements h {
+public class b implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class b implements h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.w.a f24165a;
+        public final /* synthetic */ b.a.p0.a.w.a f25628a;
 
         public a(b bVar, b.a.p0.a.w.a aVar) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class b implements h {
                     return;
                 }
             }
-            this.f24165a = aVar;
+            this.f25628a = aVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
-                this.f24165a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
+                this.f25628a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
             }
         }
     }
@@ -73,7 +73,7 @@ public class b implements h {
         }
     }
 
-    @Override // b.a.p0.a.c1.d.h
+    @Override // b.a.p0.a.c1.d.i
     public void a(Context context, b.a.p0.a.w.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) && (context instanceof Activity)) {

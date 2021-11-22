@@ -42,19 +42,19 @@ public class a extends k<b, ManitoHeaderItemViewHolder> {
         }
     }
 
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         u0(i2, view, viewGroup, (b) obj, (ManitoHeaderItemViewHolder) viewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: t0 */
     public ManitoHeaderItemViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ManitoHeaderItemViewHolder(LayoutInflater.from(this.f2419e).inflate(R.layout.manito_item_header, (ViewGroup) null)) : (ManitoHeaderItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ManitoHeaderItemViewHolder(LayoutInflater.from(this.f2421e).inflate(R.layout.manito_item_header, (ViewGroup) null)) : (ManitoHeaderItemViewHolder) invokeL.objValue;
     }
 
     public View u0(int i2, View view, ViewGroup viewGroup, b bVar, ManitoHeaderItemViewHolder manitoHeaderItemViewHolder) {
@@ -66,7 +66,7 @@ public class a extends k<b, ManitoHeaderItemViewHolder> {
                 SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.getView(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(manitoHeaderItemViewHolder.title, R.color.CAM_X0105, 1);
             }
-            manitoHeaderItemViewHolder.title.setText(String.format(this.f2419e.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.a())));
+            manitoHeaderItemViewHolder.title.setText(String.format(this.f2421e.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.a())));
             manitoHeaderItemViewHolder.mSkinType = this.r;
             return view;
         }

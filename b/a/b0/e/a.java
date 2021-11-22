@@ -7,6 +7,7 @@ import androidx.multidex.MultiDexExtractor;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.utils.ContextHolder;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -229,7 +230,7 @@ public class a {
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("pkg_name");
+                    String optString = optJSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
                     if (!TextUtils.isEmpty(optString)) {
                         map.put(optString, Integer.valueOf(optJSONObject.optInt("min_version")));
                         JSONArray optJSONArray = optJSONObject.optJSONArray("activity");

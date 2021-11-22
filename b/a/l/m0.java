@@ -24,31 +24,31 @@ public class m0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f3257a;
+    public boolean f3348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3258b;
+    public int f3349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3259c;
+    public int f3350c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3260d;
+    public int f3351d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3261e;
+    public int f3352e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3262f;
+    public int f3353f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3263g;
+    public int f3354g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f3264h;
+    public int f3355h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f3265i;
+    public int f3356i;
     public boolean j;
 
     static {
@@ -64,13 +64,13 @@ public class m0 {
                 return;
             }
         }
-        k = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        l = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-        m = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-        n = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        o = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        p = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds0);
-        q = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        k = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        l = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        m = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        n = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        o = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        p = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds0);
+        q = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
     }
 
     public m0() {
@@ -86,15 +86,15 @@ public class m0 {
                 return;
             }
         }
-        this.f3257a = false;
-        this.f3258b = n;
-        this.f3259c = p;
-        this.f3260d = k;
-        this.f3261e = 0;
-        this.f3262f = l;
-        this.f3263g = m;
-        this.f3264h = R.color.CAM_X0205;
-        this.f3265i = q;
+        this.f3348a = false;
+        this.f3349b = n;
+        this.f3350c = p;
+        this.f3351d = k;
+        this.f3352e = 0;
+        this.f3353f = l;
+        this.f3354g = m;
+        this.f3355h = R.color.CAM_X0205;
+        this.f3356i = q;
     }
 
     public boolean a() {
@@ -106,49 +106,49 @@ public class m0 {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f3264h = i2;
+            this.f3355h = i2;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f3261e = i2;
+            this.f3352e = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f3265i = i2;
+            this.f3356i = i2;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f3262f = i2;
+            this.f3353f = i2;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f3263g = i2;
+            this.f3354g = i2;
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f3258b = i2;
+            this.f3349b = i2;
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f3260d = i2;
+            this.f3351d = i2;
         }
     }
 

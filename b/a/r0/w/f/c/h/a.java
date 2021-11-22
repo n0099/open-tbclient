@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
-import b.a.r0.f4.a;
+import b.a.r0.g4.a;
 import b.a.r0.w.f.c.e.h;
 import b.a.r0.w.f.c.e.i;
 import com.baidu.adp.framework.MessageManager;
@@ -56,31 +56,31 @@ public class a {
     public CustomMessageListener D;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f24713a;
+    public TbPageContext f26230a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f24714b;
+    public Context f26231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f24715c;
+    public ViewGroup f26232c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f24716d;
+    public ViewGroup f26233d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AppBarLayout f24717e;
+    public AppBarLayout f26234e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f24718f;
+    public LinearLayout f26235f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f24719g;
+    public FrameLayout f26236g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.w.f.c.h.d f24720h;
+    public b.a.r0.w.f.c.h.d f26237h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ScrollHorizontalTabView f24721i;
+    public ScrollHorizontalTabView f26238i;
     public NestedNoScrollViewPager j;
     public g k;
     public boolean l;
@@ -101,15 +101,15 @@ public class a {
 
     /* renamed from: b.a.r0.w.f.c.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1205a extends CustomMessageListener {
+    public class C1273a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24722a;
+        public final /* synthetic */ a f26239a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1205a(a aVar, int i2) {
+        public C1273a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -126,7 +126,7 @@ public class a {
                     return;
                 }
             }
-            this.f24722a = aVar;
+            this.f26239a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,7 +135,7 @@ public class a {
             Boolean bool;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (bool = (Boolean) customResponsedMessage.getData()) != null && bool.booleanValue()) {
-                this.f24722a.l = false;
+                this.f26239a.l = false;
             }
         }
     }
@@ -146,7 +146,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24723a;
+        public final /* synthetic */ a f26240a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2) {
@@ -166,18 +166,18 @@ public class a {
                     return;
                 }
             }
-            this.f24723a = aVar;
+            this.f26240a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || TbSingleton.getInstance().getYYLiveTabConfig() == null || ListUtils.isEmpty(TbSingleton.getInstance().getYYLiveTabConfig().a()) || this.f24723a.z) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || TbSingleton.getInstance().getYYLiveTabConfig() == null || ListUtils.isEmpty(TbSingleton.getInstance().getYYLiveTabConfig().a()) || this.f26240a.z) {
                 return;
             }
-            this.f24723a.z = true;
-            this.f24723a.j(b.a.r0.w.f.c.c.e(), false, true);
+            this.f26240a.z = true;
+            this.f26240a.j(b.a.r0.w.f.c.c.e(), false, true);
         }
     }
 
@@ -187,7 +187,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24724a;
+        public final /* synthetic */ a f26241a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -204,18 +204,18 @@ public class a {
                     return;
                 }
             }
-            this.f24724a = aVar;
+            this.f26241a = aVar;
         }
 
         @Override // com.baidu.ala.view.ScrollHorizontalTabView.OnTabClickListener
         public void onClick(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f24724a.y.size() == 0) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f26241a.y.size() == 0) {
                 return;
             }
-            int keyAt = this.f24724a.y.keyAt(i2);
+            int keyAt = this.f26241a.y.keyAt(i2);
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LIVE_SECOND_TAB_CLICK);
-            statisticItem.param("obj_type", keyAt - this.f24724a.r);
+            statisticItem.param("obj_type", keyAt - this.f26241a.r);
             TiebaStaticHelper.addYYParam(statisticItem);
             TiebaStatic.log(statisticItem);
         }
@@ -227,7 +227,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24725a;
+        public final /* synthetic */ a f26242a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -244,20 +244,20 @@ public class a {
                     return;
                 }
             }
-            this.f24725a = aVar;
+            this.f26242a = aVar;
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener, com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         public void onOffsetChanged(AppBarLayout appBarLayout, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, appBarLayout, i2) == null) || i2 == 0 || i2 == this.f24725a.n) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, appBarLayout, i2) == null) || i2 == 0 || i2 == this.f26242a.n) {
                 return;
             }
-            if (i2 - this.f24725a.n <= -4 && !this.f24725a.l) {
+            if (i2 - this.f26242a.n <= -4 && !this.f26242a.l) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, Boolean.FALSE));
-                this.f24725a.l = true;
+                this.f26242a.l = true;
             }
-            this.f24725a.n = i2;
+            this.f26242a.n = i2;
         }
     }
 
@@ -313,18 +313,18 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24726a;
+        public final /* synthetic */ a f26243a;
 
         /* renamed from: b.a.r0.w.f.c.h.a$f$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC1206a implements Runnable {
+        public class RunnableC1274a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f24727e;
+            public final /* synthetic */ f f26244e;
 
-            public RunnableC1206a(f fVar) {
+            public RunnableC1274a(f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -339,16 +339,16 @@ public class a {
                         return;
                     }
                 }
-                this.f24727e = fVar;
+                this.f26244e = fVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24727e.f24726a.k == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26244e.f26243a.k == null) {
                     return;
                 }
-                this.f24727e.f24726a.k.c();
+                this.f26244e.f26243a.k.c();
             }
         }
 
@@ -370,7 +370,7 @@ public class a {
                     return;
                 }
             }
-            this.f24726a = aVar;
+            this.f26243a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -378,7 +378,7 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                b.a.e.e.m.e.a().postDelayed(new RunnableC1206a(this), 500L);
+                b.a.e.f.m.e.a().postDelayed(new RunnableC1274a(this), 500L);
             }
         }
     }
@@ -389,7 +389,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<LiveTabBaseSubFragment> f24728a;
+        public List<LiveTabBaseSubFragment> f26245a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(a aVar, FragmentManager fragmentManager, List<LiveTabBaseSubFragment> list) {
@@ -409,15 +409,15 @@ public class a {
                     return;
                 }
             }
-            this.f24728a = list;
+            this.f26245a = list;
         }
 
         public final LiveTabBaseSubFragment a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                if (i2 < this.f24728a.size()) {
-                    return this.f24728a.get(i2);
+                if (i2 < this.f26245a.size()) {
+                    return this.f26245a.get(i2);
                 }
                 return null;
             }
@@ -426,11 +426,11 @@ public class a {
 
         public void b() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ListUtils.isEmpty(this.f24728a)) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ListUtils.isEmpty(this.f26245a)) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f24728a.size(); i2++) {
-                LiveTabBaseSubFragment liveTabBaseSubFragment = this.f24728a.get(i2);
+            for (int i2 = 0; i2 < this.f26245a.size(); i2++) {
+                LiveTabBaseSubFragment liveTabBaseSubFragment = this.f26245a.get(i2);
                 if (liveTabBaseSubFragment != null) {
                     liveTabBaseSubFragment.loadData();
                 }
@@ -439,11 +439,11 @@ public class a {
 
         public void c() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || ListUtils.isEmpty(this.f24728a)) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || ListUtils.isEmpty(this.f26245a)) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f24728a.size(); i2++) {
-                LiveTabBaseSubFragment liveTabBaseSubFragment = this.f24728a.get(i2);
+            for (int i2 = 0; i2 < this.f26245a.size(); i2++) {
+                LiveTabBaseSubFragment liveTabBaseSubFragment = this.f26245a.get(i2);
                 if (liveTabBaseSubFragment != null) {
                     liveTabBaseSubFragment.notifyListViewChanged();
                 }
@@ -452,10 +452,10 @@ public class a {
 
         public void d(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 < 0 || i2 >= this.f24728a.size()) {
+            if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 < 0 || i2 >= this.f26245a.size()) {
                 return;
             }
-            this.f24728a.get(i2).refreshPage();
+            this.f26245a.get(i2).refreshPage();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -463,7 +463,7 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                List<LiveTabBaseSubFragment> list = this.f24728a;
+                List<LiveTabBaseSubFragment> list = this.f26245a;
                 if (list != null) {
                     return list.size();
                 }
@@ -506,13 +506,13 @@ public class a {
         this.w = 8;
         this.y = new SparseArray<>();
         this.z = false;
-        this.A = new C1205a(this, 2921442);
+        this.A = new C1273a(this, 2921442);
         this.B = new b(this, 2001371);
         this.C = new c(this);
         this.D = new f(this, 2921414);
-        this.f24713a = tbPageContext;
+        this.f26230a = tbPageContext;
         this.m = z;
-        this.f24714b = tbPageContext.getPageActivity();
+        this.f26231b = tbPageContext.getPageActivity();
         this.o = fragmentManager;
         q();
     }
@@ -539,9 +539,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
             i iVar = new i();
-            iVar.f24614e = hVar;
-            this.f24720h.j(iVar);
-            this.f24718f.setVisibility(0);
+            iVar.f26131e = hVar;
+            this.f26237h.j(iVar);
+            this.f26235f.setVisibility(0);
         }
     }
 
@@ -578,16 +578,16 @@ public class a {
             ArrayList arrayList = new ArrayList();
             TabData tabData = new TabData();
             tabData.tabId = 100;
-            tabData.tabName = this.f24714b.getResources().getString(R.string.special_recommend_tab_title);
+            tabData.tabName = this.f26231b.getResources().getString(R.string.special_recommend_tab_title);
             arrayList.add(tabData);
             TabData tabData2 = new TabData();
             tabData2.tabId = 200;
-            tabData2.tabName = this.f24714b.getResources().getString(R.string.special_yanzhi_tab_title);
+            tabData2.tabName = this.f26231b.getResources().getString(R.string.special_yanzhi_tab_title);
             arrayList.add(tabData2);
             if (z) {
                 TabData tabData3 = new TabData();
                 tabData3.tabId = 400;
-                tabData3.tabName = this.f24714b.getResources().getString(R.string.special_friend_tab_title);
+                tabData3.tabName = this.f26231b.getResources().getString(R.string.special_friend_tab_title);
                 arrayList.add(tabData3);
             }
             return arrayList;
@@ -598,13 +598,13 @@ public class a {
     public ViewGroup m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24715c : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26232c : (ViewGroup) invokeV.objValue;
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.D.setTag(this.f24713a.getUniqueId());
+            this.D.setTag(this.f26230a.getUniqueId());
             MessageManager.getInstance().registerListener(this.D);
             MessageManager.getInstance().registerListener(this.A);
             MessageManager.getInstance().registerListener(this.B);
@@ -626,18 +626,18 @@ public class a {
             g gVar = new g(this, this.o, this.x);
             this.k = gVar;
             this.j.setAdapter(gVar);
-            TbPageContext tbPageContext = this.f24713a;
-            if (tbPageContext != null && tbPageContext.getPageActivity() != null && this.f24713a.getPageActivity().getIntent() != null) {
-                int intExtra = this.f24713a.getPageActivity().getIntent().getIntExtra("locate_type", 0);
+            TbPageContext tbPageContext = this.f26230a;
+            if (tbPageContext != null && tbPageContext.getPageActivity() != null && this.f26230a.getPageActivity().getIntent() != null) {
+                int intExtra = this.f26230a.getPageActivity().getIntent().getIntExtra("locate_type", 0);
                 if (intExtra == 17) {
                     this.p = 0;
                 } else if (intExtra == 18) {
                     this.p = 1;
                 }
             }
-            this.f24721i.setViewPager(this.j);
-            this.f24721i.setScrollTabPageListener(new e(this));
-            this.f24721i.setData(l(z));
+            this.f26238i.setViewPager(this.j);
+            this.f26238i.setScrollTabPageListener(new e(this));
+            this.f26238i.setData(l(z));
         }
     }
 
@@ -648,18 +648,18 @@ public class a {
                 if (TbSingleton.getInstance().getYYLiveTabConfig() == null || ListUtils.isEmpty(TbSingleton.getInstance().getYYLiveTabConfig().a())) {
                     return;
                 }
-                List<a.C0852a> a2 = TbSingleton.getInstance().getYYLiveTabConfig().a();
+                List<a.C0936a> a2 = TbSingleton.getInstance().getYYLiveTabConfig().a();
                 this.y.clear();
-                this.y.put(this.s, this.f24714b.getResources().getString(R.string.special_recommend_tab_title));
+                this.y.put(this.s, this.f26231b.getResources().getString(R.string.special_recommend_tab_title));
                 for (int i2 = 0; i2 < a2.size(); i2++) {
-                    this.y.put(a2.get(i2).f16599a, a2.get(i2).f16600b);
+                    this.y.put(a2.get(i2).f18339a, a2.get(i2).f18340b);
                 }
             } else if (this.y.size() == 0) {
-                this.y.put(this.s, this.f24714b.getResources().getString(R.string.special_recommend_tab_title));
-                this.y.put(this.t, this.f24714b.getResources().getString(R.string.special_music_tab_title));
-                this.y.put(this.u, this.f24714b.getResources().getString(R.string.special_talk_tab_title));
-                this.y.put(this.v, this.f24714b.getResources().getString(R.string.special_game_tab_title));
-                this.y.put(this.w, this.f24714b.getResources().getString(R.string.special_other_tab_title));
+                this.y.put(this.s, this.f26231b.getResources().getString(R.string.special_recommend_tab_title));
+                this.y.put(this.t, this.f26231b.getResources().getString(R.string.special_music_tab_title));
+                this.y.put(this.u, this.f26231b.getResources().getString(R.string.special_talk_tab_title));
+                this.y.put(this.v, this.f26231b.getResources().getString(R.string.special_game_tab_title));
+                this.y.put(this.w, this.f26231b.getResources().getString(R.string.special_other_tab_title));
             }
         }
     }
@@ -669,26 +669,26 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f24714b).inflate(R.layout.ala_live_tab_layout, (ViewGroup) null);
-                this.f24715c = viewGroup;
+                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f26231b).inflate(R.layout.ala_live_tab_layout, (ViewGroup) null);
+                this.f26232c = viewGroup;
                 AppBarLayout appBarLayout = (AppBarLayout) viewGroup.findViewById(R.id.live_tab_appbar_layout);
-                this.f24717e = appBarLayout;
+                this.f26234e = appBarLayout;
                 appBarLayout.addOnOffsetChangedListener((AppBarLayout.OnOffsetChangedListener) new d(this));
-                this.f24716d = (ViewGroup) this.f24715c.findViewById(R.id.live_tab_root_container);
-                this.f24718f = (LinearLayout) this.f24715c.findViewById(R.id.live_tab_base_container);
-                this.f24719g = (FrameLayout) this.f24715c.findViewById(R.id.super_entrance_container);
-                ScrollHorizontalTabView scrollHorizontalTabView = (ScrollHorizontalTabView) this.f24715c.findViewById(R.id.live_tab_top_tab_layout);
-                this.f24721i = scrollHorizontalTabView;
+                this.f26233d = (ViewGroup) this.f26232c.findViewById(R.id.live_tab_root_container);
+                this.f26235f = (LinearLayout) this.f26232c.findViewById(R.id.live_tab_base_container);
+                this.f26236g = (FrameLayout) this.f26232c.findViewById(R.id.super_entrance_container);
+                ScrollHorizontalTabView scrollHorizontalTabView = (ScrollHorizontalTabView) this.f26232c.findViewById(R.id.live_tab_top_tab_layout);
+                this.f26238i = scrollHorizontalTabView;
                 scrollHorizontalTabView.setOnTabClickListener(this.C);
-                this.f24720h = new b.a.r0.w.f.c.h.d(this.f24713a);
-                this.j = (NestedNoScrollViewPager) this.f24715c.findViewById(R.id.live_tab_view_pager);
+                this.f26237h = new b.a.r0.w.f.c.h.d(this.f26230a);
+                this.j = (NestedNoScrollViewPager) this.f26232c.findViewById(R.id.live_tab_view_pager);
                 j(b.a.r0.w.f.c.c.e(), false, false);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.f24714b.getResources().getDimensionPixelSize(R.dimen.tbds256));
-                if (this.f24720h.i() != null && this.f24720h.i().getParent() == null) {
-                    this.f24719g.addView(this.f24720h.i(), layoutParams);
-                    this.f24718f.setVisibility(8);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.f26231b.getResources().getDimensionPixelSize(R.dimen.tbds256));
+                if (this.f26237h.i() != null && this.f26237h.i().getParent() == null) {
+                    this.f26236g.addView(this.f26237h.i(), layoutParams);
+                    this.f26235f.setVisibility(8);
                 }
-                ((FrameLayout.LayoutParams) this.f24716d.getLayoutParams()).bottomMargin = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+                ((FrameLayout.LayoutParams) this.f26233d.getLayoutParams()).bottomMargin = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
                 v();
             } finally {
                 TTIStats.record("AlaLiveTabView.initView", System.currentTimeMillis() - currentTimeMillis);
@@ -725,8 +725,8 @@ public class a {
                 this.j.setAdapter(this.k);
                 this.j.setOffscreenPageLimit(arrayList.size());
                 this.p = 0;
-                this.f24721i.setViewPager(this.j);
-                this.f24721i.setData(arrayList);
+                this.f26238i.setViewPager(this.j);
+                this.f26238i.setData(arrayList);
             } finally {
                 TTIStats.record("AlaLiveTabView.initYYTabs", System.currentTimeMillis() - currentTimeMillis);
             }
@@ -753,7 +753,7 @@ public class a {
     public void u(boolean z) {
         b.a.r0.w.f.c.h.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (dVar = this.f24720h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (dVar = this.f26237h) == null) {
             return;
         }
         dVar.s(z);
@@ -763,10 +763,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            this.f24720h.k(this.f24713a, skinType);
-            this.f24721i.onChangeSkinType(skinType);
-            SkinManager.setBackgroundColor(this.f24715c, R.color.CAM_X0202);
-            SkinManager.setBackgroundColor(this.f24721i, R.color.CAM_X0202);
+            this.f26237h.k(this.f26230a, skinType);
+            this.f26238i.onChangeSkinType(skinType);
+            SkinManager.setBackgroundColor(this.f26232c, R.color.CAM_X0202);
+            SkinManager.setBackgroundColor(this.f26238i, R.color.CAM_X0202);
         }
     }
 
@@ -818,7 +818,7 @@ public class a {
     public void z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f24716d.setVisibility(z ? 0 : 8);
+            this.f26233d.setVisibility(z ? 0 : 8);
         }
     }
 }

@@ -8,7 +8,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
-import b.a.e.e.m.g;
+import b.a.e.f.m.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,10 +22,10 @@ public class b extends WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdWebViewActivity f22947a;
+    public AdWebViewActivity f24479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.r0.l3.n0.c f22948b;
+    public b.a.r0.m3.n0.c f24480b;
 
     public b(AdWebViewActivity adWebViewActivity) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class b extends WebChromeClient {
                 return;
             }
         }
-        this.f22947a = adWebViewActivity;
+        this.f24479a = adWebViewActivity;
     }
 
-    public void a(b.a.r0.l3.n0.c cVar) {
+    public void a(b.a.r0.m3.n0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f22948b = cVar;
+            this.f24480b = cVar;
         }
     }
 
@@ -57,7 +57,7 @@ public class b extends WebChromeClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f22947a.getPageContext().getPageActivity());
+            FrameLayout frameLayout = new FrameLayout(this.f24479a.getPageContext().getPageActivity());
             frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             return frameLayout;
         }
@@ -78,7 +78,7 @@ public class b extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            AdWebViewActivity adWebViewActivity = this.f22947a;
+            AdWebViewActivity adWebViewActivity = this.f24479a;
             if (adWebViewActivity == null || !g.f(adWebViewActivity.getPageContext())) {
                 return true;
             }
@@ -92,7 +92,7 @@ public class b extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            AdWebViewActivity adWebViewActivity = this.f22947a;
+            AdWebViewActivity adWebViewActivity = this.f24479a;
             if (adWebViewActivity == null || !g.f(adWebViewActivity.getPageContext())) {
                 return true;
             }
@@ -106,7 +106,7 @@ public class b extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            AdWebViewActivity adWebViewActivity = this.f22947a;
+            AdWebViewActivity adWebViewActivity = this.f24479a;
             if (adWebViewActivity == null || !g.f(adWebViewActivity.getPageContext())) {
                 return true;
             }
@@ -121,8 +121,8 @@ public class b extends WebChromeClient {
         AdWebViewActivity adWebViewActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            b.a.r0.l3.n0.c cVar = this.f22948b;
-            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (adWebViewActivity = this.f22947a) != null && g.f(adWebViewActivity.getPageContext())) {
+            b.a.r0.m3.n0.c cVar = this.f24480b;
+            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (adWebViewActivity = this.f24479a) != null && g.f(adWebViewActivity.getPageContext())) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
             return true;

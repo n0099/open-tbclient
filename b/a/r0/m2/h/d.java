@@ -1,6 +1,6 @@
 package b.a.r0.m2.h;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,11 +15,11 @@ public class d implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f21194f;
+    public static final BdUniqueId f22349f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21195e;
+    public String f22350e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class d implements n {
                 return;
             }
         }
-        f21194f = BdUniqueId.gen();
+        f22349f = BdUniqueId.gen();
     }
 
     public d(boolean z, a aVar) {
@@ -52,18 +52,18 @@ public class d implements n {
                 return;
             }
         }
-        String str = aVar.f21190e;
-        String str2 = aVar.f21189d;
-        this.f21195e = aVar.f21186a;
-        String str3 = aVar.f21191f;
-        List<b> list = aVar.f21188c;
-        int i4 = aVar.f21187b;
+        String str = aVar.f22345e;
+        String str2 = aVar.f22344d;
+        this.f22350e = aVar.f22341a;
+        String str3 = aVar.f22346f;
+        List<b> list = aVar.f22343c;
+        int i4 = aVar.f22342b;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f21194f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f22349f : (BdUniqueId) invokeV.objValue;
     }
 }

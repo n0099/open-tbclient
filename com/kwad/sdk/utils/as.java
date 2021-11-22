@@ -13,31 +13,31 @@ public class as {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f66646a;
+    public volatile boolean f67559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f66647b;
+    public volatile boolean f67560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f66648c;
+    public volatile boolean f67561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f66649d;
+    public volatile boolean f67562d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f66650e;
+    public volatile boolean f67563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f66651f;
+    public volatile boolean f67564f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f66652g;
+    public volatile long f67565g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f66653h;
+    public volatile long f67566h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile long f66654i;
+    public volatile long f67567i;
     public volatile long j;
     public volatile boolean k;
 
@@ -54,15 +54,15 @@ public class as {
                 return;
             }
         }
-        this.f66646a = false;
-        this.f66647b = false;
-        this.f66648c = false;
-        this.f66649d = false;
-        this.f66650e = false;
-        this.f66651f = false;
-        this.f66652g = 0L;
-        this.f66653h = 0L;
-        this.f66654i = 0L;
+        this.f67559a = false;
+        this.f67560b = false;
+        this.f67561c = false;
+        this.f67562d = false;
+        this.f67563e = false;
+        this.f67564f = false;
+        this.f67565g = 0L;
+        this.f67566h = 0L;
+        this.f67567i = 0L;
         this.j = -1L;
         this.k = false;
     }
@@ -93,6 +93,6 @@ public class as {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66651f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67564f : invokeV.booleanValue;
     }
 }

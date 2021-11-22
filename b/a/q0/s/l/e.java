@@ -27,7 +27,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f13148e;
+        public final /* synthetic */ b f13928e;
 
         public a(e eVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class e {
                     return;
                 }
             }
-            this.f13148e = bVar;
+            this.f13928e = bVar;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -66,7 +66,7 @@ public class e {
         public void onFailure(GetTplStokenResult getTplStokenResult) {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || (bVar = this.f13148e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || (bVar = this.f13928e) == null) {
                 return;
             }
             bVar.onFailed();
@@ -78,7 +78,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) {
                 if (getTplStokenResult == null) {
-                    b bVar = this.f13148e;
+                    b bVar = this.f13928e;
                     if (bVar != null) {
                         bVar.onFailed();
                         return;
@@ -89,21 +89,21 @@ public class e {
                 if (map != null && map.size() > 0) {
                     String str = map.get(TbConfig.PassConfig.TPL);
                     if (StringUtils.isNULL(str)) {
-                        b bVar2 = this.f13148e;
+                        b bVar2 = this.f13928e;
                         if (bVar2 != null) {
                             bVar2.onFailed();
                             return;
                         }
                         return;
                     }
-                    b bVar3 = this.f13148e;
+                    b bVar3 = this.f13928e;
                     if (bVar3 != null) {
                         bVar3.onSuccess(str);
                         return;
                     }
                     return;
                 }
-                b bVar4 = this.f13148e;
+                b bVar4 = this.f13928e;
                 if (bVar4 != null) {
                     bVar4.onFailed();
                 }

@@ -1,7 +1,7 @@
 package b.a.p0.a.n0.k;
 
 import androidx.annotation.NonNull;
-import b.a.p0.n.l.b;
+import b.a.p0.q.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public final class a implements b.a.p0.n.l.b {
+public final class a implements b.a.p0.q.m.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6831a;
+    public String f7160a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6832b;
+    public boolean f7161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.p0.n.l.b f6833c;
+    public b.a.p0.q.m.b f7162c;
 
     /* renamed from: b.a.p0.a.n0.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0308a {
+    public static /* synthetic */ class C0320a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -35,7 +35,7 @@ public final class a implements b.a.p0.n.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f6834a;
+        public a f7163a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public final class a implements b.a.p0.n.l.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                a aVar = this.f6834a;
-                this.f6834a = null;
+                a aVar = this.f7163a;
+                this.f7163a = null;
                 return aVar;
             }
             return (a) invokeV.objValue;
@@ -66,7 +66,7 @@ public final class a implements b.a.p0.n.l.b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                c().f6832b = z;
+                c().f7161b = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -76,10 +76,10 @@ public final class a implements b.a.p0.n.l.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f6834a == null) {
-                    this.f6834a = new a(null);
+                if (this.f7163a == null) {
+                    this.f7163a = new a(null);
                 }
-                return this.f6834a;
+                return this.f7163a;
             }
             return (a) invokeV.objValue;
         }
@@ -88,32 +88,32 @@ public final class a implements b.a.p0.n.l.b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                c().f6831a = str;
+                c().f7160a = str;
                 return this;
             }
             return (b) invokeL.objValue;
         }
 
-        public b e(b.a.p0.n.l.b bVar) {
+        public b e(b.a.p0.q.m.b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-                c().f6833c = bVar;
+                c().f7162c = bVar;
                 return this;
             }
             return (b) invokeL.objValue;
         }
     }
 
-    public /* synthetic */ a(C0308a c0308a) {
+    public /* synthetic */ a(C0320a c0320a) {
         this();
     }
 
-    @Override // b.a.p0.n.l.b
+    @Override // b.a.p0.q.m.b
     public void a(String str, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            b.a.p0.n.l.b bVar = this.f6833c;
+            b.a.p0.q.m.b bVar = this.f7162c;
             if (bVar != null) {
                 bVar.a(str, aVar);
             } else if (aVar != null) {
@@ -125,13 +125,13 @@ public final class a implements b.a.p0.n.l.b {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6831a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7160a : (String) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6832b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7161b : invokeV.booleanValue;
     }
 
     @NonNull
@@ -139,7 +139,7 @@ public final class a implements b.a.p0.n.l.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "SoLib:: libName=" + this.f6831a + " buildin=" + this.f6832b;
+            return "SoLib:: libName=" + this.f7160a + " buildin=" + this.f7161b;
         }
         return (String) invokeV.objValue;
     }

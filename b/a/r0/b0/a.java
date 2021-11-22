@@ -85,9 +85,9 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
     public void B(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
-            J(viewGroup, K(viewGroup));
-            M(viewGroup);
-            I();
+            L(viewGroup, M(viewGroup));
+            N(viewGroup);
+            K();
             if (s()) {
                 ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.p;
                 if (threadCommentAndPraiseInfoLayout != null) {
@@ -119,7 +119,7 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
         this.q.setData(threadData);
     }
 
-    public final void I() {
+    public final void K() {
         T t;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (t = this.o) == null || t.getThreadData() == null || this.u == null) {
@@ -132,7 +132,7 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
         }
     }
 
-    public final void J(ViewGroup viewGroup, boolean z) {
+    public final void L(ViewGroup viewGroup, boolean z) {
         T t;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048580, this, viewGroup, z) == null) || (t = this.o) == null || t.getThreadData() == null) {
@@ -151,7 +151,7 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
             int p2 = p(R.dimen.tbds78);
             int p3 = p(z ? R.dimen.tbds104 : R.dimen.tbds44);
             int p4 = p(R.dimen.tbds50);
-            if (b.a.q0.b.d.l0()) {
+            if (b.a.q0.b.d.p0()) {
                 p = p(R.dimen.tbds177);
                 p2 = p(R.dimen.tbds76);
                 p3 = p(z ? R.dimen.tbds126 : R.dimen.tbds44);
@@ -172,7 +172,7 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
         }
     }
 
-    public final boolean K(ViewGroup viewGroup) {
+    public final boolean M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         SparseArray<String> sparseArray;
         Interceptable interceptable = $ic;
@@ -188,10 +188,10 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
                     viewGroup.addView(nEGFeedBackView);
                 }
                 this.r.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-                int g2 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-                int g3 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-                int g4 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-                int g5 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+                int g2 = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+                int g3 = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+                int g4 = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+                int g5 = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g2, g2);
                 layoutParams.rightMargin = g4;
                 layoutParams.topMargin = g5;
@@ -199,7 +199,7 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
                 this.r.setPadding(g3, g3, g3, g3);
                 this.r.setLayoutParams(layoutParams);
                 x0 x0Var = new x0();
-                x0Var.o(this.o.getThreadData().s1());
+                x0Var.o(this.o.getThreadData().t1());
                 x0Var.k(this.o.getThreadData().T());
                 x0Var.n(this.o.getThreadData().F0());
                 x0Var.j(this.o.feedBackReasonMap);
@@ -218,7 +218,7 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
         return invokeL.booleanValue;
     }
 
-    public final void M(ViewGroup viewGroup) {
+    public final void N(ViewGroup viewGroup) {
         T t;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, viewGroup) == null) || (t = this.o) == null || t.getThreadData() == null) {
@@ -231,10 +231,10 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
         }
         if (this.o.getThreadData().b2 && !ThreadCardUtils.isSelf(this.o.getThreadData())) {
             this.s.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            int g2 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-            int g3 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g4 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g5 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            int g2 = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+            int g3 = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g4 = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g5 = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g2, g2);
             layoutParams.rightMargin = g4;
             layoutParams.topMargin = g5;
@@ -255,7 +255,7 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             ForumEnterLayout forumEnterLayout = this.u;
-            if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !b.a.q0.b.d.l0()) {
+            if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !b.a.q0.b.d.p0()) {
                 y(this.p, p(R.dimen.tbds20));
                 y(this.q, p(R.dimen.tbds20));
                 return;
@@ -268,7 +268,7 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
     public int p(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
     }
 
     public void q(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
@@ -290,8 +290,8 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
         threadCommentAndPraiseInfoLayout.setShareReportFrom(3);
         threadCommentAndPraiseInfoLayout.hideDisagree();
         b.a.q0.s.q.f fVar = new b.a.q0.s.q.f();
-        fVar.f13300b = 7;
-        fVar.f13306h = 1;
+        fVar.f14080b = 7;
+        fVar.f14086h = 1;
         threadCommentAndPraiseInfoLayout.setAgreeStatisticData(fVar);
     }
 
@@ -313,9 +313,9 @@ public abstract class a<T extends b.a.q0.s.q.a> extends b<T> {
             if (ThreadCardUtils.isSelf(threadData)) {
                 return false;
             }
-            boolean z = threadData.R1() || threadData.M1() || threadData.P1();
+            boolean z = threadData.T1() || threadData.O1() || threadData.R1();
             if ((!z || !threadData.a2) && (!z || !threadData.c2 || threadData.J().hadConcerned())) {
-                if (threadData.l1() == null || !b.a.r0.b0.e0.j.Y(threadData)) {
+                if (threadData.m1() == null || !b.a.r0.b0.f0.j.Y(threadData)) {
                     return false;
                 }
                 if (!threadData.a2 && !threadData.d2) {

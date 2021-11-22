@@ -65,16 +65,16 @@ public class e extends com.alipay.sdk.packet.e {
             HashMap hashMap = new HashMap();
             hashMap.put("utdId", com.alipay.sdk.sys.b.d().c());
             hashMap.put("logHeader", "RAW");
-            hashMap.put("bizCode", com.alipay.sdk.util.c.f34191b);
+            hashMap.put("bizCode", com.alipay.sdk.util.c.f35025b);
             hashMap.put("productId", "alipaysdk_android");
             hashMap.put("Content-Encoding", "Gzip");
             hashMap.put("productVersion", "15.8.02");
-            a.b a3 = com.alipay.sdk.net.a.a(context, new a.C1521a(com.alipay.sdk.cons.a.f34066d, hashMap, a2));
+            a.b a3 = com.alipay.sdk.net.a.a(context, new a.C1563a(com.alipay.sdk.cons.a.f34900d, hashMap, a2));
             com.alipay.sdk.util.c.d(com.alipay.sdk.cons.a.x, "mdap got " + a3);
             if (a3 != null) {
                 boolean a4 = com.alipay.sdk.packet.e.a(a3);
                 try {
-                    byte[] bArr = a3.f34137c;
+                    byte[] bArr = a3.f34971c;
                     if (a4) {
                         bArr = com.alipay.sdk.encrypt.b.b(bArr);
                     }

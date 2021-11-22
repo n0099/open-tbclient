@@ -1,108 +1,74 @@
 package b.a.r0.o3;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetIconList.Setting;
+import tbclient.GetIconList.UserInfo;
 /* loaded from: classes5.dex */
-public class b implements b.a.q0.s.b0.a {
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public a f22061a;
-
-    public b() {
+    public static String a(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
+            if (i2 < 0) {
+                i2 = 0;
             }
-        }
-    }
-
-    @Override // b.a.q0.s.b0.a
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                b(context, 1);
-            } else {
-                b(context, 0);
+            String valueOf = String.valueOf(i2);
+            if (i2 >= 1000000) {
+                float f2 = i2 / 10000.0f;
+                int i3 = i2 / 10000;
+                if (f2 > i3) {
+                    return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+                }
+                return i3 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
             }
+            return valueOf;
         }
+        return (String) invokeI.objValue;
     }
 
-    @Override // b.a.q0.s.b0.a
-    public void b(Context context, int i2) {
+    public static String b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i2)));
-        }
-    }
-
-    @Override // b.a.q0.s.b0.a
-    public void c(Context context, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i2, z)));
-        }
-    }
-
-    @Override // b.a.q0.s.b0.a
-    public Class<?> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? MainTabActivity.class : (Class) invokeV.objValue;
-    }
-
-    @Override // b.a.q0.s.b0.a
-    public void e(Context context, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i2, z)));
-        }
-    }
-
-    @Override // b.a.q0.s.b0.a
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? MainTabActivity.class.getName() : (String) invokeV.objValue;
-    }
-
-    public void g(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f22061a = aVar;
-        }
-    }
-
-    @Override // b.a.q0.s.b0.a
-    public int getCurrentTabType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            a aVar = this.f22061a;
-            if (aVar != null) {
-                return aVar.getCurrentTabType();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            return -1;
+            String valueOf = String.valueOf(j);
+            if (j >= 1000000) {
+                float f2 = ((float) j) / 10000.0f;
+                long j2 = j / 10000;
+                if (f2 > ((float) j2)) {
+                    return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+                }
+                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+            }
+            return valueOf;
         }
-        return invokeV.intValue;
+        return (String) invokeJ.objValue;
+    }
+
+    public static int c(UserInfo userInfo, int i2, Setting setting) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, userInfo, i2, setting)) == null) {
+            if (userInfo == null || userInfo.is_mem == null) {
+                return 0;
+            }
+            return userInfo.is_mem.intValue() != 2 ? i2 : (setting == null || setting.vip_extra_switch.intValue() != 1 || setting.vip_extra_percent.intValue() <= 0) ? i2 : ((setting.vip_extra_percent.intValue() * i2) / 100) + i2;
+        }
+        return invokeLIL.intValue;
+    }
+
+    public static int d(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? (int) (i2 / 100.0f) : invokeI.intValue;
     }
 }

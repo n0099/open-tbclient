@@ -17,16 +17,16 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f28607a;
+    public JSONArray f29476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28608b;
+    public String f29477b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28609c;
+    public boolean f29478c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f28610d;
+    public JSONObject f29479d;
 
     public a(boolean z, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
@@ -43,24 +43,24 @@ public final class a {
                 return;
             }
         }
-        this.f28609c = z;
-        this.f28607a = jSONArray;
-        this.f28608b = String.valueOf(System.currentTimeMillis());
+        this.f29478c = z;
+        this.f29476a = jSONArray;
+        this.f29477b = String.valueOf(System.currentTimeMillis());
     }
 
     public final JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = this.f28607a;
+            JSONArray jSONArray = this.f29476a;
             if (jSONArray == null || jSONArray.length() < 0) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("metadata", b());
-                jSONObject.put(Constant.IS_REAL, this.f28609c ? "1" : "0");
-                jSONObject.put("data", this.f28607a);
+                jSONObject.put(Constant.IS_REAL, this.f29478c ? "1" : "0");
+                jSONObject.put("data", this.f29476a);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -76,11 +76,11 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("uploadtime", this.f28608b);
+                jSONObject.put("uploadtime", this.f29477b);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            this.f28610d = jSONObject;
+            this.f29479d = jSONObject;
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

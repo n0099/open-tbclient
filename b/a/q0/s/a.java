@@ -16,7 +16,7 @@ public class a implements LayoutInflater.Factory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f12885e;
+    public c f13665e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class a implements LayoutInflater.Factory {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f12885e = cVar;
+            this.f13665e = cVar;
         }
     }
 
@@ -44,10 +44,10 @@ public class a implements LayoutInflater.Factory {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
-            if (this.f12885e == null) {
-                this.f12885e = new c();
+            if (this.f13665e == null) {
+                this.f13665e = new c();
             }
-            this.f12885e.i(str, context, attributeSet);
+            this.f13665e.i(str, context, attributeSet);
             return null;
         }
         return (View) invokeLLL.objValue;

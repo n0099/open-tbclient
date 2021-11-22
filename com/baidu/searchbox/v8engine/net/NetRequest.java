@@ -17,6 +17,7 @@ import java.util.Observable;
 /* loaded from: classes7.dex */
 public class NetRequest extends Observable {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final boolean DEBUG = false;
     public static final String TAG = "NetRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<V8Engine> mEngineWeakReference;
@@ -100,6 +101,10 @@ public class NetRequest extends Observable {
             if (requestInterceptor != null) {
                 return requestInterceptor.shouldInterceptRequest(netRequestResult, netRequestParam);
             }
+            if (netRequestParam == null || netRequestParam.getJsObject() == null) {
+                return false;
+            }
+            netRequestParam.getJsObject().release();
             return false;
         }
         return invokeLL.booleanValue;

@@ -19,10 +19,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Queue<C0643b> f12016a;
+    public Queue<C0677b> f12895a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile c f12017b;
+    public volatile c f12896b;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -32,26 +32,26 @@ public class b {
 
     /* renamed from: b.a.q0.d0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0643b {
+    public class C0677b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageFileInfo f12018a;
+        public ImageFileInfo f12897a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b.a.q0.c0.b f12019b;
+        public b.a.q0.c0.b f12898b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f12020c;
+        public boolean f12899c;
 
         /* renamed from: d  reason: collision with root package name */
-        public b.a.e.l.d.a f12021d;
+        public b.a.e.m.d.a f12900d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f12022e;
+        public boolean f12901e;
 
-        public C0643b(b bVar) {
+        public C0677b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,23 +67,23 @@ public class b {
             }
         }
 
-        public /* synthetic */ C0643b(b bVar, a aVar) {
+        public /* synthetic */ C0677b(b bVar, a aVar) {
             this(bVar);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends BdAsyncTask<Void, C0643b, C0643b> {
+    public class c extends BdAsyncTask<Void, C0677b, C0677b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Queue<C0643b> f12023a;
+        public final Queue<C0677b> f12902a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f12024b;
+        public final /* synthetic */ b f12903b;
 
-        public c(b bVar, Queue<C0643b> queue) {
+        public c(b bVar, Queue<C0677b> queue) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,40 +98,40 @@ public class b {
                     return;
                 }
             }
-            this.f12024b = bVar;
-            this.f12023a = queue;
+            this.f12903b = bVar;
+            this.f12902a = queue;
             super.setPriority(2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public C0643b doInBackground(Void... voidArr) {
+        public C0677b doInBackground(Void... voidArr) {
             int i2;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, voidArr)) != null) {
-                return (C0643b) invokeL.objValue;
+                return (C0677b) invokeL.objValue;
             }
             while (true) {
-                C0643b poll = this.f12023a.poll();
+                C0677b poll = this.f12902a.poll();
                 Bitmap bitmap = null;
                 if (poll == null) {
                     return null;
                 }
                 if (isCancelled()) {
-                    this.f12023a.add(poll);
+                    this.f12902a.add(poll);
                     return null;
                 }
-                b.a.e.l.d.a m = b.a.q0.c0.c.k().m(poll.f12018a.toCachedKey(poll.f12020c));
+                b.a.e.m.d.a m = b.a.q0.c0.c.k().m(poll.f12897a.toCachedKey(poll.f12899c));
                 if (m != null) {
-                    poll.f12021d = m;
-                    poll.f12022e = true;
+                    poll.f12900d = m;
+                    poll.f12901e = true;
                 } else {
-                    Bitmap f2 = this.f12024b.f(poll.f12018a, poll.f12020c);
+                    Bitmap f2 = this.f12903b.f(poll.f12897a, poll.f12899c);
                     if (f2 != null) {
                         try {
-                            i2 = BitmapHelper.readPictureDegree(poll.f12018a.getFilePath());
+                            i2 = BitmapHelper.readPictureDegree(poll.f12897a.getFilePath());
                             if (i2 != 0) {
                                 try {
                                     Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(f2, i2);
@@ -150,9 +150,9 @@ public class b {
                             i2 = 0;
                         }
                         if (i2 != 0 && bitmap != null) {
-                            poll.f12021d = new b.a.e.l.d.a(bitmap, poll.f12018a.isGif(), poll.f12018a.getFilePath());
+                            poll.f12900d = new b.a.e.m.d.a(bitmap, poll.f12897a.isGif(), poll.f12897a.getFilePath());
                         } else {
-                            poll.f12021d = new b.a.e.l.d.a(f2, poll.f12018a.isGif(), poll.f12018a.getFilePath());
+                            poll.f12900d = new b.a.e.m.d.a(f2, poll.f12897a.isGif(), poll.f12897a.getFilePath());
                         }
                     }
                 }
@@ -163,31 +163,31 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(C0643b c0643b) {
+        public void onPostExecute(C0677b c0677b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0643b) == null) {
-                super.onPostExecute(c0643b);
-                this.f12024b.f12017b = null;
-                this.f12024b.g();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0677b) == null) {
+                super.onPostExecute(c0677b);
+                this.f12903b.f12896b = null;
+                this.f12903b.g();
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
-        public void onProgressUpdate(C0643b... c0643bArr) {
+        public void onProgressUpdate(C0677b... c0677bArr) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0643bArr) == null) || c0643bArr == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0677bArr) == null) || c0677bArr == null) {
                 return;
             }
-            for (C0643b c0643b : c0643bArr) {
-                b.a.e.l.d.a aVar = c0643b.f12021d;
-                if (aVar != null && !c0643b.f12022e) {
-                    b.a.q0.c0.c.k().d(c0643b.f12018a.toCachedKey(c0643b.f12020c), aVar);
+            for (C0677b c0677b : c0677bArr) {
+                b.a.e.m.d.a aVar = c0677b.f12900d;
+                if (aVar != null && !c0677b.f12901e) {
+                    b.a.q0.c0.c.k().d(c0677b.f12897a.toCachedKey(c0677b.f12899c), aVar);
                 }
-                b.a.q0.c0.b bVar = c0643b.f12019b;
+                b.a.q0.c0.b bVar = c0677b.f12898b;
                 if (bVar != null) {
-                    bVar.imageLoaded(aVar, c0643b.f12018a.toCachedKey(c0643b.f12020c), c0643b.f12022e);
+                    bVar.imageLoaded(aVar, c0677b.f12897a.toCachedKey(c0677b.f12899c), c0677b.f12901e);
                 }
             }
         }
@@ -199,15 +199,15 @@ public class b {
                 return;
             }
             super.onCancelled();
-            this.f12024b.f12017b = null;
+            this.f12903b.f12896b = null;
             while (true) {
-                C0643b poll = this.f12023a.poll();
+                C0677b poll = this.f12902a.poll();
                 if (poll == null) {
                     return;
                 }
-                b.a.q0.c0.b bVar = poll.f12019b;
+                b.a.q0.c0.b bVar = poll.f12898b;
                 if (bVar != null) {
-                    bVar.imageLoaded(null, poll.f12018a.toCachedKey(poll.f12020c), false);
+                    bVar.imageLoaded(null, poll.f12897a.toCachedKey(poll.f12899c), false);
                 }
             }
         }
@@ -226,21 +226,21 @@ public class b {
                 return;
             }
         }
-        this.f12016a = new ConcurrentLinkedQueue();
+        this.f12895a = new ConcurrentLinkedQueue();
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12016a = new ConcurrentLinkedQueue();
-            if (this.f12017b != null) {
-                this.f12017b.cancel(true);
-                this.f12017b = null;
+            this.f12895a = new ConcurrentLinkedQueue();
+            if (this.f12896b != null) {
+                this.f12896b.cancel(true);
+                this.f12896b = null;
             }
         }
     }
 
-    public b.a.e.l.d.a c(ImageFileInfo imageFileInfo, boolean z) {
+    public b.a.e.m.d.a c(ImageFileInfo imageFileInfo, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, z)) == null) {
@@ -249,35 +249,35 @@ public class b {
             }
             return b.a.q0.c0.c.k().m(imageFileInfo.toCachedKey(z));
         }
-        return (b.a.e.l.d.a) invokeLZ.objValue;
+        return (b.a.e.m.d.a) invokeLZ.objValue;
     }
 
-    public b.a.e.l.d.a d(ImageFileInfo imageFileInfo, b.a.q0.c0.b bVar, boolean z) {
+    public b.a.e.m.d.a d(ImageFileInfo imageFileInfo, b.a.q0.c0.b bVar, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, imageFileInfo, bVar, z)) == null) ? e(imageFileInfo, bVar, z, false) : (b.a.e.l.d.a) invokeLLZ.objValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, imageFileInfo, bVar, z)) == null) ? e(imageFileInfo, bVar, z, false) : (b.a.e.m.d.a) invokeLLZ.objValue;
     }
 
-    public b.a.e.l.d.a e(ImageFileInfo imageFileInfo, b.a.q0.c0.b bVar, boolean z, boolean z2) {
+    public b.a.e.m.d.a e(ImageFileInfo imageFileInfo, b.a.q0.c0.b bVar, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{imageFileInfo, bVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            b.a.e.l.d.a c2 = c(imageFileInfo, z);
+            b.a.e.m.d.a c2 = c(imageFileInfo, z);
             if (c2 != null) {
                 return c2;
             }
             if (z2) {
                 return null;
             }
-            C0643b c0643b = new C0643b(this, null);
-            c0643b.f12019b = bVar;
-            c0643b.f12018a = imageFileInfo;
-            c0643b.f12020c = z;
-            this.f12016a.add(c0643b);
+            C0677b c0677b = new C0677b(this, null);
+            c0677b.f12898b = bVar;
+            c0677b.f12897a = imageFileInfo;
+            c0677b.f12899c = z;
+            this.f12895a.add(c0677b);
             g();
             return null;
         }
-        return (b.a.e.l.d.a) invokeCommon.objValue;
+        return (b.a.e.m.d.a) invokeCommon.objValue;
     }
 
     public Bitmap f(ImageFileInfo imageFileInfo, boolean z) {
@@ -317,9 +317,9 @@ public class b {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f12017b == null && !this.f12016a.isEmpty()) {
-            this.f12017b = new c(this, this.f12016a);
-            this.f12017b.execute(new Void[0]);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f12896b == null && !this.f12895a.isEmpty()) {
+            this.f12896b = new c(this, this.f12895a);
+            this.f12896b.execute(new Void[0]);
         }
     }
 }

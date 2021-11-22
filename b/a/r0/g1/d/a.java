@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import b.a.r0.q3.c;
+import b.a.r0.r3.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.MtjConfig;
 import com.baidu.mobstat.StatService;
@@ -39,7 +39,7 @@ public class a implements c.a {
         StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
     }
 
-    @Override // b.a.r0.q3.c.a
+    @Override // b.a.r0.r3.c.a
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
@@ -48,7 +48,7 @@ public class a implements c.a {
         }
     }
 
-    @Override // b.a.r0.q3.c.a
+    @Override // b.a.r0.r3.c.a
     public void b(Context context, WebView webView, WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, webView, webChromeClient) == null) {
@@ -56,7 +56,7 @@ public class a implements c.a {
         }
     }
 
-    @Override // b.a.r0.q3.c.a
+    @Override // b.a.r0.r3.c.a
     public void c(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, str, z) == null) {

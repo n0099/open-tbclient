@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.itemtab;
 
-import b.a.e.e.p.l;
-import b.a.q0.d1.z;
+import b.a.e.f.p.l;
+import b.a.q0.c1.z;
 import b.a.q0.k0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;

@@ -17,10 +17,10 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f23585a;
+    public String f25102a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b.a.q0.t.f.a> f23586b;
+    public List<b.a.q0.t.f.a> f25103b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f23586b == null) {
-                this.f23586b = new ArrayList();
+            if (this.f25103b == null) {
+                this.f25103b = new ArrayList();
             }
-            return this.f23586b;
+            return this.f25103b;
         }
         return (List) invokeV.objValue;
     }
@@ -51,7 +51,7 @@ public class e {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23585a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25102a : (String) invokeV.objValue;
     }
 
     public void c(listData listdata) {
@@ -59,14 +59,14 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) || listdata == null) {
             return;
         }
-        this.f23585a = listdata.key;
+        this.f25102a = listdata.key;
         if (listdata.friend_list != null) {
-            this.f23586b = new ArrayList();
+            this.f25103b = new ArrayList();
             for (friendList friendlist : listdata.friend_list) {
                 b.a.q0.t.f.a aVar = new b.a.q0.t.f.a();
                 aVar.j(friendlist);
-                aVar.k(this.f23585a);
-                this.f23586b.add(aVar);
+                aVar.k(this.f25102a);
+                this.f25103b.add(aVar);
             }
         }
     }
@@ -76,14 +76,14 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) || robotslist == null) {
             return;
         }
-        this.f23585a = robotslist.key;
+        this.f25102a = robotslist.key;
         if (robotslist.friend_list != null) {
-            this.f23586b = new ArrayList();
+            this.f25103b = new ArrayList();
             for (friendList friendlist : robotslist.friend_list) {
                 b.a.q0.t.f.a aVar = new b.a.q0.t.f.a();
                 aVar.j(friendlist);
-                aVar.k(this.f23585a);
-                this.f23586b.add(aVar);
+                aVar.k(this.f25102a);
+                this.f25103b.add(aVar);
             }
         }
     }

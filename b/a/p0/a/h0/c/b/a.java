@@ -16,17 +16,17 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f5164c;
+    public static final boolean f5345c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile a f5165d;
+    public static volatile a f5346d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f5166a;
+    public boolean f5347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Long> f5167b;
+    public HashMap<String, Long> f5348b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class a {
                 return;
             }
         }
-        f5164c = k.f6397a;
+        f5345c = k.f6863a;
     }
 
     public a() {
@@ -57,22 +57,22 @@ public final class a {
                 return;
             }
         }
-        this.f5166a = false;
-        this.f5167b = new HashMap<>();
+        this.f5347a = false;
+        this.f5348b = new HashMap<>();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f5165d == null) {
+            if (f5346d == null) {
                 synchronized (a.class) {
-                    if (f5165d == null) {
-                        f5165d = new a();
+                    if (f5346d == null) {
+                        f5346d = new a();
                     }
                 }
             }
-            return f5165d;
+            return f5346d;
         }
         return (a) invokeV.objValue;
     }
@@ -80,7 +80,7 @@ public final class a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5166a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5347a : invokeV.booleanValue;
     }
 
     public boolean c(String str) {
@@ -91,18 +91,18 @@ public final class a {
                 return false;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            HashMap<String, Long> hashMap = this.f5167b;
-            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.f5167b.get(str).longValue() <= 18000000) {
-                if (f5164c) {
+            HashMap<String, Long> hashMap = this.f5348b;
+            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.f5348b.get(str).longValue() <= 18000000) {
+                if (f5345c) {
                     String str2 = "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑";
                     return true;
                 }
                 return true;
             }
-            if (f5164c) {
-                HashMap<String, Long> hashMap2 = this.f5167b;
+            if (f5345c) {
+                HashMap<String, Long> hashMap2 = this.f5348b;
                 if (hashMap2 != null && hashMap2.containsKey(str)) {
-                    String str3 = "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.f5167b.get(str) + " ，id = " + str;
+                    String str3 = "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.f5348b.get(str) + " ，id = " + str;
                 } else {
                     String str4 = "小程序未被标记未无更新， id = " + str;
                 }

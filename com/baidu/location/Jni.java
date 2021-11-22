@@ -14,31 +14,31 @@ public class Jni {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f38899a = 0;
+    public static int f39731a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f38900b = 1;
+    public static int f39732b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f38901c = 2;
+    public static int f39733c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f38902d = 11;
+    public static int f39734d = 11;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f38903e = 12;
+    public static int f39735e = 12;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f38904f = 13;
+    public static int f39736f = 13;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f38905g = 14;
+    public static int f39737g = 14;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f38906h = 15;
+    public static int f39738h = 15;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f38907i = 1024;
+    public static int f39739i = 1024;
     public static boolean j;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,19 +93,19 @@ public class Jni {
             }
             int i2 = -1;
             if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-                i2 = f38899a;
+                i2 = f39731a;
             } else if (str.equals("bd09ll")) {
-                i2 = f38900b;
+                i2 = f39732b;
             } else if (str.equals("gcj02")) {
-                i2 = f38901c;
+                i2 = f39733c;
             } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
-                i2 = f38902d;
+                i2 = f39734d;
             } else if (str.equals(BDLocation.BDLOCATION_BD09_TO_GCJ02)) {
-                i2 = f38903e;
+                i2 = f39735e;
             } else if (str.equals(BDLocation.BDLOCATION_BD09LL_TO_GCJ02)) {
-                i2 = f38904f;
+                i2 = f39736f;
             } else if (str.equals("wgs842mc")) {
-                i2 = f38906h;
+                i2 = f39738h;
             }
             try {
                 String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
@@ -131,7 +131,7 @@ public class Jni {
                 return StringUtil.NULL_STRING;
             }
             byte[] bytes = str.getBytes();
-            byte[] bArr = new byte[f38907i];
+            byte[] bArr = new byte[f39739i];
             int length = bytes.length;
             if (length > 740) {
                 length = 740;

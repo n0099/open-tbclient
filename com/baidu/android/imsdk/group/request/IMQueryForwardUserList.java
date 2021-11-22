@@ -78,7 +78,7 @@ public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00b3  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x00b4  */
     /* JADX WARN: Removed duplicated region for block: B:34:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

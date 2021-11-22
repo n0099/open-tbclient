@@ -1,6 +1,6 @@
 package b.a.r0.o0.l.d;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.r1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,28 +13,28 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public r1 f21800a;
+    public r1 f23299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<n> f21801b;
+    public ArrayList<n> f23300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f21802c;
+    public boolean f23301c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f21803d;
+    public boolean f23302d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21804e;
+    public int f23303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21805f;
+    public int f23304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f21806g;
+    public c f23305g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21807h;
+    public boolean f23306h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,12 +49,12 @@ public class b {
                 return;
             }
         }
-        this.f21802c = true;
-        this.f21803d = true;
-        this.f21804e = 0;
-        this.f21805f = 0;
-        this.f21807h = true;
-        this.f21801b = new ArrayList<>();
-        this.f21800a = new r1();
+        this.f23301c = true;
+        this.f23302d = true;
+        this.f23303e = 0;
+        this.f23304f = 0;
+        this.f23306h = true;
+        this.f23300b = new ArrayList<>();
+        this.f23299a = new r1();
     }
 }

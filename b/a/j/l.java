@@ -14,11 +14,11 @@ public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile l f3000b;
+    public static volatile l f3093b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f3001a;
+    public final Executor f3094a;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public final class l {
                 return;
             }
         }
-        this.f3001a = new ThreadPoolExecutor(5, 25, 20L, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
+        this.f3094a = new ThreadPoolExecutor(5, 25, 20L, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
     }
 
     public static l a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3000b == null) {
+            if (f3093b == null) {
                 synchronized (l.class) {
-                    if (f3000b == null) {
-                        f3000b = new l();
+                    if (f3093b == null) {
+                        f3093b = new l();
                     }
                 }
             }
-            return f3000b;
+            return f3093b;
         }
         return (l) invokeV.objValue;
     }
@@ -55,6 +55,6 @@ public final class l {
     public Executor b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3001a : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3094a : (Executor) invokeV.objValue;
     }
 }

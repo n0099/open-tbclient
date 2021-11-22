@@ -7,7 +7,7 @@ import android.os.Looper;
 import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
@@ -33,29 +33,29 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static h f12669h;
+    public static h f13419h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f12670a;
+    public boolean f13420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Class<? extends b.a.q0.j0.a>, b.a.q0.j0.b> f12671b;
+    public final Map<Class<? extends b.a.q0.j0.a>, b.a.q0.j0.b> f13421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Class<? extends b.a.q0.j0.a>, LinkedList<i>> f12672c;
+    public final Map<Class<? extends b.a.q0.j0.a>, LinkedList<i>> f13422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f12673d;
+    public final Handler f13423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f12674e;
+    public d f13424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b.a.q0.j0.c f12675f;
+    public final b.a.q0.j0.c f13425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final b.a.q0.n.g f12676g;
+    public final b.a.q0.n.g f13426g;
 
     /* loaded from: classes4.dex */
     public class a implements b.a.q0.j0.c {
@@ -63,7 +63,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f12677a;
+        public final /* synthetic */ h f13427a;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class h {
                     return;
                 }
             }
-            this.f12677a = hVar;
+            this.f13427a = hVar;
         }
 
         @Override // b.a.q0.j0.c
         public void a(b.a.q0.j0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f12677a.d(aVar);
+                this.f13427a.d(aVar);
             }
         }
     }
@@ -98,10 +98,10 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.j0.a f12678e;
+        public final /* synthetic */ b.a.q0.j0.a f13428e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f12679f;
+        public final /* synthetic */ h f13429f;
 
         public b(h hVar, b.a.q0.j0.a aVar) {
             Interceptable interceptable = $ic;
@@ -118,15 +118,15 @@ public class h {
                     return;
                 }
             }
-            this.f12679f = hVar;
-            this.f12678e = aVar;
+            this.f13429f = hVar;
+            this.f13428e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f12679f.c(this.f12678e);
+                this.f13429f.c(this.f13428e);
             }
         }
     }
@@ -137,7 +137,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f12680e;
+        public final /* synthetic */ h f13430e;
 
         public c(h hVar) {
             Interceptable interceptable = $ic;
@@ -154,14 +154,14 @@ public class h {
                     return;
                 }
             }
-            this.f12680e = hVar;
+            this.f13430e = hVar;
         }
 
         @Override // b.a.q0.n.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (activity instanceof TbPageContextSupport)) {
-                this.f12680e.n(((TbPageContextSupport) activity).getPageContext().getUniqueId());
+                this.f13430e.n(((TbPageContextSupport) activity).getPageContext().getUniqueId());
             }
         }
     }
@@ -194,26 +194,26 @@ public class h {
                 return;
             }
         }
-        this.f12670a = false;
-        this.f12673d = new Handler(Looper.getMainLooper());
-        this.f12675f = new a(this);
-        this.f12676g = new c(this);
-        this.f12671b = new HashMap();
-        this.f12672c = new HashMap();
+        this.f13420a = false;
+        this.f13423d = new Handler(Looper.getMainLooper());
+        this.f13425f = new a(this);
+        this.f13426g = new c(this);
+        this.f13421b = new HashMap();
+        this.f13422c = new HashMap();
     }
 
     public static h f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f12669h == null) {
+            if (f13419h == null) {
                 synchronized (h.class) {
-                    if (f12669h == null) {
-                        f12669h = new h();
+                    if (f13419h == null) {
+                        f13419h = new h();
                     }
                 }
             }
-            return f12669h;
+            return f13419h;
         }
         return (h) invokeV.objValue;
     }
@@ -232,7 +232,7 @@ public class h {
         }
         Class<?> cls = aVar.getClass();
         try {
-            b.a.q0.j0.b bVar = this.f12671b.get(cls);
+            b.a.q0.j0.b bVar = this.f13421b.get(cls);
             if (bVar != null) {
                 bVar.onEvent(aVar);
             }
@@ -240,7 +240,7 @@ public class h {
             BdLog.detailException(cls.getName(), e2);
         }
         try {
-            LinkedList<i> linkedList = this.f12672c.get(cls);
+            LinkedList<i> linkedList = this.f13422c.get(cls);
             if (ListUtils.isEmpty(linkedList)) {
                 return;
             }
@@ -265,7 +265,7 @@ public class h {
             if (l.C()) {
                 c(aVar);
             } else {
-                this.f12673d.post(new b(this, aVar));
+                this.f13423d.post(new b(this, aVar));
             }
         }
     }
@@ -286,16 +286,16 @@ public class h {
 
     public void g(@NonNull Application application) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, application) == null) || this.f12670a) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, application) == null) || this.f13420a) {
             return;
         }
         f.g();
         k(application);
         e eVar = new e(application);
-        this.f12674e = eVar;
-        eVar.b(this.f12675f);
-        this.f12674e.startService();
-        this.f12670a = true;
+        this.f13424e = eVar;
+        eVar.b(this.f13425f);
+        this.f13424e.startService();
+        this.f13420a = true;
     }
 
     public void h(@NonNull b.a.q0.j0.a aVar) {
@@ -319,7 +319,7 @@ public class h {
     public final void j(b.a.q0.j0.a aVar) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (dVar = this.f12674e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (dVar = this.f13424e) == null) {
             return;
         }
         dVar.a(aVar);
@@ -329,7 +329,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, application) == null) {
             try {
-                application.registerActivityLifecycleCallbacks(this.f12676g);
+                application.registerActivityLifecycleCallbacks(this.f13426g);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -339,21 +339,21 @@ public class h {
     public void l(@NonNull Class<? extends b.a.q0.j0.a> cls, @NonNull b.a.q0.j0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, cls, bVar) == null) {
-            if (this.f12671b.containsKey(cls)) {
+            if (this.f13421b.containsKey(cls)) {
                 BdLog.e(cls + " has existed, Please unRegister old listener first！");
                 return;
             }
-            this.f12671b.put(cls, bVar);
+            this.f13421b.put(cls, bVar);
         }
     }
 
     public void m(@NonNull Class<? extends b.a.q0.j0.a> cls, @NonNull i iVar, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, iVar, bdUniqueId) == null) {
-            LinkedList<i> linkedList = this.f12672c.get(cls);
+            LinkedList<i> linkedList = this.f13422c.get(cls);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
-                this.f12672c.put(cls, linkedList);
+                this.f13422c.put(cls, linkedList);
             }
             if (linkedList.contains(iVar)) {
                 BdLog.e("listener has existed, Please unRegister old listener first！");
@@ -370,7 +370,7 @@ public class h {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;
         }
-        for (Map.Entry<Class<? extends b.a.q0.j0.a>, LinkedList<i>> entry : this.f12672c.entrySet()) {
+        for (Map.Entry<Class<? extends b.a.q0.j0.a>, LinkedList<i>> entry : this.f13422c.entrySet()) {
             LinkedList<i> value = entry.getValue();
             if (!ListUtils.isEmpty(value)) {
                 Iterator<i> it = value.iterator();

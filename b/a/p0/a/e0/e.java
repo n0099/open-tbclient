@@ -2,7 +2,7 @@ package b.a.p0.a.e0;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.k2.g.h;
+import b.a.p0.a.o2.g.h;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ public class e {
     public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new File(b.a.p0.a.a1.e.q(), "sConsole-core") : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new File(b.a.p0.a.a1.d.q(), "sConsole-core") : (File) invokeV.objValue;
     }
 
     public static long b() {

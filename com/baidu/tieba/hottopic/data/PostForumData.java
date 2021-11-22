@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.data;
 
-import b.a.e.l.e.n;
-import b.a.r0.b0.e0.a;
+import b.a.e.m.e.n;
+import b.a.r0.b0.f0.a;
 import b.a.r0.j1.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
@@ -71,7 +71,7 @@ public class PostForumData extends a implements Serializable {
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (n) ListUtils.getItem(this.mRelateForumDataList, i2) : (n) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -5,8 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import b.a.e.e.m.e;
-import b.a.e.e.p.l;
+import b.a.e.f.m.e;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -39,14 +39,14 @@ public class a extends b.a.r0.b0.b<b.a.r0.h1.h.l.b> {
 
     /* renamed from: b.a.r0.h1.h.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC0892a implements View.OnClickListener {
+    public class View$OnClickListenerC0960a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17496e;
+        public final /* synthetic */ a f18965e;
 
-        public View$OnClickListenerC0892a(a aVar) {
+        public View$OnClickListenerC0960a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,16 +61,16 @@ public class a extends b.a.r0.b0.b<b.a.r0.h1.h.l.b> {
                     return;
                 }
             }
-            this.f17496e = aVar;
+            this.f18965e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17496e.f() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f18965e.f() == null) {
                 return;
             }
-            this.f17496e.f().a(view, this.f17496e.r);
+            this.f18965e.f().a(view, this.f18965e.r);
         }
     }
 
@@ -80,10 +80,10 @@ public class a extends b.a.r0.b0.b<b.a.r0.h1.h.l.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f17497e;
+        public final /* synthetic */ ViewGroup.LayoutParams f18966e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f17498f;
+        public final /* synthetic */ a f18967f;
 
         public b(a aVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -100,17 +100,17 @@ public class a extends b.a.r0.b0.b<b.a.r0.h1.h.l.b> {
                     return;
                 }
             }
-            this.f17498f = aVar;
-            this.f17497e = layoutParams;
+            this.f18967f = aVar;
+            this.f18966e = layoutParams;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f17498f.o.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f17497e.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.u - a.v)) + a.v);
-                this.f17498f.n.setLayoutParams(this.f17497e);
+                this.f18967f.o.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f18966e.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.u - a.v)) + a.v);
+                this.f18967f.n.setLayoutParams(this.f18966e);
             }
         }
     }
@@ -121,7 +121,7 @@ public class a extends b.a.r0.b0.b<b.a.r0.h1.h.l.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17499e;
+        public final /* synthetic */ a f18968e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -138,14 +138,14 @@ public class a extends b.a.r0.b0.b<b.a.r0.h1.h.l.b> {
                     return;
                 }
             }
-            this.f17499e = aVar;
+            this.f18968e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17499e.w();
+                this.f18968e.w();
             }
         }
     }
@@ -198,7 +198,7 @@ public class a extends b.a.r0.b0.b<b.a.r0.h1.h.l.b> {
         int i5 = t;
         textView.setPadding(0, i5, 0, i5 - s);
         this.q = this.m.getResources().getString(R.string.home_read_here);
-        this.n.setOnClickListener(new View$OnClickListenerC0892a(this));
+        this.n.setOnClickListener(new View$OnClickListenerC0960a(this));
     }
 
     @Override // b.a.r0.b0.b
@@ -237,16 +237,16 @@ public class a extends b.a.r0.b0.b<b.a.r0.h1.h.l.b> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || bVar == null || this.n.getLayoutParams() == null) {
             return;
         }
-        if (!bVar.f17502f) {
+        if (!bVar.f18971f) {
             this.n.getLayoutParams().height = v;
             this.n.requestLayout();
             this.o.setAlpha(0.0f);
         }
         if (this.n.getLayoutParams().height != u) {
-            bVar.f17502f = true;
+            bVar.f18971f = true;
             e.a().postDelayed(new c(this), 1600L);
         }
-        String formatTimeShort = StringHelper.getFormatTimeShort(bVar.f17501e);
+        String formatTimeShort = StringHelper.getFormatTimeShort(bVar.f18970e);
         TextView textView = this.o;
         textView.setText(formatTimeShort + this.q);
         k(this.m, TbadkCoreApplication.getInst().getSkinType());

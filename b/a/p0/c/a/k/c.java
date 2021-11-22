@@ -2,8 +2,7 @@ package b.a.p0.c.a.k;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.c.a.g;
-import b.a.p0.c.a.i.f;
+import b.a.p0.c.a.i.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,13 +16,13 @@ public abstract class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f9597a;
+    public boolean f10177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9598b;
+    public int f10178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9599c;
+    public String f10179c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -38,14 +37,14 @@ public abstract class c {
                 return;
             }
         }
-        this.f9597a = false;
-        this.f9598b = 0;
+        this.f10177a = false;
+        this.f10178b = 0;
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f9598b = 0;
+            this.f10178b = 0;
             b.a.p0.c.a.d.b().a(str, this);
         }
     }
@@ -53,19 +52,19 @@ public abstract class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9599c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10179c : (String) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9597a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10177a : invokeV.booleanValue;
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f9599c = str;
+            this.f10179c = str;
         }
     }
 
@@ -78,21 +77,21 @@ public abstract class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
             String str = new String(bArr);
-            if (b.a.p0.c.a.a.f9542a) {
+            if (b.a.p0.c.a.a.f10122a) {
                 String str2 = "processResponseData encodeResponseData=" + str;
             }
-            if (this.f9597a) {
-                f c2 = b.a.p0.c.a.e.f().c(g.l().m(), bArr);
+            if (this.f10177a) {
+                g c2 = b.a.p0.c.a.e.f().c(b.a.p0.c.a.g.l().m(), bArr);
                 if (c2 != null) {
                     if (!TextUtils.isEmpty(c2.a())) {
                         str = c2.a();
                     }
-                    this.f9598b = c2.b().intValue();
+                    this.f10178b = c2.b().intValue();
                 } else {
-                    this.f9598b = -1;
+                    this.f10178b = -1;
                 }
-                g.l().m().s(this.f9598b);
-                if (this.f9598b == -1) {
+                b.a.p0.c.a.g.l().m().s(this.f10178b);
+                if (this.f10178b == -1) {
                     b.a.p0.c.a.d.b().f(false);
                 }
             }
@@ -106,7 +105,7 @@ public abstract class c {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f9597a = z;
+            this.f10177a = z;
         }
     }
 }

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,21 +24,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a extends b.a.e.l.e.a<b.a.r0.v1.h.e.a, SearchSuggestCommonViewHolder> {
+public class a extends b.a.e.m.e.a<b.a.r0.v1.h.e.a, SearchSuggestCommonViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context m;
 
     /* renamed from: b.a.r0.v1.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1191a implements w {
+    public class C1257a implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f24364e;
+        public final /* synthetic */ Context f25827e;
 
-        public C1191a(a aVar, Context context) {
+        public C1257a(a aVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,10 +53,10 @@ public class a extends b.a.e.l.e.a<b.a.r0.v1.h.e.a, SearchSuggestCommonViewHolde
                     return;
                 }
             }
-            this.f24364e = context;
+            this.f25827e = context;
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof b.a.r0.v1.h.e.a)) {
@@ -64,7 +64,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.v1.h.e.a, SearchSuggestCommonViewHolde
                 String a2 = aVar.a();
                 String d2 = aVar.d();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921595, d2));
-                TiebaStatic.eventStat(this.f24364e, "search_bar_result_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                TiebaStatic.eventStat(this.f25827e, "search_bar_result_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
                 TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", a2).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i2 + 1).param("obj_param1", d2));
             }
         }
@@ -90,19 +90,19 @@ public class a extends b.a.e.l.e.a<b.a.r0.v1.h.e.a, SearchSuggestCommonViewHolde
             }
         }
         this.m = context;
-        this.f2422h = bdUniqueId;
-        c0(new C1191a(this, context));
+        this.f2424h = bdUniqueId;
+        c0(new C1257a(this, context));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.v1.h.e.a aVar, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
         h0(i2, view, viewGroup, aVar, searchSuggestCommonViewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public SearchSuggestCommonViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class FlowableNever extends Flowable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final Flowable<Object> INSTANCE;

@@ -16,7 +16,7 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final CustomMessageListener f13129a;
+    public static final CustomMessageListener f13909a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -90,18 +90,18 @@ public class i {
                 return;
             }
         }
-        f13129a = new a(0);
+        f13909a = new a(0);
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            MessageManager.getInstance().registerListener(2005009, f13129a);
-            MessageManager.getInstance().registerListener(2005010, f13129a);
-            MessageManager.getInstance().registerListener(2005011, f13129a);
-            MessageManager.getInstance().registerListener(2005012, f13129a);
-            MessageManager.getInstance().registerListener(2005013, f13129a);
-            MessageManager.getInstance().registerListener(2005015, f13129a);
+            MessageManager.getInstance().registerListener(2005009, f13909a);
+            MessageManager.getInstance().registerListener(2005010, f13909a);
+            MessageManager.getInstance().registerListener(2005011, f13909a);
+            MessageManager.getInstance().registerListener(2005012, f13909a);
+            MessageManager.getInstance().registerListener(2005013, f13909a);
+            MessageManager.getInstance().registerListener(2005015, f13909a);
         }
     }
 }

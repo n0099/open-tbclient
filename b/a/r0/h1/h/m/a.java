@@ -1,10 +1,10 @@
 package b.a.r0.h1.h.m;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.f1.n.e;
+import b.a.q0.e1.n.e;
 import b.a.q0.s.q.d2;
 import b.a.r0.h1.h.g;
-import b.a.r0.k3.c;
+import b.a.r0.l3.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -36,23 +36,23 @@ public class a {
         if (d2Var.R2) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HEATING_THREAD_CLICK);
             statisticItem.addParam("obj_locate", 1);
-            if (d2Var.F2()) {
+            if (d2Var.H2()) {
                 statisticItem.addParam("obj_type", 3);
-            } else if (d2Var.E2()) {
+            } else if (d2Var.G2()) {
                 statisticItem.addParam("obj_type", 2);
             } else {
                 statisticItem.addParam("obj_type", 1);
             }
             statisticItem.addParam(TiePlusStatic.Params.CLI_LOCATE, i3);
-            statisticItem.addParam("tid", d2Var.s1());
+            statisticItem.addParam("tid", d2Var.t1());
             statisticItem.addParam(TiebaStatic.Params.FID_1, d2Var.T());
             TiebaStatic.log(statisticItem);
-            b.a.q0.d.a.a(b.a.q0.d.a.f11995e, b.a.q0.d.a.f11991a, d2Var.S2, d2Var.T2, d2Var.U2, i2);
+            b.a.q0.d.a.a(b.a.q0.d.a.f12874e, b.a.q0.d.a.f12870a, d2Var.S2, d2Var.T2, d2Var.U2, i2);
         }
         if (str == null || !str.startsWith("manual")) {
             return;
         }
-        b.a.q0.d.a.a(b.a.q0.d.a.l, b.a.q0.d.a.f11991a, str, d2Var.T2, d2Var.U2, i2);
+        b.a.q0.d.a.a(b.a.q0.d.a.l, b.a.q0.d.a.f12870a, str, d2Var.T2, d2Var.U2, i2);
     }
 
     public static void c(d2 d2Var, BdUniqueId bdUniqueId, int i2, int i3) {
@@ -72,11 +72,11 @@ public class a {
             z = false;
             i4 = 0;
         }
-        StatisticItem e2 = b.a.r0.k3.a.e(d2Var, "a002", "common_click", i3, i2, z, str, null, i4);
+        StatisticItem e2 = b.a.r0.l3.a.e(d2Var, "a002", "common_click", i3, i2, z, str, null, i4);
         if (e2 == null) {
             return;
         }
-        if (d2Var.a2()) {
+        if (d2Var.c2()) {
             e2.param(TiebaStatic.Params.GUA_TYPE, 1);
         } else if (d2Var.s0() != null) {
             e2.param(TiebaStatic.Params.GUA_TYPE, 2);
@@ -95,7 +95,7 @@ public class a {
         }
         if (d2Var.q2) {
             e2.delete("thread_type");
-            e2.param("thread_type", d2Var.o1());
+            e2.param("thread_type", d2Var.p1());
         }
         c.g().c(bdUniqueId, e2);
         d(d2Var, i3);
@@ -106,9 +106,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, null, d2Var, i2) == null) {
             if (i2 != 2) {
-                n = i2 != 9 ? null : b.a.r0.k3.a.n("c13693", d2Var, 1);
+                n = i2 != 9 ? null : b.a.r0.l3.a.n("c13693", d2Var, 1);
             } else {
-                n = b.a.r0.k3.a.n("c13692", d2Var, 1);
+                n = b.a.r0.l3.a.n("c13692", d2Var, 1);
             }
             TiebaStatic.log(n);
         }
@@ -122,22 +122,22 @@ public class a {
         if (d2Var.R2) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HEATING_THREAD_EXPOSE);
             statisticItem.addParam("obj_locate", 1);
-            if (d2Var.F2()) {
+            if (d2Var.H2()) {
                 statisticItem.addParam("obj_type", 3);
-            } else if (d2Var.E2()) {
+            } else if (d2Var.G2()) {
                 statisticItem.addParam("obj_type", 2);
             } else {
                 statisticItem.addParam("obj_type", 1);
             }
-            statisticItem.addParam("tid", d2Var.s1());
+            statisticItem.addParam("tid", d2Var.t1());
             statisticItem.addParam(TiebaStatic.Params.FID_1, d2Var.T());
             TiebaStatic.log(statisticItem);
-            b.a.q0.d.a.a(b.a.q0.d.a.f11994d, b.a.q0.d.a.f11991a, d2Var.S2, d2Var.T2, d2Var.U2, i2);
+            b.a.q0.d.a.a(b.a.q0.d.a.f12873d, b.a.q0.d.a.f12870a, d2Var.S2, d2Var.T2, d2Var.U2, i2);
         }
         if (str == null || !str.startsWith("manual")) {
             return;
         }
-        b.a.q0.d.a.a(b.a.q0.d.a.k, b.a.q0.d.a.f11991a, str, d2Var.T2, d2Var.U2, i2);
+        b.a.q0.d.a.a(b.a.q0.d.a.k, b.a.q0.d.a.f12870a, str, d2Var.T2, d2Var.U2, i2);
     }
 
     public static void f(d2 d2Var, BdUniqueId bdUniqueId, int i2) {
@@ -157,16 +157,16 @@ public class a {
             z = false;
             i3 = 0;
         }
-        String c2 = b.a.r0.k3.a.c(d2Var.s1(), str, "", d2Var.L());
-        StatisticItem g2 = b.a.r0.k3.a.g(d2Var, "a002", "common_exp", i2, z, str, null, i3);
+        String c2 = b.a.r0.l3.a.c(d2Var.t1(), str, "", d2Var.L());
+        StatisticItem g2 = b.a.r0.l3.a.g(d2Var, "a002", "common_exp", i2, z, str, null, i3);
         if (g2 == null) {
             return;
         }
         if (d2Var.q2) {
             g2.delete("thread_type");
-            g2.param("thread_type", d2Var.o1());
+            g2.param("thread_type", d2Var.p1());
         }
-        if (d2Var.a2()) {
+        if (d2Var.c2()) {
             g2.param(TiebaStatic.Params.GUA_TYPE, 1);
         } else if (d2Var.s0() != null) {
             g2.param(TiebaStatic.Params.GUA_TYPE, 2);

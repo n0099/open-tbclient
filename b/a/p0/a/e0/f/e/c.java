@@ -20,20 +20,20 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f4652e;
+    public static final boolean f4622e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4653a;
+    public String f4623a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f4654b;
+    public JSONArray f4624b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4655c;
+    public String f4625c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4656d;
+    public String f4626d;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class c {
                 return;
             }
         }
-        f4652e = k.f6397a;
+        f4622e = k.f6863a;
     }
 
     public c() {
@@ -71,14 +71,14 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             c cVar = new c();
             try {
-                cVar.f4654b = jSONObject.getJSONArray("host");
-                cVar.f4653a = jSONObject.getString("appKey");
+                cVar.f4624b = jSONObject.getJSONArray("host");
+                cVar.f4623a = jSONObject.getString("appKey");
                 jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                cVar.f4655c = jSONObject.getString(ClientCookie.PORT_ATTR);
-                cVar.f4656d = Uri.decode(jSONObject.optString("url"));
+                cVar.f4625c = jSONObject.getString(ClientCookie.PORT_ATTR);
+                cVar.f4626d = Uri.decode(jSONObject.optString("url"));
                 return cVar;
             } catch (JSONException unused) {
-                boolean z = f4652e;
+                boolean z = f4622e;
                 return null;
             }
         }
@@ -89,7 +89,7 @@ public class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            JSONArray jSONArray = this.f4654b;
+            JSONArray jSONArray = this.f4624b;
             if (jSONArray == null) {
                 return "";
             }
@@ -97,7 +97,7 @@ public class c {
             if (TextUtils.isEmpty(optString)) {
                 return "";
             }
-            return "http://" + optString + ":" + this.f4655c;
+            return "http://" + optString + ":" + this.f4625c;
         }
         return (String) invokeI.objValue;
     }

@@ -1,6 +1,6 @@
 package b.a.n.b;
 
-import b.a.r0.f3.f;
+import b.a.r0.g3.f;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;

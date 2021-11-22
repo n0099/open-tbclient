@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class LightEstimate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Session f63099a;
+    public final Session f63999a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f63100b;
+    public long f64000b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -116,9 +116,9 @@ public class LightEstimate {
                 return;
             }
         }
-        this.f63100b = 0L;
-        this.f63099a = session;
-        this.f63100b = nativeCreateLightEstimate(session.f63102a);
+        this.f64000b = 0L;
+        this.f63999a = session;
+        this.f64000b = nativeCreateLightEstimate(session.f64002a);
     }
 
     public static native long nativeCreateLightEstimate(long j);
@@ -134,7 +134,7 @@ public class LightEstimate {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f63100b;
+            long j = this.f64000b;
             if (j != 0) {
                 nativeDestroyLightEstimate(j);
             }
@@ -155,7 +155,7 @@ public class LightEstimate {
                 return;
             }
         }
-        this.f63100b = 0L;
-        this.f63100b = 0L;
+        this.f64000b = 0L;
+        this.f64000b = 0L;
     }
 }

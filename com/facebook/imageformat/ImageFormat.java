@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 /* loaded from: classes11.dex */
 public class ImageFormat {
@@ -23,7 +22,7 @@ public class ImageFormat {
     /* loaded from: classes11.dex */
     public interface FormatChecker {
         @Nullable
-        ImageFormat determineFormat(@Nonnull byte[] bArr, int i2);
+        ImageFormat determineFormat(byte[] bArr, int i2);
 
         int getHeaderSize();
     }

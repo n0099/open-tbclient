@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.mcast;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -111,7 +110,7 @@ public class ParseM3u8 {
                 return;
             }
             TS ts = new TS(this);
-            String trim = str.substring(str.indexOf(":") + 1).replace(ExifInterface.GPS_DIRECTION_TRUE, " ").trim();
+            String trim = str.substring(str.indexOf(":") + 1).replace("T", " ").trim();
             ts.stime = trim;
             if (trim.length() >= 20) {
                 try {

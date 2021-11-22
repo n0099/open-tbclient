@@ -29,13 +29,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<Object> f24017e;
+    public ArrayList<Object> f25505e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<SelectLocationActivity> f24018f;
+    public TbPageContext<SelectLocationActivity> f25506f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f24019g;
+    public boolean f25507g;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -45,20 +45,20 @@ public class b extends BaseAdapter {
 
     /* renamed from: b.a.r0.u1.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1169b {
+    public static class C1236b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f24020a;
+        public TextView f25508a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f24021b;
+        public TextView f25509b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f24022c;
+        public ImageView f25510c;
 
-        public C1169b() {
+        public C1236b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public class b extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ C1169b(a aVar) {
+        public /* synthetic */ C1236b(a aVar) {
             this();
         }
     }
@@ -83,13 +83,13 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f24023a;
+        public TextView f25511a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f24024b;
+        public ImageView f25512b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f24025c;
+        public View f25513c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -125,46 +125,46 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f24018f = tbPageContext;
-        LocationData b2 = b.a.r0.l3.o0.b.a().b();
-        this.f24019g = !b.a.r0.l3.o0.b.a().d();
+        this.f25506f = tbPageContext;
+        LocationData b2 = b.a.r0.m3.o0.b.a().b();
+        this.f25507g = !b.a.r0.m3.o0.b.a().d();
         if (b2 == null) {
             return;
         }
-        this.f24017e = c(b2.getPoi_info(), b2.getFormatted_address());
+        this.f25505e = c(b2.getPoi_info(), b2.getFormatted_address());
     }
 
     public final View a(View view, int i2, boolean z) {
         InterceptResult invokeCommon;
-        C1169b c1169b;
+        C1236b c1236b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             Object item = getItem(i2);
             if (item instanceof LocationData.NearByAddressData) {
                 LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
                 if (view != null && (view.getTag() instanceof c)) {
-                    c1169b = (C1169b) view.getTag();
+                    c1236b = (C1236b) view.getTag();
                 } else {
-                    view = LayoutInflater.from(this.f24018f.getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
-                    c1169b = new C1169b(null);
-                    c1169b.f24020a = (TextView) view.findViewById(R.id.select_location_name);
-                    c1169b.f24021b = (TextView) view.findViewById(R.id.select_location_address);
-                    c1169b.f24022c = (ImageView) view.findViewById(R.id.select_location_tick);
-                    view.setTag(c1169b);
+                    view = LayoutInflater.from(this.f25506f.getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
+                    c1236b = new C1236b(null);
+                    c1236b.f25508a = (TextView) view.findViewById(R.id.select_location_name);
+                    c1236b.f25509b = (TextView) view.findViewById(R.id.select_location_address);
+                    c1236b.f25510c = (ImageView) view.findViewById(R.id.select_location_tick);
+                    view.setTag(c1236b);
                 }
-                c1169b.f24021b.setText(nearByAddressData.getAddr());
-                if (this.f24019g && i2 == 1) {
-                    c1169b.f24022c.setVisibility(0);
-                    c1169b.f24022c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+                c1236b.f25509b.setText(nearByAddressData.getAddr());
+                if (this.f25507g && i2 == 1) {
+                    c1236b.f25510c.setVisibility(0);
+                    c1236b.f25510c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
                     if (TextUtils.isEmpty(nearByAddressData.getAddr())) {
-                        c1169b.f24021b.setText(R.string.select_location_current);
+                        c1236b.f25509b.setText(R.string.select_location_current);
                     }
                 } else {
-                    c1169b.f24022c.setVisibility(4);
+                    c1236b.f25510c.setVisibility(4);
                 }
-                c1169b.f24020a.setText(nearByAddressData.getName());
-                this.f24018f.getLayoutMode().k(z);
-                this.f24018f.getLayoutMode().j(view);
+                c1236b.f25508a.setText(nearByAddressData.getName());
+                this.f25506f.getLayoutMode().k(z);
+                this.f25506f.getLayoutMode().j(view);
                 SkinManager.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
                 return view;
             }
@@ -184,22 +184,22 @@ public class b extends BaseAdapter {
                 if (view != null && (view.getTag() instanceof c)) {
                     cVar = (c) view.getTag();
                 } else {
-                    view = LayoutInflater.from(this.f24018f.getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
+                    view = LayoutInflater.from(this.f25506f.getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
                     cVar = new c(null);
-                    cVar.f24023a = (TextView) view.findViewById(R.id.select_location_title);
-                    cVar.f24024b = (ImageView) view.findViewById(R.id.select_location_tick);
-                    cVar.f24025c = view.findViewById(R.id.select_location_line);
+                    cVar.f25511a = (TextView) view.findViewById(R.id.select_location_title);
+                    cVar.f25512b = (ImageView) view.findViewById(R.id.select_location_tick);
+                    cVar.f25513c = view.findViewById(R.id.select_location_line);
                     view.setTag(cVar);
                 }
-                if (i2 == 0 && !this.f24019g) {
-                    cVar.f24024b.setVisibility(0);
-                    cVar.f24024b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+                if (i2 == 0 && !this.f25507g) {
+                    cVar.f25512b.setVisibility(0);
+                    cVar.f25512b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
                 } else {
-                    cVar.f24024b.setVisibility(4);
+                    cVar.f25512b.setVisibility(4);
                 }
-                cVar.f24023a.setText(str);
-                SkinManager.setBackgroundColor(cVar.f24025c, R.color.CAM_X0204);
-                SkinManager.setViewTextColor(cVar.f24023a, R.color.CAM_X0302, 1);
+                cVar.f25511a.setText(str);
+                SkinManager.setBackgroundColor(cVar.f25513c, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(cVar.f25511a, R.color.CAM_X0302, 1);
                 SkinManager.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
                 return view;
             }
@@ -233,7 +233,7 @@ public class b extends BaseAdapter {
                 nearByAddressData3.setName(str);
                 arrayList.add(0, nearByAddressData3);
             }
-            TbPageContext<SelectLocationActivity> tbPageContext = this.f24018f;
+            TbPageContext<SelectLocationActivity> tbPageContext = this.f25506f;
             if (tbPageContext != null) {
                 arrayList.add(0, tbPageContext.getString(R.string.select_position_no_location));
             }
@@ -247,7 +247,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<Object> arrayList = this.f24017e;
+            ArrayList<Object> arrayList = this.f25505e;
             if (arrayList == null) {
                 return 0;
             }
@@ -261,11 +261,11 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            ArrayList<Object> arrayList = this.f24017e;
+            ArrayList<Object> arrayList = this.f25505e;
             if (arrayList == null || i2 < 0 || i2 >= arrayList.size()) {
                 return null;
             }
-            return this.f24017e.get(i2);
+            return this.f25505e.get(i2);
         }
         return invokeI.objValue;
     }

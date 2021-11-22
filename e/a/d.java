@@ -15,13 +15,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TimeUnit f71660a;
+    public final TimeUnit f72579a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f71661b;
+    public long f72580b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f71662c;
+    public long f72581c;
 
     public d(TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class d {
                 return;
             }
         }
-        this.f71661b = SystemClock.elapsedRealtime();
-        this.f71660a = timeUnit;
-        this.f71662c = 0L;
+        this.f72580b = SystemClock.elapsedRealtime();
+        this.f72579a = timeUnit;
+        this.f72581c = 0L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x004b A[Catch: Exception -> 0x0067, TryCatch #0 {Exception -> 0x0067, blocks: (B:9:0x001d, B:11:0x0023, B:24:0x004b, B:25:0x0050, B:12:0x0025, B:14:0x002d, B:15:0x0030, B:17:0x0038, B:18:0x003a, B:19:0x003c, B:21:0x0042, B:27:0x0062), top: B:36:0x0013 }] */
@@ -56,16 +56,16 @@ public class d {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
             return (String) invokeV.objValue;
         }
-        long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f71661b) + this.f71662c;
+        long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f72580b) + this.f72581c;
         try {
             if (elapsedRealtime >= 0 && elapsedRealtime <= 86400000) {
-                if (this.f71660a != TimeUnit.MILLISECONDS) {
-                    if (this.f71660a == TimeUnit.SECONDS) {
+                if (this.f72579a != TimeUnit.MILLISECONDS) {
+                    if (this.f72579a == TimeUnit.SECONDS) {
                         f3 = ((float) elapsedRealtime) / 1000.0f;
                     } else {
-                        if (this.f71660a == TimeUnit.MINUTES) {
+                        if (this.f72579a == TimeUnit.MINUTES) {
                             f2 = ((float) elapsedRealtime) / 1000.0f;
-                        } else if (this.f71660a == TimeUnit.HOURS) {
+                        } else if (this.f72579a == TimeUnit.HOURS) {
                             f2 = (((float) elapsedRealtime) / 1000.0f) / 60.0f;
                         }
                         f3 = f2 / 60.0f;
@@ -87,26 +87,26 @@ public class d {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71662c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72581c : invokeV.longValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71661b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72580b : invokeV.longValue;
     }
 
     public void d(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f71662c = j;
+            this.f72581c = j;
         }
     }
 
     public void e(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f71661b = j;
+            this.f72580b = j;
         }
     }
 }

@@ -18,13 +18,13 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f71182a;
+    public static final iy f72102a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f603a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f71183b;
+    public static final iy f72103b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -50,8 +50,8 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
             }
         }
         f603a = new jg("XmPushActionCheckClientInfo");
-        f71182a = new iy("", (byte) 8, (short) 1);
-        f71183b = new iy("", (byte) 8, (short) 2);
+        f72102a = new iy("", (byte) 8, (short) 1);
+        f72103b = new iy("", (byte) 8, (short) 2);
     }
 
     public hx() {
@@ -125,7 +125,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
             jbVar.m527a();
             while (true) {
                 iy m523a = jbVar.m523a();
-                byte b2 = m523a.f71328a;
+                byte b2 = m523a.f72248a;
                 if (b2 == 0) {
                     break;
                 }
@@ -197,10 +197,10 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jbVar) == null) {
             a();
             jbVar.a(f603a);
-            jbVar.a(f71182a);
+            jbVar.a(f72102a);
             jbVar.a(this.f604a);
             jbVar.b();
-            jbVar.a(f71183b);
+            jbVar.a(f72103b);
             jbVar.a(this.f606b);
             jbVar.b();
             jbVar.c();

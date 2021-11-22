@@ -1,21 +1,13 @@
 package b.a.p0.a.y0.k.f.c;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlinx.coroutines.DebugKt;
 /* loaded from: classes.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f9085b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(String str) {
@@ -37,31 +29,11 @@ public class c extends a {
         }
     }
 
-    @Override // b.a.p0.a.y0.k.f.c.f, b.a.p0.a.y0.k.f.c.e
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && e(str)) {
-            boolean equals = TextUtils.equals(str2, DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
-            boolean equals2 = TextUtils.equals(str2, RetrieveTaskManager.KEY);
-            this.f9083a.g("autoPlay", equals ? "1" : "0");
-            this.f9083a.g("playMethod", equals2 ? "1" : "0");
-        }
-    }
-
-    @Override // b.a.p0.a.y0.k.f.c.f, b.a.p0.a.y0.k.f.c.e
+    @Override // b.a.p0.a.y0.k.f.c.e, b.a.p0.a.y0.k.f.c.d
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f9083a.d("video_will_play")) {
-                this.f9083a.h("video_play_cancel");
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             d();
         }
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? TextUtils.equals(this.f9085b, str) : invokeL.booleanValue;
     }
 }

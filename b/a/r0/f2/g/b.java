@@ -3,7 +3,7 @@ package b.a.r0.f2.g;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import b.a.e.d.a;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class b {
                 File file = new File(str);
                 if (file.exists()) {
                     if (c(file)) {
-                        b.a.e.l.d.a aVar = a.C0025a.b().get(str);
+                        b.a.e.m.d.a aVar = a.C0022a.b().get(str);
                         if (aVar != null) {
                             bitmap = aVar.p();
                         }
@@ -51,7 +51,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
             b.a.q0.d0.b bVar = new b.a.q0.d0.b();
-            b.a.e.l.d.a c2 = bVar.c(imageFileInfo, true);
+            b.a.e.m.d.a c2 = bVar.c(imageFileInfo, true);
             if (c2 != null) {
                 f2 = c2.p();
             } else {

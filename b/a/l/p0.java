@@ -49,23 +49,23 @@ public class p0 extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.l == null) {
-                FrameLayout frameLayout = new FrameLayout(this.f3216f);
+                FrameLayout frameLayout = new FrameLayout(this.f3307f);
                 this.l = frameLayout;
                 SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0206);
                 this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
             this.l.removeAllViews();
             if (this.m == null) {
-                ItemCardView itemCardView = new ItemCardView(this.f3216f);
+                ItemCardView itemCardView = new ItemCardView(this.f3307f);
                 this.m = itemCardView;
                 itemCardView.setBackGroundColor(R.color.CAM_X0205);
                 this.m.setIsShowRightBtn(true);
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
-            layoutParams.leftMargin = this.f3216f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-            layoutParams.rightMargin = this.f3216f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-            layoutParams.bottomMargin = this.f3216f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.f3307f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.rightMargin = this.f3307f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.bottomMargin = this.f3307f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
             this.l.addView(this.m, layoutParams);
             return this.l;
         }
@@ -91,9 +91,9 @@ public class p0 extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().y1 != null && aVar.getThreadData().y1.B != null) {
-                if (!aVar.getThreadData().y1.m && !aVar.getThreadData().L4()) {
+                if (!aVar.getThreadData().y1.m && !aVar.getThreadData().N4()) {
                     this.l.setVisibility(0);
-                    this.m.setData(aVar.getThreadData().y1.C, 13, aVar.getThreadData().y1.f45040f);
+                    this.m.setData(aVar.getThreadData().y1.C, 13, aVar.getThreadData().y1.f45889f);
                     return;
                 }
                 this.l.setVisibility(8);

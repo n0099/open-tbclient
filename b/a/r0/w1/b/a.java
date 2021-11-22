@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,27 +33,27 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f25352a;
+    public View f26869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SearchMajorActivity f25353b;
+    public SearchMajorActivity f26870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.r0.w1.a f25354c;
+    public b.a.r0.w1.a f26871c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25355d;
+    public String f26872d;
 
     /* renamed from: b.a.r0.w1.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnFocusChangeListenerC1243a implements View.OnFocusChangeListener {
+    public class View$OnFocusChangeListenerC1311a implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25356e;
+        public final /* synthetic */ a f26873e;
 
-        public View$OnFocusChangeListenerC1243a(a aVar) {
+        public View$OnFocusChangeListenerC1311a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +68,7 @@ public class a {
                     return;
                 }
             }
-            this.f25356e = aVar;
+            this.f26873e = aVar;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -76,9 +76,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (!z) {
-                    l.x(this.f25356e.f25353b.getPageContext().getPageActivity(), view);
+                    l.x(this.f26873e.f26870b.getPageContext().getPageActivity(), view);
                 } else {
-                    this.f25356e.k();
+                    this.f26873e.k();
                 }
             }
         }
@@ -90,7 +90,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f25357a;
+        public final /* synthetic */ a f26874a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class a {
                     return;
                 }
             }
-            this.f25357a = aVar;
+            this.f26874a = aVar;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -116,7 +116,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 3) {
-                    this.f25357a.k();
+                    this.f26874a.k();
                     return true;
                 }
                 return false;
@@ -131,7 +131,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25358e;
+        public final /* synthetic */ a f26875e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public class a {
                     return;
                 }
             }
-            this.f25358e = aVar;
+            this.f26875e = aVar;
         }
 
         @Override // android.text.TextWatcher
@@ -157,9 +157,9 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable == null) {
                 return;
             }
-            this.f25358e.f25355d = editable.toString();
-            this.f25358e.k();
-            this.f25358e.f25354c.k(!StringUtils.isNull(editable.toString()));
+            this.f26875e.f26872d = editable.toString();
+            this.f26875e.k();
+            this.f26875e.f26871c.k(!StringUtils.isNull(editable.toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -183,7 +183,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f25359a;
+        public final /* synthetic */ a f26876a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -200,7 +200,7 @@ public class a {
                     return;
                 }
             }
-            this.f25359a = aVar;
+            this.f26876a = aVar;
         }
 
         @Override // com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter.b
@@ -209,7 +209,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.SEARCH_MAJOR_NAME, str);
-                this.f25359a.f25353b.finish(intent);
+                this.f26876a.f26870b.finish(intent);
             }
         }
     }
@@ -220,7 +220,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f25360a;
+        public final /* synthetic */ a f26877a;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -237,7 +237,7 @@ public class a {
                     return;
                 }
             }
-            this.f25360a = aVar;
+            this.f26877a = aVar;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -245,7 +245,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) {
                 if (i2 == 1 || i2 == 2) {
-                    l.x(this.f25360a.f25353b.getPageContext().getPageActivity(), recyclerView);
+                    l.x(this.f26877a.f26870b.getPageContext().getPageActivity(), recyclerView);
                 }
             }
         }
@@ -273,19 +273,19 @@ public class a {
                 return;
             }
         }
-        this.f25353b = searchMajorActivity;
+        this.f26870b = searchMajorActivity;
         h();
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View$OnFocusChangeListenerC1243a view$OnFocusChangeListenerC1243a = new View$OnFocusChangeListenerC1243a(this);
+            View$OnFocusChangeListenerC1311a view$OnFocusChangeListenerC1311a = new View$OnFocusChangeListenerC1311a(this);
             b bVar = new b(this);
             c cVar = new c(this);
-            this.f25354c.q(view$OnFocusChangeListenerC1243a);
-            this.f25354c.p(bVar);
-            this.f25354c.r(cVar);
+            this.f26871c.q(view$OnFocusChangeListenerC1311a);
+            this.f26871c.p(bVar);
+            this.f26871c.r(cVar);
         }
     }
 
@@ -294,27 +294,27 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             d dVar = new d(this);
             e eVar = new e(this);
-            this.f25354c.n(dVar);
-            this.f25354c.o(eVar);
+            this.f26871c.n(dVar);
+            this.f26871c.o(eVar);
         }
     }
 
     public b.a.r0.w1.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25354c : (b.a.r0.w1.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26871c : (b.a.r0.w1.a) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(this.f25353b).inflate(R.layout.search_major_main, (ViewGroup) null);
-            this.f25352a = inflate;
-            this.f25353b.setContentView(inflate);
-            this.f25354c = new b.a.r0.w1.a(this.f25352a, this.f25353b);
+            View inflate = LayoutInflater.from(this.f26870b).inflate(R.layout.search_major_main, (ViewGroup) null);
+            this.f26869a = inflate;
+            this.f26870b.setContentView(inflate);
+            this.f26871c = new b.a.r0.w1.a(this.f26869a, this.f26870b);
             e();
             f();
-            this.f25355d = "";
+            this.f26872d = "";
             k();
         }
     }
@@ -322,14 +322,14 @@ public class a {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f25354c.i(i2);
+            this.f26871c.i(i2);
         }
     }
 
     public void j() {
         b.a.r0.w1.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f25354c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f26871c) == null) {
             return;
         }
         aVar.j();
@@ -337,36 +337,36 @@ public class a {
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f25353b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f26870b == null) {
             return;
         }
         if (j.z()) {
-            if (this.f25355d != null) {
+            if (this.f26872d != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_MAJOR);
-                httpMessage.addParam("keyword", this.f25355d.trim());
-                this.f25353b.sendMessage(httpMessage);
+                httpMessage.addParam("keyword", this.f26872d.trim());
+                this.f26870b.sendMessage(httpMessage);
             }
-        } else if (this.f25354c != null) {
+        } else if (this.f26871c != null) {
             m(new ErrorData());
-            this.f25353b.getRefreshView().h(R.drawable.new_pic_emotion_05);
-            this.f25353b.showNetRefreshViewNoClick(this.f25354c.d(), null);
-            this.f25353b.getRefreshView().n(this.f25353b.getString(R.string.im_error_default));
+            this.f26870b.getRefreshView().h(R.drawable.new_pic_emotion_05);
+            this.f26870b.showNetRefreshViewNoClick(this.f26871c.d(), null);
+            this.f26870b.getRefreshView().n(this.f26870b.getString(R.string.im_error_default));
         }
     }
 
     public void l(List<String> list) {
         b.a.r0.w1.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || (aVar = this.f25354c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || (aVar = this.f26871c) == null) {
             return;
         }
-        aVar.l(list, this.f25355d);
+        aVar.l(list, this.f26872d);
     }
 
     public void m(ErrorData errorData) {
         b.a.r0.w1.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, errorData) == null) || (aVar = this.f25354c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, errorData) == null) || (aVar = this.f26871c) == null) {
             return;
         }
         aVar.m(errorData);

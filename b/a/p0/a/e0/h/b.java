@@ -2,7 +2,7 @@ package b.a.p0.a.e0.h;
 
 import android.annotation.SuppressLint;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.q0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,36 +18,36 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f4722h;
+    public static final boolean f4703h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f4723i;
+    public static String f4704i;
     public static String j;
     public static String k;
     public static String l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4724a;
+    public String f4705a;
     @SuppressLint({"BDOfflineUrl"})
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4725b;
+    public String f4706b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4726c;
+    public boolean f4707c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4727d;
+    public boolean f4708d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4728e;
+    public int f4709e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4729f;
+    public int f4710f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f4730g;
+    public boolean f4711g;
 
     static {
         InterceptResult invokeClinit;
@@ -62,8 +62,8 @@ public class b {
                 return;
             }
         }
-        f4722h = k.f6397a;
-        f4723i = "V8Master";
+        f4703h = k.f6863a;
+        f4704i = "V8Master";
         j = "page";
         k = "runtime/index.js";
         l = "ws://localhost:4000";
@@ -82,13 +82,13 @@ public class b {
                 return;
             }
         }
-        this.f4724a = String.valueOf(System.currentTimeMillis());
-        this.f4725b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
-        this.f4726c = false;
-        this.f4727d = true;
-        this.f4728e = 0;
-        this.f4729f = 0;
-        this.f4730g = true;
+        this.f4705a = String.valueOf(System.currentTimeMillis());
+        this.f4706b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
+        this.f4707c = false;
+        this.f4708d = true;
+        this.f4709e = 0;
+        this.f4710f = 0;
+        this.f4711g = true;
     }
 
     public String toString() {
@@ -99,23 +99,23 @@ public class b {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject.putOpt("title", f4723i);
+                jSONObject.putOpt("title", f4704i);
                 jSONObject.putOpt("type", j);
                 jSONObject.putOpt("url", k);
                 jSONObject.putOpt("webSocketDebuggerUrl", l);
-                jSONObject.putOpt("id", this.f4724a);
-                jSONObject.putOpt("devtoolsFrontendUrl", this.f4725b);
-                jSONObject.putOpt("swanJsVersion", b.a.p0.a.m2.b.h(0));
+                jSONObject.putOpt("id", this.f4705a);
+                jSONObject.putOpt("devtoolsFrontendUrl", this.f4706b);
+                jSONObject.putOpt("swanJsVersion", b.a.p0.a.q2.b.h(0));
                 jSONObject.putOpt("appVersion", q0.D());
-                jSONObject2.putOpt("attached", Boolean.valueOf(this.f4726c));
-                jSONObject2.putOpt("empty", Boolean.valueOf(this.f4727d));
-                jSONObject2.putOpt("screenX", Integer.valueOf(this.f4728e));
-                jSONObject2.putOpt("screenY", Integer.valueOf(this.f4729f));
-                jSONObject2.putOpt("visible", Boolean.valueOf(this.f4730g));
+                jSONObject2.putOpt("attached", Boolean.valueOf(this.f4707c));
+                jSONObject2.putOpt("empty", Boolean.valueOf(this.f4708d));
+                jSONObject2.putOpt("screenX", Integer.valueOf(this.f4709e));
+                jSONObject2.putOpt("screenY", Integer.valueOf(this.f4710f));
+                jSONObject2.putOpt("visible", Boolean.valueOf(this.f4711g));
                 jSONObject.putOpt("description", jSONObject2.toString());
                 jSONArray.put(jSONObject);
             } catch (JSONException unused) {
-                boolean z = f4722h;
+                boolean z = f4703h;
             }
             return jSONArray.toString();
         }

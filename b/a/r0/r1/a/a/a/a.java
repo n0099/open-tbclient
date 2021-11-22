@@ -59,9 +59,9 @@ public class a extends b.a.q0.c.a {
                     currentAccount = "";
                 }
                 intent.setData(Uri.parse(currentAccount));
-                fVar.f11969a = PendingIntent.getBroadcast(baseContext, i2, intent, 536870912) != null;
+                fVar.f12723a = PendingIntent.getBroadcast(baseContext, i2, intent, 536870912) != null;
                 aVar.m(true);
-                aVar.l(fVar.f11969a);
+                aVar.l(fVar.f12723a);
             }
             return fVar;
         }

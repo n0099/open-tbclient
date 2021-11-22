@@ -9,9 +9,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import b.a.p0.n.c;
-import b.a.p0.n.g.e.b;
+import b.a.p0.q.g.e.b;
+import b.a.p0.q.p.a;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,26 +23,49 @@ import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final a LOG;
     public static final String TAG = "PMSDBProviderProxy";
     public transient /* synthetic */ FieldHolder $fh;
     public volatile b mProvider;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1600686017, "Lcom/baidu/swan/pms/database/provider/PMSDBProviderProxy;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1600686017, "Lcom/baidu/swan/pms/database/provider/PMSDBProviderProxy;");
+                return;
+            }
+        }
+        LOG = a.c();
+    }
 
     public PMSDBProviderProxy() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0040, code lost:
+        r2.setTransactionSuccessful();
+     */
     @Override // android.content.ContentProvider
     @NonNull
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -48,27 +73,32 @@ public class PMSDBProviderProxy extends ContentProvider {
             SQLiteDatabase writableDatabase = getProvider().a().getWritableDatabase();
             try {
                 try {
-                    boolean z = c.f11048a;
+                    LOG.i(TAG, "#applyBatch beginTransaction");
                     writableDatabase.beginTransaction();
                     ContentProviderResult[] applyBatch = super.applyBatch(arrayList);
-                    for (ContentProviderResult contentProviderResult : applyBatch) {
-                        if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
-                            return applyBatch;
+                    int length = applyBatch.length;
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 < length) {
+                            ContentProviderResult contentProviderResult = applyBatch[i2];
+                            if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
+                                break;
+                            }
+                            i2++;
+                        } else {
+                            break;
                         }
                     }
-                    writableDatabase.setTransactionSuccessful();
                     return applyBatch;
                 } catch (Exception e2) {
-                    if (c.f11048a) {
-                        String str = "applyBatch Exception:" + e2.getMessage();
-                    }
+                    LOG.g(TAG, "#applyBatch error", e2);
                     writableDatabase.endTransaction();
-                    boolean z2 = c.f11048a;
+                    LOG.i(TAG, "#applyBatch endTransaction");
                     return new ContentProviderResult[0];
                 }
             } finally {
                 writableDatabase.endTransaction();
-                boolean z3 = c.f11048a;
+                LOG.i(TAG, "#applyBatch endTransaction");
             }
         }
         return (ContentProviderResult[]) invokeL.objValue;

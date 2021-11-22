@@ -1,6 +1,8 @@
 package com.facebook.imagepipeline.nativecode;
 
 import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,19 +48,6 @@ public class NativeRoundingFilter {
         }
     }
 
-    public static void addRoundedCorners(Bitmap bitmap, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{bitmap, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            nativeAddRoundedCornersFilter(bitmap, i2, i3, i4, i5);
-        }
-    }
-
-    @DoNotStrip
-    public static native void nativeAddRoundedCornersFilter(Bitmap bitmap, int i2, int i3, int i4, int i5);
-
-    @DoNotStrip
-    public static native void nativeToCircleFastFilter(Bitmap bitmap, boolean z);
-
     @DoNotStrip
     public static native void nativeToCircleFilter(Bitmap bitmap, boolean z);
 
@@ -67,41 +56,24 @@ public class NativeRoundingFilter {
 
     public static void toCircle(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap) == null) {
             toCircle(bitmap, false);
-        }
-    }
-
-    public static void toCircleFast(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, bitmap) == null) {
-            toCircleFast(bitmap, false);
         }
     }
 
     public static void toCircleWithBorder(Bitmap bitmap, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{bitmap, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{bitmap, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
             Preconditions.checkNotNull(bitmap);
             nativeToCircleWithBorderFilter(bitmap, i2, i3, z);
         }
     }
 
-    @DoNotStrip
     public static void toCircle(Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65544, null, bitmap, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, bitmap, z) == null) {
             Preconditions.checkNotNull(bitmap);
             nativeToCircleFilter(bitmap, z);
-        }
-    }
-
-    @DoNotStrip
-    public static void toCircleFast(Bitmap bitmap, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65546, null, bitmap, z) == null) {
-            Preconditions.checkNotNull(bitmap);
-            nativeToCircleFastFilter(bitmap, z);
         }
     }
 }

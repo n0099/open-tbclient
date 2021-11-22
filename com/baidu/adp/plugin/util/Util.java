@@ -8,15 +8,16 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.b;
-import b.a.e.e.p.f;
-import b.a.e.e.p.m;
-import b.a.e.e.p.q;
+import b.a.e.f.m.b;
+import b.a.e.f.p.f;
+import b.a.e.f.p.m;
+import b.a.e.f.p.q;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -104,13 +105,13 @@ public final class Util {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f34490a;
+        public boolean f35322a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34491b;
+        public String f35323b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f34492c;
+        public int f35324c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -125,9 +126,9 @@ public final class Util {
                     return;
                 }
             }
-            this.f34490a = false;
-            this.f34491b = null;
-            this.f34492c = 0;
+            this.f35322a = false;
+            this.f35323b = null;
+            this.f35324c = 0;
         }
     }
 
@@ -188,8 +189,8 @@ public final class Util {
             if (str.equals(str2)) {
                 return VersionCompare.EQUAL;
             }
-            String[] split = str.split("\\.");
-            String[] split2 = str2.split("\\.");
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             int length = split.length;
             int length2 = split2.length;
             int i2 = length < length2 ? length : length2;
@@ -245,24 +246,24 @@ public final class Util {
                     }
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    aVar.f34490a = true;
+                    aVar.f35322a = true;
                 } catch (Exception e3) {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
-                    aVar.f34490a = false;
-                    aVar.f34491b = e.toString();
-                    b.a.e.e.m.a.d(fileOutputStream2);
+                    aVar.f35322a = false;
+                    aVar.f35323b = e.toString();
+                    b.a.e.f.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
                     th = th2;
                     fileOutputStream2 = fileOutputStream;
-                    b.a.e.e.m.a.d(fileOutputStream2);
+                    b.a.e.f.m.a.d(fileOutputStream2);
                     throw th;
                 }
-                b.a.e.e.m.a.d(fileOutputStream2);
+                b.a.e.f.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f34491b = "illegal_param";
+            aVar.f35323b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;
@@ -550,7 +551,7 @@ public final class Util {
         return invokeLI.intValue;
     }
 
-    public static b.a.e.h.k.f x(InputStream inputStream) throws IOException {
+    public static b.a.e.i.k.f x(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, inputStream)) == null) {
@@ -563,11 +564,11 @@ public final class Util {
             }
             int w = w(bArr, 6);
             int w2 = w(bArr, 8);
-            b.a.e.h.k.f fVar = new b.a.e.h.k.f();
+            b.a.e.i.k.f fVar = new b.a.e.i.k.f();
             fVar.b(((w2 >> 9) & 127) + 1980, (w2 >> 5) & 15, w2 & 31, (w >> 11) & 31, (w >> 5) & 63, (w & 31) << 1);
             return fVar;
         }
-        return (b.a.e.h.k.f) invokeL.objValue;
+        return (b.a.e.i.k.f) invokeL.objValue;
     }
 
     public static String y(InputStream inputStream, byte[] bArr) {

@@ -25,10 +25,10 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ File f2793a;
+        public final /* synthetic */ File f2886a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f2794b;
+        public final /* synthetic */ b f2887b;
 
         public a(File file, b bVar) {
             Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public final class e {
                     return;
                 }
             }
-            this.f2793a = file;
-            this.f2794b = bVar;
+            this.f2886a = file;
+            this.f2887b = bVar;
         }
 
         @Override // b.a.f0.d.a.k
@@ -61,9 +61,9 @@ public final class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, inputStream) == null) {
                 try {
-                    e.c(inputStream, this.f2793a);
-                    if (this.f2794b != null) {
-                        this.f2794b.a();
+                    e.c(inputStream, this.f2886a);
+                    if (this.f2887b != null) {
+                        this.f2887b.a();
                     }
                 } catch (IOException e2) {
                     e2.printStackTrace();
@@ -106,7 +106,7 @@ public final class e {
                     i2 = i3;
                 }
                 if (!file.delete()) {
-                    g gVar = g.f2795a;
+                    g gVar = g.f2888a;
                     gVar.e("FileUtil", "delete dir " + file.getAbsolutePath() + " failed.");
                 }
             }

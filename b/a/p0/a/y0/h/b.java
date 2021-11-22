@@ -3,8 +3,8 @@ package b.a.p0.a.y0.h;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.c2.f.a0;
+import b.a.p0.a.f2.e;
+import b.a.p0.a.f2.f.z;
 import b.a.p0.a.g1.f;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -21,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class b extends a0 {
+public abstract class b extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,25 +46,25 @@ public abstract class b extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (eVar == null) {
-                b.a.p0.a.e0.d.b("componentFullScreen", "none swanApp");
+                b.a.p0.a.e0.d.c("componentFullScreen", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = a0.f4160b;
+                boolean z = z.f5228b;
                 return false;
             } else if (context == null) {
-                b.a.p0.a.e0.d.b("componentFullScreen", "none context");
+                b.a.p0.a.e0.d.c("componentFullScreen", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = a0.f4160b;
+                boolean z2 = z.f5228b;
                 return false;
             } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    b.a.p0.a.e0.d.b("componentFullScreen", "none params");
+                    b.a.p0.a.e0.d.c("componentFullScreen", "none params");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
@@ -79,23 +79,23 @@ public abstract class b extends a0 {
                         }
                     }
                     if (arrayList.size() == 0) {
-                        b.a.p0.a.e0.d.b("componentFullScreen", "empty component id list");
+                        b.a.p0.a.e0.d.c("componentFullScreen", "empty component id list");
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                         return false;
                     }
-                    b.a.p0.a.p.e.d A = f.T().A(optString);
+                    b.a.p0.a.p.e.d A = f.U().A(optString);
                     if (!(A instanceof SwanAppWebViewManager)) {
-                        b.a.p0.a.e0.d.b("componentFullScreen", "cant get WebView");
+                        b.a.p0.a.e0.d.c("componentFullScreen", "cant get WebView");
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                         return false;
                     }
-                    b.a.p0.a.y0.j.b D0 = ((SwanAppWebViewManager) A).D0();
-                    if (D0 == null) {
-                        b.a.p0.a.e0.d.b("componentFullScreen", "cant get CustomViewHelper");
+                    b.a.p0.a.y0.j.b H0 = ((SwanAppWebViewManager) A).H0();
+                    if (H0 == null) {
+                        b.a.p0.a.e0.d.c("componentFullScreen", "cant get CustomViewHelper");
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                         return false;
-                    } else if (!j(unitedSchemeEntity, D0, arrayList)) {
-                        b.a.p0.a.e0.d.b("componentFullScreen", "custom view handle fail");
+                    } else if (!j(unitedSchemeEntity, H0, arrayList)) {
+                        b.a.p0.a.e0.d.c("componentFullScreen", "custom view handle fail");
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                         return false;
                     } else {
@@ -103,7 +103,7 @@ public abstract class b extends a0 {
                         return true;
                     }
                 }
-                b.a.p0.a.e0.d.b("componentFullScreen", "param error");
+                b.a.p0.a.e0.d.c("componentFullScreen", "param error");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }

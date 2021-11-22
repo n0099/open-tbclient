@@ -30,28 +30,28 @@ public class f extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsAdWebView f64464b;
+    public KsAdWebView f65377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i.a f64465c;
+    public i.a f65378c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdInfo.DownloadSafeInfo f64466d;
+    public AdInfo.DownloadSafeInfo f65379d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f64467e;
+    public com.kwad.sdk.core.download.b.b f65380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f64468f;
+    public g f65381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f64469g;
+    public com.kwad.sdk.core.webview.a f65382g;
 
     /* renamed from: h  reason: collision with root package name */
-    public p f64470h;
+    public p f65383h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f64471i;
+    public String f65384i;
     public boolean j;
     public a.b k;
     public i.b l;
@@ -79,7 +79,7 @@ public class f extends c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f64472a;
+            public final /* synthetic */ f f65385a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -96,15 +96,15 @@ public class f extends c {
                         return;
                     }
                 }
-                this.f64472a = this;
+                this.f65385a = this;
             }
 
             @Override // com.kwad.sdk.core.webview.jshandler.a.b
-            public void a(a.C1916a c1916a) {
+            public void a(a.C1956a c1956a) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, c1916a) == null) {
-                    com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "onAdClicked convertBridgeClicked: " + this.f64472a.j);
-                    this.f64472a.j = true;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, c1956a) == null) {
+                    com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "onAdClicked convertBridgeClicked: " + this.f65385a.j);
+                    this.f65385a.j = true;
                 }
             }
         };
@@ -113,7 +113,7 @@ public class f extends c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f64474a;
+            public final /* synthetic */ f f65387a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -130,7 +130,7 @@ public class f extends c {
                         return;
                     }
                 }
-                this.f64474a = this;
+                this.f65387a = this;
             }
 
             @Override // com.kwad.sdk.core.webview.jshandler.i.b
@@ -138,8 +138,8 @@ public class f extends c {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
                     com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "onAdFrameValid=" + aVar);
-                    this.f64474a.f64465c = aVar;
-                    this.f64474a.f64464b.setTranslationY((float) (aVar.f65341a + aVar.f65344d));
+                    this.f65387a.f65378c = aVar;
+                    this.f65387a.f65377b.setTranslationY((float) (aVar.f66254a + aVar.f66257d));
                 }
             }
         };
@@ -148,7 +148,7 @@ public class f extends c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f64475a;
+            public final /* synthetic */ f f65388a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -165,7 +165,7 @@ public class f extends c {
                         return;
                     }
                 }
-                this.f64475a = this;
+                this.f65388a = this;
             }
 
             @Override // com.kwad.sdk.core.webview.jshandler.h.a
@@ -173,7 +173,7 @@ public class f extends c {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "handleWebCardHide");
-                    this.f64475a.s();
+                    this.f65388a.s();
                 }
             }
         };
@@ -182,7 +182,7 @@ public class f extends c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f64476a;
+            public final /* synthetic */ f f65389a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -199,7 +199,7 @@ public class f extends c {
                         return;
                     }
                 }
-                this.f64476a = this;
+                this.f65389a = this;
             }
 
             @Override // com.kwad.sdk.core.webview.jshandler.m.b
@@ -210,7 +210,7 @@ public class f extends c {
                 }
             }
         };
-        this.f64471i = str;
+        this.f65384i = str;
     }
 
     private void a(g gVar) {
@@ -218,26 +218,26 @@ public class f extends c {
         if (interceptable == null || interceptable.invokeL(65538, this, gVar) == null) {
             com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "registerWebCardHandler");
             gVar.a(new com.kwad.sdk.core.webview.jshandler.d());
-            gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f64469g, this.f64467e, this.k));
-            gVar.a(new com.kwad.sdk.core.webview.jshandler.e(this.f64469g));
-            gVar.a(new com.kwad.sdk.core.webview.jshandler.f(this.f64469g));
-            gVar.a(new com.kwad.sdk.core.webview.jshandler.c(this.f64469g));
-            gVar.a(new i(this.f64469g, this.l));
+            gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f65382g, this.f65380e, this.k));
+            gVar.a(new com.kwad.sdk.core.webview.jshandler.e(this.f65382g));
+            gVar.a(new com.kwad.sdk.core.webview.jshandler.f(this.f65382g));
+            gVar.a(new com.kwad.sdk.core.webview.jshandler.c(this.f65382g));
+            gVar.a(new i(this.f65382g, this.l));
             gVar.a(new m(this.n));
             p pVar = new p();
-            this.f64470h = pVar;
+            this.f65383h = pVar;
             gVar.a(pVar);
-            gVar.a(new q(this.f64469g, this.f64467e));
+            gVar.a(new q(this.f65382g, this.f65380e));
             gVar.a(new h(this.m));
-            gVar.a(new j(this.f64469g));
+            gVar.a(new j(this.f65382g));
         }
     }
 
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f64464b.setVisibility(8);
-            this.f64464b.c();
+            this.f65377b.setVisibility(8);
+            this.f65377b.c();
             r();
         }
     }
@@ -246,14 +246,14 @@ public class f extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-            this.f64469g = aVar;
-            d dVar = ((c) this).f64458a;
-            aVar.f65226b = dVar.f64462d;
-            aVar.f65225a = dVar.f64459a;
-            AdBaseFrameLayout adBaseFrameLayout = dVar.f64461c;
-            aVar.f65227c = adBaseFrameLayout;
-            aVar.f65229e = adBaseFrameLayout;
-            aVar.f65230f = this.f64464b;
+            this.f65382g = aVar;
+            d dVar = ((c) this).f65371a;
+            aVar.f66139b = dVar.f65375d;
+            aVar.f66138a = dVar.f65372a;
+            AdBaseFrameLayout adBaseFrameLayout = dVar.f65374c;
+            aVar.f66140c = adBaseFrameLayout;
+            aVar.f66142e = adBaseFrameLayout;
+            aVar.f66143f = this.f65377b;
         }
     }
 
@@ -261,10 +261,10 @@ public class f extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             o();
-            this.f64464b.setBackgroundColor(0);
-            this.f64464b.getBackground().setAlpha(0);
-            this.f64464b.setVisibility(0);
-            com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "downloadPanelUrl=" + this.f64466d.windowPopUrl);
+            this.f65377b.setBackgroundColor(0);
+            this.f65377b.getBackground().setAlpha(0);
+            this.f65377b.setVisibility(0);
+            com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "downloadPanelUrl=" + this.f65379d.windowPopUrl);
         }
     }
 
@@ -274,13 +274,13 @@ public class f extends c {
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "setupJsBridge");
             r();
-            ay.b(this.f64464b);
-            this.f64464b.setHttpErrorListener(new KsAdWebView.d(this) { // from class: com.kwad.sdk.core.download.a.f.2
+            ay.b(this.f65377b);
+            this.f65377b.setHttpErrorListener(new KsAdWebView.d(this) { // from class: com.kwad.sdk.core.download.a.f.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ f f64473a;
+                public final /* synthetic */ f f65386a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -297,7 +297,7 @@ public class f extends c {
                             return;
                         }
                     }
-                    this.f64473a = this;
+                    this.f65386a = this;
                 }
 
                 @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
@@ -321,13 +321,13 @@ public class f extends c {
                     }
                 }
             });
-            g gVar = new g(this.f64464b);
-            this.f64468f = gVar;
+            g gVar = new g(this.f65377b);
+            this.f65381f = gVar;
             a(gVar);
-            this.f64464b.addJavascriptInterface(this.f64468f, "KwaiAd");
+            this.f65377b.addJavascriptInterface(this.f65381f, "KwaiAd");
             String p = p();
             com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "getUrl: " + p);
-            this.f64464b.loadUrl(p);
+            this.f65377b.loadUrl(p);
         }
     }
 
@@ -335,11 +335,11 @@ public class f extends c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (TextUtils.isEmpty(this.f64471i)) {
+            if (TextUtils.isEmpty(this.f65384i)) {
                 String q = q();
-                return TextUtils.isEmpty(q) ? this.f64466d.windowPopUrl : q;
+                return TextUtils.isEmpty(q) ? this.f65379d.windowPopUrl : q;
             }
-            return this.f64471i;
+            return this.f65384i;
         }
         return (String) invokeV.objValue;
     }
@@ -383,11 +383,11 @@ public class f extends c {
     private void r() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (gVar = this.f64468f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (gVar = this.f65381f) == null) {
             return;
         }
         gVar.a();
-        this.f64468f = null;
+        this.f65381f = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -395,19 +395,19 @@ public class f extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "hideWithOutAnimation  convertBridgeClicked: " + this.j);
-            if (this.f64464b.getVisibility() != 0) {
+            if (this.f65377b.getVisibility() != 0) {
                 return;
             }
-            p pVar = this.f64470h;
+            p pVar = this.f65383h;
             if (pVar != null) {
                 pVar.e();
             }
-            this.f64464b.setVisibility(4);
-            p pVar2 = this.f64470h;
+            this.f65377b.setVisibility(4);
+            p pVar2 = this.f65383h;
             if (pVar2 != null) {
                 pVar2.f();
             }
-            e eVar = ((c) this).f64458a.f64460b;
+            e eVar = ((c) this).f65371a.f65373b;
             if (eVar != null) {
                 eVar.a(this.j);
             }
@@ -419,8 +419,8 @@ public class f extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f64466d = com.kwad.sdk.core.response.b.a.V(com.kwad.sdk.core.response.b.c.i(((c) this).f64458a.f64462d));
-            this.f64467e = ((c) this).f64458a.f64463e;
+            this.f65379d = com.kwad.sdk.core.response.b.a.V(com.kwad.sdk.core.response.b.c.i(((c) this).f65371a.f65375d));
+            this.f65380e = ((c) this).f65371a.f65376e;
             f();
             n();
         }
@@ -431,7 +431,7 @@ public class f extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.b();
-            this.f64464b = (KsAdWebView) a(R.id.ksad_download_tips_web_card_webView);
+            this.f65377b = (KsAdWebView) a(R.id.ksad_download_tips_web_card_webView);
         }
     }
 

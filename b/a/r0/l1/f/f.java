@@ -28,28 +28,28 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<MsglistActivity<?>> f20012a;
+    public TbPageContext<MsglistActivity<?>> f21534a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<ChatMessage> f20013b;
+    public List<ChatMessage> f21535b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeListView f20014c;
+    public BdTypeListView f21536c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MsgLeftViewItemAdapter f20015d;
+    public MsgLeftViewItemAdapter f21537d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MsgRightViewItemAdapter f20016e;
+    public MsgRightViewItemAdapter f21538e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MsgMidViewItemAdapter f20017f;
+    public MsgMidViewItemAdapter f21539f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<MsgCommonItemAdapter> f20018g;
+    public List<MsgCommonItemAdapter> f21540g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f20019h;
+    public CustomMessageListener f21541h;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -57,7 +57,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f20020a;
+        public final /* synthetic */ f f21542a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, int i2) {
@@ -77,7 +77,7 @@ public class f {
                     return;
                 }
             }
-            this.f20020a = fVar;
+            this.f21542a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,11 +88,11 @@ public class f {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f50188b == null || aVar.f50187a == null) {
+            if (aVar.f51100b == null || aVar.f51099a == null) {
                 return;
             }
-            this.f20020a.f20018g.addAll(aVar.f50188b);
-            this.f20020a.f20014c.addAdapters(new ArrayList(this.f20020a.f20018g));
+            this.f21542a.f21540g.addAll(aVar.f51100b);
+            this.f21542a.f21536c.addAdapters(new ArrayList(this.f21542a.f21540g));
         }
     }
 
@@ -120,28 +120,28 @@ public class f {
     public List<ChatMessage> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20013b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21535b : (List) invokeV.objValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MsgLeftViewItemAdapter msgLeftViewItemAdapter = new MsgLeftViewItemAdapter(this.f20012a, ChatMessage.TYPE_MSG_LEFT);
-            this.f20015d = msgLeftViewItemAdapter;
+            MsgLeftViewItemAdapter msgLeftViewItemAdapter = new MsgLeftViewItemAdapter(this.f21534a, ChatMessage.TYPE_MSG_LEFT);
+            this.f21537d = msgLeftViewItemAdapter;
             msgLeftViewItemAdapter.k0(true);
-            this.f20015d.l0(true);
-            MsgRightViewItemAdapter msgRightViewItemAdapter = new MsgRightViewItemAdapter(this.f20012a, ChatMessage.TYPE_MSG_RIGHT);
-            this.f20016e = msgRightViewItemAdapter;
+            this.f21537d.l0(true);
+            MsgRightViewItemAdapter msgRightViewItemAdapter = new MsgRightViewItemAdapter(this.f21534a, ChatMessage.TYPE_MSG_RIGHT);
+            this.f21538e = msgRightViewItemAdapter;
             msgRightViewItemAdapter.k0(true);
-            this.f20016e.l0(true);
-            this.f20017f = new MsgMidViewItemAdapter(this.f20012a, ChatMessage.TYPE_MSG_MID);
-            this.f20018g.add(this.f20015d);
-            this.f20018g.add(this.f20016e);
-            this.f20018g.add(this.f20017f);
+            this.f21538e.l0(true);
+            this.f21539f = new MsgMidViewItemAdapter(this.f21534a, ChatMessage.TYPE_MSG_MID);
+            this.f21540g.add(this.f21537d);
+            this.f21540g.add(this.f21538e);
+            this.f21540g.add(this.f21539f);
             e();
             MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-            aVar.f50188b = new ArrayList();
-            aVar.f50187a = this.f20012a;
+            aVar.f51100b = new ArrayList();
+            aVar.f51099a = this.f21534a;
             MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
         }
     }
@@ -149,47 +149,47 @@ public class f {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f20019h.setPriority(Integer.MAX_VALUE);
-            this.f20012a.registerListener(this.f20019h);
+            this.f21541h.setPriority(Integer.MAX_VALUE);
+            this.f21534a.registerListener(this.f21541h);
         }
     }
 
     public void f(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) && (this.f20014c.getAdapter2() instanceof b.a.e.l.e.e)) {
-            this.f20014c.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) && (this.f21536c.getAdapter2() instanceof b.a.e.m.e.e)) {
+            this.f21536c.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (this.f20014c.getAdapter2() instanceof b.a.e.l.e.e)) {
-            this.f20014c.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (this.f21536c.getAdapter2() instanceof b.a.e.m.e.e)) {
+            this.f21536c.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (this.f20014c.getAdapter2() instanceof b.a.e.l.e.e)) {
-            this.f20014c.getAdapter2().notifyDataSetInvalidated();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (this.f21536c.getAdapter2() instanceof b.a.e.m.e.e)) {
+            this.f21536c.getAdapter2().notifyDataSetInvalidated();
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f20019h == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f21541h == null) {
             return;
         }
-        MessageManager.getInstance().unRegisterListener(this.f20019h);
-        this.f20019h = null;
+        MessageManager.getInstance().unRegisterListener(this.f21541h);
+        this.f21541h = null;
     }
 
     public void j(List<ChatMessage> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.f20013b = list;
+            this.f21535b = list;
             ArrayList arrayList = new ArrayList();
-            if (this.f20013b != null) {
+            if (this.f21535b != null) {
                 int size = list.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     if (i2 > 0) {
@@ -199,16 +199,16 @@ public class f {
                         list.get(i2).getCacheData().setLastMsgTime(list.get(i2 - 1).getTime());
                     }
                 }
-                arrayList.addAll(this.f20013b);
+                arrayList.addAll(this.f21535b);
             }
-            this.f20014c.setData(arrayList);
+            this.f21536c.setData(arrayList);
         }
     }
 
     public void k(boolean z) {
         MsgRightViewItemAdapter msgRightViewItemAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (msgRightViewItemAdapter = this.f20016e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (msgRightViewItemAdapter = this.f21538e) == null) {
             return;
         }
         msgRightViewItemAdapter.q0(z);
@@ -217,16 +217,16 @@ public class f {
     public void l(boolean z) {
         MsgLeftViewItemAdapter msgLeftViewItemAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (msgLeftViewItemAdapter = this.f20015d) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (msgLeftViewItemAdapter = this.f21537d) == null) {
             return;
         }
         msgLeftViewItemAdapter.q0(z);
     }
 
-    public void m(b.a.e.e.h.a aVar) {
+    public void m(b.a.e.f.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            for (MsgCommonItemAdapter msgCommonItemAdapter : this.f20018g) {
+            for (MsgCommonItemAdapter msgCommonItemAdapter : this.f21540g) {
                 if (msgCommonItemAdapter.h0()) {
                     msgCommonItemAdapter.m0(aVar);
                 }
@@ -234,10 +234,10 @@ public class f {
         }
     }
 
-    public void n(b.a.e.e.h.b bVar) {
+    public void n(b.a.e.f.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            for (MsgCommonItemAdapter msgCommonItemAdapter : this.f20018g) {
+            for (MsgCommonItemAdapter msgCommonItemAdapter : this.f21540g) {
                 if (msgCommonItemAdapter.i0()) {
                     msgCommonItemAdapter.n0(bVar);
                 }
@@ -260,13 +260,13 @@ public class f {
                 return;
             }
         }
-        this.f20013b = null;
-        this.f20018g = new ArrayList();
-        this.f20019h = new a(this, 2001275);
-        this.f20012a = tbPageContext;
-        this.f20014c = bdTypeListView;
+        this.f21535b = null;
+        this.f21540g = new ArrayList();
+        this.f21541h = new a(this, 2001275);
+        this.f21534a = tbPageContext;
+        this.f21536c = bdTypeListView;
         d();
-        this.f20015d.o0(i2);
-        this.f20016e.o0(i2);
+        this.f21537d.o0(i2);
+        this.f21538e.o0(i2);
     }
 }

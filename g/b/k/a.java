@@ -1,7 +1,6 @@
 package g.b.k;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
@@ -27,22 +26,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f71774a;
+    public static final byte[] f72693a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f71775b;
+    public static final byte[] f72694b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f71776c;
+    public static final byte[] f72695c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f71777d;
+    public static final byte[] f72696d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f71778e;
+    public static final byte[] f72697e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final byte[] f71779f;
+    public static final byte[] f72698f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,12 +57,12 @@ public class a {
                 return;
             }
         }
-        f71774a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, ExifInterface.WEBP_VP8L_SIGNATURE};
-        f71775b = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, ExifInterface.START_CODE, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, ExifInterface.WEBP_VP8L_SIGNATURE, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        f71776c = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
-        f71777d = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, ExifInterface.START_CODE, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, ExifInterface.WEBP_VP8L_SIGNATURE, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        f71778e = new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122};
-        f71779f = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, ExifInterface.START_CODE, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, ExifInterface.WEBP_VP8L_SIGNATURE, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        f72693a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        f72694b = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        f72695c = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
+        f72696d = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        f72697e = new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122};
+        f72698f = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
     }
 
     public static int d(byte[] bArr, int i2, byte[] bArr2, int i3, int i4) {
@@ -184,7 +183,7 @@ public class a {
     public static byte[] i(byte[] bArr, int i2, int i3, int i4) throws IOException {
         InterceptResult invokeLIII;
         ByteArrayOutputStream byteArrayOutputStream;
-        C2045a c2045a;
+        C2081a c2081a;
         GZIPOutputStream gZIPOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLIII = interceptable.invokeLIII(65545, null, bArr, i2, i3, i4)) != null) {
@@ -204,9 +203,9 @@ public class a {
                 try {
                     byteArrayOutputStream = new ByteArrayOutputStream();
                     try {
-                        c2045a = new C2045a(byteArrayOutputStream, i4 | 1);
+                        c2081a = new C2081a(byteArrayOutputStream, i4 | 1);
                         try {
-                            gZIPOutputStream = new GZIPOutputStream(c2045a);
+                            gZIPOutputStream = new GZIPOutputStream(c2081a);
                             try {
                                 gZIPOutputStream.write(bArr, i2, i3);
                                 gZIPOutputStream.close();
@@ -215,7 +214,7 @@ public class a {
                                 } catch (Exception unused) {
                                 }
                                 try {
-                                    c2045a.close();
+                                    c2081a.close();
                                 } catch (Exception unused2) {
                                 }
                                 try {
@@ -237,7 +236,7 @@ public class a {
                                     } catch (Exception unused4) {
                                     }
                                     try {
-                                        c2045a.close();
+                                        c2081a.close();
                                     } catch (Exception unused5) {
                                     }
                                     try {
@@ -250,7 +249,7 @@ public class a {
                                 th = th2;
                                 gZIPOutputStream2 = gZIPOutputStream;
                                 gZIPOutputStream2.close();
-                                c2045a.close();
+                                c2081a.close();
                                 byteArrayOutputStream.close();
                                 throw th;
                             }
@@ -260,26 +259,26 @@ public class a {
                         } catch (Throwable th3) {
                             th = th3;
                             gZIPOutputStream2.close();
-                            c2045a.close();
+                            c2081a.close();
                             byteArrayOutputStream.close();
                             throw th;
                         }
                     } catch (IOException e4) {
                         e = e4;
-                        c2045a = null;
+                        c2081a = null;
                         gZIPOutputStream = null;
                     } catch (Throwable th4) {
                         th = th4;
-                        c2045a = null;
+                        c2081a = null;
                     }
                 } catch (IOException e5) {
                     e = e5;
-                    c2045a = null;
+                    c2081a = null;
                     gZIPOutputStream = null;
                 } catch (Throwable th5) {
                     th = th5;
                     byteArrayOutputStream = 0;
-                    c2045a = null;
+                    c2081a = null;
                 }
             } else {
                 boolean z = (i4 & 8) != 0;
@@ -330,12 +329,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) {
             if ((i2 & 16) == 16) {
-                return f71776c;
+                return f72695c;
             }
             if ((i2 & 32) == 32) {
-                return f71778e;
+                return f72697e;
             }
-            return f71774a;
+            return f72693a;
         }
         return (byte[]) invokeI.objValue;
     }
@@ -345,36 +344,36 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) {
             if ((i2 & 16) == 16) {
-                return f71777d;
+                return f72696d;
             }
             if ((i2 & 32) == 32) {
-                return f71779f;
+                return f72698f;
             }
-            return f71775b;
+            return f72694b;
         }
         return (byte[]) invokeI.objValue;
     }
 
     /* renamed from: g.b.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C2045a extends FilterOutputStream {
+    public static class C2081a extends FilterOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f71780e;
+        public boolean f72699e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f71781f;
+        public int f72700f;
 
         /* renamed from: g  reason: collision with root package name */
-        public byte[] f71782g;
+        public byte[] f72701g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f71783h;
+        public int f72702h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f71784i;
+        public int f72703i;
         public boolean j;
         public byte[] k;
         public boolean l;
@@ -382,7 +381,7 @@ public class a {
         public byte[] n;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2045a(OutputStream outputStream, int i2) {
+        public C2081a(OutputStream outputStream, int i2) {
             super(outputStream);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -401,12 +400,12 @@ public class a {
             }
             this.j = (i2 & 8) != 0;
             boolean z = (i2 & 1) != 0;
-            this.f71780e = z;
+            this.f72699e = z;
             int i5 = z ? 3 : 4;
-            this.f71783h = i5;
-            this.f71782g = new byte[i5];
-            this.f71781f = 0;
-            this.f71784i = 0;
+            this.f72702h = i5;
+            this.f72701g = new byte[i5];
+            this.f72700f = 0;
+            this.f72703i = 0;
             this.l = false;
             this.k = new byte[4];
             this.m = i2;
@@ -416,15 +415,15 @@ public class a {
         public void a() throws IOException {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i2 = this.f71781f) <= 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i2 = this.f72700f) <= 0) {
                 return;
             }
-            if (this.f71780e) {
+            if (this.f72699e) {
                 OutputStream outputStream = ((FilterOutputStream) this).out;
                 byte[] bArr = this.k;
-                a.f(bArr, this.f71782g, i2, this.m);
+                a.f(bArr, this.f72701g, i2, this.m);
                 outputStream.write(bArr);
-                this.f71781f = 0;
+                this.f72700f = 0;
                 return;
             }
             throw new IOException("Base64 input not properly padded.");
@@ -436,7 +435,7 @@ public class a {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 a();
                 super.close();
-                this.f71782g = null;
+                this.f72701g = null;
                 ((FilterOutputStream) this).out = null;
             }
         }
@@ -447,38 +446,38 @@ public class a {
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
                 if (this.l) {
                     ((FilterOutputStream) this).out.write(i2);
-                } else if (this.f71780e) {
-                    byte[] bArr = this.f71782g;
-                    int i3 = this.f71781f;
+                } else if (this.f72699e) {
+                    byte[] bArr = this.f72701g;
+                    int i3 = this.f72700f;
                     int i4 = i3 + 1;
-                    this.f71781f = i4;
+                    this.f72700f = i4;
                     bArr[i3] = (byte) i2;
-                    int i5 = this.f71783h;
+                    int i5 = this.f72702h;
                     if (i4 >= i5) {
                         OutputStream outputStream = ((FilterOutputStream) this).out;
                         byte[] bArr2 = this.k;
                         a.f(bArr2, bArr, i5, this.m);
                         outputStream.write(bArr2);
-                        int i6 = this.f71784i + 4;
-                        this.f71784i = i6;
+                        int i6 = this.f72703i + 4;
+                        this.f72703i = i6;
                         if (this.j && i6 >= 76) {
                             ((FilterOutputStream) this).out.write(10);
-                            this.f71784i = 0;
+                            this.f72703i = 0;
                         }
-                        this.f71781f = 0;
+                        this.f72700f = 0;
                     }
                 } else {
                     byte[] bArr3 = this.n;
                     int i7 = i2 & 127;
                     if (bArr3[i7] > -5) {
-                        byte[] bArr4 = this.f71782g;
-                        int i8 = this.f71781f;
+                        byte[] bArr4 = this.f72701g;
+                        int i8 = this.f72700f;
                         int i9 = i8 + 1;
-                        this.f71781f = i9;
+                        this.f72700f = i9;
                         bArr4[i8] = (byte) i2;
-                        if (i9 >= this.f71783h) {
+                        if (i9 >= this.f72702h) {
                             ((FilterOutputStream) this).out.write(this.k, 0, a.d(bArr4, 0, this.k, 0, this.m));
-                            this.f71781f = 0;
+                            this.f72700f = 0;
                         }
                     } else if (bArr3[i7] != -5) {
                         throw new IOException("Invalid character in Base64 data.");

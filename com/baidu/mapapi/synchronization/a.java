@@ -11,7 +11,7 @@ public /* synthetic */ class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f39874a;
+    public static final /* synthetic */ int[] f40706a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,13 +28,13 @@ public /* synthetic */ class a {
             }
         }
         int[] iArr = new int[SyncCoordinateConverter.CoordType.values().length];
-        f39874a = iArr;
+        f40706a = iArr;
         try {
             iArr[SyncCoordinateConverter.CoordType.COMMON.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f39874a[SyncCoordinateConverter.CoordType.BD09LL.ordinal()] = 2;
+            f40706a[SyncCoordinateConverter.CoordType.BD09LL.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
     }

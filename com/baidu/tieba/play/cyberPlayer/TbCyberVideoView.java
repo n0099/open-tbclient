@@ -9,7 +9,7 @@ import android.widget.MediaController;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
-import b.a.q0.d1.s0;
+import b.a.q0.c1.r0;
 import b.a.q0.s.q.d2;
 import b.a.r0.a2.k;
 import b.a.r0.q2.o;
@@ -167,7 +167,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbCyberVideoView f53296e;
+        public final /* synthetic */ TbCyberVideoView f54213e;
 
         public a(TbCyberVideoView tbCyberVideoView) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
                     return;
                 }
             }
-            this.f53296e = tbCyberVideoView;
+            this.f54213e = tbCyberVideoView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
@@ -192,35 +192,35 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
             int c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f53296e.O != null) {
-                    this.f53296e.O.e(this.f53296e.getDuration());
+                if (this.f54213e.O != null) {
+                    this.f54213e.O.e(this.f54213e.getDuration());
                 }
-                this.f53296e.setVideoStatus(VideoStatus.VIDEO_PREPARED);
-                if (this.f53296e.getVideoMonitor() != null) {
-                    this.f53296e.getVideoMonitor().l(ErrorCode.ARGS_ERROR);
+                this.f54213e.setVideoStatus(VideoStatus.VIDEO_PREPARED);
+                if (this.f54213e.getVideoMonitor() != null) {
+                    this.f54213e.getVideoMonitor().l(ErrorCode.ARGS_ERROR);
                 }
-                if (!this.f53296e.j0) {
-                    if (!ViewCompat.isAttachedToWindow(this.f53296e.getView())) {
+                if (!this.f54213e.j0) {
+                    if (!ViewCompat.isAttachedToWindow(this.f54213e.getView())) {
                         return;
                     }
-                    if (!this.f53296e.N) {
+                    if (!this.f54213e.N) {
                         TbVideoViewSet d2 = TbVideoViewSet.d();
-                        TbCyberVideoView tbCyberVideoView = this.f53296e;
+                        TbCyberVideoView tbCyberVideoView = this.f54213e;
                         d2.g(tbCyberVideoView, tbCyberVideoView.L);
                     }
                 }
-                if (this.f53296e.k0 != null) {
-                    this.f53296e.k0.onPrepared();
+                if (this.f54213e.k0 != null) {
+                    this.f54213e.k0.onPrepared();
                 }
-                if (this.f53296e.J && (c2 = o.d().c(this.f53296e.L)) > 0) {
-                    this.f53296e.seekTo(c2);
+                if (this.f54213e.J && (c2 = o.d().c(this.f54213e.L)) > 0) {
+                    this.f54213e.seekTo(c2);
                 }
-                if (this.f53296e.M) {
-                    boolean z = this.f53296e.N;
-                    this.f53296e.start();
-                    this.f53296e.N = z;
-                    if (this.f53296e.N) {
-                        this.f53296e.setVolume(0.0f, 0.0f);
+                if (this.f54213e.M) {
+                    boolean z = this.f54213e.N;
+                    this.f54213e.start();
+                    this.f54213e.N = z;
+                    if (this.f54213e.N) {
+                        this.f54213e.setVolume(0.0f, 0.0f);
                     }
                 }
             }
@@ -233,7 +233,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbCyberVideoView f53297e;
+        public final /* synthetic */ TbCyberVideoView f54214e;
 
         public b(TbCyberVideoView tbCyberVideoView) {
             Interceptable interceptable = $ic;
@@ -250,28 +250,28 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
                     return;
                 }
             }
-            this.f53297e = tbCyberVideoView;
+            this.f54214e = tbCyberVideoView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f53297e.P != null) {
-                    this.f53297e.P.e(this.f53297e.Q, this.f53297e.R);
-                    this.f53297e.P = null;
+                if (this.f54214e.P != null) {
+                    this.f54214e.P.e(this.f54214e.Q, this.f54214e.R);
+                    this.f54214e.P = null;
                 }
-                this.f53297e.setVideoStatus(VideoStatus.VIDEO_COMPLETE);
-                o.d().e(this.f53297e.L);
-                if (this.f53297e.getCyberPlayer().isLooping()) {
+                this.f54214e.setVideoStatus(VideoStatus.VIDEO_COMPLETE);
+                o.d().e(this.f54214e.L);
+                if (this.f54214e.getCyberPlayer().isLooping()) {
                     return;
                 }
-                if (this.f53297e.O != null) {
-                    this.f53297e.O.b();
+                if (this.f54214e.O != null) {
+                    this.f54214e.O.b();
                 }
-                this.f53297e.M = false;
-                if (this.f53297e.l0 != null) {
-                    this.f53297e.l0.onCompletion();
+                this.f54214e.M = false;
+                if (this.f54214e.l0 != null) {
+                    this.f54214e.l0.onCompletion();
                 }
             }
         }
@@ -283,7 +283,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbCyberVideoView f53298e;
+        public final /* synthetic */ TbCyberVideoView f54215e;
 
         public c(TbCyberVideoView tbCyberVideoView) {
             Interceptable interceptable = $ic;
@@ -300,7 +300,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
                     return;
                 }
             }
-            this.f53298e = tbCyberVideoView;
+            this.f54215e = tbCyberVideoView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
@@ -308,12 +308,12 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                if (this.f53298e.getCurrentPosition() > 0 && this.f53298e.R()) {
-                    o.d().update(this.f53298e.L, this.f53298e.getCurrentPosition());
+                if (this.f54215e.getCurrentPosition() > 0 && this.f54215e.R()) {
+                    o.d().update(this.f54215e.L, this.f54215e.getCurrentPosition());
                 }
-                TbVideoViewSet.d().f(this.f53298e.L);
-                if (this.f53298e.n0 != null) {
-                    this.f53298e.n0.onError(i2, i3, obj);
+                TbVideoViewSet.d().f(this.f54215e.L);
+                if (this.f54215e.n0 != null) {
+                    this.f54215e.n0.onError(i2, i3, obj);
                     return true;
                 }
                 return true;
@@ -328,7 +328,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbCyberVideoView f53299e;
+        public final /* synthetic */ TbCyberVideoView f54216e;
 
         public d(TbCyberVideoView tbCyberVideoView) {
             Interceptable interceptable = $ic;
@@ -345,16 +345,16 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
                     return;
                 }
             }
-            this.f53299e = tbCyberVideoView;
+            this.f54216e = tbCyberVideoView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
         public void onSeekComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f53299e.m0 == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54216e.m0 == null) {
                 return;
             }
-            this.f53299e.m0.onSeekComplete();
+            this.f54216e.m0.onSeekComplete();
         }
     }
 
@@ -364,7 +364,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbCyberVideoView f53300e;
+        public final /* synthetic */ TbCyberVideoView f54217e;
 
         public e(TbCyberVideoView tbCyberVideoView) {
             Interceptable interceptable = $ic;
@@ -381,7 +381,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
                     return;
                 }
             }
-            this.f53300e = tbCyberVideoView;
+            this.f54217e = tbCyberVideoView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
@@ -389,36 +389,36 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                if (this.f53300e.o0 != null) {
-                    this.f53300e.o0.onInfo(i2, i3, obj);
+                if (this.f54217e.o0 != null) {
+                    this.f54217e.o0.onInfo(i2, i3, obj);
                 }
-                if (this.f53300e.getVideoMonitor() != null && i2 == 10009 && (obj instanceof String)) {
+                if (this.f54217e.getVideoMonitor() != null && i2 == 10009 && (obj instanceof String)) {
                     try {
                         JSONObject jSONObject = new JSONObject((String) obj);
-                        this.f53300e.getVideoMonitor().g(jSONObject.optLong("carltonLength"), jSONObject.optInt("carlton_type"));
+                        this.f54217e.getVideoMonitor().g(jSONObject.optLong("carltonLength"), jSONObject.optInt("carlton_type"));
                     } catch (JSONException unused) {
                     }
                 }
                 if (i2 == 10012) {
-                    this.f53300e.setVideoStatus(VideoStatus.VIDEO_PLAYING);
+                    this.f54217e.setVideoStatus(VideoStatus.VIDEO_PLAYING);
                 }
                 if (i2 == 10007) {
-                    this.f53300e.setVideoStatus(VideoStatus.INTERNAL_VIDEO_BUFFERING_ERROR);
+                    this.f54217e.setVideoStatus(VideoStatus.INTERNAL_VIDEO_BUFFERING_ERROR);
                 }
                 if (i2 == 701) {
-                    this.f53300e.setVideoStatus(VideoStatus.INTERNAL_VIDEO_BUFFERING_BUFFER);
+                    this.f54217e.setVideoStatus(VideoStatus.INTERNAL_VIDEO_BUFFERING_BUFFER);
                 }
                 if (i2 == 702) {
-                    if (this.f53300e.w0 != VideoStatus.INTERNAL_VIDEO_PAUSING_BUFFER) {
-                        this.f53300e.setVideoStatus(VideoStatus.VIDEO_PLAYING);
+                    if (this.f54217e.w0 != VideoStatus.INTERNAL_VIDEO_PAUSING_BUFFER) {
+                        this.f54217e.setVideoStatus(VideoStatus.VIDEO_PLAYING);
                     } else {
-                        this.f53300e.setVideoStatus(VideoStatus.INTERNAL_VIDEO_PAUSING_PLAY);
+                        this.f54217e.setVideoStatus(VideoStatus.INTERNAL_VIDEO_PAUSING_PLAY);
                     }
                 }
-                if (i2 != 904 || this.f53300e.O == null) {
+                if (i2 != 904 || this.f54217e.O == null) {
                     return true;
                 }
-                this.f53300e.O.d(this.f53300e);
+                this.f54217e.O.d(this.f54217e);
                 return true;
             }
             return invokeIIL.booleanValue;
@@ -431,7 +431,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbCyberVideoView f53301a;
+        public final /* synthetic */ TbCyberVideoView f54218a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(TbCyberVideoView tbCyberVideoView, int i2) {
@@ -451,7 +451,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
                     return;
                 }
             }
-            this.f53301a = tbCyberVideoView;
+            this.f54218a = tbCyberVideoView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -459,10 +459,10 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.f53301a.stop();
-                if (this.f53301a.P != null) {
-                    this.f53301a.P.k(this.f53301a.Q, this.f53301a.R);
-                    this.f53301a.P = null;
+                this.f54218a.stop();
+                if (this.f54218a.P != null) {
+                    this.f54218a.P.k(this.f54218a.Q, this.f54218a.R);
+                    this.f54218a.P = null;
                 }
             }
         }
@@ -570,11 +570,11 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         }
     }
 
-    public final String J(String str) {
+    public final String L(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!b.a.e.e.p.k.isEmpty(str) && b.a.r0.z3.h.d().e()) {
+            if (!b.a.e.f.p.k.isEmpty(str) && b.a.r0.a4.h.d().e()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }
@@ -585,13 +585,13 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         return (String) invokeL.objValue;
     }
 
-    public final boolean K() {
+    public final boolean M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this == TbVideoViewSet.d().e(this.L) : invokeV.booleanValue;
     }
 
-    public final boolean M() {
+    public final boolean N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getParent() != null : invokeV.booleanValue;
@@ -641,6 +641,8 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
     public final void Q(Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, uri) == null) {
+            super.stopPlayback();
+            setOption(CyberPlayerManager.OPT_PCDN_TYPE, "2014");
             b.a.r0.q2.q.a pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
             if (pcdnConfigData != null && pcdnConfigData.c()) {
                 if (!pcdnConfigData.a(uri)) {
@@ -650,8 +652,6 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
                     this.c0 = 3;
                     return;
                 } else {
-                    super.stopPlayback();
-                    setOption(CyberPlayerManager.OPT_PCDN_TYPE, "2014");
                     setOption(CyberPlayerManager.OPT_ENABLE_PCDN, "1");
                     setOption(CyberPlayerManager.OPT_ENABLE_P2P, pcdnConfigData.b() ? "1" : "0");
                     setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(b.a.r0.q2.q.c.e()));
@@ -884,7 +884,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            s0.f(this.T, false);
+            r0.f(this.T, false);
             if (isPlaying() && R()) {
                 o.d().update(this.L, getCurrentPositionSync());
             }
@@ -960,7 +960,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
                 this.M = true;
                 if (bVar != null) {
                     this.V = true;
-                    if (!M()) {
+                    if (!N()) {
                         bVar.b();
                     }
                 } else {
@@ -1021,7 +1021,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
             this.U = z;
             getCyberPlayer().muteOrUnmuteAudio(z);
-            s0.f(this.T, !z);
+            r0.f(this.T, !z);
         }
     }
 
@@ -1091,7 +1091,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
     public void setStageType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
-            if (b.a.e.e.p.k.isEmpty(str)) {
+            if (b.a.e.f.p.k.isEmpty(str)) {
                 str = "-1";
             }
             HashMap hashMap = new HashMap();
@@ -1128,7 +1128,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
 
     public void setVideoPath(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048628, this, str, str2) == null) || b.a.e.e.p.k.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048628, this, str, str2) == null) || b.a.e.f.p.k.isEmpty(str)) {
             return;
         }
         this.K = str2;
@@ -1143,7 +1143,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
             }
             this.O.l(pVar);
             if (pVar != null) {
-                this.Q = pVar.f22882a;
+                this.Q = pVar.f24403a;
             }
         }
     }
@@ -1169,10 +1169,10 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         if (interceptable == null || interceptable.invokeL(1048633, this, bVar) == null) {
             if (bVar != null) {
                 this.V = true;
-                if (!M()) {
+                if (!N()) {
                     bVar.b();
                 }
-                if (!K()) {
+                if (!M()) {
                     bVar.a();
                     this.M = true;
                     this.N = false;
@@ -1194,7 +1194,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
                 return;
             }
             if (this.L != null && isPlaying()) {
-                s0.f(this.T, false);
+                r0.f(this.T, false);
             }
             this.M = false;
             if (isPlaying() && R()) {
@@ -1227,7 +1227,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
             if (this.L != null && isPlaying()) {
-                s0.f(this.T, false);
+                r0.f(this.T, false);
             }
             this.M = false;
             if (isPlaying() && R()) {
@@ -1258,18 +1258,18 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
     public void setVideoPath(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048627, this, str) == null) || b.a.e.e.p.k.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048627, this, str) == null) || b.a.e.f.p.k.isEmpty(str)) {
             return;
         }
         S();
         this.L = str;
-        String J = J(str);
+        String L = L(str);
         k kVar = z0;
         if (kVar != null) {
             b.a.r0.a2.h a2 = kVar.a(this.K, this.L, null);
             this.P = a2;
             if (a2 != null) {
-                a2.a(CyberPlayerManager.hasCacheFile(J));
+                a2.a(CyberPlayerManager.hasCacheFile(L));
             }
         }
         this.i0.l(this);
@@ -1277,7 +1277,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         if (bVar != null) {
             bVar.f();
         }
-        Q(Uri.parse(J));
+        Q(Uri.parse(L));
         b.a.r0.a2.h hVar = this.P;
         if (hVar != null) {
             hVar.j();
@@ -1287,7 +1287,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
             host.contains("tb-video.bdstatic.com");
         }
         int i2 = this.W;
-        super.setVideoPath(J);
+        super.setVideoPath(L);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
@@ -1295,7 +1295,7 @@ public class TbCyberVideoView extends CyberVideoView implements MediaController.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
             if (!this.U) {
-                s0.f(this.T, true);
+                r0.f(this.T, true);
                 setVolume(1.0f, 1.0f);
             }
             this.M = true;

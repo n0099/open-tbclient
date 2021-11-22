@@ -17,14 +17,14 @@ import io.reactivex.internal.observers.BasicFuseableObserver;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Collection;
 import java.util.concurrent.Callable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ObservableDistinct<T, K> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Callable<? extends Collection<? super K>> collectionSupplier;
     public final Function<? super T, K> keySelector;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class DistinctObserver<T, K> extends BasicFuseableObserver<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

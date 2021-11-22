@@ -12,13 +12,13 @@ public class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65196a;
+    public final String f66109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f65197b;
+    public final long f66110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f65198c;
+    public final String f66111c;
 
     public n(String str, long j, String str2) {
         Interceptable interceptable = $ic;
@@ -35,16 +35,16 @@ public class n {
                 return;
             }
         }
-        this.f65196a = str;
-        this.f65197b = j;
-        this.f65198c = str2;
+        this.f66109a = str;
+        this.f66110b = j;
+        this.f66111c = str2;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SourceInfo{url='" + this.f65196a + ExtendedMessageFormat.QUOTE + ", length=" + this.f65197b + ", mime='" + this.f65198c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SourceInfo{url='" + this.f66109a + ExtendedMessageFormat.QUOTE + ", length=" + this.f66110b + ", mime='" + this.f66111c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

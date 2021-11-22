@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.openid.IOpenID;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
 public class OppoOAID {
@@ -91,7 +92,7 @@ public class OppoOAID {
                             return;
                         }
                         UniqueIdUtils.sendSDKTypeLog(this.val$context, "oppo-connect", "");
-                        iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
+                        iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
                         String packageName = this.val$context.getPackageName();
                         String str2 = null;
                         try {
@@ -117,7 +118,7 @@ public class OppoOAID {
                                     str = sb.toString();
                                     obtain = Parcel.obtain();
                                     obtain2 = Parcel.obtain();
-                                    obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
+                                    obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
                                     obtain.writeString(packageName);
                                     obtain.writeString(str);
                                     obtain.writeString("OUID");
@@ -136,7 +137,7 @@ public class OppoOAID {
                                     return;
                                 }
                             }
-                            obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
+                            obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
                             obtain.writeString(packageName);
                             obtain.writeString(str);
                             obtain.writeString("OUID");

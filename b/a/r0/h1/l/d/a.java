@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.e0.b;
+import b.a.r0.b0.f0.b;
 import b.a.r0.b0.m;
 import b.a.r0.x0.l;
 import com.baidu.adp.framework.MessageManager;
@@ -46,7 +46,7 @@ public class a {
                 return false;
             }
             int i2 = d2Var.i0;
-            return i2 == 0 || i2 == 11 || i2 == 40 || d2Var.D2();
+            return i2 == 0 || i2 == 11 || i2 == 40 || d2Var.F2();
         }
         return invokeL.booleanValue;
     }
@@ -72,7 +72,7 @@ public class a {
         }
         createFromThreadCfg.setVideo_source("video_tab");
         createFromThreadCfg.setJumpGodReply(z);
-        m.a(threadData.s1());
+        m.a(threadData.t1());
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
 

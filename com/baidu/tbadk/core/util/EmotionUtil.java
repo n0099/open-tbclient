@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.database.Cursor;
 import android.text.TextUtils;
-import b.a.e.e.p.m;
+import b.a.e.f.p.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TiebaDatabase;

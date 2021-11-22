@@ -1,5 +1,6 @@
 package b.a.p0.a.c0.g;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,7 +16,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4131a;
+    public static final boolean f4276a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +32,7 @@ public class a {
                 return;
             }
         }
-        f4131a = k.f6397a;
+        f4276a = k.f6863a;
     }
 
     public static void a(@NonNull String str, @NonNull String str2) {
@@ -41,20 +42,21 @@ public class a {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static void b(@NonNull String str, @NonNull String str2, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         if (th == null) {
-            d.b(str, str2);
-            if (f4131a) {
+            d.c(str, str2);
+            if (f4276a) {
                 throw new RuntimeException(str2);
             }
             return;
         }
-        d.c(str, str2, th);
-        if (f4131a) {
+        d.d(str, str2, th);
+        if (f4276a) {
             throw new RuntimeException(str2, th);
         }
     }

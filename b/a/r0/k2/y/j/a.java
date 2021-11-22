@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.s.q.d2;
 import b.a.r0.f0.h;
 import b.a.r0.k2.l;
@@ -37,20 +37,20 @@ public class a {
 
     /* renamed from: b.a.r0.k2.y.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class DialogInterface$OnDismissListenerC0986a implements DialogInterface.OnDismissListener {
+    public static class DialogInterface$OnDismissListenerC1055a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbModel f19863e;
+        public final /* synthetic */ PbModel f21400e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbsPbActivity f19864f;
+        public final /* synthetic */ AbsPbActivity f21401f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f19865g;
+        public final /* synthetic */ View f21402g;
 
-        public DialogInterface$OnDismissListenerC0986a(PbModel pbModel, AbsPbActivity absPbActivity, View view) {
+        public DialogInterface$OnDismissListenerC1055a(PbModel pbModel, AbsPbActivity absPbActivity, View view) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,9 +65,9 @@ public class a {
                     return;
                 }
             }
-            this.f19863e = pbModel;
-            this.f19864f = absPbActivity;
-            this.f19865g = view;
+            this.f21400e = pbModel;
+            this.f21401f = absPbActivity;
+            this.f21402g = view;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
@@ -75,7 +75,7 @@ public class a {
             PbModel pbModel;
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (pbModel = this.f19863e) == null || pbModel.P0() == null || !this.f19863e.P0().r0() || TbSingleton.getInstance().isNotchScreen(this.f19864f) || TbSingleton.getInstance().isCutoutScreen(this.f19864f) || (view = this.f19865g) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (pbModel = this.f21400e) == null || pbModel.P0() == null || !this.f21400e.P0().r0() || TbSingleton.getInstance().isNotchScreen(this.f21401f) || TbSingleton.getInstance().isCutoutScreen(this.f21401f) || (view = this.f21402g) == null) {
                 return;
             }
             view.setSystemUiVisibility(4);
@@ -89,19 +89,19 @@ public class a {
             if (d2Var == null) {
                 return 0;
             }
-            if (d2Var.F2()) {
+            if (d2Var.H2()) {
                 return 11;
             }
-            if (d2Var.M1()) {
+            if (d2Var.O1()) {
                 return 10;
             }
-            if (d2Var.P1()) {
+            if (d2Var.R1()) {
                 return 9;
             }
-            if (d2Var.O1()) {
+            if (d2Var.Q1()) {
                 return 8;
             }
-            if (d2Var.N1()) {
+            if (d2Var.P1()) {
                 return 7;
             }
             if (d2Var.z1) {
@@ -130,25 +130,25 @@ public class a {
             if (fVar == null || (O = fVar.O()) == null) {
                 return 0;
             }
-            if (O.q2()) {
+            if (O.s2()) {
                 return 4;
             }
             if (O.j0() == 1) {
                 return 3;
             }
-            if (O.M1()) {
+            if (O.O1()) {
                 return 5;
             }
-            if (O.P1()) {
+            if (O.R1()) {
                 return 6;
             }
-            if (O.N1()) {
+            if (O.P1()) {
                 return 7;
             }
-            if (O.O1()) {
+            if (O.Q1()) {
                 return 8;
             }
-            return O.r2() ? 2 : 1;
+            return O.t2() ? 2 : 1;
         }
         return invokeL.intValue;
     }
@@ -174,7 +174,7 @@ public class a {
                 }
             }
             d2 O = pbModel.P0().O();
-            if (O.D2()) {
+            if (O.F2()) {
                 f1 = O.L().oriUgcTid;
                 str = "?share=9105&fr=dshare&see_lz=" + (t0 ? 1 : 0) + "&dtype=" + O.L().oriUgcType + "&dvid=" + O.L().oriUgcVid + "&nid=" + O.L().oriUgcNid;
             } else {
@@ -195,7 +195,7 @@ public class a {
             }
             String string = TbadkCoreApplication.getInst().getResources().getString(l.default_share_content_tpl);
             if (P0.g0() && O.J() != null) {
-                if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str4) || O.O1() || O.P1()) {
+                if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str4) || O.Q1() || O.R1()) {
                     if (TextUtils.isEmpty(title)) {
                         c2 = 1;
                         title = M[1];
@@ -218,11 +218,11 @@ public class a {
             if (P0.g0()) {
                 shareItem.D = cutString2;
                 shareItem.R = -1L;
-            } else if (P0.O() != null && P0.O().q1() != null && !P0.O().D2()) {
-                shareItem.R = P0.O().q1().play_count.intValue();
+            } else if (P0.O() != null && P0.O().r1() != null && !P0.O().F2()) {
+                shareItem.R = P0.O().r1().play_count.intValue();
             }
             shareItem.t = str2;
-            shareItem.f45690c = true;
+            shareItem.f46540c = true;
             shareItem.q = pbModel.f1();
             shareItem.F = 3;
             shareItem.E = i3;
@@ -247,7 +247,7 @@ public class a {
             }
             TbadkCoreApplication.getInst().setShareItem(shareItem);
             if (O != null) {
-                shareItem.i0 = O.Z0();
+                shareItem.i0 = O.a1();
             }
             shareItem.G = a(O);
             Bundle bundle = new Bundle();
@@ -258,7 +258,7 @@ public class a {
             bundle.putString("uid", shareItem.N);
             shareItem.k(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) absPbActivity, shareItem, true, true);
-            shareDialogConfig.setOnDismissListener(new DialogInterface$OnDismissListenerC0986a(pbModel, absPbActivity, rootView));
+            shareDialogConfig.setOnDismissListener(new DialogInterface$OnDismissListenerC1055a(pbModel, absPbActivity, rootView));
             shareDialogConfig.setFrom(ShareDialogConfig.From.PB);
             h.c().l(shareDialogConfig);
         }

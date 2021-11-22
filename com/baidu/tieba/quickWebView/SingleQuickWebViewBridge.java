@@ -3,7 +3,7 @@ package com.baidu.tieba.quickWebView;
 import android.content.Context;
 import android.webkit.JsPromptResult;
 import b.a.g.a.a;
-import b.a.r0.l3.n0.d.c;
+import b.a.r0.m3.n0.d.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
@@ -22,10 +22,10 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public b.a.r0.x2.a mProxy;
+    public b.a.r0.y2.a mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleQuickWebViewBridge(Context context, b.a.r0.x2.a aVar) {
+    public SingleQuickWebViewBridge(Context context, b.a.r0.y2.a aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,7 +46,7 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         this.mProxy = aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, b.a.r0.l3.n0.b
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, b.a.r0.m3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
                 quickWebViewBridgeData.data = hashMap;
             }
             quickWebViewBridgeData.begin = System.currentTimeMillis();
-            b.a.r0.x2.a aVar = this.mProxy;
+            b.a.r0.y2.a aVar = this.mProxy;
             if (aVar != null) {
                 aVar.j(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }

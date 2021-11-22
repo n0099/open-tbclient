@@ -12,9 +12,9 @@ import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.o0.e;
-import b.a.r0.x0.j0;
+import b.a.r0.x0.k0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TAB_INDEX_LIVE = 0;
@@ -57,13 +57,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
     public View mStatusBarView;
     public FragmentTabHost mTabHost;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f47145e;
+        public final /* synthetic */ AlaGameFrsLiveListActivity f48009e;
 
         public a(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
             Interceptable interceptable = $ic;
@@ -80,25 +80,25 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                     return;
                 }
             }
-            this.f47145e = alaGameFrsLiveListActivity;
+            this.f48009e = alaGameFrsLiveListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47145e.getPageContext().getPageActivity().finish();
+                this.f48009e.getPageContext().getPageActivity().finish();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f47146e;
+        public final /* synthetic */ AlaGameFrsLiveListActivity f48010e;
 
         public b(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
             Interceptable interceptable = $ic;
@@ -115,26 +115,26 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                     return;
                 }
             }
-            this.f47146e = alaGameFrsLiveListActivity;
+            this.f48010e = alaGameFrsLiveListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f47146e.forumId)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f48010e.forumId)) {
                 return;
             }
-            this.f47146e.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.f47146e.getPageContext().getPageActivity(), this.f47146e.forumId, ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
+            this.f48010e.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.f48010e.getPageContext().getPageActivity(), this.f48010e.forumId, ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c extends b.a.q0.o0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f47147a;
+        public final /* synthetic */ AlaGameFrsLiveListActivity f48011a;
 
         public c(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
             Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                     return;
                 }
             }
-            this.f47147a = alaGameFrsLiveListActivity;
+            this.f48011a = alaGameFrsLiveListActivity;
         }
 
         @Override // b.a.q0.o0.b
@@ -182,13 +182,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f47148a;
+        public final /* synthetic */ AlaGameFrsLiveListActivity f48012a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity, int i2) {
@@ -208,31 +208,31 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                     return;
                 }
             }
-            this.f47148a = alaGameFrsLiveListActivity;
+            this.f48012a = alaGameFrsLiveListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof j0)) {
-                j0 j0Var = (j0) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k0)) {
+                k0 k0Var = (k0) customResponsedMessage.getData();
                 ArrayList arrayList = new ArrayList();
-                if (j0Var.e() != null) {
-                    for (b.a.q0.h0.b bVar : j0Var.e()) {
-                        if (bVar.getFragmentTabStructure().f12612a != null) {
-                            arrayList.add(bVar.getFragmentTabStructure().f12612a);
+                if (k0Var.e() != null) {
+                    for (b.a.q0.h0.b bVar : k0Var.e()) {
+                        if (bVar.getFragmentTabStructure().f13359a != null) {
+                            arrayList.add(bVar.getFragmentTabStructure().f13359a);
                         }
                     }
                 }
-                this.f47148a.mFragmentAdapter.setFragments(arrayList);
-                int count = this.f47148a.mFragmentAdapter.getCount();
+                this.f48012a.mFragmentAdapter.setFragments(arrayList);
+                int count = this.f48012a.mFragmentAdapter.getCount();
                 for (int i2 = 0; i2 < count; i2++) {
-                    AlaGameFrsLiveListActivity alaGameFrsLiveListActivity = this.f47148a;
-                    alaGameFrsLiveListActivity.createAndAddTabSpec(alaGameFrsLiveListActivity.mFragmentAdapter.getItem(i2), i2, this.f47148a.getTabTextByIndex(i2));
+                    AlaGameFrsLiveListActivity alaGameFrsLiveListActivity = this.f48012a;
+                    alaGameFrsLiveListActivity.createAndAddTabSpec(alaGameFrsLiveListActivity.mFragmentAdapter.getItem(i2), i2, this.f48012a.getTabTextByIndex(i2));
                 }
-                this.f47148a.mTabHost.initViewPagerWithNoType();
-                this.f47148a.mTabHost.changeStyle(0);
+                this.f48012a.mTabHost.initViewPagerWithNoType();
+                this.f48012a.mTabHost.changeStyle(0);
             }
         }
     }
@@ -262,13 +262,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f45185c = fragment;
-        bVar.f45183a = i2;
+        bVar.f46035c = fragment;
+        bVar.f46033a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.dayTextColorResId = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f45184b = fragmentTabIndicator;
+        bVar.f46034b = fragmentTabIndicator;
         this.mTabHost.addTabSpec(bVar);
     }
 
@@ -298,11 +298,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             d dVar = new d(this, 2001620);
             dVar.setPriority(Integer.MAX_VALUE);
             registerListener(dVar);
-            j0 j0Var = new j0(getPageContext().getPageActivity());
-            j0Var.g(this.forumId);
-            j0Var.h(this.forumName);
-            j0Var.f(this.forumGameLabel);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, j0Var));
+            k0 k0Var = new k0(getPageContext().getPageActivity());
+            k0Var.g(this.forumId);
+            k0Var.h(this.forumName);
+            k0Var.f(this.forumGameLabel);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, k0Var));
         }
     }
 

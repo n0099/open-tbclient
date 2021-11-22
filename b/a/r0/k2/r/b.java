@@ -15,22 +15,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f18745a;
+    public long f20281a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18746b;
+    public String f20282b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18747c;
+    public String f20283c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18748d;
+    public String f20284d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18749e;
+    public int f20285e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18750f;
+    public String f20286f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,13 +49,13 @@ public class b {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18749e == 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20285e == 3 : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18749e == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20285e == 1 : invokeV.booleanValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -63,12 +63,12 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f18746b = jSONObject.optString("card_logo");
-        this.f18747c = jSONObject.optString("card_name");
-        this.f18748d = jSONObject.optString("card_pro");
-        this.f18749e = jSONObject.optInt("card_get_status");
-        this.f18745a = jSONObject.optLong(CardBoxMemberPayActivityConfig.PACKET_ID);
-        this.f18750f = jSONObject.optString("card_num");
+        this.f20282b = jSONObject.optString("card_logo");
+        this.f20283c = jSONObject.optString("card_name");
+        this.f20284d = jSONObject.optString("card_pro");
+        this.f20285e = jSONObject.optInt("card_get_status");
+        this.f20281a = jSONObject.optLong(CardBoxMemberPayActivityConfig.PACKET_ID);
+        this.f20286f = jSONObject.optString("card_num");
     }
 
     public void d(SendCardInfo sendCardInfo) {
@@ -76,10 +76,10 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) || sendCardInfo == null) {
             return;
         }
-        this.f18746b = sendCardInfo.card_logo;
-        this.f18747c = sendCardInfo.card_name;
-        this.f18748d = sendCardInfo.card_pro;
-        this.f18749e = sendCardInfo.card_get_status.intValue();
-        this.f18745a = sendCardInfo.packet_id.longValue();
+        this.f20282b = sendCardInfo.card_logo;
+        this.f20283c = sendCardInfo.card_name;
+        this.f20284d = sendCardInfo.card_pro;
+        this.f20285e = sendCardInfo.card_get_status.intValue();
+        this.f20281a = sendCardInfo.packet_id.longValue();
     }
 }

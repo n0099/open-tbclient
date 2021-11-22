@@ -1,67 +1,110 @@
 package b.a.p0.a.g2;
 
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import b.a.p0.a.c;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class b {
+public class b extends b.a.p0.a.u.e.p.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f5157a;
+    /* loaded from: classes.dex */
+    public class a implements b.a.p0.a.z2.g1.c<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public b() {
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ boolean f5313e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ String f5314f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ b f5315g;
+
+        public a(b bVar, boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, Boolean.valueOf(z), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f5315g = bVar;
+            this.f5313e = z;
+            this.f5314f = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.c
+        /* renamed from: a */
+        public void onCallback(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
+                if (bool.booleanValue()) {
+                    b.a.p0.a.g2.a.e(this.f5313e);
+                    this.f5315g.d(this.f5314f, new b.a.p0.a.u.h.b(0));
+                    return;
+                }
+                this.f5315g.d(this.f5314f, new b.a.p0.a.u.h.b(10005, "system deny"));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(@NonNull b.a.p0.a.u.c.b bVar) {
+        super(bVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((b.a.p0.a.u.c.b) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f5157a = null;
     }
 
-    public void a(ViewGroup viewGroup) {
+    @Override // b.a.p0.a.u.c.d
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
-            return;
-        }
-        if (this.f5157a == null) {
-            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            this.f5157a = frameLayout;
-            frameLayout.setBackgroundResource(c.aiapps_night_mode_cover_layer);
-        }
-        viewGroup.removeView(this.f5157a);
-        viewGroup.addView(this.f5157a, new FrameLayout.LayoutParams(-1, -1));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HideCaptureScreenShareDialogApi" : (String) invokeV.objValue;
     }
 
-    public void b(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
+    public b.a.p0.a.u.h.b x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.f5157a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#hideCaptureScreenShareDialog", false);
+            Pair<b.a.p0.a.u.h.b, JSONObject> s = s(str);
+            b.a.p0.a.u.h.b bVar = (b.a.p0.a.u.h.b) s.first;
+            if (bVar.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                b.a.p0.a.g2.a.b(new a(this, jSONObject.optBoolean("hide"), jSONObject.optString("cb")));
+                return new b.a.p0.a.u.h.b(0);
+            }
+            return bVar;
         }
-        viewGroup.removeView(frameLayout);
-        this.f5157a = null;
-    }
-
-    public void c(int i2) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (frameLayout = this.f5157a) == null) {
-            return;
-        }
-        frameLayout.setVisibility(i2);
+        return (b.a.p0.a.u.h.b) invokeL.objValue;
     }
 }

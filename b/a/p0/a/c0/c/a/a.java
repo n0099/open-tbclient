@@ -21,7 +21,7 @@ public class a implements ImageAssetDelegate {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4062a;
+    public String f4202a;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class a implements ImageAssetDelegate {
                 return;
             }
         }
-        PathType s = b.a.p0.a.k2.b.s(str);
+        PathType s = b.a.p0.a.o2.b.s(str);
         if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
-            this.f4062a = new File(f.T().G().a(str)).getParent();
+            this.f4202a = new File(f.U().G().a(str)).getParent();
         }
     }
 
@@ -66,11 +66,11 @@ public class a implements ImageAssetDelegate {
                 } catch (IllegalArgumentException unused) {
                     return null;
                 }
-            } else if (TextUtils.isEmpty(this.f4062a)) {
+            } else if (TextUtils.isEmpty(this.f4202a)) {
                 return null;
             } else {
                 String dirName = lottieImageAsset.getDirName();
-                return BitmapFactory.decodeFile(new File(TextUtils.isEmpty(dirName) ? new File(this.f4062a) : new File(this.f4062a, dirName), lottieImageAsset.getFileName()).getAbsolutePath());
+                return BitmapFactory.decodeFile(new File(TextUtils.isEmpty(dirName) ? new File(this.f4202a) : new File(this.f4202a, dirName), lottieImageAsset.getFileName()).getAbsolutePath());
             }
         }
         return (Bitmap) invokeL.objValue;

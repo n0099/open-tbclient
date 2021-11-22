@@ -109,7 +109,7 @@ public class Dev {
             RandomAccessFile randomAccessFile3 = null;
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(file, r.f40168a);
+                    randomAccessFile = new RandomAccessFile(file, r.f41000a);
                 } catch (Throwable th) {
                     th = th;
                 }

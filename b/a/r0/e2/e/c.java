@@ -1,6 +1,6 @@
 package b.a.r0.e2.e;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,10 +13,10 @@ public class c implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16292e;
+    public String f17305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f16293f;
+    public boolean f17306f;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class c implements n {
                 return;
             }
         }
-        this.f16293f = true;
-        this.f16292e = str;
+        this.f17306f = true;
+        this.f17305e = str;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f16286b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f17299b : (BdUniqueId) invokeV.objValue;
     }
 }

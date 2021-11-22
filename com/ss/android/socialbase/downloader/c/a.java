@@ -14,15 +14,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f69152a = 4;
+    public static int f70072a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC1986a f69153b;
+    public static AbstractC2024a f70073b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.ss.android.socialbase.downloader.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static abstract class AbstractC1986a {
+    public static abstract class AbstractC2024a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,7 +81,7 @@ public class a {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
-            f69152a = i2;
+            f70072a = i2;
         }
     }
 
@@ -102,12 +102,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f69152a <= 4) {
+        if (f70072a <= 4) {
             b(str);
         }
-        AbstractC1986a abstractC1986a = f69153b;
-        if (abstractC1986a != null) {
-            abstractC1986a.c(b(str), str2);
+        AbstractC2024a abstractC2024a = f70073b;
+        if (abstractC2024a != null) {
+            abstractC2024a.c(b(str), str2);
         }
     }
 
@@ -116,12 +116,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f69152a <= 5) {
+        if (f70072a <= 5) {
             b(str);
         }
-        AbstractC1986a abstractC1986a = f69153b;
-        if (abstractC1986a != null) {
-            abstractC1986a.e(b(str), str2);
+        AbstractC2024a abstractC2024a = f70073b;
+        if (abstractC2024a != null) {
+            abstractC2024a.e(b(str), str2);
         }
     }
 
@@ -130,19 +130,19 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f69152a <= 6) {
+        if (f70072a <= 6) {
             b(str);
         }
-        AbstractC1986a abstractC1986a = f69153b;
-        if (abstractC1986a != null) {
-            abstractC1986a.d(b(str), str2);
+        AbstractC2024a abstractC2024a = f70073b;
+        if (abstractC2024a != null) {
+            abstractC2024a.d(b(str), str2);
         }
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f69152a <= 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f70072a <= 3 : invokeV.booleanValue;
     }
 
     public static void a(String str, String str2) {
@@ -150,10 +150,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || str2 == null) {
             return;
         }
-        int i2 = f69152a;
-        AbstractC1986a abstractC1986a = f69153b;
-        if (abstractC1986a != null) {
-            abstractC1986a.a(b(str), str2);
+        int i2 = f70072a;
+        AbstractC2024a abstractC2024a = f70073b;
+        if (abstractC2024a != null) {
+            abstractC2024a.a(b(str), str2);
         }
     }
 
@@ -162,12 +162,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f69152a <= 3) {
+        if (f70072a <= 3) {
             b(str);
         }
-        AbstractC1986a abstractC1986a = f69153b;
-        if (abstractC1986a != null) {
-            abstractC1986a.b(b(str), str2);
+        AbstractC2024a abstractC2024a = f70073b;
+        if (abstractC2024a != null) {
+            abstractC2024a.b(b(str), str2);
         }
     }
 
@@ -191,12 +191,12 @@ public class a {
             if (str2 == null && th == null) {
                 return;
             }
-            if (f69152a <= 6) {
+            if (f70072a <= 6) {
                 b(str);
             }
-            AbstractC1986a abstractC1986a = f69153b;
-            if (abstractC1986a != null) {
-                abstractC1986a.a(b(str), str2, th);
+            AbstractC2024a abstractC2024a = f70073b;
+            if (abstractC2024a != null) {
+                abstractC2024a.a(b(str), str2, th);
             }
         }
     }

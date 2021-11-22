@@ -30,7 +30,7 @@ public class PrecashierBeanFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PrecashierBeanFactory f59837a;
+        public static PrecashierBeanFactory f60759a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public class PrecashierBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f59837a = new PrecashierBeanFactory(null);
+            f60759a = new PrecashierBeanFactory(null);
         }
     }
 
@@ -57,7 +57,7 @@ public class PrecashierBeanFactory implements IBeanFactory {
     public static PrecashierBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59837a : (PrecashierBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60759a : (PrecashierBeanFactory) invokeV.objValue;
     }
 
     @Override // com.dxmpay.apollon.beans.IBeanFactory

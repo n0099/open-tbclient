@@ -1,13 +1,18 @@
 package b.a.p0.a.p.d;
 
-import android.content.Context;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public interface h1 {
-    void a(Context context, b.a.p0.a.v2.e1.b<Boolean> bVar);
+    ExecutorService d();
 
-    void b(boolean z, b.a.p0.a.v2.e1.b<String> bVar);
+    void e(String str, int i2, JSONArray jSONArray);
 
-    void c(Context context, b.a.p0.a.v2.e1.b<String> bVar);
+    void f(String str, int i2);
 
-    void d(b.a.p0.a.v2.e1.b<Integer> bVar);
+    void g(String str, String str2, int i2, String str3, int i3);
+
+    void i(String str, int i2, String str2);
+
+    void o(String str, String str2, int i2, String str3, long j, int i3);
 }

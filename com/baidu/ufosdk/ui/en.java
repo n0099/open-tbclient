@@ -4,19 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class en implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f56970a;
+    public final /* synthetic */ FeedbackInputActivity f57892a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f56971b;
+    public final /* synthetic */ String f57893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ ej f56972c;
+    public final /* synthetic */ ej f57894c;
 
     public en(ej ejVar, FeedbackInputActivity feedbackInputActivity, String str) {
         Interceptable interceptable = $ic;
@@ -33,16 +33,16 @@ public final class en implements Runnable {
                 return;
             }
         }
-        this.f56972c = ejVar;
-        this.f56970a = feedbackInputActivity;
-        this.f56971b = str;
+        this.f57894c = ejVar;
+        this.f57892a = feedbackInputActivity;
+        this.f57893b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.ufosdk.e.a.c(this.f56970a.getApplicationContext(), this.f56970a.f56763f, this.f56971b);
+            com.baidu.ufosdk.e.a.c(this.f57892a.getApplicationContext(), this.f57892a.f57685f, this.f57893b);
         }
     }
 }

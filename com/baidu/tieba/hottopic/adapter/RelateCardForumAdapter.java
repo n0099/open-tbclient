@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.a;
+import b.a.e.m.e.a;
 import b.a.r0.j1.l.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -29,7 +29,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49991a;
+        public int f50903a;
         public b.a.r0.j1.o.a mCardView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,20 +50,20 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
                     return;
                 }
             }
-            this.f49991a = 3;
+            this.f50903a = 3;
             this.mCardView = aVar;
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f49991a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f50903a == i2) {
                 return;
             }
             b.a.r0.j1.o.a aVar = this.mCardView;
             if (aVar != null) {
                 aVar.k(aVar.h(), i2);
             }
-            this.f49991a = i2;
+            this.f50903a = i2;
         }
     }
 
@@ -99,7 +99,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public CardGroupRelateForumHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -115,7 +115,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
         InterceptResult invokeCommon;

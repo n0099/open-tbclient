@@ -22,7 +22,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2831a;
+    public static final boolean f2924a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class a {
                 return;
             }
         }
-        f2831a = b.a.f0.a.a.a.f2779a;
+        f2924a = b.a.f0.a.a.a.f2872a;
     }
 
     public static List<h> a(JSONArray jSONArray, String str, boolean z) throws ParseError {
@@ -90,7 +90,7 @@ public class a {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, str)) == null) {
-            if (f2831a) {
+            if (f2924a) {
                 String str2 = "AFD response : " + jSONObject.toString();
             }
             List<h> arrayList = new ArrayList<>();
@@ -107,7 +107,7 @@ public class a {
                             String optString2 = optJSONObject2.optString("empty_ext_info");
                             if (!TextUtils.isEmpty(optString2)) {
                                 b.a.f0.a.c.j.j("empty_ext_info", optString2);
-                            } else if (f2831a) {
+                            } else if (f2924a) {
                                 throw new IllegalStateException("splash empty接口没有empty_ext_info信息");
                             }
                         } else if (TextUtils.equals("query", optString)) {
@@ -129,7 +129,7 @@ public class a {
                                         break;
                                     }
                                     h next = it.next();
-                                    if (TextUtils.equals(next.f2858c, optString3)) {
+                                    if (TextUtils.equals(next.f2951c, optString3)) {
                                         arrayList.add(next);
                                         break;
                                     }

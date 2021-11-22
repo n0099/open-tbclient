@@ -1,6 +1,6 @@
 package b.a.p0.d;
 
-import b.a.p0.a.c1.c.i;
+import b.a.p0.a.c1.c.k;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +14,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f9612a;
+    public static boolean f10192a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,13 +30,13 @@ public class c {
                 return;
             }
         }
-        f9612a = getContext().isDebug();
+        f10192a = getContext().isDebug();
     }
 
     @Inject
     public static a getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? i.a() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? k.a() : (a) invokeV.objValue;
     }
 }

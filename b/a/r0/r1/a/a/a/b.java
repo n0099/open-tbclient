@@ -81,15 +81,15 @@ public class b extends b.a.q0.c.a {
                         alarmManager.cancel(broadcast);
                         broadcast.cancel();
                     }
-                    fVar.f11969a = false;
+                    fVar.f12723a = false;
                 } else {
                     statisticItem.param("obj_type", "1");
                     BdToast.c(context, context.getString(R.string.interview_open_tip)).q();
                     alarmManager.set(0, j, PendingIntent.getBroadcast(context, i2, intent, 134217728));
-                    fVar.f11969a = true;
+                    fVar.f12723a = true;
                 }
                 TiebaStatic.log(statisticItem);
-                aVar.l(fVar.f11969a);
+                aVar.l(fVar.f12723a);
             }
             return fVar;
         }

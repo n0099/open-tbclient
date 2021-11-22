@@ -13,6 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.sdk.internal.ReflectionUtils;
 import com.baidu.mobads.sdk.internal.XAdLogger;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -238,6 +239,7 @@ public class AppActivity extends Activity {
             } catch (Exception e3) {
                 XAdLogger.getInstance().e(e3);
             }
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

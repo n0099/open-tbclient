@@ -2,10 +2,11 @@ package b.a.p0.a.h0.s;
 
 import android.preference.PreferenceManager;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.h2.f;
 import b.a.p0.a.k;
-import b.a.p0.a.k2.g.h;
+import b.a.p0.a.k2.f;
+import b.a.p0.a.o2.g.h;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,16 +27,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5752a;
+    public static final boolean f6078a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5753b;
+    public static final String f6079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5754c;
+    public static final String f6080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5755d;
+    public static final String f6081d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,14 +52,14 @@ public class a {
                 return;
             }
         }
-        f5752a = k.f6397a;
-        f5753b = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        f6078a = k.f6863a;
+        f6079b = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
         StringBuilder sb = new StringBuilder();
         sb.append(AppRuntime.getAppContext().getFilesDir().getAbsolutePath());
         sb.append(File.separator);
         sb.append("libs");
-        f5754c = sb.toString();
-        f5755d = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+        f6080c = sb.toString();
+        f6081d = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x011e A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -74,23 +75,23 @@ public class a {
         if (interceptable != null && interceptable.invokeV(65537, null) != null) {
             return;
         }
-        boolean z = f5752a;
-        File file = new File(f5753b + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        boolean z = f6078a;
+        File file = new File(f6079b + File.separator + GlobalConstants.LIB_ZEUS_V8);
         if (file.exists() && file.length() > 0) {
-            File file2 = new File(f5754c);
+            File file2 = new File(f6080c);
             if (!file2.exists()) {
                 file2.mkdirs();
             }
             File file3 = new File(file2, GlobalConstants.LIB_ZEUS_V8);
             long j = h.a().getLong("zeus_v8_modified_time", -1L);
             if (file.lastModified() == j && file.length() == file3.length()) {
-                if (f5752a) {
+                if (f6078a) {
                     String str = "fixSoLoadCrash: srcModifiedTime=" + file.lastModified() + ";savedModifiedTime=" + j + ";srcFileLength=" + file.length() + ";destFileLength=" + file3.length();
                     return;
                 }
                 return;
             }
-            boolean z2 = f5752a;
+            boolean z2 = f6078a;
             FileInputStream fileInputStream = null;
             try {
                 File file4 = new File(file2, "libzeusv8.so.lock");
@@ -122,8 +123,8 @@ public class a {
                                         fileOutputStream.flush();
                                         h.a().putLong("zeus_v8_modified_time", lastModified);
                                         fileInputStream = fileInputStream2;
-                                        b.a.p0.t.d.d(fileInputStream);
-                                        b.a.p0.t.d.d(fileOutputStream);
+                                        b.a.p0.w.d.d(fileInputStream);
+                                        b.a.p0.w.d.d(fileOutputStream);
                                         if (fileLock != null) {
                                             try {
                                                 fileLock.release();
@@ -131,15 +132,15 @@ public class a {
                                                 e2.printStackTrace();
                                             }
                                         }
-                                        b.a.p0.t.d.d(channel);
+                                        b.a.p0.w.d.d(channel);
                                     } catch (Exception e3) {
                                         fileChannel = channel;
                                         e = e3;
                                         fileInputStream = fileInputStream2;
                                         try {
                                             e.printStackTrace();
-                                            b.a.p0.t.d.d(fileInputStream);
-                                            b.a.p0.t.d.d(fileOutputStream);
+                                            b.a.p0.w.d.d(fileInputStream);
+                                            b.a.p0.w.d.d(fileOutputStream);
                                             if (fileLock != null) {
                                                 try {
                                                     fileLock.release();
@@ -147,12 +148,12 @@ public class a {
                                                     e4.printStackTrace();
                                                 }
                                             }
-                                            b.a.p0.t.d.d(fileChannel);
+                                            b.a.p0.w.d.d(fileChannel);
                                             return;
                                         } catch (Throwable th) {
                                             th = th;
-                                            b.a.p0.t.d.d(fileInputStream);
-                                            b.a.p0.t.d.d(fileOutputStream);
+                                            b.a.p0.w.d.d(fileInputStream);
+                                            b.a.p0.w.d.d(fileOutputStream);
                                             if (fileLock != null) {
                                                 try {
                                                     fileLock.release();
@@ -160,18 +161,18 @@ public class a {
                                                     e5.printStackTrace();
                                                 }
                                             }
-                                            b.a.p0.t.d.d(fileChannel);
+                                            b.a.p0.w.d.d(fileChannel);
                                             throw th;
                                         }
                                     } catch (Throwable th2) {
                                         fileChannel = channel;
                                         th = th2;
                                         fileInputStream = fileInputStream2;
-                                        b.a.p0.t.d.d(fileInputStream);
-                                        b.a.p0.t.d.d(fileOutputStream);
+                                        b.a.p0.w.d.d(fileInputStream);
+                                        b.a.p0.w.d.d(fileOutputStream);
                                         if (fileLock != null) {
                                         }
-                                        b.a.p0.t.d.d(fileChannel);
+                                        b.a.p0.w.d.d(fileChannel);
                                         throw th;
                                     }
                                 } catch (Exception e6) {
@@ -195,11 +196,11 @@ public class a {
                         }
                     }
                     fileOutputStream = null;
-                    b.a.p0.t.d.d(fileInputStream);
-                    b.a.p0.t.d.d(fileOutputStream);
+                    b.a.p0.w.d.d(fileInputStream);
+                    b.a.p0.w.d.d(fileOutputStream);
                     if (fileLock != null) {
                     }
-                    b.a.p0.t.d.d(channel);
+                    b.a.p0.w.d.d(channel);
                 } catch (Exception e8) {
                     fileChannel = channel;
                     fileLock = null;
@@ -223,7 +224,7 @@ public class a {
                 fileLock = null;
             }
         } else {
-            boolean z3 = f5752a;
+            boolean z3 = f6078a;
         }
     }
 
@@ -243,10 +244,10 @@ public class a {
             boolean z2 = true;
             if (b()) {
                 a();
-                d.g(AppRuntime.getAppContext(), f5753b);
-                boolean h2 = d.h("zeusv8", f5754c, true);
-                if (new File(f5753b + File.separator + "libv8.engine.so").exists()) {
-                    if (!d.h("arcore_sdk_c", f5753b, false) || !d.h("arcore_sdk_jni", f5753b, false) || !d.h("c++_shared", f5753b, false) || !d.h("v8.engine", f5753b, false)) {
+                d.g(AppRuntime.getAppContext(), f6079b);
+                boolean h2 = d.h("zeusv8", f6080c, true);
+                if (new File(f6079b + File.separator + "libv8.engine.so").exists()) {
+                    if (!d.h("arcore_sdk_c", f6079b, false) || !d.h("arcore_sdk_jni", f6079b, false) || !d.h(SwanKV.LIB_CPP_SHARED, f6079b, false) || !d.h("v8.engine", f6079b, false)) {
                         z2 = false;
                     }
                 } else {
@@ -254,8 +255,8 @@ public class a {
                 }
                 return f.d(h2, z2);
             }
-            d.h("zeusv8", f5755d, true);
-            return f.c(d.h("v8.engine", f5755d, true));
+            d.h("zeusv8", f6081d, true);
+            return f.c(d.h("v8.engine", f6081d, true));
         }
         return (f) invokeZ.objValue;
     }
@@ -264,7 +265,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             h.a().putLong("zeus_v8_modified_time", -1L);
-            boolean z = f5752a;
+            boolean z = f6078a;
         }
     }
 }

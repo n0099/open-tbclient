@@ -106,6 +106,34 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    StringBuilder sb = new StringBuilder();
+                    JSONObject jSONObject = new JSONObject(str);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        sb.append(next);
+                        sb.append("=");
+                        sb.append(jSONObject.get(next));
+                        sb.append("&");
+                    }
+                    if (sb.length() > 0) {
+                        sb.deleteCharAt(sb.length() - 1);
+                    }
+                    return sb.toString();
+                } catch (Exception unused) {
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             try {
                 Uri.Builder builder = new Uri.Builder();
                 if (!TextUtils.isEmpty(str)) {
@@ -124,10 +152,10 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public static boolean d(String str) {
+    public static boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             for (int i2 = 0; i2 < str.length(); i2++) {
                 char charAt = str.charAt(i2);
                 if (charAt <= 31 || charAt >= 127 || " #%/:?@[\\]".indexOf(charAt) != -1) {
@@ -279,7 +307,7 @@ public class a {
                 if (lowerCase.isEmpty()) {
                     return null;
                 }
-                if (d(lowerCase)) {
+                if (e(lowerCase)) {
                     return null;
                 }
                 return lowerCase;
@@ -372,7 +400,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             try {
-                return b(HttpUrl.c(str).f().build().toString(), c(str2));
+                return b(HttpUrl.c(str).f().build().toString(), d(str2));
             } catch (Exception unused) {
                 return str;
             }

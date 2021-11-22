@@ -14,7 +14,7 @@ public abstract class v implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f71536a;
+    public Context f72456a;
 
     /* renamed from: a  reason: collision with other field name */
     public File f995a;
@@ -37,7 +37,7 @@ public abstract class v implements Runnable {
                 return;
             }
         }
-        this.f71536a = context;
+        this.f72456a = context;
         this.f995a = file;
     }
 
@@ -63,13 +63,13 @@ public abstract class v implements Runnable {
             try {
                 try {
                     if (this.f995a == null) {
-                        this.f995a = new File(this.f71536a.getFilesDir(), "default_locker");
+                        this.f995a = new File(this.f72456a.getFilesDir(), "default_locker");
                     }
-                    uVar = u.a(this.f71536a, this.f995a);
+                    uVar = u.a(this.f72456a, this.f995a);
                     if (this.f996a != null) {
                         this.f996a.run();
                     }
-                    a(this.f71536a);
+                    a(this.f72456a);
                     if (uVar == null) {
                         return;
                     }

@@ -2,8 +2,8 @@ package b.a.p0.a.f1.c;
 
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a2.n.d;
-import b.a.p0.a.v2.k0;
+import b.a.p0.a.d2.n.d;
+import b.a.p0.a.z2.k0;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ public class a implements b.a.p0.a.f1.f.a {
             }
             long currentTimeMillis = System.currentTimeMillis();
             SwanAppConfigData b2 = d.b(file.getAbsolutePath());
-            if (b.a.p0.a.f1.f.a.f5062a) {
+            if (b.a.p0.a.f1.f.a.f4837a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 StringBuilder sb = new StringBuilder();
                 sb.append("buildAppJsonConfig cost = ");
@@ -49,13 +49,13 @@ public class a implements b.a.p0.a.f1.f.a {
             }
             SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.c().b(file.getAbsolutePath());
             if (swanAppConfigData == null) {
-                swanAppConfigData = b.a.p0.a.r1.l.f.a.e().j(file);
+                swanAppConfigData = b.a.p0.a.u1.l.g.a.e().j(file);
                 if (swanAppConfigData == null) {
                     swanAppConfigData = a(file);
                 }
                 b.c().d(file.getAbsolutePath(), swanAppConfigData);
             } else {
-                boolean z = b.a.p0.a.f1.f.a.f5062a;
+                boolean z = b.a.p0.a.f1.f.a.f4837a;
             }
             return swanAppConfigData;
         }
@@ -68,7 +68,7 @@ public class a implements b.a.p0.a.f1.f.a {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
             Boolean bool = (Boolean) b.c().b("getNightModeStateCache");
             if (bool == null) {
-                return Boolean.valueOf(b.a.p0.a.c1.a.H().a());
+                return Boolean.valueOf(b.a.p0.a.c1.a.M().a());
             }
             if (z) {
                 b.c().e("getNightModeStateCache");
